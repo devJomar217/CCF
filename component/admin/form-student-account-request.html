@@ -1,0 +1,151 @@
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css" />
+<script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.js"></script>
+
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">Student Account Request</h1>
+<p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto nam delectus facilis veniam ea iusto officiis odit maxime, inventore nihil.</p>
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Student Account Request</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Student ID</th>
+                        <th>Name</th>
+                        <th>Year Level</th>
+                        <th>Email Address</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <div>
+                    <tr>
+                        <th>Student ID</th>
+                        <th>Name</th>
+                        <th>Year Level</th>
+                        <th>Email Address</th>
+                        <th>Action</th>
+                    </tr>
+                </tfoot>
+                <tbody id="tableBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="studentInfoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Student Information</h5>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-lg-12">
+                    <b>Picture:</b> <label for="" id="mPicture"></label>
+                </div>
+
+                <div class="col-lg-12">
+                    <b>Student ID:</b> <label for="" id="mStudentID"></label>
+                </div>
+                <div class="col-lg-12">
+                    <b>Name:</b> <label for="" id="mName"></label>
+                </div>
+                <div class="col-lg-12">
+                    <b>Year Level:</b> <label for="" id="mYearLevel"></label>
+                </div>
+                <div class="col-lg-12">
+                    <b>Specialization:</b> <label for="" id="mSpecialization"></label>
+                </div>
+                <div class="col-lg-12">
+                    <b>Username:</b> <label for="" id="mUsername"></label>
+                </div>
+                <div class="col-lg-12">
+                    <b>email:</b> <label for="" id="mEmail"></label>
+                </div>
+            </div>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" id="btnModalClose" >Reject</button>
+          <button type="button" class="btn btn-success" id="btnModalClose" >Approve</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+    $(document).ready(function() {
+    var studentList;   
+    retrieveStudentRequestList();
+
+        // code to read selected table row cell data (values).
+    $("#dataTable").on('click','.btnSelect',function(){
+        var currentRow=$(this).closest("tr"); 
+        var studentID=currentRow.find("td:eq(0)").html();
+        $.each(studentList, function( key, student ) {
+            console.log(student);
+            console.log(studentID == student['studentID']);
+            if(studentID == student['studentID']){
+                $('#mStudentID').html(student['studentID']);
+                $('#mName').html(student['name']);
+                $('#mYearLevel').html(student['yearLevel']);
+                $('#mSpecialization').html(student['specialization']);
+                $('#mUsername').html(student['username']);
+                $('#mEmail').html(student['email']);
+                $('#mPicture').html(student['picture']);        
+                $('#studentInfoModal').modal('toggle');
+                return;
+            }
+        });
+    });
+
+      $('#sbStudentAccountRequest').on('click', function(){
+          $("#admin-container").load('./student-account-request.html');
+      });
+      
+      
+
+      function showStudentData(studentID){
+        alert(studentID);
+      }
+  
+      function retrieveStudentRequestList(){
+        $.ajax({
+            url: "../../common/db.php",
+            type: "POST",
+            data: {
+              action:'retrieve-student-account-request'						
+            },
+            cache: false,
+            success: function(dataResult){
+                var dataResult = JSON.parse(dataResult);
+                studentList = dataResult;
+                var studentData;
+                $.each(dataResult, function( key, student ) {
+                    var studentID = student['studentID'];
+                    studentData += "<tr>"+
+                                    "<td>"+studentID+"</td>"+
+                                    "<td>"+student['name']+"</td>"+
+                                    "<td>"+student['yearLevel']+"</td>"+
+                                    "<td>"+student['email']+"</td>"+
+                                    "<td><a class='btnSelect' data-id='" + studentID +"'><i class='fas fa-eye fa-cog'></a></i></td>"+
+                                    "</tr>";
+                });
+                $("#tableBody").html(studentData);
+                $('#dataTable').DataTable();
+            }
+          });
+      }
+
+      
+        
+    });
+</script>
+

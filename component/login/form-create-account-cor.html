@@ -1,0 +1,240 @@
+
+
+<form id="formCreateAccount" class="needs-validation" novalidate>
+    <!-- 2 column grid layout with text inputs for the first and last names -->
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <h2>Create Account</h2>
+      </div>
+    </div>
+
+    <div class="form-outline mb-2">
+      <label class="form-label" for="inputScanType">Scan Type</label>  
+      <select class="form-control" class="dropdown" id="inputScanType">
+            <option value="volvo">--Please select--</option>
+            <option value="1" selected>COR Scan</option>
+            <option value="2">QR Code Scan</option>
+        </select>
+    </div>
+
+    <div class="form-outline mb-2 row">
+      <div class="col-lg-3">
+        <label class="form-label" for="inputStudentID">Student ID</label> 
+        <input type="text" id="inputStudentID" class="form-control" placeholder="Enter Student ID" required/>
+        <div class="invalid-feedback">
+          Lorem ipsum dolor sit amet.
+        </div>
+      </div>
+      
+      <div class="col-lg-9">
+        <label class="form-label" for="inputName">Full name</label>
+        <input type="text" id="inputName" class="form-control" placeholder="Enter Full name" required/>
+        <div class="invalid-feedback">
+          Lorem ipsum dolor sit amet.
+        </div>
+      </div>
+    </div>
+  
+    <div class="form-outline mb-2">
+      <label class="form-label" for="inputEmail">Email address</label>
+      <input type="email" id="inputEmail" class="form-control" placeholder="Enter email address" required/>
+      <div class="invalid-feedback">
+        Lorem ipsum dolor sit amet.
+      </div>
+    </div>
+
+    <div class="form-outline mb-2 row">
+      <div class="col-lg-8">
+        <label class="form-label" for="inputUsername">User name</label>
+        <input type="text" id="inputUsername" class="form-control" placeholder="Enter user name" required/>
+        <div class="invalid-feedback">
+          Lorem ipsum dolor sit amet.
+        </div>
+      </div>
+      
+      <div class="col-lg-4">      
+        <label class="form-label" for="inputYearLevel">Year Level</label>
+        <select class="form-control" class="dropdown" id="inputYearLevel" required>
+          <option value="">--Please Select--</option>
+          <option value="1">First Year</option>
+          <option value="2">Second Year</option>
+          <option value="3">Third Year</option>
+          <option value="4">Fourth Year</option>
+      </select>
+      <div class="invalid-feedback">
+        Lorem ipsum dolor sit amet.
+      </div>
+      </div>
+    </div>
+
+    <div class="form-outline mb-2">
+      <label class="form-label" for="inputSpecialization">Specialization</label>
+      <input type="text" id="inputSpecialization" class="form-control" placeholder="Enter Specialization" required/>
+      <div class="invalid-feedback">
+        Lorem ipsum dolor sit amet.
+      </div>
+    </div>
+    
+    <!-- Password input -->
+    <div class="form-outline mb-2">
+      <label class="form-label" for="inputPassword">Password</label>
+      <input type="password" id="inputPassword" class="form-control " placeholder="Enter Password" required/>
+      <div class="invalid-feedback">
+        Lorem ipsum dolor sit amet.
+      </div>
+    </div>
+
+    <div class="form-outline mb-4">
+      <label class="form-label" for="inputConfirmPassword">Confirm Password</label>  
+      <input type="password" id="inputConfirmPassword" class="form-control " placeholder="Enter Confirm Password" required/>
+      <div class="invalid-feedback">
+        Lorem ipsum dolor sit amet.
+      </div>
+    </div>
+    
+    <!-- Submit button -->
+    <button type="submit" class="btn btn-primary btn-block mb-2 w-100">
+      Create Account
+    </button>
+
+    <div class="form-check d-flex justify-content-center mb-2">
+          <label class="form-check-label" for="form2Example33">
+            - OR -
+          </label>
+    </div>
+    <div class="form-check d-flex justify-content-center mb-2">
+        <a href="#" id="btnBack">Back to login</a>
+    </div>
+  </form>
+
+<div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Account Creation Failed</h5>
+      </div>
+      <div class="modal-body">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum modi dolor quam porro dolorum officiis?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger close" id="btnModalClose" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+<script>
+  $(document).ready(function() {
+      $('#btnModalClose').on('click', function(){
+        $('#errorModal').modal('toggle');
+      });
+
+      $("#dropScanType").change(function () {
+        // $('#exampleModal').modal('toggle');
+        if(this.value){
+          $("#card-form").load('./form-create-account-cor.html');
+        } else {
+          $("#card-form").load('./form-create-account-qr.html');
+        }       
+      });
+
+      $('.close').on('click', function() {
+        $('#exampleModal').modal('toggle');
+      });
+
+      $('#inputConfirmPassword').on('blur', function() {
+        var password = $('#inputPassword').val();
+        var confirmPassword = $('#inputConfirmPassword').val();
+        if(password != confirmPassword){
+          $("#inputConfirmPassword").addClass('is-invalid');
+        } else {
+          $("#inputPassword").removeClass('is-invalid');
+          $("#inputConfirmPassword").removeClass('is-invalid');
+        }
+      });
+
+      $('#btnBack').on('click', function() {
+          $("#card-form").load('./form-login.html');
+      });
+
+
+      $( "#formCreateAccount" ).on( "submit", function( event ) {
+        event.preventDefault();
+        var hasError = false;
+        var studentID = $('#inputStudentID').val();
+        var email = $('#inputEmail').val();
+        var username = $('#inputUsername').val();
+        var name = $('#inputName').val();
+        var specialization = $('#inputSpecialization').val();
+        var yearLevel = $('#inputYearLevel').val();
+        var password = $('#inputPassword').val();
+        var confirmPassword = $('#inputConfirmPassword').val();
+        let regex = /[a-zA-Z0-9.-]+@bulsu\.edu\.ph/i;
+
+        if(password != confirmPassword){
+          $("#inputPassword").addClass('is-invalid');
+          $("#inputConfirmPassword").addClass('is-invalid');
+          $("#btnCreateAccount").removeAttr("disabled", "disabled");
+          hasError = true;
+        } else {
+          $("#inputPassword").removeClass('is-invalid');
+          $("#inputConfirmPassword").removeClass('is-invalid');
+        }
+        
+        if(!regex.test(email)){
+          $("#inputEmail").addClass('is-invalid');
+          hasError = true;
+        } else {
+          $("#inputEmail").removeClass('is-invalid');
+        }
+        
+        if(!hasError) {
+          // $("#formCreateAccount").addClass('was-validated');
+          $("#btnCreateAccount").attr("disabled", "disabled");
+          $.ajax({
+            url: "./../../common/db.php",
+            type: "POST",
+            data: {
+              action: 'create-account',
+              studentID: studentID,
+              email: email,
+              username: username,
+              name: name,
+              specialization: specialization,
+              yearLevel: yearLevel,
+              password: password						
+            },
+            cache: false,
+            success: function(dataResult){
+              var dataResult = JSON.parse(dataResult);
+              
+              if(dataResult.statusCode.includes(5001)){
+                $("#inputStudentID").addClass('is-invalid');
+              } else {
+                $("#inputStudentID").removeClass('is-invalid');
+              }
+
+              if(dataResult.statusCode.includes(5002)){
+                $("#inputUsername").addClass('is-invalid');
+              } else {
+                $("#inputUsername").removeClass('is-invalid');
+              }
+
+              if(dataResult.statusCode.includes(5003)){
+                $("#inputEmail").addClass('is-invalid');
+              } else {
+                $("#inputEmail").removeClass('is-invalid');
+              }
+              
+              if(dataResult.statusCode.includes(200)){
+                $("#card-form").load('./form-create-account-success.html');
+              } else if(dataResult.statusCode.includes(201)){
+                $('#errorModal').modal('toggle');
+              }
+              $("#btnCreateAccount").removeAttr("disabled", "disabled");
+            }
+          });
+        }
+      });
+    });
+  </script>
