@@ -109,6 +109,74 @@ function createAccount(){
   $connectDB->close();
 }
 
+function createAdminAccount(){
+  $connectDB = databaseConnection();
+  $username=$_POST['username'];
+  $email=$_POST['email'];
+  $name=$_POST['name'];
+  $password=$_POST['password'];
+  $statusCode = array();
+  $duplicate=mysqli_query($connectDB,"select * from account_information where email='$email' OR user_name='$username'");
+  $lastRecord=mysqli_query($connectDB,"select user_id from account_information WHERE user_type='2' ORDER BY user_id DESC LIMIT 1");
+  if (mysqli_num_rows($duplicate)>0){
+    while($row = $duplicate->fetch_assoc()) {
+      if($row['user_id'] == $studentID){
+        array_push($statusCode, 5001);
+      }
+
+      if($row['user_name'] == $username){
+        array_push($statusCode, 5002);
+      } 
+
+      if($row['email'] == $email){
+        array_push($statusCode, 5003);
+      }
+    }
+  } else {
+    $userID = '';
+    if ($lastRecord->num_rows > 0) {
+      while($row = $lastRecord->fetch_assoc()) {
+        $userID = $row["user_id"] + 1;
+      }
+    }
+    
+    $insertAccountInformationQuery = "INSERT INTO `account_information`( `user_id`, `user_type`, `user_name`, `email`, `password`, `status`) 
+    VALUES ('$userID','2','$username','$email', '$password', '1')";
+
+    $insertAdminInformationQuery = "INSERT INTO `admin_information`( `admin_id`, `name`) 
+    VALUES ('$userID','$name')";
+
+    if (mysqli_query($connectDB, $insertAccountInformationQuery)) {
+      array_push($statusCode, 200);
+    } else {
+      array_push($statusCode, 5004);
+    }
+
+    if (mysqli_query($connectDB, $insertAdminInformationQuery)) {
+      array_push($statusCode, 200);
+    } else {
+      array_push($statusCode, 5005);
+    }
+  }
+  echo json_encode(array("statusCode"=>$statusCode));
+  $connectDB->close();
+}
+
+function createNewSubject(){
+  $connectDB = databaseConnection();
+  $subject=$_POST['subject'];
+  $statusCode = array();  
+  $sql = "INSERT INTO `subject`(`subject`, `status`) 
+  VALUES ('$subject','1')";
+  if (mysqli_query($connectDB, $sql)) {
+    array_push($statusCode, 200);
+  } else {
+    array_push($statusCode, 5004);
+  }
+  echo json_encode(array("statusCode"=>$statusCode));
+  $connectDB->close();
+}
+
 function retrieveStudentList($status){
   $connectDB = databaseConnection();
   $sql = "SELECT account_information.user_id, account_information.email, account_information.user_name, account_information.status, student_information.name, student_information.year_level, student_information.specialization, student_information.picture FROM account_information INNER JOIN student_information ON account_information.user_id=student_information.student_id where account_information.status=$status AND account_information.user_type=1";
@@ -196,7 +264,7 @@ function retrieveAdminList($status){
 
 function retrieveQuestionList($status){
   $connectDB = databaseConnection();
-  $sql = "SELECT * FROM question WHERE status='$status'";
+  $sql = "SELECT question.* ,subject.*  FROM question INNER JOIN subject ON question.subject_id=subject.subject_id where question.status=$status";
   $result = $connectDB->query($sql);
 
   if ($result->num_rows > 0) {
@@ -206,6 +274,7 @@ function retrieveQuestionList($status){
       $question->set_studentID($row["student_id"]);
       $question->set_questionID($row["question_id"]);
       $question->set_subjectID($row["subject_id"]);
+      $question->set_subject($row["subject"]);
       $question->set_creationDateTime($row["creation_datetime"]);
       $question->set_question($row["question"]);
       $question->set_status($row["status"]);
@@ -220,7 +289,7 @@ function retrieveQuestionList($status){
 
 function retrieveAnswerList($status){
   $connectDB = databaseConnection();
-  $sql = "SELECT * FROM answer WHERE status='$status'";
+  $sql = "SELECT question.* ,answer.*  FROM answer INNER JOIN question ON answer.question_id=question.question_id where answer.status=$status";
   $result = $connectDB->query($sql);
 
   if ($result->num_rows > 0) {
@@ -244,7 +313,7 @@ function retrieveAnswerList($status){
 
 function retrieveSubjectList(){
   $connectDB = databaseConnection();
-  $sql = "SELECT * FROM subject";
+  $sql = "SELECT * FROM subject where status='1'";
   $result = $connectDB->query($sql);
 
   if ($result->num_rows > 0) {
@@ -253,6 +322,7 @@ function retrieveSubjectList(){
       $subject = new Subject();
       $subject->set_subjectID($row["subject_id"]);
       $subject->set_subject($row["subject"]);
+      $subject->set_status($row["status"]);
       array_push($subjectList, $subject);
     }
     echo json_encode($subjectList);
@@ -265,6 +335,20 @@ function retrieveSubjectList(){
 function updateAccountStatus($userID, $status){
   $connectDB = databaseConnection();
 	$sql = "UPDATE `account_information` SET `status`='$status' WHERE user_id=$userID";
+	if (mysqli_query($connectDB, $sql)) {
+		echo json_encode(array("statusCode"=>200));
+	} else {
+		echo json_encode(array("statusCode"=>201));
+	}
+	mysqli_close($connectDB); 
+}
+
+function updateSubject(){
+  $subjectID=$_POST['subjectID'];
+  $subject=$_POST['subject'];
+  $status=$_POST['status'];
+  $connectDB = databaseConnection();
+	$sql = "UPDATE `subject` SET `subject`='$subject', `status`='$status' WHERE subject_id=$subjectID";
 	if (mysqli_query($connectDB, $sql)) {
 		echo json_encode(array("statusCode"=>200));
 	} else {
@@ -373,6 +457,18 @@ if($_POST['action']=='login'){
 
 if($_POST['action']=='create-account'){
   createAccount();
+}
+
+if($_POST['action']=='create-admin-account'){
+  createAdminAccount();
+}
+
+if($_POST['action']=='create-new-subject'){
+  createNewSubject();
+}
+
+if($_POST['action']=='update-subject'){
+  updateSubject();
 }
 
 if($_POST['action']=='forgot-password'){

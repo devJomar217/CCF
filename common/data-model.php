@@ -124,6 +124,7 @@ class Question {
   public $studentID;
   public $questionID;
   public $subjectID;
+  public $subject;
   public $creationDateTime;
   public $question;
   public $status;
@@ -150,6 +151,14 @@ class Question {
   
   function get_subjectID() {
     return $this->subjectID;
+  }
+
+  function set_subject($subject) {
+    $this->subject = $subject;
+  }
+  
+  function get_subject() {
+    return $this->subject;
   }
 
   function set_creationDateTime($creationDateTime) {
@@ -184,6 +193,7 @@ class Answer {
   public $answerID;
   public $creationDateTime;
   public $answer;
+  public $rating;
   public $status;
 
   function set_studentID($studentID) {
@@ -224,6 +234,14 @@ class Answer {
   
   function get_answer() {
     return $this->answer;
+  }
+
+  function set_rating($rating) {
+    $this->rating = $rating;
+  }
+  
+  function get_rating() {
+    return $this->rating;
   }
 
   function set_status($status) {
@@ -337,6 +355,7 @@ class Rating {
   class Subject {
     public $subjectID;
     public $subject;
+    public $status;
 
     function set_subjectID($subjectID) {
       $this->subjectID = $subjectID;
@@ -352,6 +371,14 @@ class Rating {
   
     function get_subject() {
       return $this->subject;
+    }
+
+    function set_status($status) {
+      $this->status = $status;
+    }
+  
+    function get_status() {
+      return $this->status;
     }
   }
 

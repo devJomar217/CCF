@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="./../../common/vendor/datatables/dataTables.bootstrap4.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css" />
 <script src="./../../common/vendor/datatables/jquery.dataTables.js"></script>
 
 <!-- Page Heading -->
@@ -13,7 +13,7 @@
                 <h6 class="m-0 font-weight-bold text-primary align-middle mt-2">Subject List</h6>
             </div>
             <div class="col-2 text-right">
-                <button class="btn btn-success btn-sm"><i class="fas fa-plus"></i> Add New Subject</button>
+                <button class="btn btn-success btn-sm"  data-toggle="modal" data-target="#subjectNewModal"><i class="fas fa-plus"></i> Add New Subject</button>
             </div>
         </div>
     </div>
@@ -42,7 +42,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="subjectInfoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="subjectUpdateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -83,6 +83,79 @@
     </div>
   </div>
 
+  <div class="modal fade" id="subjectNewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add New Subject</h5>
+        </div>
+        <div class="modal-body">
+            <form id="formNewSubject" class="needs-validation" novalidate>
+                <div class="form-outline mb-3">
+                    <label class="form-label" for="newSubject">Subject</label>
+                    <input type="text" id="newSubject" class="form-control" placeholder="Enter Subject" required/>
+                    <div class="invalid-feedback">
+                      Lorem ipsum dolor sit amet.
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block mb-2 w-100">
+                  Create New Subject
+                </button>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" id="btnClose" >Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="subjectEditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add New Subject</h5>
+        </div>
+        <div class="modal-body">
+            <form id="formEditSubject" class="needs-validation" novalidate>
+                <div class="form-outline mb-2">
+                    <label class="form-label" for="editSubject">ID</label>
+                    <input type="text" id="editSubjectID" class="form-control" disabled/>
+                    <div class="invalid-feedback">
+                      Lorem ipsum dolor sit amet.
+                    </div>
+                </div>
+                <div class="form-outline mb-2">
+                    <label class="form-label" for="editSubject">Subject</label>
+                    <input type="text" id="editSubject" class="form-control" placeholder="Enter Subject" required/>
+                    <div class="invalid-feedback">
+                      Lorem ipsum dolor sit amet.
+                    </div>
+                </div>
+                <div class="form-outline mb-3">
+                    <label class="form-label" for="editStatus">Year Level</label>
+                    <select class="form-control" class="dropdown" id="editStatus" required>
+                        <option value="0">Inactive</option>
+                        <option value="1">Active</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        Lorem ipsum dolor sit amet.
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-success btn-block mb-2 w-100">
+                  Update Subject
+                </button>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" id="btnClose" >Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <script>
     $(document).ready(function() {
     var subjectList;   
@@ -99,19 +172,17 @@
     });
 
         // code to read selected table row cell data (values).
-    $("#dataTable").on('click','.btnSelect',function(){
+    $("#dataTable").on('click','.btnEdit',function(){
         var currentRow=$(this).closest("tr"); 
         var subjectID=currentRow.find("td:eq(0)").html();
         $.each(subjectList, function( key, subject ) {
             console.log(subject);
             console.log(subjectID == subject['subjectID']);
             if(subjectID == subject['subjectID']){
-                $('#mSubjectID').html(subject['subjectID']);
-                $('#mName').html(subject['name']);
-                $('#mUsername').html(subject['username']);
-                $('#mEmail').html(subject['email']);
-                $('#mPicture').html(subject['picture']);        
-                $('#subjectInfoModal').modal('toggle');
+                $('#editSubjectID').val(subject['subjectID']);
+                $('#editSubject').val(subject['subject']);
+                $("#editStatus").val(subject['status']).change();  
+                $('#subjectEditModal').modal('toggle');
                 return;
             }
         });
@@ -167,7 +238,7 @@
                         subjectData = subjectData.concat("<tr>",
                             populateTableData(subject['subjectID']),
                             populateTableData(subject['subject']),
-                            populateTableData("<a class='btnEdit btn btn-sm btn-success'><i class='fas fa-edit'></i></a> | <a class='btnDelete btn btn-sm btn-danger'><i class='fas fa-trash fa-cog'></i></a>"),
+                            populateTableData("<a class='btnEdit btn btn-sm btn-success'><i class='fas fa-edit'></i> Edit</a>"),
                             "</tr>");
                     });
                     $("#tableBody").html(subjectData);
@@ -175,9 +246,59 @@
                 }
             }
           });
-      }
+    }
 
+    $("#formNewSubject" ).on("submit", function( event ) {
+        event.preventDefault();
+        var subject = $('#newSubject').val();
+        $.ajax({
+            url: "./../../common/db.php",
+            type: "POST",
+            data: {
+              action: 'create-new-subject',
+              subject: subject				
+            },
+            cache: false,
+            success: function(dataResult){
+              var dataResult = JSON.parse(dataResult);
+              if(dataResult.statusCode.includes(200)){
+                retrieveSubjectList();
+                $('#subjectNewModal').modal('toggle');
+              } else if(dataResult.statusCode.includes(201)){
+                alert("error");
+              }
+            }
+        });
+    });
+
+
+    $("#formEditSubject" ).on("submit", function( event ) {
+        event.preventDefault();
+        var subjectID = $('#editSubjectID').val();
+        var subject = $('#editSubject').val();
+        var status = $('#editStatus').val();
+        $.ajax({
+            url: "./../../common/db.php",
+            type: "POST",
+            data: {
+              action: 'update-subject',
+              subjectID: subjectID,
+              subject: subject,
+              status: status				
+            },
+            cache: false,
+            success: function(dataResult){
+              var dataResult = JSON.parse(dataResult);
+              if(dataResult.statusCode == 200){
+                retrieveSubjectList();
+                $('#subjectEditModal').modal('toggle');
+              } else if(dataResult.statusCode.includes(201)){
+                alert("error");
+              }
+            }
+        });
+    });
       
         
-    });
+});
 </script>

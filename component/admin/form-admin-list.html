@@ -2,7 +2,7 @@
 <script src="./../../common/vendor/datatables/jquery.dataTables.js"></script>
 
 <!-- Page Heading -->
-<h1 class="h3 mb-2 text-gray-800">Admin Account Request</h1>
+<h1 class="h3 mb-2 text-gray-800">Admin Accounts</h1>
 <p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto nam delectus facilis veniam ea iusto officiis odit maxime, inventore nihil.</p>
 
 <!-- DataTales Example -->
@@ -13,7 +13,7 @@
                 <h6 class="m-0 font-weight-bold text-primary align-middle mt-2">Admin List</h6>
             </div>
             <div class="col-2 text-right">
-                <button class="btn btn-success btn-sm"><i class="fas fa-plus"></i> Add New Admin</button>
+                <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#adminNewModal"><i class="fas fa-plus"></i> Add New Admin</button>
             </div>
         </div>
     </div>
@@ -81,7 +81,6 @@
     </div>
   </div>
 
-
   <div class="modal fade" id="adminEditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -104,14 +103,12 @@
                 </div>
                 <div class="col-lg-12">
                     <b>Status: </b>
-                    <select class="form-control" class="dropdown" id="inputYearLevel" required>
+                    <select class="form-control" class="dropdown" id="meStatus" required>
                         <option value="0">Inactive</option>
                         <option value="1">Active</option>
                     </select>
                 </div>
-
             </div>
-          
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal" id="btnClose" >Close</button>
@@ -121,19 +118,121 @@
     </div>
   </div>
 
+  <div class="modal fade" id="adminDeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Delete Admin Information</h5>
+        </div>
+        <div class="modal-body">
+            <div class="row form">
+                <div class="col-lg-12">
+                    <b>Admin ID: </b> <label for="" id="mdAdminID"></label>
+                </div>
+                <div class="col-lg-12">
+                    <b>Name: </b> <label for="" id="mdName"></label>
+                </div>
+                <div class="col-lg-12">
+                    <b>Username: </b> <label for="" id="mdUsername"></label>
+                </div>
+                <div class="col-lg-12">
+                    <b>Email: </b> <label for="" id="mdEmail"></label>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" id="btnClose" >Close</button>
+          <button type="button" class="btn btn-danger" id="btnDelete" >Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="adminNewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add New Admin</h5>
+        </div>
+        <div class="modal-body">
+            <form id="formAdminCreateAccount" class="needs-validation" novalidate>
+                <div class="form-outline mb-2">
+                    <label class="form-label" for="inputName">Full name</label>
+                    <input type="text" id="inputName" class="form-control" placeholder="Enter Full name" required/>
+                    <div class="invalid-feedback">
+                      Lorem ipsum dolor sit amet.
+                    </div>
+                </div>
+              
+                <div class="form-outline mb-2">
+                  <label class="form-label" for="inputEmail">Email address</label>
+                  <input type="email" id="inputEmail" class="form-control" placeholder="Enter email address" required/>
+                  <div class="invalid-feedback" id="htEmail">
+                    Lorem ipsum dolor sit amet.
+                  </div>
+                </div>
+            
+                <div class="form-outline mb-2">
+                    <label class="form-label" for="inputUsername">User name</label>
+                    <input type="text" id="inputUsername" class="form-control" placeholder="Enter user name" required/>
+                    <div class="invalid-feedback" id="htUsername">
+                      Lorem ipsum dolor sit amet.
+                    </div>
+                </div>
+            
+                <!-- Password input -->
+                <div class="form-outline mb-2">
+                  <label class="form-label" for="inputPassword">Password</label>
+                  <input type="password" id="inputPassword" class="form-control " placeholder="Enter Password" required/>
+                  <div class="invalid-feedback">
+                    Lorem ipsum dolor sit amet.
+                  </div>
+                </div>
+            
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="inputConfirmPassword">Confirm Password</label>  
+                  <input type="password" id="inputConfirmPassword" class="form-control " placeholder="Enter Confirm Password" required/>
+                  <div class="invalid-feedback">
+                    Lorem ipsum dolor sit amet.
+                  </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-block mb-2 w-100">
+                  Create Admin Account
+                </button>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" id="btnClose" >Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <script>
 $(document).ready(function() {
     var adminList;   
-    retrieveAdminRequestList();
+    retrieveAdminList();
+
+    $('#adminNewModal').on('shown.bs.modal', function () {
+        var email = $('#inputEmail').val('');
+        var username = $('#inputUsername').val('');
+        var name = $('#inputName').val('');
+        var password = $('#inputPassword').val('');
+        var confirmPassword = $('#inputConfirmPassword').val('');
+    });
 
     $("#btnUpdate").on('click', function(){
         var adminID = $('#meAdminID').html();
-        updateAccountStatus(adminID, '1');
+        var status = $('#meStatus').val();
+        updateAccountStatus(adminID, status);
+        $('#adminEditModal').modal('toggle');
     });
 
-    $("#btnApprove").on('click', function(){
-        var adminID = $('#mAdminID').html();
-        updateAccountStatus(adminID, '-1');
+    $("#btnDelete").on('click', function(){
+        var adminID = $('#mdAdminID').html();
+        updateAccountStatus(adminID, '2');
+        $('#adminDeleteModal').modal('toggle');
     });
     
     $("#dataTable").on('click','.btnSelect',function(){
@@ -164,16 +263,100 @@ $(document).ready(function() {
                 $('#meAdminID').html(admin['adminID']);
                 $('#meName').html(admin['name']);
                 $('#meUsername').html(admin['username']);
-                $('#meEmail').html(admin['email']);     
+                $('#meEmail').html(admin['email']);
+                $("#meStatus").val(admin['status']).change();
                 $('#adminEditModal').modal('toggle');
                 return;
             }
         });
     });
 
-      function showAdminData(adminID){
-        alert(adminID);
-      }
+    $("#dataTable").on('click','.btnDelete',function(){
+        var currentRow=$(this).closest("tr"); 
+        var adminID=currentRow.find("td:eq(0)").html();
+        $.each(adminList, function( key, admin ) {
+            console.log(admin);
+            console.log(adminID == admin['adminID']);
+            if(adminID == admin['adminID']){
+                $('#mdAdminID').html(admin['adminID']);
+                $('#mdName').html(admin['name']);
+                $('#mdUsername').html(admin['username']);
+                $('#mdEmail').html(admin['email']);
+                $('#adminDeleteModal').modal('toggle');
+                return;
+            }
+        });
+    });
+
+    $( "#formAdminCreateAccount" ).on( "submit", function( event ) {
+        event.preventDefault();
+        var hasError = false;
+        var email = $('#inputEmail').val();
+        var username = $('#inputUsername').val();
+        var name = $('#inputName').val();
+        var password = $('#inputPassword').val();
+        var confirmPassword = $('#inputConfirmPassword').val();
+        let regex = /[a-zA-Z0-9.-]+@bulsu\.edu\.ph/i;
+
+        if(password != confirmPassword){
+          $("#inputPassword").addClass('is-invalid');
+          $("#inputConfirmPassword").addClass('is-invalid');
+          $("#btnCreateAccount").removeAttr("disabled", "disabled");
+          hasError = true;
+        } else {
+          $("#inputPassword").removeClass('is-invalid');
+          $("#inputConfirmPassword").removeClass('is-invalid');
+        }
+        
+        if(!regex.test(email)){
+          $("#htEmail").html("Invalid email format, please us your BULSU email");
+          $("#inputEmail").addClass('is-invalid');
+          hasError = true;
+        } else {
+          $("#inputEmail").removeClass('is-invalid');
+        }
+        
+        if(!hasError) {
+          $("#btnCreateAccount").attr("disabled", "disabled");
+          $.ajax({
+            url: "./../../common/db.php",
+            type: "POST",
+            data: {
+              action: 'create-admin-account',
+              email: email,
+              username: username,
+              name: name,
+              password: password						
+            },
+            cache: false,
+            success: function(dataResult){
+              var dataResult = JSON.parse(dataResult);
+              
+              if(dataResult.statusCode.includes(5002)){
+                $("#htUsername").html("This username was already been used!");
+                $("#inputUsername").addClass('is-invalid');
+              } else {
+                $("#inputUsername").removeClass('is-invalid');
+              }
+
+              if(dataResult.statusCode.includes(5003)){
+                $("#htEmail").html("This email was already been used!");
+                $("#inputEmail").addClass('is-invalid');
+              } else {
+                $("#inputEmail").removeClass('is-invalid');
+              }
+              
+              if(dataResult.statusCode.includes(200)){
+                retrieveAdminList();
+                $('#adminNewModal').modal('toggle');
+              } else if(dataResult.statusCode.includes(201)){
+                alert("error");
+              }
+              $("#btnCreateAccount").removeAttr("disabled", "disabled");
+            }
+          });
+        }
+      });
 
     function updateAccountStatus(userID, status){
         $.ajax({
@@ -187,18 +370,12 @@ $(document).ready(function() {
             cache: false,
             success: function(dataResult){
                 var dataResult = JSON.parse(dataResult);
-                if(dataResult.statusCode == 200){
-                    alert("Success");
-                } else {
-                    alert("Failed");
-                }
-                $('#adminInfoModal').modal('toggle');
-                $('#dataTable').DataTable();
+                retrieveAdminList();
             }
-          });
+        });
     }
   
-      function retrieveAdminRequestList(){
+    function retrieveAdminList(){
         $.ajax({
             url: "../../common/db.php",
             type: "POST",
@@ -208,9 +385,9 @@ $(document).ready(function() {
             cache: false,
             success: function(dataResult){
                 var dataResult = JSON.parse(dataResult);
+                var adminData = "";
                 if(dataResult.statusCode != 201){
                     adminList = dataResult;
-                    var adminData = '';
                     $.each(dataResult, function( key, admin ) {
                         adminData = adminData.concat("<tr>",
                             populateTableData(admin['adminID']),
@@ -220,17 +397,12 @@ $(document).ready(function() {
                             "</tr>");
                     });
                 } else {
-                    adminData = adminData.concat("<tr class='odd'>",
-                            '<td valign="top" colspan="5" class="dataTables_empty">No Admin Account Available</td>',
-                            "</tr>");   
+                    adminData = adminData.concat("<tr class='odd'>","<td valign='top' colspan='5' class='dataTables_empty'>No Admin Account Available</td>","</tr>");   
                 }
                 $("#tableBody").html(adminData);
                 $('#dataTable').DataTable();
             }
-          });
-      }
-
-      
-        
-    });
+        });
+    }        
+});
 </script>

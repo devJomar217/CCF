@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="./../../common/vendor/datatables/dataTables.bootstrap4.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css" />
 <script src="./../../common/vendor/datatables/jquery.dataTables.js"></script>
 
 <!-- Page Heading -->
@@ -17,9 +17,10 @@
                     <tr>
                         <th>Answer ID</th>
                         <th>Student</th>
-                        <th>Subject</th>
+                        <th>Question ID</th>
                         <th>Date Time</th>
                         <th>Answer</th>
+                        <th>Rating</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -28,9 +29,10 @@
                     <tr>
                         <th>Answer ID</th>
                         <th>Student</th>
-                        <th>Subject</th>
+                        <th>Question ID</th>
                         <th>Date Time</th>
                         <th>Answer</th>
+                        <th>Rating</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>
@@ -166,12 +168,17 @@
                     var answerData;
                     $.each(dataResult, function( key, answer ) {
                         var answerID = answer['answerID'];
+                        var rating = answer['rating'];
+                        if(rating==null){
+                            rating = '0';
+                        }
                         answerData += "<tr>"+
                                         "<td>"+answerID+"</td>"+
                                         "<td>"+answer['studentID']+"</td>"+
-                                        "<td>"+answer['subjectID']+"</td>"+
+                                        "<td><a href='#'>"+answer['questionID']+"<a/></td>"+
                                         "<td>"+answer['creationDateTime']+"</td>"+
                                         "<td>"+answer['answer']+"</td>"+
+                                        "<td>"+rating+"</td>"+
                                         "<td><a class='btnSelect' data-id='" + answerID +"'><i class='fas fa-eye fa-cog'></a></i></td>"+
                                         "</tr>";
                     });

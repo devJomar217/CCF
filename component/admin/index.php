@@ -111,7 +111,6 @@ include '../../common/session.php';
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" id="sbQuestionList">Question List</a>
                         <a class="collapse-item" id="sbAnswerList">Answer List</a>
-                        <a class="collapse-item" id="sbRating">Rating</a>
                     </div>
                 </div>
             </li>
