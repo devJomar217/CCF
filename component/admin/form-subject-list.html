@@ -1,0 +1,183 @@
+<link rel="stylesheet" href="./../../common/vendor/datatables/dataTables.bootstrap4.css" />
+<script src="./../../common/vendor/datatables/jquery.dataTables.js"></script>
+
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">Subject List</h1>
+<p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto nam delectus facilis veniam ea iusto officiis odit maxime, inventore nihil.</p>
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <div class="row justify-content-between">
+            <div class="col-4 align-middle">
+                <h6 class="m-0 font-weight-bold text-primary align-middle mt-2">Subject List</h6>
+            </div>
+            <div class="col-2 text-right">
+                <button class="btn btn-success btn-sm"><i class="fas fa-plus"></i> Add New Subject</button>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Subject ID</th>
+                        <th>Subject</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <div>
+                    <tr>
+                        <th>Subject ID</th>
+                        <th>Subject</th>
+                        <th>Action</th>
+                    </tr>
+                </tfoot>
+                <tbody id="tableBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="subjectInfoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Subject Information</h5>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-lg-12">
+                    <b>Picture:</b> <label for="" id="mPicture"></label>
+                </div>
+
+                <div class="col-lg-12">
+                    <b>Subject ID:</b> <label for="" id="mSubjectID"></label>
+                </div>
+                <div class="col-lg-12">
+                    <b>Name:</b> <label for="" id="mName"></label>
+                </div>
+                <div class="col-lg-12">
+                    <b>Year Level:</b> <label for="" id="mYearLevel"></label>
+                </div>
+                <div class="col-lg-12">
+                    <b>Specialization:</b> <label for="" id="mSpecialization"></label>
+                </div>
+                <div class="col-lg-12">
+                    <b>Username:</b> <label for="" id="mUsername"></label>
+                </div>
+                <div class="col-lg-12">
+                    <b>email:</b> <label for="" id="mEmail"></label>
+                </div>
+            </div>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" id="btnReject" >Reject</button>
+          <button type="button" class="btn btn-success" id="btnApprove" >Approve</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+    $(document).ready(function() {
+    var subjectList;   
+    retrieveSubjectList();
+
+    $("#btnReject").on('click', function(){
+        var subjectID = $('#mSubjectID').html();
+        updateAccountStatus(subjectID, '1');
+    });
+
+    $("#btnApprove").on('click', function(){
+        var subjectID = $('#mSubjectID').html();
+        updateAccountStatus(subjectID, '-1');
+    });
+
+        // code to read selected table row cell data (values).
+    $("#dataTable").on('click','.btnSelect',function(){
+        var currentRow=$(this).closest("tr"); 
+        var subjectID=currentRow.find("td:eq(0)").html();
+        $.each(subjectList, function( key, subject ) {
+            console.log(subject);
+            console.log(subjectID == subject['subjectID']);
+            if(subjectID == subject['subjectID']){
+                $('#mSubjectID').html(subject['subjectID']);
+                $('#mName').html(subject['name']);
+                $('#mUsername').html(subject['username']);
+                $('#mEmail').html(subject['email']);
+                $('#mPicture').html(subject['picture']);        
+                $('#subjectInfoModal').modal('toggle');
+                return;
+            }
+        });
+    });
+
+      $('#sbSubjectAccountRequest').on('click', function(){
+          $("#subject-container").load('./subject-account-request.html');
+      });
+      
+      
+
+      function showSubjectData(subjectID){
+        alert(subjectID);
+      }
+
+    function updateAccountStatus(userID, status){
+        $.ajax({
+            url: "../../common/db.php",
+            type: "POST",
+            data: {
+              action:'update-account-status',
+              userID: userID,
+              status: status					
+            },
+            cache: false,
+            success: function(dataResult){
+                var dataResult = JSON.parse(dataResult);
+                if(dataResult.statusCode == 200){
+                    alert("Success");
+                } else {
+                    alert("Failed");
+                }
+                $('#subjectInfoModal').modal('toggle');
+                $('#dataTable').DataTable();
+            }
+          });
+    }
+  
+      function retrieveSubjectList(){
+        $.ajax({
+            url: "../../common/db.php",
+            type: "POST",
+            data: {
+              action:'retrieve-subject-list'						
+            },
+            cache: false,
+            success: function(dataResult){
+                var dataResult = JSON.parse(dataResult);
+                if(dataResult.statusCode != 201){
+                    subjectList = dataResult;
+                    var subjectData = '';
+                    $.each(dataResult, function( key, subject ) {
+                        subjectData = subjectData.concat("<tr>",
+                            populateTableData(subject['subjectID']),
+                            populateTableData(subject['subject']),
+                            populateTableData("<a class='btnEdit btn btn-sm btn-success'><i class='fas fa-edit'></i></a> | <a class='btnDelete btn btn-sm btn-danger'><i class='fas fa-trash fa-cog'></i></a>"),
+                            "</tr>");
+                    });
+                    $("#tableBody").html(subjectData);
+                    $('#dataTable').DataTable();
+                }
+            }
+          });
+      }
+
+      
+        
+    });
+</script>

@@ -1,5 +1,7 @@
+<link rel="stylesheet" href="./../../common/vendor/datatables/dataTables.bootstrap4.css" />
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css" />
-<script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.js"></script>
+<script src="./../../common/vendor/datatables/jquery.dataTables.js"></script>
+<script src="./../../common/common.js"></script>
 
 <!-- Page Heading -->
 <h1 class="h3 mb-2 text-gray-800">Student Account Request</h1>
@@ -47,8 +49,8 @@
         </div>
         <div class="modal-body">
             <div class="row">
-                <div class="col-lg-12">
-                    <b>Picture:</b> <label for="" id="mPicture"></label>
+                <div class="col-lg-12 text-center mb-3">
+                    <img style="width: 150px;" class="img-profile rounded-circle  b-4" src="./../../common/img/undraw_profile.svg">
                 </div>
 
                 <div class="col-lg-12">
@@ -67,14 +69,14 @@
                     <b>Username:</b> <label for="" id="mUsername"></label>
                 </div>
                 <div class="col-lg-12">
-                    <b>email:</b> <label for="" id="mEmail"></label>
+                    <b>Email:</b> <label for="" id="mEmail"></label>
                 </div>
             </div>
           
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" id="btnModalClose" >Reject</button>
-          <button type="button" class="btn btn-success" id="btnModalClose" >Approve</button>
+          <button type="button" class="btn btn-danger" id="btnReject" >Reject</button>
+          <button type="button" class="btn btn-success" id="btnApprove" >Approve</button>
         </div>
       </div>
     </div>
@@ -84,6 +86,16 @@
     $(document).ready(function() {
     var studentList;   
     retrieveStudentRequestList();
+
+    $("#btnReject").on('click', function(){
+        var studentID = $('#mStudentID').html();
+        updateAccountStatus(studentID, '-1');
+    });
+
+    $("#btnApprove").on('click', function(){
+        var studentID = $('#mStudentID').html();
+        updateAccountStatus(studentID, '1');
+    });
 
         // code to read selected table row cell data (values).
     $("#dataTable").on('click','.btnSelect',function(){
@@ -107,7 +119,6 @@
     });
 
       $('#sbStudentAccountRequest').on('click', function(){
-          $("#admin-container").load('./student-account-request.html');
       });
       
       
@@ -115,6 +126,27 @@
       function showStudentData(studentID){
         alert(studentID);
       }
+
+    function updateAccountStatus(userID, status){
+        $.ajax({
+            url: "../../common/db.php",
+            type: "POST",
+            data: {
+              action:'update-account-status',
+              userID: userID,
+              status: status					
+            },
+            cache: false,
+            success: function(dataResult){
+                var dataResult = JSON.parse(dataResult);
+                if(dataResult.statusCode != 200){
+                    alert("There some error during the deletion, please try again later!");
+                }
+                $('#studentInfoModal').modal('toggle');
+                retrieveStudentRequestList();
+            }
+          });
+    }
   
       function retrieveStudentRequestList(){
         $.ajax({
@@ -123,29 +155,30 @@
             data: {
               action:'retrieve-student-account-request'						
             },
-            cache: false,
             success: function(dataResult){
                 var dataResult = JSON.parse(dataResult);
-                studentList = dataResult;
-                var studentData;
-                $.each(dataResult, function( key, student ) {
-                    var studentID = student['studentID'];
-                    studentData += "<tr>"+
-                                    "<td>"+studentID+"</td>"+
-                                    "<td>"+student['name']+"</td>"+
-                                    "<td>"+student['yearLevel']+"</td>"+
-                                    "<td>"+student['email']+"</td>"+
-                                    "<td><a class='btnSelect' data-id='" + studentID +"'><i class='fas fa-eye fa-cog'></a></i></td>"+
-                                    "</tr>";
-                });
+                var studentData = '';
+                if(dataResult.statusCode != 201){
+                    studentList = dataResult;
+                    $.each(dataResult, function( key, student ) {
+                        studentData = studentData.concat("<tr>",
+                            populateTableData(student['studentID']),
+                            populateTableData(student['name']),
+                            populateTableData(student['yearLevel']),
+                            populateTableData(student['email']),
+                            populateTableData("<a class='btnSelect btn btn-sm btn-primary'><i class='fas fa-eye'></i></a>"),
+                            "</tr>");
+                    });
+                } else {
+                    studentData = studentData.concat("<tr class='odd'>",
+                            '<td valign="top" colspan="5" class="dataTables_empty">No Student Account Request Available</td>',
+                            "</tr>");
+                }
                 $("#tableBody").html(studentData);
                 $('#dataTable').DataTable();
             }
           });
-      }
-
-      
-        
+      }    
     });
 </script>
 

@@ -16,14 +16,14 @@ include '../../common/session.php';
     <title>Code Connect - Dashboard</title>
 
     <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="./../../common/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css" />
+        <link rel="stylesheet" href="./../../common/vendor/datatables/dataTables.bootstrap4.css" />
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.css" rel="stylesheet">
+    <link href="./../../common/css/index.css" rel="stylesheet">
 
 </head>
 
@@ -73,7 +73,7 @@ include '../../common/session.php';
                 </div>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item" id="sbAdmin" style="display: none">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAdmin"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-lock fa-cog"></i>
@@ -82,8 +82,19 @@ include '../../common/session.php';
                 <div id="collapseAdmin" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" id="sbAdminList">Admin List</a>
-                        <a class="collapse-item" id="sbAddNewAdmin">Add New Admin</a>
-                        <a class="collapse-item" id="sbUpdateAdmin">Update Admin</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSubject"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-book"></i>
+                    <span>Subject</span>
+                </a>
+                <div id="collapseSubject" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" id="sbSubjectList">Subject List</a>
                     </div>
                 </div>
             </li>
@@ -173,15 +184,16 @@ include '../../common/session.php';
 
                         
 
-                        <div class="topbar-divider d-none d-sm-block"></div>
+                        <!-- <div class="topbar-divider d-none d-sm-block"></div> -->
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Juan Dela Cruz</span>
                                 <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
+                                    src="./../../common/img/undraw_profile.svg">
+                                <b><span class="ml-2 d-none d-lg-inline text-gray-600"><?php echo $_SESSION['user_name']; ?></span></b>
+                                
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -253,22 +265,23 @@ include '../../common/session.php';
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="./../../common/vendor/jquery/jquery.min.js"></script>
+    <script src="./../../common/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="./../../common/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="./../../common/js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="./../../common/vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
-    <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.js"></script>
+    <script src="./../../common/js/chart-area.js"></script>
+    <script src="./../../common/js/chart-pie.js"></script>
+    <script src="./../../common/vendor/datatables/jquery.dataTables.js"></script>
+    <script src="./../../common/common.js"></script>
 </body>
 
 </html>
@@ -328,6 +341,14 @@ include '../../common/session.php';
     $('#sbProfile').on('click', function(){
         $("#admin-container").load('./form-profile.html');
     });
+
+    $('#sbSubjectList').on('click', function(){
+        $("#admin-container").load('./form-subject-list.html');
+    });
+
+    if(<?php echo $_SESSION['status']; ?> == -1){
+        $('#sbAdmin').removeAttr("style");
+    }
 
     $('#sidebarToggle').on('click', function(){
         if($('#logo').css('width') == '80px'){

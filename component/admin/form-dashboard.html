@@ -1,9 +1,9 @@
 
  
-    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="../../common/vendor/chart.js/Chart.min.js"></script>
     <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+    <script src="./../../common/js/chart-area.js"></script>
+    <script src="./../../common/js/chart-pie.js"></script>
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
@@ -22,7 +22,7 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                             Student</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">1,000</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="dbStudent"></div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-users fa-2x text-gray-300"></i>
@@ -40,7 +40,7 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                             Question</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">200</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="dbQuestion"></div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-question fa-2x text-gray-300"></i>
@@ -58,7 +58,7 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                             Answer</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">200</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="dbAnswer"></div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -76,7 +76,7 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                             Student Account Request</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="dbStudentAccountRequest"></div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-clipboard fa-2x text-gray-300"></i>
@@ -258,3 +258,39 @@
         </div>
     </div>
 </div>
+
+<script>
+$(document).ready(function() {
+    getDashboardData();
+    function getDashboardData(){
+        $.ajax({
+            url: "../../common/db.php",
+            type: "POST",
+            data: {
+              action:'get-dashboard-data'						
+            },
+            cache: false,
+            success: function(dataResult){
+                var dataResult = JSON.parse(dataResult);
+                $("#dbStudentAccountRequest").html(dataResult.student.pending);
+                $("#dbStudent").html(dataResult.student.active);
+                $("#dbQuestion").html(dataResult.forum.question);
+                $("#dbAnswer").html(dataResult.forum.answer);
+                var studentData = [dataResult.student.firstYear, dataResult.student.secondYear, dataResult.student.thirdYear, dataResult.student.fourthYear];
+                var studentLabels = ["First Year", "Second Year", "Third Year", "Fourth Year"];
+                createPieChart("myPieChart",studentLabels,studentData);
+
+                var questionData = [dataResult.forum.unanswered, dataResult.forum.answered];
+                var questionLabels = ["Unanswered", "Answered"];
+                createPieChart("subjectChart",questionLabels,questionData);
+
+                
+            }
+          });
+      }
+
+});
+
+
+
+</script>

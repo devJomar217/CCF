@@ -1,6 +1,9 @@
 <?php
 session_start();
-include './student.php';
+include './data-model.php';
+date_default_timezone_set('Asia/Singapore');
+
+// retrieveNumberOfStudentAccountRequest();
 
 // Establish connection to database
 function databaseConnection(){
@@ -19,14 +22,12 @@ function databaseConnection(){
   echo "Connected successfully";
 }
 
-// search for login user in the data base
 function login($email, $password){
   $connectDB = databaseConnection();
-  $sql = "SELECT * FROM account_information where email='$email' AND password='$password'";
+  $sql = "SELECT * FROM account_information where email='$email' AND password='$password' OR user_name='$email' AND password='$password' ";
   $result = $connectDB->query($sql);
   
   if ($result->num_rows > 0) {
-    // output data of each row
     while($row = $result->fetch_assoc()) {
       if($row["status"] == 0){
         echo json_encode(array("statusCode"=>5000));
@@ -34,10 +35,10 @@ function login($email, $password){
         $_SESSION['user_id'] = $row["user_id"];
         $_SESSION['user_type'] = $row["user_type"];
         $_SESSION['user_name'] = $row["user_name"];
+        $_SESSION['status'] = $row["status"];
         echo json_encode(array("statusCode"=>200));
       }
     }
-    
   } else {
     echo json_encode(array("statusCode"=>201));
   }
@@ -51,7 +52,11 @@ function forgotPassword($email){
   if (mysqli_num_rows($existing)==0){
     echo json_encode(array("statusCode"=>5006));
   } else {
-    echo json_encode(array("statusCode"=>200));
+    $userID = '';
+    while($row = $existing->fetch_assoc()) {
+      $userID = $row['user_id'];
+    }
+    echo json_encode(array("statusCode"=>200, "userID"=>$userID));
   }
   $connectDB->close();
 }
@@ -100,39 +105,13 @@ function createAccount(){
       array_push($statusCode, 5005);
     }
   }
-
   echo json_encode(array("statusCode"=>$statusCode));
   $connectDB->close();
 }
 
-function changePassword(){
-
-}
-
-function updateStudentStatus(){
+function retrieveStudentList($status){
   $connectDB = databaseConnection();
-	$id=$_POST['id'];
-	$name=$_POST['name'];
-	$email=$_POST['email'];
-	$phone=$_POST['phone'];
-	$city=$_POST['city'];
-	$sql = "UPDATE `crud` 
-	SET `name`='$name',
-	`email`='$email',
-	`phone`='$phone',
-	`city`='$city' WHERE id=$id";
-	if (mysqli_query($conn, $sql)) {
-		echo json_encode(array("statusCode"=>200));
-	} 
-	else {
-		echo json_encode(array("statusCode"=>201));
-	}
-	mysqli_close($conn);
-}
-
-function retrieveStudentAccountRequest(){
-  $connectDB = databaseConnection();
-  $sql = "SELECT account_information.user_id, account_information.email, account_information.user_name, account_information.status, student_information.name, student_information.year_level, student_information.specialization, student_information.picture FROM account_information INNER JOIN student_information ON account_information.user_id=student_information.student_id where account_information.status='0'";
+  $sql = "SELECT account_information.user_id, account_information.email, account_information.user_name, account_information.status, student_information.name, student_information.year_level, student_information.specialization, student_information.picture FROM account_information INNER JOIN student_information ON account_information.user_id=student_information.student_id where account_information.status=$status AND account_information.user_type=1";
   $result = $connectDB->query($sql);
 
   if ($result->num_rows > 0) {
@@ -154,6 +133,198 @@ function retrieveStudentAccountRequest(){
     echo json_encode(array("statusCode"=>201));
   }
   $connectDB->close();
+}
+
+function retrieveStudentNumber($status){
+  $connectDB = databaseConnection();
+  $sql = "SELECT user_id FROM account_information where status='$status' AND user_type='1'";
+  $result = $connectDB->query($sql);
+  $number = $result->num_rows;
+  $connectDB->close();
+  return $number;
+}
+
+function retrieveQuestionNumber($status, $subject){
+  $connectDB = databaseConnection();
+  if($status != null AND $subject != null){
+    $sql = "SELECT question_id FROM question where status='$status'";
+  } else if($status != null) {
+    $sql = "SELECT question_id FROM question where status='$status' AND subject_id='$subject'";
+  } else {
+    $sql = "SELECT question_id FROM question";
+  }
+  
+  $result = $connectDB->query($sql);
+  $number = $result->num_rows;
+  $connectDB->close();
+  return $number;
+}
+
+function retrieveAnswerNumber(){
+  $connectDB = databaseConnection();
+  $sql = "SELECT answer_id FROM answer where status='1'";
+  $result = $connectDB->query($sql);
+  $number = $result->num_rows;
+  $connectDB->close();
+  return $number;
+}
+
+
+function retrieveAdminList($status){
+  $connectDB = databaseConnection();
+  $sql = "SELECT account_information.user_id, account_information.email, account_information.user_name, account_information.status, admin_information.name, admin_information.picture FROM account_information INNER JOIN admin_information ON account_information.user_id=admin_information.admin_id where account_information.status=$status AND account_information.user_type=2";
+  $result = $connectDB->query($sql);
+
+  if ($result->num_rows > 0) {
+    $adminList = array(); 
+    while($row = $result->fetch_assoc()) {
+      $admin = new Admin();
+      $admin->set_adminID($row["user_id"]);
+      $admin->set_name($row["name"]);
+      $admin->set_email($row["email"]);
+      $admin->set_username($row["user_name"]);
+      $admin->set_picture($row["picture"]);
+      $admin->set_status($row["status"]);
+      array_push($adminList, $admin);
+    }
+    echo json_encode($adminList);
+  } else {
+    echo json_encode(array("statusCode"=>201));
+  }
+  $connectDB->close();
+}
+
+function retrieveQuestionList($status){
+  $connectDB = databaseConnection();
+  $sql = "SELECT * FROM question WHERE status='$status'";
+  $result = $connectDB->query($sql);
+
+  if ($result->num_rows > 0) {
+    $questionList = array(); 
+    while($row = $result->fetch_assoc()) {
+      $question = new Question();
+      $question->set_studentID($row["student_id"]);
+      $question->set_questionID($row["question_id"]);
+      $question->set_subjectID($row["subject_id"]);
+      $question->set_creationDateTime($row["creation_datetime"]);
+      $question->set_question($row["question"]);
+      $question->set_status($row["status"]);
+      array_push($questionList, $question);
+    }
+    echo json_encode($questionList);
+  } else {
+    echo json_encode(array("statusCode"=>201));
+  }
+  $connectDB->close();
+}
+
+function retrieveAnswerList($status){
+  $connectDB = databaseConnection();
+  $sql = "SELECT * FROM answer WHERE status='$status'";
+  $result = $connectDB->query($sql);
+
+  if ($result->num_rows > 0) {
+    $answerList = array(); 
+    while($row = $result->fetch_assoc()) {
+      $answer = new Answer();
+      $answer->set_answerID($row["answer_id"]);
+      $answer->set_studentID($row["student_id"]);
+      $answer->set_questionID($row["question_id"]);
+      $answer->set_answer($row["answer"]);
+      $answer->set_creationDateTime($row["creation_datetime"]);
+      $answer->set_status($row["status"]);
+      array_push($answerList, $answer);
+    }
+    echo json_encode($answerList);
+  } else {
+    echo json_encode(array("statusCode"=>201));
+  }
+  $connectDB->close();
+}
+
+function retrieveSubjectList(){
+  $connectDB = databaseConnection();
+  $sql = "SELECT * FROM subject";
+  $result = $connectDB->query($sql);
+
+  if ($result->num_rows > 0) {
+    $subjectList = array(); 
+    while($row = $result->fetch_assoc()) {
+      $subject = new Subject();
+      $subject->set_subjectID($row["subject_id"]);
+      $subject->set_subject($row["subject"]);
+      array_push($subjectList, $subject);
+    }
+    echo json_encode($subjectList);
+  } else {
+    echo json_encode(array("statusCode"=>201));
+  }
+  $connectDB->close();
+}
+
+function updateAccountStatus($userID, $status){
+  $connectDB = databaseConnection();
+	$sql = "UPDATE `account_information` SET `status`='$status' WHERE user_id=$userID";
+	if (mysqli_query($connectDB, $sql)) {
+		echo json_encode(array("statusCode"=>200));
+	} else {
+		echo json_encode(array("statusCode"=>201));
+	}
+	mysqli_close($connectDB); 
+}
+
+function changePassword($userID, $password){
+  $connectDB = databaseConnection();
+	$sql = "UPDATE `account_information` SET `password`='$password' WHERE user_id=$userID";
+	if (mysqli_query($connectDB, $sql)) {
+		echo json_encode(array("statusCode"=>200));
+	} else {
+		echo json_encode(array("statusCode"=>201));
+	}
+	mysqli_close($connectDB); 
+}
+
+function updateLastActive($userID){
+  $connectDB = databaseConnection();
+  $currentDateTime = date('Y-m-d H:i:s');
+	$sql = "UPDATE `account_information` SET `last_active`='$currentDateTime' WHERE user_id=$userID";
+	if (mysqli_query($connectDB, $sql)) {
+		echo json_encode(array("statusCode"=>200));
+	} else {
+		echo json_encode(array("statusCode"=>201));
+	}
+	mysqli_close($connectDB); 
+}
+
+function retrieveActiveUser(){
+  updateLastActive("2023000001");
+  $connectDB = databaseConnection();
+  $dateTime = date('Y-m-d H:i:s', time() - 5 * 60);
+  $sql = "SELECT * FROM account_information WHERE last_active>='$dateTime' AND status='1'";
+  $result = $connectDB->query($sql);
+
+  if ($result->num_rows > 0) {
+    $studentList = array(); 
+    while($row = $result->fetch_assoc()) {
+      $student = new Student();
+      $student->set_studentID($row["user_id"]);
+      $student->set_name($row["user_name"]);
+      array_push($studentList, $student);
+    }
+    echo json_encode($studentList);
+  } else {
+    echo json_encode(array("statusCode"=>201));
+  }
+  $connectDB->close();
+}
+
+function retrieveStudentYearLevel($yearLevel){
+  $connectDB = databaseConnection();
+  $sql = "SELECT year_level FROM student_information WHERE year_level='$yearLevel'";
+  $result = $connectDB->query($sql);
+  $number = $result->num_rows;
+  $connectDB->close();
+  return $number;
 }
 
 function saveQuestion(){
@@ -209,7 +380,52 @@ if($_POST['action']=='forgot-password'){
 }
 
 if($_POST['action']=='retrieve-student-account-request'){
-  retrieveStudentAccountRequest();
+  retrieveStudentList(0);
+}
+
+if($_POST['action']=='retrieve-student-list'){
+  retrieveStudentList(1);
+}
+
+if($_POST['action']=='retrieve-admin-list'){
+  retrieveAdminList(1);
+}
+
+if($_POST['action']=='retrieve-subject-list'){
+  retrieveSubjectList();
+}
+
+if($_POST['action']=='retrieve-question-list'){
+  retrieveQuestionList(1);
+}
+
+if($_POST['action']=='retrieve-answer-list'){
+  retrieveAnswerList(1);
+}
+
+if($_POST['action']=='update-account-status'){
+  updateAccountStatus($_POST['userID'],$_POST['status']);
+}
+
+if($_POST['action']=='change-password'){
+  changePassword($_POST['userID'],$_POST['password']);
+}
+
+if($_POST['action']=='get-dashboard-data'){
+  // retrieveActiveUser();
+  $numberOfStudent = retrieveStudentNumber(1);
+  $numberOfStudentRequest = retrieveStudentNumber(0);
+  $numberOfQuestion = retrieveQuestionNumber(null, null);
+  $numberOfAnsweredQuestion = retrieveQuestionNumber(1, null);
+  $numberOfUnansweredQuestion = retrieveQuestionNumber(0, null);
+  $numberOfAnswer = retrieveAnswerNumber();
+  $firstYear = retrieveStudentYearLevel(1);
+  $secondYear = retrieveStudentYearLevel(2);
+  $thirdYear = retrieveStudentYearLevel(3);
+  $fourthYear = retrieveStudentYearLevel(4);
+  echo json_encode(array(
+    "student"=>array("active"=>$numberOfStudent, "pending"=>$numberOfStudentRequest, "firstYear"=>$firstYear, "secondYear"=>$secondYear,"thirdYear"=>$thirdYear,"fourthYear"=>$fourthYear),
+    "forum"=>array("question"=>$numberOfQuestion, "answer"=>$numberOfAnswer, "answered"=>$numberOfAnsweredQuestion, "unanswered"=>$numberOfUnansweredQuestion)));
 }
 
 ?>

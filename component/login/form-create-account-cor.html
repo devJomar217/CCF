@@ -21,7 +21,7 @@
       <div class="col-lg-3">
         <label class="form-label" for="inputStudentID">Student ID</label> 
         <input type="text" id="inputStudentID" class="form-control" placeholder="Enter Student ID" required/>
-        <div class="invalid-feedback">
+        <div class="invalid-feedback" id="htStudentID">
           Lorem ipsum dolor sit amet.
         </div>
       </div>
@@ -38,7 +38,7 @@
     <div class="form-outline mb-2">
       <label class="form-label" for="inputEmail">Email address</label>
       <input type="email" id="inputEmail" class="form-control" placeholder="Enter email address" required/>
-      <div class="invalid-feedback">
+      <div class="invalid-feedback" id="htEmail">
         Lorem ipsum dolor sit amet.
       </div>
     </div>
@@ -47,7 +47,7 @@
       <div class="col-lg-8">
         <label class="form-label" for="inputUsername">User name</label>
         <input type="text" id="inputUsername" class="form-control" placeholder="Enter user name" required/>
-        <div class="invalid-feedback">
+        <div class="invalid-feedback" id="htUsername">
           Lorem ipsum dolor sit amet.
         </div>
       </div>
@@ -124,23 +124,24 @@
 </div>
   
 <script>
-  $(document).ready(function() {
-      $('#btnModalClose').on('click', function(){
-        $('#errorModal').modal('toggle');
-      });
+$(document).ready(function() {
+  $(".modal-backdrop").removeAttr("class");
+      
+  $('#btnModalClose').on('click', function(){
+    $('#errorModal').modal('toggle');
+  });
 
-      $("#dropScanType").change(function () {
-        // $('#exampleModal').modal('toggle');
-        if(this.value){
-          $("#card-form").load('./form-create-account-cor.html');
-        } else {
-          $("#card-form").load('./form-create-account-qr.html');
-        }       
-      });
+  $("#dropScanType").change(function () {
+    if(this.value){
+      $("#card-form").load('./form-create-account-cor.html');
+    } else {
+      $("#card-form").load('./form-create-account-qr.html');
+    }       
+  });
 
-      $('.close').on('click', function() {
-        $('#exampleModal').modal('toggle');
-      });
+  $('.close').on('click', function() {
+    $('#exampleModal').modal('toggle');
+  });
 
       $('#inputConfirmPassword').on('blur', function() {
         var password = $('#inputPassword').val();
@@ -182,6 +183,7 @@
         }
         
         if(!regex.test(email)){
+          $("#htEmail").html("Invalid email format, please us your BULSU email");
           $("#inputEmail").addClass('is-invalid');
           hasError = true;
         } else {
@@ -209,18 +211,21 @@
               var dataResult = JSON.parse(dataResult);
               
               if(dataResult.statusCode.includes(5001)){
+                $("#htStudentID").html("This student id was already been used!");
                 $("#inputStudentID").addClass('is-invalid');
               } else {
                 $("#inputStudentID").removeClass('is-invalid');
               }
 
               if(dataResult.statusCode.includes(5002)){
+                $("#htUsername").html("This username was already been used!");
                 $("#inputUsername").addClass('is-invalid');
               } else {
                 $("#inputUsername").removeClass('is-invalid');
               }
 
               if(dataResult.statusCode.includes(5003)){
+                $("#htEmail").html("This email was already been used!");
                 $("#inputEmail").addClass('is-invalid');
               } else {
                 $("#inputEmail").removeClass('is-invalid');
