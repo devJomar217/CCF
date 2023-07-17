@@ -1,16 +1,14 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css" />
 <script src="./../../common/vendor/datatables/jquery.dataTables.js"></script>
 
-<!-- Page Heading -->
 <h1 class="h3 mb-2 text-gray-800">Admin Accounts</h1>
 <p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto nam delectus facilis veniam ea iusto officiis odit maxime, inventore nihil.</p>
 
-<!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header">
         <div class="row justify-content-between">
             <div class="col-4 align-middle">
-                <h6 class="m-0 font-weight-bold text-primary align-middle mt-2">Admin List</h6>
+                <h6 class="m-0 font-weight-bold text-primary align-middle mt-2">Inactive Admin List</h6>
             </div>
             <div class="col-2 text-right">
                 <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#adminNewModal"><i class="fas fa-plus"></i> Add New Admin</button>
@@ -379,7 +377,7 @@
                 url: "../../common/db.php",
                 type: "POST",
                 data: {
-                    action: 'retrieve-admin-list'
+                    action: 'retrieve-admin-inactive-list'
                 },
                 cache: false,
                 success: function(dataResult) {

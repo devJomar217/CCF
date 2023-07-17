@@ -1,4 +1,5 @@
 var SYMMETRIC_KEY = "hKGYOgnTVR8bOP0ViW7FFmX0q1x6ag6B";
+var DIR_RESOURCE = "./../resource/profile/";
 
 function populateTableData(data){
     return "<td>"+data+"</td>";

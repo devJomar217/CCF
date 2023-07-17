@@ -1,25 +1,26 @@
-
 <style>
-  main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  }
-  #reader {
-  width: 600px;
-  }
-  #result {
-  text-align: center;
-  font-size: 1.5rem;
-  }
-  </style>
+    main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #reader {
+        width: 600px;
+    }
+    
+    #result {
+        text-align: center;
+        font-size: 1.5rem;
+    }
+</style>
 
 <form onsubmit="event.preventDefault()">
     <!-- 2 column grid layout with text inputs for the first and last names -->
     <div class="row">
-      <div class="col-md-6 mb-4">
-        <h2>Create Account</h2>
-      </div>
+        <div class="col-md-6 mb-4">
+            <h2>Create Account</h2>
+        </div>
     </div>
 
     <div class="form-outline mb-4">
@@ -33,56 +34,56 @@
     <div class="form-check d-flex justify-content-center mb-2">
         <a href="#" id="btnBack">Back to login</a>
     </div>
-  </form>
+</form>
 
-  
+
 <!-- Modal -->
 <div class="modal fade" id="qrModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <b class="modal-title" id="exampleModalLabel">ID QR Scan</b>
-      </div>
-      <div class="modal-body d-flex justify-content-center">
-        <div style="width: 500px" id="reader"></div>
-      </div>
-      <div class="modal-footer d-flex justify-content-center">
-          <b>Note:</b><span>You can locate the QR code at the back of your BSU Student ID</span>
-      </div>
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <b class="modal-title" id="exampleModalLabel">ID QR Scan</b>
+            </div>
+            <div class="modal-body d-flex justify-content-center">
+                <div style="width: 500px" id="reader"></div>
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+                <b>Note:</b><span>You can locate the QR code at the back of your BSU Student ID</span>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
 <!-- Modal -->
 <div class="modal fade" id="corModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-md" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <b class="modal-title" id="exampleModalLabel">COR Scan</b>
-      </div>
-      <div class="modal-body d-flex justify-content-center">
-        <div class="container">
-          <div class="col-xs-6">
-            <form id="form" action="javascript:void(0)">
-              <div class="form-group my-2">
-                <input id="file" type="file"/>
-              </div>
-              <div class="form-group">
-                <input class="btn btn-primary" type="submit" value="submit"/>
-              </div>
-            </form>
-            <div id="result"></div>
-          </div>
-          <div class="col-xs-6" id="progress-result">
-            <div id="progress"></div>
-          </div>
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <b class="modal-title" id="exampleModalLabel">COR Scan</b>
+            </div>
+            <div class="modal-body d-flex justify-content-center">
+                <div class="container">
+                    <div class="col-xs-6">
+                        <form id="form" action="javascript:void(0)">
+                            <div class="form-group my-2">
+                                <input id="file" type="file" />
+                            </div>
+                            <div class="form-group">
+                                <input class="btn btn-primary" type="submit" value="submit" />
+                            </div>
+                        </form>
+                        <div id="result"></div>
+                    </div>
+                    <div class="col-xs-6" id="progress-result">
+                        <div id="progress"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+                <b>Note:</b><span>Kindly upload a photo of your COR</span>
+            </div>
         </div>
-      </div>
-      <div class="modal-footer d-flex justify-content-center">
-          <b>Note:</b><span>Kindly upload a photo of your COR</span>
-      </div>
     </div>
-  </div>
 </div>
 
 <script src="./../../common/html5-qrcode.min.js" type="text/javascript"></script>
@@ -90,120 +91,123 @@
 <script src='https://cdn.rawgit.com/naptha/tesseract.js/0.2.0/dist/tesseract.js'></script>
 
 <script>
-  $(document).ready(function() {
-    $("#form").on("submit", (e) => {
-      e.preventDefault();
-      const file_list = $("#file").prop("files");
-      if (file_list == null) {
-        alert("file Empty");
-        return;
-      }
-      const file = file_list[0];
-      if (file.type.indexOf("image") === -1) {
-        alert("Image");
-        return;
-      }
+    $(document).ready(function() {
+        $("#form").on("submit", (e) => {
+            e.preventDefault();
+            const file_list = $("#file").prop("files");
+            if (file_list == null) {
+                alert("file Empty");
+                return;
+            }
+            const file = file_list[0];
+            if (file.type.indexOf("image") === -1) {
+                alert("Image");
+                return;
+            }
 
-      let status = {};
-      $("#progress-result").removeClass("d-none");
-      Tesseract.recognize(file, {lang: "eng"}).progress((result) => {
-          console.log(result);
-          let p = result.progress * 100;
-          if (!status[result.status]) {
-            status[result.status] = true;
-            $("#progress").append(`
+            let status = {};
+            $("#progress-result").removeClass("d-none");
+            Tesseract.recognize(file, {
+                    lang: "eng"
+                }).progress((result) => {
+                    console.log(result);
+                    let p = result.progress * 100;
+                    if (!status[result.status]) {
+                        status[result.status] = true;
+                        $("#progress").append(`
               <p>${result.status}</p>
               <div class="progress">
                 <div class="progress-bar progress-bar${100}"></div>
               <div>
             `);
-          }
-          $(`.progress-bar${100}`)
-            .css({ width: `${p}%` })
-            .text(parseFloat(p).toFixed(2));
-        })
-        .catch(() => {
-          $(".progress-bar").addClass("progress-bar-error");
-          alert("Error");
-        })        
-        .then((result) => {
-          $(".progress-bar").addClass("progress-bar-success");
-          $("#progress-result").addClass("d-none");
-          $("#result").text(result.text);
-            var myStr = result.text
-            var newStr = myStr.replace(/\ /g,',');
-            
+                    }
+                    $(`.progress-bar${100}`)
+                        .css({
+                            width: `${p}%`
+                        })
+                        .text(parseFloat(p).toFixed(2));
+                })
+                .catch(() => {
+                    $(".progress-bar").addClass("progress-bar-error");
+                    alert("Error");
+                })
+                .then((result) => {
+                    $(".progress-bar").addClass("progress-bar-success");
+                    $("#progress-result").addClass("d-none");
+                    $("#result").text(result.text);
+                    var myStr = result.text
+                    var newStr = myStr.replace(/\ /g, ',');
 
-        $("#fname").text(newStr[0]);
-        $("#add").text(result[2]+result[3]+result[4]);
-        $("#cell").text(result[5]);
-        $("#mail").text(result[6]);
-    // var mobile = result[2].split(':');
-    //     var mobile = mobile.split(',');
-    //     alert(mobile)
-        // alert(myStr.replace('Cell',''));
-        var newStr = myStr.replace(/\ /g, ',');
-        // alert(newStr)
-        
+
+                    $("#fname").text(newStr[0]);
+                    $("#add").text(result[2] + result[3] + result[4]);
+                    $("#cell").text(result[5]);
+                    $("#mail").text(result[6]);
+                    // var mobile = result[2].split(':');
+                    //     var mobile = mobile.split(',');
+                    //     alert(mobile)
+                    // alert(myStr.replace('Cell',''));
+                    var newStr = myStr.replace(/\ /g, ',');
+                    // alert(newStr)
+
+                });
+
         });
 
+        var html5QrcodeScanner = new Html5QrcodeScanner(
+            "reader", {
+                fps: 10,
+                qrbox: 250
+            });
+
+        function onScanSuccess(decodedText, decodedResult) {
+            var result = decodedText.split("\n");
+            var studentID = result[0].substring(13);
+            var fullName = result[1].substring(11);
+            var program = result[2].substring(9);
+            $('#qrModal').modal('toggle');
+            html5QrcodeScanner.clear();
+            $("#card-form").load('./form-create-account-cor.html', function() {
+                $("#inputStudentID").val(studentID);
+                $("#inputStudentID").attr("readonly", true);
+                $("#inputStudentID").attr("disabled", true);
+                $("#inputName").val(fullName);
+                $("#inputName").attr("readOnly", true);
+                $("#inputName").attr("disabled", true);
+                $("#inputSpecialization").val(program);
+                $("#inputSpecialization").prop("readOnly", true);
+                $("#inputSpecialization").prop("disabled", true);
+                $("#inputScanType").val("2").change();
+                $("#inputScanType").prop("disabled", true);
+            });
+
+        }
+
+        function onScanError(errorMessage) {
+            // handle on error condition, with error message
+        }
+
+        $("#qrModal").on("hidden.bs.modal", function() {
+            html5QrcodeScanner.clear();
+        });
+
+
+        $("#dropScanType").change(function() {
+            // $('#exampleModal').modal('toggle');
+            if (this.value == 1) {
+                $('#corModal').modal('toggle');
+            } else if (this.value == 2) {
+                $('#qrModal').modal('toggle');
+                html5QrcodeScanner.render(onScanSuccess, onScanError);
+            }
+        });
+
+        $('.close').on('click', function() {
+            $('#exampleModal').modal('toggle');
+        });
+
+        $('#btnBack').on('click', function() {
+            $("#card-form").load('./form-login.html');
+        });
     });
-
-
-
-
-
-    var html5QrcodeScanner = new Html5QrcodeScanner(
-            "reader", { fps: 10, qrbox: 250 });
-
-    function onScanSuccess(decodedText, decodedResult) {
-      var result = decodedText.split("\n");
-      var studentID = result[0].substring(13);
-      var fullName = result[1].substring(11);
-      var program = result[2].substring(9);
-      $('#qrModal').modal('toggle');
-      html5QrcodeScanner.clear();
-      $("#card-form").load('./form-create-account-cor.html', function(){
-        $("#inputStudentID").val(studentID);
-        $("#inputStudentID").attr("readonly", true);
-        $("#inputStudentID").attr("disabled", true);
-        $("#inputName").val(fullName);
-        $("#inputName").attr("readOnly", true);
-        $("#inputName").attr("disabled", true);
-        $("#inputSpecialization").val(program);
-        $("#inputSpecialization").prop("readOnly", true);
-        $("#inputSpecialization").prop("disabled", true);
-        $("#inputScanType").val("2").change();
-        $("#inputScanType").prop("disabled", true);
-      });
-
-    }
-
-    function onScanError(errorMessage) {
-      // handle on error condition, with error message
-    }
-
-    $("#qrModal").on("hidden.bs.modal", function () {
-      html5QrcodeScanner.clear();
-    });
-
-
-    $("#dropScanType").change(function () {
-        // $('#exampleModal').modal('toggle');
-        if(this.value == 1){
-          $('#corModal').modal('toggle');
-        } else if(this.value == 2) {
-          $('#qrModal').modal('toggle');
-          html5QrcodeScanner.render(onScanSuccess, onScanError);
-        }       
-      });
-
-      $('.close').on('click', function() {
-        $('#exampleModal').modal('toggle');
-      });
-
-      $('#btnBack').on('click', function() {
-          $("#card-form").load('./form-login.html');
-      });
-  });
 </script>

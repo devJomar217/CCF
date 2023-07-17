@@ -3,9 +3,10 @@ session_start();
 include './data-model.php';
 date_default_timezone_set('Asia/Singapore');
 
-// retrieveNumberOfStudentAccountRequest();
+if($_POST == null OR $_POST['action'] == null){
+  exit;
+}
 
-// Establish connection to database
 function databaseConnection(){
   $servername = "localhost:3307";
   $username = "root";
@@ -120,9 +121,9 @@ function createAdminAccount(){
   $lastRecord=mysqli_query($connectDB,"select user_id from account_information WHERE user_type='2' ORDER BY user_id DESC LIMIT 1");
   if (mysqli_num_rows($duplicate)>0){
     while($row = $duplicate->fetch_assoc()) {
-      if($row['user_id'] == $studentID){
-        array_push($statusCode, 5001);
-      }
+      // if($row['user_id'] == $studentID){
+      //   array_push($statusCode, 5001);
+      // }
 
       if($row['user_name'] == $username){
         array_push($statusCode, 5002);
@@ -235,6 +236,28 @@ function retrieveAnswerNumber(){
   $number = $result->num_rows;
   $connectDB->close();
   return $number;
+}
+
+function retrieveAdminDetail($adminID){
+  $connectDB = databaseConnection();
+  $sql = "SELECT account_information.user_id, account_information.email, account_information.user_name, account_information.status, admin_information.name, admin_information.picture FROM account_information INNER JOIN admin_information ON account_information.user_id=admin_information.admin_id where account_information.user_id=$adminID AND account_information.user_type=2";
+  $result = $connectDB->query($sql);
+
+  if ($result->num_rows > 0) {
+    $admin = new Admin(); 
+    while($row = $result->fetch_assoc()) {
+      $admin->set_adminID($row["user_id"]);
+      $admin->set_name($row["name"]);
+      $admin->set_email($row["email"]);
+      $admin->set_username($row["user_name"]);
+      $admin->set_picture($row["picture"]);
+      $admin->set_status($row["status"]);
+    }
+    echo json_encode(array("statusCode"=>200, "admin"=>$admin));
+  } else {
+    echo json_encode(array("statusCode"=>201));
+  }
+  $connectDB->close();
 }
 
 
@@ -368,6 +391,23 @@ function changePassword($userID, $password){
 	mysqli_close($connectDB); 
 }
 
+function changeNewPassword($userID, $currentPassword, $newPassword){
+  $connectDB = databaseConnection();
+  $existing = "SELECT * FROM account_information where user_id='$userID' AND password='$currentPassword' ";
+  $existingResult = $connectDB->query($existing);
+  if ($existingResult->num_rows > 0) {
+    $sql = "UPDATE `account_information` SET `password`='$newPassword' WHERE user_id=$userID";
+    if (mysqli_query($connectDB, $sql)) {
+      echo json_encode(array("statusCode"=>200));
+    } else {
+      echo json_encode(array("statusCode"=>201));
+    }
+  } else {
+    echo json_encode(array("statusCode"=>5000));
+  }
+	mysqli_close($connectDB); 
+}
+
 function updateLastActive($userID){
   $connectDB = databaseConnection();
   $currentDateTime = date('Y-m-d H:i:s');
@@ -443,6 +483,27 @@ function updateRating(){
 
 }
 
+function isEmailOrUsernameExisting($userID, $username, $email){
+  $connectDB = databaseConnection();
+	$statusCode = array();
+  $sql=mysqli_query($connectDB,"select * from account_information where (email='$email' OR user_name='$username') AND  user_id != '$userID' ");
+  if (mysqli_num_rows($sql)>0){
+    while($row = $sql->fetch_assoc()) {
+      if($row['user_name'] == $username){
+        array_push($statusCode, 5100);
+      } 
+
+      if($row['email'] == $email){
+        array_push($statusCode, 5101);
+      }
+    }
+  } else {
+    array_push($statusCode, 200);
+  }
+  mysqli_close($connectDB);
+  return $statusCode;
+}
+
 function debug_to_console($data) {
   $output = $data;
   if (is_array($output))
@@ -451,60 +512,165 @@ function debug_to_console($data) {
   echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
 }
 
+function validateImageExtension($extension){
+  $allowed_extensions = array("jpg","jpeg","png","pdf","docx");
+  if(in_array(strtolower($extension), $allowed_extensions)) {
+    return true;
+  }
+  return false;
+}
+
+function uploadImage($location){
+  $extension = strtolower(pathinfo($location,PATHINFO_EXTENSION));
+  if(validateImageExtension($extension)){
+    if(move_uploaded_file($_FILES['file']['tmp_name'],$location)){
+      return 200;
+    }
+    return 5000;
+  }
+  return 5001;
+}
+
+function modifyImageName($customName){
+  $name = explode('.', $_FILES['file']['name']);
+  return $customName . (count($name) > 1 ? '.' . $name[1] : '');
+}
+
+function updateAdminRecord(){
+  $adminID = $_POST['adminID'];
+  $userName = $_POST['userName'];
+  $name = $_POST['name'];
+  $email = $_POST['email'];
+  $statusCode = array();
+
+  $adminSQL = "UPDATE `admin_information` SET `name`='$name' WHERE admin_id=$adminID";
+
+  if($_FILES != null){
+    $target_dir = "./../resource/profile/";
+    $fileName = modifyImageName($adminID);
+    $location = $target_dir . $fileName;
+    $uploadStatus = uploadImage($location);
+    if($uploadStatus == 200) {
+      $adminSQL = "UPDATE `admin_information` SET `picture`='$fileName', `name`='$name' WHERE admin_id=$adminID";
+    } 
+    array_push($statusCode, $uploadStatus); 
+  }
+
+  $duplicateStatusCode = isEmailOrUsernameExisting($adminID, $userName, $email);
+  if(in_array(200, $duplicateStatusCode)){
+    $connectDB = databaseConnection();
+    $accountSQL = "UPDATE `account_information` SET `user_name`='$userName', `email`='$email' WHERE user_id=$adminID";
+    
+    if (mysqli_query($connectDB, $accountSQL)) {
+      if (mysqli_query($connectDB, $adminSQL)) {
+        $status = 200;
+        array_push($statusCode, 200);
+      } else {
+        array_push($statusCode, 5002);
+      }
+    } else {
+      array_push($statusCode, 201);
+    }
+
+    mysqli_close($connectDB); 
+  } else {
+    foreach ($duplicateStatusCode as $code) {
+      array_push($statusCode, $code);
+    }
+
+  }
+  echo json_encode(array("statusCode"=>$statusCode));
+  exit;
+}
+
 if($_POST['action']=='login'){
   login($_POST['email'], $_POST['password']);
+  exit;
 }
 
 if($_POST['action']=='create-account'){
   createAccount();
+  exit;
 }
 
 if($_POST['action']=='create-admin-account'){
   createAdminAccount();
+  exit;
 }
 
 if($_POST['action']=='create-new-subject'){
   createNewSubject();
+  exit;
 }
 
 if($_POST['action']=='update-subject'){
   updateSubject();
+  exit;
 }
 
 if($_POST['action']=='forgot-password'){
   forgotPassword($_POST['email']);
+  exit;
 }
 
 if($_POST['action']=='retrieve-student-account-request'){
   retrieveStudentList(0);
+  exit;
 }
 
 if($_POST['action']=='retrieve-student-list'){
   retrieveStudentList(1);
+  exit;
 }
 
 if($_POST['action']=='retrieve-admin-list'){
   retrieveAdminList(1);
+  exit;
+}
+
+if($_POST['action']=='retrieve-admin-inactive-list'){
+  retrieveAdminList(0);
+  exit;
 }
 
 if($_POST['action']=='retrieve-subject-list'){
   retrieveSubjectList();
+  exit;
 }
 
 if($_POST['action']=='retrieve-question-list'){
   retrieveQuestionList(1);
+  exit;
 }
 
 if($_POST['action']=='retrieve-answer-list'){
   retrieveAnswerList(1);
+  exit;
+}
+
+if($_POST['action']=='retrieve-admin-detail'){
+  retrieveAdminDetail($_POST['adminID']);
+  exit;
 }
 
 if($_POST['action']=='update-account-status'){
   updateAccountStatus($_POST['userID'],$_POST['status']);
+  exit;
 }
 
 if($_POST['action']=='change-password'){
   changePassword($_POST['userID'],$_POST['password']);
+  exit;
+}
+
+if($_POST['action']=='update-admin-record'){
+  updateAdminRecord();
+  exit;
+}
+
+if($_POST['action']=='change-new-password'){
+  changeNewPassword($_POST['userID'],$_POST['currentPassword'],$_POST['newPassword']);
+  exit;
 }
 
 if($_POST['action']=='get-dashboard-data'){
@@ -522,6 +688,7 @@ if($_POST['action']=='get-dashboard-data'){
   echo json_encode(array(
     "student"=>array("active"=>$numberOfStudent, "pending"=>$numberOfStudentRequest, "firstYear"=>$firstYear, "secondYear"=>$secondYear,"thirdYear"=>$thirdYear,"fourthYear"=>$fourthYear),
     "forum"=>array("question"=>$numberOfQuestion, "answer"=>$numberOfAnswer, "answered"=>$numberOfAnsweredQuestion, "unanswered"=>$numberOfUnansweredQuestion)));
+  exit;
 }
 
 ?>

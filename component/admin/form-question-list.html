@@ -24,7 +24,6 @@
                     </tr>
                 </thead>
                 <tfoot>
-                    <div>
                     <tr>
                         <th>Question ID</th>
                         <th>Student</th>
@@ -34,8 +33,7 @@
                         <th>Action</th>
                     </tr>
                 </tfoot>
-                <tbody id="tableBody">
-                </tbody>
+                <tbody id="tableBody"></tbody>
             </table>
         </div>
     </div>
@@ -43,146 +41,138 @@
 
 <div class="modal fade" id="questionInfoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Question Information</h5>
-        </div>
-        <div class="modal-body">
-            <div class="row">
-                <div class="col-lg-12">
-                    <b>Picture:</b> <label for="" id="mPicture"></label>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Question Information</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <b>Picture:</b> <label for="" id="mPicture"></label>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <b>Question ID:</b> <label for="" id="mQuestionID"></label>
+                    </div>
+                    <div class="col-lg-12">
+                        <b>Name:</b> <label for="" id="mName"></label>
+                    </div>
+                    <div class="col-lg-12">
+                        <b>Year Level:</b> <label for="" id="mYearLevel"></label>
+                    </div>
+                    <div class="col-lg-12">
+                        <b>Specialization:</b> <label for="" id="mSpecialization"></label>
+                    </div>
+                    <div class="col-lg-12">
+                        <b>Username:</b> <label for="" id="mUsername"></label>
+                    </div>
+                    <div class="col-lg-12">
+                        <b>email:</b> <label for="" id="mEmail"></label>
+                    </div>
                 </div>
 
-                <div class="col-lg-12">
-                    <b>Question ID:</b> <label for="" id="mQuestionID"></label>
-                </div>
-                <div class="col-lg-12">
-                    <b>Name:</b> <label for="" id="mName"></label>
-                </div>
-                <div class="col-lg-12">
-                    <b>Year Level:</b> <label for="" id="mYearLevel"></label>
-                </div>
-                <div class="col-lg-12">
-                    <b>Specialization:</b> <label for="" id="mSpecialization"></label>
-                </div>
-                <div class="col-lg-12">
-                    <b>Username:</b> <label for="" id="mUsername"></label>
-                </div>
-                <div class="col-lg-12">
-                    <b>email:</b> <label for="" id="mEmail"></label>
-                </div>
             </div>
-          
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="btnReject">Reject</button>
+                <button type="button" class="btn btn-success" id="btnApprove">Approve</button>
+            </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" id="btnReject" >Reject</button>
-          <button type="button" class="btn btn-success" id="btnApprove" >Approve</button>
-        </div>
-      </div>
     </div>
-  </div>
+</div>
+
 
 <script>
     $(document).ready(function() {
-    var questionList;   
-    retrieveQuestionRequestList();
+        var questionList;
+        retrieveQuestionList();
 
-    $("#btnReject").on('click', function(){
-        var questionID = $('#mQuestionID').html();
-        updateAccountStatus(questionID, '1');
-    });
-
-    $("#btnApprove").on('click', function(){
-        var questionID = $('#mQuestionID').html();
-        updateAccountStatus(questionID, '-1');
-    });
-
-        // code to read selected table row cell data (values).
-    $("#dataTable").on('click','.btnSelect',function(){
-        var currentRow=$(this).closest("tr"); 
-        var questionID=currentRow.find("td:eq(0)").html();
-        $.each(questionList, function( key, question ) {
-            console.log(question);
-            console.log(questionID == question['questionID']);
-            if(questionID == question['questionID']){
-                $('#mQuestionID').html(question['questionID']);
-                $('#mName').html(question['name']);
-                $('#mYearLevel').html(question['yearLevel']);
-                $('#mSpecialization').html(question['specialization']);
-                $('#mUsername').html(question['username']);
-                $('#mEmail').html(question['email']);
-                $('#mPicture').html(question['picture']);        
-                $('#questionInfoModal').modal('toggle');
-                return;
-            }
+        $("#dataTable").on('click', '.btnSelect', function() {
+            var currentRow = $(this).closest("tr");
+            var questionID = currentRow.find("td:eq(0)").html();
+            $.each(questionList, function(key, question) {
+                console.log(question);
+                console.log(questionID == question['questionID']);
+                if (questionID == question['questionID']) {
+                    $('#mQuestionID').html(question['questionID']);
+                    $('#mName').html(question['name']);
+                    $('#mYearLevel').html(question['yearLevel']);
+                    $('#mSpecialization').html(question['specialization']);
+                    $('#mUsername').html(question['username']);
+                    $('#mEmail').html(question['email']);
+                    $('#mPicture').html(question['picture']);
+                    $('#questionInfoModal').modal('toggle');
+                    return;
+                }
+            });
         });
-    });
 
-      $('#sbQuestionAccountRequest').on('click', function(){
-          $("#admin-container").load('./question-account-request.html');
-      });
-      
-      
-
-      function showQuestionData(questionID){
-        alert(questionID);
-      }
-
-    function updateAccountStatus(userID, status){
-        $.ajax({
-            url: "../../common/db.php",
-            type: "POST",
-            data: {
-              action:'update-account-status',
-              userID: userID,
-              status: status					
-            },
-            cache: false,
-            success: function(dataResult){
-                var dataResult = JSON.parse(dataResult);
-                if(dataResult.statusCode == 200){
-                    alert("Success");
-                } else {
-                    alert("Failed");
+        $("#dataTable").on('click', '.btnStudentID', function() {
+            var currentRow = $(this).closest("tr");
+            var questionID = currentRow.find("td:eq(0)").html();
+            $.each(questionList, function(key, question) {
+                console.log(question);
+                console.log(questionID == question['questionID']);
+                if (questionID == question['questionID']) {
+                    $('#mName').html(question['studentID']);
+                    $('#questionInfoModal').modal('toggle');
+                    return;
                 }
-                $('#questionInfoModal').modal('toggle');
-                $('#dataTable').DataTable();
-            }
-          });
-    }
-  
-    function retrieveQuestionRequestList(){
-        $.ajax({
-            url: "../../common/db.php",
-            type: "POST",
-            data: {
-              action:'retrieve-question-list'						
-            },
-            cache: false,
-            success: function(dataResult){
-                var dataResult = JSON.parse(dataResult);
-                if(dataResult.statusCode != 201){
-                    questionList = dataResult;
-                    var questionData;
-                    $.each(dataResult, function( key, question ) {
-                        var questionID = question['questionID'];
-                        questionData += "<tr>"+
-                                        "<td>"+questionID+"</td>"+
-                                        "<td><a href=''>"+question['studentID']+"</a></td>"+
-                                        "<td>"+question['subject']+"</td>"+
-                                        "<td>"+question['creationDateTime']+"</td>"+
-                                        "<td>"+question['question']+"</td>"+
-                                        "<td><a class='btnSelect' data-id='" + questionID +"'><i class='fas fa-eye fa-cog'></a></i></td>"+
-                                        "</tr>";
-                    });
-                    $("#tableBody").html(questionData);
-                }
-                $('#dataTable').DataTable();
-            }
-          });
-      }
+            });
+        });
 
-      
-        
+        function updateAccountStatus(userID, status) {
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'update-account-status',
+                    userID: userID,
+                    status: status
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode == 200) {
+                        alert("Success");
+                    } else {
+                        alert("Failed");
+                    }
+                    $('#questionInfoModal').modal('toggle');
+                    $('#dataTable').DataTable();
+                }
+            });
+        }
+
+        function retrieveQuestionList() {
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'retrieve-question-list'
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode != 201) {
+                        questionList = dataResult;
+                        var questionData;
+                        $.each(dataResult, function(key, question) {
+                            var questionID = question['questionID'];
+                            questionData += "<tr>" +
+                                "<td>" + questionID + "</td>" +
+                                "<td><a href='#' class='btnStudentID'>" + question['studentID'] + "</a></td>" +
+                                "<td>" + question['subject'] + "</td>" +
+                                "<td>" + question['creationDateTime'] + "</td>" +
+                                "<td>" + question['question'] + "</td>" +
+                                "<td><a class='btnSelect' data-id='" + questionID + "'><i class='fas fa-eye fa-cog'></a></i></td>" +
+                                "</tr>";
+                        });
+                        $("#tableBody").html(questionData);
+                    }
+                    $('#dataTable').DataTable();
+                }
+            });
+        }
+
     });
 </script>

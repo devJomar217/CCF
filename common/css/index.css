@@ -478,6 +478,21 @@ mark,
   height: auto;
 }
 
+.img-circle-md {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%; 
+  border: 1px solid;
+}
+
+.img-circle-xs {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%; 
+}
+
 .img-thumbnail {
   padding: 0.25rem;
   background-color: #fff;

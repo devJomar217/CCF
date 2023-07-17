@@ -24,7 +24,6 @@
                     </tr>
                 </thead>
                 <tfoot>
-                    <div>
                     <tr>
                         <th>Student ID</th>
                         <th>Name</th>
@@ -42,213 +41,212 @@
 
 <div class="modal fade" id="studentInfoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Student Information</h5>
-        </div>
-        <div class="modal-body">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <img style="width: 150px;" class="img-profile rounded-circle  b-4" src="./../../common/img/undraw_profile.svg">
-                </div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Student Information</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <img style="width: 150px;" class="img-profile rounded-circle  b-4" src="./../../common/img/undraw_profile.svg">
+                    </div>
 
-                <div class="col-lg-12">
-                    <b>Student ID:</b> <label for="" id="mStudentID"></label>
-                </div>
-                <div class="col-lg-12">
-                    <b>Name:</b> <label for="" id="mName"></label>
-                </div>
-                <div class="col-lg-12">
-                    <b>Year Level:</b> <label for="" id="mYearLevel"></label>
-                </div>
-                <div class="col-lg-12">
-                    <b>Specialization:</b> <label for="" id="mSpecialization"></label>
-                </div>
-                <div class="col-lg-12">
-                    <b>Username:</b> <label for="" id="mUsername"></label>
-                </div>
-                <div class="col-lg-12">
-                    <b>Email:</b> <label for="" id="mEmail"></label>
+                    <div class="col-lg-12">
+                        <b>Student ID:</b> <label for="" id="mStudentID"></label>
+                    </div>
+                    <div class="col-lg-12">
+                        <b>Name:</b> <label for="" id="mName"></label>
+                    </div>
+                    <div class="col-lg-12">
+                        <b>Year Level:</b> <label for="" id="mYearLevel"></label>
+                    </div>
+                    <div class="col-lg-12">
+                        <b>Specialization:</b> <label for="" id="mSpecialization"></label>
+                    </div>
+                    <div class="col-lg-12">
+                        <b>Username:</b> <label for="" id="mUsername"></label>
+                    </div>
+                    <div class="col-lg-12">
+                        <b>Email:</b> <label for="" id="mEmail"></label>
+                    </div>
                 </div>
             </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
         </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          </div>
-      </div>
     </div>
-  </div>
+</div>
 
 
-  <div class="modal fade" id="studentDeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="studentDeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Are you sure do you to delete this record?</h5>
-        </div>
-        <div class="modal-body">
-            <div class="row">
-                <div class="col-lg-12">
-                    <b>Student ID:</b> <label for="" id="dmStudentID"></label>
-                </div>
-                <div class="col-lg-12">
-                    <b>Name:</b> <label for="" id="dmName"></label>
-                </div>
-                <div class="col-lg-12">
-                    <b>Year Level:</b> <label for="" id="dmYearLevel"></label>
-                </div>
-                <div class="col-lg-12">
-                    <b>Specialization:</b> <label for="" id="dmSpecialization"></label>
-                </div>
-                <div class="col-lg-12">
-                    <b>Username:</b> <label for="" id="dmUsername"></label>
-                </div>
-                <div class="col-lg-12">
-                    <b>Email:</b> <label for="" id="dmEmail"></label>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Are you sure do you to delete this record?</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <b>Student ID:</b> <label for="" id="dmStudentID"></label>
+                    </div>
+                    <div class="col-lg-12">
+                        <b>Name:</b> <label for="" id="dmName"></label>
+                    </div>
+                    <div class="col-lg-12">
+                        <b>Year Level:</b> <label for="" id="dmYearLevel"></label>
+                    </div>
+                    <div class="col-lg-12">
+                        <b>Specialization:</b> <label for="" id="dmSpecialization"></label>
+                    </div>
+                    <div class="col-lg-12">
+                        <b>Username:</b> <label for="" id="dmUsername"></label>
+                    </div>
+                    <div class="col-lg-12">
+                        <b>Email:</b> <label for="" id="dmEmail"></label>
+                    </div>
                 </div>
             </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                <button type="button" id="btnDelete" class="btn btn-danger">Delete</button>
+            </div>
         </div>
-        <div class="modal-footer">
-            <button type="button"  data-dismiss="modal" class="btn btn-secondary">Close</button>
-            <button type="button" id="btnDelete" class="btn btn-danger">Delete</button>
-          </div>
-      </div>
     </div>
-  </div>
+</div>
 
 <script>
-$(document).ready(function() {
-    var studentList;   
-    retrieveStudentRequestList();
+    $(document).ready(function() {
+        var studentList;
+        retrieveStudentRequestList();
 
-    $("#btnDelete").click(function(){
-        var studentID = $('#dmStudentID').html();
-        updateAccountStatus(studentID, '3');
-        $('#studentDeleteModal').modal('toggle');
-    });
-
-
-    $("#dataTable").on('click','.btnSelect',function(){
-        var currentRow=$(this).closest("tr"); 
-        var studentID=currentRow.find("td:eq(0)").html();
-        $.each(studentList, function( key, student ) {
-            console.log(student);
-            console.log(studentID == student['studentID']);
-            if(studentID == student['studentID']){
-                $('#mStudentID').html(student['studentID']);
-                $('#mName').html(student['name']);
-                $('#mYearLevel').html(student['yearLevel']);
-                $('#mSpecialization').html(student['specialization']);
-                $('#mUsername').html(student['username']);
-                $('#mEmail').html(student['email']);
-                $('#mPicture').html(student['picture']);        
-                $('#studentInfoModal').modal('toggle');
-                return;
-            }
+        $("#btnDelete").click(function() {
+            var studentID = $('#dmStudentID').html();
+            updateAccountStatus(studentID, '3');
+            $('#studentDeleteModal').modal('toggle');
         });
-    });
 
-    $("#dataTable").on('click','.btnEdit',function(){
-        var currentRow=$(this).closest("tr"); 
-        var studentID=currentRow.find("td:eq(0)").html();
-        $.each(studentList, function( key, student ) {
-            console.log(student);
-            console.log(studentID == student['studentID']);
-            if(studentID == student['studentID']){
-                $('#mStudentID').html(student['studentID']);
-                $('#mName').html(student['name']);
-                $('#mYearLevel').html(student['yearLevel']);
-                $('#mSpecialization').html(student['specialization']);
-                $('#mUsername').html(student['username']);
-                $('#mEmail').html(student['email']);
-                $('#mPicture').html(student['picture']);        
-                $('#studentInfoModal').modal('toggle');
-                return;
-            }
-        });
-    });
 
-    $("#dataTable").on('click','.btnDelete',function(){
-        var currentRow=$(this).closest("tr"); 
-        var studentID=currentRow.find("td:eq(0)").html();
-        $.each(studentList, function( key, student ) {
-            console.log(student);
-            console.log(studentID == student['studentID']);
-            if(studentID == student['studentID']){
-                $('#dmStudentID').html(student['studentID']);
-                $('#dmName').html(student['name']);
-                $('#dmYearLevel').html(student['yearLevel']);
-                $('#dmSpecialization').html(student['specialization']);
-                $('#dmUsername').html(student['username']);
-                $('#dmEmail').html(student['email']);
-                $('#dmPicture').html(student['picture']);        
-                $('#studentDeleteModal').modal('toggle');
-                return;
-            }
-        });
-    });
-
-    $('#sbStudentAccountRequest').on('click', function(){
-    });
-      
-      
-
-    function showStudentData(studentID){
-        alert(studentID);
-    }
-
-    function updateAccountStatus(userID, status){
-        $.ajax({
-            url: "../../common/db.php",
-            type: "POST",
-            data: {
-              action:'update-account-status',
-              userID: userID,
-              status: status					
-            },
-            cache: false,
-            success: function(dataResult){
-                var dataResult = JSON.parse(dataResult);
-                if(dataResult.statusCode == 200){
-                    retrieveStudentRequestList();   
-                } else {
-                    alert("Failed");
+        $("#dataTable").on('click', '.btnSelect', function() {
+            var currentRow = $(this).closest("tr");
+            var studentID = currentRow.find("td:eq(0)").html();
+            $.each(studentList, function(key, student) {
+                console.log(student);
+                console.log(studentID == student['studentID']);
+                if (studentID == student['studentID']) {
+                    $('#mStudentID').html(student['studentID']);
+                    $('#mName').html(student['name']);
+                    $('#mYearLevel').html(student['yearLevel']);
+                    $('#mSpecialization').html(student['specialization']);
+                    $('#mUsername').html(student['username']);
+                    $('#mEmail').html(student['email']);
+                    $('#mPicture').html(student['picture']);
+                    $('#studentInfoModal').modal('toggle');
+                    return;
                 }
-                $('#dataTable').DataTable();
-            }
-          });
-    }
-  
-      function retrieveStudentRequestList(){
-        $.ajax({
-            url: "../../common/db.php",
-            type: "POST",
-            data: {
-              action:'retrieve-student-list'						
-            },
-            cache: false,
-            success: function(dataResult){
-                var dataResult = JSON.parse(dataResult);
-                if(dataResult.statusCode != 201){
-                    studentList = dataResult;
-                    var studentData = '';
-                    $.each(dataResult, function( key, student ) {
-                        studentData = studentData.concat("<tr>",
-                            populateTableData(student['studentID']),
-                            populateTableData(student['name']),
-                            populateTableData(student['yearLevel']),
-                            populateTableData(student['email']),
-                            populateTableData("<a class='btnSelect btn btn-sm btn-primary'><i class='fas fa-eye'></i></a> | <a class='btnDelete btn btn-sm btn-danger'><i class='fas fa-trash fa-cog'></i></a>"),
-                            "</tr>");
-                    });
-                    $("#tableBody").html(studentData);
-                }
-                $('#dataTable').DataTable();
-            }
-          });
-      }
+            });
+        });
 
-      
-        
+        $("#dataTable").on('click', '.btnEdit', function() {
+            var currentRow = $(this).closest("tr");
+            var studentID = currentRow.find("td:eq(0)").html();
+            $.each(studentList, function(key, student) {
+                console.log(student);
+                console.log(studentID == student['studentID']);
+                if (studentID == student['studentID']) {
+                    $('#mStudentID').html(student['studentID']);
+                    $('#mName').html(student['name']);
+                    $('#mYearLevel').html(student['yearLevel']);
+                    $('#mSpecialization').html(student['specialization']);
+                    $('#mUsername').html(student['username']);
+                    $('#mEmail').html(student['email']);
+                    $('#mPicture').html(student['picture']);
+                    $('#studentInfoModal').modal('toggle');
+                    return;
+                }
+            });
+        });
+
+        $("#dataTable").on('click', '.btnDelete', function() {
+            var currentRow = $(this).closest("tr");
+            var studentID = currentRow.find("td:eq(0)").html();
+            $.each(studentList, function(key, student) {
+                console.log(student);
+                console.log(studentID == student['studentID']);
+                if (studentID == student['studentID']) {
+                    $('#dmStudentID').html(student['studentID']);
+                    $('#dmName').html(student['name']);
+                    $('#dmYearLevel').html(student['yearLevel']);
+                    $('#dmSpecialization').html(student['specialization']);
+                    $('#dmUsername').html(student['username']);
+                    $('#dmEmail').html(student['email']);
+                    $('#dmPicture').html(student['picture']);
+                    $('#studentDeleteModal').modal('toggle');
+                    return;
+                }
+            });
+        });
+
+        $('#sbStudentAccountRequest').on('click', function() {});
+
+
+
+        function showStudentData(studentID) {
+            alert(studentID);
+        }
+
+        function updateAccountStatus(userID, status) {
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'update-account-status',
+                    userID: userID,
+                    status: status
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode == 200) {
+                        retrieveStudentRequestList();
+                    } else {
+                        alert("Failed");
+                    }
+                    $('#dataTable').DataTable();
+                }
+            });
+        }
+
+        function retrieveStudentRequestList() {
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'retrieve-student-list'
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode != 201) {
+                        studentList = dataResult;
+                        var studentData = '';
+                        $.each(dataResult, function(key, student) {
+                            studentData = studentData.concat("<tr>",
+                                populateTableData(student['studentID']),
+                                populateTableData(student['name']),
+                                populateTableData(student['yearLevel']),
+                                populateTableData(student['email']),
+                                populateTableData("<a class='btnSelect btn btn-sm btn-primary'><i class='fas fa-eye'></i></a> | <a class='btnDelete btn btn-sm btn-danger'><i class='fas fa-trash fa-cog'></i></a>"),
+                                "</tr>");
+                        });
+                        $("#tableBody").html(studentData);
+                    }
+                    $('#dataTable').DataTable();
+                }
+            });
+        }
+
+
+
     });
 </script>
