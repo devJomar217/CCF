@@ -156,7 +156,6 @@ include '../../common/session.php';
     $(document).ready(function() {
 
         navigateAnchor();
-        
         function navigateAnchor(){
             var form = "./form-";
             var hash = window.location.hash.replace("#","");
@@ -194,7 +193,5 @@ include '../../common/session.php';
         $("#nav-menu-forum").click(function() {
             $("#main-container").load('./form-forum.html');
         });
-
-        
     });
 </script>
