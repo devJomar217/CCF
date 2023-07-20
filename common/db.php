@@ -37,6 +37,11 @@ function login($email, $password){
         $_SESSION['user_type'] = $row["user_type"];
         $_SESSION['user_name'] = $row["user_name"];
         $_SESSION['status'] = $row["status"];
+        if($row["user_type"] == 1){
+          retrieveStudentInformation($connectDB, $row["user_id"]);
+        } else if($row["user_type"] == 2) {
+          retrieveAdminInformation($connectDB, $row["user_id"]);
+        }
         echo json_encode(array("statusCode"=>200));
       }
     }
@@ -44,6 +49,38 @@ function login($email, $password){
     echo json_encode(array("statusCode"=>201));
   }
   $connectDB->close();
+}
+
+function retrieveStudentInformation($connectDB, $studentID){
+  $sql = "SELECT * FROM student_information where student_id='$studentID'";
+  $result = $connectDB->query($sql);
+  if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+      $_SESSION['name'] = $row["name"];
+      $_SESSION['year_level'] = $row["year_level"];
+      $_SESSION['specialization'] = $row["specialization"];
+      $_SESSION['picture'] = getProfilePicture($row["picture"]);  
+    }
+  }
+}
+
+function retrieveAdminInformation($connectDB,$adminID){
+  $sql = "SELECT * FROM admin_information where admin_id='$adminID'";
+  $result = $connectDB->query($sql);
+  if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        $_SESSION['name'] = $row["name"];
+        $_SESSION['picture'] = getProfilePicture($row["picture"]);
+    }
+  }
+}
+
+function getProfilePicture($picture){
+  if($picture != null){
+    return $picture;
+  } else {
+    return "default.svg";
+  }
 }
 
 function forgotPassword($email){
@@ -250,7 +287,7 @@ function retrieveAdminDetail($adminID){
       $admin->set_name($row["name"]);
       $admin->set_email($row["email"]);
       $admin->set_username($row["user_name"]);
-      $admin->set_picture($row["picture"]);
+      $admin->set_picture(getProfilePicture($row["picture"]));
       $admin->set_status($row["status"]);
     }
     echo json_encode(array("statusCode"=>200, "admin"=>$admin));
@@ -649,7 +686,7 @@ if($_POST['action']=='retrieve-answer-list'){
 }
 
 if($_POST['action']=='retrieve-admin-detail'){
-  retrieveAdminDetail($_POST['adminID']);
+  retrieveAdminDetail($_SESSION['user_id']);
   exit;
 }
 

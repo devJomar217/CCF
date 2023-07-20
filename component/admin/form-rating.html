@@ -1,13 +1,11 @@
 <link rel="stylesheet" href="./../../common/vendor/datatables/dataTables.bootstrap4.css" />
 <script src="./../../common/vendor/datatables/jquery.dataTables.js"></script>
 
-<!-- Page Heading -->
-<h1 class="h3 mb-2 text-gray-800">Tables</h1>
-<p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-    For more information about DataTables, please visit the <a target="_blank"
-        href="https://datatables.net">official DataTables documentation</a>.</p>
 
-<!-- DataTales Example -->
+<h1 class="h3 mb-2 text-gray-800">Tables</h1>
+<p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
+
+
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
@@ -501,53 +499,51 @@
 <script>
     $(document).ready(function() {
         $('#dataTable').DataTable();
-  
-      $('#sbStudentAccountRequest').on('click', function(){
-      });
-  
-      $('#sidebarToggle').on('click', function(){
-          if($('#logo').css('width') == '80px'){
-              $('#logo').css('width', '200px');
-          } else {
-              $('#logo').css('width', '80px');
-          }
-      });
-  
-      $('#btnForgotPassword').on('click', function() {
-        $("#card-form").load('./form-forgot-password.html');
-      });
-  
-      $('#btnCreateAccount').on('click', function() {
-        $("#card-form").load('./form-create-account.html');
-      });
-  
-      $("#formLogin" ).on("submit", function( event ) {
-        event.preventDefault();
-        var email = $('#loginEmail').val();
-        var password = $('#loginPassword').val();
-        
-          $.ajax({
-            url: "../../common/db.php",
-            type: "POST",
-            data: {
-              action:'login',
-              email: email,
-              password: password						
-            },
-            cache: false,
-            success: function(dataResult){
-              var dataResult = JSON.parse(dataResult);
-              if(dataResult.statusCode==200){
-                location.href = "../login/login.php";						
-              } else if(dataResult.statusCode==201){
-                $("#error").show();
-                $('#error').html('Invalid Email Address or Password!');
-              } else if(dataResult.statusCode==5000){
-                $('#infoModal').modal('toggle');
-              }
+
+        $('#sbStudentAccountRequest').on('click', function() {});
+
+        $('#sidebarToggle').on('click', function() {
+            if ($('#logo').css('width') == '80px') {
+                $('#logo').css('width', '200px');
+            } else {
+                $('#logo').css('width', '80px');
             }
-          });
-      });
+        });
+
+        $('#btnForgotPassword').on('click', function() {
+            $("#card-form").load('./form-forgot-password.html');
+        });
+
+        $('#btnCreateAccount').on('click', function() {
+            $("#card-form").load('./form-create-account.html');
+        });
+
+        $("#formLogin").on("submit", function(event) {
+            event.preventDefault();
+            var email = $('#loginEmail').val();
+            var password = $('#loginPassword').val();
+
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'login',
+                    email: email,
+                    password: password
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode == 200) {
+                        location.href = "../login/index.php";
+                    } else if (dataResult.statusCode == 201) {
+                        $("#error").show();
+                        $('#error').html('Invalid Email Address or Password!');
+                    } else if (dataResult.statusCode == 5000) {
+                        $('#infoModal').modal('toggle');
+                    }
+                }
+            });
+        });
     });
 </script>
-

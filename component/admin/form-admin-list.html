@@ -1,11 +1,11 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css" />
 <script src="./../../common/vendor/datatables/jquery.dataTables.js"></script>
 
-<!-- Page Heading -->
+
 <h1 class="h3 mb-2 text-gray-800">Admin Accounts</h1>
 <p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto nam delectus facilis veniam ea iusto officiis odit maxime, inventore nihil.</p>
 
-<!-- DataTales Example -->
+
 <div class="card shadow mb-4">
     <div class="card-header">
         <div class="row justify-content-between">
@@ -13,7 +13,7 @@
                 <h6 class="m-0 font-weight-bold text-primary align-middle mt-2">Admin List</h6>
             </div>
             <div class="col-2 text-right">
-                <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#adminNewModal"><i class="fas fa-plus"></i> Add New Admin</button>
+                <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-new-admin"><i class="fas fa-plus"></i> Add New Admin</button>
             </div>
         </div>
     </div>
@@ -49,60 +49,59 @@
     </div>
 </div>
 
-<div class="modal fade" id="adminInfoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal-info-admin" tabindex="-1" role="dialog" aria-labelledby="modal-info-admin" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Admin Information</h5>
+                <h5 class="modal-title">Admin Information</h5>
             </div>
             <div class="modal-body">
                 <div class="row">
                     <div class="col-lg-12">
-                        <b>Admin ID:</b> <label for="" id="mAdminID"></label>
+                        <b>Admin ID:</b> <label for="" id="modal-body-admin-id"></label>
                     </div>
                     <div class="col-lg-12">
-                        <b>Name:</b> <label for="" id="mName"></label>
+                        <b>Name:</b> <label for="" id="modal-body-admin-name"></label>
                     </div>
                     <div class="col-lg-12">
-                        <b>Username:</b> <label for="" id="mUsername"></label>
+                        <b>Username:</b> <label for="" id="modal-body-admin-user-name"></label>
                     </div>
                     <div class="col-lg-12">
-                        <b>Email:</b> <label for="" id="mEmail"></label>
+                        <b>Email:</b> <label for="" id="modal-body-admin-email"></label>
                     </div>
                 </div>
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" id="btnClose">Close</button>
-                <!-- <button type="button" class="btn btn-success" id="btnApprove" >Approve</button> -->
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="button-close">Close</button>
             </div>
         </div>
     </div>
 </div>
 
-<div class="modal fade" id="adminEditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal-edit-admin" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Update Admin Information</h5>
+                <h5 class="modal-title">Update Admin Information</h5>
             </div>
             <div class="modal-body">
                 <div class="row form">
                     <div class="col-lg-12">
-                        <b>Admin ID: </b> <label for="" id="meAdminID"></label>
+                        <b>Admin ID: </b> <label for="" id="modal-body-edit-admin-id"></label>
                     </div>
                     <div class="col-lg-12">
-                        <b>Name: </b> <label for="" id="meName"></label>
+                        <b>Name: </b> <label for="" id="modal-body-edit-name"></label>
                     </div>
                     <div class="col-lg-12">
-                        <b>Username: </b> <label for="" id="meUsername"></label>
+                        <b>Username: </b> <label for="" id="modal-body-edit-user-name"></label>
                     </div>
                     <div class="col-lg-12">
-                        <b>Email: </b> <label for="" id="meEmail"></label>
+                        <b>Email: </b> <label for="" id="modal-body-edit-email"></label>
                     </div>
                     <div class="col-lg-12">
                         <b>Status: </b>
-                        <select class="form-control" class="dropdown" id="meStatus" required>
+                        <select class="form-control" class="dropdown" id="modal-body-edit-status" required>
                         <option value="0">Inactive</option>
                         <option value="1">Active</option>
                     </select>
@@ -110,89 +109,89 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" id="btnClose">Close</button>
-                <button type="button" class="btn btn-primary" id="btnUpdate">Update</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="button-close">Close</button>
+                <button type="button" class="btn btn-primary" id="button-update">Update</button>
             </div>
         </div>
     </div>
 </div>
 
-<div class="modal fade" id="adminDeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal-delete-admin" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Delete Admin Information</h5>
+                <h5 class="modal-title">Delete Admin Information</h5>
             </div>
             <div class="modal-body">
                 <div class="row form">
                     <div class="col-lg-12">
-                        <b>Admin ID: </b> <label for="" id="mdAdminID"></label>
+                        <b>Admin ID: </b> <label for="" id="modal-body-delete-admin-id"></label>
                     </div>
                     <div class="col-lg-12">
-                        <b>Name: </b> <label for="" id="mdName"></label>
+                        <b>Name: </b> <label for="" id="modal-body-delete-name"></label>
                     </div>
                     <div class="col-lg-12">
-                        <b>Username: </b> <label for="" id="mdUsername"></label>
+                        <b>Username: </b> <label for="" id="modal-body-delete-user-name"></label>
                     </div>
                     <div class="col-lg-12">
-                        <b>Email: </b> <label for="" id="mdEmail"></label>
+                        <b>Email: </b> <label for="" id="modal-body-delete-email"></label>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" id="btnClose">Close</button>
-                <button type="button" class="btn btn-danger" id="btnDelete">Delete</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="button-close">Close</button>
+                <button type="button" class="btn btn-danger" id="button-delete">Delete</button>
             </div>
         </div>
     </div>
 </div>
 
-<div class="modal fade" id="adminNewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal-new-admin" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add New Admin</h5>
+                <h5 class="modal-title">Add New Admin</h5>
             </div>
             <div class="modal-body">
-                <form id="formAdminCreateAccount" class="needs-validation" novalidate>
+                <form id="form-admin-create-account" class="needs-validation" novalidate>
                     <div class="form-outline mb-2">
-                        <label class="form-label" for="inputName">Full name</label>
-                        <input type="text" id="inputName" class="form-control" placeholder="Enter Full name" required/>
+                        <label class="form-label" for="input-name">Full name</label>
+                        <input type="text" id="input-name" class="form-control" placeholder="Enter Full name" required/>
                         <div class="invalid-feedback">
-                            Lorem ipsum dolor sit amet.
+
                         </div>
                     </div>
 
                     <div class="form-outline mb-2">
-                        <label class="form-label" for="inputEmail">Email address</label>
-                        <input type="email" id="inputEmail" class="form-control" placeholder="Enter email address" required/>
-                        <div class="invalid-feedback" id="htEmail">
-                            Lorem ipsum dolor sit amet.
+                        <label class="form-label" for="input-email">Email address</label>
+                        <input type="email" id="input-email" class="form-control" placeholder="Enter email address" required/>
+                        <div class="invalid-feedback" id="helpertext-email">
+
                         </div>
                     </div>
 
                     <div class="form-outline mb-2">
-                        <label class="form-label" for="inputUsername">User name</label>
-                        <input type="text" id="inputUsername" class="form-control" placeholder="Enter user name" required/>
-                        <div class="invalid-feedback" id="htUsername">
-                            Lorem ipsum dolor sit amet.
+                        <label class="form-label" for="input-username">User name</label>
+                        <input type="text" id="input-username" class="form-control" placeholder="Enter user name" required/>
+                        <div class="invalid-feedback" id="helpertext-username">
+
                         </div>
                     </div>
 
                     <!-- Password input -->
                     <div class="form-outline mb-2">
-                        <label class="form-label" for="inputPassword">Password</label>
-                        <input type="password" id="inputPassword" class="form-control " placeholder="Enter Password" required/>
+                        <label class="form-label" for="input-password">Password</label>
+                        <input type="password" id="input-password" class="form-control " placeholder="Enter Password" required/>
                         <div class="invalid-feedback">
-                            Lorem ipsum dolor sit amet.
+
                         </div>
                     </div>
 
                     <div class="form-outline mb-4">
-                        <label class="form-label" for="inputConfirmPassword">Confirm Password</label>
-                        <input type="password" id="inputConfirmPassword" class="form-control " placeholder="Enter Confirm Password" required/>
+                        <label class="form-label" for="input-confirm-password">Confirm Password</label>
+                        <input type="password" id="input-confirm-password" class="form-control " placeholder="Enter Confirm Password" required/>
                         <div class="invalid-feedback">
-                            Lorem ipsum dolor sit amet.
+
                         </div>
                     </div>
 
@@ -202,7 +201,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" id="btnClose">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="button-close">Close</button>
             </div>
         </div>
     </div>
@@ -213,40 +212,40 @@
         var adminList;
         retrieveAdminList();
 
-        $('#adminNewModal').on('shown.bs.modal', function() {
-            var email = $('#inputEmail').val('');
-            var username = $('#inputUsername').val('');
-            var name = $('#inputName').val('');
-            var password = $('#inputPassword').val('');
-            var confirmPassword = $('#inputConfirmPassword').val('');
+        $('#modal-new-admin').on('shown.bs.modal', function() {
+            var email = $('#input-email').val('');
+            var username = $('#input-username').val('');
+            var name = $('#input-name').val('');
+            var password = $('#input-password').val('');
+            var confirmPassword = $('#input-confirm-password').val('');
         });
 
-        $("#btnUpdate").on('click', function() {
-            var adminID = $('#meAdminID').html();
-            var status = $('#meStatus').val();
+        $("#button-update").on('click', function() {
+            var adminID = $('#modal-body-edit-admin-id').html();
+            var status = $('#modal-body-edit-status').val();
             updateAccountStatus(adminID, status);
-            $('#adminEditModal').modal('toggle');
+            $('#modal-edit-admin').modal('toggle');
         });
 
-        $("#btnDelete").on('click', function() {
-            var adminID = $('#mdAdminID').html();
+        $("#button-delete").on('click', function() {
+            var adminID = $('#modal-body-delete-admin-id').html();
             updateAccountStatus(adminID, '2');
-            $('#adminDeleteModal').modal('toggle');
+            $('#modal-delete-admin').modal('toggle');
         });
 
-        $("#dataTable").on('click', '.btnSelect', function() {
+        $("#dataTable").on('click', '.button-select', function() {
             var currentRow = $(this).closest("tr");
             var adminID = currentRow.find("td:eq(0)").html();
             $.each(adminList, function(key, admin) {
                 console.log(admin);
                 console.log(adminID == admin['adminID']);
                 if (adminID == admin['adminID']) {
-                    $('#mAdminID').html(admin['adminID']);
-                    $('#mName').html(admin['name']);
-                    $('#mUsername').html(admin['username']);
-                    $('#mEmail').html(admin['email']);
-                    $('#mPicture').html(admin['picture']);
-                    $('#adminInfoModal').modal('toggle');
+                    $('#modal-body-admin-id').html(admin['adminID']);
+                    $('#modal-body-admin-name').html(admin['name']);
+                    $('#modal-body-admin-user-name').html(admin['username']);
+                    $('#modal-body-admin-email').html(admin['email']);
+                    $('#modal-info-picture').html(admin['picture']);
+                    $('#modal-info-admin').modal('toggle');
                     return;
                 }
             });
@@ -259,60 +258,60 @@
                 console.log(admin);
                 console.log(adminID == admin['adminID']);
                 if (adminID == admin['adminID']) {
-                    $('#meAdminID').html(admin['adminID']);
-                    $('#meName').html(admin['name']);
-                    $('#meUsername').html(admin['username']);
-                    $('#meEmail').html(admin['email']);
-                    $("#meStatus").val(admin['status']).change();
-                    $('#adminEditModal').modal('toggle');
+                    $('#modal-body-edit-admin-id').html(admin['adminID']);
+                    $('#modal-body-edit-name').html(admin['name']);
+                    $('#modal-body-edit-user-name').html(admin['username']);
+                    $('#modal-body-edit-email').html(admin['email']);
+                    $("#modal-body-edit-status").val(admin['status']).change();
+                    $('#modal-edit-admin').modal('toggle');
                     return;
                 }
             });
         });
 
-        $("#dataTable").on('click', '.btnDelete', function() {
+        $("#dataTable").on('click', '.button-delete', function() {
             var currentRow = $(this).closest("tr");
             var adminID = currentRow.find("td:eq(0)").html();
             $.each(adminList, function(key, admin) {
                 console.log(admin);
                 console.log(adminID == admin['adminID']);
                 if (adminID == admin['adminID']) {
-                    $('#mdAdminID').html(admin['adminID']);
-                    $('#mdName').html(admin['name']);
-                    $('#mdUsername').html(admin['username']);
-                    $('#mdEmail').html(admin['email']);
-                    $('#adminDeleteModal').modal('toggle');
+                    $('#modal-body-delete-admin-id').html(admin['adminID']);
+                    $('#modal-body-delete-name').html(admin['name']);
+                    $('#modal-body-delete-user-name').html(admin['username']);
+                    $('#modal-body-delete-email').html(admin['email']);
+                    $('#modal-delete-admin').modal('toggle');
                     return;
                 }
             });
         });
 
-        $("#formAdminCreateAccount").on("submit", function(event) {
+        $("#form-admin-create-account").on("submit", function(event) {
             event.preventDefault();
             var hasError = false;
-            var email = $('#inputEmail').val();
-            var username = $('#inputUsername').val();
-            var name = $('#inputName').val();
-            var password = $('#inputPassword').val();
-            var confirmPassword = $('#inputConfirmPassword').val();
+            var email = $('#input-email').val();
+            var username = $('#input-username').val();
+            var name = $('#input-name').val();
+            var password = $('#input-password').val();
+            var confirmPassword = $('#input-confirm-password').val();
             let regex = /[a-zA-Z0-9.-]+@bulsu\.edu\.ph/i;
 
             if (password != confirmPassword) {
-                $("#inputPassword").addClass('is-invalid');
-                $("#inputConfirmPassword").addClass('is-invalid');
+                $("#input-password").addClass('is-invalid');
+                $("#input-confirm-password").addClass('is-invalid');
                 $("#btnCreateAccount").removeAttr("disabled", "disabled");
                 hasError = true;
             } else {
-                $("#inputPassword").removeClass('is-invalid');
-                $("#inputConfirmPassword").removeClass('is-invalid');
+                $("#input-password").removeClass('is-invalid');
+                $("#input-confirm-password").removeClass('is-invalid');
             }
 
             if (!regex.test(email)) {
-                $("#htEmail").html("Invalid email format, please us your BULSU email");
-                $("#inputEmail").addClass('is-invalid');
+                $("#helpertext-email").html("Invalid email format, please us your BULSU email");
+                $("#input-email").addClass('is-invalid');
                 hasError = true;
             } else {
-                $("#inputEmail").removeClass('is-invalid');
+                $("#input-email").removeClass('is-invalid');
             }
 
             if (!hasError) {
@@ -332,22 +331,22 @@
                         var dataResult = JSON.parse(dataResult);
 
                         if (dataResult.statusCode.includes(5002)) {
-                            $("#htUsername").html("This username was already been used!");
-                            $("#inputUsername").addClass('is-invalid');
+                            $("#helpertext-username").html("This username was already been used!");
+                            $("#input-username").addClass('is-invalid');
                         } else {
-                            $("#inputUsername").removeClass('is-invalid');
+                            $("#input-username").removeClass('is-invalid');
                         }
 
                         if (dataResult.statusCode.includes(5003)) {
-                            $("#htEmail").html("This email was already been used!");
-                            $("#inputEmail").addClass('is-invalid');
+                            $("#helpertext-email").html("This email was already been used!");
+                            $("#input-email").addClass('is-invalid');
                         } else {
-                            $("#inputEmail").removeClass('is-invalid');
+                            $("#input-email").removeClass('is-invalid');
                         }
 
                         if (dataResult.statusCode.includes(200)) {
                             retrieveAdminList();
-                            $('#adminNewModal').modal('toggle');
+                            $('#modal-new-admin').modal('toggle');
                         } else if (dataResult.statusCode.includes(201)) {
                             alert("error");
                         }
@@ -392,7 +391,7 @@
                                 populateTableData(admin['adminID']),
                                 populateTableData(admin['name']),
                                 populateTableData(admin['email']),
-                                populateTableData("<a class='btnSelect btn btn-sm btn-primary'><i class='fas fa-eye'></i></a> | <a class='btnEdit btn btn-sm btn-success'><i class='fas fa-edit' data-toggle='adminEditModal'></i></a> | <a class='btnDelete btn btn-sm btn-danger'><i class='fas fa-trash fa-cog'></i></a>"),
+                                populateTableData("<a class='button-select btn btn-sm btn-primary'><i class='fas fa-eye'></i></a> | <a class='btnEdit btn btn-sm btn-success'><i class='fas fa-edit' data-toggle='modal-edit-admin'></i></a> | <a class='button-delete btn btn-sm btn-danger'><i class='fas fa-trash fa-cog'></i></a>"),
                                 "</tr>");
                         });
                     } else {

@@ -46,28 +46,28 @@ include '../../common/session.php';
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
-                            <a class="nav-link text-white" href="#" id="nmForum">Forum <span class="sr-only">(current)</span></a>
+                            <a class="nav-link text-white" href="#" id="nav-menu-forum">Forum <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" id="nmLearntoCode" href="#">Learn to Code</a>
+                            <a class="nav-link text-white" id="nav-menu-learn-to-code" href="#">Learn to Code</a>
                         </li>
 
                         <div class="topbar-divider d-none d-sm-block"></div>
 
-                        <!-- Nav Item - User Information -->
+                        
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown-user" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img class="img-profile rounded-circle" src="./../../common/img/undraw_profile.svg">
                                 <b><span class="ml-2 d-none d-lg-inline text-white"><?php echo $_SESSION['user_name']; ?></span></b>
 
                             </a>
-                            <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                <a class="dropdown-item" id="sbProfile">
+                            
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="dropdown-user">
+                                <a class="dropdown-item" id="nav-menu-profile">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-logout">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Logout
                                 </a>
                             </div>
@@ -112,11 +112,11 @@ include '../../common/session.php';
     </a>
 
     <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modal-logout" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" >Ready to Leave?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
@@ -157,11 +157,11 @@ include '../../common/session.php';
 
         $("#main-container").load('./forum.html');
 
-        $("#nmLearntoCode").click(function() {
+        $("#nav-menu-learn-to-code").click(function() {
             $("#main-container").load('./learn-to-code.html');
         });
 
-        $("#nmForum").click(function() {
+        $("#nav-menu-forum").click(function() {
             $("#main-container").load('./forum.html');
         });
 
@@ -212,7 +212,7 @@ include '../../common/session.php';
             $("#admin-container").load('./form-report-student.html');
         });
 
-        $('#sbProfile').on('click', function() {
+        $('#nav-menu-profile').on('click', function() {
             $("#admin-container").load('./form-profile.html');
         });
 
@@ -256,7 +256,7 @@ include '../../common/session.php';
                 success: function(dataResult) {
                     var dataResult = JSON.parse(dataResult);
                     if (dataResult.statusCode == 200) {
-                        location.href = "../login/login.php";
+                        location.href = "../login/index.php";
                     } else if (dataResult.statusCode == 201) {
                         $("#error").show();
                         $('#error').html('Invalid Email Address or Password!');

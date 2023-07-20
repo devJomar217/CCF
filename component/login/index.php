@@ -10,7 +10,6 @@ include '../../common/session.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Connect</title>
     <link rel="stylesheet" href="./../../common/vendor/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="./login.css">
 </head>
 
 <body style="background-color: rgb(245, 245, 245)">
@@ -55,9 +54,13 @@ include '../../common/session.php';
 <script src="./../../common/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="./../../common/common.js"></script>
 <!-- <script src="common/db.js"></script> -->
-
 <script>
     $(document).ready(function() {
+        const queryString = window.location.search;
+        console.log(queryString);
+        const urlParams = new URLSearchParams(queryString);
+        console.log(urlParams);
+
         $("#card-form").load('./form-login.html');
     });
 </script>

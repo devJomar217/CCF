@@ -5,69 +5,68 @@ Chart.defaults.global.defaultFontColor = '#858796';
 // Pie Chart Example
 
 
-function createPieChart(id, labels, data){
-  var ctx = document.getElementById(id);
-  new Chart(ctx, {
-    type: 'doughnut',
-    data: {
-      labels: labels,
-      datasets: [{
-        data: data,
-        backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', 'red'],
-        hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
-        hoverBorderColor: "rgba(234, 236, 244, 1)",
-      }],
-    },
-    options: {
-      maintainAspectRatio: false,
-      tooltips: {
-        backgroundColor: "rgb(255,255,255)",
-        bodyFontColor: "#858796",
-        borderColor: '#dddfeb',
-        borderWidth: 1,
-        xPadding: 15,
-        yPadding: 15,
-        displayColors: false,
-        caretPadding: 10,
-      },
-      legend: {
-        display: false
-      },
-      cutoutPercentage: 80,
-    },
-  });
+function createPieChart(id, labels, data) {
+    var ctx = document.getElementById(id);
+    new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: labels,
+            datasets: [{
+                data: data,
+                backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', 'red'],
+                hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
+                hoverBorderColor: "rgba(234, 236, 244, 1)",
+            }],
+        },
+        options: {
+            maintainAspectRatio: false,
+            tooltips: {
+                backgroundColor: "rgb(255,255,255)",
+                bodyFontColor: "#858796",
+                borderColor: '#dddfeb',
+                borderWidth: 1,
+                xPadding: 15,
+                yPadding: 15,
+                displayColors: false,
+                caretPadding: 10,
+            },
+            legend: {
+                display: false
+            },
+            cutoutPercentage: 80,
+        },
+    });
 }
 
 
 
-var ctxSubject = document.getElementById("subjectChart");
+var ctxSubject = document.getElementById("subject-chart");
 var subjectChart = new Chart(ctxSubject, {
-  type: 'doughnut',
-  data: {
-    labels: [ "Answered", "Unanswered"],
-    datasets: [{
-      data: [55, 10],
-      backgroundColor: [ '#1cc88a',  'red'],
-      hoverBackgroundColor: ['#2e59d9', '#2c9faf'],
-      hoverBorderColor: "rgba(234, 236, 244, 1)",
-    }],
-  },
-  options: {
-    maintainAspectRatio: false,
-    tooltips: {
-      backgroundColor: "rgb(255,255,255)",
-      bodyFontColor: "#858796",
-      borderColor: '#dddfeb',
-      borderWidth: 1,
-      xPadding: 15,
-      yPadding: 15,
-      displayColors: false,
-      caretPadding: 10,
+    type: 'doughnut',
+    data: {
+        labels: ["Answered", "Unanswered"],
+        datasets: [{
+            data: [55, 10],
+            backgroundColor: ['#1cc88a', 'red'],
+            hoverBackgroundColor: ['#2e59d9', '#2c9faf'],
+            hoverBorderColor: "rgba(234, 236, 244, 1)",
+        }],
     },
-    legend: {
-      display: false
+    options: {
+        maintainAspectRatio: false,
+        tooltips: {
+            backgroundColor: "rgb(255,255,255)",
+            bodyFontColor: "#858796",
+            borderColor: '#dddfeb',
+            borderWidth: 1,
+            xPadding: 15,
+            yPadding: 15,
+            displayColors: false,
+            caretPadding: 10,
+        },
+        legend: {
+            display: false
+        },
+        cutoutPercentage: 80,
     },
-    cutoutPercentage: 80,
-  },
 });
-

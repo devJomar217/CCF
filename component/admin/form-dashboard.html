@@ -1,19 +1,15 @@
 <script src="../../common/vendor/chart.js/Chart.min.js">
 </script>
-<!-- Page level custom scripts -->
 <script src="./../../common/js/chart-area.js"></script>
 <script src="./../../common/js/chart-pie.js"></script>
-<!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
     <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
             class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
 </div>
 
-<!-- Content Row -->
 <div class="row">
 
-    <!-- Earnings (Monthly) Card Example -->
     <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-primary shadow h-100 py-2">
             <div class="card-body">
@@ -21,7 +17,7 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                             Student</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="dbStudent"></div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="dashboard-student"></div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-users fa-2x text-gray-300"></i>
@@ -31,7 +27,6 @@
         </div>
     </div>
 
-    <!-- Earnings (Monthly) Card Example -->
     <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-success shadow h-100 py-2">
             <div class="card-body">
@@ -39,7 +34,7 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                             Question</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="dbQuestion"></div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="dashboard-question"></div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-question fa-2x text-gray-300"></i>
@@ -57,7 +52,7 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                             Answer</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="dbAnswer"></div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="dashboard-answer"></div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -75,7 +70,7 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                             Student Account Request</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="dbStudentAccountRequest"></div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="dashboard-student-account-request"></div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-clipboard fa-2x text-gray-300"></i>
@@ -143,7 +138,7 @@
             <!-- Card Body -->
             <div class="card-body">
                 <div class="chart-pie pt-4 pb-2">
-                    <canvas id="myPieChart"></canvas>
+                    <canvas id="pie-chart"></canvas>
                 </div>
                 <div class="mt-4 text-center small">
                     <span class="mr-2">
@@ -180,7 +175,7 @@
                     <div class="col-lg-6">
                         <div class="row align-middle">
                             <div class="col-lg-12">
-                                <select class="form-control" class="dropdown" id="inputYearLevel" required>
+                                <select class="form-control" class="dropdown" id="input-subject" required>
                                     <option value="">All</option>
                                     <option value="1">Java</option>
                                     <option value="2">React</option>
@@ -219,7 +214,7 @@
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-primary">Question</h6>
                 <div class="dropdown no-arrow">
-                    <select class="form-control" class="dropdown" id="inputYearLevel" required>
+                    <select class="form-control" class="dropdown" id="input-subject" required>
                         <option value="">All</option>
                         <option value="1">Java</option>
                         <option value="2">React</option>
@@ -231,7 +226,7 @@
             <!-- Card Body -->
             <div class="card-body">
                 <div class="chart-pie pt-4 pb-2">
-                    <canvas id="subjectChart"></canvas>
+                    <canvas id="subject-chart"></canvas>
                 </div>
                 <div class="mt-4 text-center small">
                     <span class="mr-2">
@@ -260,17 +255,17 @@
                 cache: false,
                 success: function(dataResult) {
                     var dataResult = JSON.parse(dataResult);
-                    $("#dbStudentAccountRequest").html(dataResult.student.pending);
-                    $("#dbStudent").html(dataResult.student.active);
-                    $("#dbQuestion").html(dataResult.forum.question);
-                    $("#dbAnswer").html(dataResult.forum.answer);
+                    $("#dashboard-student-account-request").html(dataResult.student.pending);
+                    $("#dashboard-student").html(dataResult.student.active);
+                    $("#dashboard-question").html(dataResult.forum.question);
+                    $("#dashboard-answer").html(dataResult.forum.answer);
                     var studentData = [dataResult.student.firstYear, dataResult.student.secondYear, dataResult.student.thirdYear, dataResult.student.fourthYear];
                     var studentLabels = ["First Year", "Second Year", "Third Year", "Fourth Year"];
-                    createPieChart("myPieChart", studentLabels, studentData);
+                    createPieChart("pie-chart", studentLabels, studentData);
 
                     var questionData = [dataResult.forum.unanswered, dataResult.forum.answered];
                     var questionLabels = ["Unanswered", "Answered"];
-                    createPieChart("subjectChart", questionLabels, questionData);
+                    createPieChart("subject-chart", questionLabels, questionData);
                 }
             });
         }

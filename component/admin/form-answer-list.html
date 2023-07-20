@@ -1,11 +1,9 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css" />
 <script src="./../../common/vendor/datatables/jquery.dataTables.js"></script>
 
-<!-- Page Heading -->
 <h1 class="h3 mb-2 text-gray-800">Answer List</h1>
 <p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto nam delectus facilis veniam ea iusto officiis odit maxime, inventore nihil.</p>
 
-<!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">List of Answer</h6>
@@ -42,42 +40,42 @@
     </div>
 </div>
 
-<div class="modal fade" id="answerInfoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal-info-answer" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Answer Information</h5>
+                <h5 class="modal-title">Answer Information</h5>
             </div>
             <div class="modal-body">
                 <div class="row">
                     <div class="col-lg-12">
-                        <b>Picture:</b> <label for="" id="mPicture"></label>
+                        <b>Picture:</b> <label for="" id="modal-info-picture"></label>
                     </div>
 
                     <div class="col-lg-12">
-                        <b>Answer ID:</b> <label for="" id="mAnswerID"></label>
+                        <b>Answer ID:</b> <label for="" id="modal-info-answer-id"></label>
                     </div>
                     <div class="col-lg-12">
-                        <b>Name:</b> <label for="" id="mName"></label>
+                        <b>Name:</b> <label for="" id="modal-info-name"></label>
                     </div>
                     <div class="col-lg-12">
-                        <b>Year Level:</b> <label for="" id="mYearLevel"></label>
+                        <b>Year Level:</b> <label for="" id="modal-info-year-level"></label>
                     </div>
                     <div class="col-lg-12">
-                        <b>Specialization:</b> <label for="" id="mSpecialization"></label>
+                        <b>Specialization:</b> <label for="" id="modal-info-specialization"></label>
                     </div>
                     <div class="col-lg-12">
-                        <b>Username:</b> <label for="" id="mUsername"></label>
+                        <b>Username:</b> <label for="" id="modal-info-user-name"></label>
                     </div>
                     <div class="col-lg-12">
-                        <b>email:</b> <label for="" id="mEmail"></label>
+                        <b>email:</b> <label for="" id="modal-info-email"></label>
                     </div>
                 </div>
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" id="btnReject">Reject</button>
-                <button type="button" class="btn btn-success" id="btnApprove">Approve</button>
+                <button type="button" class="btn btn-danger" id="button-reject">Reject</button>
+                <button type="button" class="btn btn-success" id="button-approve">Approve</button>
             </div>
         </div>
     </div>
@@ -88,38 +86,38 @@
         var answerList;
         retrieveAnswerRequestList();
 
-        $("#btnReject").on('click', function() {
-            var answerID = $('#mAnswerID').html();
+        $("#button-reject").on('click', function() {
+            var answerID = $('#modal-info-answer-id').html();
             updateAccountStatus(answerID, '1');
         });
 
-        $("#btnApprove").on('click', function() {
-            var answerID = $('#mAnswerID').html();
+        $("#button-approve").on('click', function() {
+            var answerID = $('#modal-info-answer-id').html();
             updateAccountStatus(answerID, '-1');
         });
 
         // code to read selected table row cell data (values).
-        $("#dataTable").on('click', '.btnSelect', function() {
+        $("#dataTable").on('click', '.button-select', function() {
             var currentRow = $(this).closest("tr");
             var answerID = currentRow.find("td:eq(0)").html();
             $.each(answerList, function(key, answer) {
                 console.log(answer);
                 console.log(answerID == answer['answerID']);
                 if (answerID == answer['answerID']) {
-                    $('#mAnswerID').html(answer['answerID']);
-                    $('#mName').html(answer['name']);
-                    $('#mYearLevel').html(answer['yearLevel']);
-                    $('#mSpecialization').html(answer['specialization']);
-                    $('#mUsername').html(answer['username']);
-                    $('#mEmail').html(answer['email']);
-                    $('#mPicture').html(answer['picture']);
-                    $('#answerInfoModal').modal('toggle');
+                    $('#modal-info-answer-id').html(answer['answerID']);
+                    $('#modal-info-name').html(answer['name']);
+                    $('#modal-info-year-level').html(answer['yearLevel']);
+                    $('#modal-info-specialization').html(answer['specialization']);
+                    $('#modal-info-user-name').html(answer['username']);
+                    $('#modal-info-email').html(answer['email']);
+                    $('#modal-info-picture').html(answer['picture']);
+                    $('#modal-info-answer').modal('toggle');
                     return;
                 }
             });
         });
 
-        $('#sbAnswerAccountRequest').on('click', function() {
+        $('#sidebar-answer-account-request').on('click', function() {
             $("#admin-container").load('./answer-account-request.html');
         });
 
@@ -146,7 +144,7 @@
                     } else {
                         alert("Failed");
                     }
-                    $('#answerInfoModal').modal('toggle');
+                    $('#modal-info-answer').modal('toggle');
                     $('#dataTable').DataTable();
                 }
             });
@@ -178,7 +176,7 @@
                                 "<td>" + answer['creationDateTime'] + "</td>" +
                                 "<td>" + answer['answer'] + "</td>" +
                                 "<td>" + rating + "</td>" +
-                                "<td><a class='btnSelect' data-id='" + answerID + "'><i class='fas fa-eye fa-cog'></a></i></td>" +
+                                "<td><a class='button-select' data-id='" + answerID + "'><i class='fas fa-eye fa-cog'></a></i></td>" +
                                 "</tr>";
                         });
                         $("#tableBody").html(answerData);

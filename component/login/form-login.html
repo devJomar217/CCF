@@ -1,5 +1,4 @@
-<form id="formLogin">
-    <!-- 2 column grid layout with text inputs for the first and last names -->
+<form id="form-login">
     <div class="row">
         <div class="col-md-6 mb-4">
             <h2>Login</h2>
@@ -10,60 +9,49 @@
         <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
     </div>
 
-    <!-- Email input -->
     <div class="form-outline mb-4">
-        <input type="text" id="loginEmail" class="form-control" placeholder="Enter Username or Email address" required/>
-        <label class="form-label" for="form3Example3">Email address</label>
+        <input type="text" id="input-email" class="form-control" placeholder="Enter Email Address or Username" autocomplete="email" required/>
+        <label class="form-label" for="input-email">Email address</label>
     </div>
 
-    <!-- Password input -->
     <div class="form-outline mb-4">
-        <input type="password" id="loginPassword" class="form-control" placeholder="Enter password" required/>
-        <label class="form-label" for="form3Example4">Password</label>
+        <input type="password" id="input-password" class="form-control" placeholder="Enter password" autocomplete="current-password" required/>
+        <label class="form-label" for="input-password">Password</label>
     </div>
 
-    <!-- Checkbox -->
     <div class="form-check d-flex justify-content-between mb-4">
         <div>
-            <input class="form-check-input me-2" type="checkbox" value="" id="inputRemember" />
-            <label class="form-check-label" for="form2Example33">
-    Remember me
-    </label>
+            <input class="form-check-input me-2" type="checkbox" value="" id="checkbox-remember-me" />
+            <label class="form-check-label" for="checkbox-remember-me">Remember me</label>
         </div>
-
-
-        <a href="#" id="btnForgotPassword">Forgot password?</a>
+        <a href="#" id="a-forgot-password">Forgot password?</a>
     </div>
 
     <!-- Submit button -->
-    <button type="submit" id="btnLogin" class="btn btn-primary btn-block mb-4 w-100">
+    <button type="submit" id="button-login" class="btn btn-primary btn-block mb-4 w-100">
   Login
   </button>
 
     <div class="form-check d-flex justify-content-center mb-2">
-        <label class="form-check-label" for="form2Example33">
-    - OR -
-  </label>
+        <label class="form-check-label">- OR -</label>
     </div>
     <div class="form-check d-flex justify-content-center mb-2">
-        <a href="#" id="btnCreateAccount" class="">
-    Create Account
-  </a>
+        <a href="#" id="button-create-account" class="">Create Account</a>
     </div>
 </form>
 
 
-<div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal-info" tabindex="-1" role="dialog" aria-labelledby="modal-info" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Info</h5>
+                <h5 class="modal-title">Info</h5>
             </div>
             <div class="modal-body">
                 You account is still under review, please try again later.
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn close" id="btnModalClose" data-dismiss="modal">Close</button>
+                <button type="button" class="btn close" id="button-modal-close" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
@@ -71,16 +59,22 @@
 
 <script>
     $(document).ready(function() {
+        var eEmail = $('#input-email');
+        var ePassword = $('#input-password');
+        var eRemember = $('#checkbox-remember-me');
+        var eError = $('#error');
+        var eModalInfo = $('#modal-info');
+
         if ($.cookie("remember") == 1) {
-            $('#loginEmail').val($.cookie("email"));
-            $('#loginPassword').val(decrypt($.cookie("key")));
-            $('#inputRemember').attr('checked', true);
+            eEmail.val($.cookie("email"));
+            ePassword.val(decrypt($.cookie("key")));
+            eRemember.attr('checked', true);
         }
 
-        $('#inputRemember').change(function() {
+        eRemember.change(function() {
             if (this.checked) {
-                var email = $('#loginEmail').val();
-                var password = $('#loginPassword').val();
+                var email = eEmail.val();
+                var password = ePassword.val();
                 addCookie('email', email);
                 addCookie('key', encrypt(password));
                 addCookie('remember', 1);
@@ -93,22 +87,25 @@
             }
         });
 
-        $('#btnModalClose').on('click', function() {
-            $('#infoModal').modal('toggle');
+        $('#button-modal-close').on('click', function() {
+            eModalInfo.modal('toggle');
         });
 
-        $('#btnForgotPassword').on('click', function() {
+        $('#a-forgot-password').on('click', function() {
             $("#card-form").load('./form-forgot-password.html');
         });
 
-        $('#btnCreateAccount').on('click', function() {
+        $('#button-create-account').on('click', function() {
             $("#card-form").load('./form-create-account.html');
         });
 
-        $("#formLogin").on("submit", function(event) {
+        $("#form-login").on("submit", function(event) {
             event.preventDefault();
-            var email = $('#loginEmail').val();
-            var password = $('#loginPassword').val();
+            eError.hide();
+            eEmail.removeClass("is-invalid");
+            ePassword.removeClass("is-invalid");
+            var email = eEmail.val();
+            var password = ePassword.val();
 
             $.ajax({
                 url: "../../common/db.php",
@@ -122,12 +119,14 @@
                 success: function(dataResult) {
                     var dataResult = JSON.parse(dataResult);
                     if (dataResult.statusCode == 200) {
-                        location.href = "../login/login.php";
+                        location.href = "../login/index.php";
                     } else if (dataResult.statusCode == 201) {
-                        $("#error").show();
-                        $('#error').html('Invalid Email Address or Password!');
+                        eError.show();
+                        // eError.html(ErrorMessage.INCORRECT_CREDENTIAL);
+                        eEmail.addClass("is-invalid");
+                        ePassword.addClass("is-invalid");
                     } else if (dataResult.statusCode == 5000) {
-                        $('#infoModal').modal('toggle');
+                        eModalInfo.modal('toggle');
                     }
                 }
             });

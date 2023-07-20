@@ -3,11 +3,11 @@
 <script src="./../../common/vendor/datatables/jquery.dataTables.js"></script>
 <script src="./../../common/common.js"></script>
 
-<!-- Page Heading -->
+
 <h1 class="h3 mb-2 text-gray-800">Student Account Request</h1>
 <p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto nam delectus facilis veniam ea iusto officiis odit maxime, inventore nihil.</p>
 
-<!-- DataTales Example -->
+
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">Student Account Request</h6>
@@ -40,11 +40,11 @@
     </div>
 </div>
 
-<div class="modal fade" id="studentInfoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal-info-student" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Student Information</h5>
+                <h5 class="modal-title">Student Information</h5>
             </div>
             <div class="modal-body">
                 <div class="row">
@@ -53,29 +53,29 @@
                     </div>
 
                     <div class="col-lg-12">
-                        <b>Student ID:</b> <label for="" id="mStudentID"></label>
+                        <b>Student ID:</b> <label for="" id="modal-info-student-id"></label>
                     </div>
                     <div class="col-lg-12">
-                        <b>Name:</b> <label for="" id="mName"></label>
+                        <b>Name:</b> <label for="" id="modal-info-name"></label>
                     </div>
                     <div class="col-lg-12">
-                        <b>Year Level:</b> <label for="" id="mYearLevel"></label>
+                        <b>Year Level:</b> <label for="" id="modal-info-year-level"></label>
                     </div>
                     <div class="col-lg-12">
-                        <b>Specialization:</b> <label for="" id="mSpecialization"></label>
+                        <b>Specialization:</b> <label for="" id="modal-info-specialization"></label>
                     </div>
                     <div class="col-lg-12">
-                        <b>Username:</b> <label for="" id="mUsername"></label>
+                        <b>Username:</b> <label for="" id="modal-info-user-name"></label>
                     </div>
                     <div class="col-lg-12">
-                        <b>Email:</b> <label for="" id="mEmail"></label>
+                        <b>Email:</b> <label for="" id="modal-info-email"></label>
                     </div>
                 </div>
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" id="btnReject">Reject</button>
-                <button type="button" class="btn btn-success" id="btnApprove">Approve</button>
+                <button type="button" class="btn btn-danger" id="button-reject">Reject</button>
+                <button type="button" class="btn btn-success" id="button-approve">Approve</button>
             </div>
         </div>
     </div>
@@ -86,40 +86,36 @@
         var studentList;
         retrieveStudentRequestList();
 
-        $("#btnReject").on('click', function() {
-            var studentID = $('#mStudentID').html();
+        $("#button-reject").on('click', function() {
+            var studentID = $('#modal-info-student-id').html();
             updateAccountStatus(studentID, '-1');
         });
 
-        $("#btnApprove").on('click', function() {
-            var studentID = $('#mStudentID').html();
+        $("#button-approve").on('click', function() {
+            var studentID = $('#modal-info-student-id').html();
             updateAccountStatus(studentID, '1');
         });
 
         // code to read selected table row cell data (values).
-        $("#dataTable").on('click', '.btnSelect', function() {
+        $("#dataTable").on('click', '.button-select', function() {
             var currentRow = $(this).closest("tr");
             var studentID = currentRow.find("td:eq(0)").html();
             $.each(studentList, function(key, student) {
                 console.log(student);
                 console.log(studentID == student['studentID']);
                 if (studentID == student['studentID']) {
-                    $('#mStudentID').html(student['studentID']);
-                    $('#mName').html(student['name']);
-                    $('#mYearLevel').html(student['yearLevel']);
-                    $('#mSpecialization').html(student['specialization']);
-                    $('#mUsername').html(student['username']);
-                    $('#mEmail').html(student['email']);
-                    $('#mPicture').html(student['picture']);
-                    $('#studentInfoModal').modal('toggle');
+                    $('#modal-info-student-id').html(student['studentID']);
+                    $('#modal-info-name').html(student['name']);
+                    $('#modal-info-year-level').html(student['yearLevel']);
+                    $('#modal-info-specialization').html(student['specialization']);
+                    $('#modal-info-user-name').html(student['username']);
+                    $('#modal-info-email').html(student['email']);
+                    $('#modal-info-picture').html(student['picture']);
+                    $('#modal-info-student').modal('toggle');
                     return;
                 }
             });
         });
-
-        $('#sbStudentAccountRequest').on('click', function() {});
-
-
 
         function showStudentData(studentID) {
             alert(studentID);
@@ -140,7 +136,7 @@
                     if (dataResult.statusCode != 200) {
                         alert("There some error during the deletion, please try again later!");
                     }
-                    $('#studentInfoModal').modal('toggle');
+                    $('#modal-info-student').modal('toggle');
                     retrieveStudentRequestList();
                 }
             });
@@ -164,7 +160,7 @@
                                 populateTableData(student['name']),
                                 populateTableData(student['yearLevel']),
                                 populateTableData(student['email']),
-                                populateTableData("<a class='btnSelect btn btn-sm btn-primary'><i class='fas fa-eye'></i></a>"),
+                                populateTableData("<a class='button-select btn btn-sm btn-primary'><i class='fas fa-eye'></i></a>"),
                                 "</tr>");
                         });
                     } else {

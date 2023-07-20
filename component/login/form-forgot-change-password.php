@@ -20,8 +20,8 @@
                         <div class="card">
                             <div class="card-body py-5 px-md-5 " id="login-form">
                                 <div>
-                                    <form id="formChangePassword">
-                                        <div id="changePasswordContainer" style="display: none">
+                                    <form id="form-change-password">
+                                        <div id="container-change-password" style="display: none">
                                             <div class="row">
                                                 <div class="col-md-6 mb-4">
                                                     <h2>Forgot Password</h2>
@@ -35,19 +35,17 @@
                                             <!-- Email input -->
                                             <div class="form-outline mb-4">
                                                 <input type="password" id="password" class="form-control" placeholder="Enter New Password" required/>
-                                                <label class="form-label" for="form3Example3">New Password</label>
+                                                <label class="form-label" for="password">New Password</label>
                                             </div>
 
                                             <!-- Password input -->
                                             <div class="form-outline mb-4">
-                                                <input type="password" id="confirmPassword" class="form-control" placeholder="Enter Confirm Password" required/>
-                                                <label class="form-label" for="form3Example4">Confirm Password</label>
+                                                <input type="password" id="confirm-password" class="form-control" placeholder="Enter Confirm Password" required/>
+                                                <label class="form-label" for="confirm-password">Confirm Password</label>
                                             </div>
 
                                             <!-- Submit button -->
-                                            <button type="submit" id="btnChangePassword" class="btn btn-primary btn-block mb-4 w-100">
-                    Change Password
-                  </button>
+                                            <button type="submit" id="button-change-password" class="btn btn-primary btn-block mb-4 w-100">Change Password</button>
                                         </div>
                                     </form>
                                 </div>
@@ -76,8 +74,8 @@
         var decryptedKey = decrypt(key.substr(4));
         var userID = '';
         if (decryptedKey == "") {
-            $("#formChangePassword").html("You're not authorized to do this password change!");
-            $("#formChangePassword").addClass("text-center text-danger h5");
+            $("#form-change-password").html("You're not authorized to do this password change!");
+            $("#form-change-password").addClass("text-center text-danger h5");
         } else {
             const query = decryptedKey.split(",");
             userID = query[0];
@@ -85,22 +83,22 @@
             const date = new Date();
             date.setMinutes(date.getMinutes() - 30);
             if (date > queryDate) {
-                $("#formChangePassword").html("Session Expired!");
-                $("#formChangePassword").addClass("text-center text-warning h5");
+                $("#form-change-password").html("Session Expired!");
+                $("#form-change-password").addClass("text-center text-warning h5");
             } else {
-                $("#changePasswordContainer").removeAttr("style");
+                $("#container-change-password").removeAttr("style");
             }
             console.log("Q " + queryDate);
             console.log("V " + date);
             console.log(date < queryDate);
         }
 
-        $("#formChangePassword").on("submit", function(event) {
+        $("#form-change-password").on("submit", function(event) {
             event.preventDefault();
             var password = $('#password').val();
-            var confirmPassword = $('#confirmPassword').val();
+            var confirm-password = $('#confirm-password').val();
 
-            if (password != confirmPassword) {
+            if (password != confirm-password) {
                 $("#error").show();
                 $('#error').html("Password doesn't match!!");
                 return;
@@ -118,8 +116,8 @@
                 success: function(dataResult) {
                     var dataResult = JSON.parse(dataResult);
                     if (dataResult.statusCode == 200) {
-                        $("#formChangePassword").html("Password has been successfully changed!");
-                        $("#formChangePassword").addClass("text-center text-success h5");
+                        $("#form-change-password").html("Password has been successfully changed!");
+                        $("#form-change-password").addClass("text-center text-success h5");
                     } else {
                         $("#error").show();
                         $('#error').html('Unable to change password, please try again later.');

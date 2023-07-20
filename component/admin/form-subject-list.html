@@ -1,11 +1,9 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css" />
 <script src="./../../common/vendor/datatables/jquery.dataTables.js"></script>
 
-<!-- Page Heading -->
 <h1 class="h3 mb-2 text-gray-800">Subject List</h1>
 <p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto nam delectus facilis veniam ea iusto officiis odit maxime, inventore nihil.</p>
 
-<!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <div class="row justify-content-between">
@@ -13,7 +11,7 @@
                 <h6 class="m-0 font-weight-bold text-primary align-middle mt-2">Subject List</h6>
             </div>
             <div class="col-2 text-right">
-                <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#subjectNewModal"><i class="fas fa-plus"></i> Add New Subject</button>
+                <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-new-subject"><i class="fas fa-plus"></i> Add New Subject</button>
             </div>
         </div>
     </div>
@@ -41,60 +39,60 @@
     </div>
 </div>
 
-<div class="modal fade" id="subjectUpdateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal-update-subject" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Subject Information</h5>
+                <h5 class="modal-title">Subject Information</h5>
             </div>
             <div class="modal-body">
                 <div class="row">
                     <div class="col-lg-12">
-                        <b>Picture:</b> <label for="" id="mPicture"></label>
+                        <b>Picture:</b> <label for="" id="modal-info-picture"></label>
                     </div>
 
                     <div class="col-lg-12">
-                        <b>Subject ID:</b> <label for="" id="mSubjectID"></label>
+                        <b>Subject ID:</b> <label for="" id="modal-info-subject-id"></label>
                     </div>
                     <div class="col-lg-12">
-                        <b>Name:</b> <label for="" id="mName"></label>
+                        <b>Name:</b> <label for="" id="modal-info-name"></label>
                     </div>
                     <div class="col-lg-12">
-                        <b>Year Level:</b> <label for="" id="mYearLevel"></label>
+                        <b>Year Level:</b> <label for="" id="modal-info-year-level"></label>
                     </div>
                     <div class="col-lg-12">
-                        <b>Specialization:</b> <label for="" id="mSpecialization"></label>
+                        <b>Specialization:</b> <label for="" id="modal-info-specialization"></label>
                     </div>
                     <div class="col-lg-12">
-                        <b>Username:</b> <label for="" id="mUsername"></label>
+                        <b>Username:</b> <label for="" id="modal-info-user-name"></label>
                     </div>
                     <div class="col-lg-12">
-                        <b>email:</b> <label for="" id="mEmail"></label>
+                        <b>email:</b> <label for="" id="modal-info-email"></label>
                     </div>
                 </div>
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" id="btnReject">Reject</button>
-                <button type="button" class="btn btn-success" id="btnApprove">Approve</button>
+                <button type="button" class="btn btn-danger" id="button-reject">Reject</button>
+                <button type="button" class="btn btn-success" id="button-approve">Approve</button>
             </div>
         </div>
     </div>
 </div>
 
-<div class="modal fade" id="subjectNewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal-new-subject" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add New Subject</h5>
+                <h5 class="modal-title">Add New Subject</h5>
             </div>
             <div class="modal-body">
-                <form id="formNewSubject" class="needs-validation" novalidate>
+                <form id="form-new-subject" class="needs-validation" novalidate>
                     <div class="form-outline mb-3">
-                        <label class="form-label" for="newSubject">Subject</label>
-                        <input type="text" id="newSubject" class="form-control" placeholder="Enter Subject" required/>
+                        <label class="form-label" for="input-new-subject">Subject</label>
+                        <input type="text" id="input-new-subject" class="form-control" placeholder="Enter Subject" required/>
                         <div class="invalid-feedback">
-                            Lorem ipsum dolor sit amet.
+
                         </div>
                     </div>
 
@@ -104,42 +102,42 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" id="btnClose">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="button-close">Close</button>
             </div>
         </div>
     </div>
 </div>
 
-<div class="modal fade" id="subjectEditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal-edit-subject" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add New Subject</h5>
+                <h5 class="modal-title">Add New Subject</h5>
             </div>
             <div class="modal-body">
-                <form id="formEditSubject" class="needs-validation" novalidate>
+                <form id="form-edit-subject" class="needs-validation" novalidate>
                     <div class="form-outline mb-2">
-                        <label class="form-label" for="editSubject">ID</label>
-                        <input type="text" id="editSubjectID" class="form-control" disabled/>
+                        <label class="form-label" for="input-edit-subject-id">ID</label>
+                        <input type="text" id="input-edit-subject-id" class="form-control" disabled/>
                         <div class="invalid-feedback">
-                            Lorem ipsum dolor sit amet.
+
                         </div>
                     </div>
                     <div class="form-outline mb-2">
-                        <label class="form-label" for="editSubject">Subject</label>
-                        <input type="text" id="editSubject" class="form-control" placeholder="Enter Subject" required/>
+                        <label class="form-label" for="input-edit-subject">Subject</label>
+                        <input type="text" id="input-edit-subject" class="form-control" placeholder="Enter Subject" required/>
                         <div class="invalid-feedback">
-                            Lorem ipsum dolor sit amet.
+
                         </div>
                     </div>
                     <div class="form-outline mb-3">
-                        <label class="form-label" for="editStatus">Year Level</label>
-                        <select class="form-control" class="dropdown" id="editStatus" required>
+                        <label class="form-label" for="input-edit-status">Year Level</label>
+                        <select class="form-control" class="dropdown" id="input-edit-status" required>
                         <option value="0">Inactive</option>
                         <option value="1">Active</option>
                     </select>
                         <div class="invalid-feedback">
-                            Lorem ipsum dolor sit amet.
+
                         </div>
                     </div>
 
@@ -149,7 +147,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" id="btnClose">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="button-close">Close</button>
             </div>
         </div>
     </div>
@@ -160,13 +158,13 @@
         var subjectList;
         retrieveSubjectList();
 
-        $("#btnReject").on('click', function() {
-            var subjectID = $('#mSubjectID').html();
+        $("#button-reject").on('click', function() {
+            var subjectID = $('#modal-info-subject-id').html();
             updateAccountStatus(subjectID, '1');
         });
 
-        $("#btnApprove").on('click', function() {
-            var subjectID = $('#mSubjectID').html();
+        $("#button-approve").on('click', function() {
+            var subjectID = $('#modal-info-subject-id').html();
             updateAccountStatus(subjectID, '-1');
         });
 
@@ -178,24 +176,14 @@
                 console.log(subject);
                 console.log(subjectID == subject['subjectID']);
                 if (subjectID == subject['subjectID']) {
-                    $('#editSubjectID').val(subject['subjectID']);
-                    $('#editSubject').val(subject['subject']);
-                    $("#editStatus").val(subject['status']).change();
-                    $('#subjectEditModal').modal('toggle');
+                    $('#input-edit-subject-id').val(subject['subjectID']);
+                    $('#input-edit-subject').val(subject['subject']);
+                    $("#input-edit-status").val(subject['status']).change();
+                    $('#modal-edit-subject').modal('toggle');
                     return;
                 }
             });
         });
-
-        $('#sbSubjectAccountRequest').on('click', function() {
-            $("#subject-container").load('./subject-account-request.html');
-        });
-
-
-
-        function showSubjectData(subjectID) {
-            alert(subjectID);
-        }
 
         function updateAccountStatus(userID, status) {
             $.ajax({
@@ -214,7 +202,6 @@
                     } else {
                         alert("Failed");
                     }
-                    $('#subjectInfoModal').modal('toggle');
                     $('#dataTable').DataTable();
                 }
             });
@@ -247,9 +234,9 @@
             });
         }
 
-        $("#formNewSubject").on("submit", function(event) {
+        $("#form-new-subject").on("submit", function(event) {
             event.preventDefault();
-            var subject = $('#newSubject').val();
+            var subject = $('#input-new-subject').val();
             $.ajax({
                 url: "./../../common/db.php",
                 type: "POST",
@@ -262,7 +249,7 @@
                     var dataResult = JSON.parse(dataResult);
                     if (dataResult.statusCode.includes(200)) {
                         retrieveSubjectList();
-                        $('#subjectNewModal').modal('toggle');
+                        $('#modal-new-subject').modal('toggle');
                     } else if (dataResult.statusCode.includes(201)) {
                         alert("error");
                     }
@@ -271,11 +258,11 @@
         });
 
 
-        $("#formEditSubject").on("submit", function(event) {
+        $("#form-edit-subject").on("submit", function(event) {
             event.preventDefault();
-            var subjectID = $('#editSubjectID').val();
-            var subject = $('#editSubject').val();
-            var status = $('#editStatus').val();
+            var subjectID = $('#input-edit-subject-id').val();
+            var subject = $('#input-edit-subject').val();
+            var status = $('#input-edit-status').val();
             $.ajax({
                 url: "./../../common/db.php",
                 type: "POST",
@@ -290,7 +277,7 @@
                     var dataResult = JSON.parse(dataResult);
                     if (dataResult.statusCode == 200) {
                         retrieveSubjectList();
-                        $('#subjectEditModal').modal('toggle');
+                        $('#modal-edit-subject').modal('toggle');
                     } else if (dataResult.statusCode.includes(201)) {
                         alert("error");
                     }

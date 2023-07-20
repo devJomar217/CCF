@@ -5,50 +5,50 @@
                 <h6 class="m-0 font-weight-bold text-primary">Update Profile</h6>
             </div>
             <div class="card-body">
-                <form id="formUpdateProfile" class="needs-validation" novalidate>
+                <form id="form-update-profile" class="needs-validation" novalidate>
                     <div class="form-outline mb-2">
                         <div class="row">
                             <div class="col-lg-12">
-                                <div class="alert d-none alert-dismissible text-center" id="updateProfileInfoMessage">
+                                <div class="alert d-none alert-dismissible text-center" id="info-message-profile">
                                     <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="text-center">
-                                    <img class="img-circle-md mb-2" id="profilePicture" src="" />
+                                    <img class="img-circle-md mb-2" id="image-profile-picture" src="" />
                                 </div>
                             </div>
                             <div class="col-lg-12 mb-4">
                                 <div class="text-center imposter-link">
                                     <a href="#" id="updateProfilePicture">Update Profile Picture</a>
-                                    <input type="file" class="d-none" id="profileUploadPicture" accept="image/*">
+                                    <input type="file" class="d-none" id="input-file-profile-picture" accept="image/*">
                                 </div>
                             </div>
                             <div class="col-lg-4">
-                                <label class="form-label" for="inputName">Admin ID</label>
-                                <input type="text" id="profileAdminID" class="form-control" placeholder="Enter Admin ID" required disabled/>
+                                <label class="form-label" for="input-name">Admin ID</label>
+                                <input type="text" id="input-profile-admin-id" class="form-control" placeholder="Enter Admin ID" required disabled/>
                                 <div class="invalid-feedback">
                                 </div>
                             </div>
                             <div class="col-lg-8">
                                 <div class="form-outline mb-2">
-                                    <label class="form-label" for="inputUsername">User name</label>
-                                    <input type="text" id="profileUsername" class="form-control" placeholder="Enter user name" required/>
-                                    <div class="invalid-feedback" id="htUsername">
+                                    <label class="form-label" for="input-username">User name</label>
+                                    <input type="text" id="input-profile-user-name" class="form-control" placeholder="Enter user name" required/>
+                                    <div class="invalid-feedback" id="helpertext-username">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-6">
-                                <label class="form-label" for="profileName">Full name</label>
-                                <input type="text" id="profileName" class="form-control" placeholder="Enter Full name" required/>
+                                <label class="form-label" for="input-profile-name">Full name</label>
+                                <input type="text" id="input-profile-name" class="form-control" placeholder="Enter Full name" required/>
                                 <div class="invalid-feedback">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-outline mb-2">
-                                    <label class="form-label" for="profileEmail">Email</label>
-                                    <input type="text" id="profileEmail" class="form-control" placeholder="Enter Email Address" required/>
-                                    <div class="invalid-feedback" id="htUsername">
+                                    <label class="form-label" for="input-profile-email">Email</label>
+                                    <input type="text" id="input-profile-email" class="form-control" placeholder="Enter Email Address" required/>
+                                    <div class="invalid-feedback" id="helpertext-username">
                                     </div>
                                 </div>
                             </div>
@@ -68,30 +68,30 @@
                 <h6 class="m-0 font-weight-bold text-primary">Change Password</h6>
             </div>
             <div class="card-body">
-                <form id="formAdminChangePassword" class="needs-validation" novalidate>
+                <form id="form-change-password" class="needs-validation" novalidate>
                     <div class="form-outline mb-2">
-                        <div class="alert d-none alert-dismissible" id="changePasswordInfoMessage">
+                        <div class="alert d-none alert-dismissible" id="info-message-change-password">
                             <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
                         </div>
                     </div>
                     <div class="form-outline mb-2">
                         <label class="form-label" for="current-password">Current Password</label>
                         <input type="password" id="current-password" class="form-control" placeholder="Enter Current Password" required/>
-                        <div class="invalid-feedback" id="htEmail">
+                        <div class="invalid-feedback" id="helpertext-email">
                         </div>
                     </div>
 
                     <div class="form-outline mb-2">
-                        <label class="form-label" for="inputEmail">New Password</label>
+                        <label class="form-label" for="input-email">New Password</label>
                         <input type="password" id="new-password" class="form-control" placeholder="Enter New Password" required/>
-                        <div class="invalid-feedback" id="htEmail">
+                        <div class="invalid-feedback" id="helpertext-email">
                         </div>
                     </div>
 
                     <div class="form-outline mb-4">
-                        <label class="form-label" for="inputEmail">Confirm Password</label>
+                        <label class="form-label" for="input-email">Confirm Password</label>
                         <input type="password" id="confirm-password" class="form-control" placeholder="Enter Confirm Password" required/>
-                        <div class="invalid-feedback" id="htEmail">
+                        <div class="invalid-feedback" id="helpertext-email">
                         </div>
                     </div>
 
@@ -109,20 +109,20 @@
         var profileImage;
 
         $('#updateProfilePicture').click(function() {
-            $('#profileUploadPicture').trigger('click');
+            $('#input-file-profile-picture').trigger('click');
         });
 
-        $('#profileUploadPicture').change(function() {
-            $("#profilePicture").attr("src", window.URL.createObjectURL(this.files[0]));
+        $('#input-file-profile-picture').change(function() {
+            $("#image-profile-picture").attr("src", window.URL.createObjectURL(this.files[0]));
             profileImage = this.files[0];
         });
 
-        $('#formUpdateProfile').on("submit", function(event) {
+        $('#form-update-profile').on("submit", function(event) {
             event.preventDefault();
-            var adminID = $("#profileAdminID").val();
-            var userName = $("#profileUsername").val();
-            var name = $("#profileName").val();
-            var email = $("#profileEmail").val();
+            var adminID = $("#input-profile-admin-id").val();
+            var userName = $("#input-profile-user-name").val();
+            var name = $("#input-profile-name").val();
+            var email = $("#input-profile-email").val();
             var formData = new FormData();
             formData.append('file', profileImage);
             formData.append('action', 'update-admin-record');
@@ -130,42 +130,41 @@
             formData.append('userName', userName);
             formData.append('name', name);
             formData.append('email', email);
-            var adminID = $("#profileAdminID").val();
+            var adminID = $("#input-profile-admin-id").val();
             $.ajax({
                 url: "../../common/db.php",
                 type: "POST",
-                data: formData,
-                dataType: 'json',
-                contentType: false,
-                processData: false,
+                data: {
+                    action: 'get-user-id'
+                },
                 cache: false,
                 success: function(dataResult) {
-                    $("#profileUsername").removeClass('is-invalid');
-                    $("#profileEmail").removeClass('is-invalid');
+                    $("#input-profile-user-name").removeClass('is-invalid');
+                    $("#input-profile-email").removeClass('is-invalid');
 
                     if (dataResult.statusCode.includes(200)) {
-                        displayInfoMessage("#updateProfileInfoMessage", true, "Profile has been successfully updated!");
+                        displayInfoMessage("#info-message-profile", true, "Profile has been successfully updated!");
                     }
 
                     if (dataResult.statusCode.includes(201)) {
-                        displayInfoMessage("#updateProfileInfoMessage", false, "Something went wrong, please try again later!,");
+                        displayInfoMessage("#info-message-profile", false, "Something went wrong, please try again later!,");
                     }
 
                     if (dataResult.statusCode.includes(5000)) {
-                        displayInfoMessage("#updateProfileInfoMessage", false, "Unable to upload image!");
+                        displayInfoMessage("#info-message-profile", false, "Unable to upload image!");
                     }
 
                     if (dataResult.statusCode.includes(5001)) {
-                        displayInfoMessage("#updateProfileInfoMessage", false, "Invalid image format!");
+                        displayInfoMessage("#info-message-profile", false, "Invalid image format!");
                     }
 
                     if (dataResult.statusCode.includes(5100) || dataResult.statusCode.includes(5101)) {
-                        displayInfoMessage("#updateProfileInfoMessage", false, "Email or Username is already been used!");
+                        displayInfoMessage("#info-message-profile", false, "Email or Username is already been used!");
                         if (dataResult.statusCode.includes(5100)) {
-                            $("#profileUsername").addClass('is-invalid');
+                            $("#input-profile-user-name").addClass('is-invalid');
                         }
                         if (dataResult.statusCode.includes(5101)) {
-                            $("#profileEmail").addClass('is-invalid');
+                            $("#input-profile-email").addClass('is-invalid');
                         }
                     }
                 }
@@ -184,21 +183,21 @@
             }
         }
 
-        $('#formAdminChangePassword').on("submit", function(event) {
-            $("#changePasswordInfoMessage").addClass("d-none");
+        $('#form-change-password').on("submit", function(event) {
+            $("#info-message-change-password").addClass("d-none");
             $("#current-password").removeClass('is-invalid');
             $("#new-password").removeClass('is-invalid');
             $("#confirm-password").removeClass('is-invalid');
 
             event.preventDefault();
-            var adminID = $("#profileAdminID").val();
+            var adminID = $("#input-profile-admin-id").val();
             var currentPassword = $("#current-password").val();
             var newPassword = $("#new-password").val();
             var confirmPassword = $("#confirm-password").val();
             if (newPassword != confirmPassword) {
-                $("#changePasswordInfoMessage").html("New password doesn't match to confirm password");
-                $("#changePasswordInfoMessage").addClass("alert-danger");
-                $("#changePasswordInfoMessage").removeClass("d-none");
+                $("#info-message-change-password").html("New password doesn't match to confirm password");
+                $("#info-message-change-password").addClass("alert-danger");
+                $("#info-message-change-password").removeClass("d-none");
                 $("#new-password").addClass('is-invalid');
                 $("#confirm-password").addClass('is-invalid');
             } else {
@@ -207,23 +206,22 @@
         });
 
         function retrieveAdminDetail() {
-            var adminID = $("#profileAdminID").val();
+            var adminID = $("#input-profile-admin-id").val();
             $.ajax({
                 url: "../../common/db.php",
                 type: "POST",
                 data: {
-                    action: 'retrieve-admin-detail',
-                    adminID: adminID
+                    action: 'retrieve-admin-detail'
                 },
                 cache: false,
                 success: function(dataResult) {
                     var dataResult = JSON.parse(dataResult);
                     if (dataResult.statusCode == 200) {
-                        $("#profileUsername").val(dataResult.admin.username);
-                        $("#profileName").val(dataResult.admin.name);
-                        $("#profileEmail").val(dataResult.admin.email);
+                        $("#input-profile-user-name").val(dataResult.admin.username);
+                        $("#input-profile-name").val(dataResult.admin.name);
+                        $("#input-profile-email").val(dataResult.admin.email);
                         var picture = "./../../resource/profile/" + dataResult.admin.picture;
-                        $("#profilePicture").attr("src", picture);
+                        $("#image-profile-picture").attr("src", picture);
                     } else {
                         alert("Error");
                     }
@@ -245,22 +243,22 @@
                 success: function(dataResult) {
                     var dataResult = JSON.parse(dataResult);
                     if (dataResult.statusCode == 200) {
-                        $("#changePasswordInfoMessage").html("Password successfully change!");
-                        $("#changePasswordInfoMessage").addClass("alert-success");
-                        $("#changePasswordInfoMessage").removeClass("alert-danger");
+                        $("#info-message-change-password").html("Password successfully change!");
+                        $("#info-message-change-password").addClass("alert-success");
+                        $("#info-message-change-password").removeClass("alert-danger");
 
                         $("#current-password").val('');
                         $("#new-password").val('');
                         $("#confirm-password").val('');
                     } else if (dataResult.statusCode == 5000) {
-                        $("#changePasswordInfoMessage").html("Incorrect current password!");
-                        $("#changePasswordInfoMessage").addClass("alert-danger");
+                        $("#info-message-change-password").html("Incorrect current password!");
+                        $("#info-message-change-password").addClass("alert-danger");
                         $("#current-password").addClass('is-invalid');
                     } else {
-                        $("#changePasswordInfoMessage").html("Unable to change the password, please try again later!");
-                        $("#changePasswordInfoMessage").addClass("alert-danger");
+                        $("#info-message-change-password").html("Unable to change the password, please try again later!");
+                        $("#info-message-change-password").addClass("alert-danger");
                     }
-                    $("#changePasswordInfoMessage").removeClass("d-none");
+                    $("#info-message-change-password").removeClass("d-none");
                 }
             });
         }
