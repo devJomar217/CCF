@@ -215,6 +215,25 @@ function createNewSubject(){
   $connectDB->close();
 }
 
+function saveQuestion(){
+  $connectDB = databaseConnection();
+  $title=$_POST['title'];
+  $description=$_POST['description'];
+  $subject=$_POST['subject'];
+  $userID=$_SESSION['user_id'];
+
+  $statusCode = array();  
+  $sql = "INSERT INTO `question`(`student_id`, `subject_id`, `title`,`description`,`status`) 
+  VALUES ('$userID','$subject','$title','$description','1')";
+  if (mysqli_query($connectDB, $sql)) {
+    array_push($statusCode, 200);
+  } else {
+    array_push($statusCode, 5004);
+  }
+  echo json_encode(array("statusCode"=>$statusCode));
+  $connectDB->close();
+}
+
 function retrieveStudentList($status){
   $connectDB = databaseConnection();
   $sql = "SELECT account_information.user_id, account_information.email, account_information.user_name, account_information.status, student_information.name, student_information.year_level, student_information.specialization, student_information.picture FROM account_information INNER JOIN student_information ON account_information.user_id=student_information.student_id where account_information.status=$status AND account_information.user_type=1";
@@ -371,11 +390,31 @@ function retrieveAnswerList($status){
   $connectDB->close();
 }
 
-function retrieveSubjectList(){
+function retrieveSubjectList($status){
   $connectDB = databaseConnection();
-  $sql = "SELECT * FROM subject where status='1'";
+  $sql = "SELECT * FROM subject where status='$status'";
   $result = $connectDB->query($sql);
 
+  if ($result->num_rows > 0) {
+    $subjectList = array(); 
+    while($row = $result->fetch_assoc()) {
+      $subject = new Subject();
+      $subject->set_subjectID($row["subject_id"]);
+      $subject->set_subject($row["subject"]);
+      $subject->set_status($row["status"]);
+      array_push($subjectList, $subject);
+    }
+    echo json_encode(array("statusCode"=>200,"subjectList"=>$subjectList));
+  } else {
+    echo json_encode(array("statusCode"=>201));
+  }
+  $connectDB->close();
+}
+
+function retrieveAllSubject(){
+  $connectDB = databaseConnection();
+  $sql = "SELECT * FROM subject";
+  $result = $connectDB->query($sql);
   if ($result->num_rows > 0) {
     $subjectList = array(); 
     while($row = $result->fetch_assoc()) {
@@ -486,10 +525,6 @@ function retrieveStudentYearLevel($yearLevel){
   $number = $result->num_rows;
   $connectDB->close();
   return $number;
-}
-
-function saveQuestion(){
-
 }
 
 function updateQuestion(){
@@ -671,7 +706,12 @@ if($_POST['action']=='retrieve-admin-inactive-list'){
 }
 
 if($_POST['action']=='retrieve-subject-list'){
-  retrieveSubjectList();
+  retrieveAllSubject();
+  exit;
+}
+
+if($_POST['action']=='retrieve-active-subject-list'){
+  retrieveSubjectList(1);
   exit;
 }
 
@@ -707,6 +747,11 @@ if($_POST['action']=='update-admin-record'){
 
 if($_POST['action']=='change-new-password'){
   changeNewPassword($_POST['userID'],$_POST['currentPassword'],$_POST['newPassword']);
+  exit;
+}
+
+if($_POST['action']=='save-question'){
+  saveQuestion();
   exit;
 }
 

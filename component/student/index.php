@@ -1,6 +1,6 @@
-<!-- <?php
+<?php
 include '../../common/session.php';
-?> -->
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +36,7 @@ include '../../common/session.php';
             <div>
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-gradient-primary topbar static-top shadow">
+                <nav class="navbar navbar-expand navbar-dark bg-gradient-primary topbar static-top shadow">
                     <a class="navbar-brand" href="#">
                         <img src="../../resource/logo-codeconnect.png" id="logo" alt="" style="width:200px;">
                     </a>
@@ -45,11 +45,11 @@ include '../../common/session.php';
 				</button>
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link text-white" href="#" id="nav-menu-forum">Forum <span class="sr-only">(current)</span></a>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#forum" id="nav-menu-forum">Forum <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" id="nav-menu-learn-to-code" href="#">Learn to Code</a>
+                            <a class="nav-link" id="nav-menu-learn-to-code" href="#learn-to-code">Learn to Code</a>
                         </li>
 
                         <div class="topbar-divider d-none d-sm-block"></div>
@@ -155,116 +155,46 @@ include '../../common/session.php';
 <script>
     $(document).ready(function() {
 
-        $("#main-container").load('./forum.html');
+        navigateAnchor();
+        
+        function navigateAnchor(){
+            var form = "./form-";
+            var hash = window.location.hash.replace("#","");
+            var hashArray = hash.split(".");
+            
+            var anchor = "";
+            var sideBarID = "";
+            
+            if(hashArray.length != 0){
+                if(hashArray.length == 2){
+                    anchor = hashArray[1];
+                } else {
+                    anchor = hashArray[0];
+                }
+                sideBarID = hashArray[0];
+            }
+
+            if(anchor == ""){
+                form = form + "forum.html";
+            } else {
+                form = form + anchor + ".html";
+            }
+
+            if(sideBarID != null){
+                $("#collapse-"+sideBarID).addClass("show");
+            }
+
+            $("#main-container").load(form);
+        }
 
         $("#nav-menu-learn-to-code").click(function() {
-            $("#main-container").load('./learn-to-code.html');
+            $("#main-container").load('./form-learn-to-code.html');
         });
 
         $("#nav-menu-forum").click(function() {
-            $("#main-container").load('./forum.html');
+            $("#main-container").load('./form-forum.html');
         });
 
-
-        // Start of Navigation
-
-        $('#sbStudentList').on('click', function() {
-            $("#admin-container").load('./form-student-list.html');
-        });
-
-        $('#sbStudentAccountRequest').on('click', function() {
-            $("#admin-container").load('./form-student-account-request.html');
-        });
-
-        $('#sbAdminList').on('click', function() {
-            $("#admin-container").load('./form-admin-list.html');
-        });
-
-        $('#sbAddNewAdmin').on('click', function() {
-            $("#admin-container").load('./form-add-new-admin.html');
-        });
-
-        $('#sbUpdateAdmin').on('click', function() {
-            $("#admin-container").load('./form-update-admin.html');
-        });
-
-        $('#sbQuestionList').on('click', function() {
-            $("#admin-container").load('./form-question-list.html');
-        });
-
-        $('#sbAnswerList').on('click', function() {
-            $("#admin-container").load('./form-answer-list.html');
-        });
-
-        $('#sbRating').on('click', function() {
-            $("#admin-container").load('./form-rating.html');
-        });
-
-        $('#sbReportedQuestion').on('click', function() {
-            $("#admin-container").load('./form-report-question.html');
-        });
-
-        $('#sbReportedAnswer').on('click', function() {
-            $("#admin-container").load('./form-report-answer.html');
-        });
-
-        $('#sbReportedStudent').on('click', function() {
-            $("#admin-container").load('./form-report-student.html');
-        });
-
-        $('#nav-menu-profile').on('click', function() {
-            $("#admin-container").load('./form-profile.html');
-        });
-
-        $('#sbSubjectList').on('click', function() {
-            $("#admin-container").load('./form-subject-list.html');
-        });
-
-        if (<?php echo $_SESSION['status']; ?> == -1) {
-            $('#sbAdmin').removeAttr("style");
-        }
-
-        $('#sidebarToggle').on('click', function() {
-            if ($('#logo').css('width') == '80px') {
-                $('#logo').css('width', '200px');
-            } else {
-                $('#logo').css('width', '80px');
-            }
-        });
-
-        $('#btnForgotPassword').on('click', function() {
-            $("#card-form").load('./form-forgot-password.html');
-        });
-
-        $('#btnCreateAccount').on('click', function() {
-            $("#card-form").load('./form-create-account.html');
-        });
-
-        $("#formLogin").on("submit", function(event) {
-            event.preventDefault();
-            var email = $('#loginEmail').val();
-            var password = $('#loginPassword').val();
-            $.ajax({
-                url: "../../common/db.php",
-                type: "POST",
-                data: {
-                    action: 'login',
-                    email: email,
-                    password: password
-                },
-                cache: false,
-                success: function(dataResult) {
-                    var dataResult = JSON.parse(dataResult);
-                    if (dataResult.statusCode == 200) {
-                        location.href = "../login/index.php";
-                    } else if (dataResult.statusCode == 201) {
-                        $("#error").show();
-                        $('#error').html('Invalid Email Address or Password!');
-                    } else if (dataResult.statusCode == 5000) {
-                        $('#infoModal').modal('toggle');
-                    }
-                }
-            });
-        });
+        
     });
 </script>
