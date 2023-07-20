@@ -1,48 +1,46 @@
-function loadHtml(id, fileName){
-    console.log(`div id: ${id}, filename: ${fileName}`);
+var SYMMETRIC_KEY = "hKGYOgnTVR8bOP0ViW7FFmX0q1x6ag6B";
+var DIR_RESOURCE = "./../resource/profile/";
 
-    let xhttp;
-    let element = document.getElementById(id);
-    let file = fileName;
-    
-    if(file){
-        xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            console.log(this.readyState);
-            if(this.readyState == 4){
-                if(this.status == 200) {
-                    element.innerHTML = this.responseText;
-                }
-                if(this.status == 404) {element.innerHTML = "<h1>Page not found.</h1>"}
-            }
-        }
-        xhttp.open("GET", `${file}`);
-        xhttp.send();
-        return;
-    }
+// class ErrorMessage {
+//     static EXISTING_USERNAME = "This username was already been used!";
+//     static INCORRECT_CREDENTIAL = "Incorrect Email Address or Password!";
+//     static EMAIL_FAILED = "Unable to send en email, please try again later!";
+//     static SCAN_FAILED = "Unable to scan the QR code, please try again later!";
+//     static EXISTING_STUDENT_ID = "This student id was already been used!";
+//     static EXISTING_EMAIL = "This email was already been used!";
+// }
+
+// class InvalidMessage {
+//     static PASSWORD = "Invalid Password!";
+//     static EMAIL_FORMAT = "Invalid email format, please us your BULSU email";
+//     static EMAIL = "Invalid Email Address!";
+// }
+
+function populateTableData(data) {
+    return "<td>" + data + "</td>";
 }
 
-function loadLoginForm(id, fileName){
-    console.log(`div id: ${id}, filename: ${fileName}`);
+function addCookie(key, value) {
+    $.cookie(key, value);
+}
 
-    let xhttp;
-    let element = document.getElementById(id);
-    let file = fileName;
-    
-    if(file){
-        xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            console.log(this.readyState);
-            if(this.readyState == 4){
-                if(this.status == 200) {
-                    element.innerHTML = this.responseText;
-                    loadHtml("login-form", "./component/login/login-form.html");
-                }
-                if(this.status == 404) {element.innerHTML = "<h1>Page not found.</h1>"}
-            }
-        }
-        xhttp.open("GET", `${file}`);
-        xhttp.send();
-        return;
-    }
+function removeCookie(key, value) {
+    $.removeCookie(key, value);
+}
+
+function removeCookieKey(key) {
+    $.removeCookie(key);
+}
+
+function getCookie(key) {
+    $.cookie(key);
+}
+
+function encrypt(value) {
+    return CryptoJS.AES.encrypt(value, SYMMETRIC_KEY).toString();
+}
+
+function decrypt(value) {
+    var bytes = CryptoJS.AES.decrypt(value, SYMMETRIC_KEY);
+    return bytes.toString(CryptoJS.enc.Utf8);
 }
