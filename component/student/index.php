@@ -15,7 +15,8 @@ include '../../common/session.php';
     <title>Code Connect - Dashboard</title>
 
     <!-- Custom fonts for this template-->
-    <link href="./../../common/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <!-- <link href="./../../common/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link rel="stylesheet" href="./../../common/vendor/datatables/dataTables.bootstrap4.css" />
 
@@ -51,7 +52,12 @@ include '../../common/session.php';
                         <li class="nav-item">
                             <a class="nav-link" id="nav-menu-learn-to-code" href="#learn-to-code">Learn to Code</a>
                         </li>
-
+                        <li class="nav-item">
+                            <a class="nav-link" id="nav-menu-activities" href="#activities">My Activities</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="nav-menu-notification" href="#notification">Notification</a>
+                        </li>
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         
@@ -141,11 +147,11 @@ include '../../common/session.php';
     <script src="./../../common/js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="./../../common/vendor/chart.js/Chart.min.js"></script>
+    <!-- <script src="./../../common/vendor/chart.js/Chart.min.js"></script> -->
 
     <!-- Page level custom scripts -->
-    <script src="./../../common/js/chart-area.js"></script>
-    <script src="./../../common/js/chart-pie.js"></script>
+    <!-- <script src="./../../common/js/chart-area.js"></script> -->
+    <!-- <script src="./../../common/js/chart-pie.js"></script> -->
     <script src="./../../common/vendor/datatables/jquery.dataTables.js"></script>
     <script src="./../../common/common.js"></script>
 </body>
@@ -188,6 +194,14 @@ include '../../common/session.php';
 
         $("#nav-menu-learn-to-code").click(function() {
             $("#main-container").load('./form-learn-to-code.html');
+        });
+
+        $("#nav-menu-notification").click(function() {
+            $("#main-container").load('./form-notification.html');
+        });
+
+        $("#nav-menu-activities").click(function() {
+            $("#main-container").load('./form-activities.html');
         });
 
         $("#nav-menu-forum").click(function() {

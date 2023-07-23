@@ -35,7 +35,7 @@ function isAdminAccount(){
 }
 
 function redirectUser(){
-    echo print_r($_SESSION);
+    // echo print_r($_SESSION);
     // echo print_r($_SERVER);
     if(isLoginPage()){
         if(hasLoggedInUser()){

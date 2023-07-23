@@ -44,3 +44,15 @@ function decrypt(value) {
     var bytes = CryptoJS.AES.decrypt(value, SYMMETRIC_KEY);
     return bytes.toString(CryptoJS.enc.Utf8);
 }
+
+function getYearLevel(yearLevel) {
+    if (yearLevel == 1) {
+        return "First year";
+    } else if (yearLevel == 2) {
+        return "Second Year";
+    } else if (yearLevel == 3) {
+        return "Third Year";
+    } else if (yearLevel == 4) {
+        return "Fourth Year";
+    }
+}

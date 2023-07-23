@@ -1,0 +1,607 @@
+<meta property="og:url" content="https://www.your-domain.com/your-page.html" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Your Website Title" />
+<meta property="og:description" content="Your description" />
+<meta property="og:image" content="https://www.your-domain.com/path/image.jpg" />
+<style>
+    .profile-header-container {
+        margin: 0 auto;
+        text-align: center;
+    }
+    
+    .profile-header-img>img.img-circle {
+        border: 2px solid #51D2B7;
+    }
+    
+    .rank-label-container {
+        margin-top: -19px;
+        /* z-index: 1000; */
+        text-align: center;
+    }
+    
+    .label.label-default.rank-label {
+        background-color: rgb(81, 210, 183);
+        border-radius: 27px;
+    }
+    
+    body {
+        font: 16px Arial;
+    }
+    /*the container must be positioned relative:*/
+    
+    .autocomplete {
+        position: relative;
+        /* display: inline-block; */
+    }
+    
+    input {
+        border: 1px solid transparent;
+        background-color: #f1f1f1;
+        padding: 10px;
+        font-size: 16px;
+    }
+    
+    input[type=text] {
+        background-color: #f1f1f1;
+        width: 100%;
+    }
+    
+    input[type=submit] {
+        background-color: DodgerBlue;
+        color: #fff;
+        cursor: pointer;
+    }
+    
+    .autocomplete-items {
+        position: absolute;
+        border: 1px solid #d4d4d4;
+        border-bottom: none;
+        border-top: none;
+        z-index: 99;
+        /*position the autocomplete items to be the same width as the container:*/
+        top: 100%;
+        left: 0;
+        right: 0;
+    }
+    
+    .autocomplete-items div {
+        padding: 10px;
+        cursor: pointer;
+        background-color: #fff;
+        border-bottom: 1px solid #d4d4d4;
+    }
+    /*when hovering an item:*/
+    
+    .autocomplete-items div:hover {
+        background-color: #e9e9e9;
+    }
+    /*when navigating through the items using the arrow keys:*/
+    
+    .autocomplete-active {
+        background-color: DodgerBlue !important;
+        color: #ffffff;
+    }
+</style>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v17.0" nonce="z2fQyic9"></script>
+<div class="container mt-3">
+    <div class="row">
+        <div class="col">
+            <div class="card shadow-sm p-2">
+                <div class="card-body" id="login-form">
+                    <div id="card-form">
+                        <div class="row py-3 align-middle">
+                            <div class="col-1 pl-4 pt-0 mt-0"><img class="img-profile img-circle rounded-circle" style="width:60px; height: 60px;" src="" id="question-picture"></div>
+                            <div class="col align-middle">
+                                <div class="row mb-0 pb-0">
+                                    <div class="col align-middle">
+                                        <h6 class="align-middle"><b class="align-middle" id="question-user-name"></b></h6>
+                                    </div>
+                                    <div class="col-2 text-right" id="question-status">
+                                    </div>
+                                    <div class="col-1">
+                                        <div class="btn-group d-flex flex-row-reverse dropright">
+                                            <i class="fa fa-solid fa-ellipsis-vertical pl-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+                                            <div class="dropdown-menu">
+                                                <button class="dropdown-item" type="button" data-toggle="modal" data-target="#modal-report-question" id=""><i class="fa fa-flag fa-sm"></i> Report</button>
+                                                <button class="dropdown-item" type="button"><i class="fa fa-pen fa-sm"></i> Edit Question</button>
+                                                <button class="dropdown-item" type="button"><i class="fa fa-trash fa-sm"></i> Delete Question</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <small class="text-muted" id="question-date"></small>
+                                    </div>
+                                    <div class="col-3">
+                                        <small class="text-muted" id="question-subject"></small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-3 mb-0 pb-0">
+                            <div class="col">
+                                <b><p class="mb-0 pb-0" id="question-title"></p></b>
+                            </div>
+                        </div>
+                        <div class="row mt-3 pt-0">
+                            <div class="col">
+                                <p class="mb-0 pb-0" id="question-description" style="white-space: pre-line; tab-size: 8;"></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col d-flex mt-2 justify-content-end">
+                                <div class="justify-content-end p-2"><input type="submit" class="btn btn-primary btn-sm px-5" value="Answer Now"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row mt-3">
+        <div class="col">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div id="card-form">
+                        <form class="" id="form-answer-now">
+                            <div class="row">
+                                <div class="col">
+                                    <textarea class="form-control" name="" id="textarea-answer" cols="30" rows="5"></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col d-flex mt-2">
+                                    <div class="justify-content-start mr-auto p-2t">Attachment</div>
+                                    <div class="justify-content-end p-2"><input type="submit" class="btn btn-primary btn-sm px-5" value="Post"></div>
+                                </div>
+                            </div>
+                        </form>
+                        <hr class="sidebar-divider mt-4">
+                        <h5 class="mb-4"><b>Answers</b></h5>
+
+                        <div id="container-answers"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="bg-link text-center shadow bg-white text-dark mt-5">
+    <div class="">
+        <section class="">
+            <div class="row">
+                <div class="col mb-md-0 pt-3">
+                    <p>
+                        <i>Learning by Asking!</i>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="text-center p-3">
+        © 2020 Copyright:
+        <a class="text-dark" href="">Code Connect</a>
+    </div>
+</footer>
+
+<div class="modal fade" id="modal-add-question" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Post a Question</h5>
+            </div>
+            <form id="form-add-question" class="needs-validation" novalidate>
+                <div class="modal-body">
+                    <div class="form-outline mb-2">
+                        <label class="form-label" for="input-">Title</label>
+                        <input type="text" id="input-new-question-title" class="form-control" placeholder="Enter title" required/>
+                        <div class="invalid-feedback">
+                        </div>
+                    </div>
+
+                    <div class="form-group form-outline mb">
+                        <label for="exampleFormControlTextarea1">Description</label>
+                        <textarea class="form-control" id="input-new-question-description" rows="7" placeholder="Enter description"></textarea>
+                    </div>
+
+                    <div class="row d-flex justify-content-between">
+                        <div class="col">
+                            <div class="form-group form-outline mb">
+                                <a href=""><i class="fa fa-paperclip"></i>Add Attachment</a>
+                                <input type="file" value="Attachment" class="d-none">
+                            </div>
+                        </div>
+                        <div class="col d-flex align-middle">
+                            <label class="form-label align-middle pr-3 pt-2" for="input-scan">Subject: </label>
+                            <select class="form-control" class="dropdown" id="input-new-question-subject">
+                                <option value="" selected>--Please Select--</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="button-close">Close</button>
+                    <button type="submit" class="btn btn-primary">POST</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-report-question" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Report a Question</h5>
+            </div>
+            <form id="form-add-question" class="needs-validation" novalidate>
+                <div class="modal-body">
+                    <div class="form-outline mb-2">
+                        <label class="form-label" for="input-">Title</label>
+                        <input type="text" id="input-new-question-title" class="form-control" placeholder="Enter title" required/>
+                        <div class="invalid-feedback">
+                        </div>
+                    </div>
+
+                    <div class="form-group form-outline mb">
+                        <label for="exampleFormControlTextarea1">Description</label>
+                        <textarea class="form-control" id="input-new-question-description" rows="7" placeholder="Enter description"></textarea>
+                    </div>
+
+                    <div class="row d-flex justify-content-between">
+                        <div class="col">
+                            <div class="form-group form-outline mb">
+                                <a href=""><i class="fa fa-paperclip"></i>Add Attachment</a>
+                                <input type="file" value="Attachment" class="d-none">
+                            </div>
+                        </div>
+                        <div class="col d-flex align-middle">
+                            <label class="form-label align-middle pr-3 pt-2" for="input-scan">Subject: </label>
+                            <select class="form-control" class="dropdown" id="input-new-question-subject">
+                                <option value="" selected>--Please Select--</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="button-close">Close</button>
+                    <button type="submit" class="btn btn-primary">POST</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        var questionID = window.location.search.substring(1).split("=")[1];
+        retrieveForumDetails();
+        retrieveForumAnswers();
+
+        var inputField = document.getElementById('textarea-answer'); // get textarea object
+        inputField.onkeydown = function(e) { // list for when any key is pressed
+            if (e.keyCode === 9) { // block to catch when tab key is pressed
+                this.setRangeText(
+                    '\t',
+                    this.selectionStart,
+                    this.selectionStart,
+                    'end'
+                );
+                return false; //prevent default action
+            }
+        }
+
+        $("#form-answer-now").on('submit', function(event) {
+            event.preventDefault();
+            var answer = $("#textarea-answer").val();
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'save-answer',
+                    questionID: questionID,
+                    answer: answer
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode == 200) {
+                        $("#textarea-answer").val("");
+                        retrieveForumAnswers();
+                        alert("Success!");
+                    } else {
+                        alert("Unable to post the answer, please try again later!");
+                    }
+                }
+            });
+        });
+
+        function populateAnswerRow(answerID, img, userName, status, date, yearLevel, answer, replies) {
+            return `<div class="card-row card shadow mb-3 py-2 px-5" id="row-answer-${answerID}">
+                        <div class="row py-3">
+                            <div class="col"> 
+                                <div class="row mb-0 pb-0">
+                                    <div class="col-1">
+                                        <img class="img-profile rounded-circle" style="width:60px; height: 60px" src="${img}">
+                                    </div>
+                                    <div class="col mb-0 pb-0">
+                                        <div class="row">
+                                            <div class="col-11">
+                                                <h6 class="mb-0 pb-0"><b class="mb-0 pb-0">${userName}</b></h6>    
+                                            </div>
+                                            <div class="col-1" style="display: none" id="ellipsis-answer-${answerID}">
+                                                <div class="btn-group d-flex flex-row-reverse dropright">
+                                                    <i class="fa fa-solid fa-ellipsis-vertical pl-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+                                                    <div class="dropdown-menu">
+                                                        <button class="dropdown-item" type="button" data-toggle="modal" data-target="#modal-report-question" id=""><i class="fa fa-flag fa-sm"></i> Report</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                                         
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <small class="text-muted">${date}</small>
+                                            </div>
+                                            <div class="col-4">
+                                                <small class="text-muted">${yearLevel}</small>
+                                            </div>                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3 pt-0">
+                            <div class="col">
+                                <p class="mb-0 pb-0">${answer}</p>
+                            </div>
+                        </div>
+
+                        <div class="row d-flex flex-row-reverse align-middle mt-3 pt-0">
+                            <div class="">
+                                <input type="button" class="btn btn-primary btn-sm px-3 button-reply" id="${answerID}" value="Comment">
+                                <button type="button" class="btn border-primary btn-sm px-4"><i class="fa fa-regular fa-thumbs-up text-primary"></i> 0</button>
+                                <button type="button" class="btn border-danger btn-sm px-4"><i class="fa fa-regular fa-thumbs-down text-danger"></i> 0</button>
+                            </div>
+                        </div>
+                        
+                        <div class="d-none mb-3 mt-4" id="container-reply-${answerID}">
+                            <div class="row d-flex mt-3">
+                                <div class="col">
+                                    <textarea class="form-control " name="" id="textarea-reply-${answerID}" rows="2" placeholder="Enter you answer"></textarea>
+                                </div>
+                            </div>
+                            <div class="row d-flex mt-1">
+                                <div class="col flex-row-reverse text-right">
+                                    <input text="button" value="Send" id="${answerID}" class="button-answer-reply btn btn-primary btn-sm mt-2">
+                                </div>
+                            </div>           
+                        </div>
+
+                        <div class="container-answer-replies">
+                            ${replies}
+                        </div>                    
+                    </div>
+                    `;
+        }
+
+
+        function populateReplyRow(replyID, img, userName, status, date, yearLevel, reply) {
+            return `<div class="card-row py-2 pl-5" id="row-reply-${replyID}">
+                        <div class="row py-3">
+                            <div class="col"> 
+                                <div class="row mb-0 pb-0">
+                                    <div class="col-1">
+                                        <img class="img-profile rounded-circle" style="width:40px; height: 40px" src="${img}">
+                                    </div>
+                                    <div class="col mb-0 pb-0">
+                                        <div class="row">
+                                            <div class="col">
+                                                <h6 class="mb-0 pb-0"><b class="mb-0 pb-0">${userName}</b></h6>    
+                                            </div> 
+                                            <div class="col-2" style="display: none" id="ellipsis-reply-${replyID}">
+                                                <div class="btn-group d-flex flex-row-reverse dropright">
+                                                    <i class="fa fa-solid fa-ellipsis-vertical pl-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+                                                    <div class="dropdown-menu">
+                                                        <button class="dropdown-item" type="button" data-toggle="modal" data-target="#modal-report-question" id=""><i class="fa fa-flag fa-sm"></i> Report</button>
+                                                    </div>
+                                                </div>
+                                            </div>                                           
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <small class="text-muted">${date}</small>
+                                            </div>
+                                            <div class="col-4">
+                                                <small class="text-muted">${yearLevel}</small>
+                                            </div>                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3 pt-0">
+                            <div class="col">
+                                <p class="mb-0 pb-0">${reply}</p>
+                            </div>
+                        </div>
+
+                        <div class="row d-flex flex-row-reverse align-middle mt-3 pt-0">
+                            <div class="">
+                                <button type="button" class="btn border-primary btn-sm px-4"><i class="fa fa-regular fa-thumbs-up text-primary"></i> 0</button>
+                                <button type="button" class="btn border-danger btn-sm px-4"><i class="fa fa-regular fa-thumbs-down text-danger"></i> 0</button>
+                            </div>
+                        </div>
+                        <hr class="sidebar-divider mt-4">
+                    </div>`
+        }
+
+        function retrieveForumDetails() {
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'retrieve-question-detail',
+                    questionID: questionID
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    console.log(dataResult);
+                    if (dataResult.statusCode == 200) {
+                        var question = dataResult.question;
+                        var picture = question['picture'];
+                        var status;
+                        var description = question['description'];
+                        var subjectName = question['subject'];
+                        if (picture == "") {
+                            picture = "./../../resource/profile/default.svg";
+                        } else {
+                            picture = "./../../resource/profile/" + picture;
+                        }
+
+                        if (question['status'] == 1) {
+                            status = "<span class='border border-danger status-danger rounded p-1 '>Unanswered</span>";
+                        } else if (question['status'] == 2) {
+                            status = "<span class='border border-success status-success rounded p-1 '>Answered</span>";
+                        }
+
+                        $("#question-picture").attr("src", picture);
+                        $("#question-user-name").html(question.name);
+                        $("#question-status").html(status);
+                        $("#question-date").html(question.creationDateTime);
+                        $("#question-subject").html(question.subject);
+                        $("#question-title").html(question.title);
+                        console.log(question.description.replace("    ", "&ensp;"));
+                        $("#question-description").html(question.description.replace(" ", "&ensp;"));
+                    }
+                }
+            });
+        }
+
+        function retrieveForumAnswers() {
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'retrieve-answers',
+                    questionID: questionID
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode == 200) {
+                        var answerList = "";
+                        dataResult.answerList.forEach(answer => {
+                            var answerID = answer.answerID;
+                            var studentID = answer.studentID;
+                            var text = answer.answer;
+                            var picture = answer.picture;
+                            var replies = "";
+                            var creationDateTime = answer.creationDateTime;
+                            if (picture == "") {
+                                picture = "./../../resource/profile/default.svg";
+                            } else {
+                                picture = "./../../resource/profile/" + picture;
+                            }
+
+                            if (answer.replies != null && answer.replies != "") {
+                                answer.replies.forEach(reply => {
+                                    var replyPicture = reply.picture;
+                                    if (replyPicture == "") {
+                                        replyPicture = "./../../resource/profile/default.svg";
+                                    } else {
+                                        replyPicture = "./../../resource/profile/" + replyPicture;
+                                    }
+
+                                    replies += populateReplyRow(reply.replyID, replyPicture, reply.name, reply.status, reply.creationDateTime, getYearLevel(reply.yearLevel), reply.answer);
+                                });
+                                replies = `<hr class="sidebar-divider my-2">
+                                                <div class="ml-5 my-4">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <b><span class="text-primary">Replies</span></b>
+                                                        </div>
+                                                    </div>
+                                                    ${replies}
+                                                </div>`
+                            }
+                            answerList += populateAnswerRow(answerID, picture, answer.name, status, answer.creationDateTime, getYearLevel(answer.yearLevel), text, replies);
+                        });
+                    }
+                    $("#container-answers").html(answerList);
+
+                    $(".button-reply").on('click', function() {
+                        if ($("#container-reply-" + this.id).hasClass("d-none")) {
+                            $("#container-reply-" + this.id).removeClass("d-none");
+                        } else {
+                            $("#container-reply-" + this.id).addClass("d-none");
+                        }
+                    });
+
+                    $(".button-answer-reply").on("click", function() {
+                        var answerID = this.id;
+                        var reply = $("#textarea-reply-" + answerID).val();
+
+                        saveReply(answerID, reply);
+                    });
+
+                    $(".card-row").hover(
+                        function() {
+                            var id = "";
+                            if (this.id.includes("row-reply-")) {
+                                id = this.id.split("-")[2];
+                                $("#ellipsis-reply-" + id).show();
+                                console.log("#ellipsis-reply-" + id);
+                            } else if (this.id.includes("row-answer-")) {
+                                id = this.id.split("-")[2];
+                                $("#ellipsis-answer-" + id).show();
+                                console.log("#ellipsis-answer-" + id);
+                            }
+                        },
+                        function() {
+                            var id = "";
+                            if (this.id.includes("row-reply-")) {
+                                id = this.id.split("-")[2];
+                                $("#ellipsis-reply-" + id).hide();
+                                console.log("#ellipsis-reply-" + id);
+                            } else if (this.id.includes("row-answer-")) {
+                                id = this.id.split("-")[2];
+                                $("#ellipsis-answer-" + id).hide();
+                                console.log("#ellipsis-answer-" + id);
+                            }
+                        },
+                    );
+                }
+            });
+        }
+
+        function saveReply(answerID, response) {
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'save-reply',
+                    answerID: answerID,
+                    response: response
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode == 200) {
+                        retrieveForumAnswers();
+                        alert("Success!");
+                    } else {
+                        alert("Something went wrong, please try again later!");
+                    }
+                }
+            });
+        }
+    });
+</script>
