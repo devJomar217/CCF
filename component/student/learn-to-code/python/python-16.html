@@ -1,0 +1,714 @@
+<!-- Dictionaries-->
+
+ 
+  <div class="w3-row w3-white">
+    
+   
+
+<h1>What is <span class="color_h1">Dictionaries in Python?</span></h1>
+ 
+
+<div class="w3-codeline notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thisdict =  {<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"brand"</span>: <span class="pythonstringcolor" style="color:brown">"Ford"</span>,<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"model"</span>: <span class="pythonstringcolor" style="color:brown">"Mustang"</span>,<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"year"</span>: <span class="pythonnumbercolor" style="color:red">1964</span><br><span class="pythonnumbercolor" style="color:red">
+</span>}<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+
+<hr>
+
+<h2>Dictionary</h2>
+
+<p>Dictionaries are used to store data values in key:value pairs.</p>
+
+<p>A dictionary is a collection which is ordered*, changeable and do not 
+allow duplicates.</p>
+
+<div class="w3-panel w3-note">
+  <p>As of Python version 3.7, dictionaries are <em>ordered</em>. 
+  In Python 3.6 and earlier, dictionaries are <em>unordered</em>.</p>
+</div>
+
+<p>Dictionaries are written with curly brackets, and have keys and values:</p>
+
+<div class="w3-Sample">
+ <p>Create and print a dictionary:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thisdict =<span class="pythonnumbercolor" style="color:red">	</span>{<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"brand"</span>: <span class="pythonstringcolor" style="color:brown">"Ford"</span>,<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"model"</span>: <span class="pythonstringcolor" style="color:brown">"Mustang"</span>,<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"year"</span>: <span class="pythonnumbercolor" style="color:red">1964</span><br><span class="pythonnumbercolor" style="color:red">
+</span>}<br>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thisdict)<br><span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<hr>
+<h2>Dictionary Items</h2>
+
+<p>Dictionary items are ordered, changeable, and does not allow duplicates.</p>
+
+<p>Dictionary items are presented in key:value pairs, and can be referred to by 
+using the key name.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Print the "brand" value of the dictionary:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thisdict =<span class="pythonnumbercolor" style="color:red">	</span>{<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"brand"</span>: <span class="pythonstringcolor" style="color:brown">"Ford"</span>,<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"model"</span>: <span class="pythonstringcolor" style="color:brown">"Mustang"</span>,<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"year"</span>: <span class="pythonnumbercolor" style="color:red">1964</span><br><span class="pythonnumbercolor" style="color:red">
+</span>}<br>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thisdict[<span class="pythonstringcolor" style="color:brown">"brand"</span>])<br><span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<hr>
+
+<h2>Ordered or Unordered?</h2>
+
+<div class="w3-panel w3-note">
+  <p>As of Python version 3.7, dictionaries are <em>ordered</em>. 
+  In Python 3.6 and earlier, dictionaries are <em>unordered</em>.</p>
+</div>
+
+<p>When we say that dictionaries are ordered, it means that the items have a defined order, and that order will not change.</p>
+
+
+<p>Unordered means that the items does not 
+have a defined order, you cannot refer to an item by using an index.</p>
+
+<hr>
+
+<h2>Changeable</h2>
+
+<p>Dictionaries are changeable, meaning that we can change, add or remove items after the 
+dictionary has been created.</p>
+
+<hr>
+
+<h2>Duplicates Not Allowed</h2>
+<p>Dictionaries cannot have two items with the same key:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Duplicate values will overwrite existing values:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thisdict =<span class="pythonnumbercolor" style="color:red">	</span>{<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"brand"</span>: <span class="pythonstringcolor" style="color:brown">"Ford"</span>,<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"model"</span>: <span class="pythonstringcolor" style="color:brown">"Mustang"</span>,<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"year"</span>: <span class="pythonnumbercolor" style="color:red">1964</span>,<br>&nbsp; <span class="pythonstringcolor" style="color:brown">"year"</span>: <span class="pythonnumbercolor" style="color:red">2020</span><br><span class="pythonnumbercolor" style="color:red">
+</span>}<br>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thisdict) </span></div>
+ </div>
+ 
+
+<h2>Dictionary Length</h2>
+
+<p>To determine how many items a dictionary has, use the <code class="w3-codespan">
+len()</code> function:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Print the number of items in the dictionary:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(<span class="pythonkeywordcolor" style="color:mediumblue">len</span>(thisdict))<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<hr>
+
+<h2>Dictionary Items - Data Types</h2>
+
+<p>The values in dictionary items can be of any data type:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>String, int, boolean, and list data types:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thisdict =<span class="pythonnumbercolor" style="color:red">	</span>{<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"brand"</span>: <span class="pythonstringcolor" style="color:brown">"Ford"</span>,<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"electric"</span>: <span class="pythonkeywordcolor" style="color:mediumblue">False</span>,<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"year"</span>: <span class="pythonnumbercolor" style="color:red">1964</span>,<br>&nbsp; <span class="pythonstringcolor" style="color:brown">"colors"</span>: [<span class="pythonstringcolor" style="color:brown">"red"</span>, <span class="pythonstringcolor" style="color:brown">"white"</span>, <span class="pythonstringcolor" style="color:brown">"blue"</span>]<br><span class="pythonnumbercolor" style="color:red">
+</span>}  </span></div>
+ </div>
+
+<hr>
+<h2>type()</h2>
+
+<p>From Python's perspective, dictionaries are defined as objects with the data type 'dict':</p>
+
+<div class="w3-codeline notranslate">
+&lt;class 'dict'&gt;
+</div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Print the data type of a dictionary:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thisdict =<span class="pythonnumbercolor" style="color:red">	</span>{<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"brand"</span>: <span class="pythonstringcolor" style="color:brown">"Ford"</span>,<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"model"</span>: <span class="pythonstringcolor" style="color:brown">"Mustang"</span>,<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"year"</span>: <span class="pythonnumbercolor" style="color:red">1964</span><br><span class="pythonnumbercolor" style="color:red">
+</span>}<br>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(<span class="pythonkeywordcolor" style="color:mediumblue">type</span>(thisdict)) </span></div>
+ </div>
+<hr>
+<h2>The dict() Constructor</h2>
+<p>It is also possible to use the <span class="w3-codespan">dict()</span> constructor to make a dictionary.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Using the dict() method to make a dictionary:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thisdict = <span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">dict</span>(name = <span class="pythonstringcolor" style="color:brown">"John"</span>, age = <span class="pythonnumbercolor" style="color:red">36</span>, country = <span class="pythonstringcolor" style="color:brown">"Norway"</span>)<br>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thisdict)<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<hr>
+
+<h2>Python Collections (Arrays)</h2>
+<p>There are four collection data types in the Python programming language:</p>
+<ul>
+<li><strong> List</a></strong> is a collection which is ordered and changeable. Allows duplicate members.</li>
+<li><strong> Tuple</a></strong> is a collection which is ordered and unchangeable. Allows duplicate members.</li>
+<li><strong> Set</a></strong> is a collection which is unordered, 
+unchangeable*, and unindexed. No duplicate members.</li>
+<li><strong>Dictionary</strong> is a collection which is ordered** and changeable. No duplicate members.</li>
+</ul>
+<div class="w3-panel w3-note">
+  <p>*Set <em>items</em> are unchangeable, but you can remove and/or add items 
+  whenever you like.</p>
+  <p>**As of Python version 3.7, dictionaries are <em>ordered</em>. 
+  In Python 3.6 and earlier, dictionaries are <em>unordered</em>.</p>
+</div>
+
+<p>When choosing a collection type, it is useful to understand the properties of that type. Choosing the right type for a particular data set could mean retention of meaning, and, it could mean an increase in efficiency or security.</p>
+ 
+
+
+
+
+ <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+ <p>&nbsp;</p>
+ <p>&nbsp;</p> 
+
+
+
+  <div class="w3-row w3-white">
+    
+   
+
+<h1>Python - <span class="color_h1">Access Dictionary Items</span></h1>
+ 
+
+
+<h2>Accessing Items</h2>
+
+<p>You can access the items of a dictionary by referring to its key name, inside 
+square brackets:</p>
+
+<div class="w3-Sample">
+ <p>Get the value of the "model" key:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thisdict =<span class="pythonnumbercolor" style="color:red">	</span>{<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"brand"</span>: <span class="pythonstringcolor" style="color:brown">"Ford"</span>,<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"model"</span>: <span class="pythonstringcolor" style="color:brown">"Mustang"</span>,<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"year"</span>: <span class="pythonnumbercolor" style="color:red">1964</span><br><span class="pythonnumbercolor" style="color:red">
+</span>}<br>x = thisdict[<span class="pythonstringcolor" style="color:brown">"model"</span>]<br><span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<p>There is also a method called <code class="w3-codespan">get()</code> that will give you the same result:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Get the value of the "model" key:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  x = thisdict.get(<span class="pythonstringcolor" style="color:brown">"model"</span>)<br><span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+<hr>
+
+<h2>Get Keys</h2>
+
+<p>The <code class="w3-codespan">keys()</code> method will return a list of all the keys in the dictionary.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Get a list of the keys:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  x = thisdict.keys() </span></div>
+ </div>
+
+<p>The list of the keys is a <em>view</em> of the dictionary, meaning that any 
+changes done to the dictionary will be reflected in the keys list.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Add a new item to the original dictionary, and see that the keys list gets 
+updated as well:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  car = {<br><span class="pythonstringcolor" style="color:brown">"brand"</span>: <span class="pythonstringcolor" style="color:brown">"Ford"</span>,<br><span class="pythonstringcolor" style="color:brown">"model"</span>: <span class="pythonstringcolor" style="color:brown">"Mustang"</span>,<br><span class="pythonstringcolor" style="color:brown">"year"</span>: <span class="pythonnumbercolor" style="color:red">1964</span><br>}<br><span class="pythonnumbercolor" style="color:red">
+</span>  <br>x = car.keys()<br><br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(x) <span class="commentcolor" style="color:green">#before the change<br></span><br>car[<span class="pythonstringcolor" style="color:brown">"color"</span>] = <span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonstringcolor" style="color:brown">"white"</span><br><br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(x) <span class="commentcolor" style="color:green">#after the change </span></span></div>
+ </div>
+ 
+<h2>Get Values</h2>
+
+<p>The <code class="w3-codespan">values()</code> method will return a list of all the values in the dictionary.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Get a list of the values:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  x = thisdict.values() </span></div>
+ </div>
+
+<p>The list of the values is a <em>view</em> of the dictionary, meaning that any 
+changes done to the dictionary will be reflected in the values list.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Make a change in the original dictionary, and see that the values list gets 
+updated as well:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  car = {<br><span class="pythonstringcolor" style="color:brown">"brand"</span>: <span class="pythonstringcolor" style="color:brown">"Ford"</span>,<br><span class="pythonstringcolor" style="color:brown">"model"</span>: <span class="pythonstringcolor" style="color:brown">"Mustang"</span>,<br><span class="pythonstringcolor" style="color:brown">"year"</span>: <span class="pythonnumbercolor" style="color:red">1964</span><br>}<br><span class="pythonnumbercolor" style="color:red">
+</span>  <br>x = car.values()<br><br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(x) <span class="commentcolor" style="color:green">#before the change<br></span><br>car[<span class="pythonstringcolor" style="color:brown">"year"</span>] <span class="pythonnumbercolor" style="color:red">
+</span>  = <span class="pythonnumbercolor" style="color:red">2020</span><br><br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(x) <span class="commentcolor" style="color:green">#after the change </span></span></div>
+ </div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Add a new item to the original dictionary, and see that the values list gets 
+updated as well:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  car = {<br><span class="pythonstringcolor" style="color:brown">"brand"</span>: <span class="pythonstringcolor" style="color:brown">"Ford"</span>,<br><span class="pythonstringcolor" style="color:brown">"model"</span>: <span class="pythonstringcolor" style="color:brown">"Mustang"</span>,<br><span class="pythonstringcolor" style="color:brown">"year"</span>: <span class="pythonnumbercolor" style="color:red">1964</span><br>}<br><span class="pythonnumbercolor" style="color:red">
+</span>  <br>x = car.values()<br><br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(x) <span class="commentcolor" style="color:green">#before the change<br></span><br>car[<span class="pythonstringcolor" style="color:brown">"color"</span>] <span class="pythonnumbercolor" style="color:red">
+</span>  = <span class="pythonstringcolor" style="color:brown">"red"</span><br><br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(x) <span class="commentcolor" style="color:green">#after the change </span></span></div>
+ </div>
+<hr>
+<h2>Get Items</h2>
+
+<p>The <code class="w3-codespan">items()</code> method will return each item in a dictionary, as tuples in a list.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Get a list of the key:value pairs</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  x = thisdict.items() </span></div>
+ </div>
+
+<p>The returned list is a <em>view</em> of the items of the dictionary, meaning that any 
+changes done to the dictionary will be reflected in the items list.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Make a change in the original dictionary, and see that the items list gets 
+updated as well:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  car = {<br><span class="pythonstringcolor" style="color:brown">"brand"</span>: <span class="pythonstringcolor" style="color:brown">"Ford"</span>,<br><span class="pythonstringcolor" style="color:brown">"model"</span>: <span class="pythonstringcolor" style="color:brown">"Mustang"</span>,<br><span class="pythonstringcolor" style="color:brown">"year"</span>: <span class="pythonnumbercolor" style="color:red">1964</span><br>}<br><span class="pythonnumbercolor" style="color:red">
+</span>  <br>x = car.items()<br><br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(x) <span class="commentcolor" style="color:green">#before the change<br></span><br>car[<span class="pythonstringcolor" style="color:brown">"year"</span>] <span class="pythonnumbercolor" style="color:red">
+</span>  = <span class="pythonnumbercolor" style="color:red">2020</span><br><br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(x) <span class="commentcolor" style="color:green">#after the change </span></span></div>
+ </div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Add a new item to the original dictionary, and see that the items list gets 
+updated as well:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  car = {<br><span class="pythonstringcolor" style="color:brown">"brand"</span>: <span class="pythonstringcolor" style="color:brown">"Ford"</span>,<br><span class="pythonstringcolor" style="color:brown">"model"</span>: <span class="pythonstringcolor" style="color:brown">"Mustang"</span>,<br><span class="pythonstringcolor" style="color:brown">"year"</span>: <span class="pythonnumbercolor" style="color:red">1964</span><br>}<br><span class="pythonnumbercolor" style="color:red">
+</span>  <br>x = car.items()<br><br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(x) <span class="commentcolor" style="color:green">#before the change<br></span><br>car[<span class="pythonstringcolor" style="color:brown">"color"</span>] <span class="pythonnumbercolor" style="color:red">
+</span>  = <span class="pythonstringcolor" style="color:brown">"red"</span><br><br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(x) <span class="commentcolor" style="color:green">#after the change </span></span></div>
+ </div>
+<hr>
+
+
+<h2>Check if Key Exists</h2>
+
+<p>To determine if a specified key is present in a dictionary use the <code class="w3-codespan">in</code> keyword:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Check if "model" is present in the dictionary:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thisdict =<span class="pythonnumbercolor" style="color:red">	</span>{<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"brand"</span>: <span class="pythonstringcolor" style="color:brown">"Ford"</span>,<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"model"</span>: <span class="pythonstringcolor" style="color:brown">"Mustang"</span>,<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"year"</span>: <span class="pythonnumbercolor" style="color:red">1964</span><br><span class="pythonnumbercolor" style="color:red">
+</span>}<br><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">if</span> <span class="pythonstringcolor" style="color:brown">"model"</span> <span class="pythonkeywordcolor" style="color:mediumblue">in</span> thisdict:<br>&nbsp; <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(<span class="pythonstringcolor" style="color:brown">"Yes, 'model' is 
+  one of the keys in the thisdict dictionary"</span>) </span></div>
+ </div>
+ 
+
+
+  <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++==-->
+ <p>&nbsp;</p>
+    <p>&nbsp;</p> 
+
+  <div class="w3-row w3-white">
+    
+   
+
+<h1>Python - <span class="color_h1">Change Dictionary Items</span></h1>
+ 
+
+<h2>Change Values</h2>
+
+<p>You can change the value of a specific item by referring to its key name:</p>
+
+<div class="w3-Sample">
+ <p>Change the "year" to 2018:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thisdict =<span class="pythonnumbercolor" style="color:red">	</span>{<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"brand"</span>: <span class="pythonstringcolor" style="color:brown">"Ford"</span>,<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"model"</span>: <span class="pythonstringcolor" style="color:brown">"Mustang"</span>,<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"year"</span>: <span class="pythonnumbercolor" style="color:red">1964</span><br><span class="pythonnumbercolor" style="color:red">
+</span>}<br>thisdict[<span class="pythonstringcolor" style="color:brown">"year"</span>] = <span class="pythonnumbercolor" style="color:red">2018</span><br><span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<hr>
+
+<h2>Update Dictionary</h2>
+
+<p>The <code class="w3-codespan">update()</code> method will update the dictionary with the items from the given 
+argument.</p>
+
+<p>The argument must be a dictionary, or an iterable object with key:value pairs.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Update the "year" of the car by using the <code class="w3-codespan">update()</code> 
+method:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thisdict =<span class="pythonnumbercolor" style="color:red">	</span>{<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"brand"</span>: <span class="pythonstringcolor" style="color:brown">"Ford"</span>,<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"model"</span>: <span class="pythonstringcolor" style="color:brown">"Mustang"</span>,<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"year"</span>: <span class="pythonnumbercolor" style="color:red">1964</span><br><span class="pythonnumbercolor" style="color:red">
+</span>}<br>thisdict.update({<span class="pythonstringcolor" style="color:brown">"year"</span>: <span class="pythonnumbercolor" style="color:red">2020</span>}) </span></div>
+ </div>
+ 
+
+   <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+   <p>&nbsp;</p>
+   <p>&nbsp;</p> 
+  <div class="w3-row w3-white">
+    
+  
+<h1>Python - <span class="color_h1">Add Dictionary Items</span></h1>
+ 
+<hr>
+<h2>Adding Items</h2>
+
+<p>Adding an item to the dictionary is done by using a new index key and assigning a value to it:</p>
+
+<div class="w3-Sample">
+ <div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thisdict =<span class="pythonnumbercolor" style="color:red">	</span>{<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"brand"</span>: <span class="pythonstringcolor" style="color:brown">"Ford"</span>,<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"model"</span>: <span class="pythonstringcolor" style="color:brown">"Mustang"</span>,<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"year"</span>: <span class="pythonnumbercolor" style="color:red">1964</span><br><span class="pythonnumbercolor" style="color:red">
+</span>}<br>thisdict[<span class="pythonstringcolor" style="color:brown">"color"</span>] = <span class="pythonstringcolor" style="color:brown">"red"</span><br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thisdict)<br><span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+<hr>
+<h2>Update Dictionary</h2>
+
+<p>The <code class="w3-codespan">update()</code> method will update the dictionary with the items from 
+a given 
+argument. If the item does not exist, the item will be added.</p>
+
+<p>The argument must be a dictionary, or an iterable object with key:value pairs.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Add a color item to the dictionary by using the <code class="w3-codespan">update()</code> 
+method:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thisdict =<span class="pythonnumbercolor" style="color:red">	</span>{<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"brand"</span>: <span class="pythonstringcolor" style="color:brown">"Ford"</span>,<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"model"</span>: <span class="pythonstringcolor" style="color:brown">"Mustang"</span>,<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"year"</span>: <span class="pythonnumbercolor" style="color:red">1964</span><br><span class="pythonnumbercolor" style="color:red">
+</span>}<br>thisdict.update({<span class="pythonstringcolor" style="color:brown">"color"</span>: <span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonstringcolor" style="color:brown">"red"</span>}) </span></div>
+ </div>
+ 
+
+  <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=-->
+ <p>&nbsp;</p>
+    <p>&nbsp;</p> 
+
+  <div class="w3-row w3-white">
+  
+
+<h1>Python - <span class="color_h1">Remove Dictionary Items</span></h1>
+ 
+
+<h2>Removing Items</h2>
+
+<p>There are several methods to remove items from a dictionary:</p>
+
+
+<div class="w3-Sample">
+   <p>The <code class="w3-codespan">pop()</code> method removes the item with the specified key name:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thisdict =<span class="pythonnumbercolor" style="color:red">	</span>{<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"brand"</span>: <span class="pythonstringcolor" style="color:brown">"Ford"</span>,<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"model"</span>: <span class="pythonstringcolor" style="color:brown">"Mustang"</span>,<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"year"</span>: <span class="pythonnumbercolor" style="color:red">1964</span><br><span class="pythonnumbercolor" style="color:red">
+</span>}<br>thisdict.pop(<span class="pythonstringcolor" style="color:brown">"model"</span>)<br><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thisdict) </span></div>
+ </div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+  <p>The <code class="w3-codespan">popitem()</code> method removes the last 
+  inserted item (in versions before 3.7, a random item is removed instead):</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thisdict =<span class="pythonnumbercolor" style="color:red">	</span>{<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"brand"</span>: <span class="pythonstringcolor" style="color:brown">"Ford"</span>,<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"model"</span>: <span class="pythonstringcolor" style="color:brown">"Mustang"</span>,<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"year"</span>: <span class="pythonnumbercolor" style="color:red">1964</span><br><span class="pythonnumbercolor" style="color:red">
+</span>}<br>thisdict.popitem()<br><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thisdict) </span></div>
+ </div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+  <p>The <code class="w3-codespan">del</code> keyword removes the item with the specified 
+  key name:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thisdict =<span class="pythonnumbercolor" style="color:red">	</span>{<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"brand"</span>: <span class="pythonstringcolor" style="color:brown">"Ford"</span>,<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"model"</span>: <span class="pythonstringcolor" style="color:brown">"Mustang"</span>,<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"year"</span>: <span class="pythonnumbercolor" style="color:red">1964</span><br><span class="pythonnumbercolor" style="color:red">
+</span>}<br><span class="pythonkeywordcolor" style="color:mediumblue">del</span> thisdict[<span class="pythonstringcolor" style="color:brown">"model"</span>]<br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thisdict) </span></div>
+ </div>
+
+<div class="w3-Sample w3-pale-red">
+<h3>Sample</h3>
+  <p>The <code class="w3-codespan">del</code> keyword can also delete the 
+  dictionary completely:</p>
+<div class="w3-code notranslate pythonHigh w3-border-red"><span class="pythoncolor" style="color:black">
+thisdict =<span class="pythonnumbercolor" style="color:red">	</span>{<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"brand"</span>: <span class="pythonstringcolor" style="color:brown">"Ford"</span>,<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"model"</span>: <span class="pythonstringcolor" style="color:brown">"Mustang"</span>,<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"year"</span>: <span class="pythonnumbercolor" style="color:red">1964</span><br><span class="pythonnumbercolor" style="color:red">
+</span>}<br><span class="pythonkeywordcolor" style="color:mediumblue">del</span> thisdict<br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thisdict) <span class="commentcolor" style="color:green">#this will cause an error because "thisdict" 
+  no longer exists. </span></span></div>
+ </div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+  <p>The <code class="w3-codespan">clear()</code> method empties the 
+  dictionary:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thisdict =<span class="pythonnumbercolor" style="color:red">	</span>{<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"brand"</span>: <span class="pythonstringcolor" style="color:brown">"Ford"</span>,<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"model"</span>: <span class="pythonstringcolor" style="color:brown">"Mustang"</span>,<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"year"</span>: <span class="pythonnumbercolor" style="color:red">1964</span><br><span class="pythonnumbercolor" style="color:red">
+</span>}<br>thisdict.clear()<br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thisdict) </span></div>
+ </div>
+ 
+
+
+
+   <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++==-->
+   <p>&nbsp;</p>
+   <p>&nbsp;</p> 
+
+  <div class="w3-row w3-white">
+    
+    
+
+<h1>Python - <span class="color_h1">Loop Dictionaries</span></h1>
+ 
+
+<h2>Loop Through a Dictionary</h2>
+
+<p>You can loop through a dictionary by using a
+<code class="w3-codespan">for</code> loop.</p>
+<p>When looping through a dictionary, the return value are the <em>keys</em> of 
+the dictionary, but there are methods to return the <em>values</em> as well.</p>
+
+<div class="w3-Sample">
+ <p>Print all key names in the dictionary, one by one:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">for</span> x <span class="pythonkeywordcolor" style="color:mediumblue">in</span> thisdict:<br>&nbsp; <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(x) </span></div>
+ </div>
+
+<div class="w3-Sample">
+  <h3>Sample</h3>
+<p>Print all <em>values</em> in the dictionary, one by one:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">for</span> x <span class="pythonkeywordcolor" style="color:mediumblue">in</span> thisdict:<br>&nbsp; <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thisdict[x]) </span></div>
+ </div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>You can also use the <code class="w3-codespan">values()</code> method to 
+return values of a dictionary:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">for</span> x <span class="pythonkeywordcolor" style="color:mediumblue">in</span> thisdict.values():<br>&nbsp; <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(x) </span></div>
+  </div>
+
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>You can use the <code class="w3-codespan">keys()</code> method to 
+return the keys of a dictionary:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">for</span> x <span class="pythonkeywordcolor" style="color:mediumblue">in</span> thisdict.keys():<br>&nbsp; <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(x) </span></div>
+ </div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Loop through both <em>keys</em> and <em>values</em>, by using the
+<code class="w3-codespan">items()</code> method:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">for</span> x, y <span class="pythonkeywordcolor" style="color:mediumblue">in</span> thisdict.items():<br>&nbsp; <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(x, y) </span></div>
+ </div>
+ 
+
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++==-->
+ <p>&nbsp;</p>
+    <p>&nbsp;</p> 
+
+  <div class="w3-row w3-white">
+   
+
+<h1>Python - <span class="color_h1">Copy Dictionaries</span></h1>
+ 
+
+
+<h2>Copy a Dictionary</h2>
+<p>You cannot copy a dictionary simply by typing <code class="w3-codespan">dict2 = 
+dict1</code>, because: <code class="w3-codespan">dict2</code> will only be a <em>
+reference</em> to <code class="w3-codespan">dict1</code>, and changes made in
+<code class="w3-codespan">dict1</code> will automatically also be made in
+<code class="w3-codespan">dict2</code>.</p>
+
+<p>There are ways to make a copy, one way is to use the built-in Dictionary 
+method <code class="w3-codespan">
+copy()</code>.</p>
+
+<div class="w3-Sample">
+ <p>Make a copy of a dictionary with the <code class="w3-codespan">copy()</code> method:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thisdict =<span class="pythonnumbercolor" style="color:red">	</span>{<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"brand"</span>: <span class="pythonstringcolor" style="color:brown">"Ford"</span>,<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"model"</span>: <span class="pythonstringcolor" style="color:brown">"Mustang"</span>,<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"year"</span>: <span class="pythonnumbercolor" style="color:red">1964</span><br><span class="pythonnumbercolor" style="color:red">
+</span>}<br>mydict <span class="pythonnumbercolor" style="color:red">
+</span>  = thisdict.copy()<br><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(mydict)<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<p>Another way to make a copy is to use the built-in function 
+<code class="w3-codespan">dict()</code>.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Make a copy of a dictionary with the <code class="w3-codespan">dict()</code> 
+function:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thisdict =<span class="pythonnumbercolor" style="color:red">	</span>{<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"brand"</span>: <span class="pythonstringcolor" style="color:brown">"Ford"</span>,<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"model"</span>: <span class="pythonstringcolor" style="color:brown">"Mustang"</span>,<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"year"</span>: <span class="pythonnumbercolor" style="color:red">1964</span><br><span class="pythonnumbercolor" style="color:red">
+</span>}<br>mydict <span class="pythonnumbercolor" style="color:red">
+</span>  = <span class="pythonkeywordcolor" style="color:mediumblue">dict</span>(thisdict)<br><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(mydict) </span></div>
+ </div>
+ 
+
+
+ <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>  
+
+  <div class="w3-row w3-white">
+    
+    
+
+<h1>Python - <span class="color_h1">Nested Dictionaries</span></h1>
+ 
+
+<h2>Nested Dictionaries</h2>
+<p>A dictionary can contain dictionaries, this is called nested 
+dictionaries.</p>
+<div class="w3-Sample">
+ <p>Create a dictionary that contain three dictionaries:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  myfamily = {<br>&nbsp; <span class="pythonstringcolor" style="color:brown">"child1"</span> : {<br>&nbsp;&nbsp;&nbsp; <span class="pythonstringcolor" style="color:brown">"name"</span> : <span class="pythonstringcolor" style="color:brown">"Emil"</span>,<br><span class="pythonnumbercolor" style="color:red">
+</span>  &nbsp;&nbsp;&nbsp; <span class="pythonstringcolor" style="color:brown">"year"</span> : <span class="pythonnumbercolor" style="color:red">2004</span><br>&nbsp; },<br>&nbsp; <span class="pythonstringcolor" style="color:brown">"child2"</span> : {<br>&nbsp;&nbsp;&nbsp; <span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonstringcolor" style="color:brown">"name"</span> : <span class="pythonstringcolor" style="color:brown">"Tobias"</span>,<br>&nbsp;&nbsp;&nbsp; <span class="pythonstringcolor" style="color:brown">"year"</span> : <span class="pythonnumbercolor" style="color:red">2007</span><br>&nbsp; },<br>&nbsp; <span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonstringcolor" style="color:brown">"child3"</span> : {<br>&nbsp;&nbsp;&nbsp; <span class="pythonstringcolor" style="color:brown">"name"</span> : <span class="pythonstringcolor" style="color:brown">"Linus"</span>,<br><span class="pythonnumbercolor" style="color:red">
+</span>  &nbsp;&nbsp;&nbsp; <span class="pythonstringcolor" style="color:brown">"year"</span> : <span class="pythonnumbercolor" style="color:red">2011</span><br>&nbsp; }<br>}  </span></div>
+ </div>
+
+<p>Or, if you want to add three dictionaries into a new 
+dictionary:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Create three dictionaries, then create one dictionary that will contain the 
+other three dictionaries:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  child1 = {<br>&nbsp; <span class="pythonstringcolor" style="color:brown">"name"</span> : <span class="pythonstringcolor" style="color:brown">"Emil"</span>,<br>&nbsp; <span class="pythonstringcolor" style="color:brown">"year"</span> : <span class="pythonnumbercolor" style="color:red">2004</span><br>}<br>child2 = {<br>&nbsp; <span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonstringcolor" style="color:brown">"name"</span> : <span class="pythonstringcolor" style="color:brown">"Tobias"</span>,<br>&nbsp; <span class="pythonstringcolor" style="color:brown">"year"</span> : <span class="pythonnumbercolor" style="color:red">2007</span><br>}<br>child3 = {<br>&nbsp; <span class="pythonstringcolor" style="color:brown">"name"</span> : <span class="pythonstringcolor" style="color:brown">"Linus"</span>,<br>&nbsp; <span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonstringcolor" style="color:brown">"year"</span> : <span class="pythonnumbercolor" style="color:red">2011</span><br>}<br><br>myfamily = {<br>&nbsp; <span class="pythonstringcolor" style="color:brown">"child1"</span> : child1,<br>&nbsp; <span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonstringcolor" style="color:brown">"child2"</span> : child2,<br>&nbsp; <span class="pythonstringcolor" style="color:brown">"child3"</span> : child3<br>} </span></div>
+ </div>
+
+<hr>
+
+<h2>Access Items in Nested Dictionaries</h2>
+<p>To access items from a nested dictionary, you use the name of the dictionaries, starting with the 
+outer dictionary:</p>
+<div class="w3-Sample">
+  <h3>Sample</h3>
+<p>Print the name of child 2:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(myfamily[<span class="pythonstringcolor" style="color:brown">"child2"</span>][<span class="pythonstringcolor" style="color:brown">"name"</span>])  </span></div>
+ </div>
+ 
+    <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+ <p>&nbsp;</p>
+    <p>&nbsp;</p> 
+
+  <div class="w3-row w3-white">
+    
+     
+<h1>Python <span class="color_h1">Dictionary Methods</span></h1>
+ 
+<h2>Dictionary Methods</h2>
+
+<p>Python has a set of built-in methods that you can use on dictionaries.</p>
+
+<table class="ws-table-all notranslate">
+<tbody><tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+<tr><td> clear()</a></td><td>Removes all the elements from the dictionary</td></tr>
+<tr><td> copy()</a></td><td>Returns a copy of the dictionary</td></tr>
+<tr><td> fromkeys()</a></td><td>Returns a dictionary with the specified keys and value</td></tr>
+<tr><td> get()</a></td><td>Returns the value of the specified key</td></tr>
+<tr><td> items()</a></td><td>Returns a list containing a tuple for each key value pair</td></tr>
+<tr><td> keys()</a></td><td>Returns a list containing the dictionary's keys</td></tr>
+<tr><td> pop()</a></td><td>Removes the element with the specified key</td></tr>
+<tr><td> popitem()</a></td><td>Removes the last 
+  inserted key-value pair</td></tr>
+<tr><td> setdefault()</a></td><td>Returns the value of the specified key. If the key does not exist: insert the key, with the specified value</td></tr>
+<tr><td> update()</a></td><td>Updates the dictionary with the specified key-value pairs</td></tr>
+<tr><td> values()</a></td><td>Returns a list of all the values in the dictionary</td></tr>
+</tbody></table>
+ 
+ 
+ 

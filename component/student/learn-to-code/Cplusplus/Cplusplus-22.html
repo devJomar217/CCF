@@ -1,0 +1,57 @@
+<!-- POINTERS-->
+
+  <div class="w3-row w3-white">
+  
+
+<h1>What is <span class="color_h1">Pointers in C++?</span></h1>
+<p>&nbsp;</p>
+<hr>
+
+<h2>Creating Pointers</h2>
+<p>You learned from the previous chapter, that we can get the <strong>memory 
+address</strong> of a variable by using the <code class="w3-codespan">&amp;</code> 
+operator:</p>
+<div class="w3-sample">
+<h3>Sample</h3>
+  <div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  string food = <span class="javastringcolor" style="color:brown">"Pizza"</span>; <span class="javanumbercolor" style="color:red">
+</span>    <span class="commentcolor" style="color:green">// A food variable of type string<br></span><br>cout &lt;&lt; <span class="javanumbercolor" style="color:red">
+</span>    food;&nbsp; <span class="commentcolor" style="color:green">// Outputs the value of food (Pizza)<br></span><span class="javanumbercolor" style="color:red">
+</span>  cout &lt;&lt; &amp;food; <span class="commentcolor" style="color:green">// Outputs the memory address of food (<strong>0x6dfed4</strong>)<br></span><span class="javanumbercolor" style="color:red">
+</span>  </span></div>
+</div>
+<p>A <strong>pointer</strong> however, is a variable that <strong>stores the memory address as its value</strong>. </p>
+<p>A pointer variable points to a data type (like <code class="w3-codespan">int</code> or <code class="w3-codespan">string</code>) of the same 
+type, and is created with the <code class="w3-codespan">*</code> operator. The address of the variable you're working with is assigned to the pointer:</p>
+
+<div class="w3-sample">
+<h3>Sample</h3>
+  <div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>    string food = <span class="javastringcolor" style="color:brown">"Pizza"</span>;&nbsp; <span class="commentcolor" style="color:green">// A food variable 
+    of type string<br></span><strong>string* ptr = <span class="javanumbercolor" style="color:red">
+</span>    &amp;food;</strong>&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// A pointer variable, with the name 
+    ptr, that stores the 
+    address of food<br></span><br><span class="commentcolor" style="color:green">// Output the value of food (Pizza)<br></span>cout &lt;&lt; food &lt;&lt; <span class="javastringcolor" style="color:brown">"\n"</span>;<br><br><span class="commentcolor" style="color:green">// Output 
+    the memory address of food (0x6dfed4)<br></span>cout &lt;&lt; &amp;food &lt;&lt; <span class="javastringcolor" style="color:brown">"\n"</span>;<br><br><span class="commentcolor" style="color:green">// 
+    Output the memory address of food with the pointer (0x6dfed4)<br></span>cout &lt;&lt; <span class="javanumbercolor" style="color:red">
+</span>    ptr &lt;&lt; <span class="javastringcolor" style="color:brown">"\n"</span>;<br><span class="javanumbercolor" style="color:red">
+</span>  </span></div>
+</div>
+<h4>Sample explained</h4>
+<p>Create a pointer variable with the name <code class="w3-codespan">ptr</code>, that <strong>points to</strong> a <code class="w3-codespan">string</code> variable, by using the 
+asterisk sign 
+<code class="w3-codespan">*</code> (<code class="w3-codespan">string* ptr</code>). 
+Note that the type of the pointer has to match the type of the variable you're 
+working with.</p>
+<p>Use the <code class="w3-codespan">&amp;</code> operator to store the memory address of the 
+variable called <code class="w3-codespan">food</code>, and assign it to the pointer.</p>
+<p>Now, <code class="w3-codespan">ptr</code> holds the value of <code class="w3-codespan">food</code>'s memory address.</p>
+
+<div class="w3-note w3-panel">
+<p><strong>Tip:</strong> There are three ways to declare pointer variables, but the first way is preferred:</p>
+<div class="w3-sample">
+  <div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>    string* mystring; <span class="commentcolor" style="color:green">// Preferred<br></span>string *mystring;<br>string * mystring;<br><span class="javanumbercolor" style="color:red">
+</span>  </span></div>
+</div>
+</div>

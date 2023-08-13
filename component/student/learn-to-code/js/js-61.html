@@ -1,0 +1,111 @@
+<!-- Modules-->
+
+
+
+  <div class="w3-row w3-white">
+    
+    
+
+<h1>What is Modules in JavaScript?</h1>
+
+
+<h2>Modules</h2>
+<p>JavaScript modules allow you to break up your code into separate files.</p>
+
+<p>This makes it easier to maintain a code-base.</p>
+
+<p>Modules are imported from external files with the <code class="w3-codespan">import</code> statement.</p>
+<p>Modules also rely on <code class="w3-codespan">type="module"</code> in the &lt;script&gt; tag.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate htmlHigh">
+<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>script<span class="attributecolor" style="color:red"> type<span class="attributevaluecolor" style="color:mediumblue">="module"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="jscolor" style="color:black"><br>
+<span class="jskeywordcolor" style="color:mediumblue">import</span> message from <span class="jsstringcolor" style="color:brown">"./message.js"</span>;<br>
+</span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/script<span class="tagcolor" style="color:mediumblue">&gt;</span></span>
+ </div>
+<p>
+ </p>
+</div>
+
+<hr>
+<h2>Export</h2>
+<p>Modules with <b>functions</b> or <b>variables</b> can be stored in any external file.</p>
+<p>There are two types of exports: <b>Named Exports</b> and <b>Default Exports</b>.</p>
+<hr>
+<h2>Named Exports</h2>
+<p>Let us create a file named <code class="w3-codespan">person.js</code>, and 
+fill it with the things we want to export.</p>
+
+<p>You can create named exports two ways. In-line individually, or all at once at the bottom.</p>
+
+<div class="w3-Sample">
+<h3>In-line individually:</h3>
+<p><code class="w3-codespan">person.js</code></p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">export</span> <span class="jskeywordcolor" style="color:mediumblue">const</span> name = <span class="jsstringcolor" style="color:brown">"Jesse"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">export</span> <span class="jskeywordcolor" style="color:mediumblue">const</span> age = <span class="jsnumbercolor" style="color:red">40</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-Sample">
+<h3>All at once at the bottom:</h3>
+<p><code class="w3-codespan">person.js</code></p>
+
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> name = <span class="jsstringcolor" style="color:brown">"Jesse"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> age = <span class="jsnumbercolor" style="color:red">40</span>;<br><span class="jsnumbercolor" style="color:red">
+</span><br>
+<span class="jskeywordcolor" style="color:mediumblue">export</span> {name, age};<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<hr>
+
+<h2>Default Exports</h2>
+<p>Let us create another file, named <code class="w3-codespan">message.js</code>, and 
+use it for demonstrating default export.</p>
+<p>You can only have one default export in a file.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p><code class="w3-codespan">message.js</code></p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> message = () =&gt; {<br><span class="jsnumbercolor" style="color:red">
+</span>  <span class="jskeywordcolor" style="color:mediumblue">const</span> name = <span class="jsstringcolor" style="color:brown">"Jesse"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>  <span class="jskeywordcolor" style="color:mediumblue">const</span> age = <span class="jsnumbercolor" style="color:red">40</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>  <span class="jskeywordcolor" style="color:mediumblue">return</span> name + <span class="jsstringcolor" style="color:brown">' is '</span> + age + <span class="jsstringcolor" style="color:brown">'years old.'</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>};<br><span class="jsnumbercolor" style="color:red">
+</span><br>
+<span class="jskeywordcolor" style="color:mediumblue">export</span> <span class="jskeywordcolor" style="color:mediumblue">default</span> message;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+
+<h2>Import</h2>
+
+<p>You can import modules into a file in two ways, based on if they are named 
+exports or default exports.</p>
+<p>Named exports are constructed using curly braces. Default exports are not.</p>
+
+<div class="w3-Sample">
+<h3>Import from named exports</h3>
+<p>Import named exports from the file person.js:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">import</span> { name, age } from <span class="jsstringcolor" style="color:brown">"./person.js"</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p>
+ </p>
+</div>
+<div class="w3-Sample">
+<h3>Import from default exports</h3>
+<p>Import a default export from the file message.js:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">import</span> message from <span class="jsstringcolor" style="color:brown">"./message.js"</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p>
+ </p>
+</div>
+
+<div class="w3-note">
+<h2>Note</h2>
+<p>Modules only work with the HTTP(s) protocol.</p>
+<p>A web-page opened via the file:// protocol cannot use import / export.</p>
+</div>

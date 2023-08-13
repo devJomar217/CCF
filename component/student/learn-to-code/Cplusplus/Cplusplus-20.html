@@ -1,0 +1,146 @@
+<!-- STRUCTURES-->
+
+  <div class="w3-row w3-white">
+    
+   
+
+<h1>What is  <span class="color_h1">Structures (struct) in C++?</span></h1>
+<p>&nbsp;</p>
+
+<h2>C++ Structures</h2>
+
+<p>Structures (also called structs) are a way to group several related variables into one place. Each variable in the structure is 
+known as a <strong>member</strong> of the structure.</p>
+
+<p>Unlike an array</a>, a structure can contain many 
+different data types (int, string, bool, etc.).</p>
+<hr>
+
+<h2>Create a Structure</h2>
+<p>To create a structure, use the <code class="w3-codespan">struct</code> 
+keyword and declare each of its members inside curly braces.</p>
+<p>After the declaration, specify the name of the structure variable (<strong>myStructure</strong> in the sample below):</p>
+<div class="w3-sample">
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  struct {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// Structure declaration<br></span>&nbsp; <span class="javakeywordcolor" style="color:mediumblue">int</span> myNum;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// Member (int 
+  variable)<br></span>&nbsp; string myString;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// Member (string variable)<br></span>} <span class="javanumbercolor" style="color:red">
+</span>  myStructure;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// Structure variable </span></span></div>
+</div>
+
+<hr>
+
+<h2>Access Structure Members</h2>
+<p>To access members of a structure, use the dot syntax (<code class="w3-codespan">.</code>):</p>
+
+<div class="w3-sample">
+  <h3>Sample</h3>
+  <p>Assign data to members of a structure and print it:</p>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  <span class="commentcolor" style="color:green">// Create a structure variable called myStructure<br></span>struct {<br><span class="javanumbercolor" style="color:red">
+</span>&nbsp; <span class="javakeywordcolor" style="color:mediumblue">int</span> myNum;<br><span class="javanumbercolor" style="color:red">
+</span>&nbsp; string myString;<br><span class="javanumbercolor" style="color:red">
+</span>} myStructure;<br><span class="javanumbercolor" style="color:red">
+</span>  <br><span class="commentcolor" style="color:green">// Assign values to members of myStructure<br></span>
+myStructure.<span class="javapropertycolor" style="color:black">myNum</span> = <span class="javanumbercolor" style="color:red">1</span>;<br>
+myStructure.<span class="javapropertycolor" style="color:black">myString</span> = <span class="javastringcolor" style="color:brown">"Hello World!"</span>;<br><span class="javanumbercolor" style="color:red">
+</span>  <br><span class="commentcolor" style="color:green">// Print members of myStructure<br></span>
+cout &lt;&lt; myStructure.<span class="javapropertycolor" style="color:black">myNum</span> &lt;&lt; <span class="javastringcolor" style="color:brown">"\n"</span>;<br>
+cout &lt;&lt; myStructure.<span class="javapropertycolor" style="color:black">myString</span> &lt;&lt; <span class="javastringcolor" style="color:brown">"\n"</span>;<span class="javanumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<hr>
+
+<h2>One Structure in Multiple Variables</h2>
+
+<p>You can use a comma (<code class="w3-codespan">,</code>) to use one structure in many variables:</p>
+<div class="w3-sample">
+<div class="w3-code javaHigh notranslate"><span class="javacolor" style="color:black">
+struct {<br><span class="javanumbercolor" style="color:red">
+</span>&nbsp; <span class="javakeywordcolor" style="color:mediumblue">int</span> myNum;<br><span class="javanumbercolor" style="color:red">
+</span>&nbsp; string myString;<br><span class="javanumbercolor" style="color:red">
+</span>} myStruct1, myStruct2, myStruct3; <span class="commentcolor" style="color:green">// Multiple structure variables separated with commas
+ </span></span></div>
+</div>
+
+<p>This sample shows how to use a structure in two different variables:</p>
+<div class="w3-sample">
+  <h3>Sample</h3>
+  <p>Use one structure to represent two cars:</p>
+<div class="w3-code javaHigh notranslate"><span class="javacolor" style="color:black">
+struct {<br><span class="javanumbercolor" style="color:red">
+</span>&nbsp; string brand;<br><span class="javanumbercolor" style="color:red">
+</span>&nbsp; string model;<br><span class="javanumbercolor" style="color:red">
+</span>&nbsp; <span class="javakeywordcolor" style="color:mediumblue">int</span> year;<br><span class="javanumbercolor" style="color:red">
+</span>} myCar1, myCar2;  <span class="commentcolor" style="color:green">// We can add variables by separating them with a comma here<br></span><span class="javanumbercolor" style="color:red">
+</span><br><span class="javanumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Put data into the first structure<br></span>
+myCar1.<span class="javapropertycolor" style="color:black">brand</span> = <span class="javastringcolor" style="color:brown">"BMW"</span>;<br>
+myCar1.<span class="javapropertycolor" style="color:black">model</span> = <span class="javastringcolor" style="color:brown">"X5"</span>;<br>
+myCar1.<span class="javapropertycolor" style="color:black">year</span> = <span class="javanumbercolor" style="color:red">1999</span>;<br><span class="javanumbercolor" style="color:red">
+</span><br><span class="javanumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Put data into the second structure<br></span>
+myCar2.<span class="javapropertycolor" style="color:black">brand</span> = <span class="javastringcolor" style="color:brown">"Ford"</span>;<br>
+myCar2.<span class="javapropertycolor" style="color:black">model</span> = <span class="javastringcolor" style="color:brown">"Mustang"</span>;<br>
+myCar2.<span class="javapropertycolor" style="color:black">year</span> = <span class="javanumbercolor" style="color:red">1969</span>;<br><span class="javanumbercolor" style="color:red">
+</span><br><span class="javanumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Print the structure members<br></span>
+cout &lt;&lt; myCar1.<span class="javapropertycolor" style="color:black">brand</span> &lt;&lt; <span class="javastringcolor" style="color:brown">" "</span> &lt;&lt; myCar1.<span class="javapropertycolor" style="color:black">model</span> &lt;&lt; <span class="javastringcolor" style="color:brown">" "</span> &lt;&lt; myCar1.<span class="javapropertycolor" style="color:black">year</span> &lt;&lt; <span class="javastringcolor" style="color:brown">"\n"</span>;<br>
+cout &lt;&lt; myCar2.<span class="javapropertycolor" style="color:black">brand</span> &lt;&lt; <span class="javastringcolor" style="color:brown">" "</span> &lt;&lt; myCar2.<span class="javapropertycolor" style="color:black">model</span> &lt;&lt; <span class="javastringcolor" style="color:brown">" "</span> &lt;&lt; myCar2.<span class="javapropertycolor" style="color:black">year</span> &lt;&lt; <span class="javastringcolor" style="color:brown">"\n"</span>;<span class="javanumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<hr>
+
+<h2>Named Structures</h2>
+<p>By giving a name to the structure, you can treat it as a data type. This means that you can create variables with this structure anywhere in the program at any time.</p>
+<p>To create a named structure, put the name of the structure right after the <code class="w3-codespan">struct</code> keyword:</p>
+
+<div class="w3-sample">
+<div class="w3-code javaHigh notranslate"><span class="javacolor" style="color:black">
+struct myDataType { <span class="commentcolor" style="color:green">// This structure is named "myDataType"<br></span><span class="javanumbercolor" style="color:red">
+</span>  &nbsp;<span class="javanumbercolor" style="color:red">
+</span>  <span class="javakeywordcolor" style="color:mediumblue">int</span> myNum;<br><span class="javanumbercolor" style="color:red">
+</span>  &nbsp;<span class="javanumbercolor" style="color:red">
+</span>  string myString;<br><span class="javanumbercolor" style="color:red">
+</span>};<span class="javanumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<p>To declare a variable that uses the structure, use the name of the structure as the data type of the variable:</p>
+
+<div class="w3-sample">
+<div class="w3-code javaHigh notranslate"><span class="javacolor" style="color:black">
+myDataType myVar;<span class="javanumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-sample">
+  <h3>Sample</h3>
+  <p>Use one structure to represent two cars:</p>
+<div class="w3-code javaHigh notranslate"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Declare a structure named "car"<br></span>
+struct car {<br><span class="javanumbercolor" style="color:red">
+</span>&nbsp; string brand;<br><span class="javanumbercolor" style="color:red">
+</span>&nbsp; string model;<br><span class="javanumbercolor" style="color:red">
+</span>&nbsp; <span class="javakeywordcolor" style="color:mediumblue">int</span> year;<br><span class="javanumbercolor" style="color:red">
+</span>};<br><span class="javanumbercolor" style="color:red">
+</span><br>
+<span class="javakeywordcolor" style="color:mediumblue">int</span> main() {<br><span class="javanumbercolor" style="color:red">
+</span>&nbsp; <span class="commentcolor" style="color:green">// Create a car structure and store it in myCar1;<br></span><span class="javanumbercolor" style="color:red">
+</span>&nbsp; car myCar1; <br><span class="javanumbercolor" style="color:red">
+</span>&nbsp; myCar1.<span class="javapropertycolor" style="color:black">brand</span> = <span class="javastringcolor" style="color:brown">"BMW"</span>;<br><span class="javanumbercolor" style="color:red">
+</span>&nbsp; myCar1.<span class="javapropertycolor" style="color:black">model</span> = <span class="javastringcolor" style="color:brown">"X5"</span>;<br><span class="javanumbercolor" style="color:red">
+</span>&nbsp; myCar1.<span class="javapropertycolor" style="color:black">year</span> = <span class="javanumbercolor" style="color:red">1999</span>;<br><span class="javanumbercolor" style="color:red">
+</span><br><span class="javanumbercolor" style="color:red">
+</span>&nbsp; <span class="commentcolor" style="color:green">// Create another car structure and store it in myCar2;<br></span><span class="javanumbercolor" style="color:red">
+</span>&nbsp; car myCar2;<br><span class="javanumbercolor" style="color:red">
+</span>&nbsp; myCar2.<span class="javapropertycolor" style="color:black">brand</span> = <span class="javastringcolor" style="color:brown">"Ford"</span>;<br><span class="javanumbercolor" style="color:red">
+</span>&nbsp; myCar2.<span class="javapropertycolor" style="color:black">model</span> = <span class="javastringcolor" style="color:brown">"Mustang"</span>;<br><span class="javanumbercolor" style="color:red">
+</span>&nbsp; myCar2.<span class="javapropertycolor" style="color:black">year</span> = <span class="javanumbercolor" style="color:red">1969</span>;<br><span class="javanumbercolor" style="color:red">
+</span>&nbsp; <br><span class="javanumbercolor" style="color:red">
+</span>&nbsp; <span class="commentcolor" style="color:green">// Print the structure members<br></span><span class="javanumbercolor" style="color:red">
+</span>&nbsp; cout &lt;&lt; myCar1.<span class="javapropertycolor" style="color:black">brand</span> &lt;&lt; <span class="javastringcolor" style="color:brown">" "</span> &lt;&lt; myCar1.<span class="javapropertycolor" style="color:black">model</span> &lt;&lt; <span class="javastringcolor" style="color:brown">" "</span> &lt;&lt; myCar1.<span class="javapropertycolor" style="color:black">year</span> &lt;&lt; <span class="javastringcolor" style="color:brown">"\n"</span>;<br><span class="javanumbercolor" style="color:red">
+</span>&nbsp; cout &lt;&lt; myCar2.<span class="javapropertycolor" style="color:black">brand</span> &lt;&lt; <span class="javastringcolor" style="color:brown">" "</span> &lt;&lt; myCar2.<span class="javapropertycolor" style="color:black">model</span> &lt;&lt; <span class="javastringcolor" style="color:brown">" "</span> &lt;&lt; myCar2.<span class="javapropertycolor" style="color:black">year</span> &lt;&lt; <span class="javastringcolor" style="color:brown">"\n"</span>;<br><span class="javanumbercolor" style="color:red">
+</span>&nbsp; <br><span class="javanumbercolor" style="color:red">
+</span>&nbsp; <span class="javakeywordcolor" style="color:mediumblue">return</span> <span class="javanumbercolor" style="color:red">0</span>;<br><span class="javanumbercolor" style="color:red">
+</span>}<span class="javanumbercolor" style="color:red">
+</span> </span></div>

@@ -1,0 +1,100 @@
+<!-- Min and Max-->
+
+
+ 
+  <div class="w3-row w3-white">
+    
+  
+
+<h1>What is  <span class="color_h1">MIN() and MAX()</span> Functions in SQL?</h1>
+ 
+<h2>The SQL MIN() and MAX() Functions</h2>
+<p>The <code class="w3-codespan">MIN()</code> function returns the smallest value of the selected column.</p>
+<p>The <code class="w3-codespan">MAX()</code> function returns the largest value of the selected column.</p>
+<h3>MIN() Syntax</h3>
+<div class="w3-Sample">
+<div class="w3-code notranslate sqlHigh"><span class="sqlcolor" style="color:black">
+<span class="sqlkeywordcolor" style="color:mediumblue">SELECT</span> MIN(<em>column_name</em>)<br>
+<span class="sqlkeywordcolor" style="color:mediumblue">FROM</span> <em>table_name</em><br>
+<span class="sqlkeywordcolor" style="color:mediumblue">WHERE</span> <em>condition</em>; </span></div></div>
+<h3>MAX() Syntax</h3>
+<div class="w3-Sample">
+<div class="w3-code notranslate sqlHigh"><span class="sqlcolor" style="color:black">
+<span class="sqlkeywordcolor" style="color:mediumblue">SELECT</span> MAX(<em>column_name</em>)<br>
+<span class="sqlkeywordcolor" style="color:mediumblue">FROM</span> <em>table_name</em><br>
+<span class="sqlkeywordcolor" style="color:mediumblue">WHERE</span> <em>condition</em>; </span></div></div>
+<hr>
+
+<h2>Demo Database</h2>
+<p>Below is a selection from the "Products" table in the Northwind sample database:</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tbody><tr>
+    <th>ProductID</th>
+    <th>ProductName</th>
+    <th>SupplierID</th>
+    <th>CategoryID</th>
+    <th>Unit</th>
+    <th>Price</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Chais</td>
+    <td>1</td>
+    <td>1</td>
+    <td>10 boxes x 20 bags</td>
+    <td>18</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Chang</td>
+    <td>1</td>
+    <td>1</td>
+    <td>24 - 12 oz bottles</td>
+    <td>19</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Aniseed Syrup</td>
+    <td>1</td>
+    <td>2</td>
+    <td>12 - 550 ml bottles</td>
+    <td>10</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>Chef Anton's Cajun Seasoning</td>
+    <td>2</td>
+    <td>2</td>
+    <td>48 - 6 oz jars</td>
+    <td>22</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>Chef Anton's Gumbo Mix</td>
+    <td>2</td>
+    <td>2</td>
+    <td>36 boxes</td>
+    <td>21.35</td>
+  </tr>
+</tbody></table>
+</div>
+<hr>
+
+<h2>MIN() Sample</h2>
+<p>The following SQL statement finds the price of the cheapest product:</p>
+<div class="w3-Sample">
+ <div class="w3-code notranslate sqlHigh"><span class="sqlcolor" style="color:black"><span class="sqlnumbercolor" style="color:">
+</span>  <span class="sqlkeywordcolor" style="color:mediumblue">SELECT</span> MIN(Price) <span class="sqlkeywordcolor" style="color:mediumblue">AS</span> SmallestPrice<br><span class="sqlkeywordcolor" style="color:mediumblue">FROM</span> Products;<span class="sqlnumbercolor" style="color:">
+</span> </span></div>
+ 
+
+<h2>MAX() Sample</h2>
+<p>The following SQL statement finds the price of the most expensive product:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate sqlHigh"><span class="sqlcolor" style="color:black"><span class="sqlnumbercolor" style="color:">
+</span>  <span class="sqlkeywordcolor" style="color:mediumblue">SELECT</span> MAX(Price) <span class="sqlkeywordcolor" style="color:mediumblue">AS</span> LargestPrice<br><span class="sqlkeywordcolor" style="color:mediumblue">FROM</span> Products; </span></div>
+ </div>
+
+ 

@@ -230,6 +230,27 @@ class Question {
   }
 }
 
+class FAQ {
+  public $questionID;
+  public $title;
+
+  function set_questionID($questionID) {
+    $this->questionID = $questionID;
+  }
+  
+  function get_questionID() {
+    return $this->questionID;
+  }
+
+  function set_title($title) {
+    $this->title = $title;
+  }
+  
+  function get_title() {
+    return $this->title;
+  }
+}
+
 
 class Answer {
   public $picture;
@@ -240,8 +261,7 @@ class Answer {
   public $creationDateTime;
   public $answerID;
   public $answer;
-  public $thumbsUp;
-  public $thumbsDown;
+  public $rating;
   public $status;
   public $replies;
 
@@ -309,20 +329,12 @@ class Answer {
     return $this->questionID;
   }
 
-  function set_thumbsUp($thumbsUp) {
-    $this->thumbsUp = $thumbsUp;
+  function set_rating($rating) {
+    $this->rating = $rating;
   }
   
-  function get_thumbsUp() {
-    return $this->thumbsUp;
-  }
-
-  function set_thumbsDown($thumbsDown) {
-    $this->thumbsDown = $thumbsDown;
-  }
-  
-  function get_thumbsDown() {
-    return $this->thumbsDown;
+  function get_rating() {
+    return $this->rating;
   }
 
   function set_status($status) {
@@ -341,6 +353,7 @@ class Answer {
     return $this->replies;
   }
 }
+
 
 class Reply {
   public $picture;
@@ -445,6 +458,63 @@ class Reply {
 }
 
 
+class Notification {
+  public $studentID;
+  public $name;
+  public $creationDateTime;
+  public $detail;
+  public $type;
+  public $questionID;
+  
+  function set_studentID($studentID) {
+    $this->studentID = $studentID;
+  }
+
+  function get_studentID() {
+    return $this->studentID;
+  }
+
+  function set_name($name) {
+    $this->name = $name;
+  }
+
+  function get_name() {
+    return $this->name;
+  }
+
+  function set_creationDateTime($creationDateTime) {
+    $this->creationDateTime = $creationDateTime;
+  }
+  
+  function get_creationDateTime() {
+    return $this->creationDateTime;
+  }
+
+  function set_detail($detail) {
+    $this->detail = $detail;
+  }
+  
+  function get_detail() {
+    return $this->detail;
+  }
+
+  function set_type($type) {
+    $this->type = $type;
+  }
+  
+  function get_type() {
+    return $this->type;
+  }
+
+  function set_questionID($questionID) {
+    $this->questionID = $questionID;
+  }
+  
+  function get_questionID() {
+    return $this->questionID;
+  }
+}
+
 class Attachment {
   public $attachmentID;
   public $contentID;
@@ -538,6 +608,45 @@ class Rating {
 
   function get_rating() {
     return $this->rating;
+  }
+}
+
+class Rank {
+  public $studentID;
+  public $studentInformation;
+  public $rating;
+  public $rank;
+
+  function set_studentID($studentID) {
+    $this->studentID = $studentID;
+  }
+
+  function get_studentID() {
+    return $this->studentID;
+  }
+
+  function set_studentInformation($studentInformation) {
+    $this->studentInformation = $studentInformation;
+  }
+
+  function get_studentInformation() {
+    return $this->studentInformation;
+  }
+
+  function set_rating($rating) {
+    $this->rating = $rating;
+  }
+
+  function get_rating() {
+    return $this->rating;
+  }
+
+  function set_rank($rank) {
+    $this->rank = $rank;
+  }
+
+  function get_rank() {
+    return $this->rank;
   }
 }
 

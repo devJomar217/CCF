@@ -1,0 +1,65 @@
+<!-- user input-->
+
+
+  <div class="w3-row w3-white">
+  
+    <h1>What is <span class="color_h1">User Input in C#?</span></h1>
+
+<hr>
+
+<h2>Get User Input</h2>
+<p>You have already learned that <code class="w3-codespan">Console.WriteLine()</code> is used to output (print) values. Now we will use <code class="w3-codespan">
+Console.ReadLine()</code> to get user input.</p>
+<p>In the following Sample, the user can input his or hers username, which is stored in the 
+variable <code class="w3-codespan">userName</code>. Then we print the value of 
+<code class="w3-codespan">
+userName</code>:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<pre class="w3-white language-csharp" tabindex="0"><code class="language-csharp"><span class="token comment">// Type your username and press enter</span>
+Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Enter username:"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Create a string variable and get user input from the keyboard and store it in the variable</span>
+<span class="token class-name"><span class="token keyword keyword-string">string</span></span> userName <span class="token operator">=</span> Console<span class="token punctuation">.</span><span class="token function">ReadLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Print the value of the variable (userName), which will display the input value</span>
+Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Username is: "</span> <span class="token operator">+</span> userName<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>
+</p>
+</div>
+<hr>
+
+<h2>User Input and Numbers</h2>
+<p>The <code class="w3-codespan">Console.ReadLine()</code> method returns a <code class="w3-codespan">string</code>. Therefore, you cannot get information from another data type, such as <code class="w3-codespan">int</code>. The following program will cause an error:</p>
+
+<div class="w3-Sample w3-pale-red">
+<h3>Sample</h3>
+<pre class="w3-white w3-border-red language-csharp" tabindex="0"><code class="language-csharp">Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Enter your age:"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token keyword keyword-int">int</span></span> age <span class="token operator">=</span> Console<span class="token punctuation">.</span><span class="token function">ReadLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Your age is: "</span> <span class="token operator">+</span> age<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>The error message will be something like this:</p>
+<div class="w3-padding notranslate w3-black">
+<code>
+Cannot implicitly convert type 'string' to 'int'</code>
+</div>
+<br>
+</div>
+<p>Like the error message says, you cannot implicitly convert type 'string' to 
+'int'. </p>
+<p>Luckily, for you, you just learned from the  previous chapter (Type Casting)</a>, that you can convert 
+any type explicitly, by using one of the <code class="w3-codespan">
+Convert.To</code> methods:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<pre class="w3-white language-csharp" tabindex="0"><code class="language-csharp">Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Enter your age:"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token keyword keyword-int">int</span></span> age <span class="token operator">=</span> Convert<span class="token punctuation">.</span><span class="token function">ToInt32</span><span class="token punctuation">(</span>Console<span class="token punctuation">.</span><span class="token function">ReadLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Your age is: "</span> <span class="token operator">+</span> age<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>
+</p>
+</div>
+<div class="w3-warning w3-panel">
+<p><strong>Note:</strong> If you enter wrong input (e.g. text in a numerical input), you will get an exception/error message (like System.FormatException: 'Input string was not in a correct format.').</p>
+<p>You will learn more about  Exceptions</a> and how to handle errors in a later chapter.</p>
+</div>
+

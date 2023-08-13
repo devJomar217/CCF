@@ -1,0 +1,136 @@
+<!-- Hoisting-->
+
+
+  <div class="w3-row w3-white">
+    
+    <div class="w3-col l10 m12" id="main">
+  
+
+<h1>What is <span class="color_h1">Hoisting in JavaScript?</span></h1>
+
+<p class="intro">Hoisting is JavaScript's default behavior of moving declarations to the 
+top.</p>
+<hr>
+
+<h2>JavaScript Declarations are Hoisted</h2>
+<p>In JavaScript, a variable can be declared after it has been used.</p>
+<p>In other words; a variable can be used before it has been declared.</p>
+<p><strong>Sample 1</strong> gives the same result as <strong>Sample 2</strong>:</p>
+<div class="w3-Sample">
+<h3>Sample 1</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+x = <span class="jsnumbercolor" style="color:red">5</span>; <span class="commentcolor" style="color:green">// Assign 5 to x<br></span><span class="jsnumbercolor" style="color:red">
+</span><br>
+elem = document.<span class="jspropertycolor" style="color:black">getElementById</span>(<span class="jsstringcolor" style="color:brown">"demo"</span>); <span class="commentcolor" style="color:green">// Find an element <br></span>
+elem.<span class="jspropertycolor" style="color:black">innerHTML</span> = x;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Display x in the element<br></span><br><span class="jskeywordcolor" style="color:mediumblue">var</span> x; <span class="commentcolor" style="color:green">// Declare x
+ </span></span></div>
+ </div>
+<div class="w3-Sample">
+<h3>Sample 2</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">var</span> x; <span class="commentcolor" style="color:green">// Declare x<br></span>
+x = <span class="jsnumbercolor" style="color:red">5</span>; <span class="commentcolor" style="color:green">// Assign 5 to x<br></span><br>
+elem = document.<span class="jspropertycolor" style="color:black">getElementById</span>(<span class="jsstringcolor" style="color:brown">"demo"</span>); <span class="commentcolor" style="color:green">// Find an element <br></span>elem.<span class="jspropertycolor" style="color:black">innerHTML</span> = x;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Display x in the element<br></span><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<p>To understand this, you have to understand the term "hoisting".</p>
+<p>Hoisting is JavaScript's default behavior of moving all declarations to the 
+top of the current scope (to the top of the current script or the current function).</p>
+
+<hr>
+
+<h2>The let and const Keywords</h2>
+
+<p>Variables defined with <code class="w3-codespan">let</code> and <code class="w3-codespan">const</code> are hoisted to the top 
+of the block, but not <em>initialized</em>.</p><p>Meaning: The block of code is aware of the 
+variable, but it cannot be used until it has been declared.
+</p><p>Using a <code class="w3-codespan">let</code> variable before it is declared will result in a
+<code class="w3-codespan">ReferenceError</code>.</p> 
+<p>The variable is in a "temporal dead zone" from the start 
+of the block until it is declared:</p>
+
+<div class="w3-Sample w3-pale-red">
+<h3>Sample</h3>
+This will result in a <code class="w3-codespan">ReferenceError</code>:
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+carName = <span class="jsstringcolor" style="color:brown">"Volvo"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> carName;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<p>Using a <code class="w3-codespan">const</code> variable before it is declared, is a syntax error,
+so the code will simply not run.</p> 
+
+<div class="w3-Sample w3-pale-red">
+<h3>Sample</h3>
+<p>This code will not run.</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+carName = <span class="jsstringcolor" style="color:brown">"Volvo"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> carName;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+ 
+>
+<hr>
+
+<h2>JavaScript Initializations are Not Hoisted</h2>
+<p>JavaScript only hoists declarations, not initializations.</p>
+<p><strong>Sample 1</strong> does <strong>not</strong> give the same result as
+<strong>Sample 2</strong>:</p>
+
+<div class="w3-Sample">
+<h3>Sample 1</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">var</span> x = <span class="jsnumbercolor" style="color:red">5</span>; <span class="commentcolor" style="color:green">// Initialize x<br></span><span class="jskeywordcolor" style="color:mediumblue">var</span> y = <span class="jsnumbercolor" style="color:red">7</span>; <span class="commentcolor" style="color:green">// Initialize y<br></span><br>elem = document.<span class="jspropertycolor" style="color:black">getElementById</span>(<span class="jsstringcolor" style="color:brown">"demo"</span>); <span class="commentcolor" style="color:green">// Find an element <br></span>
+elem.<span class="jspropertycolor" style="color:black">innerHTML</span> = x + <span class="jsstringcolor" style="color:brown">" "</span> + y;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Display x and y
+ </span></span></div>
+ </div>
+<div class="w3-Sample">
+<h3>Sample 2</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">var</span> x = <span class="jsnumbercolor" style="color:red">5</span>; <span class="commentcolor" style="color:green">// Initialize x<br></span><span class="jsnumbercolor" style="color:red">
+</span><br>
+elem = document.<span class="jspropertycolor" style="color:black">getElementById</span>(<span class="jsstringcolor" style="color:brown">"demo"</span>); <span class="commentcolor" style="color:green">// Find an element <br></span>
+elem.<span class="jspropertycolor" style="color:black">innerHTML</span> = x + <span class="jsstringcolor" style="color:brown">" "</span> + y;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Display x and y<br></span><span class="jsnumbercolor" style="color:red">
+</span><br>
+<span class="jskeywordcolor" style="color:mediumblue">var</span> y = <span class="jsnumbercolor" style="color:red">7</span>; <span class="commentcolor" style="color:green">// Initialize y
+ </span></span></div>
+ </div>
+
+<p>Does it make sense that y is undefined in the last Sample?</p>
+<p>This is because only the declaration (var y), not the initialization (=7) is hoisted to the top.</p>
+<p>Because of hoisting, y has been declared before it is used, but because 
+initializations are not hoisted, the value of y is undefined.</p>
+<p>Sample 2 is the same as writing:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">var</span> x = <span class="jsnumbercolor" style="color:red">5</span>; <span class="commentcolor" style="color:green">// Initialize x<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">var</span> y;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// Declare y<br></span><span class="jsnumbercolor" style="color:red">
+</span><br>
+elem = document.<span class="jspropertycolor" style="color:black">getElementById</span>(<span class="jsstringcolor" style="color:brown">"demo"</span>); <span class="commentcolor" style="color:green">// Find an element <br></span>
+elem.<span class="jspropertycolor" style="color:black">innerHTML</span> = x + <span class="jsstringcolor" style="color:brown">" "</span> + y;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Display x and y<br></span><span class="jsnumbercolor" style="color:red">
+</span><br>
+y = <span class="jsnumbercolor" style="color:red">7</span>;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// Assign 7 to y 
+ </span></span></div>
+</div>
+<hr>
+
+<h2>Declare Your Variables At the Top !</h2>
+<p>Hoisting is (to many developers) an unknown or overlooked behavior of  
+JavaScript.</p><p>
+If a developer doesn't understand hoisting, programs may contain bugs (errors).</p><p>
+To avoid bugs, always declare all variables at the beginning of 
+every scope.</p><p>
+Since this is how JavaScript interprets the 
+code, it is always a good rule.
+</p>
+
+<div class="w3-panel w3-note">
+<p>JavaScript in strict mode does not allow variables to be used if they are 
+not declared.<br>Study <strong>"use strict"</strong> in the next chapter.</p>
+</div>

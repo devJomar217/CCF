@@ -1,0 +1,80 @@
+<!-- Constant-->
+
+ 
+  <div class="w3-row w3-white">
+    
+ 
+
+<h1>What is <span class="color_h1">Constants in Php?</span></h1>
+ 
+<p class="intro">Constants are like variables except that once they are defined 
+they cannot be changed or undefined.</p>
+<hr>
+
+<h2>PHP Constants</h2>
+
+<p>A constant is an identifier (name) for a simple value. The value cannot be 
+changed during the script.</p>
+<p>A valid constant name starts with a letter or underscore (no $ sign before 
+the constant name).</p>
+<p><strong>Note:</strong> Unlike variables, constants are automatically global across 
+the entire script.</p>
+<hr>
+
+<h2>Create a PHP Constant</h2>
+<p>To create a constant, use the <code class="w3-codespan">define()</code> function.</p>
+<h3>Syntax</h3>
+<div class="w3-code w3-border notranslate"><div>
+ define(<i>name</i>, <i>value</i>, <i>case-insensitive</i>)</div></div>
+
+<p>Parameters:</p>
+<ul>
+  <li><i>name</i>: Specifies the name of the constant</li>
+  <li><i>value</i>: Specifies the value of the constant</li>
+  <li><i>case-insensitive</i>: Specifies whether the constant name should be case-insensitive. Default is false</li>
+</ul>
+
+<div class="w3-Sample">
+   <p>Create a constant with a <strong>case-sensitive</strong> name:</p>
+<div class="w3-code htmlHigh notranslate">
+<span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br><span class="phpnumbercolor" style="color:red">
+</span> define(<span class="phpstringcolor" style="color:brown">"GREETING"</span>, <span class="phpstringcolor" style="color:brown">"Welcome to CodeConnect.com!"</span>);<br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> GREETING;<br><span class="phptagcolor" style="color:red">?&gt;</span></span>
+ </div>
+ </div>
+
+<div class="w3-Sample">
+ <h3>Sample</h3>
+  <p>Create a constant with a <strong>case-insensitive</strong> name:</p>
+<div class="w3-code htmlHigh notranslate">
+<span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br><span class="phpnumbercolor" style="color:red">
+</span> define(<span class="phpstringcolor" style="color:brown">"GREETING"</span>, <span class="phpstringcolor" style="color:brown">"Welcome to CodeConnect.com!"</span>, true);<br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> greeting;<br><span class="phptagcolor" style="color:red">?&gt;</span></span>
+ </div>
+ </div>
+ 
+
+<h2>PHP Constant Arrays</h2>
+<p>In PHP7, you can create an Array constant using the <code class="w3-codespan">define()</code> function.</p>
+<div class="w3-Sample">
+ <h3>Sample</h3>
+  <p>Create an Array constant:</p>
+<div class="w3-code htmlHigh notranslate">
+<span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br><span class="phpnumbercolor" style="color:red">
+</span> define(<span class="phpstringcolor" style="color:brown">"cars"</span>, [<br>&nbsp; <span class="phpstringcolor" style="color:brown">"Alfa Romeo"</span>,<br>&nbsp; <span class="phpnumbercolor" style="color:red">
+</span>  <span class="phpstringcolor" style="color:brown">"BMW"</span>,<br>&nbsp; <span class="phpstringcolor" style="color:brown">"Toyota"</span><br>]);<br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> cars[<span class="phpnumbercolor" style="color:red">0</span>];<br><span class="phptagcolor" style="color:red">?&gt;</span></span>
+ </div>
+ </div>
+<hr>
+
+<h2>Constants are Global</h2>
+<p>Constants are automatically global and can be used across 
+the entire script.</p>
+<div class="w3-Sample">
+  <h3>Sample</h3>
+  <p>This Sample uses a constant inside a function, even if it is defined 
+outside the function:</p>
+<div class="w3-code htmlHigh notranslate">
+ <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br>define(<span class="phpstringcolor" style="color:brown">"GREETING"</span>, <span class="phpstringcolor" style="color:brown">"Welcome to CodeConnect.com!"</span>);<br><br><span class="phpkeywordcolor" style="color:mediumblue">function</span> myTest() {<br><span class="phpnumbercolor" style="color:red">
+</span>  &nbsp; <span class="phpkeywordcolor" style="color:mediumblue">echo</span> GREETING;<br>}<br>&nbsp;<br>myTest();<br><span class="phpnumbercolor" style="color:red">
+</span> <span class="phptagcolor" style="color:red">?&gt;</span></span>  </div>
+ </div>
+ 

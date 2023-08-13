@@ -1,0 +1,120 @@
+<!-- computercodes-->
+
+ 
+    <div class="w3-row w3-white">
+      
+   
+  
+  <h1>What is <span class="color_h1">Computer Code Elements in HTML?</span></h1>
+ 
+  <p class="intro">HTML contains several elements for defining user input and 
+  computer code. </p>
+  <hr>
+  
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate htmlHigh">
+  <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>code<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>x = 5;<br>y = 6;<br>
+    z = x + y;<br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/code<span class="tagcolor" style="color:mediumblue">&gt;</span></span>
+   </div>
+   </div>
+  <hr>
+  
+  <h2>HTML &lt;kbd&gt; For Keyboard Input</h2>
+  <p>The HTML <code class="w3-codespan">&lt;kbd&gt;</code> element is used 
+  to define keyboard input. The content inside is displayed in the browser's 
+  default monospace font.</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <p>Define some text as keyboard input in a document:</p>
+  <div class="w3-code notranslate htmlHigh">
+  <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>p<span class="tagcolor" style="color:mediumblue">&gt;</span></span>Save the document by pressing <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>kbd<span class="tagcolor" style="color:mediumblue">&gt;</span></span>Ctrl + S<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/kbd<span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/p<span class="tagcolor" style="color:mediumblue">&gt;</span></span> </div>
+  <p>Result:</p>
+  <div class="w3-white w3-padding notranslate">
+  Save the document by pressing <kbd style="font-family:monospace !important;font-size:13px;">Ctrl + S</kbd></div>
+   </div>
+  <hr>
+  
+  <h2>HTML &lt;samp&gt; For Program Output</h2>
+  <p>The HTML <code class="w3-codespan">&lt;samp&gt;</code> element is used to 
+  define sample output from a computer program. The content inside is displayed in 
+  the browser's default monospace font.</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+    <p>Define some text as sample output from a computer program in a document:</p>
+  <div class="w3-code notranslate htmlHigh">
+    <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>p<span class="tagcolor" style="color:mediumblue">&gt;</span></span>Message from my computer:<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/p<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>p<span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>samp<span class="tagcolor" style="color:mediumblue">&gt;</span></span>File not found.<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>br<span class="tagcolor" style="color:mediumblue">&gt;</span></span>Press F1 to 
+    continue<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/samp<span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/p<span class="tagcolor" style="color:mediumblue">&gt;</span></span> </div>
+  <p>Result:</p>
+  <div class="w3-white w3-padding notranslate">
+  Message from my computer:
+  <p><samp style="font-family: monospace !important;font-size:13px;">File not found.<br>Press F1 to continue</samp></p>
+  </div>
+   </div>
+    
+  <h2>HTML &lt;code&gt; For Computer Code</h2>
+  <p>The HTML <code class="w3-codespan">&lt;code&gt;</code> element&nbsp; is used 
+  to define a piece of computer code. The content inside is displayed in the 
+  browser's default monospace font.</p>
+  
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+    <p>Define some text as computer code in a document:</p>
+  <div class="w3-code notranslate htmlHigh">
+    <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>code<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>x = 5;<br>y = 6;<br>z = x + y;<br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/code<span class="tagcolor" style="color:mediumblue">&gt;</span></span> </div>
+  <p>Result:</p>
+  <div class="w3-white w3-padding notranslate">
+    <code style="font-family: monospace !important;font-size:13px;padding:0;">
+    x = 5;
+    y = 6;
+    z = x + y;
+  </code>
+  </div>
+   </div>
+  
+  <p>Notice that the <code class="w3-codespan">&lt;code&gt;</code> element does not preserve extra whitespace and line-breaks.</p>
+  <p>To fix this, you can put the <code class="w3-codespan">&lt;code&gt;</code> element inside a <code class="w3-codespan">&lt;pre&gt;</code> element:</p>
+  
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate htmlHigh">
+   <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>pre<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>code<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>x = 5;<br>y = 6;<br>z = x + y;<br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/code<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/pre<span class="tagcolor" style="color:mediumblue">&gt;</span></span> </div>
+  <p>Result:</p>
+  <div class="w3-white w3-padding notranslate">
+  x = 5;<br>
+  y = 6;<br>
+  z = x + y;
+  </code>
+  </div>
+   </div>
+  
+  <hr>
+  <h2>HTML &lt;var&gt; For Variables</h2>
+  <p>The HTML <code class="w3-codespan">&lt;var&gt;</code> element&nbsp; is used 
+  to define a variable in programming or in a mathematical expression. The 
+  content inside is typically displayed in italic.</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+    <p>Define some text as variables in a document:</p>
+  <div class="w3-code notranslate htmlHigh">
+    <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>p<span class="tagcolor" style="color:mediumblue">&gt;</span></span>The area of a triangle is: 1/2 x <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>var<span class="tagcolor" style="color:mediumblue">&gt;</span></span>b<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/var<span class="tagcolor" style="color:mediumblue">&gt;</span></span> x <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>var<span class="tagcolor" style="color:mediumblue">&gt;</span></span>h<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/var<span class="tagcolor" style="color:mediumblue">&gt;</span></span>, where <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>var<span class="tagcolor" style="color:mediumblue">&gt;</span></span>b<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/var<span class="tagcolor" style="color:mediumblue">&gt;</span></span> 
+    is the base, and <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>var<span class="tagcolor" style="color:mediumblue">&gt;</span></span>h<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/var<span class="tagcolor" style="color:mediumblue">&gt;</span></span> is the vertical height.<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/p<span class="tagcolor" style="color:mediumblue">&gt;</span></span> </div>
+  <p>Result:</p>
+  <div class="w3-white w3-padding notranslate">
+  The area of a triangle is: 1/2 x <var>b</var> x <var>h</var>, where <var>b</var> is the base, and <var>h</var> is the vertical height.
+  </div>
+   </div>
+  <hr>
+  
+  <h2>Chapter Summary</h2>
+  <ul>
+  <li>The <code class="w3-codespan">&lt;kbd&gt;</code> element defines 
+  keyboard input</li>
+    <li>The <code class="w3-codespan">&lt;samp&gt;</code> element defines 
+    sample output from a computer program</li>
+    <li>The <code class="w3-codespan">&lt;code&gt;</code> element&nbsp;defines a piece of computer code</li>
+    <li>The <code class="w3-codespan">&lt;var&gt;</code> element&nbsp;defines a variable in programming or in a mathematical expression</li>
+    <li>The <code class="w3-codespan">&lt;pre&gt;</code> element defines 
+    preformatted text</li>
+  </ul>
+  

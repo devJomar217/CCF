@@ -1,0 +1,168 @@
+<!-- Date Set Method-->
+
+
+
+  <div class="w3-row w3-white">
+ 
+
+<h1>What is <span class="color_h1">Set Date Methods in JavaScript?</span></h1>
+
+<p class="intro">Set Date methods let you set date values (years, 
+months, days, hours, minutes, seconds, milliseconds) for a Date Object.</p>
+<hr>
+<h2>Set Date Methods</h2>
+<p>Set Date methods are used for setting a part of a date:</p>
+<table class="ws-table-all notranslate">
+<tbody><tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>setDate()</td>
+<td>Set the day as a number (1-31)</td>
+</tr>
+<tr>
+<td>setFullYear()</td>
+<td>Set the year (optionally month and day)</td>
+</tr>
+<tr>
+<td>setHours()</td>
+<td>Set the hour (0-23)</td>
+</tr>
+<tr>
+<td>setMilliseconds()</td>
+<td>Set the milliseconds (0-999)</td>
+</tr>
+<tr>
+<td>setMinutes()</td>
+<td>Set the minutes (0-59)</td>
+</tr>
+<tr>
+<td>setMonth()</td>
+<td>Set the month (0-11)</td>
+</tr>
+<tr>
+<td>setSeconds()</td>
+<td>Set the seconds (0-59)</td>
+</tr>
+<tr>
+<td>setTime()</td>
+<td>Set the time (milliseconds since January 1, 1970)</td>
+</tr>
+</tbody></table>
+<hr>
+
+<h2>The setFullYear() Method</h2>
+<p>The <code class="w3-codespan">setFullYear()</code> method sets the year of a date object. In this Sample to 2020:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date();<br>
+d.<span class="jspropertycolor" style="color:black">setFullYear</span>(<span class="jsnumbercolor" style="color:red">2020</span>);<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<p>The <code class="w3-codespan">setFullYear()</code> method can <strong>optionally</strong> set month and day:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date();<br>
+d.<span class="jspropertycolor" style="color:black">setFullYear</span>(<span class="jsnumbercolor" style="color:red">2020</span>, <span class="jsnumbercolor" style="color:red">11</span>, <span class="jsnumbercolor" style="color:red">3</span>);<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<h2>The setMonth() Method</h2>
+<p>The <code class="w3-codespan">setMonth()</code> method sets the month of a date object (0-11):</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date();<br>
+d.<span class="jspropertycolor" style="color:black">setMonth</span>(<span class="jsnumbercolor" style="color:red">11</span>);<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<h2>The setDate() Method</h2>
+<p>The <code class="w3-codespan">setDate()</code> method sets the day of a date object (1-31):</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date();<br>
+d.<span class="jspropertycolor" style="color:black">setDate</span>(<span class="jsnumbercolor" style="color:red">15</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<p>The <code class="w3-codespan">setDate()</code> method can also be used to <strong>add days</strong> to a date:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date();<br>
+d.<span class="jspropertycolor" style="color:black">setDate</span>(d.<span class="jspropertycolor" style="color:black">getDate</span>() + <span class="jsnumbercolor" style="color:red">50</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<div class="w3-panel w3-note">
+<p>If adding days shifts the month or year, the changes are handled automatically by the Date object.</p>
+</div>
+<hr>
+
+<h2>The setHours() Method</h2>
+<p>The <code class="w3-codespan">setHours()</code> method sets the hours of a date object (0-23):</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date();<br>
+d.<span class="jspropertycolor" style="color:black">setHours</span>(<span class="jsnumbercolor" style="color:red">22</span>);<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+<hr>
+
+<h2>The setMinutes() Method</h2>
+<p>The <code class="w3-codespan">setMinutes()</code> method sets the minutes of a date object (0-59):</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date();<br>
+d.<span class="jspropertycolor" style="color:black">setMinutes</span>(<span class="jsnumbercolor" style="color:red">30</span>);<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+<hr>
+
+<h2>The setSeconds() Method</h2>
+<p>The <code class="w3-codespan">setSeconds()</code> method sets the seconds of a date object (0-59):</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date();<br>
+d.<span class="jspropertycolor" style="color:black">setSeconds</span>(<span class="jsnumbercolor" style="color:red">30</span>);<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+<hr>
+
+<h2>Compare Dates</h2>
+<p>Dates can easily be compared.</p>
+<p>The following Sample compares today's date with January 14, 2100:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">""</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> today = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date();<br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> someday = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date();<br><span class="jsnumbercolor" style="color:red">
+</span> someday.<span class="jspropertycolor" style="color:black">setFullYear</span>(<span class="jsnumbercolor" style="color:red">2100</span>, <span class="jsnumbercolor" style="color:red">0</span>, <span class="jsnumbercolor" style="color:red">14</span>);<br><br><span class="jskeywordcolor" style="color:mediumblue">if</span> (someday &gt; today) {<br>&nbsp; text = <span class="jsstringcolor" style="color:brown">"Today is before January 14, 2100."</span>;<br>} <span class="jskeywordcolor" style="color:mediumblue">else</span> {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; text = <span class="jsstringcolor" style="color:brown">"Today is after January 14, 2100."</span>;<br>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<div class="w3-panel w3-note">
+<p>JavaScript counts months from 0 to 11. January is 0. December is 11.</p>
+</div>
+
+ 

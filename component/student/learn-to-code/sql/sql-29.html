@@ -1,0 +1,208 @@
+<!-- Having-->
+
+ 
+  <div class="w3-row w3-white">
+    
+ 
+
+<h1>What is  <span class="color_h1">HAVING</span> Clause in SQL?</h1>
+ 
+<h2>The SQL HAVING Clause</h2>
+<p>The <code class="w3-codespan">HAVING</code> clause was added to SQL because the 
+<code class="w3-codespan">WHERE</code> keyword cannot be 
+used with aggregate functions.</p>
+<h3>HAVING Syntax</h3>
+<div class="w3-Sample">
+<div class="w3-code notranslate sqlHigh"><span class="sqlcolor" style="color:black"><span class="sqlnumbercolor" style="color:">
+</span>  <span class="sqlkeywordcolor" style="color:mediumblue">SELECT</span> <em>column_name(s)</em><br><span class="sqlnumbercolor" style="color:">
+</span>  <span class="sqlkeywordcolor" style="color:mediumblue">FROM</span> <em>table_name</em><br><span class="sqlnumbercolor" style="color:">
+</span>  <span class="sqlkeywordcolor" style="color:mediumblue">WHERE</span> <em>condition</em><br><span class="sqlnumbercolor" style="color:">
+</span>  <span class="sqlkeywordcolor" style="color:mediumblue">GROUP</span> <span class="sqlkeywordcolor" style="color:mediumblue">BY</span> <em>column_name(s)<br></em><span class="sqlkeywordcolor" style="color:mediumblue">HAVING</span> <em>condition<br></em><span class="sqlkeywordcolor" style="color:mediumblue">ORDER</span> <span class="sqlkeywordcolor" style="color:mediumblue">BY</span> <em>
+  column_name(s);</em> </span></div></div>
+<hr>
+
+<h2>Demo Database</h2>
+<p>Below is a selection from the "Customers" table in the Northwind sample 
+database:</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tbody><tr>
+    <th>CustomerID</th>
+    <th>CustomerName</th>
+    <th>ContactName</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>PostalCode</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>1<br><br></td>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Obere Str. 57</td>
+    <td>Berlin</td>
+    <td>12209</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Ana Trujillo Emparedados y helados</td>
+    <td>Ana Trujillo</td>
+    <td>Avda. de la Constitución 2222</td>
+    <td>México D.F.</td>
+    <td>05021</td>
+    <td>Mexico</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Antonio Moreno Taquería</td>
+    <td>Antonio Moreno</td>
+    <td>Mataderos 2312</td>
+    <td>México D.F.</td>
+    <td>05023</td>
+    <td>Mexico</td>
+  </tr>
+  <tr>
+    <td>4<br><br></td>
+    <td>Around the Horn</td>
+    <td>Thomas Hardy</td>
+    <td>120 Hanover Sq.</td>
+    <td>London</td>
+    <td>WA1 1DP</td>
+    <td>UK</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>Berglunds snabbköp</td>
+    <td>Christina Berglund</td>
+    <td>Berguvsvägen 8</td>
+    <td>Luleå</td>
+    <td>S-958 22</td>
+    <td>Sweden</td>
+  </tr>
+</tbody></table>
+</div>
+<hr>
+
+<h2>SQL HAVING Samples</h2>
+<p>The following SQL statement lists the number of customers in each country. 
+Only include countries with more than 5 customers:</p>
+<div class="w3-Sample">
+ <div class="w3-code notranslate sqlHigh"><span class="sqlcolor" style="color:black"><span class="sqlnumbercolor" style="color:">
+</span>  <span class="sqlkeywordcolor" style="color:mediumblue">SELECT</span> <span class="sqlkeywordcolor" style="color:mediumblue">COUNT</span>(CustomerID), Country<br><span class="sqlkeywordcolor" style="color:mediumblue">FROM</span> Customers<br><span class="sqlkeywordcolor" style="color:mediumblue">GROUP</span> <span class="sqlkeywordcolor" style="color:mediumblue">BY</span> Country<br><span class="sqlnumbercolor" style="color:">
+</span>  <span class="sqlkeywordcolor" style="color:mediumblue">HAVING</span> <span class="sqlkeywordcolor" style="color:mediumblue">COUNT</span>(CustomerID) &gt; <span class="sqlnumbercolor" style="color:">5</span>;<span class="sqlnumbercolor" style="color:">
+</span> </span></div>
+ 
+</div>
+<p>The following SQL statement lists the number of customers in each country, 
+sorted high to low (Only include countries with more than 5 customers):</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate sqlHigh"><span class="sqlcolor" style="color:black"><span class="sqlnumbercolor" style="color:">
+</span>  <span class="sqlkeywordcolor" style="color:mediumblue">SELECT</span> <span class="sqlkeywordcolor" style="color:mediumblue">COUNT</span>(CustomerID), Country<br><span class="sqlkeywordcolor" style="color:mediumblue">FROM</span> Customers<br><span class="sqlkeywordcolor" style="color:mediumblue">GROUP</span> <span class="sqlkeywordcolor" style="color:mediumblue">BY</span> Country<br><span class="sqlkeywordcolor" style="color:mediumblue">HAVING</span> <span class="sqlkeywordcolor" style="color:mediumblue">COUNT</span>(CustomerID) <span class="sqlnumbercolor" style="color:">
+</span>  &gt; <span class="sqlnumbercolor" style="color:">5</span><br><span class="sqlnumbercolor" style="color:">
+</span>  <span class="sqlkeywordcolor" style="color:mediumblue">ORDER</span> <span class="sqlkeywordcolor" style="color:mediumblue">BY</span> <span class="sqlkeywordcolor" style="color:mediumblue">COUNT</span>(CustomerID) <span class="sqlkeywordcolor" style="color:mediumblue">DESC</span>;<span class="sqlnumbercolor" style="color:">
+</span> </span></div>
+ 
+</div>
+ 
+
+<h2>Demo Database</h2>
+<p>Below is a selection from the "Orders" table in the Northwind sample database:</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tbody><tr>
+    <th>OrderID</th>
+    <th>CustomerID</th>
+    <th>EmployeeID</th>
+    <th>OrderDate</th>
+    <th>ShipperID</th>
+  </tr>
+  <tr>
+    <td>10248</td>
+    <td>90</td>
+    <td>5</td>
+    <td>1996-07-04</td>
+    <td>3</td>
+  </tr>
+    <tr>
+    <td>10249</td>
+    <td>81</td>
+    <td>6</td>
+    <td>1996-07-05</td>
+    <td>1</td>
+    </tr>
+  <tr>
+    <td>10250</td>
+    <td>34</td>
+    <td>4</td>
+    <td>1996-07-08</td>
+    <td>2</td>
+    </tr>
+</tbody></table>
+</div>
+<p>And a selection from the "Employees" table:</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tbody><tr>
+    <th>EmployeeID</th>
+    <th>LastName</th>
+    <th>FirstName</th>
+    <th>BirthDate</th>
+    <th>Photo</th>
+    <th>Notes</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Davolio</td>
+    <td>Nancy</td>
+    <td>1968-12-08</td>
+    <td>EmpID1.pic</td>
+    <td>Education includes a BA....</td>
+  </tr>
+    <tr>
+    <td>2</td>
+    <td>Fuller</td>
+    <td>Andrew</td>
+    <td>1952-02-19</td>
+    <td>EmpID2.pic</td>
+    <td>Andrew received his BTS....</td>    
+    </tr>
+  <tr>
+    <td>3</td>
+    <td>Leverling</td>
+    <td>Janet</td>
+    <td>1963-08-30</td>
+    <td>EmpID3.pic</td>
+    <td>Janet has a BS degree....</td>
+    </tr>
+</tbody></table>
+</div>
+<hr>
+
+<h2>More HAVING Samples</h2>
+<p>The following SQL statement lists the employees that have registered more 
+than 10 orders:</p>
+
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate sqlHigh"><span class="sqlcolor" style="color:black"><span class="sqlnumbercolor" style="color:">
+</span>  <span class="sqlkeywordcolor" style="color:mediumblue">SELECT</span> Employees.LastName, <span class="sqlkeywordcolor" style="color:mediumblue">COUNT</span>(Orders.OrderID) <span class="sqlkeywordcolor" style="color:mediumblue">AS</span> NumberOfOrders<br><span class="sqlkeywordcolor" style="color:mediumblue">FROM</span> <span class="sqlnumbercolor" style="color:">
+</span>  (Orders<br><span class="sqlkeywordcolor" style="color:mediumblue">INNER</span> <span class="sqlkeywordcolor" style="color:mediumblue">JOIN</span> Employees <span class="sqlkeywordcolor" style="color:mediumblue">ON</span> Orders.EmployeeID = Employees.EmployeeID)<br><span class="sqlnumbercolor" style="color:">
+</span>  <span class="sqlkeywordcolor" style="color:mediumblue">GROUP</span> <span class="sqlkeywordcolor" style="color:mediumblue">BY</span> LastName<br><span class="sqlkeywordcolor" style="color:mediumblue">HAVING</span> <span class="sqlkeywordcolor" style="color:mediumblue">COUNT</span>(Orders.OrderID) &gt; <span class="sqlnumbercolor" style="color:">10</span>;<span class="sqlnumbercolor" style="color:">
+</span> </span></div>
+ 
+<p>The following SQL statement lists if the employees "Davolio" or "Fuller" have registered 
+more than 25 orders:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate sqlHigh"><span class="sqlcolor" style="color:black"><span class="sqlnumbercolor" style="color:">
+</span>  <span class="sqlkeywordcolor" style="color:mediumblue">SELECT</span> Employees.LastName, <span class="sqlkeywordcolor" style="color:mediumblue">COUNT</span>(Orders.OrderID) <span class="sqlkeywordcolor" style="color:mediumblue">AS</span> NumberOfOrders<br><span class="sqlkeywordcolor" style="color:mediumblue">FROM</span> Orders<br><span class="sqlnumbercolor" style="color:">
+</span>  <span class="sqlkeywordcolor" style="color:mediumblue">INNER</span> <span class="sqlkeywordcolor" style="color:mediumblue">JOIN</span> Employees <span class="sqlkeywordcolor" style="color:mediumblue">ON</span> Orders.EmployeeID = Employees.EmployeeID<br><span class="sqlnumbercolor" style="color:">
+</span>  <span class="sqlkeywordcolor" style="color:mediumblue">WHERE</span> LastName = <span class="sqlstringcolor" style="color:brown">'Davolio'</span> <span class="sqlkeywordcolor" style="color:mediumblue">OR</span> LastName = <span class="sqlstringcolor" style="color:brown">'Fuller'</span><br><span class="sqlkeywordcolor" style="color:mediumblue">GROUP</span> <span class="sqlkeywordcolor" style="color:mediumblue">BY</span> LastName<br><span class="sqlkeywordcolor" style="color:mediumblue">HAVING</span> <span class="sqlnumbercolor" style="color:">
+</span>  <span class="sqlkeywordcolor" style="color:mediumblue">COUNT</span>(Orders.OrderID) &gt; <span class="sqlnumbercolor" style="color:">25</span>;<span class="sqlnumbercolor" style="color:">
+</span> </span></div>
+ 
+</div>
+ 

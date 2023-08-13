@@ -1,0 +1,312 @@
+<!-- superglobals-->
+
+
+ 
+  <div class="w3-row w3-white">
+  
+
+<h1>What is <span class="color_h1">Global Variables in Php?</span> - Superglobals</h1>
+ 
+<p class="intro">Superglobals were introduced in PHP 4.1.0, and are built-in 
+variables that are always available in all scopes.</p>
+<hr>
+
+<h2>PHP Global Variables - Superglobals</h2>
+<p>Some predefined variables in PHP are "superglobals", which means that they 
+are always accessible, regardless of scope - and you can access them from any 
+function, class or file without having to do anything special.</p>
+<p>The PHP superglobal variables are:</p>
+<ul>
+  <li>$GLOBALS</li>
+  <li>$_SERVER</li>
+  <li>$_REQUEST</li>
+  <li>$_POST</li>
+  <li>$_GET</li>
+  <li>$_FILES</li>
+  <li>$_ENV</li>
+  <li>$_COOKIE</li>
+  <li>$_SESSION</li>
+</ul>
+<p>The next chapters will explain some of the superglobals, and the rest will be 
+explained in later chapters.</p>
+ 
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<p>&nbsp;</p>
+    <p>&nbsp;</p>
+
+  <div class="w3-row w3-white">
+   
+
+<h1>PHP Superglobal - $GLOBALS</h1>
+ 
+
+<h2>PHP $GLOBALS</h2>
+<p>$GLOBALS is a PHP super global variable which is used to access global variables from anywhere in the PHP script (also from within 
+functions or methods). </p>
+<p>PHP stores all global variables in an array called $GLOBALS[<i>index</i>]. 
+The <em>index</em> holds the name of the variable.</p>
+<p>The Sample below shows how to use the super global variable $GLOBALS:</p>
+
+
+<div class="w3-Sample">
+ <div class="w3-code htmlHigh notranslate">
+ <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span> <br>$x = <span class="phpnumbercolor" style="color:red">75</span>; <br>$y = <span class="phpnumbercolor" style="color:red">25</span>;<br>&nbsp;<br><span class="phpkeywordcolor" style="color:mediumblue">function</span> addition() { <br>&nbsp;&nbsp;<span class="phpglobalcolor" style="color:goldenrod">$GLOBALS</span>[<span class="phpstringcolor" style="color:brown">'z'</span>] = <span class="phpglobalcolor" style="color:goldenrod">$GLOBALS</span>[<span class="phpstringcolor" style="color:brown">'x'</span>] + <span class="phpglobalcolor" style="color:goldenrod">$GLOBALS</span>[<span class="phpstringcolor" style="color:brown">'y'</span>]; <br>}<br>&nbsp;<br>addition(); <br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> $z; <br><span class="phptagcolor" style="color:red">?&gt;</span></span>  </div>
+ </div>
+
+<p>In the Sample above, since z is a variable present within the $GLOBALS 
+array, it is also accessible from outside the function! </p>
+ 
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<p>&nbsp;</p>
+    <p>&nbsp;</p>
+
+
+  <div class="w3-row w3-white">
+    
+  
+
+<h1>PHP Superglobal - $_SERVER</h1>
+ 
+<p class="intro">Super global variables are built-in 
+variables that are always available in all scopes.</p>
+<hr>
+
+<h2>PHP $_SERVER</h2>
+<p>$_SERVER is a PHP super global variable which holds information about headers, 
+paths, and script locations. </p>
+<p>The Sample below shows how to use some of the elements in $_SERVER:</p>
+
+
+<div class="w3-Sample">
+ <div class="w3-code htmlHigh notranslate">
+ <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span> <br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpglobalcolor" style="color:goldenrod">$_SERVER</span>[<span class="phpstringcolor" style="color:brown">'PHP_SELF'</span>];<br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"&lt;br&gt;"</span>;<br><span class="phpnumbercolor" style="color:red">
+</span> <span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpglobalcolor" style="color:goldenrod">$_SERVER</span>[<span class="phpstringcolor" style="color:brown">'SERVER_NAME'</span>];<br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"&lt;br&gt;"</span>;<br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpglobalcolor" style="color:goldenrod">$_SERVER</span>[<span class="phpstringcolor" style="color:brown">'HTTP_HOST'</span>];<br><span class="phpnumbercolor" style="color:red">
+</span> <span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"&lt;br&gt;"</span>;<br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpglobalcolor" style="color:goldenrod">$_SERVER</span>[<span class="phpstringcolor" style="color:brown">'HTTP_REFERER'</span>];<br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"&lt;br&gt;"</span>;<br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpglobalcolor" style="color:goldenrod">$_SERVER</span>[<span class="phpstringcolor" style="color:brown">'HTTP_USER_AGENT'</span>];<br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"&lt;br&gt;"</span>;<br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpglobalcolor" style="color:goldenrod">$_SERVER</span>[<span class="phpstringcolor" style="color:brown">'SCRIPT_NAME'</span>];<br><span class="phptagcolor" style="color:red">?&gt;</span></span>  </div>
+ </div>
+<p>The following table lists the most important elements that can go inside $_SERVER:</p>
+<table class="ws-table-all notranslate">
+<tbody><tr>
+<th style="width:35%">Element/Code</th>
+<th style="width:65%">Description</th>
+</tr>
+<tr>
+<td>$_SERVER['PHP_SELF']</td>
+<td>Returns the filename of the currently executing script</td>
+</tr>
+<tr>
+<td>$_SERVER['GATEWAY_INTERFACE']</td>
+<td>Returns the version of the Common Gateway Interface (CGI) the server is 
+using</td>
+</tr>
+<tr>
+<td>$_SERVER['SERVER_ADDR']</td>
+<td>Returns the IP address of the host server</td>
+</tr>
+<tr>
+<td>$_SERVER['SERVER_NAME']</td>
+<td>Returns the name of the host server (such as www.CodeConnect.com)</td>
+</tr>
+<tr>
+<td>$_SERVER['SERVER_SOFTWARE']</td>
+<td>Returns the server identification string (such as Apache/2.2.24)</td>
+</tr>
+<tr>
+<td>$_SERVER['SERVER_PROTOCOL']</td>
+<td>Returns the name and revision of the information protocol (such as HTTP/1.1)</td>
+</tr>
+<tr>
+<td>$_SERVER['REQUEST_METHOD']</td>
+<td>Returns the request method used to access the page (such as POST)</td>
+</tr>
+<tr>
+<td>$_SERVER['REQUEST_TIME']</td>
+<td>Returns the timestamp of the start of the request (such as 1377687496)</td>
+</tr>
+<tr>
+<td>$_SERVER['QUERY_STRING']</td>
+<td>Returns the query string if the page is accessed via a query string</td>
+</tr>
+<tr>
+<td>$_SERVER['HTTP_ACCEPT']</td>
+<td>Returns the Accept header from the current request </td>
+</tr>
+<tr>
+<td>$_SERVER['HTTP_ACCEPT_CHARSET']</td>
+<td>Returns the Accept_Charset header from the current request (such as 
+utf-8,ISO-8859-1)</td>
+</tr>
+<tr>
+<td>$_SERVER['HTTP_HOST']</td>
+<td>Returns the Host header from the current request </td>
+</tr>
+<tr>
+<td>$_SERVER['HTTP_REFERER']</td>
+<td>Returns the complete URL of the current page (not reliable because not all 
+user-agents support it)</td>
+</tr>
+<tr>
+<td>$_SERVER['HTTPS']</td>
+<td>Is the script queried through a secure HTTP protocol</td>
+</tr>
+<tr>
+<td>$_SERVER['REMOTE_ADDR']</td>
+<td>Returns the IP address from where the user is viewing the current page</td>
+</tr>
+<tr>
+<td>$_SERVER['REMOTE_HOST']</td>
+<td>Returns the Host name from where the user is viewing the current page</td>
+</tr>
+<tr>
+<td>$_SERVER['REMOTE_PORT']</td>
+<td>Returns the port being used on the user's machine to communicate with the 
+web server</td>
+</tr>
+<tr>
+<td>$_SERVER['SCRIPT_FILENAME']</td>
+<td>Returns the absolute pathname of the currently executing script</td>
+</tr>
+<tr>
+<td>$_SERVER['SERVER_ADMIN']</td>
+<td>Returns the value given to the SERVER_ADMIN directive in the web server 
+configuration file (if your script runs on a virtual host, it will be the value 
+defined for that virtual host) (such as someone@CodeConnect.com)</td>
+</tr>
+<tr>
+<td>$_SERVER['SERVER_PORT']</td>
+<td>Returns the port on the server machine being used by the web server for 
+communication (such as 80)</td>
+</tr>
+<tr>
+<td>$_SERVER['SERVER_SIGNATURE']</td>
+<td>Returns the server version and virtual host name which are added to 
+server-generated pages</td>
+</tr>
+<tr>
+<td>$_SERVER['PATH_TRANSLATED']</td>
+<td>Returns the file system based path to the current script</td>
+</tr>
+<tr>
+<td>$_SERVER['SCRIPT_NAME']</td>
+<td>Returns the path of the current script</td>
+</tr>
+<tr>
+<td>$_SERVER['SCRIPT_URI']</td>
+<td>Returns the URI of the current page</td>
+</tr>
+</tbody></table>
+
+
+ <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+  <div class="w3-row w3-white">
+     
+
+<h1>PHP Superglobal - $_REQUEST</h1>
+ 
+<p class="intro">Super global variables are built-in 
+variables that are always available in all scopes.</p>
+<hr>
+
+<h2>PHP $_REQUEST</h2>
+<p>PHP $_REQUEST is a PHP super global variable which is used to collect data after submitting an HTML form.</p>
+<p>The Sample below shows a form with an input field and a submit button. When 
+a user submits the data by clicking on "Submit", the form data is sent to the 
+file specified in the action attribute of the &lt;form&gt; tag. In this Sample, we 
+point to this file itself for processing form data. If you wish to use another 
+PHP file to process form data, replace that with the filename of your 
+choice. Then, we can use the super global variable $_REQUEST to collect the 
+value of the input field:</p>
+<div class="w3-Sample">
+ <div class="w3-code htmlHigh notranslate">
+<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>html<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>body<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+<br>
+ <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>form<span class="attributecolor" style="color:red"> method<span class="attributevaluecolor" style="color:mediumblue">="post"</span> action<span class="attributevaluecolor" style="color:mediumblue">="<span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span> <span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpglobalcolor" style="color:goldenrod">$_SERVER</span>[<span class="phpstringcolor" style="color:brown">'PHP_SELF'</span>];<span class="phptagcolor" style="color:red">?&gt;</span></span>"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>&nbsp; Name: <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>input<span class="attributecolor" style="color:red"> type<span class="attributevaluecolor" style="color:mediumblue">="text"</span> name<span class="attributevaluecolor" style="color:mediumblue">="fname"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>&nbsp; <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>input<span class="attributecolor" style="color:red"> type<span class="attributevaluecolor" style="color:mediumblue">="submit"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+ <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/form<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br><span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br><span class="phpkeywordcolor" style="color:mediumblue">if</span> (<span class="phpglobalcolor" style="color:goldenrod">$_SERVER</span>[<span class="phpstringcolor" style="color:brown">"REQUEST_METHOD"</span>] == <span class="phpstringcolor" style="color:brown">"POST"</span>) {<br>&nbsp; <span class="commentcolor" style="color:green">// collect value of input field<br></span>&nbsp;&nbsp;$name = <span class="phpglobalcolor" style="color:goldenrod">$_REQUEST</span>[<span class="phpstringcolor" style="color:brown">'fname'</span>];<br><span class="phpnumbercolor" style="color:red">
+</span>  &nbsp; <span class="phpkeywordcolor" style="color:mediumblue">if</span> (<span class="phpkeywordcolor" style="color:mediumblue">empty</span>($name)) {<br>&nbsp;&nbsp;&nbsp; <span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"Name is empty"</span>;<br>&nbsp;&nbsp;} <span class="phpkeywordcolor" style="color:mediumblue">else</span> {<br><span class="phpnumbercolor" style="color:red">
+</span>  &nbsp;&nbsp;&nbsp; <span class="phpkeywordcolor" style="color:mediumblue">echo</span> $name;<br>&nbsp;&nbsp;}<br>}<br><span class="phptagcolor" style="color:red">?&gt;</span></span><br>
+<br>
+<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/body<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/html<span class="tagcolor" style="color:mediumblue">&gt;</span></span> </div>
+ </div>
+ <!--  *********************************************************************************************** -->
+ <p>&nbsp;</p>
+    <p>&nbsp;</p>
+
+  <div class="w3-row w3-white">
+    
+ 
+
+<h1>PHP Superglobal - $_POST</h1>
+ 
+<p class="intro">Super global variables are built-in 
+variables that are always available in all scopes.</p>
+<hr>
+
+<h2>PHP $_POST</h2>
+<p>PHP $_POST is a PHP super global variable which is used to collect form data after submitting an HTML form 
+with method="post". 
+$_POST is also widely used to pass variables.</p>
+<p>The Sample below shows a form with an input field and a submit button. When 
+a user submits the data by clicking on "Submit", the form data is sent to the 
+file specified in the action attribute of the &lt;form&gt; tag. In this Sample, we 
+point to the file itself for processing form data. If you wish to use another 
+PHP file to process form data, replace that with the filename of your 
+choice. Then, we can use the super global variable $_POST to collect the 
+value of the input field:</p>
+<div class="w3-Sample">
+ <div class="w3-code htmlHigh notranslate">
+<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>html<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>body<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+<br>
+ <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>form<span class="attributecolor" style="color:red"> method<span class="attributevaluecolor" style="color:mediumblue">="post"</span> action<span class="attributevaluecolor" style="color:mediumblue">="<span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span> <span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpglobalcolor" style="color:goldenrod">$_SERVER</span>[<span class="phpstringcolor" style="color:brown">'PHP_SELF'</span>];<span class="phptagcolor" style="color:red">?&gt;</span></span>"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>&nbsp; Name: <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>input<span class="attributecolor" style="color:red"> type<span class="attributevaluecolor" style="color:mediumblue">="text"</span> name<span class="attributevaluecolor" style="color:mediumblue">="fname"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>&nbsp; <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>input<span class="attributecolor" style="color:red"> type<span class="attributevaluecolor" style="color:mediumblue">="submit"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+ <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/form<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br><span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br><span class="phpkeywordcolor" style="color:mediumblue">if</span> (<span class="phpglobalcolor" style="color:goldenrod">$_SERVER</span>[<span class="phpstringcolor" style="color:brown">"REQUEST_METHOD"</span>] == <span class="phpstringcolor" style="color:brown">"POST"</span>) {<br>&nbsp;&nbsp;<span class="commentcolor" style="color:green">// collect value of input field<br></span><span class="phpnumbercolor" style="color:red">
+</span>  &nbsp; $name = <span class="phpglobalcolor" style="color:goldenrod">$_POST</span>[<span class="phpstringcolor" style="color:brown">'fname'</span>];<br>&nbsp; <span class="phpkeywordcolor" style="color:mediumblue">if</span> (<span class="phpkeywordcolor" style="color:mediumblue">empty</span>($name)) {<br>&nbsp;&nbsp;&nbsp; <span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"Name is empty"</span>;<br>&nbsp;&nbsp;} <span class="phpkeywordcolor" style="color:mediumblue">else</span> {<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="phpkeywordcolor" style="color:mediumblue">echo</span> $name;<br><span class="phpnumbercolor" style="color:red">
+</span>  &nbsp;&nbsp;}<br>}<br><span class="phptagcolor" style="color:red">?&gt;</span></span><br>
+<br>
+<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/body<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/html<span class="tagcolor" style="color:mediumblue">&gt;</span></span> </div>
+ </div>
+  <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+  <p>&nbsp;</p>
+  <p>&nbsp;</p> 
+  <div class="w3-row w3-white">
+    
+     
+
+<h1>PHP Superglobal - $_GET</h1>
+ 
+<p class="intro">Super global variables are built-in 
+variables that are always available in all scopes.</p>
+<hr>
+
+<h2>PHP $_GET</h2>
+<p>PHP $_GET is a PHP super global variable which is used to collect form data after submitting an HTML form 
+with method="get".</p>
+<p>$_GET can also collect data sent in the URL.</p>
+<p>Assume we have an HTML page that contains a hyperlink with parameters:</p>
+<div class="w3-code w3-border notranslate"><div>
+&lt;html&gt;<br>
+&lt;body&gt;<br><br>
+&lt;a href="test_get.php?subject=PHP&amp;web=CodeConnect.com"&gt;Test $GET&lt;/a&gt;<br><br>
+&lt;/body&gt;<br>
+&lt;/html&gt;
+</div></div>
+<p>When a user clicks on the link "Test $GET", the parameters "subject" and 
+"web" are sent to "test_get.php", and you can then access their values 
+in "test_get.php" with $_GET.</p>
+<p>The Sample below shows the code in "test_get.php":</p>
+
+<div class="w3-Sample">
+ <div class="w3-code htmlHigh notranslate">
+<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>html<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>body<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+<br>
+ <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span> <br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"Study "</span> . <span class="phpglobalcolor" style="color:goldenrod">$_GET</span>[<span class="phpstringcolor" style="color:brown">'subject'</span>] . <span class="phpstringcolor" style="color:brown">" at "</span> . <span class="phpglobalcolor" style="color:goldenrod">$_GET</span>[<span class="phpstringcolor" style="color:brown">'web'</span>];<br><span class="phptagcolor" style="color:red">?&gt;</span></span><br>
+<br>
+<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/body<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/html<span class="tagcolor" style="color:mediumblue">&gt;</span></span> </div>
+ </div>
+ 

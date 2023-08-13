@@ -1,0 +1,98 @@
+<!-- couters-->
+
+ 
+    <div class="w3-row w3-white">
+      
+      
+  
+  <h1>What is <span class="color_h1">Counters in Css?</span></h1>
+  
+  
+  <p class="intro">CSS counters are "variables" maintained by CSS whose values can 
+  be incremented by CSS rules (to track how many times they are used). Counters 
+  let you adjust the appearance of content based on its placement in the document.</p>
+  
+  <hr>
+  
+  <h2>Automatic Numbering With Counters</h2>
+  <p>CSS counters are like "variables". The variable values can be incremented by CSS rules 
+  (which will 
+  track how many times they are used).</p>
+  <p>To work with CSS counters we will use the following properties:</p>
+  <ul>
+  <li><code class="w3-codespan">counter-reset</code> - Creates or resets a counter</li>
+  <li><code class="w3-codespan">counter-increment</code> - Increments a counter value</li>
+  <li><code class="w3-codespan">content</code> - Inserts generated 
+  content</li>
+  <li><code class="w3-codespan">counter()</code> or <code class="w3-codespan">counters()</code> function - Adds the 
+  value of a counter to an element</li>
+  </ul>
+  <p>To use a CSS counter, it must first be created with <code class="w3-codespan">counter-reset</code>.</p>
+  <p>The following Sample creates a counter for the page (in the body selector), 
+  then increments the counter value for each &lt;h2&gt; element and adds "Section &lt;<em>value of the counter</em>&gt;:" 
+  to the beginning of each &lt;h2&gt; element:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+  body <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp;&nbsp;counter-reset<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> section<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span><br><br>h2::before <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; counter-increment<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> section<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp;&nbsp;content<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> "Section " counter(section) ": "<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span>
+   </span></div>
+   </div>
+ 
+  
+  <h2>Nesting Counters</h2>
+  
+  <p>The following Sample creates one counter for the page (section) and one 
+  counter for each &lt;h1&gt; element (subsection). The "section" counter will be 
+  counted for each &lt;h1&gt; element with "Section &lt;<em>value of the 
+  section counter</em>&gt;.", and the "subsection" counter will be counted 
+  for each &lt;h2&gt; element with "&lt;<em>value of the section counter</em>&gt;.&lt;<em>value of the 
+  subsection counter</em>&gt;":</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+  body <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp;&nbsp;counter-reset<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> section<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span><br><br>h1 <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; 
+  counter-reset<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> subsection<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span><br><br>h1::before <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; counter-increment<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 
+  section<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; content<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> "Section " counter(section) ". "<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+  </span><span class="cssdelimitercolor" style="color:black">}</span><br><br>h2::before <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; 
+  counter-increment<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> subsection<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; content<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 
+  counter(section) "." counter(subsection) " "<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span>  </span></div>
+   </div>
+  <p>A counter can also be useful to make outlined lists because a new 
+  instance of a counter is automatically created in child elements. Here we use the 
+  <code class="w3-codespan">counters()</code> function to insert a string between different levels of nested 
+  counters:</p>
+  
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+  ol <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; counter-reset<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> section<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; 
+  list-style-type<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> none<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span><br><br>
+  li::before <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; counter-increment<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> section<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; 
+  content<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> counters(section,".") " "<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span>  </span></div>
+   </div>
+  <hr>
+  
+  <h2>&nbsp;CSS Counter Properties</h2>
+  <table class="ws-table-all notranslate">
+    <tbody><tr>
+      <th style="width:20%">Property</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td> content</a></td>
+      <td>Used with the ::before and ::after pseudo-elements, to insert generated content</td>
+    </tr>
+    <tr>
+      <td> counter-increment</a></td>
+      <td>Increments one or more counter values</td>
+    </tr>
+    <tr>
+      <td> counter-reset</a></td>
+      <td>Creates or resets one or more counters</td>
+    </tr>
+    <tr>
+      <td> counter()</a></td>
+      <td>Returns the current value of the named counter</td>
+    </tr>
+  </tbody></table>
+   

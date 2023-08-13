@@ -1,0 +1,73 @@
+<!-- REFERENCES-->
+
+  <div class="w3-row w3-white">
+  
+
+<h1>What is  <span class="color_h1">References in C++?</span></h1>
+<p>&nbsp;</p>
+<hr>
+
+<h2>Creating References</h2>
+<p>A reference variable is a "reference" to an existing variable, and 
+it is created with the <code class="w3-codespan">&amp;</code> operator:</p>
+<div class="w3-sample">
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  string food = <span class="javastringcolor" style="color:brown">"Pizza"</span>;&nbsp; <span class="commentcolor" style="color:green">// food variable<br></span>string &amp;meal = food;&nbsp;&nbsp;&nbsp; <span class="javanumbercolor" style="color:red">
+</span>  <span class="commentcolor" style="color:green">// reference to food<br></span><span class="javanumbercolor" style="color:red">
+</span>  </span></div>
+</div>
+
+<p>Now, we can use either the variable name <code class="w3-codespan">food</code> or the reference name <code class="w3-codespan">meal</code> 
+to refer to the <code class="w3-codespan">food</code> variable:</p>
+
+<div class="w3-sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  string food = <span class="javastringcolor" style="color:brown">"Pizza"</span>;<br>string &amp;meal = food;<br><br><span class="javanumbercolor" style="color:red">
+</span>  cout &lt;&lt; food &lt;&lt; <span class="javastringcolor" style="color:brown">"\n"</span>;&nbsp; <span class="javanumbercolor" style="color:red">
+</span>  <span class="commentcolor" style="color:green">// Outputs Pizza<br></span>cout &lt;&lt; meal &lt;&lt; <span class="javastringcolor" style="color:brown">"\n"</span>;&nbsp; <span class="commentcolor" style="color:green">// 
+  Outputs Pizza<br></span><span class="javanumbercolor" style="color:red">
+</span>  </span></div>
+</div>
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<p>&nbsp;</p> 
+<p>&nbsp;</p> 
+
+<div class="w3-row w3-white">
+    
+
+
+<h1>C++ <span class="color_h1">Memory Address</span></h1>
+
+<hr>
+
+<h2>Memory Address</h2>
+<p>In the sample from the previous page, the <code class="w3-codespan">&amp;</code> operator was used to create a reference variable. 
+But it can also be used to get the memory address of a variable; which is the 
+location of where the variable is stored on the computer.</p>
+<p>When a variable is created in C++, a memory address is assigned to the variable. 
+And when we assign a value to the variable, it is stored in this memory 
+address.</p>
+<p>To access it, use the <code class="w3-codespan">&amp;</code> 
+operator, and the result will represent where the variable is stored:</p>
+<div class="w3-sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  string food = <span class="javastringcolor" style="color:brown">"Pizza"</span>;<br><br><span class="javanumbercolor" style="color:red">
+</span>  cout &lt;&lt; &amp;food; <span class="commentcolor" style="color:green">// Outputs 0x6dfed4<br></span><span class="javanumbercolor" style="color:red">
+</span>  </span></div>
+</div>
+
+<p><strong>Note:</strong> The memory address is in hexadecimal form (0x..). Note 
+that 
+you may not get the same result in your program.</p>
+
+<div class="w3-note w3-panel">
+<h4>And why is it useful to know the memory address?</h4>
+  <p><strong>References</strong> and <strong>Pointers</strong> (which you will learn about in the next chapter) 
+  are important in C++, because they give you the 
+ability to manipulate the data in the computer's memory - <strong>which can reduce the code and improve the performance</strong>.</p>
+  <p>These two features are one of the things that make C++ stand out from other 
+  programming languages, like Python</a> and Java</a>.</p>
+</div>
+

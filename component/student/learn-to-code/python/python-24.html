@@ -1,0 +1,174 @@
+<!-- Inheritance-->
+
+
+ 
+  <div class="w3-row w3-white">
+    
+ 
+
+<h1>What is <span class="color_h1">Inheritance in Python?</span></h1>
+ 
+
+<h2>Python Inheritance</h2>
+<p>Inheritance allows us to define a class that inherits all the methods and properties from another class.</p>
+<p><strong>Parent class</strong> is the class being inherited from, also called 
+base class.</p>
+
+<p><strong>Child class</strong> is the class that inherits from another class, 
+also called derived class.</p>
+
+<hr>
+
+<h2>Create a Parent Class</h2>
+<p>Any class can be a parent class, so the syntax is the same as creating any 
+other class:</p>
+
+<div class="w3-Sample">
+ <p>Create a class named <code class="w3-codespan">Person</code>, with
+<code class="w3-codespan">firstname</code> and <code class="w3-codespan">lastname</code> properties, 
+and a <code class="w3-codespan">printname</code> method:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+<span class="pythonkeywordcolor" style="color:mediumblue">class</span> Person:<br>&nbsp; <span class="pythonkeywordcolor" style="color:mediumblue">def</span> __init__(self, fname, lname):<br>&nbsp;&nbsp;&nbsp; <span class="pythonnumbercolor" style="color:red">
+</span>  self.firstname = fname<br>&nbsp;&nbsp;&nbsp; self.lastname = lname<br><br>&nbsp; <span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">def</span> printname(self):<br>&nbsp;&nbsp;&nbsp; print(self.firstname, <span class="pythonnumbercolor" style="color:red">
+</span>  self.lastname)<br><br><span class="commentcolor" style="color:green">#Use the Person class to create an object, and then 
+  execute the printname method:<br></span><br>x = Person(<span class="pythonstringcolor" style="color:brown">"John"</span>, <span class="pythonstringcolor" style="color:brown">"Doe"</span>)<br><span class="pythonnumbercolor" style="color:red">
+</span>  x.printname() </span></div>
+ </div>
+
+<hr>
+
+<h2>Create a Child Class</h2>
+<p>To create a class that inherits the functionality from another class, send the parent class as a parameter when creating the child 
+class:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Create a class named <code class="w3-codespan">Student</code>, which will inherit the properties 
+and methods from 
+the <code class="w3-codespan">Person</code> class:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+<span class="pythonkeywordcolor" style="color:mediumblue">class</span> Student(Person):<br>&nbsp; <span class="pythonkeywordcolor" style="color:mediumblue">pass</span> </span></div>
+</div>
+
+<div class="w3-panel w3-note">
+  <p><strong>Note:</strong> Use the <code class="w3-codespan">pass</code> 
+  keyword when you do not want to add any other properties or methods to the 
+  class.</p>
+</div>
+
+<p>Now the Student class has the same properties and methods as the Person 
+class.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Use the <code class="w3-codespan">Student</code> class to create an object, 
+and then execute the <code class="w3-codespan">printname</code> method:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  x = Student(<span class="pythonstringcolor" style="color:brown">"Mike"</span>, <span class="pythonstringcolor" style="color:brown">"Olsen"</span>)<br>x.printname() </span></div>
+ </div>
+
+
+ 
+
+<h2>Add the __init__() Function</h2>
+
+<p>So far we have created a child class that inherits the properties and methods 
+from its parent.</p>
+<p>We want to add the <code class="w3-codespan">__init__()</code> function to the child class (instead of the <code class="w3-codespan">pass</code> keyword).</p>
+
+<div class="w3-panel w3-note">
+  <p><strong>Note:</strong> The <code class="w3-codespan">__init__()</code> function is called automatically every time the class is being used to create a new object.</p>
+</div>
+
+<div class="w3-Sample">
+  <h3>Sample</h3>
+<p>Add the <code class="w3-codespan">__init__()</code> function to the
+<code class="w3-codespan">Student</code> class:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">class</span> Student(Person):<br>&nbsp; <span class="pythonkeywordcolor" style="color:mediumblue">def</span> __init__(self, fname, lname):<br>&nbsp;&nbsp;&nbsp; <span class="pythonnumbercolor" style="color:red">
+</span>  <span class="commentcolor" style="color:green">#add properties etc. </span></span></div>
+</div>
+
+
+<p>When you add the <code class="w3-codespan">__init__()</code> function, the child class will no longer inherit 
+the parent's <code class="w3-codespan">__init__()</code> function.</p>
+<div class="w3-panel w3-note">
+  <p><strong>Note:</strong> The child's <code class="w3-codespan">__init__()</code> 
+  function <strong>overrides</strong> the inheritance of the parent's <code class="w3-codespan">
+  __init__()</code> function.</p>
+</div>
+
+<p>To keep the inheritance of the parent's <code class="w3-codespan">__init__()</code> 
+function, add a call to the 
+parent's <code class="w3-codespan">__init__()</code> function:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">class</span> Student(Person):<br>&nbsp; <span class="pythonkeywordcolor" style="color:mediumblue">def</span> __init__(self, fname, lname):<br>&nbsp;&nbsp;&nbsp; <span class="pythonnumbercolor" style="color:red">
+</span>  Person.__init__(self, fname, lname) </span></div>
+ </div>
+
+<p>Now we have successfully added the __init__() function, and kept the 
+inheritance of the parent class, and we are ready to add functionality in the
+<code class="w3-codespan">__init__()</code> function.</p>
+
+<hr>
+
+<h2>Use the super() Function</h2>
+
+<p>Python also has a <code class="w3-codespan">super()</code> function that 
+will make the child class inherit all the methods and properties from its 
+parent:</p>
+
+<div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">class</span> Student(Person):<br>&nbsp; <span class="pythonkeywordcolor" style="color:mediumblue">def</span> __init__(self, fname, lname):<br>&nbsp;&nbsp;&nbsp; <span class="pythonnumbercolor" style="color:red">
+</span>    <span class="pythonkeywordcolor" style="color:mediumblue">super</span>().__init__(fname, lname) </span></div>
+ </div>
+
+<p>By using the <code class="w3-codespan">super()</code> function, you do not 
+have to use the name of the parent element, it will automatically inherit the 
+methods and properties from its parent.</p>
+
+<hr>
+<h2>Add Properties</h2>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Add a property called <code class="w3-codespan">graduationyear</code> to the
+<code class="w3-codespan">Student</code> class:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">class</span> Student(Person):<br>&nbsp; <span class="pythonkeywordcolor" style="color:mediumblue">def</span> __init__(self, fname, lname):<br>&nbsp;&nbsp;&nbsp; <span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">super</span>().__init__(fname, lname)<br>&nbsp;&nbsp;&nbsp; self.graduationyear <span class="pythonnumbercolor" style="color:red">
+</span>  = <span class="pythonnumbercolor" style="color:red">2019</span> </span></div>
+ </div>
+
+<p>In the Sample below, the year <code class="w3-codespan">2019</code> should be a variable, and passed into the 
+<code class="w3-codespan">Student</code> class when creating student objects.
+To do so, add another parameter in the __init__() function:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Add a <code class="w3-codespan">year</code> parameter, and pass the correct 
+year when creating objects:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">class</span> Student(Person):<br>&nbsp; <span class="pythonkeywordcolor" style="color:mediumblue">def</span> __init__(self, fname, lname, year):<br>&nbsp;&nbsp;&nbsp; <span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">super</span>().__init__(fname, lname)<br>&nbsp;&nbsp;&nbsp; self.graduationyear <span class="pythonnumbercolor" style="color:red">
+</span>  = year<br><br>x = Student(<span class="pythonstringcolor" style="color:brown">"Mike"</span>, <span class="pythonstringcolor" style="color:brown">"Olsen"</span>, <span class="pythonnumbercolor" style="color:red">2019</span>) </span></div>
+ </div>
+
+<hr>
+<h2>Add Methods</h2>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Add a method called <code class="w3-codespan">welcome</code> to the
+<code class="w3-codespan">Student</code> class:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">class</span> Student(Person):<br>&nbsp; <span class="pythonkeywordcolor" style="color:mediumblue">def</span> __init__(self, fname, lname, year):<br>&nbsp;&nbsp;&nbsp; <span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">super</span>().__init__(fname, lname)<br>&nbsp;&nbsp;&nbsp; self.graduationyear <span class="pythonnumbercolor" style="color:red">
+</span>  = year<br><br>&nbsp; <span class="pythonkeywordcolor" style="color:mediumblue">def</span> welcome(self):<br>&nbsp;&nbsp;&nbsp; <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(<span class="pythonstringcolor" style="color:brown">"Welcome"</span>, <span class="pythonnumbercolor" style="color:red">
+</span>  self.firstname, self.lastname, <span class="pythonstringcolor" style="color:brown">"to the class of"</span>, self.graduationyear) </span></div>
+ </div>
+ 

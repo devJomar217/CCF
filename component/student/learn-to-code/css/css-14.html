@@ -1,0 +1,302 @@
+<!-- outline-->
+
+ 
+    <div class="w3-row w3-white">
+      
+   
+  
+  <h1>What is <span class="color_h1">Outline in Css?</span></h1>
+ 
+  <p class="intro">An outline is a line drawn outside the element's border.</p>
+  <hr>
+  
+  <div style="width:98%;border:2px solid black;outline:#04AA6D solid 10px;padding:20px;margin:auto;text-align:center">
+  This element has a black border and a green outline with a width of 10px.
+  </div>
+  <br>
+   <hr>
+  
+  <h2>CSS Outline</h2>
+  <p>An outline is a line that is drawn around elements, OUTSIDE the borders, to make the element "stand out".</p>
+  <div class="w3-boxmodel">
+  <div class="outline w3-theme">
+      <div class="border">
+        <div class="content"></div>
+       </div>
+  </div>
+  </div>
+  
+  <p>CSS has the following outline properties:</p>
+  <ul>
+    <li> <code class="w3-codespan">outline-style</code></li>
+    <li> <code class="w3-codespan">outline-color</code></li>
+    <li> <code class="w3-codespan">outline-width</code></li>
+    <li> <code class="w3-codespan">outline-offset</code></li>
+    <li> <code class="w3-codespan">outline</code></li>
+  </ul>
+  
+  <div class="w3-panel w3-note">
+  <p><b>Note:</b> Outline differs from borders</a>! Unlike border, the outline is 
+  drawn outside the element's border, and may overlap other content. Also, the outline is 
+  NOT a part of the element's dimensions; the element's total width and height
+  is not affected by the width of the outline.</p>
+  </div>
+ 
+  <h2>CSS Outline Style</h2>
+  <p>The <code class="w3-codespan">outline-style</code> property specifies the style of the outline, 
+  and can have one of the following values:</p>
+  <ul>
+  <li><code class="w3-codespan">dotted</code> - Defines a dotted outline</li>
+  <li><code class="w3-codespan">dashed</code> - Defines a dashed outline</li>
+  <li><code class="w3-codespan">solid</code> - Defines a solid outline</li>
+  <li><code class="w3-codespan">double</code> - Defines a double outline</li>
+  <li><code class="w3-codespan">groove</code> - Defines a 3D grooved outline</li>
+  <li><code class="w3-codespan">ridge</code> - Defines a 3D ridged outline</li>
+  <li><code class="w3-codespan">inset</code> - Defines a 3D inset outline</li>
+  <li><code class="w3-codespan">outset</code> - Defines a 3D outset outline</li>
+  <li><code class="w3-codespan">none</code> - Defines no outline</li>
+  <li><code class="w3-codespan">hidden</code> - Defines a hidden outline</li>
+  </ul>
+  
+  <p>The following Sample shows the different <code class="w3-codespan">outline-style</code> values:</p>
+  
+  
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+    <p>Demonstration of the different outline styles:</p>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+    p.dotted <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red">outline-style<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> dotted<span class="cssdelimitercolor" style="color:black">;</span></span></span><span class="cssdelimitercolor" style="color:black">}</span><br>
+  p.dashed <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red">outline-style<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> dashed<span class="cssdelimitercolor" style="color:black">;</span></span></span><span class="cssdelimitercolor" style="color:black">}</span><br>p.solid <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red">outline-style<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> solid<span class="cssdelimitercolor" style="color:black">;</span></span></span><span class="cssdelimitercolor" style="color:black">}</span><br>
+  p.double <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red">outline-style<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> double<span class="cssdelimitercolor" style="color:black">;</span></span></span><span class="cssdelimitercolor" style="color:black">}</span><br>p.groove <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red">outline-style<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> groove<span class="cssdelimitercolor" style="color:black">;</span></span></span><span class="cssdelimitercolor" style="color:black">}</span><br>
+  p.ridge <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red">outline-style<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> ridge<span class="cssdelimitercolor" style="color:black">;</span></span></span><span class="cssdelimitercolor" style="color:black">}</span><br>p.inset <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red">outline-style<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> inset<span class="cssdelimitercolor" style="color:black">;</span></span></span><span class="cssdelimitercolor" style="color:black">}</span><br>
+  p.outset <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red">outline-style<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> outset<span class="cssdelimitercolor" style="color:black">;</span></span></span><span class="cssdelimitercolor" style="color:black">}</span>
+   </span></div>
+  <p>Result:</p>
+  <div class="w3-white w3-padding notranslate">
+  
+  <p style="outline-style:dotted;outline-color:red;padding:2px 4px">A dotted outline.</p>
+  <p style="outline-style:dashed;outline-color:red;padding:2px 4px">A dashed outline.</p>
+  <p style="outline-style:solid;outline-color:red;padding:2px 4px">A solid outline.</p>
+  <p style="outline-style:double;outline-color:red;padding:2px 4px">A double outline.</p>
+  <p style="outline-style:groove;outline-color:red;padding:2px 4px">A groove outline. The effect depends on the outline-color value.</p>
+  <p style="outline-style:ridge;outline-color:red;padding:2px 4px">A ridge outline. The effect depends on the outline-color value.</p>
+  <p style="outline-style:inset;outline-color:red;padding:2px 4px">An inset outline. The effect depends on the outline-color value.</p>
+  <p style="outline-style:outset;outline-color:red;padding:2px 4px">An outset outline. The effect depends on the outline-color value.</p>
+  </div>
+   </div>
+  
+  
+  <div class="w3-panel w3-note">
+    <p><b>Note:</b> None of the other outline properties (which you will learn more about in the next chapters) will have ANY effect unless the 
+  <code class="w3-codespan">outline-style</code> property is set!</p>
+  </div>
+   <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  
+    <div class="w3-row w3-white">
+       
+  
+  <h1>CSS <span class="color_h1">Outline Width</span></h1>
+ 
+  
+  <h2>CSS Outline Width</h2>
+  <p>The <code class="w3-codespan">outline-width</code> property specifies the width of the outline, 
+  and can have one of the following values:</p>
+  <ul>
+    <li>thin (typically 1px)</li>
+    <li>medium (typically 3px)</li>
+    <li>thick (typically 5px)</li>
+    <li>A specific size (in px, pt, cm, em, etc)</li>
+  </ul>
+  
+  <p>The following Sample shows some outlines with different widths:</p>
+  <p style="border: 1px solid black;outline-style:solid;outline-color:red;outline-width:thin;padding:2px 4px;">A thin outline.</p>
+  <p style="border: 1px solid black;outline-style:solid;outline-color:red;outline-width:medium;padding:2px 4px;">A medium outline.</p>
+  <p style="border: 1px solid black;outline-style:solid;outline-color:red;outline-width:thick;padding:2px 4px;">A thick outline.</p>
+  <p style="border: 1px solid black;outline-style:solid;outline-color:red;outline-width:4px;padding:2px 4px;">A 4px thick outline.</p>
+  
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+    p.ex1
+  <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp;&nbsp;border<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 1px solid black<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+  &nbsp;&nbsp;outline-style<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> solid<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp;&nbsp;outline-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> red<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+    &nbsp;
+  outline-width<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> thin<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+  </span><span class="cssdelimitercolor" style="color:black">}</span><br><br>p.ex2
+  <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; border<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 1px solid black<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+    &nbsp;
+  outline-style<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> solid<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; outline-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> red<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+  &nbsp;&nbsp;outline-width<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> medium<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+  </span><span class="cssdelimitercolor" style="color:black">}</span><br><br>p.ex3
+  <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp;&nbsp;border<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 1px solid black<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+    &nbsp;
+  outline-style<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> solid<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; outline-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> red<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+  &nbsp;&nbsp;outline-width<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> thick<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+  </span><span class="cssdelimitercolor" style="color:black">}</span><br><br>
+  p.ex4
+  <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>
+  &nbsp;&nbsp;border<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 1px solid black<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+  &nbsp;&nbsp;outline-style<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> solid<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; outline-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> red<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+    &nbsp;
+  outline-width<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 4px<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+  </span><span class="cssdelimitercolor" style="color:black">}</span>
+   </span></div>
+   </div>
+   
+   <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  
+    <div class="w3-row w3-white">
+       
+  
+  <h1>CSS <span class="color_h1">Outline Color</span></h1>
+  
+  <h2>CSS Outline Color</h2>
+  <p>The <code class="w3-codespan">outline-color</code> property is used to set the color of the outline.</p>
+  <p>The color can be set by:</p>
+  <ul>
+  <li>name - specify a color name, like "red"</li>
+  <li>HEX - specify a hex value, like "#ff0000"</li>
+  <li>RGB - specify a RGB value, like "rgb(255,0,0)"</li>
+  <li>HSL - specify a HSL value, like "hsl(0, 100%, 50%)"</li>
+  <li>invert - performs a color inversion (which ensures that the outline is visible, regardless of color background)</li>
+  </ul>
+  
+  <p>The following Sample shows some different outlines with different colors. 
+  Also notice that these elements also have a thin black border inside the outline:</p>
+  <p style="border: 2px solid black;outline-style:solid;outline-color:red;padding: 2px 4px;">A solid red outline.</p>
+  <p style="border: 2px solid black;outline-style:dotted;outline-color:blue;padding: 2px 4px;">A dotted blue outline.</p>
+  <p style="border: 2px solid black;outline-style:outset;outline-color:grey;padding: 2px 4px;">An outset grey outline.</p>
+  
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+  p.ex1
+  <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>
+    &nbsp; border<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 2px solid black<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp;
+  outline-style<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> solid<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+  &nbsp;&nbsp;outline-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> red<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+  </span><span class="cssdelimitercolor" style="color:black">}</span><br><br>p.ex2
+  <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>
+  &nbsp;&nbsp;border<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 2px solid black<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp;
+  outline-style<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> dotted<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+    &nbsp;
+  outline-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> blue<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+  </span><span class="cssdelimitercolor" style="color:black">}</span><br><br>p.ex3
+  <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>
+  &nbsp;&nbsp;border<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 2px solid black<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp;&nbsp;outline-style<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> outset<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+  &nbsp;&nbsp;outline-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> grey<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+  </span><span class="cssdelimitercolor" style="color:black">}</span> </span></div>
+   </div>
+  <hr>
+  
+  <h2>HEX Values</h2>
+  <p>The outline color can also be specified using a hexadecimal value (HEX):</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+    p.ex1 <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; outline-style<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> solid<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; outline-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> #ff0000<span class="cssdelimitercolor" style="color:black">;</span></span> 
+    <span class="commentcolor" style="color:green">/* red */</span><br></span><span class="cssdelimitercolor" style="color:black">}</span> </span></div>
+   </div>
+  
+ 
+  
+  <h2>RGB Values</h2>
+  <p>Or by using RGB values:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+    p.ex1 <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; outline-style<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> solid<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; outline-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> rgb(255, 0, 0)<span class="cssdelimitercolor" style="color:black">;</span></span> <span class="commentcolor" style="color:green">/* 
+    red */</span><br></span><span class="cssdelimitercolor" style="color:black">}</span> </span></div>
+   </div>
+  <hr>
+  
+  <h2>HSL Values</h2>
+  <p>You can also use HSL values:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+    p.ex1 <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; outline-style<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> solid<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; outline-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> hsl(0, 100%, 50%)<span class="cssdelimitercolor" style="color:black">;</span></span> 
+    <span class="commentcolor" style="color:green">/* red */</span><br></span><span class="cssdelimitercolor" style="color:black">}</span> </span></div>
+   </div>
+   <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  
+    <div class="w3-row w3-white">
+      
+   
+  <h1>CSS <span class="color_h1">Outline Shorthand </span></h1>
+ 
+  
+  <h2>CSS Outline - Shorthand property</h2>
+  <p>The <code class="w3-codespan">outline</code> property is a shorthand property for 
+  setting the following individual outline properties:</p>
+  <ul>
+  <li><code class="w3-codespan">outline-width</code></li>
+  <li><code class="w3-codespan">outline-style</code> (required)</li>
+  <li><code class="w3-codespan">outline-color</code></li>
+  </ul>
+  <p>The <code class="w3-codespan">outline</code> property is specified as one, 
+  two, or three values from the list above. The order of the values does not 
+  matter.</p>
+  <p>The following Sample shows some outlines specified with the shorthand <code class="w3-codespan">outline</code> 
+  property:</p>
+  <p style="outline: dashed;padding: 2px 4px;">A dashed outline.</p>
+  <p style="outline: dotted red;padding: 2px 4px;">A dotted red outline.</p>
+  <p style="outline: 5px solid yellow;padding: 2px 4px;">A 5px solid yellow outline.</p>
+  <p style="outline: ridge thick pink;padding: 2px 4px;">A thick ridge pink outline.</p>
+  
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+  p.ex1
+  <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red">outline<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> dashed<span class="cssdelimitercolor" style="color:black">;</span></span></span><span class="cssdelimitercolor" style="color:black">}</span><br>p.ex2
+  <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red">outline<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> dotted red<span class="cssdelimitercolor" style="color:black">;</span></span></span><span class="cssdelimitercolor" style="color:black">}</span><br>p.ex3
+  <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red">outline<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 5px solid yellow<span class="cssdelimitercolor" style="color:black">;</span></span></span><span class="cssdelimitercolor" style="color:black">}</span><br>p.ex4
+  <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red">outline<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> thick ridge pink<span class="cssdelimitercolor" style="color:black">;</span></span></span><span class="cssdelimitercolor" style="color:black">}</span> </span></div>
+   </div>
+   <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+    <div class="w3-row w3-white">
+       
+  
+  <h1>CSS <span class="color_h1">Outline Offset</span></h1>
+ 
+  
+  <h2>CSS Outline Offset</h2>
+  <p>The <code class="w3-codespan">outline-offset</code> property adds space 
+  between an outline and the edge/border of an element. The space between an 
+  element and its outline is transparent.</p>
+  
+  <p>The following Sample specifies an outline 15px outside the border edge:</p>
+  <p style="margin:30px;border:1px solid black;outline:1px solid red;outline-offset:15px;">
+  This paragraph has an outline 15px outside the border edge.</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+    p <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp;&nbsp;margin<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 30px<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; border<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 1px solid black<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; outline<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 
+    1px solid red<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; 
+    outline-offset<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 15px<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span>
+   </span></div>
+   </div>
+  
+  <p>The following Sample shows that the space between an element and its outline 
+  is transparent:</p>
+  <p style="margin:30px;background:yellow;border:1px solid black;outline:1px solid red;outline-offset:15px;color:black;">
+  This paragraph has an outline of 15px outside the border edge.</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+    p <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; margin<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 30px<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; background<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 
+    yellow<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; border<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 1px solid black<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; outline<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 
+    1px solid red<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; 
+    outline-offset<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 15px<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span>
+   </span></div>
+   </div>
+   
+   

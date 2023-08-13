@@ -1,0 +1,145 @@
+<!-- Numbers-->
+
+ 
+  <div class="w3-row w3-white">
+    
+ 
+
+<h1>What is <span class="color_h1">Numbers in Php?</span></h1>
+ 
+<p class="intro">In this chapter we will look in depth into Integers, Floats, and 
+Number Strings.</p>
+<hr>
+
+<h2>PHP Numbers</h2>
+<p>One thing to notice about PHP is that it provides automatic data type 
+conversion.</p>
+<p>So, if you assign an integer value to a variable, the type of that variable 
+will automatically be an integer. Then, if you assign a string to 
+the same variable, the type will change to a string.</p>
+<p>This automatic conversion can sometimes break your code.</p>
+<hr>
+
+<h2>PHP Integers</h2>
+<p>2, 256, -256, 10358, -179567 are all integers.</p>
+<p>An integer is a number without any decimal part.</p>
+<p>An integer data type is a non-decimal number between -2147483648 and 
+2147483647 in 32 bit systems, and between -9223372036854775808 and 
+9223372036854775807 in 64 bit systems. A value greater (or lower) than this, will be stored as float, 
+because it exceeds the limit of an integer.</p>
+<p><strong>Note:</strong> Another important thing to know is that even if 4 * 2.5 is 10, the result is 
+stored as float, because one of the operands is a float (2.5).</p>
+<p>Here are some rules for integers:</p>
+<ul>
+  <li>An integer must have at least one digit</li>
+  <li>An integer must NOT have a decimal point</li>
+  <li>An integer can be either positive or negative</li>
+  <li>Integers can be specified in three formats: decimal (10-based), hexadecimal (16-based - prefixed with 0x) or octal (8-based - prefixed with 0)</li>
+</ul>
+<p>PHP has the following predefined constants for integers:</p>
+<ul>
+  <li>PHP_INT_MAX - The largest integer supported</li>
+  <li>PHP_INT_MIN - The smallest integer supported</li>
+  <li>PHP_INT_SIZE -&nbsp; The size of an integer in bytes</li>
+</ul>
+<p>PHP has the following functions to check if the type of a variable is 
+integer:</p>
+<ul>
+  <li>is_int()</li>
+  <li>is_integer() - alias of is_int()</li>
+  <li>is_long() - alias of is_int()</li>
+</ul>
+<div class="w3-Sample">
+   <p>Check if the type of a variable is integer:</p>
+<div class="w3-code htmlHigh notranslate">
+ <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span> <br>$x = <span class="phpnumbercolor" style="color:red">5985</span>;<br>var_dump(is_int($x));<br><br>$x = <span class="phpnumbercolor" style="color:red">59.85</span>;<br>var_dump(is_int($x));<br><span class="phptagcolor" style="color:red">?&gt;</span></span> </div>
+ 
+
+<h2>PHP Floats</h2>
+<p>A float is a number with a decimal point or a number in exponential form.</p>
+<p>2.0, 256.4, 10.358, 7.64E+5, 5.56E-5 are all floats.</p>
+<p>The float data type can commonly store a value up to 1.7976931348623E+308 
+(platform dependent), and have a maximum precision of 14 digits.</p>
+<p>PHP has the following predefined constants for floats (from PHP 7.2):</p>
+<ul>
+  <li>PHP_FLOAT_MAX - The largest representable floating point number</li>
+  <li>PHP_FLOAT_MIN - The smallest representable positive floating point number</li>
+  <li>PHP_FLOAT_DIG - The number of decimal digits that can be rounded into a 
+  float and back without precision loss</li>
+  <li>PHP_FLOAT_EPSILON - The smallest representable positive number x, so that 
+  x + 1.0 != 1.0</li>
+</ul>
+<p>PHP has the following functions to check if the type of a variable is 
+float:</p>
+<ul>
+  <li>is_float()</li>
+  <li>is_double() - alias of is_float()</li>
+</ul>
+<div class="w3-Sample">
+<h3>Sample</h3>
+  <p>Check if the type of a variable is float:</p>
+<div class="w3-code htmlHigh notranslate">
+ <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span> <br>$x = <span class="phpnumbercolor" style="color:red">10.365</span>;<br>var_dump(is_float($x));<br><span class="phptagcolor" style="color:red">?&gt;</span></span>  </div>
+ <hr>
+
+<h2>PHP Infinity</h2>
+<p>A numeric value that is larger than PHP_FLOAT_MAX is considered infinite.</p>
+<p>PHP has the following functions to check if a numeric value is finite or 
+infinite:</p>
+<ul>
+  <li> is_finite()</a></li>
+  <li> is_infinite()</a></li>
+</ul>
+<p>However, the PHP var_dump() function returns the data type and value:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+  <p>Check if a numeric value is finite or infinite:</p>
+<div class="w3-code htmlHigh notranslate">
+ <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span> <br>$x = <span class="phpnumbercolor" style="color:red">1.9e411</span>;<br>var_dump($x);<br><span class="phptagcolor" style="color:red">?&gt;</span></span>  </div>
+ <hr>
+
+<h2>PHP NaN</h2>
+<p>NaN stands for Not a Number.</p>
+<p>NaN is used for impossible mathematical operations.</p>
+<p>PHP has the following functions to check if a value is not a number:</p>
+<ul>
+  <li> is_nan()</a></li>
+</ul>
+<p>However, the PHP var_dump() function returns the data type and value:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+  <p>Invalid calculation will return a NaN value:</p>
+<div class="w3-code htmlHigh notranslate">
+ <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br>$x = acos(<span class="phpnumbercolor" style="color:red">8</span>);<br>var_dump($x);<br><span class="phptagcolor" style="color:red">?&gt;</span></span>  </div>
+ <hr>
+
+<h2>PHP Numerical Strings</h2>
+<p>The PHP is_numeric() function can be used to find whether a variable is 
+numeric. The function returns true if the variable is a number or a numeric 
+string, false otherwise.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+  <p>Check if the variable is numeric:</p>
+<div class="w3-code htmlHigh notranslate">
+ <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span> <br>$x = <span class="phpnumbercolor" style="color:red">5985</span>;<br>var_dump(is_numeric($x));<br><br>$x = <span class="phpstringcolor" style="color:brown">"5985"</span>;<br><span class="phpnumbercolor" style="color:red">
+</span>  var_dump(is_numeric($x));<br><br>$x = <span class="phpstringcolor" style="color:brown">"59.85"</span> + <span class="phpnumbercolor" style="color:red">100</span>;<br><span class="phpnumbercolor" style="color:red">
+</span>  var_dump(is_numeric($x));<br><br>$x = <span class="phpstringcolor" style="color:brown">"Hello"</span>;<br>var_dump(is_numeric($x));<br><span class="phptagcolor" style="color:red">?&gt;</span></span> </div>
+ <div class="w3-note w3-panel">
+<p><strong>Note:</strong> From PHP 7.0: The is_numeric() function will return 
+FALSE for numeric strings in hexadecimal form (e.g. 0xf4c3b00c), as they are no 
+longer considered as numeric strings.</p>
+</div>
+<hr>
+
+<h2>PHP Casting Strings and Floats to Integers</h2>
+<p>Sometimes you need to cast a numerical value into another data type.</p>
+<p>The (int), (integer), or intval() function are often used to convert a value 
+to an integer.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+  <p>Cast float and string to integer:</p>
+<div class="w3-code htmlHigh notranslate">
+  <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br><span class="commentcolor" style="color:green">// Cast float to int <br></span>$x = <span class="phpnumbercolor" style="color:red">23465.768</span>;<br>$int_cast = (int)$x;<br><span class="phpnumbercolor" style="color:red">
+</span>  <span class="phpkeywordcolor" style="color:mediumblue">echo</span> $int_cast;<br><br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"&lt;br&gt;"</span>;<br><br><span class="commentcolor" style="color:green">// Cast string to int<br></span>$x = <span class="phpnumbercolor" style="color:red">
+</span>  <span class="phpstringcolor" style="color:brown">"23465.768"</span>;<br>$int_cast = (int)$x;<br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> $int_cast;<br><span class="phptagcolor" style="color:red">?&gt;</span></span> </div>
+  

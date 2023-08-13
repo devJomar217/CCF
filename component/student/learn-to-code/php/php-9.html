@@ -1,0 +1,89 @@
+<!-- String-->
+
+ 
+  <div class="w3-row w3-white">
+    
+ 
+
+<h1>What is <span class="color_h1">Strings in Php?</span></h1>
+ 
+<p class="intro">A string is a sequence of characters, like "Hello world!".</p>
+<hr>
+
+<h2>PHP String Functions</h2>
+<p>In this chapter we will look at some commonly used functions to manipulate strings.</p>
+<hr>
+
+<h2>strlen() - Return the Length of a String</h2>
+<p>The PHP <code class="w3-codespan">strlen()</code> function returns the length of a string.</p>
+<div class="w3-Sample">
+   <p>Return the length of the string "Hello world!":</p>
+<div class="w3-code htmlHigh notranslate">
+<span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br>
+<span class="phpkeywordcolor" style="color:mediumblue">echo</span> strlen(<span class="phpstringcolor" style="color:brown">"Hello world!"</span>); <span class="commentcolor" style="color:green">// outputs 12<br></span>
+<span class="phptagcolor" style="color:red">?&gt;</span></span>
+ </div>
+ </div>
+<hr>
+
+<h2>str_word_count() - Count Words in a String</h2>
+<p>The PHP <code class="w3-codespan">str_word_count()</code> function counts the 
+number of words in a string.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+  <p>Count the number of word in the string "Hello world!":</p>
+<div class="w3-code htmlHigh notranslate">
+<span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br>
+<span class="phpkeywordcolor" style="color:mediumblue">echo</span> str_word_count(<span class="phpstringcolor" style="color:brown">"Hello world!"</span>); <span class="commentcolor" style="color:green">// outputs 2<br></span>
+<span class="phptagcolor" style="color:red">?&gt;</span></span>
+ </div>
+ </div>
+ 
+
+<h2>strrev() - Reverse a String</h2>
+<p>The PHP <code class="w3-codespan">strrev()</code> function reverses a string.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+  <p>Reverse the string "Hello world!":</p>
+<div class="w3-code htmlHigh notranslate">
+<span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br>
+<span class="phpkeywordcolor" style="color:mediumblue">echo</span> strrev(<span class="phpstringcolor" style="color:brown">"Hello world!"</span>); <span class="commentcolor" style="color:green">// outputs !dlrow olleH<br></span>
+<span class="phptagcolor" style="color:red">?&gt;</span></span>
+ </div>
+ </div>
+<hr>
+
+<h2>strpos() - Search For a Text Within a String</h2>
+<p>The PHP <code class="w3-codespan">strpos()</code> function searches for a specific text within a string. If a match is found, the function returns the character position of the first match. If no match is found, it will return FALSE.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+  <p>Search for the text "world" in the string "Hello world!":</p>
+<div class="w3-code htmlHigh notranslate">
+<span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br>
+<span class="phpkeywordcolor" style="color:mediumblue">echo</span> strpos(<span class="phpstringcolor" style="color:brown">"Hello world!"</span>, <span class="phpstringcolor" style="color:brown">"world"</span>); <span class="commentcolor" style="color:green">// outputs 6<br></span>
+<span class="phptagcolor" style="color:red">?&gt;</span></span>
+ </div>
+ </div>
+
+<p><strong>Tip:</strong>  
+The first character position in a string is 0 (not 1).</p>
+<hr>
+
+<h2>str_replace() - Replace Text Within a String</h2>
+<p>The PHP <code class="w3-codespan">str_replace()</code> function replaces some characters with some other 
+characters in a string.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+  <p>Replace the text "world" with "Dolly":</p>
+<div class="w3-code htmlHigh notranslate">
+<span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br>
+<span class="phpkeywordcolor" style="color:mediumblue">echo</span> str_replace(<span class="phpstringcolor" style="color:brown">"world"</span>, <span class="phpstringcolor" style="color:brown">"Dolly"</span>, <span class="phpstringcolor" style="color:brown">"Hello world!"</span>); <span class="commentcolor" style="color:green">// outputs Hello Dolly!<br></span>
+<span class="phptagcolor" style="color:red">?&gt;</span></span>
+ </div>
+ </div>
+<hr>
+
+<h2>Complete PHP String Reference</h2>
+ <p>The PHP string reference contains description and Sample of use, for each function!</p>
+ 

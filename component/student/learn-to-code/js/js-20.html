@@ -1,0 +1,281 @@
+<!-- S Search-->
+
+
+
+  <div class="w3-row w3-white">
+    
+
+
+<h1>What is String Search in JavaScript?</h1>
+
+<div class="w3-info">
+<h2>String Search Methods</h2>
+<ul>
+<li>String indexOf()</li>
+<li>String lastIndexOf()</li>
+<li>String search()</li>
+<li>String match()</li>
+<li>String matchAll()</li>
+<li>String includes()</li>
+<li>String startsWith()</li>
+<li>String endsWith()</li>
+</ul>
+</div>
+
+<h2>JavaScript String indexOf()</h2>
+<p>The <code class="w3-codespan">indexOf()</code> method returns the <b>index</b> (position)
+the <b>first</b> occurrence of a string in a string:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"Please locate where 'locate' occurs!"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> index = text.<span class="jspropertycolor" style="color:black">indexOf</span>(<span class="jsstringcolor" style="color:brown">"locate"</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+
+</div>
+
+<div class="w3-panel w3-note">
+<h2>Note</h2>
+<p>JavaScript counts positions from zero.</p>
+<p>0 is the first position in a 
+string, 1 is the second, 2 is the third, ...</p>
+</div>
+<hr>
+
+<h2>JavaScript String lastIndexOf()</h2>
+<p>The <code class="w3-codespan">lastIndexOf()</code> method returns the <b>index</b> of the <strong>last</strong> 
+occurrence of a specified text in a string:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"Please locate where 'locate' occurs!"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> index = text.<span class="jspropertycolor" style="color:black">lastIndexOf</span>(<span class="jsstringcolor" style="color:brown">"locate"</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<p>Both <code class="w3-codespan">indexOf()</code>, and <code class="w3-codespan">lastIndexOf()</code> return -1
+if the text is not found:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"Please locate where 'locate' occurs!"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> index = text.<span class="jspropertycolor" style="color:black">lastIndexOf</span>(<span class="jsstringcolor" style="color:brown">"John"</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p>Both methods accept a second parameter as the starting position for the 
+search:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"Please locate where 'locate' occurs!"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> index = text.<span class="jspropertycolor" style="color:black">indexOf</span>(<span class="jsstringcolor" style="color:brown">"locate"</span>, <span class="jsnumbercolor" style="color:red">15</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p>The <code class="w3-codespan">lastIndexOf()</code> methods searches backwards 
+(from the end to the beginning), meaning:
+if the second parameter is <code class="w3-codespan">15</code>, the search starts at position 
+15, and searches to the beginning of the string.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"Please locate where 'locate' occurs!"</span>;<br>
+text.<span class="jspropertycolor" style="color:black">lastIndexOf</span>(<span class="jsstringcolor" style="color:brown">"locate"</span>, <span class="jsnumbercolor" style="color:red">15</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<hr>
+
+<h2>JavaScript String search()</h2>
+<p>The <code class="w3-codespan">search()</code> method searches a string for a string (or a regular expression)
+and returns the position of the match:</p>
+
+<div class="w3-Sample">
+<h3>Samples</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"Please locate where 'locate' occurs!"</span>;<br>
+text.<span class="jspropertycolor" style="color:black">search</span>(<span class="jsstringcolor" style="color:brown">"locate"</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"Please locate where 'locate' occurs!"</span>;<br>
+text.<span class="jspropertycolor" style="color:black">search</span>(<span class="jsregexpcolor" style="color:#f50">/locate/</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<hr>
+<h2>Did You Notice?</h2>
+<p>The two methods, <code class="w3-codespan">indexOf()</code> and <code class="w3-codespan">search()</code>, are <strong>equal?</strong></p>
+<p>They accept the same arguments (parameters), and return the same value?</p>
+<p>The two methods are <strong>NOT</strong> equal. These are the differences:</p>
+<ul>
+<li>The <code class="w3-codespan">search()</code> method cannot take a second start position argument.</li>
+<li>The <code class="w3-codespan">indexOf()</code> method cannot take 
+powerful search values (regular expressions).</li>
+</ul>
+<p>You will learn more about 
+regular expressions in a later chapter.</p>
+
+
+
+<h2>JavaScript String match()</h2>
+<p>The <code class="w3-codespan">match()</code> method returns an array containing the results of matching
+a string against a string (or a regular expression).</p>
+<div class="w3-Sample">
+<h3>Samples</h3>
+<p>Perform a search for "ain":</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"The rain in SPAIN stays mainly in the plain"</span>; <br>
+text.<span class="jspropertycolor" style="color:black">match</span>(<span class="jsstringcolor" style="color:brown">"ain"</span>); <span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+
+<p>Perform a search for "ain":</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"The rain in SPAIN stays mainly in the plain"</span>; <br>
+text.<span class="jspropertycolor" style="color:black">match</span>(<span class="jsregexpcolor" style="color:#f50">/ain/</span>); <span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+
+<p>Perform a global search for "ain":</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"The rain in SPAIN stays mainly in the plain"</span>; <br>
+text.<span class="jspropertycolor" style="color:black">match</span>(<span class="jsregexpcolor" style="color:#f50">/ain/g</span>); <span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p>Perform a global, case-insensitive search for "ain":</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"The rain in SPAIN stays mainly in the plain"</span>; <br>
+text.<span class="jspropertycolor" style="color:black">match</span>(<span class="jsregexpcolor" style="color:#f50">/ain/gi</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-note">
+<h2>Note</h2>
+<p>If a regular expression does not include the <em>g</em> modifier (global search),
+<code class="w3-codespan">match()</code> will return only the first match in the string.</p>
+<p>Read more about regular expressions in the chapter JS RegExp</a>.</p>
+</div>
+
+<hr>
+ <h2>JavaScript String matchAll()</h2>
+<p>The <code class="w3-codespan">matchAll()</code> method returns an iterator containing the results of matching
+a string against a string (or a regular expression).</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> iterator = text.<span class="jspropertycolor" style="color:black">matchAll</span>(<span class="jsstringcolor" style="color:brown">"Cats"</span>);<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<p>If the parameter is a regular expression, the global flag (g) must be set, otherwise
+a TypeError is thrown.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> iterator = text.<span class="jspropertycolor" style="color:black">matchAll</span>(<span class="jsregexpcolor" style="color:#f50">/Cats/g</span>);<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<p>If you want to search case insensitive, the insensitive flag (i) must be set:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> iterator = text.<span class="jspropertycolor" style="color:black">matchAll</span>(<span class="jsregexpcolor" style="color:#f50">/Cats/gi</span>);<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<div class="w3-note">
+<h2>Notes</h2>
+<p><code class="w3-codespan">matchAll()</code> is an ES2020</a> feature.</p>
+<p><code class="w3-codespan">matchAll()</code> does not work in Internet Explorer.</p>
+</div>
+
+<hr>
+<h2>JavaScript String includes()</h2>
+<p>The <code class="w3-codespan">includes()</code> method returns true if a string contains a specified value.</p>
+<p>Otherwise it returns <code class="w3-codespan">false</code>.</p>
+<div class="w3-Sample">
+<h3>Samples</h3>
+<p>Check if a string includes "world":</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"Hello world, welcome to the universe."</span>;<br>
+text.<span class="jspropertycolor" style="color:black">includes</span>(<span class="jsstringcolor" style="color:brown">"world"</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p>Check if a string includes "world". Start at position 12:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"Hello world, welcome to the universe."</span>;<br>
+text.<span class="jspropertycolor" style="color:black">includes</span>(<span class="jsstringcolor" style="color:brown">"world"</span>, <span class="jsnumbercolor" style="color:red">12</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-note">
+<h2>Notes</h2>
+<p><code class="w3-codespan">includes()</code> is case sensitive.</p>
+<p><code class="w3-codespan">includes()</code> is an ES6 feature</a>.</p>
+<p><code class="w3-codespan">includes()</code> is not supported in Internet Explorer.</p>
+</div>
+<hr>
+
+<h2>JavaScript String startsWith()</h2>
+<p>The <code class="w3-codespan">startsWith()</code> method returns <code class="w3-codespan">true</code>
+if a string begins with a specified value.</p>
+<p>Otherwise it returns <code class="w3-codespan">false</code>:</p>
+
+<div class="w3-Sample">
+<h3>Samples</h3>
+<p>Returns true:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"Hello world, welcome to the universe."</span>;<br>
+text.<span class="jspropertycolor" style="color:black">startsWith</span>(<span class="jsstringcolor" style="color:brown">"Hello"</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+
+<p>Returns false:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"Hello world, welcome to the universe."</span>;<br>
+text.<span class="jspropertycolor" style="color:black">startsWith</span>(<span class="jsstringcolor" style="color:brown">"world"</span>)<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<p>A start position for the search can be specified:</p>
+<div class="w3-Sample">
+<p>Returns false:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"Hello world, welcome to the universe."</span>;<br>
+text.<span class="jspropertycolor" style="color:black">startsWith</span>(<span class="jsstringcolor" style="color:brown">"world"</span>, <span class="jsnumbercolor" style="color:red">5</span>)<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p>Returns true:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"Hello world, welcome to the universe."</span>;<br>
+text.<span class="jspropertycolor" style="color:black">startsWith</span>(<span class="jsstringcolor" style="color:brown">"world"</span>, <span class="jsnumbercolor" style="color:red">6</span>)<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-note">
+<h2>Notes</h2>
+<p><code class="w3-codespan">startsWith()</code> is case sensitive.</p>
+<p><code class="w3-codespan">startsWith()</code> is an ES6 feature</a>.</p>
+<p><code class="w3-codespan">startsWith()</code> is not supported in Internet Explorer.</p>
+</div>
+<hr>
+
+<h2>JavaScript String endsWith()</h2>
+<p>The <code class="w3-codespan">endsWith()</code> method returns <code class="w3-codespan">true</code>
+if a string ends with a specified value.</p>
+<p>Otherwise it returns <code class="w3-codespan">false</code>:</p>
+
+<div class="w3-Sample">
+<h3>Samples</h3>
+<p>Check if a string ends with "Doe":</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"John Doe"</span>;<br>
+text.<span class="jspropertycolor" style="color:black">endsWith</span>(<span class="jsstringcolor" style="color:brown">"Doe"</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p>Check if the 11 first characters of a string ends with "world":</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"Hello world, welcome to the universe."</span>;<br>
+text.<span class="jspropertycolor" style="color:black">endsWith</span>(<span class="jsstringcolor" style="color:brown">"world"</span>, <span class="jsnumbercolor" style="color:red">11</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-note">
+<h2>Notes</h2>
+<p><code class="w3-codespan">endsWith()</code> is case sensitive.</p>
+<p><code class="w3-codespan">endsWith()</code> is an ES6 feature</a>.</p>
+<p><code class="w3-codespan">endsWith()</code> is not supported in Internet Explorer.</p>
+</div>

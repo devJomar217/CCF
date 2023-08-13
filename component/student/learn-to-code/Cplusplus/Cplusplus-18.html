@@ -1,0 +1,60 @@
+<!-- BREAK/CONTINUE-->
+
+
+
+  <div class="w3-row w3-white">
+    
+
+
+<h1>What is  <span class="color_h1">Break and Continue in C++?</span></h1>
+<p>&nbsp;</p>
+
+<h2>C++ Break</h2>
+<p>You have already seen the <code class="w3-codespan">break</code> statement used in an earlier chapter of this tutorial. It was used to "jump out" of a  <code class="w3-codespan">switch</code></a> statement.</p>
+<p>The <code class="w3-codespan">break</code> statement can also be used to jump out of a 
+<strong>loop</strong>.</p>
+<p>This sample jumps out of the loop when <code class="w3-codespan">i</code> is equal to 4:</p>
+
+<div class="w3-sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  <span class="javakeywordcolor" style="color:mediumblue">for</span> (<span class="javakeywordcolor" style="color:mediumblue">int</span> i = <span class="javanumbercolor" style="color:red">0</span>; i &lt; <span class="javanumbercolor" style="color:red">10</span>; i++) {<br>&nbsp; <span class="javakeywordcolor" style="color:mediumblue">if</span> (i == <span class="javanumbercolor" style="color:red">4</span>) {<br>&nbsp;&nbsp;&nbsp; <span class="javanumbercolor" style="color:red">
+</span>  <span class="javakeywordcolor" style="color:mediumblue">break</span>;<br>&nbsp; }<br>&nbsp; cout &lt;&lt; i &lt;&lt; <span class="javastringcolor" style="color:brown">"\n"</span>;<br>} <br><span class="javanumbercolor" style="color:red">
+</span>  </span></div>
+</div>
+
+<hr>
+
+<h2>C++ Continue</h2>
+
+<p>The <code class="w3-codespan">continue</code> statement breaks one iteration (in the loop), if a specified condition occurs, and continues with the next iteration in the loop.</p>
+<p>This sample skips the value of 4:</p>
+
+<div class="w3-sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  <span class="javakeywordcolor" style="color:mediumblue">for</span> (<span class="javakeywordcolor" style="color:mediumblue">int</span> i = <span class="javanumbercolor" style="color:red">0</span>; i &lt; <span class="javanumbercolor" style="color:red">10</span>; i++) {<br>&nbsp; <span class="javakeywordcolor" style="color:mediumblue">if</span> (i == <span class="javanumbercolor" style="color:red">4</span>) {<br>&nbsp;&nbsp;&nbsp; <span class="javanumbercolor" style="color:red">
+</span>  <span class="javakeywordcolor" style="color:mediumblue">continue</span>;<br>&nbsp; }<br>&nbsp; cout &lt;&lt; i &lt;&lt; <span class="javastringcolor" style="color:brown">"\n"</span>;<br>} <br><span class="javanumbercolor" style="color:red">
+</span>  </span></div>
+</div>
+
+
+<h2>Break and Continue in While Loop</h2>
+<p>You can also use <code class="w3-codespan">break</code> and <code class="w3-codespan">continue</code> in while loops:</p>
+
+<div class="w3-sample">
+<h3>Break Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  <span class="javakeywordcolor" style="color:mediumblue">int</span> i = <span class="javanumbercolor" style="color:red">0</span>;<br><span class="javakeywordcolor" style="color:mediumblue">while</span> (i &lt; <span class="javanumbercolor" style="color:red">10</span>) {<br>&nbsp;&nbsp;cout &lt;&lt; i &lt;&lt; <span class="javastringcolor" style="color:brown">"\n"</span>;<br>&nbsp;&nbsp;i++;<br><span class="javanumbercolor" style="color:red">
+</span>  &nbsp;&nbsp;<span class="javakeywordcolor" style="color:mediumblue">if</span> (i == <span class="javanumbercolor" style="color:red">4</span>) {<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="javakeywordcolor" style="color:mediumblue">break</span>;<br>&nbsp; <span class="javanumbercolor" style="color:red">
+</span>  }<br>} <br><span class="javanumbercolor" style="color:red">
+</span>  </span></div>
+</div>
+
+<div class="w3-sample">
+<h3>Continue Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  <span class="javakeywordcolor" style="color:mediumblue">int</span> i = <span class="javanumbercolor" style="color:red">0</span>;<br><span class="javakeywordcolor" style="color:mediumblue">while</span> (i &lt; <span class="javanumbercolor" style="color:red">10</span>) {<br>&nbsp;&nbsp;<span class="javakeywordcolor" style="color:mediumblue">if</span> (i == <span class="javanumbercolor" style="color:red">4</span>) {<br>&nbsp;&nbsp;&nbsp; i++;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="javakeywordcolor" style="color:mediumblue">continue</span>;<br><span class="javanumbercolor" style="color:red">
+</span>  &nbsp;&nbsp;}<br>&nbsp;&nbsp;cout &lt;&lt; i &lt;&lt; <span class="javastringcolor" style="color:brown">"\n"</span>;<br>&nbsp;&nbsp;i++;<br>} <br><span class="javanumbercolor" style="color:red">
+</span>  </span></div>
+</div>

@@ -15,8 +15,8 @@
             <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>Question ID</th>
-                        <th>Student</th>
+                        <th>ID</th>
+                        <th>StudentID</th>
                         <th>Subject</th>
                         <th>Date Time</th>
                         <th>Question</th>
@@ -25,8 +25,8 @@
                 </thead>
                 <tfoot>
                     <tr>
-                        <th>Question ID</th>
-                        <th>Student</th>
+                        <th>ID</th>
+                        <th>StudentID</th>
                         <th>Subject</th>
                         <th>Date Time</th>
                         <th>Question</th>
@@ -198,14 +198,15 @@
                         var questionData;
                         $.each(dataResult, function(key, question) {
                             var questionID = question['questionID'];
-                            questionData += "<tr>" +
-                                "<td>" + questionID + "</td>" +
-                                "<td><a href='#' class='button-student-id'>" + question['studentID'] + "</a></td>" +
-                                "<td>" + question['subject'] + "</td>" +
-                                "<td>" + question['creationDateTime'] + "</td>" +
-                                "<td>" + question['question'] + "</td>" +
-                                "<td><a class='button-select' data-id='" + questionID + "'><i class='fas fa-eye fa-cog'></a></i></td>" +
-                                "</tr>";
+                            questionData +=
+                                `<tr>
+                                    <td>${questionID}</td>
+                                    <td><a href='#' class='button-student-id'>${question['studentID']}</a></td>
+                                    <td>${question['subject']}</td>
+                                    <td>${question['creationDateTime']}</td>
+                                    <td>${question['title']}</td>
+                                    <td><a class='button-select' data-id='${questionID}'><i class='fas fa-eye fa-cog'></a></i></td>
+                                </tr>`;
                         });
                         $("#tableBody").html(questionData);
                     }

@@ -1,0 +1,439 @@
+<!-- Operators-->
+
+ 
+  <div class="w3-row w3-white">
+    
+ 
+
+<h1>What is <span class="color_h1">Operators in Python?</span></h1>
+ 
+
+<h2>Python Operators</h2>
+
+<p>Operators are used to perform operations on variables and values.</p>
+
+<p>Python divides the operators in the following groups:</p>
+<ul>
+	<li>Arithmetic operators</li>
+	<li>Assignment operators</li>
+	<li>Comparison operators</li>
+	<li>Logical operators</li>
+	<li>Identity operators</li>
+	<li>Membership operators</li>
+	<li>Bitwise operators</li>
+</ul>
+
+<hr>
+
+<h2>Python Arithmetic Operators</h2>
+<p>Arithmetic operators are used with numeric values to perform common mathematical operations:</p>
+
+<table class="ws-table-all notranslate">
+<tbody><tr>
+<th style="width:25%">Operator</th>
+<th style="width:35%">Name</th>
+<th style="width:30%">Sample</th>
+ </tr>
+<tr>
+<td>+</td>
+<td>Addition</td>
+<td>x + y</td>
+ </tr>
+<tr>
+<td>-</td>
+<td>Subtraction</td>
+<td>x - y</td>
+ </tr>
+<tr>
+<td>*</td>
+<td>Multiplication</td>
+<td>x * y</td>
+ </tr>
+<tr>
+<td>/</td>
+<td>Division</td>
+<td>x / y</td>
+ </tr>
+<tr>
+<td>%</td>
+<td>Modulus</td>
+<td>x % y</td>
+ </tr>
+  <tr>
+<td>**</td>
+<td>Exponentiation</td>
+<td>x ** y</td>
+   </tr>
+<tr>
+<td>//</td>
+<td>Floor division</td>
+<td>x // y</td>
+ </tr>
+</tbody></table>
+
+<hr>
+
+<h2>Python Assignment Operators</h2>
+
+<p>Assignment operators are used to assign values to variables:</p>
+
+<table class="ws-table-all notranslate">
+<tbody><tr>
+<th style="width:25%">Operator</th>
+<th style="width:20%">Sample</th>
+<th style="width:20%">Same As</th>
+ </tr>
+<tr>
+<td>=</td>
+<td>x = 5</td>
+<td>x = 5</td>
+ </tr>
+  <tr>
+<td>+=</td>
+<td>x += 3</td>
+<td>x = x + 3</td>
+   </tr>
+  <tr>
+<td>-=</td>
+<td>x -= 3</td>
+<td>x = x - 3</td>
+   </tr>
+  <tr>
+<td>*=</td>
+<td>x *= 3</td>
+<td>x = x * 3</td>
+   </tr>
+  <tr>
+<td>/=</td>
+<td>x /= 3</td>
+<td>x = x / 3</td>
+   </tr>
+  <tr>
+<td>%=</td>
+<td>x %= 3</td>
+<td>x = x % 3</td>
+   </tr>
+  <tr>
+<td>//=</td>
+<td>x //= 3</td>
+<td>x = x // 3</td>
+   </tr>
+  <tr>
+<td>**=</td>
+<td>x **= 3</td>
+<td>x = x ** 3</td>
+   </tr>
+  <tr>
+<td>&amp;=</td>
+<td>x &amp;= 3</td>
+<td>x = x &amp; 3</td>
+   </tr>
+  <tr>
+<td>|=</td>
+<td>x |= 3</td>
+<td>x = x | 3</td>
+   </tr>
+<tr>
+<td>^=</td>
+<td>x ^= 3</td>
+<td>x = x ^ 3</td>
+ </tr>
+<tr>
+<td>&gt;&gt;=</td>
+<td>x &gt;&gt;= 3</td>
+<td>x = x &gt;&gt; 3</td>
+ </tr>
+<tr>
+<td>&lt;&lt;=</td>
+<td>x &lt;&lt;= 3</td>
+<td>x = x &lt;&lt; 3</td>
+ </tr>
+</tbody></table>
+
+ 
+
+<h2>Python Comparison Operators</h2>
+
+<p>Comparison operators are used to compare two values:</p>
+
+<table class="ws-table-all notranslate">
+<tbody><tr>
+<th style="width:25%">Operator</th>
+<th style="width:35%">Name</th>
+<th style="width:30%">Sample</th>
+ </tr>
+<tr>
+<td>==</td>
+<td>Equal</td>
+<td>x == y</td>
+ </tr>
+<tr>
+<td>!=</td>
+<td>Not equal</td>
+<td>x != y</td>
+ </tr>
+<tr>
+<td>&gt;</td>
+<td>Greater than</td>
+<td>x &gt; y</td>
+ </tr>
+<tr>
+<td>&lt;</td>
+<td>Less than</td>
+<td>x &lt; y</td>
+ </tr>
+  <tr>
+<td>&gt;=</td>
+<td>Greater than or equal to</td>
+<td>x &gt;= y</td>
+   </tr>
+<tr>
+<td>&lt;=</td>
+<td>Less than or equal to</td>
+<td>x &lt;= y</td>
+ </tr>
+</tbody></table>
+
+<hr>
+
+<h2>Python Logical Operators</h2>
+
+<p>Logical operators are used to combine conditional statements:</p>
+
+<table class="ws-table-all notranslate">
+<tbody><tr>
+<th style="width:25%">Operator</th>
+<th style="width:35%">Description</th>
+<th style="width:30%">Sample</th>
+ </tr>
+<tr>
+<td>and&nbsp;</td>
+<td>Returns True if both statements are true</td>
+<td>x &lt; 5 and&nbsp; x &lt; 10</td>
+ </tr>
+<tr>
+<td>or</td>
+<td>Returns True if one of the statements is true</td>
+<td>x &lt; 5 or x &lt; 4</td>
+ </tr>
+<tr>
+<td>not</td>
+<td>Reverse the result, returns False if the result is true</td>
+<td>not(x &lt; 5 and x &lt; 10)</td>
+ </tr>
+</tbody></table>
+
+<hr>
+
+<h2>Python Identity Operators</h2>
+
+<p>Identity operators are used to compare the objects, not if they are equal, but if they are actually the same object, with the same memory location:</p>
+
+<table class="ws-table-all notranslate">
+<tbody><tr>
+<th style="width:25%">Operator</th>
+<th style="width:35%">Description</th>
+<th style="width:30%">Sample</th>
+ </tr>
+<tr>
+<td>is&nbsp;</td>
+<td>Returns True if both variables are the same object</td>
+<td>x is y</td>
+ </tr>
+<tr>
+<td>is not</td>
+<td>Returns True if both variables are not the same object</td>
+<td>x is not y</td>
+ </tr>
+</tbody></table>
+
+<hr>
+
+<h2>Python Membership Operators</h2>
+
+<p>Membership operators are used to test if a sequence is presented in an object:</p>
+
+<table class="ws-table-all notranslate">
+<tbody><tr>
+<th style="width:25%">Operator</th>
+<th style="width:35%">Description</th>
+<th style="width:30%">Sample</th>
+ </tr>
+<tr>
+<td>in&nbsp;</td>
+<td>Returns True if a sequence with the specified value is present in the object</td>
+<td>x in y</td>
+ </tr>
+<tr>
+<td>not in</td>
+<td>Returns True if a sequence with the specified value is not present in the 
+object</td>
+<td>x not in y</td>
+ </tr>
+</tbody></table>
+
+<hr>
+
+<h2>Python Bitwise Operators</h2>
+
+<p>Bitwise operators are used to compare (binary) numbers:</p>
+
+<table class="ws-table-all notranslate">
+<tbody><tr>
+<th style="width:10%">Operator</th>
+<th style="width:15%">Name</th>
+<th style="width:35%">Description</th>
+<th style="width:30%">Sample</th>
+ </tr>
+  <tr>
+<td>&amp;&nbsp;</td>
+<td>AND</td>
+<td>Sets each bit to 1 if both bits are 1</td>
+<td>x &amp; y</td>
+   </tr>
+  <tr>
+<td>|</td>
+<td>OR</td>
+<td>Sets each bit to 1 if one of two bits is 1</td>
+<td>x | y</td>
+   </tr>
+  <tr>
+<td>^</td>
+<td>XOR</td>
+<td>Sets each bit to 1 if only one of two bits is 1</td>
+<td>x ^ y</td>
+   </tr>
+<tr>
+<td>~</td>
+<td>NOT</td>
+<td>Inverts all the bits</td>
+<td>~x</td>
+ </tr>
+<tr>
+<td>&lt;&lt;</td>
+<td>Zero fill left shift</td>
+<td>Shift left by pushing zeros in from the right and let the leftmost bits fall 
+off</td>
+<td>x &lt;&lt; 2</td>
+ </tr>
+<tr>
+<td>&gt;&gt;</td>
+<td>Signed right shift</td>
+<td>Shift right by pushing copies of the leftmost bit in from the left, and let 
+the rightmost bits fall off</td>
+<td>x &gt;&gt; 2</td>
+ </tr>
+</tbody></table>
+<hr>
+
+<h2>Operator Precedence</h2>
+
+<p>Operator precedence describes the order in which operations are performed.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Parentheses has the highest precedence, meaning that expressions inside 
+parentheses must be evaluated first:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">print</span>((<span class="pythonnumbercolor" style="color:red">6</span> + <span class="pythonnumbercolor" style="color:red">3</span>) - (<span class="pythonnumbercolor" style="color:red">6</span> + <span class="pythonnumbercolor" style="color:red">3</span>)) </span></div>
+ </div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Multiplication <code class="w3-codespan">*</code> has higher precedence than
+addition <code class="w3-codespan">+</code>, and therefor multiplications are 
+evaluated before additions:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(<span class="pythonnumbercolor" style="color:red">100</span> + <span class="pythonnumbercolor" style="color:red">5</span> * <span class="pythonnumbercolor" style="color:red">3</span>) </span></div>
+ </div>
+
+<p>The precedence order is described in the table below, starting with the highest precedence at the top:</p>
+
+<table class="ws-table-all notranslate">
+<tbody><tr>
+<th style="width:25%">Operator</th>
+<th style="width:65%">Description</th>
+ </tr>
+<tr>
+<td><code class="w3-codespan">()</code></td>
+<td>Parentheses</td>
+ </tr>
+<tr>
+<td><code class="w3-codespan">**</code></td>
+<td>Exponentiation</td>
+ </tr>
+<tr>
+<td>
+  <code class="w3-codespan">+x</code>&nbsp;
+  <code class="w3-codespan">-x</code>&nbsp;
+  <code class="w3-codespan">~x</code>
+</td>
+<td>Unary plus, unary minus, and bitwise NOT</td>
+ </tr>
+<tr>
+<td>
+  <code class="w3-codespan">*</code>&nbsp;
+  <code class="w3-codespan">/</code>&nbsp;
+  <code class="w3-codespan">//</code>&nbsp;
+  <code class="w3-codespan">%</code>
+</td>
+<td>Multiplication, division, floor division, and modulus</td>
+ </tr>
+<tr>
+<td>
+  <code class="w3-codespan">+</code>&nbsp;
+  <code class="w3-codespan">-</code>
+</td>
+<td>Addition and subtraction</td>
+ </tr>
+<tr>
+<td>
+  <code class="w3-codespan">&lt;&lt;</code>&nbsp;
+  <code class="w3-codespan">&gt;&gt;</code>
+</td>
+<td>Bitwise left and right shifts</td>
+ </tr>
+<tr>
+<td><code class="w3-codespan">&amp;</code></td>
+<td>Bitwise AND</td>
+ </tr>
+<tr>
+<td><code class="w3-codespan">^</code></td>
+<td>Bitwise XOR</td>
+ </tr>
+<tr>
+<td><code class="w3-codespan">|</code></td>
+<td>Bitwise OR</td>
+ </tr>
+<tr>
+<td>
+  <code class="w3-codespan">==</code>&nbsp;
+  <code class="w3-codespan">!=</code>&nbsp;
+  <code class="w3-codespan">&gt;</code>&nbsp;
+  <code class="w3-codespan">&gt;=</code>&nbsp;
+  <code class="w3-codespan">&lt;</code>&nbsp;
+  <code class="w3-codespan">&lt;=</code>&nbsp;
+  <code class="w3-codespan">is</code>&nbsp;
+  <code class="w3-codespan">is not</code>&nbsp;
+  <code class="w3-codespan">in</code>&nbsp;
+  <code class="w3-codespan">not in</code>&nbsp;
+</td>
+<td>Comparisons, identity, and membership operators</td>
+ </tr>
+<tr>
+<td><code class="w3-codespan">not</code></td>
+<td>Logical NOT</td>
+ </tr>
+<tr>
+<td><code class="w3-codespan">and</code></td>
+<td>AND</td>
+ </tr>
+<tr>
+<td><code class="w3-codespan">or</code></td>
+<td>OR</td>
+ </tr>
+</tbody></table>
+
+<p>If two operators have the same precedence, the expression is evaluated from left 
+to right.</p>
+ 

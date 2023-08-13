@@ -235,17 +235,17 @@
                         var dataResult = JSON.parse(dataResult);
 
                         if (dataResult.statusCode.includes(5001)) {
-                            // $("#helpertext-student-id").html(ErrorMessage.EXISTING_STUDENT_ID);
+                            $("#helpertext-student-id").html("This studentid is already existing!");
                             eStudentID.addClass('is-invalid');
                         }
 
                         if (dataResult.statusCode.includes(5002)) {
-                            // $("#helpertext-username").html(ErrorMessage.EXISTING_USERNAME);
+                            $("#helpertext-username").html("This username is already existing!");
                             $("#input-username").addClass('is-invalid');
                         }
 
                         if (dataResult.statusCode.includes(5003)) {
-                            // $("#helpertext-email").html(ErrorMessage.EXISTING_EMAIL);
+                            $("#helpertext-email").html("This email is already existing!");
                             eEmail.addClass('is-invalid');
                         }
 

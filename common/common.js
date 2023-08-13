@@ -56,3 +56,24 @@ function getYearLevel(yearLevel) {
         return "Fourth Year";
     }
 }
+
+function getUserProfile() {
+    $.ajax({
+        url: "../../common/db.php",
+        type: "POST",
+        data: {
+            action: 'retrieve-user-profile'
+        },
+        cache: false,
+        success: function(dataResult) {
+            var dataResult = JSON.parse(dataResult);
+            if (dataResult.statusCode == 200) {
+                $("#profile-name").html(dataResult.studentInformation.name);
+                $("#profile-user-name").html(dataResult.studentInformation.username);
+                $("#profile-year-level").html(dataResult.studentInformation.yearLevel);
+                $("#profile-specialization").html(dataResult.studentInformation.specialization);
+                $("#profile-ranking").html(dataResult.studentInformation.ranking);
+            }
+        }
+    });
+}

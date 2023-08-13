@@ -1,0 +1,142 @@
+<!-- Sets-->
+
+
+  <div class="w3-row w3-white">
+  
+
+<h1>What is Sets in JavaScript?</h1>
+
+
+<div class="w3-info">
+<p>A JavaScript Set is a collection of unique values.</p>
+<p>Each value can only occur once in a Set.</p>
+</div>
+
+<h2>Essential Set Methods</h2>
+
+<table class="ws-table-all">
+<tbody><tr><th width="120px">Method</th><th>Description</th></tr>
+<tr><td>new Set()</td><td>Creates a new Set</td></tr>
+<tr><td>add()</td><td>Adds a new element to the Set</td></tr>
+<tr><td>delete()</td><td>Removes an element from a Set</td></tr>
+<tr><td>has()</td><td>Returns true if a value exists in the Set</td></tr>
+<tr><td>forEach()</td><td>Invokes a callback for each element in the Set</td></tr>
+<tr><td>values()</td><td>Returns an iterator with all the values in a Set</td></tr>
+<tr><th width="120px">Property</th><th>Description</th></tr>
+<tr><td>size</td><td>Returns the number of elements in a Set</td></tr>
+</tbody></table>
+
+<hr>
+<h2>How to Create a Set</h2>
+<p>You can create a JavaScript Set by:</p>
+<ul>
+<li>Passing an Array to <code class="w3-codespan">new Set()</code></li>
+<li>Create a new Set and use <code class="w3-codespan">add()</code> to add values</li>
+<li>Create a new Set and use <code class="w3-codespan">add()</code> to add variables</li>
+</ul>
+
+<hr>
+<h2>The new Set() Method</h2>
+<p>Pass an Array to the <code class="w3-codespan">new Set()</code> constructor:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Create a Set<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> letters = <span class="jskeywordcolor" style="color:mediumblue">new</span> Set([<span class="jsstringcolor" style="color:brown">"a"</span>,<span class="jsstringcolor" style="color:brown">"b"</span>,<span class="jsstringcolor" style="color:brown">"c"</span>]);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p>Create a Set and add values:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Create a Set<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> letters = <span class="jskeywordcolor" style="color:mediumblue">new</span> Set();<br><span class="jsnumbercolor" style="color:red">
+</span><br><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Add Values to the Set<br></span>
+letters.<span class="jspropertycolor" style="color:black">add</span>(<span class="jsstringcolor" style="color:brown">"a"</span>);<br>
+letters.<span class="jspropertycolor" style="color:black">add</span>(<span class="jsstringcolor" style="color:brown">"b"</span>);<br>
+letters.<span class="jspropertycolor" style="color:black">add</span>(<span class="jsstringcolor" style="color:brown">"c"</span>);<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p>Create a Set and add variables:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Create a Set<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> letters = <span class="jskeywordcolor" style="color:mediumblue">new</span> Set();<br><span class="jsnumbercolor" style="color:red">
+</span><br><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Create Variables<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> a = <span class="jsstringcolor" style="color:brown">"a"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> b = <span class="jsstringcolor" style="color:brown">"b"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> c = <span class="jsstringcolor" style="color:brown">"c"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span><br><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Add Variables to the Set<br></span>
+letters.<span class="jspropertycolor" style="color:black">add</span>(a);<br>
+letters.<span class="jspropertycolor" style="color:black">add</span>(b);<br>
+letters.<span class="jspropertycolor" style="color:black">add</span>(c);<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<hr>
+<h2>The add() Method</h2>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+letters.<span class="jspropertycolor" style="color:black">add</span>(<span class="jsstringcolor" style="color:brown">"d"</span>);<br>
+letters.<span class="jspropertycolor" style="color:black">add</span>(<span class="jsstringcolor" style="color:brown">"e"</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<p>If you add equal elements, only the first will be saved:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+letters.<span class="jspropertycolor" style="color:black">add</span>(<span class="jsstringcolor" style="color:brown">"a"</span>);<br>
+letters.<span class="jspropertycolor" style="color:black">add</span>(<span class="jsstringcolor" style="color:brown">"b"</span>);<br>
+letters.<span class="jspropertycolor" style="color:black">add</span>(<span class="jsstringcolor" style="color:brown">"c"</span>);<br>
+letters.<span class="jspropertycolor" style="color:black">add</span>(<span class="jsstringcolor" style="color:brown">"c"</span>);<br>
+letters.<span class="jspropertycolor" style="color:black">add</span>(<span class="jsstringcolor" style="color:brown">"c"</span>);<br>
+letters.<span class="jspropertycolor" style="color:black">add</span>(<span class="jsstringcolor" style="color:brown">"c"</span>);<br>
+letters.<span class="jspropertycolor" style="color:black">add</span>(<span class="jsstringcolor" style="color:brown">"c"</span>);<br>
+letters.<span class="jspropertycolor" style="color:black">add</span>(<span class="jsstringcolor" style="color:brown">"c"</span>);<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+
+
+<h2>The forEach() Method</h2>
+<p>The <code class="w3-codespan">forEach()</code> method invokes (calls) a function for each Set element:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Create a Set<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> letters = <span class="jskeywordcolor" style="color:mediumblue">new</span> Set([<span class="jsstringcolor" style="color:brown">"a"</span>,<span class="jsstringcolor" style="color:brown">"b"</span>,<span class="jsstringcolor" style="color:brown">"c"</span>]);<br><span class="jsnumbercolor" style="color:red">
+</span><br><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// List all Elements<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">""</span>;<br>
+letters.<span class="jspropertycolor" style="color:black">forEach</span> (<span class="jskeywordcolor" style="color:mediumblue">function</span>(value) {<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;text += value;<br><span class="jsnumbercolor" style="color:red">
+</span>})<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<hr>
+<h2>The values() Method</h2>
+<p>The <code class="w3-codespan">values()</code> method returns a new iterator object containing all the values in a Set:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+letters.<span class="jspropertycolor" style="color:black">values</span>()&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Returns [object Set Iterator]
+ </span></span></div>
+</div>
+<p>Now you can use the Iterator object to access the elements:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// List all Elements<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">""</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">for</span> (<span class="jskeywordcolor" style="color:mediumblue">const</span> x of letters.<span class="jspropertycolor" style="color:black">values</span>()) {<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;text += x;<br><span class="jsnumbercolor" style="color:red">
+</span>}<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>

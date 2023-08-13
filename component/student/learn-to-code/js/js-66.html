@@ -1,0 +1,350 @@
+<!-- Mistakes-->
+
+  <div class="w3-row w3-white">
+ 
+
+<h1>What is <span class="color_h1">Common Mistakes in JavaScript?</span></h1>
+ 
+<p class="intro">This chapter points out some common JavaScript mistakes.</p>
+<hr>
+<h2>Accidentally Using the Assignment Operator </h2>
+<p>JavaScript programs may generate unexpected results if a programmer 
+accidentally uses an assignment operator (<code class="w3-codespan">=</code>), instead of a comparison operator 
+(<code class="w3-codespan">==</code>) in an if statement. </p>
+<p>This <code class="w3-codespan">if</code> statement returns <code class="w3-codespan">false</code> (as 
+expected) because x is 
+not equal to 10:</p>
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">0</span>;<br><span class="jskeywordcolor" style="color:mediumblue">if</span> (x == <span class="jsnumbercolor" style="color:red">10</span>)  </span></div>
+ </div>
+<p>This <code class="w3-codespan">if</code> statement returns <code class="w3-codespan">true</code> (maybe not 
+as expected), because 10 is  
+true:</p>
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">0</span>;<br><span class="jskeywordcolor" style="color:mediumblue">if</span> (x = <span class="jsnumbercolor" style="color:red">10</span>)<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+<p>This <code class="w3-codespan">if</code> statement returns <code class="w3-codespan">false</code> (maybe not 
+as expected), because 0 is  
+false:</p>
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">0</span>;<br><span class="jskeywordcolor" style="color:mediumblue">if</span> (x = <span class="jsnumbercolor" style="color:red">0</span>)<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<div class="w3-panel w3-note">
+<p>An assignment always returns the value of the assignment.</p>
+</div>
+
+<hr>
+<h2>Expecting Loose Comparison</h2>
+<p>In regular comparison, data type does not matter. This <code class="w3-codespan">if</code> statement returns 
+true:</p>
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">10</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jsstringcolor" style="color:brown">"10"</span>;<br><span class="jskeywordcolor" style="color:mediumblue">if</span> (x == y)  </span></div>
+ </div>
+<p>In strict comparison, data type does matter. This <code class="w3-codespan">if</code> statement returns false:</p>
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">10</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jsstringcolor" style="color:brown">"10"</span>;<br><span class="jskeywordcolor" style="color:mediumblue">if</span> (x === y)  </span></div>
+ </div>
+
+<p>It is a common mistake to forget that <code class="w3-codespan">switch</code> statements use strict 
+comparison:</p>
+<p>This <code class="w3-codespan">case switch</code> will display an alert:</p>
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">10</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">switch</span>(x) {<br>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">case</span> <span class="jsnumbercolor" style="color:red">10</span>: alert(<span class="jsstringcolor" style="color:brown">"Hello"</span>);<br><span class="jsnumbercolor" style="color:red">
+</span>    }  </span></div>
+ </div>
+<p>This <code class="w3-codespan">case switch</code> will not display an alert:</p>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">10</span>;<br><span class="jskeywordcolor" style="color:mediumblue">switch</span>(x) {<br>&nbsp; <span class="jskeywordcolor" style="color:mediumblue">case</span> <span class="jsstringcolor" style="color:brown">"10"</span>: alert(<span class="jsstringcolor" style="color:brown">"Hello"</span>);<br><span class="jsnumbercolor" style="color:red">
+</span>    }  </span></div>
+ </div>
+ 
+
+<h2>Confusing Addition &amp; Concatenation </h2>
+<p><strong>Addition</strong> is about adding <strong>numbers</strong>.</p>
+<p><strong>Concatenation</strong> is about adding <strong>strings</strong>.</p>
+<p>In JavaScript both operations use the same <code class="w3-codespan">+</code> operator.</p>
+<p>Because of this, adding a number as a number will produce a different 
+result from adding a number as a string:</p>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">10</span>;<br>
+x = <span class="jsnumbercolor" style="color:red">10</span> + <span class="jsnumbercolor" style="color:red">5</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// 
+    Now x is 15<br></span><span class="jsnumbercolor" style="color:red">
+</span><br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jsnumbercolor" style="color:red">10</span>;<br>
+y += <span class="jsstringcolor" style="color:brown">"5"</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="jsnumbercolor" style="color:red">
+</span>    <span class="commentcolor" style="color:green">// Now y is "105" </span></span></div>
+ </div>
+<p>When adding two variables, it can be difficult to anticipate the result:</p>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">10</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jsnumbercolor" style="color:red">5</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> z = x + y;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Now z is 15<br></span><br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">10</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jsstringcolor" style="color:brown">"5"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> z = x + y;&nbsp;&nbsp;&nbsp; &nbsp;<span class="commentcolor" style="color:green">// Now z is "105" </span></span></div>
+ </div>
+<hr>
+
+<h2>Misunderstanding Floats </h2>
+<p>All numbers in JavaScript are stored as 64-bits <strong>Floating point numbers</strong> 
+(Floats).</p>
+<p>All programming languages, including JavaScript, have difficulties with 
+precise floating point values:</p>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">0.1</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jsnumbercolor" style="color:red">0.2</span>;<br><span class="jskeywordcolor" style="color:mediumblue">let</span> z = x + y&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="jsnumbercolor" style="color:red">
+</span>    <span class="commentcolor" style="color:green">// the result in z will not be 0.3 </span></span></div>
+ </div>
+<p>To solve the problem above, it helps to multiply and divide:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> z = (x * <span class="jsnumbercolor" style="color:red">10</span> + y * <span class="jsnumbercolor" style="color:red">10</span>) / <span class="jsnumbercolor" style="color:red">10</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// z will be 0.3 </span></span></div>
+ </div>
+<hr>
+
+<h2>Breaking a JavaScript String</h2>
+<p>JavaScript will allow you to break a statement into two lines:</p>
+
+<div class="w3-Sample">
+<h3>Sample 1</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x =<br><span class="jsstringcolor" style="color:brown">"Hello World!"</span>; </span></div>
+ </div>
+<p>But, breaking a statement in the middle of a string will not work:</p>
+
+<div class="w3-Sample">
+<h3>Sample 2</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsstringcolor" style="color:brown">"Hello<br>World!"</span>; </span></div>
+ </div>
+<p>You must use a "backslash" if you must break a statement in a string:</p>
+
+<div class="w3-Sample">
+<h3>Sample 3</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsstringcolor" style="color:brown">"Hello \<br>World!"</span>; </span></div>
+ </div>
+<hr>
+
+<h2>Misplacing Semicolon</h2>
+<p>Because of a misplaced semicolon, this code block will execute regardless of 
+the value of x:</p>
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">if</span> (x == <span class="jsnumbercolor" style="color:red">19</span>);<br>{<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; <span class="commentcolor" style="color:green">// code block&nbsp; <br></span>} </span></div>
+ </div>
+<hr>
+
+<h2>Breaking a Return Statement</h2>
+<p>It is a default JavaScript behavior to close a statement automatically at the 
+end of a line.</p>
+<p>Because of this, these two Samples will return the same result:</p>
+<div class="w3-Sample">
+<h3>Sample 1</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">function</span> myFunction(a) {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; <span class="jskeywordcolor" style="color:mediumblue">let</span> power = <span class="jsnumbercolor" style="color:red">10</span>&nbsp; <br>&nbsp; <span class="jskeywordcolor" style="color:mediumblue">return</span> a * power<br>}<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+<div class="w3-Sample">
+<h3>Sample 2</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">function</span> myFunction(a) {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; <span class="jskeywordcolor" style="color:mediumblue">let</span> power = <span class="jsnumbercolor" style="color:red">10</span>;<br>&nbsp; <span class="jskeywordcolor" style="color:mediumblue">return</span> a * power;<br>}<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+<p>JavaScript will also allow you to break a statement into two lines.</p>
+
+<p>Because of this, Sample 3 will also return the same result:</p>
+<div class="w3-Sample">
+<h3>Sample 3</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">function</span> myFunction(a) {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; <span class="jskeywordcolor" style="color:mediumblue">let</span><br>&nbsp;&nbsp;power = <span class="jsnumbercolor" style="color:red">10</span>;&nbsp; <br>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">return</span> a * power;<br>} </span></div>
+ </div>
+<p>But, what will happen if you break the return statement in two lines like 
+this:</p>
+<div class="w3-Sample">
+<h3>Sample 4</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">function</span> myFunction(a) {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; <span class="jskeywordcolor" style="color:mediumblue">let</span><br>&nbsp; power = <span class="jsnumbercolor" style="color:red">10</span>;&nbsp; <br>&nbsp; <span class="jskeywordcolor" style="color:mediumblue">return</span><br>&nbsp; a * power;<br>} </span></div>
+ </div>
+<p>
+The function will return <code class="w3-codespan">undefined</code>!</p>
+<p>
+Why? Because JavaScript thought you meant:</p>
+<div class="w3-Sample">
+<h3>Sample 5</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">function</span> myFunction(a) {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; <span class="jskeywordcolor" style="color:mediumblue">let</span><br>&nbsp; power = <span class="jsnumbercolor" style="color:red">10</span>;&nbsp; <br>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">return</span>;<br>&nbsp; a * power;<br>} </span></div>
+ </div>
+<hr>
+
+<h2>Explanation</h2>
+<p>
+If a statement is incomplete like:</p>
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> </span></div>
+</div>
+<p>
+JavaScript will try to complete the statement by reading the next line:</p>
+<div class="w3-Sample">
+ <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span>  power = <span class="jsnumbercolor" style="color:red">10</span>; </span></div>
+</div>
+<p>
+But since this statement is complete: </p>
+<div class="w3-Sample">
+ <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span>  <span class="jskeywordcolor" style="color:mediumblue">return</span> </span></div>
+</div>
+<p>
+JavaScript will automatically close it like this:</p>
+<div class="w3-Sample">
+ <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span>  <span class="jskeywordcolor" style="color:mediumblue">return</span>; </span></div>
+</div>
+<p>
+This happens because closing (ending) statements with semicolon is optional in 
+JavaScript.</p>
+<p>
+JavaScript will close the return statement at the end of the line, because 
+it is a complete statement.</p>
+
+<div class="w3-panel w3-warning">
+<p>Never break a return statement.</p>
+</div>
+
+<hr>
+<h2>Accessing Arrays with Named Indexes</h2>
+<p>Many programming languages support arrays with named indexes.</p>
+<p>Arrays with named indexes are called associative 
+arrays (or hashes).</p>
+<p>JavaScript does <strong>not</strong> support arrays with named indexes.</p>
+<p>In JavaScript, <strong>arrays</strong> use <strong>numbered indexes</strong>:&nbsp;&nbsp; </p>
+
+<div class="w3-Sample">
+ <h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> person = [];<br>
+person[<span class="jsnumbercolor" style="color:red">0</span>] = <span class="jsstringcolor" style="color:brown">"John"</span>;<br>
+person[<span class="jsnumbercolor" style="color:red">1</span>] = <span class="jsstringcolor" style="color:brown">"Doe"</span>;<br>
+person[<span class="jsnumbercolor" style="color:red">2</span>] = <span class="jsnumbercolor" style="color:red">46</span>;<br>person.<span class="jspropertycolor" style="color:black">length</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="jsnumbercolor" style="color:red">
+</span> <span class="commentcolor" style="color:green">// person.length will return 3<br></span>person[<span class="jsnumbercolor" style="color:red">0</span>];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="jsnumbercolor" style="color:red">
+</span> <span class="commentcolor" style="color:green">// person[0] will return "John" </span></span></div>
+ </div>
+<p>In JavaScript, <strong>objects</strong> use <strong>named indexes</strong>. </p>
+<p>If you use a named index, when accessing an array, JavaScript will redefine 
+the array to a standard object.</p>
+<p>After the automatic redefinition, array methods and properties will produce undefined or 
+incorrect results:</p>
+
+<div class="w3-Sample">
+<h3>Sample:</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> person = [];<br>
+person[<span class="jsstringcolor" style="color:brown">"firstName"</span>] = <span class="jsstringcolor" style="color:brown">"John"</span>;<br>
+person[<span class="jsstringcolor" style="color:brown">"lastName"</span>] = <span class="jsstringcolor" style="color:brown">"Doe"</span>;<br>
+person[<span class="jsstringcolor" style="color:brown">"age"</span>] = <span class="jsnumbercolor" style="color:red">46</span>;<br>person.<span class="jspropertycolor" style="color:black">length</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// person.length will 
+ return 0<br></span>person[<span class="jsnumbercolor" style="color:red">0</span>];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="jsnumbercolor" style="color:red">
+</span> <span class="commentcolor" style="color:green">// person[0] will return undefined </span></span></div>
+ </div>
+<hr>
+
+<h2>Ending Definitions with a Comma</h2>
+<p>Trailing commas in object and array definition are legal in ECMAScript 5.</p>
+<div class="w3-Sample">
+<h3>Object Sample:</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+person = {firstName:<span class="jsstringcolor" style="color:brown">"John"</span>, lastName:<span class="jsstringcolor" style="color:brown">"Doe"</span>, age:<span class="jsnumbercolor" style="color:red">46</span>,}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-Sample">
+<h3>Array Sample:</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+points = [<span class="jsnumbercolor" style="color:red">40</span>, <span class="jsnumbercolor" style="color:red">100</span>, <span class="jsnumbercolor" style="color:red">1</span>, <span class="jsnumbercolor" style="color:red">5</span>, <span class="jsnumbercolor" style="color:red">25</span>, <span class="jsnumbercolor" style="color:red">10</span>,]; </span></div>
+</div>
+<div class="w3-panel w3-warning">
+<p>WARNING !!</p>
+<p>Internet Explorer 8 will crash.</p>
+<p>JSON does not allow trailing commas.</p>
+</div>
+<div class="w3-Sample">
+<h3>JSON:</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+person = {<span class="jsstringcolor" style="color:brown">"firstName"</span>:<span class="jsstringcolor" style="color:brown">"John"</span>, <span class="jsstringcolor" style="color:brown">"lastName"</span>:<span class="jsstringcolor" style="color:brown">"Doe"</span>, <span class="jsstringcolor" style="color:brown">"age"</span>:<span class="jsnumbercolor" style="color:red">46</span>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<div class="w3-Sample">
+<h3>JSON:</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+points = [<span class="jsnumbercolor" style="color:red">40</span>, <span class="jsnumbercolor" style="color:red">100</span>, <span class="jsnumbercolor" style="color:red">1</span>, <span class="jsnumbercolor" style="color:red">5</span>, <span class="jsnumbercolor" style="color:red">25</span>, <span class="jsnumbercolor" style="color:red">10</span>]; </span></div>
+</div>
+
+<hr>
+
+<h2>Undefined is Not Null</h2>
+<p>JavaScript objects, variables, properties, and methods can be <code class="w3-codespan">undefined</code>.</p>
+<p>In addition, empty JavaScript objects can have the value <code class="w3-codespan">null</code>.</p>
+<p>This can make it a little bit difficult to test if an object is empty.</p>
+<p>You can test if an object exists by testing if the type is <code class="w3-codespan"> undefined</code>:</p>
+
+<div class="w3-Sample">
+<h3>Sample:</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span> <span class="jskeywordcolor" style="color:mediumblue">if</span> (<span class="jskeywordcolor" style="color:mediumblue">typeof</span> myObj === <span class="jsstringcolor" style="color:brown">"undefined"</span>)&nbsp;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+<p>But you cannot test if an object is <code class="w3-codespan">null</code>, because this will throw an error if the 
+object is <code class="w3-codespan">undefined</code>:</p>
+
+<div class="w3-Sample">
+  <h3>Incorrect:</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span> <span class="jskeywordcolor" style="color:mediumblue">if</span> (myObj === <span class="jskeywordcolor" style="color:mediumblue">null</span>)&nbsp;  </span></div>
+</div>
+<p>To solve this problem, you must test if an object is not <code class="w3-codespan">null</code>, 
+and not <code class="w3-codespan">undefined</code>.</p>
+<p>But this can still throw an error:</p>
+
+<div class="w3-Sample">
+  <h3>Incorrect:</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span> <span class="jskeywordcolor" style="color:mediumblue">if</span> (myObj !== <span class="jskeywordcolor" style="color:mediumblue">null</span> &amp;&amp; <span class="jskeywordcolor" style="color:mediumblue">typeof</span> myObj <span class="jsnumbercolor" style="color:red">
+</span>  !== <span class="jsstringcolor" style="color:brown">"undefined"</span>)&nbsp;  </span></div>
+</div>
+<p>Because of this, you must test for not <code class="w3-codespan">undefined</code> before you can 
+test for not <code class="w3-codespan">null</code>:</p>
+
+<div class="w3-Sample">
+<h3>Correct:</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span> <span class="jskeywordcolor" style="color:mediumblue">if</span> (<span class="jskeywordcolor" style="color:mediumblue">typeof</span> myObj !== <span class="jsstringcolor" style="color:brown">"undefined"</span> &amp;&amp; myObj !== <span class="jskeywordcolor" style="color:mediumblue">null</span>)&nbsp;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>

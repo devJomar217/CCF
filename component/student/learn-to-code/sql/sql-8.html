@@ -1,0 +1,135 @@
+<!-- Order-->
+
+ 
+  <div class="w3-row w3-white">
+    
+
+<h1>What is  <span class="color_h1">ORDER BY</span> Keyword in SQL?</h1>
+ 
+
+<h2>The SQL ORDER BY Keyword</h2>
+<p>The <code class="w3-codespan">ORDER BY</code> keyword is used to sort the result-set in ascending or 
+descending order.</p>
+<p>The <code class="w3-codespan">ORDER BY</code> keyword sorts the records in ascending order by default. To sort the records in descending order, use the <code class="w3-codespan">
+DESC</code> keyword.</p>
+
+<h3>ORDER BY Syntax</h3>
+<div class="w3-Sample">
+<div class="w3-code notranslate sqlHigh"><span class="sqlcolor" style="color:black">
+<span class="sqlkeywordcolor" style="color:mediumblue">SELECT</span> <em>column1</em>,<em> column2, ...</em><br>
+<span class="sqlkeywordcolor" style="color:mediumblue">FROM</span> <em>table_name</em><br>
+<span class="sqlkeywordcolor" style="color:mediumblue">ORDER</span> <span class="sqlkeywordcolor" style="color:mediumblue">BY</span> <em>column1, column2, ... </em><span class="sqlkeywordcolor" style="color:mediumblue">ASC</span>|<span class="sqlkeywordcolor" style="color:mediumblue">DESC</span>; </span></div></div>
+<hr>
+
+<h2>Demo Database</h2>
+<p>Below is a selection from the "Customers" table in the Northwind sample database:</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tbody><tr>
+    <th>CustomerID</th>
+    <th>CustomerName</th>
+    <th>ContactName</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>PostalCode</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>1<br><br></td>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Obere Str. 57</td>
+    <td>Berlin</td>
+    <td>12209</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Ana Trujillo Emparedados y helados</td>
+    <td>Ana Trujillo</td>
+    <td>Avda. de la Constitución 2222</td>
+    <td>México D.F.</td>
+    <td>05021</td>
+    <td>Mexico</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Antonio Moreno Taquería</td>
+    <td>Antonio Moreno</td>
+    <td>Mataderos 2312</td>
+    <td>México D.F.</td>
+    <td>05023</td>
+    <td>Mexico</td>
+  </tr>
+  <tr>
+    <td>4<br><br></td>
+    <td>Around the Horn</td>
+    <td>Thomas Hardy</td>
+    <td>120 Hanover Sq.</td>
+    <td>London</td>
+    <td>WA1 1DP</td>
+    <td>UK</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>Berglunds snabbköp</td>
+    <td>Christina Berglund</td>
+    <td>Berguvsvägen 8</td>
+    <td>Luleå</td>
+    <td>S-958 22</td>
+    <td>Sweden</td>
+  </tr>
+</tbody></table>
+</div>
+<hr>
+
+<h2>ORDER BY Sample</h2>
+<p>The following SQL statement selects all customers from the "Customers" table, 
+sorted by the "Country" column:</p>
+<div class="w3-Sample">
+ <div class="w3-code notranslate sqlHigh"><span class="sqlcolor" style="color:black"><span class="sqlnumbercolor" style="color:">
+</span> <span class="sqlkeywordcolor" style="color:mediumblue">SELECT</span> * <span class="sqlkeywordcolor" style="color:mediumblue">FROM</span> Customers<br><span class="sqlnumbercolor" style="color:">
+</span> <span class="sqlkeywordcolor" style="color:mediumblue">ORDER</span> <span class="sqlkeywordcolor" style="color:mediumblue">BY</span> Country;<span class="sqlnumbercolor" style="color:">
+</span> </span></div>
+ 
+</div>
+ 
+
+<h2>ORDER BY DESC Sample</h2>
+<p>The following SQL statement selects all customers from the "Customers" table, 
+sorted DESCENDING by the "Country" column:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate sqlHigh"><span class="sqlcolor" style="color:black"><span class="sqlnumbercolor" style="color:">
+</span> <span class="sqlkeywordcolor" style="color:mediumblue">SELECT</span> * <span class="sqlkeywordcolor" style="color:mediumblue">FROM</span> Customers<br><span class="sqlnumbercolor" style="color:">
+</span> <span class="sqlkeywordcolor" style="color:mediumblue">ORDER</span> <span class="sqlkeywordcolor" style="color:mediumblue">BY</span> Country <span class="sqlkeywordcolor" style="color:mediumblue">DESC</span>; </span></div>
+ 
+</div>
+<hr>
+
+<h2>ORDER BY Several Columns Sample</h2>
+<p>The following SQL statement selects all customers from the "Customers" table, 
+sorted by the "Country" and the "CustomerName" column. This means that it orders 
+by Country, but if some rows have the same Country, it orders them by 
+CustomerName:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate sqlHigh"><span class="sqlcolor" style="color:black"><span class="sqlnumbercolor" style="color:">
+</span> <span class="sqlkeywordcolor" style="color:mediumblue">SELECT</span> * <span class="sqlkeywordcolor" style="color:mediumblue">FROM</span> Customers<br><span class="sqlnumbercolor" style="color:">
+</span> <span class="sqlkeywordcolor" style="color:mediumblue">ORDER</span> <span class="sqlkeywordcolor" style="color:mediumblue">BY</span> Country, CustomerName; </span></div>
+ 
+</div>
+<hr>
+
+<h2>ORDER BY Several Columns Sample 2</h2>
+<p>The following SQL statement selects all customers from the "Customers" table, 
+sorted ascending by the "Country" and descending by the "CustomerName" column:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate sqlHigh"><span class="sqlcolor" style="color:black"><span class="sqlnumbercolor" style="color:">
+</span> <span class="sqlkeywordcolor" style="color:mediumblue">SELECT</span> * <span class="sqlkeywordcolor" style="color:mediumblue">FROM</span> Customers<br><span class="sqlnumbercolor" style="color:">
+</span> <span class="sqlkeywordcolor" style="color:mediumblue">ORDER</span> <span class="sqlkeywordcolor" style="color:mediumblue">BY</span> Country <span class="sqlkeywordcolor" style="color:mediumblue">ASC</span>, CustomerName <span class="sqlkeywordcolor" style="color:mediumblue">DESC</span>; </span></div>
+ 
+</div>
+
+ 

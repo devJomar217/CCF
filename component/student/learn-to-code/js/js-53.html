@@ -1,0 +1,517 @@
+<!-- Precedence-->
+
+
+  <div class="w3-row w3-white">
+    
+   
+
+<h1>What is Operator Precedence in JavaScript?</h1>
+
+
+<div class="w3-info">
+<p>Operator precedence describes the order in which operations are performed in 
+an arithmetic expression.</p>
+<p>Multiplication (<code class="w3-codespan">*</code>) and division (<code class="w3-codespan">/</code>) have higher <strong>precedence</strong> than 
+addition (<code class="w3-codespan">+</code>) and subtraction (<code class="w3-codespan">-</code>).</p>
+</div>
+<div class="w3-Sample">
+<p>As in traditional mathematics, multiplication is done first:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">100</span> + <span class="jsnumbercolor" style="color:red">50</span> * <span class="jsnumbercolor" style="color:red">3</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p>When using parentheses, operations inside the parentheses are computed first:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = (<span class="jsnumbercolor" style="color:red">100</span> + <span class="jsnumbercolor" style="color:red">50</span>) * <span class="jsnumbercolor" style="color:red">3</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p>Operations with the same precedence (like * and /) are computed from left to right:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">100</span> / <span class="jsnumbercolor" style="color:red">50</span> * <span class="jsnumbercolor" style="color:red">3</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-stretch">
+<table class="w3-table w3-bordered w3-border">
+<tbody><tr>
+<td colspan="4" class="w3-pale-yellow w3-center">
+<h2>Operator Precedence Values</h2>
+Expressions in parentheses are computed <b>before</b> the rest of the expression<br>
+Function are executed <b>before</b> the result is used in the rest of the expression
+</td>
+</tr>
+ <tr class="ws-grey">
+  <td>Val</td>
+  <td>Operator</td>
+  <td>Description</td>
+  <td>Sample</td>
+ </tr>
+ <tr>
+  <td>18</td>
+  <td>( )</td>
+  <td> Expression Grouping</a></td>
+  <td>(100 + 50) * 3</td>
+ </tr>
+ <tr>
+  <td>17</td>
+  <td>.</td>
+  <td> Member Of</a></td>
+  <td>person.name</td>
+ </tr>
+ <tr>
+  <td>17</td>
+  <td>[]</td>
+  <td> Member Of</a></td>
+  <td>person["name"]</td>
+ </tr>
+ <tr>
+  <td>17</td>
+  <td>?.</td>
+  <td> Optional Chaining</a>
+ ES2020</a></td>
+  <td>x ?. y</td>
+ </tr>
+ <tr>
+  <td>17</td>
+  <td>()</td>
+  <td> Function Call</a></td>
+  <td>myFunction()</td>
+ </tr>
+ <tr>
+  <td>17</td>
+  <td>new</td>
+  <td> New with Arguments</a></td>
+  <td>new Date("June 5,2022")</td>
+ </tr>
+ <tr>
+  <td>16</td>
+  <td>new</td>
+  <td> New without Arguments</a></td>
+  <td>new Date()</td>
+ </tr>
+<tr>
+<td colspan="4" class="w3-pale-yellow w3-center">
+<span class="w3-xlarge">Increment Operators</span><br>
+Postfix increments are executed <b>before</b> prefix increments</td>
+</tr>
+ <tr>
+  <td>15</td>
+  <td>++</td>
+  <td> Postfix Increment</a></td>
+  <td>i++</td>
+ </tr>
+ <tr>
+  <td>15</td>
+  <td>--</td>
+  <td> Postfix Decrement</a></td>
+  <td>i--</td>
+ </tr>
+ <tr>
+  <td>14</td>
+  <td>++</td>
+  <td> Prefix Increment</a></td>
+  <td>++i</td>
+ </tr>
+ <tr>
+  <td>14</td>
+  <td>--</td>
+  <td> Prefix Decrement</a></td>
+  <td>--i</td>
+ </tr>
+
+<tr>
+<td colspan="4" class="w3-pale-yellow w3-center">
+<span class="w3-xlarge">NOT Operators</span>
+</td>
+</tr>
+
+ <tr>
+  <td>14</td>
+  <td>!</td>
+  <td> Logical NOT</a></td>
+  <td>!(x==y)</td>
+ </tr>
+ <tr>
+  <td>14</td>
+  <td>~</td>
+  <td> Bitwise NOT</a></td>
+  <td>~x</td>
+ </tr>
+
+<tr>
+<td colspan="4" class="w3-pale-yellow w3-center">
+<span class="w3-xlarge">Unary Operators</span>
+</td>
+ </tr><tr>
+  <td>14</td>
+  <td>+</td>
+  <td> Unary Plus</a></td>
+  <td>+x</td>
+ </tr>
+ <tr>
+  <td>14</td>
+  <td>-</td>
+  <td> Unary Minus</a></td>
+  <td>-x</td>
+ </tr>
+ <tr>
+  <td>14</td>
+  <td>typeof</td>
+  <td> Data Type</a></td>
+  <td>typeof x</td>
+ </tr>
+ <tr>
+  <td>14</td>
+  <td>void</td>
+  <td> Evaluate Void</a></td>
+  <td>void(0)</td>
+ </tr>
+ <tr>
+  <td>14</td>
+  <td>delete</td>
+  <td> Property Delete</a></td>
+  <td>delete myCar.color</td>
+ </tr>
+
+<tr>
+<td colspan="4" class="w3-pale-yellow w3-center">
+<span class="w3-xlarge">Arithmetic Operators</span><br>
+Exponentiations are executed <b>before</b> multiplications<br>
+Multiplications and divisions are executed <b>before</b> additions and subtractions
+</td>
+
+</tr>
+ <tr>
+  <td>13</td>
+  <td>**</td>
+  <td> Exponentiation</a>
+   ES2016</a></td>
+  <td>10 ** 2</td>
+ </tr>
+ <tr>
+  <td>12</td>
+  <td>*</td>
+  <td> Multiplication</a></td>
+  <td>10 * 5</td>
+ </tr>
+ <tr>
+  <td>12</td>
+  <td>/</td>
+  <td> Division</a></td>
+  <td>10 / 5</td>
+ </tr>
+ <tr>
+  <td>12</td>
+  <td>%</td>
+  <td> Division Remainder</a></td>
+  <td>10 % 5</td>
+ </tr>
+ <tr>
+  <td>11</td>
+  <td>+</td>
+  <td> Addition</a></td>
+  <td>10 + 5</td>
+ </tr>
+ <tr>
+  <td>11</td>
+  <td>-</td>
+  <td> Subtraction</a></td>
+  <td>10 - 5</td>
+ </tr>
+ <tr>
+  <td>11</td>
+  <td>+</td>
+  <td> Concatenation</a></td>
+  <td>"John" + "Doe"</td>
+ </tr>
+
+<tr>
+<td colspan="4" class="w3-pale-yellow w3-xlarge w3-center">
+Shift Operators</td>
+</tr>
+
+ <tr>
+  <td>10</td>
+  <td>&lt;&lt;</td>
+  <td> Shift Left</a></td>
+  <td>x &lt;&lt; 2</td>
+ </tr>
+ <tr>
+  <td>10</td>
+  <td>&gt;&gt;</td>
+  <td> Shift Right (signed)</a></td>
+  <td>x &gt;&gt; 2</td>
+ </tr>
+ <tr>
+  <td>10</td>
+  <td>&gt;&gt;&gt;</td>
+  <td> Shift Right (unsigned)</a></td>
+  <td>x &gt;&gt;&gt; 2</td>
+ </tr>
+
+<tr>
+<td colspan="4" class="w3-pale-yellow w3-xlarge w3-center">
+Relational Operators</td>
+</tr>
+
+ <tr>
+  <td>9</td>
+  <td>in</td>
+  <td> Property in Object</a></td>
+  <td>"PI" in Math</td>
+ </tr>
+ <tr>
+  <td>9</td>
+  <td>instanceof</td>
+  <td> Instance of Object</a></td>
+  <td>x instanceof Array</td>
+ </tr>
+
+<tr>
+<td colspan="4" class="w3-pale-yellow w3-xlarge w3-center">
+Comparison Operators</td>
+</tr>
+
+ <tr>
+  <td>9</td>
+  <td>&lt;</td>
+  <td> Less than</a></td>
+  <td>x &lt; y&nbsp;</td>
+ </tr>
+ <tr>
+  <td>9</td>
+  <td>&lt;=</td>
+  <td> Less than or equal</a></td>
+  <td>x &lt;= y</td>
+ </tr>
+ <tr>
+  <td>9</td>
+  <td>&gt;</td>
+  <td> Greater than</a></td>
+  <td>x &gt; y</td>
+ </tr>
+ <tr>
+  <td>9</td>
+  <td>&gt;=</td>
+  <td> Greater than or equal</a></td>
+  <td>x &gt;= Array</td>
+ </tr>
+ <tr>
+  <td>8</td>
+  <td>==</td>
+  <td> Equal</a></td>
+  <td>x == y</td>
+ </tr>
+ <tr>
+  <td>8</td>
+  <td>===</td>
+  <td> Strict equal</a></td>
+  <td>x === y</td>
+ </tr>
+ <tr>
+  <td>8</td>
+  <td>!=</td>
+  <td> Unequal</a></td>
+  <td>x != y</td>
+ </tr>
+ <tr>
+  <td>8</td>
+  <td>!==</td>
+  <td Strict unequal</a></td>
+  <td>x !== y</td>
+ </tr>
+<tr>
+<td colspan="4" class="w3-pale-yellow w3-xlarge w3-center">
+Bitwise Operators</td>
+</tr>
+ <tr>
+  <td>7</td>
+  <td>&amp;</td>
+  <td> Bitwise AND</a></td>
+  <td>x &amp; y</td>
+ </tr>
+ <tr>
+  <td>6</td>
+  <td>^</td>
+  <td> Bitwise XOR</a></td>
+  <td>x ^ y</td>
+ </tr>
+ <tr>
+  <td>5</td>
+  <td>|</td>
+  <td> Bitwise OR</a></td>
+  <td>x | y</td>
+ </tr>
+
+<tr>
+<td colspan="4" class="w3-pale-yellow w3-xlarge w3-center">
+Logical Operators</td>
+</tr>
+
+ <tr>
+  <td>4</td>
+  <td>&amp;&amp;</td>
+  <td> Logical AND</a></td>
+  <td>x &amp;&amp; y</td>
+ </tr>
+ <tr>
+  <td>3</td>
+  <td>||</td>
+  <td> Logical OR</a></td>
+  <td>x || y</td>
+ </tr>
+ <tr>
+  <td>3</td>
+  <td>??</td>
+  <td> Nullish Coalescing</a>
+  ES2020</a></td>
+  <td>x ?? y</td>
+ </tr>
+
+<tr>
+<td colspan="4" class="w3-pale-yellow w3-center">
+<span class="w3-xlarge">Conditional (ternary) Operator</span>
+</td>
+</tr>
+
+ <tr>
+  <td>2</td>
+  <td>? :</td>
+  <td> 
+ </tr>
+
+<tr>
+<td colspan="4" class="w3-pale-yellow w3-center">
+<span class="w3-xlarge">Assignment Operators</span><br>
+Assignments are executed <b>after</b> other operations
+</td>
+</tr>
+
+ <tr>
+  <td>2</td>
+  <td>=</td>
+  <td> Simple Assignment</a></td>
+  <td>x = y</td>
+ </tr>
+ <tr>
+  <td>2</td>
+  <td>:</td>
+  <td> Colon Assignment</a></td>
+  <td>x: 5</td>
+ </tr>
+ <tr>
+  <td>2</td>
+  <td>+=</td>
+  <td> Addition Assignment</a></td>
+  <td>x += y</td>
+ </tr>
+ <tr>
+  <td>2</td>
+  <td>-=</td>
+  <td> Subtraction Assignment</a></td>
+  <td>x -= y</td>
+ </tr>
+ <tr>
+  <td>2</td>
+  <td>*=</td>
+  <td> Multiplication Assignment</a></td>
+  <td>x *= y</td>
+ </tr>
+ <tr>
+  <td>2</td>
+  <td>**=</td>
+  <td> Exponentiation Assignment</a></td>
+  <td>x **= y</td>
+ </tr>
+ <tr>
+  <td>2</td>
+  <td>/=</td>
+  <td> Division Assignment</a></td>
+  <td>x /= y</td>
+ </tr>
+ <tr>
+  <td>2</td>
+  <td>%=</td>
+  <td> Remainder Assignment</a></td>
+  <td>x %= y</td>
+ </tr>
+ <tr>
+  <td>2</td>
+  <td>&lt;&lt;=</td>
+  <td> Left Shift Assignment</a></td>
+  <td>x &lt;&lt;= y</td>
+ </tr>
+ <tr>
+  <td>2</td>
+  <td>&gt;&gt;=</td>
+  <td> Right Shift Assignment</a></td>
+  <td>x &gt;&gt;= y</td>
+ </tr>
+ <tr>
+  <td>2</td>
+  <td>&gt;&gt;&gt;=</td>
+  <td> Unsigned Right Shift</a></td>
+  <td>x &gt;&gt;&gt;= y</td>
+ </tr>
+ <tr>
+  <td>2</td>
+  <td>&amp;=</td>
+  <td> Bitwise AND Assignment</a></td>
+  <td>x &amp;= y</td>
+ </tr>
+ <tr>
+  <td>2</td>
+  <td>|=</td>
+  <td> Bitwise OR Assignment</a></td>
+  <td>x |= y</td>
+ </tr>
+ <tr>
+  <td>2</td>
+  <td>^=</td>
+  <td> Bitwise XOR Assignment</a></td>
+  <td>x ^= y</td>
+ </tr>
+ <tr>
+  <td>2</td>
+  <td>&amp;&amp;=</td>
+  <td> Logical AND Assignment</a></td>
+  <td>x &amp;&amp;= y</td>
+ </tr>
+ <tr>
+  <td>2</td>
+  <td>||=</td>
+  <td> Logical OR Assignment</a></td>
+  <td>x ||= y</td>
+ </tr>
+
+ <tr>
+  <td>2</td>
+  <td>=&gt;</td>
+  <td> Arrow</a></td>
+  <td>x =&gt; y</td>
+ </tr>
+ <tr>
+  <td>2</td>
+  <td>yield</td>
+  <td>Pause / Resume</td>
+  <td>yield x</td>
+ </tr>
+ <tr>
+  <td>2</td>
+  <td>yield*</td>
+  <td>Delegate</td>
+  <td>yield* x</td>
+ </tr>
+ <tr>
+  <td>2</td>
+  <td>...</td>
+  <td> Spread</a></td>
+  <td>... x</td>
+ </tr>
+ <tr>
+  <td>1</td>
+  <td>,</td>
+  <td>Comma</td>
+  <td>x , y</td>
+ </tr>
+</tbody></table>
+</div>
+

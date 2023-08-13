@@ -1,0 +1,130 @@
+<!-- dATA types-->
+
+ 
+  <div class="w3-row w3-white">
+    
+ 
+
+<h1>What is <span class="color_h1">Data Types in Php?</span></h1>
+ 
+<h2>PHP Data Types</h2>
+<p>Variables can store data of different types, and different data types can do 
+different things.</p>
+<p>PHP supports the following data types:</p>
+<ul>
+  <li>String</li>
+  <li>Integer</li>
+  <li>Float (floating point numbers - also called double)</li>
+  <li>Boolean</li>
+  <li>Array</li>
+  <li>Object</li>
+  <li>NULL</li>
+  <li>Resource</li>
+</ul>
+<hr>
+
+<h2>PHP String</h2>
+<p>A string is a sequence of characters, like "Hello world!".</p>
+<p>A string can be any text inside quotes. You can use single or double quotes:</p>
+<div class="w3-Sample">
+ <div class="w3-code htmlHigh notranslate">
+ <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span> <br>$x = <span class="phpstringcolor" style="color:brown">"Hello world!"</span>;<br>$y = <span class="phpstringcolor" style="color:brown">'Hello world!'</span>;<br><br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> $x;<br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"&lt;br&gt;"</span>; <br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> $y;<br><span class="phptagcolor" style="color:red">?&gt;</span></span> </div>
+ <hr>
+
+<h2>PHP Integer</h2>
+<p>An integer data type is a non-decimal number between -2,147,483,648 and 
+2,147,483,647.</p>
+<p>Rules for integers:</p>
+<ul>
+  <li>An integer must have at least one digit</li>
+  <li>An integer must not have a decimal point</li>
+  <li>An integer can be either positive or negative</li>
+  <li>Integers can be specified in: decimal (base 10), hexadecimal (base 16), octal (base 
+  8), or binary (base 2) notation</li>
+</ul>
+<p>In the following Sample $x is an integer. The PHP var_dump() 
+function returns the data type and value:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code htmlHigh notranslate">
+ <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span> <br>$x = <span class="phpnumbercolor" style="color:red">5985</span>;<br>var_dump($x);<br><span class="phptagcolor" style="color:red">?&gt;</span></span> </div>
+ 
+
+<h2>PHP Float</h2>
+<p>A float (floating point number) is a number with a decimal point or a number in exponential form.</p>
+<p>In the following Sample $x is a float. The PHP var_dump() 
+function returns the data type and value:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code htmlHigh notranslate">
+ <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span> <br>$x = <span class="phpnumbercolor" style="color:red">10.365</span>;<br>var_dump($x);<br><span class="phptagcolor" style="color:red">?&gt;</span></span>  </div>
+ <hr>
+
+<h2>PHP Boolean</h2>
+<p>A Boolean represents two possible states: TRUE or FALSE.</p>
+<div class="w3-code htmlHigh w3-border notranslate">
+<div>
+ $x = true;<br>
+ $y = false;</div> </div>
+<p>Booleans are often used in conditional testing. You will learn more about 
+conditional testing in a later chapter of this tutorial.</p>
+<hr>
+
+<h2>PHP Array</h2>
+<p>An array stores multiple values in one single variable.</p>
+<p>In the following Sample $cars is an array. The PHP var_dump() 
+function returns the data type and value:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code htmlHigh notranslate">
+ <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span> <br>$cars = <span class="phpkeywordcolor" style="color:mediumblue">array</span>(<span class="phpstringcolor" style="color:brown">"Volvo"</span>,<span class="phpstringcolor" style="color:brown">"BMW"</span>,<span class="phpstringcolor" style="color:brown">"Toyota"</span>);<br>var_dump($cars);<br><span class="phpnumbercolor" style="color:red">
+</span> <span class="phptagcolor" style="color:red">?&gt;</span></span>  </div>
+ <p>You will learn a lot more about arrays in later chapters of this tutorial.</p>
+<hr>
+
+<h2>PHP Object</h2>
+<p>Classes and objects are the two main aspects of object-oriented programming.</p>
+<p>A class is a template for objects, and an object is an instance of a class.</p>
+<p>When the individual objects are created, they inherit all the properties and 
+behaviors from the class, but each object will have different values for the 
+properties.</p>
+<p>Let's assume we have a class named Car. A Car can have properties like model, 
+color, etc. We can define variables like $model, $color, and so on, to hold the 
+values of these properties.</p>
+<p>When the individual objects (Volvo, BMW, Toyota, etc.) are created, they 
+inherit all the properties and behaviors from the class, but each object will 
+have different values for the properties.</p>
+<p>If you create a __construct() function, PHP will automatically call this 
+function when you create an object from a class.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code htmlHigh notranslate">
+ <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br><span class="phpkeywordcolor" style="color:mediumblue">class</span> Car {<br>&nbsp; <span class="phpkeywordcolor" style="color:mediumblue">public</span> $color;<br>&nbsp; <span class="phpkeywordcolor" style="color:mediumblue">public</span> $model;<br>&nbsp; <span class="phpnumbercolor" style="color:red">
+</span>  <span class="phpkeywordcolor" style="color:mediumblue">public</span> <span class="phpkeywordcolor" style="color:mediumblue">function</span> __construct($color, $model) {<br>&nbsp;&nbsp;&nbsp; <span class="phpnumbercolor" style="color:red">
+</span>  $this-&gt;color = $color;<br>&nbsp;&nbsp;&nbsp; $this-&gt;model = $model;<br>&nbsp; <span class="phpnumbercolor" style="color:red">
+</span>  }<br>&nbsp; <span class="phpkeywordcolor" style="color:mediumblue">public</span> <span class="phpkeywordcolor" style="color:mediumblue">function</span> message() {<br>&nbsp;&nbsp;&nbsp; <span class="phpkeywordcolor" style="color:mediumblue">return</span> <span class="phpstringcolor" style="color:brown">"My car 
+  is a "</span> . $this-&gt;color . <span class="phpstringcolor" style="color:brown">" "</span> . $this-&gt;model . <span class="phpstringcolor" style="color:brown">"!"</span>;<br>&nbsp; }<br>}<br><br>$myCar <span class="phpnumbercolor" style="color:red">
+</span>  = <span class="phpkeywordcolor" style="color:mediumblue">new</span> Car(<span class="phpstringcolor" style="color:brown">"black"</span>, <span class="phpstringcolor" style="color:brown">"Volvo"</span>);<br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> $myCar -&gt; message();<br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"&lt;br&gt;"</span>;<br>$myCar <span class="phpnumbercolor" style="color:red">
+</span>  = <span class="phpkeywordcolor" style="color:mediumblue">new</span> Car(<span class="phpstringcolor" style="color:brown">"red"</span>, <span class="phpstringcolor" style="color:brown">"Toyota"</span>);<br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> $myCar -&gt; message();<br><span class="phptagcolor" style="color:red">?&gt;</span></span>  </div>
+ <hr>
+
+<h2>PHP NULL Value</h2>
+<p>Null is a special data type which can have only one value: NULL.</p>
+<p>A variable of data type NULL is a variable that has no value assigned to it.</p>
+<p><strong>Tip:</strong> If a variable is created without a value, it is 
+automatically assigned a value of NULL.</p>
+<p>Variables can also be emptied by setting the value to NULL:</p>
+<div class="w3-Sample">
+ <h3>Sample</h3>
+<div class="w3-code htmlHigh notranslate">
+ <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br>$x = <span class="phpstringcolor" style="color:brown">"Hello world!"</span>;<br>$x = null;<br>var_dump($x);<br><span class="phptagcolor" style="color:red">?&gt;</span></span>  </div>
+ <hr>
+
+<h2>PHP Resource</h2>
+<p>The special resource type is not an actual data type. It is the storing of a 
+reference to functions and resources external to PHP.</p>
+<p>A common Sample of 
+using the resource data type is a database call.</p>
+<p>We will not talk about the resource type here, since it is an advanced topic.</p>
+ 

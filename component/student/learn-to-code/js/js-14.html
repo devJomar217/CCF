@@ -1,0 +1,336 @@
+<!-- Data types-->
+
+
+
+  <div class="w3-row w3-white">
+   
+
+<h1>What is <span class="color_h1">Data Types in JavaScript?</span></h1>
+
+<div class="w3-info">
+<h3>JavaScript has 8 Datatypes</h3>
+<p>
+1. String<br>
+2. Number<br>
+3. Bigint<br>
+4. Boolean<br>
+5. Undefined<br>
+6. Null<br>
+7. Symbol<br>
+8. Object
+</p>
+<h3>The Object Datatype</h3>
+<p>The object data type can contain:</p>
+<p>
+1. An object<br>
+2. An array<br>
+3. A date
+</p> 
+</div>
+<div class="w3-Sample">
+<h3>Samples</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Numbers:<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> length = <span class="jsnumbercolor" style="color:red">16</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> weight = <span class="jsnumbercolor" style="color:red">7.5</span>;<br><span class="jsnumbercolor" style="color:red">
+</span><br><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Strings:<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> color = <span class="jsstringcolor" style="color:brown">"Yellow"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> lastName = <span class="jsstringcolor" style="color:brown">"Johnson"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span><br><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Booleans<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jskeywordcolor" style="color:mediumblue">true</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jskeywordcolor" style="color:mediumblue">false</span>;<br><span class="jsnumbercolor" style="color:red">
+</span><br><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Object:<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> person = {firstName:<span class="jsstringcolor" style="color:brown">"John"</span>, lastName:<span class="jsstringcolor" style="color:brown">"Doe"</span>};<br><span class="jsnumbercolor" style="color:red">
+</span><br><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Array object:<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> cars = [<span class="jsstringcolor" style="color:brown">"Saab"</span>, <span class="jsstringcolor" style="color:brown">"Volvo"</span>, <span class="jsstringcolor" style="color:brown">"BMW"</span>];<br><span class="jsnumbercolor" style="color:red">
+</span><br><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Date object:<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> date = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date(<span class="jsstringcolor" style="color:brown">"2022-03-25"</span>); <span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<div class="w3-note">
+<h2>Note</h2>
+<p>A JavaScript variable can hold any type of data.</p>
+</div>
+<h2>The Concept of Data Types</h2>
+<p>In programming, data types is an important concept.</p>
+<p>To be able to operate on variables, it is important to know something about 
+the type.</p>
+<p>Without data types, a computer cannot safely solve this:</p>
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">16</span> + <span class="jsstringcolor" style="color:brown">"Volvo"</span>; </span></div>
+</div>
+<p>Does it make any sense to add "Volvo" to sixteen? Will it produce an 
+error or will it produce a result?</p>
+<p>JavaScript will treat the Sample above as:</p>
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsstringcolor" style="color:brown">"16"</span> + <span class="jsstringcolor" style="color:brown">"Volvo"</span>; </span></div>
+</div>
+
+<div class="w3-panel w3-note">
+<h2>Note</h2>
+<p>When adding a number and a string, JavaScript will treat the number as a 
+string.</p>
+</div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">16</span> + <span class="jsstringcolor" style="color:brown">"Volvo"</span>; </span></div>
+</div>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsstringcolor" style="color:brown">"Volvo"</span> + <span class="jsnumbercolor" style="color:red">16</span>; </span></div>
+</div>
+<p>JavaScript evaluates expressions from left to right. Different sequences can 
+produce different results:</p>
+<div class="w3-Sample">
+<h3>JavaScript:</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">16</span> + <span class="jsnumbercolor" style="color:red">4</span> + <span class="jsstringcolor" style="color:brown">"Volvo"</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+
+<p>Result:</p>
+<div class="w3-white w3-padding notranslate">
+<code>20Volvo</code>
+</div>
+</div>
+<div class="w3-Sample">
+<h3>JavaScript:</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsstringcolor" style="color:brown">"Volvo"</span> + <span class="jsnumbercolor" style="color:red">16</span> + <span class="jsnumbercolor" style="color:red">4</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+
+<p>Result:</p>
+<div class="w3-white w3-padding notranslate">
+<code>Volvo164</code>
+</div>
+</div>
+<p>In the first Sample, JavaScript treats 16 and 4 as numbers, until it reaches "Volvo".</p>
+<p>In the second Sample, since the first operand is a string, all operands are 
+treated as strings.</p>
+
+
+<h2>JavaScript Types are Dynamic</h2>
+<p>JavaScript has dynamic types. This means that the same variable can be used 
+to hold 
+different data types:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// Now x is undefined<br></span>
+x = <span class="jsnumbercolor" style="color:red">5</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// Now x is a Number<br></span>
+x = <span class="jsstringcolor" style="color:brown">"John"</span>;&nbsp; <span class="commentcolor" style="color:green">// Now x is a String
+ </span></span></div>
+</div>
+<hr>
+
+<h2>JavaScript Strings</h2>
+<p>A string (or a text string) is a series of characters like "John Doe".</p>
+<p>Strings are written with quotes. You can use single or double quotes:<br>
+</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Using double quotes:<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> carName1 = <span class="jsstringcolor" style="color:brown">"Volvo XC60"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span><br><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Using single quotes:<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> carName2 = <span class="jsstringcolor" style="color:brown">'Volvo XC60'</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<p>You can use quotes inside a string, as long as they don't match the quotes 
+surrounding the string:</p>
+<div class="w3-Sample">
+ <h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Single quote inside double quotes:<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> answer1 = <span class="jsstringcolor" style="color:brown">"It's alright"</span>;<br> <span class="jsnumbercolor" style="color:red">
+</span><br><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Single quotes inside double quotes:<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> answer2 = <span class="jsstringcolor" style="color:brown">"He is called 'Johnny'"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span><br><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Double quotes inside single quotes:<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> answer3 = <span class="jsstringcolor" style="color:brown">'He is called "Johnny"'</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<div class="w3-note">
+ </div>
+<hr>
+
+<h2>JavaScript Numbers</h2>
+<p>All JavaScript numbers are stored as decimal numbers (floating point).</p>
+<p>Numbers can be written with, or without decimals:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// With decimals:<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x1 = <span class="jsnumbercolor" style="color:red">34.00</span>;<br><span class="jsnumbercolor" style="color:red">
+</span><br> <span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Without decimals:<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x2 = <span class="jsnumbercolor" style="color:red">34</span>; <span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ 
+</div>
+<hr>
+<h2>Exponential Notation</h2>
+<p>Extra large or extra small numbers can be written with scientific 
+(exponential) notation:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jsnumbercolor" style="color:red">123e5</span>;&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// 12300000<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> z = <span class="jsnumbercolor" style="color:red">123e-5</span>;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// 0.00123 </span></span></div>
+ 
+<hr>
+<div class="w3-note">
+<h2>Note</h2>
+<p>Most programming languages have many number types:</p>
+<p>Whole numbers (integers):<br>
+byte (8-bit), short (16-bit), int (32-bit), long (64-bit)</p>
+<p>Real numbers (floating-point):<br>
+float (32-bit), double (64-bit).</p>
+<p><b>Javascript numbers are always one type:<br>
+double (64-bit floating point).</b></p>
+<p>You will learn more about <b> numbers</a></b> later in this tutorial.</p>
+</div>
+<hr>
+<h2>JavaScript BigInt</h2>
+<p>All JavaScript numbers are stored in a a 64-bit floating-point format.</p>
+<p>JavaScript BigInt is a new datatype ( ES2020</a>) that can be used to store integer values that are too big to be represented
+by a normal JavaScript Number.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = BigInt(<span class="jsstringcolor" style="color:brown">"123456789012345678901234567890"</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ 
+<div class="w3-note">
+<p>You will learn more about <b> BigInt</a></b> later in this tutorial.</p>
+</div>
+<hr>
+
+<h2>JavaScript Booleans</h2>
+<p>Booleans can only have two values: <code class="w3-codespan">true</code> or <code class="w3-codespan">false</code>.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">5</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jsnumbercolor" style="color:red">5</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> z = <span class="jsnumbercolor" style="color:red">6</span>;<br>(x == y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="jsnumbercolor" style="color:red">
+</span>  <span class="commentcolor" style="color:green">// Returns true<br></span>(x == z)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// Returns 
+  false </span></span></div>
+<p>Booleans are often used in conditional testing.</p>
+<div class="w3-note">
+<p>You will learn more about <b> booleans</a></b> later in this tutorial.</p>
+</div>
+<hr>
+
+<h2>JavaScript Arrays</h2>
+<p>JavaScript arrays are written with square brackets.</p>
+<p>Array items are separated by commas.</p>
+<p>The following code declares (creates) an array called <code class="w3-codespan">cars</code>, containing three 
+items (car names):</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> cars = [<span class="jsstringcolor" style="color:brown">"Saab"</span>, <span class="jsstringcolor" style="color:brown">"Volvo"</span>, <span class="jsstringcolor" style="color:brown">"BMW"</span>];<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p>Array indexes are zero-based, which means the first item is [0], second is 
+[1], and so on.</p>
+<div class="w3-note">
+<p>You will learn more about <b> arrays</a></b> later in this tutorial.</p>
+</div>
+<hr>
+
+<h2>JavaScript Objects</h2>
+<p>JavaScript objects are written with curly braces <code class="w3-codespan">{}</code>.</p>
+<p>Object 
+properties are written as name:value pairs, separated by commas.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> person = {firstName:<span class="jsstringcolor" style="color:brown">"John"</span>, lastName:<span class="jsstringcolor" style="color:brown">"Doe"</span>, age:<span class="jsnumbercolor" style="color:red">50</span>, eyeColor:<span class="jsstringcolor" style="color:brown">"blue"</span>};<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<p>The object (person) in the Sample above has 4 properties: firstName, 
+lastName, age, and eyeColor.</p>
+<div class="w3-note">
+<p>You will learn more about <b>objects</b> later in this tutorial.</p>
+</div>
+<hr>
+<h2>The typeof Operator</h2>
+<p>You can use the JavaScript <code class="w3-codespan">typeof</code> operator to find the type 
+of a JavaScript variable.</p>
+<p>The <code class="w3-codespan">typeof</code> operator returns the type of a variable or an expression:</p>
+<div class="w3-Sample">
+  <h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">typeof</span> <span class="jsstringcolor" style="color:brown">""</span>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Returns 
+ "string"<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">typeof</span> <span class="jsstringcolor" style="color:brown">"John"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Returns 
+ "string"<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">typeof</span> <span class="jsstringcolor" style="color:brown">"John Doe"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Returns 
+ "string" </span></span></div>
+</div>
+
+
+<div class="w3-Sample">
+  <h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">typeof</span> <span class="jsnumbercolor" style="color:red">0</span>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Returns 
+ "number"<br></span><span class="jsnumbercolor" style="color:red">
+</span>  <span class="jskeywordcolor" style="color:mediumblue">typeof</span> <span class="jsnumbercolor" style="color:red">314</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// Returns 
+ "number"<br></span><span class="jsnumbercolor" style="color:red">
+</span>  <span class="jskeywordcolor" style="color:mediumblue">typeof</span> <span class="jsnumbercolor" style="color:red">3.14</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// Returns 
+ "number"<br></span><span class="jsnumbercolor" style="color:red">
+</span>  <span class="jskeywordcolor" style="color:mediumblue">typeof</span> (<span class="jsnumbercolor" style="color:red">3</span>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// Returns 
+ "number"<br></span><span class="jskeywordcolor" style="color:mediumblue">typeof</span> (<span class="jsnumbercolor" style="color:red">3</span> + <span class="jsnumbercolor" style="color:red">4</span>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// Returns 
+ "number" </span></span></div>
+</div>
+<div class="w3-note">
+<p>You will learn more about <b>typeof</b> later in this tutorial.</p>
+</div>
+<hr>
+<h2>Undefined</h2>
+<p>In JavaScript, a variable without a value, has the value <code class="w3-codespan">undefined</code>. 
+The type is also <code class="w3-codespan">undefined</code>.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> car;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// Value is undefined, 
+    type is undefined </span></span></div>
+</div>
+<p>Any variable can be emptied, by setting the value to <code class="w3-codespan">undefined</code>. 
+The type will also be <code class="w3-codespan">undefined</code>.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span>    car = undefined;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// Value is undefined, 
+    type is undefined </span></span></div>
+</div>
+
+<hr>
+
+<h2>Empty Values </h2>
+<p>An empty value has nothing to do with <code class="w3-codespan">undefined</code>.</p>
+<p>An empty string has both a legal value and a type.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> car = <span class="jsstringcolor" style="color:brown">""</span>;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// 
+    The value is 
+    "", the typeof is "string" </span></span></div>
+</div>

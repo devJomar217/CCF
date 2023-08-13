@@ -1,0 +1,295 @@
+<!-- Dates-->
+
+
+
+    <div class="w3-row w3-white">
+ 
+  
+  <h1>What is Date Objects in JavaScript?</h1>
+  
+  <div class="w3-Sample">
+  <h3>Samples</h3>
+  <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+  <span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date();<br><span class="jsnumbercolor" style="color:red">
+  </span> </span></div>
+   <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+  <span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date(<span class="jsstringcolor" style="color:brown">"2022-03-25"</span>);<br><span class="jsnumbercolor" style="color:red">
+  </span> </span></div>
+   </div>
+  <div class="w3-panel w3-note">
+  <h2>Note</h2>
+  <p>Date objects are static. The "clock" is not "running".</p>
+  <p>The computer clock is ticking, date objects are not.</p>
+  </div>
+  
+  <hr>
+  <h2>JavaScript Date Output</h2>
+  <p>You will learn much more about how to display dates, later in this tutorial.</p>
+  </div>
+  <hr>
+  
+  <h2>Creating Date Objects</h2>
+  <p>Date objects are created with the 
+  <code class="w3-codespan">new Date()</code> constructor.</p>
+  <p>There are <strong>9 ways</strong> to create a new date object:</p>
+  
+  <div class="w3-Sample">
+  <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+  <span class="jskeywordcolor" style="color:mediumblue">new</span> Date()<br>
+  <span class="jskeywordcolor" style="color:mediumblue">new</span> Date(<em>date string</em>)<br><span class="jsnumbercolor" style="color:red">
+  </span><br>
+  <span class="jskeywordcolor" style="color:mediumblue">new</span> Date(<em>year,month</em>)<br>
+  <span class="jskeywordcolor" style="color:mediumblue">new</span> Date(<em>year,month,day</em>)<br>
+  <span class="jskeywordcolor" style="color:mediumblue">new</span> Date(<em>year,month,day,hours</em>)<br>
+  <span class="jskeywordcolor" style="color:mediumblue">new</span> Date(<em>year,month,day,hours,minutes</em>)<br>
+  <span class="jskeywordcolor" style="color:mediumblue">new</span> Date(<em>year,month,day,hours,minutes,seconds</em>)<br>
+  <span class="jskeywordcolor" style="color:mediumblue">new</span> Date(<em>year,month,day,hours,minutes,seconds,ms</em>)<br><span class="jsnumbercolor" style="color:red">
+  </span><br>
+  <span class="jskeywordcolor" style="color:mediumblue">new</span> Date(<em>milliseconds</em>)<br><span class="jsnumbercolor" style="color:red">
+  </span> </span></div>
+  </div>
+  <hr>
+  
+  <h2>JavaScript new Date()</h2>
+  <p><code class="w3-codespan">new Date()</code> creates a date object with the <strong>current date and time</strong>:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+  <span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date();<span class="jsnumbercolor" style="color:red">
+  </span> </span></div>
+   </div>
+  <hr>
+  
+  <h2>new Date(<em>date string</em>)</h2>
+  <p><code class="w3-codespan">new Date(<em>date string</em>)</code> creates a date object from a <strong>date string</strong>:</p>
+  <div class="w3-Sample">
+  <h3>Samples</h3>
+  <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+  <span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date(<span class="jsstringcolor" style="color:brown">"October 13, 2014 11:13:00"</span>);<span class="jsnumbercolor" style="color:red">
+  </span> </span></div>
+   <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+  <span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date(<span class="jsstringcolor" style="color:brown">"2022-03-25"</span>);<span class="jsnumbercolor" style="color:red">
+  </span> </span></div>
+   </div>
+  
+    
+  <div class="w3-panel w3-note">
+  <p>Date string formats are described in the next chapter.</p>
+  </div>
+  <hr>
+  
+  <h2>new Date(<em>year, month, ...</em>)</h2>
+  
+  <p><code class="w3-codespan">new Date(<em>year, month, ...</em>)</code> creates a date object with a <strong>specified date and time</strong>.</p>
+    
+  <p>7 numbers specify year, month, day, hour, minute, second, and millisecond (in that order):</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+  <span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date(<span class="jsnumbercolor" style="color:red">2018</span>, <span class="jsnumbercolor" style="color:red">11</span>, <span class="jsnumbercolor" style="color:red">24</span>, <span class="jsnumbercolor" style="color:red">10</span>, <span class="jsnumbercolor" style="color:red">33</span>, <span class="jsnumbercolor" style="color:red">30</span>, <span class="jsnumbercolor" style="color:red">0</span>);<span class="jsnumbercolor" style="color:red">
+  </span> </span></div>
+   </div>
+  <div class="w3-panel w3-note">
+  <h2>Note</h2>
+  <p>JavaScript counts months from <b>0</b> to <b>11</b>:</p>
+  <p><b>January = 0</b>.</p>
+  <p><b>December = 11</b>.</p>
+  </div>
+  
+  <p>Specifying a month higher than 11, will not result in an error but add the overflow to the next year:</p>
+  <div class="w3-Sample">
+  <p>Specifying:</p>
+  <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+  <span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date(<span class="jsnumbercolor" style="color:red">2018</span>, <span class="jsnumbercolor" style="color:red">15</span>, <span class="jsnumbercolor" style="color:red">24</span>, <span class="jsnumbercolor" style="color:red">10</span>, <span class="jsnumbercolor" style="color:red">33</span>, <span class="jsnumbercolor" style="color:red">30</span>);<br><span class="jsnumbercolor" style="color:red">
+  </span> </span></div>
+   <p>Is the same as:</p>
+  <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+  <span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date(<span class="jsnumbercolor" style="color:red">2019</span>, <span class="jsnumbercolor" style="color:red">3</span>, <span class="jsnumbercolor" style="color:red">24</span>, <span class="jsnumbercolor" style="color:red">10</span>, <span class="jsnumbercolor" style="color:red">33</span>, <span class="jsnumbercolor" style="color:red">30</span>);<br><span class="jsnumbercolor" style="color:red">
+  </span> </span></div>
+   </div>
+  <p>Specifying a day higher than max, will not result in an error but add the overflow to the next month:</p>
+  <div class="w3-Sample">
+  <p>Specifying:</p>
+  <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+  <span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date(<span class="jsnumbercolor" style="color:red">2018</span>, <span class="jsnumbercolor" style="color:red">5</span>, <span class="jsnumbercolor" style="color:red">35</span>, <span class="jsnumbercolor" style="color:red">10</span>, <span class="jsnumbercolor" style="color:red">33</span>, <span class="jsnumbercolor" style="color:red">30</span>);<br><span class="jsnumbercolor" style="color:red">
+  </span> </span></div>
+  <p>Is the same as:</p>
+  <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+  <span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date(<span class="jsnumbercolor" style="color:red">2018</span>, <span class="jsnumbercolor" style="color:red">6</span>, <span class="jsnumbercolor" style="color:red">5</span>, <span class="jsnumbercolor" style="color:red">10</span>, <span class="jsnumbercolor" style="color:red">33</span>, <span class="jsnumbercolor" style="color:red">30</span>);<br><span class="jsnumbercolor" style="color:red">
+  </span> </span></div>
+   </div>
+  
+  <hr>
+  <h2>Using 6, 4, 3, or 2 Numbers</h2>
+  <p>6 numbers specify year, month, day, hour, minute, second:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+  <span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date(<span class="jsnumbercolor" style="color:red">2018</span>, <span class="jsnumbercolor" style="color:red">11</span>, <span class="jsnumbercolor" style="color:red">24</span>, <span class="jsnumbercolor" style="color:red">10</span>, <span class="jsnumbercolor" style="color:red">33</span>, <span class="jsnumbercolor" style="color:red">30</span>);<br><span class="jsnumbercolor" style="color:red">
+  </span> </span></div>
+   </div>
+  
+  <p>5 numbers specify year, month, day, hour, and minute:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+  <span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date(<span class="jsnumbercolor" style="color:red">2018</span>, <span class="jsnumbercolor" style="color:red">11</span>, <span class="jsnumbercolor" style="color:red">24</span>, <span class="jsnumbercolor" style="color:red">10</span>, <span class="jsnumbercolor" style="color:red">33</span>);<br><span class="jsnumbercolor" style="color:red">
+  </span> </span></div>
+   </div>
+  
+  <p>4 numbers specify year, month, day, and hour:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+  <span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date(<span class="jsnumbercolor" style="color:red">2018</span>, <span class="jsnumbercolor" style="color:red">11</span>, <span class="jsnumbercolor" style="color:red">24</span>, <span class="jsnumbercolor" style="color:red">10</span>);<br><span class="jsnumbercolor" style="color:red">
+  </span> </span></div>
+   </div>
+  
+  <p>3 numbers specify year, month, and day:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+  <span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date(<span class="jsnumbercolor" style="color:red">2018</span>, <span class="jsnumbercolor" style="color:red">11</span>, <span class="jsnumbercolor" style="color:red">24</span>);<br><span class="jsnumbercolor" style="color:red">
+  </span> </span></div>
+   </div>
+  
+  <p>2 numbers specify year and month:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+  <span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date(<span class="jsnumbercolor" style="color:red">2018</span>, <span class="jsnumbercolor" style="color:red">11</span>);<br><span class="jsnumbercolor" style="color:red">
+  </span> </span></div>
+   </div>
+  <div class="w3-panel w3-note">
+  <p>You cannot omit month. If you supply only one parameter it will be treated as milliseconds.</p>
+  </div>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+  <span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date(<span class="jsnumbercolor" style="color:red">2018</span>);<br><span class="jsnumbercolor" style="color:red">
+  </span> </span></div>
+   </div>
+  <hr>
+  
+  <h2>Previous Century</h2>
+  <p>One and two digit years will be interpreted as 19xx:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+  <span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date(<span class="jsnumbercolor" style="color:red">99</span>, <span class="jsnumbercolor" style="color:red">11</span>, <span class="jsnumbercolor" style="color:red">24</span>);<br><span class="jsnumbercolor" style="color:red">
+  </span> </span></div>
+   </div>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+  <span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date(<span class="jsnumbercolor" style="color:red">9</span>, <span class="jsnumbercolor" style="color:red">11</span>, <span class="jsnumbercolor" style="color:red">24</span>);<br><span class="jsnumbercolor" style="color:red">
+  </span> </span></div>
+   </div>
+  
+  <hr>
+  <div class="w3-panel w3-note">
+  <h2>JavaScript Stores Dates as Milliseconds</h2>
+  <p>JavaScript stores dates as number of milliseconds since January 01, 1970.</p>
+  <p><b>Zero time is January 01, 1970 00:00:00 UTC</b>.</p>
+  <p>One day (24 hours) is 86 400 000 milliseconds.</p>
+  <p>Now the time is: <strong><script>document.write>currentda</script>.getTime())</script>1690448531870</strong> milliseconds past January 01, 1970</p>
+  </div>
+  
+  <hr>
+  
+  <h2>new Date(<em>milliseconds</em>)</h2>
+  <p><code class="w3-codespan">new Date(<em>milliseconds</em>)</code> creates a new date object as <b>milliseconds</b> plus zero time:</p>
+  
+  <div class="w3-Sample">
+  <h3>Samples</h3>
+  
+  <p>01 January 1970 <strong>plus</strong> 100 000 000 000 milliseconds is:</p>  
+  <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+  <span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date(<span class="jsnumbercolor" style="color:red">100000000000</span>);<span class="jsnumbercolor" style="color:red">
+  </span> </span></div>
+   
+  <p>January 01 1970 <strong>minus</strong> 100 000 000 000 milliseconds is:</p>  
+  <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+  <span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date(-<span class="jsnumbercolor" style="color:red">100000000000</span>);<span class="jsnumbercolor" style="color:red">
+  </span> </span></div>
+   <p>January 01 1970 <strong>plus</strong> 24 hours is:</p>  
+  <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+  <span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date(<span class="jsnumbercolor" style="color:red">24</span> * <span class="jsnumbercolor" style="color:red">60</span> * <span class="jsnumbercolor" style="color:red">60</span> * <span class="jsnumbercolor" style="color:red">1000</span>);<br><span class="jsnumbercolor" style="color:red">
+  </span><span class="commentcolor" style="color:green">// or<br></span>
+  <span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date(<span class="jsnumbercolor" style="color:red">86400000</span>);<span class="jsnumbercolor" style="color:red">
+  </span> </span></div>
+   
+  <p>01 January 1970 <b>plus</b> 0 milliseconds is:</p>
+  <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+  <span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date(<span class="jsnumbercolor" style="color:red">0</span>);<span class="jsnumbercolor" style="color:red">
+  </span> </span></div>
+   </div>
+  
+
+  <h2>Date Methods</h2> 
+  <p>When a date object is created, a number of <strong>methods</strong> allow you to operate on 
+  it.</p>
+  <p>Date methods allow you to get and set the year, month, day, hour, 
+  minute, second, and millisecond of date objects, using either local time or UTC 
+  (universal, or GMT) time.</p>
+  
+  <div class="w3-panel w3-note">
+  <p>Date methods and time zones are covered in the next chapters.</p>
+  </div>
+  
+  <hr>
+  <h2>Displaying Dates</h2>
+  <p>JavaScript will (by default) output dates using the <b>toString()</b> method.
+  This is a string representation of the date, including the time zone.
+  The format is specified in the ECMAScript specification:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate">
+  </div>
+   </div>
+  
+  <p>When you display a date object in HTML, it is automatically converted to a 
+  string, with the <code class="w3-codespan">toString()</code> method.</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+  <span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date();<br>
+  d.<span class="jspropertycolor" style="color:black">toString</span>();<span class="jsnumbercolor" style="color:red">
+  </span> </span></div>
+   </div>
+  
+  <p>The <code class="w3-codespan">toDateString()</code> method converts a date to a more readable 
+  format:</p>
+  
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+  <span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date();<br>
+  d.<span class="jspropertycolor" style="color:black">toDateString</span>();<span class="jsnumbercolor" style="color:red">
+  </span> </span></div>
+   </div>
+  <p>The <code class="w3-codespan">toUTCString()</code> method converts a date to a string using the UTC standard:</p>
+  
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+  <span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date();<br>
+  d.<span class="jspropertycolor" style="color:black">toUTCString</span>();<span class="jsnumbercolor" style="color:red">
+  </span> </span></div>
+   </div>
+  <p>The <code class="w3-codespan">toISOString()</code> method converts a date to a string using the ISO standard:</p>
+  
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+  <span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date();<br>
+  d.<span class="jspropertycolor" style="color:black">toISOString</span>();<span class="jsnumbercolor" style="color:red">
+  </span> </span></div>
+   </div>
+  <div class="w3-note">
+  <h2>Complete JavaScript Date Reference</h2>
+  <p>For a complete Date reference, go to our:</p>
+  <p>Complete JavaScript Date Reference</a>.</p>
+  <p>The reference contains descriptions and Samples of all Date properties and 
+  methods.</p>
+  

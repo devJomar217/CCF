@@ -1,0 +1,101 @@
+<!-- OUTPUT-->
+
+
+
+  <div class="w3-row w3-white">
+    
+   
+
+<h1>What is  <span class="color_h1">Output (Print Text) in C++?</span></h1>
+<p>&nbsp;</p>
+<hr>
+
+<h2>C++ Output (Print Text)</h2>
+<p>The <code class="w3-codespan">cout</code> object, together with the <code class="w3-codespan">&lt;&lt;</code> 
+operator, is used to output values/print text:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  #include &lt;iostream&gt;<br>using namespace std;<br><br><span class="javakeywordcolor" style="color:mediumblue">int</span> main() {<br>&nbsp; <span class="javanumbercolor" style="color:red">
+</span>  <strong>cout</strong> &lt;&lt; <span class="javastringcolor" style="color:brown">"Hello World!"</span>;<br>&nbsp; <span class="javakeywordcolor" style="color:mediumblue">return</span> <span class="javanumbercolor" style="color:red">0</span>;<br>} </span></div>
+</div>
+
+<p>You can add as many <code class="w3-codespan">cout</code> objects as you want. However, note that it does not insert a new line at the end of the output:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  #include &lt;iostream&gt;<br>using namespace std;<br><br><span class="javakeywordcolor" style="color:mediumblue">int</span> main() {<br>&nbsp; <span class="javanumbercolor" style="color:red">
+</span>  <strong>cout</strong> &lt;&lt; <span class="javastringcolor" style="color:brown">"Hello World!"</span>;<br>&nbsp; <strong>cout</strong> &lt;&lt; <span class="javastringcolor" style="color:brown">"I am learning C++"</span>;<br>&nbsp; <span class="javakeywordcolor" style="color:mediumblue">return</span> <span class="javanumbercolor" style="color:red">0</span>;<br>} </span></div>
+
+
+
+
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+  <div class="w3-row w3-white">
+    
+   
+      
+
+<h1>C++ <span class="color_h1">New Lines</span></h1>
+
+<hr>
+
+<h2>New Lines</h2>
+<p>To insert a new line, you can use the <code class="w3-codespan">\n</code> character:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  #include &lt;iostream&gt;<br>using namespace std;<br><br><span class="javakeywordcolor" style="color:mediumblue">int</span> main() {<br>&nbsp; <span class="javanumbercolor" style="color:red">
+</span>  cout &lt;&lt; <span class="javastringcolor" style="color:brown">"Hello World! <strong>\n</strong>"</span>;<br>&nbsp; cout &lt;&lt; <span class="javastringcolor" style="color:brown">"I am learning C++"</span>;<br>&nbsp; <span class="javakeywordcolor" style="color:mediumblue">return</span> <span class="javanumbercolor" style="color:red">0</span>;<br>} </span></div>
+</div>
+
+<p><strong>Tip:</strong> Two <code class="w3-codespan">\n</code> characters after each other will create a blank line:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  #include &lt;iostream&gt;<br>using namespace std;<br><br><span class="javakeywordcolor" style="color:mediumblue">int</span> main() {<br>&nbsp; <span class="javanumbercolor" style="color:red">
+</span>  cout &lt;&lt; <span class="javastringcolor" style="color:brown">"Hello World! <strong>\n\n</strong>"</span>;<br>&nbsp; cout &lt;&lt; <span class="javastringcolor" style="color:brown">"I am learning C++"</span>;<br>&nbsp; <span class="javakeywordcolor" style="color:mediumblue">return</span> <span class="javanumbercolor" style="color:red">0</span>;<br>} </span></div>
+</div>
+
+<p>Another way to insert a new line, is with the <code class="w3-codespan">endl</code> manipulator:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  #include &lt;iostream&gt;<br>using namespace std;<br><br><span class="javakeywordcolor" style="color:mediumblue">int</span> main() {<br>&nbsp; <span class="javanumbercolor" style="color:red">
+</span>  cout &lt;&lt; <span class="javastringcolor" style="color:brown">"Hello World!"</span> &lt;&lt; <strong>endl</strong>;<br>&nbsp; cout &lt;&lt; <span class="javastringcolor" style="color:brown">"I am learning C++"</span>;<br>&nbsp; <span class="javakeywordcolor" style="color:mediumblue">return</span> <span class="javanumbercolor" style="color:red">0</span>;<br>} </span></div>
+</div>
+
+<div class="w3-note w3-panel">
+<p>Both <code class="w3-codespan">\n</code> and <code class="w3-codespan">endl</code> 
+are used to break lines. 
+However, <code class="w3-codespan">\n</code> is most used.</p>
+
+<h4>But what is <code class="w3-codespan">\n</code> exactly?</h4>
+
+<p>The newline character (<code class="w3-codespan">\n</code>) is called an <strong>escape sequence</strong>, and 
+it forces the cursor to change its position to the beginning of the next line on the screen. This results in a new line.</p>
+
+  <p>Samples of other valid escape sequences are:</p>
+  <table class="ws-table-all">
+    <tbody><tr>
+      <th style="width:30%">Escape Sequence</th>
+      <th>Description</th>
+      
+    </tr>
+    <tr>
+      <td>\t</td>
+      <td>Creates a horizontal tab</td>
+     </tr>
+    <tr>
+      <td>\\</td>
+      <td>Inserts a backslash character (\)</td>
+     </tr>
+    <tr>
+      <td>\"</td>
+      <td>Inserts a double quote character</td>
+     </tr>
+  </tbody></table>
+</div>
+

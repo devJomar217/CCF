@@ -1,0 +1,221 @@
+<!--BIGint-->
+
+
+
+  <div class="w3-row w3-white">
+    
+   
+
+<h1>What is BigInt in JavaScript?</h1>
+
+
+<div class="w3-info">
+<p>JavaScript <code class="w3-codespan">BigInt</code> variables are used to store big integer values
+that are too big to be represented by a normal JavaScript <code class="w3-codespan">Number</code>.</p>
+</div>
+<h2>JavaScript Integer Accuracy</h2>
+<p>JavaScript integers are only accurate up to 15 digits:</p>
+<div class="w3-Sample">
+<h3>Integer Precision</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">999999999999999</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jsnumbercolor" style="color:red">9999999999999999</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+
+</div>
+<p>In JavaScript, all numbers are stored in a 64-bit floating-point format (IEEE 754 standard).</p>
+<p>With this standard, large integer cannot be exactly represented and will be rounded.</p>
+<p>Because of this, JavaScript can only safely represent integers:</p>
+<p>Up to <b>9007199254740991</b> +(2<sup>53</sup>-1)</p>
+<p>and</p>
+<p>Down to <b>-9007199254740991</b> -(2<sup>53</sup>-1).</p>
+<p>Integer values outside this range lose precision.</p>
+<hr>
+<h2>How to Create a BigInt</h2>
+<p>To create a <code class="w3-codespan">BigInt</code>, append n to the end of an integer or call
+<code class="w3-codespan">BigInt()</code>:</p>
+
+<div class="w3-Sample">
+<h3>Samples</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">9999999999999999</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = 9999999999999999n;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = 1234567890123456789012345n;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = BigInt(<span class="jsnumbercolor" style="color:red">1234567890123456789012345</span>)<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<hr>
+<h2>BigInt: A new JavaScript Datatype</h2>
+<p>The JavaScript <code class="w3-codespan">typeof</code> a <code class="w3-codespan">BigInt</code> is "bigint":</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = BigInt(<span class="jsnumbercolor" style="color:red">999999999999999</span>);<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> type = <span class="jskeywordcolor" style="color:mediumblue">typeof</span> x;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p><code class="w3-codespan">BigInt</code> is the second numeric data type in JavaScript
+(after <code class="w3-codespan">Number</code>).</p>
+<p>With <code class="w3-codespan">BigInt</code> the total number of supported data types in JavaScript is 8:</p>
+<p>
+1. String<br>
+2. Number<br>
+3. Bigint<br>
+4. Boolean<br>
+5. Undefined<br>
+6. Null<br>
+7. Symbol<br>
+8. Object
+</p>
+<hr>
+<h2>BigInt Operators</h2>
+<p>Operators that can be used on a JavaScript <code class="w3-codespan">Number</code>
+can also be used on a <code class="w3-codespan">BigInt</code>.</p>
+<div class="w3-Sample">
+<h3>BigInt Multiplication Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = 9007199254740995n;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = 9007199254740995n;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> z = x * y;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-note">
+<h2>Notes</h2>
+<p>Arithmetic between a <code class="w3-codespan">BigInt</code>
+and a <code class="w3-codespan">Number</code> is not allowed (type conversion lose information).</p>
+<p>Unsigned right shift (&gt;&gt;&gt;) can not be done on a <code class="w3-codespan">BigInt</code>
+(it does not have a fixed width).</p>
+</div>
+
+<hr>
+<h2>BigInt Decimals</h2>
+<p>A <code class="w3-codespan">BigInt</code> can not have decimals.</p>
+<div class="w3-Sample">
+<h3>BigInt Division Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = 5n;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = x / <span class="jsnumbercolor" style="color:red">2</span>;<br><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Error: Cannot mix BigInt and other types, use explicit conversion.
+ </span></span></div>
+
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = 5n;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = Number(x) / <span class="jsnumbercolor" style="color:red">2</span>;<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+
+</div>
+
+
+<hr>
+<h2>BigInt Hex, Octal and Binary</h2>
+<p><code class="w3-codespan">BigInt</code> can also be written in hexadecimal, octal, or binary notation:</p>
+<div class="w3-Sample">
+<h3>BigInt Hex Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> hex = 0x20000000000003n;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> oct = 0o400000000000000003n<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> bin = 0b100000000000000000000000000000000000000000000000000011n;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<hr>
+<h2>Precision Curiosity</h2>
+<p>Rounding can compromise program security:</p>
+
+<div class="w3-Sample">
+<h3>MAX_SAFE_INTEGER Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+9007199254740992</span> === <span class="jsnumbercolor" style="color:red">9007199254740993</span>; <span class="commentcolor" style="color:green">// is true !!!
+ </span></span></div>
+</div>
+
+<hr>
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">BigInt</code> is supported in all browsers since September 2020:</p>
+<div class="w3-responsive">
+<table class="browserref notranslate">
+  <tbody><tr style="height:50px">
+    <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:20%;" class="bsEdge" title="Edge"></th>
+    <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:20%;" class="bsSafari" title="Safari"></th>
+    <th style="width:19%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome 67</td>    
+    <td>Edge 79</td>
+    <td>Firefox 68</td>
+    <td>Safari 14</td>
+    <td>Opera 54</td>
+  </tr>
+  <tr>
+    <td>May 2018</td>
+    <td>Jan 2020</td>    
+    <td>Jul 2019</td>
+    <td>Sep 2020</td>
+    <td>Jun 2018</td>
+  </tr>
+</tbody></table>
+</div>
+
+
+
+<h2>Minimum and Maximum Safe Integers</h2>
+<p> ES6</a> added max and min properties to the Number object:</p>
+<ul>
+<li><code class="w3-codespan">MAX_SAFE_INTEGER</code></li>
+<li><code class="w3-codespan">MIN_SAFE_INTEGER</code></li>
+</ul>
+<div class="w3-Sample">
+<h3>MAX_SAFE_INTEGER Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = Number.<span class="jspropertycolor" style="color:black">MAX_SAFE_INTEGER</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<div class="w3-Sample">
+<h3>MIN_SAFE_INTEGER Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = Number.<span class="jspropertycolor" style="color:black">MIN_SAFE_INTEGER</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<hr>
+
+ <h2>New Number Methods</h2>
+<p> ES6</a> also added 2 new methods to the Number object:</p>
+<ul>
+<li><code class="w3-codespan">Number.isInteger()</code></li>
+<li><code class="w3-codespan">Number.isSafeInteger()</code></li>
+</ul>
+<hr>
+
+<h2>The Number.isInteger() Method</h2>
+<p>The <code class="w3-codespan">Number.isInteger()</code> method returns <code class="w3-codespan">true</code> if the argument is an integer.</p>
+<div class="w3-Sample">
+<h3>Sample: isInteger()</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+Number.<span class="jspropertycolor" style="color:black">isInteger</span>(<span class="jsnumbercolor" style="color:red">10</span>);<br>
+Number.<span class="jspropertycolor" style="color:black">isInteger</span>(<span class="jsnumbercolor" style="color:red">10.5</span>);<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<hr>
+<h2>The Number.isSafeInteger() Method</h2>
+<p>A safe integer is an integer that can be exactly represented as a double precision number.</p>
+<p>The <code class="w3-codespan">Number.isSafeInteger()</code> method returns <code class="w3-codespan">true</code> if the argument is a safe integer.</p>
+<div class="w3-Sample">
+<h3>Sample isSafeInteger()</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+Number.<span class="jspropertycolor" style="color:black">isSafeInteger</span>(<span class="jsnumbercolor" style="color:red">10</span>);<br>
+Number.<span class="jspropertycolor" style="color:black">isSafeInteger</span>(<span class="jsnumbercolor" style="color:red">12345678901234567890</span>);<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-container w3-note">
+<p>Safe integers are all integers from -(2<sup>53</sup> - 1) to +(2<sup>53</sup> - 1).<br>
+This is safe: 9007199254740991. This is not safe: 9007199254740992.</p>
+</div>
+

@@ -1,0 +1,397 @@
+<!-- Math-->
+
+
+
+  <div class="w3-row w3-white">
+    
+
+
+<h1>What is <span class="color_h1">Math Object in JavaScript?</span></h1>
+
+<div class="w3-info">
+<p class="intro">The JavaScript Math object allows you to perform mathematical tasks on 
+numbers.</p>
+</div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+Math.<span class="jspropertycolor" style="color:black">PI</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<hr>
+<h2>The Math Object</h2>
+<p>Unlike other objects, the Math object has no constructor.</p>
+<p>The Math object is static.</p>
+<p>All methods and properties can be used without creating a Math object first.</p>
+<hr>
+<h2>Math Properties (Constants)</h2>
+<p>The syntax for any Math property is : <code class="w3-codespan">Math.<i>property</i></code>.</p>
+
+<p>JavaScript provides 8 mathematical constants that can be accessed as Math properties:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+Math.<span class="jspropertycolor" style="color:black">E</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// returns Euler's number<br></span>
+Math.<span class="jspropertycolor" style="color:black">PI</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// returns PI<br></span>
+Math.<span class="jspropertycolor" style="color:black">SQRT2</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// returns the square root of 2<br></span>
+Math.<span class="jspropertycolor" style="color:black">SQRT1_2</span>&nbsp;&nbsp;<span class="commentcolor" style="color:green">// returns the square root of 1/2<br></span>
+Math.<span class="jspropertycolor" style="color:black">LN2</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// returns the natural logarithm of 2<br></span>
+Math.<span class="jspropertycolor" style="color:black">LN10</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// returns the natural logarithm of 10<br></span>
+Math.<span class="jspropertycolor" style="color:black">LOG2E</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// returns base 2 logarithm of E<br></span>
+Math.<span class="jspropertycolor" style="color:black">LOG10E</span>&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// returns base 10 logarithm of E
+ </span></span></div>
+</div>
+
+
+<hr>
+<h2>Math Methods</h2>
+<p>The syntax for Math any methods is : <code class="w3-codespan">Math.<i>method</i>(<i>number</i>)</code></p>
+
+<hr>
+<h2>Number to Integer</h2>
+<p>There are 4 common methods to round a number to an integer:</p>
+<table class="ws-table-all">
+<tbody><tr></tr><tr><td>Math.round(x)</td><td>Returns x rounded to its nearest integer</td></tr>
+<tr></tr><tr><td>Math.ceil(x)</td><td>Returns x rounded up to its nearest integer</td></tr>
+<tr></tr><tr><td>Math.floor(x)</td><td>Returns x rounded down to its nearest integer</td></tr>
+<tr></tr><tr><td>Math.trunc(x)</td><td>Returns the integer part of x ( new in ES6</a>)</td></tr>
+</tbody></table>
+<hr>
+<h2>Math.round()</h2>
+<p><code class="w3-codespan">Math.round(x)</code> returns the nearest integer:</p>
+
+<div class="w3-Sample">
+<h3>Samples</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+Math.<span class="jspropertycolor" style="color:black">round</span>(<span class="jsnumbercolor" style="color:red">4.6</span>);<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+Math.<span class="jspropertycolor" style="color:black">round</span>(<span class="jsnumbercolor" style="color:red">4.5</span>);<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+Math.<span class="jspropertycolor" style="color:black">round</span>(<span class="jsnumbercolor" style="color:red">4.4</span>);<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<hr>
+
+<h2>Math.ceil()</h2>
+<p><code class="w3-codespan">Math.ceil(x)</code> returns the value of x rounded <strong>up</strong> to its nearest integer:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+Math.<span class="jspropertycolor" style="color:black">ceil</span>(<span class="jsnumbercolor" style="color:red">4.9</span>);<br>
+Math.<span class="jspropertycolor" style="color:black">ceil</span>(<span class="jsnumbercolor" style="color:red">4.7</span>);<br>
+Math.<span class="jspropertycolor" style="color:black">ceil</span>(<span class="jsnumbercolor" style="color:red">4.4</span>);<br>
+Math.<span class="jspropertycolor" style="color:black">ceil</span>(<span class="jsnumbercolor" style="color:red">4.2</span>);<br>
+Math.<span class="jspropertycolor" style="color:black">ceil</span>(-<span class="jsnumbercolor" style="color:red">4.2</span>);<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<hr>
+
+<h2>Math.floor()</h2>
+<p><code class="w3-codespan">Math.floor(x)</code> returns the value of x rounded <strong>down</strong> to its nearest integer:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+Math.<span class="jspropertycolor" style="color:black">floor</span>(<span class="jsnumbercolor" style="color:red">4.9</span>);<br>
+Math.<span class="jspropertycolor" style="color:black">floor</span>(<span class="jsnumbercolor" style="color:red">4.7</span>);<br>
+Math.<span class="jspropertycolor" style="color:black">floor</span>(<span class="jsnumbercolor" style="color:red">4.4</span>);<br>
+Math.<span class="jspropertycolor" style="color:black">floor</span>(<span class="jsnumbercolor" style="color:red">4.2</span>);<br>
+Math.<span class="jspropertycolor" style="color:black">floor</span>(-<span class="jsnumbercolor" style="color:red">4.2</span>);<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<hr>
+<h2>Math.trunc()</h2>
+<p><code class="w3-codespan">Math.trunc(x)</code> returns the integer part of x:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+Math.<span class="jspropertycolor" style="color:black">trunc</span>(<span class="jsnumbercolor" style="color:red">4.9</span>);<br>
+Math.<span class="jspropertycolor" style="color:black">trunc</span>(<span class="jsnumbercolor" style="color:red">4.7</span>);<br>
+Math.<span class="jspropertycolor" style="color:black">trunc</span>(<span class="jsnumbercolor" style="color:red">4.4</span>);<br>
+Math.<span class="jspropertycolor" style="color:black">trunc</span>(<span class="jsnumbercolor" style="color:red">4.2</span>);<br>
+Math.<span class="jspropertycolor" style="color:black">trunc</span>(-<span class="jsnumbercolor" style="color:red">4.2</span>);<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<hr>
+<h2>Math.sign()</h2>
+<p><code class="w3-codespan">Math.sign(x)</code> returns if x is negative, null or positive:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+Math.<span class="jspropertycolor" style="color:black">sign</span>(-<span class="jsnumbercolor" style="color:red">4</span>);<br>
+Math.<span class="jspropertycolor" style="color:black">sign</span>(<span class="jsnumbercolor" style="color:red">0</span>);<br>
+Math.<span class="jspropertycolor" style="color:black">sign</span>(<span class="jsnumbercolor" style="color:red">4</span>);<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-note">
+<p>Math.trunc() and Math.sign() were added to  JavaScript 2015 - ES6</a>.</p>
+</div>
+
+
+<h2>Math.pow()</h2>
+<p><code class="w3-codespan">Math.pow(x, y)</code> returns the value of x to the power of y:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+Math.<span class="jspropertycolor" style="color:black">pow</span>(<span class="jsnumbercolor" style="color:red">8</span>, <span class="jsnumbercolor" style="color:red">2</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<hr>
+<h2>Math.sqrt()</h2>
+<p><code class="w3-codespan">Math.sqrt(x)</code> returns the square root of x:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+Math.<span class="jspropertycolor" style="color:black">sqrt</span>(<span class="jsnumbercolor" style="color:red">64</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<hr>
+<h2>Math.abs()</h2>
+<p><code class="w3-codespan">Math.abs(x)</code> returns the absolute (positive) value of x:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+Math.<span class="jspropertycolor" style="color:black">abs</span>(-<span class="jsnumbercolor" style="color:red">4.7</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<hr>
+
+<h2>Math.sin()</h2>
+<p><code class="w3-codespan">Math.sin(x)</code> returns the sine (a value between -1 and 1) of the angle x (given in radians).</p>
+<p>If you want to use degrees instead of radians, you have to convert degrees to radians:</p>
+<p>Angle in radians = Angle in degrees x PI / 180.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+Math.<span class="jspropertycolor" style="color:black">sin</span>(<span class="jsnumbercolor" style="color:red">90</span> * Math.<span class="jspropertycolor" style="color:black">PI</span> / <span class="jsnumbercolor" style="color:red">180</span>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// returns 1 (the sine of 90 degrees)
+ </span></span></div>
+</div>
+<hr>
+
+<h2>Math.cos()</h2>
+<p><code class="w3-codespan">Math.cos(x)</code> returns the cosine (a value between -1 and 1) of the angle x (given in radians).</p>
+<p>If you want to use degrees instead of radians, you have to convert degrees to radians:</p>
+<p>Angle in radians = Angle in degrees x PI / 180.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+Math.<span class="jspropertycolor" style="color:black">cos</span>(<span class="jsnumbercolor" style="color:red">0</span> * Math.<span class="jspropertycolor" style="color:black">PI</span> / <span class="jsnumbercolor" style="color:red">180</span>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// returns 1 (the cos of 0 degrees)
+ </span></span></div>
+</div>
+<hr>
+<h2>Math.min() and Math.max()</h2>
+<p><code class="w3-codespan">Math.min()</code> and <code class="w3-codespan">Math.max()</code> can be used to find the lowest or highest value in a list of arguments:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+Math.<span class="jspropertycolor" style="color:black">min</span>(<span class="jsnumbercolor" style="color:red">0</span>, <span class="jsnumbercolor" style="color:red">150</span>, <span class="jsnumbercolor" style="color:red">30</span>, <span class="jsnumbercolor" style="color:red">20</span>, -<span class="jsnumbercolor" style="color:red">8</span>, -<span class="jsnumbercolor" style="color:red">200</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+Math.<span class="jspropertycolor" style="color:black">max</span>(<span class="jsnumbercolor" style="color:red">0</span>, <span class="jsnumbercolor" style="color:red">150</span>, <span class="jsnumbercolor" style="color:red">30</span>, <span class="jsnumbercolor" style="color:red">20</span>, -<span class="jsnumbercolor" style="color:red">8</span>, -<span class="jsnumbercolor" style="color:red">200</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<hr>
+
+<h2>Math.random()</h2>
+<p><code class="w3-codespan">Math.random()</code> returns a random number between 0 (inclusive), and 1 
+(exclusive):</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+Math.<span class="jspropertycolor" style="color:black">random</span>();<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-panel w3-note">
+<p>You will learn more about <code class="w3-codespan">Math.random()</code> in the next chapter of this tutorial.</p>
+</div>
+
+<hr>
+<h2>The Math.log() Method</h2>
+<p><code class="w3-codespan">Math.log(x)</code> returns the natural logarithm of x.</p>
+<p>The natural logarithm returns the time needed to reach a certain level of growth:</p>
+
+<div class="w3-Sample">
+<h3>Samples</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+Math.<span class="jspropertycolor" style="color:black">log</span>(<span class="jsnumbercolor" style="color:red">1</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+Math.<span class="jspropertycolor" style="color:black">log</span>(<span class="jsnumbercolor" style="color:red">2</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+Math.<span class="jspropertycolor" style="color:black">log</span>(<span class="jsnumbercolor" style="color:red">3</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p>Math.E and Math.log() are twins.</p>
+<div class="w3-Sample">
+<p>How many times must we multiply Math.E to get 10?</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+Math.<span class="jspropertycolor" style="color:black">log</span>(<span class="jsnumbercolor" style="color:red">10</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<hr>
+<h2>The Math.log2() Method</h2>
+<p><code class="w3-codespan">Math.log2(x)</code> returns the base 2 logarithm of x.</p>
+
+<div class="w3-Sample">
+<p>How many times must we multiply 2 to get 8?</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+Math.<span class="jspropertycolor" style="color:black">log2</span>(<span class="jsnumbercolor" style="color:red">8</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<hr>
+<h2>The Math.log10() Method</h2>
+<p><code class="w3-codespan">Math.log10(x)</code> returns the base 10 logarithm of x.</p>
+<div class="w3-Sample">
+<p>How many times must we multiply 10 to get 1000?</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+Math.<span class="jspropertycolor" style="color:black">log10</span>(<span class="jsnumbercolor" style="color:red">1000</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<hr>
+
+<h2>JavaScript Math Methods</h2>
+
+<table class="ws-table-all notranslate">
+  <tbody><tr>
+    <th style="width:20%">Method</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td> abs(x)</a></td>
+    <td>Returns the absolute value of x</td>
+  </tr>
+  <tr>
+    <td> acos(x)</a></td>
+    <td>Returns the arccosine of x, in radians</td>
+  </tr>
+  <tr>
+    <td> acosh(x)</a></td>
+    <td>Returns the hyperbolic arccosine of x</td>
+  </tr>
+  <tr>
+    <td> asin(x)</a></td>
+    <td>Returns the arcsine of x, in radians</td>
+  </tr>
+  <tr>
+    <td> asinh(x)</a></td>
+    <td>Returns the hyperbolic arcsine of x</td>
+  </tr>
+  <tr>
+    <td> atan(x)</a></td>
+    <td>Returns the arctangent of x as a numeric value between -PI/2 and PI/2 radians</td>
+  </tr>
+  <tr>
+    <td> atan2(y, x)</a></td>
+    <td>Returns the arctangent of the quotient of its arguments</td>
+  </tr>
+  <tr>
+    <td> atanh(x)</a></td>
+    <td>Returns the hyperbolic arctangent of x</td>
+  </tr>
+  <tr>
+    <td> cbrt(x)</a></td>
+    <td>Returns the cubic root of x</td>
+  </tr>
+  <tr>
+    <td> ceil(x)</a></td>
+    <td>Returns x, rounded upwards to the nearest integer</td>
+  </tr>
+  <tr>
+    <td> cos(x)</a></td>
+    <td>Returns the cosine of x (x is in radians)</td>
+  </tr>
+  <tr>
+    <td> cosh(x)</a></td>
+    <td>Returns the hyperbolic cosine of x</td>
+  </tr>
+  <tr>
+    <td> exp(x)</a></td>
+    <td>Returns the value of E<sup>x</sup></td>
+  </tr>
+  <tr>
+    <td> floor(x)</a></td>
+    <td>Returns x, rounded downwards to the nearest integer</td>
+  </tr>
+  <tr>
+    <td> log(x)</a></td>
+    <td>Returns the natural logarithm (base E) of x</td>
+  </tr>
+  <tr>
+    <td> max(x, y, z, ..., n)</a></td>
+    <td>Returns the number with the highest value</td>
+  </tr>
+  <tr>
+    <td> min(x, y, z, ..., n)</a></td>
+    <td>Returns the number with the lowest value</td>
+  </tr>
+  <tr>
+    <td> pow(x, y)</a></td>
+    <td>Returns the value of x to the power of y</td>
+  </tr>
+  <tr>
+    <td> random()</a></td>
+    <td>Returns a random number between 0 and 1</td>
+  </tr>
+  <tr>
+    <td> round(x)</a></td>
+    <td>Rounds x to the nearest integer</td>
+  </tr>
+  <tr>
+    <td> sign(x)</a></td>
+    <td>Returns if x is negative, null or positive (-1, 0, 1)</td>
+  </tr>
+  <tr>
+    <td> sin(x)</a></td>
+    <td>Returns the sine of x (x is in radians)</td>
+  </tr>
+  <tr>
+    <td> sinh(x)</a></td>
+    <td>Returns the hyperbolic sine of x</td>
+  </tr>
+  <tr>
+    <td> sqrt(x)</a></td>
+    <td>Returns the square root of x</td>
+  </tr>
+  <tr>
+    <td> tan(x)</a></td>
+    <td>Returns the tangent of an angle</td>
+  </tr>
+  <tr>
+    <td> tanh(x)</a></td>
+    <td>Returns the hyperbolic tangent of a number</td>
+  </tr>
+  <tr>
+    <td> trunc(x)</a></td>
+    <td>Returns the integer part of a number (x)</td>
+  </tr>
+  </tbody></table>
+
+

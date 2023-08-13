@@ -1,1 +1,184 @@
-This is JS 3
+<!-- Where to-->
+
+
+  <div class="w3-row w3-white">
+    
+
+
+<h1>What is <span class="color_h1">Where To in JavaScript?</span></h1>
+
+
+
+<h2>The &lt;script&gt; Tag</h2>
+<p>In HTML, JavaScript code is inserted between <code class="w3-codespan">&lt;script&gt;</code> and <code class="w3-codespan">&lt;/script&gt;</code> tags.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate htmlHigh">
+<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>script<span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="jscolor" style="color:black"><br>
+document.<span class="jspropertycolor" style="color:black">getElementById</span>(<span class="jsstringcolor" style="color:brown">"demo"</span>).<span class="jspropertycolor" style="color:black">innerHTML</span> = <span class="jsstringcolor" style="color:brown">"My First JavaScript"</span>;<br>
+</span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/script<span class="tagcolor" style="color:mediumblue">&gt;</span></span>
+ </div>
+<p>
+</p>
+</div>
+
+<div class="w3-panel w3-note">
+<p>Old JavaScript Samples may use a type attribute: &lt;script type="text/javascript"&gt;.<br>
+The type attribute is not required. JavaScript is the default scripting language in HTML.</p>
+</div>
+
+<hr>
+<h2>JavaScript Functions and Events</h2>
+<p>A JavaScript <code class="w3-codespan">function</code> is a block of JavaScript code, that can be executed when "called" for.</p>
+<p>For Sample, a function can be called when an <b>event</b> occurs, like when the user clicks a button.</p>
+<div class="w3-panel w3-note">
+<p>You will learn much more about functions and events in later chapters.</p>
+</div>
+<hr>
+
+<h2>JavaScript in &lt;head&gt; or &lt;body&gt;</h2>
+<p>You can place any number of scripts in an HTML document.</p>
+<p>Scripts can be placed in the <code class="w3-codespan">&lt;body&gt;</code>, or in the <code class="w3-codespan">&lt;head&gt;</code> section of an HTML page, or in both.</p>
+
+<hr>
+<h2>JavaScript in &lt;head&gt;</h2>
+<p>In this Sample, a JavaScript <code class="w3-codespan">function</code> is placed in the <code class="w3-codespan">&lt;head&gt;</code> section 
+of an HTML page.</p>
+<p>The function is invoked (called) when a button is clicked:</p>
+ 
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate htmlHigh">
+<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>!DOCTYPE<span class="attributecolor" style="color:red"> html</span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>html<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>head<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>script<span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="jscolor" style="color:black"><br>
+<span class="jskeywordcolor" style="color:mediumblue">function</span> myFunction() {<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;document.<span class="jspropertycolor" style="color:black">getElementById</span>(<span class="jsstringcolor" style="color:brown">"demo"</span>).<span class="jspropertycolor" style="color:black">innerHTML</span> = <span class="jsstringcolor" style="color:brown">"Paragraph changed."</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>}<br>
+</span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/script<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/head<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>body<span class="tagcolor" style="color:mediumblue">&gt;</span></span>
+<p><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>h2<span class="tagcolor" style="color:mediumblue">&gt;</span></span>Demo JavaScript in Head<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/h2<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+<br>
+<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>p<span class="attributecolor" style="color:red"> id<span class="attributevaluecolor" style="color:mediumblue">="demo"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span>A Paragraph<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/p<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>button<span class="attributecolor" style="color:red"> type<span class="attributevaluecolor" style="color:mediumblue">="button"</span> onclick<span class="attributevaluecolor" style="color:mediumblue">="myFunction()"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span>Try 
+it<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/button<span class="tagcolor" style="color:mediumblue">&gt;</span></span></p>
+<p><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/body<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/html<span class="tagcolor" style="color:mediumblue">&gt;</span></span>
+</p> </div>
+</div>
+
+
+<h2>JavaScript in &lt;body&gt;</h2>
+<p>In this Sample, a JavaScript <code class="w3-codespan">function</code> is placed in the <code class="w3-codespan">&lt;body&gt;</code> section of an HTML page.</p>
+<p>The function is invoked (called) when a button is clicked:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate htmlHigh">
+<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>!DOCTYPE<span class="attributecolor" style="color:red"> html</span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>html<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>body<span class="tagcolor" style="color:mediumblue">&gt;</span></span>
+<br><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>h2<span class="tagcolor" style="color:mediumblue">&gt;</span></span>Demo JavaScript in Body<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/h2<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+<br>
+  <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>p<span class="attributecolor" style="color:red"> id<span class="attributevaluecolor" style="color:mediumblue">="demo"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span>A Paragraph<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/p<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+<br>
+  <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>button<span class="attributecolor" style="color:red"> type<span class="attributevaluecolor" style="color:mediumblue">="button"</span> onclick<span class="attributevaluecolor" style="color:mediumblue">="myFunction()"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span>Try 
+it<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/button<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+ <br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>script<span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="jscolor" style="color:black"><br>
+<span class="jskeywordcolor" style="color:mediumblue">function</span> myFunction() {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; document.<span class="jspropertycolor" style="color:black">getElementById</span>(<span class="jsstringcolor" style="color:brown">"demo"</span>).<span class="jspropertycolor" style="color:black">innerHTML</span> = <span class="jsstringcolor" style="color:brown">"Paragraph changed."</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>}<br>
+</span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/script<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+ <br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/body<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/html<span class="tagcolor" style="color:mediumblue">&gt;</span></span>
+ </div>
+</div>
+
+<div class="w3-panel w3-note">
+<p>Placing scripts at the bottom of the &lt;body&gt; element improves the display 
+speed, because script interpretation slows down the display.</p>
+</div>
+
+<hr>
+<h2>External JavaScript</h2>
+<p>Scripts can also be placed in external files:</p>
+<div class="w3-Sample">
+<h3>External file: myScript.js</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">function</span> myFunction() {<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp; document.<span class="jspropertycolor" style="color:black">getElementById</span>(<span class="jsstringcolor" style="color:brown">"demo"</span>).<span class="jspropertycolor" style="color:black">innerHTML</span> = <span class="jsstringcolor" style="color:brown">"Paragraph changed."</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p>External scripts are practical when the same code is used in many different web pages. </p>
+<p>JavaScript files have the file extension <strong>.js</strong>.</p>
+<p>To use an external script, put the name of the script file in the <code class="w3-codespan">src</code> (source) attribute of 
+a <code class="w3-codespan">&lt;script&gt;</code> tag:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate htmlHigh">
+<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>script<span class="attributecolor" style="color:red"> src<span class="attributevaluecolor" style="color:mediumblue">="myScript.js"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="jscolor" style="color:black"></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/script<span class="tagcolor" style="color:mediumblue">&gt;</span></span> </div>
+</div>
+
+<p>You can place an external script reference in <code class="w3-codespan">&lt;head&gt;</code> or <code class="w3-codespan">&lt;body&gt;</code> as you like.</p>
+<p>The script will behave as if it was located exactly where the <code class="w3-codespan">&lt;script&gt;</code> tag is located.</p>
+
+<div class="w3-panel w3-note">
+<p>External scripts cannot contain <code class="w3-codespan">&lt;script&gt;</code> tags.</p>
+</div>
+
+<hr>
+<h2>External JavaScript Advantages</h2>
+<p>Placing scripts in external files has some advantages:</p>
+<ul>
+ <li>It separates HTML and code</li>
+ <li>It makes HTML and JavaScript easier to read and maintain</li>
+ <li>Cached JavaScript files can speed up page loads</li>
+</ul>
+<p>To add several script files to one page&nbsp; - use several script tags:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate htmlHigh">
+<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>script<span class="attributecolor" style="color:red"> src<span class="attributevaluecolor" style="color:mediumblue">="myScript1.js"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="jscolor" style="color:black"></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/script<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>script<span class="attributecolor" style="color:red"> src<span class="attributevaluecolor" style="color:mediumblue">="myScript2.js"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="jscolor" style="color:black"></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/script<span class="tagcolor" style="color:mediumblue">&gt;</span></span>
+ </div>
+</div>
+
+
+<hr>
+<h2>External References</h2>
+<p>An external script can be referenced in 3 different ways:</p>
+<ul>
+<li>With a full URL (a full web address)</li>
+<li>With a file path (like /js/)</li>
+<li>Without any path</li>
+</ul>
+
+<p>This Sample uses a <b>full URL</b> to link to myScript.js: </p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate htmlHigh">
+ </div>
+</div>
+
+<p>This Sample uses a <b>file path</b> to link to myScript.js:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate htmlHigh">
+<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>script<span class="attributecolor" style="color:red"> src<span class="attributevaluecolor" style="color:mediumblue">="/js/myScript.js"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="jscolor" style="color:black"></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/script<span class="tagcolor" style="color:mediumblue">&gt;</span></span>
+ </div>
+</div>
+
+<p>This Sample uses no path to link to myScript.js:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate htmlHigh">
+<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>script<span class="attributecolor" style="color:red"> src<span class="attributevaluecolor" style="color:mediumblue">="myScript.js"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="jscolor" style="color:black"></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/script<span class="tagcolor" style="color:mediumblue">&gt;</span></span>
+ </div>
+</div>
+
+<div class="w3-panel w3-note">
+<p>You can read more about file paths in the chapter HTML 
+File Paths</a>.</p>
+</div>
+

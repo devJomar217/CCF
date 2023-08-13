@@ -1,0 +1,300 @@
+<!-- Types Of-->
+
+
+  <div class="w3-row w3-white">
+    
+
+
+<h1>What is typeof in JavaScript?</h1>
+
+<p>In JavaScript there are 5 different data types that can contain values:</p>
+<ul>
+  <li><code class="w3-codespan">string</code></li>
+  <li><code class="w3-codespan">number</code></li>
+  <li><code class="w3-codespan">boolean</code></li>
+  <li><code class="w3-codespan">object</code></li>
+  <li><code class="w3-codespan">function</code></li>
+</ul>
+<p>There are 6 types of objects:</p>
+<ul>
+  <li><code class="w3-codespan">Object</code></li>
+  <li><code class="w3-codespan">Date</code></li>
+  <li><code class="w3-codespan">Array</code></li>
+  <li><code class="w3-codespan">String</code></li>
+  <li><code class="w3-codespan">Number</code></li>
+  <li><code class="w3-codespan">Boolean</code></li>
+</ul>
+<p>And 2 data types that cannot contain values:</p>
+<ul>
+  <li><code class="w3-codespan">null</code></li>
+  <li><code class="w3-codespan">undefined</code></li>
+</ul>
+<hr>
+
+<h2>The typeof Operator</h2>
+<p>You can use the <code class="w3-codespan">typeof</code> operator to find the data type of a 
+JavaScript variable.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">typeof</span> <span class="jsstringcolor" style="color:brown">"John"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Returns "string" <br></span>
+<span class="jskeywordcolor" style="color:mediumblue">typeof</span> <span class="jsnumbercolor" style="color:red">3.14</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Returns "number"<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">typeof</span> <span class="jskeywordcolor" style="color:mediumblue">NaN</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Returns "number"<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">typeof</span> <span class="jskeywordcolor" style="color:mediumblue">false</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Returns "boolean"<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">typeof</span> [<span class="jsnumbercolor" style="color:red">1</span>,<span class="jsnumbercolor" style="color:red">2</span>,<span class="jsnumbercolor" style="color:red">3</span>,<span class="jsnumbercolor" style="color:red">4</span>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Returns 
+ "object"<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">typeof</span> {name:<span class="jsstringcolor" style="color:brown">'John'</span>, age:<span class="jsnumbercolor" style="color:red">34</span>}&nbsp;<span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Returns "object"<br></span><span class="jskeywordcolor" style="color:mediumblue">typeof</span> <span class="jskeywordcolor" style="color:mediumblue">new</span> Date()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Returns "object"<br></span><span class="jskeywordcolor" style="color:mediumblue">typeof</span> <span class="jskeywordcolor" style="color:mediumblue">function</span> () {} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// Returns 
+ "function"<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">typeof</span> myCar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Returns "undefined" *<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">typeof</span> <span class="jskeywordcolor" style="color:mediumblue">null</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Returns "object"
+ </span></span></div>
+</div>
+<p>Please observe:</p>
+<ul>
+  <li>The data type of NaN is number</li>
+  <li>The data type of an array is object</li>
+  <li>The data type of a date is object</li>
+  <li>The data type of null is object</li>
+  <li>The data type of an undefined variable is <strong>undefined</strong> 
+    *</li>
+    <li>The data type of a variable that has not been assigned a value is 
+    also <strong>undefined</strong> *</li>
+</ul>
+
+<div class="w3-panel w3-note">
+<p>You cannot use <code class="w3-codespan">typeof</code> to determine if a JavaScript object is an array (or a date).</p>
+</div>
+
+
+<h2>Primitive Data</h2>
+<p>A primitive data value is a single simple data value with no additional 
+properties and methods.</p>
+<p>The <code class="w3-codespan">typeof</code> operator can return one of these primitive types:</p>
+<ul>
+  <li><code class="w3-codespan">string</code></li>
+  <li><code class="w3-codespan">number</code></li>
+  <li><code class="w3-codespan">boolean</code></li>
+  <li><code class="w3-codespan">undefined</code></li>
+</ul>
+<div class="w3-Sample">
+  <h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">typeof</span> <span class="jsstringcolor" style="color:brown">"John"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Returns 
+ "string" <br></span>
+<span class="jskeywordcolor" style="color:mediumblue">typeof</span> <span class="jsnumbercolor" style="color:red">3.14</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Returns 
+ "number"<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">typeof</span> <span class="jskeywordcolor" style="color:mediumblue">true</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Returns 
+ "boolean"<br></span><span class="jskeywordcolor" style="color:mediumblue">typeof</span> <span class="jskeywordcolor" style="color:mediumblue">false</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Returns 
+ "boolean"<br></span><span class="jskeywordcolor" style="color:mediumblue">typeof</span> x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="jsnumbercolor" style="color:red">
+</span>  <span class="commentcolor" style="color:green">// Returns "undefined" (if x has no value) </span></span></div>
+</div>
+
+<hr>
+<h2>Complex Data</h2>
+<p>The <code class="w3-codespan">typeof</code> operator can return one of two complex types:</p>
+<ul>
+  <li><code class="w3-codespan">function</code></li>
+  <li><code class="w3-codespan">object</code></li>
+</ul>
+
+<p>The <code class="w3-codespan">typeof</code> operator returns "object" for objects, arrays, and null.</p>
+<p>The <code class="w3-codespan">typeof</code> operator does not return "object" for functions.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">typeof</span> {name:<span class="jsstringcolor" style="color:brown">'John'</span>, age:<span class="jsnumbercolor" style="color:red">34</span>}&nbsp;<span class="commentcolor" style="color:green">// Returns "object"<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">typeof</span> [<span class="jsnumbercolor" style="color:red">1</span>,<span class="jsnumbercolor" style="color:red">2</span>,<span class="jsnumbercolor" style="color:red">3</span>,<span class="jsnumbercolor" style="color:red">4</span>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Returns "object" (not "array", see note below)<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">typeof</span> <span class="jskeywordcolor" style="color:mediumblue">null</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// Returns 
+  "object"<br></span><span class="jskeywordcolor" style="color:mediumblue">typeof</span> <span class="jskeywordcolor" style="color:mediumblue">function</span> myFunc(){}&nbsp;&nbsp; <span class="commentcolor" style="color:green">// Returns "function"<br></span><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-panel w3-note">
+<p>The <code class="w3-codespan">typeof</code> operator returns "<code class="w3-codespan">object</code>" for arrays because in JavaScript arrays are objects.</p>
+</div>
+<hr>
+<h2>The Data Type of typeof</h2>
+<p>The <code class="w3-codespan">typeof</code>operator is not a variable. It is an operator. Operators ( + - * / 
+) do not have any data type. </p>
+<p>But, the <code class="w3-codespan">typeof</code> operator always <strong>returns a string</strong> (containing 
+the type of the operand).</p>
+<hr>
+
+<h2>The constructor Property</h2>
+<p>The <code class="w3-codespan">constructor</code> property returns the constructor 
+function for all JavaScript variables.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jsstringcolor" style="color:brown">"John"</span>.<span class="jspropertycolor" style="color:black">constructor</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Returns function String()&nbsp; {[native code]}<br></span><span class="jsnumbercolor" style="color:red">
+</span>(<span class="jsnumbercolor" style="color:red">3.14</span>).<span class="jspropertycolor" style="color:black">constructor</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Returns function Number()&nbsp; {[native code]}<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">false</span>.<span class="jspropertycolor" style="color:black">constructor</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Returns 
+  function Boolean() {[native code]}<br></span><span class="jsnumbercolor" style="color:red">
+</span>[<span class="jsnumbercolor" style="color:red">1</span>,<span class="jsnumbercolor" style="color:red">2</span>,<span class="jsnumbercolor" style="color:red">3</span>,<span class="jsnumbercolor" style="color:red">4</span>].<span class="jspropertycolor" style="color:black">constructor</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Returns function Array()&nbsp;&nbsp; {[native code]}<br></span><span class="jsnumbercolor" style="color:red">
+</span>{name:<span class="jsstringcolor" style="color:brown">'John'</span>,age:<span class="jsnumbercolor" style="color:red">34</span>}.<span class="jspropertycolor" style="color:black">constructor</span>&nbsp;<span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Returns function Object()&nbsp; {[native code]}<br></span><span class="jsnumbercolor" style="color:red">
+</span> <span class="jskeywordcolor" style="color:mediumblue">new</span> Date().<span class="jspropertycolor" style="color:black">constructor</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Returns function Date()&nbsp; &nbsp; {[native code]}<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">function</span> () {}.<span class="jspropertycolor" style="color:black">constructor</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Returns 
+  function Function(){[native code]}
+ </span></span></div>
+</div>
+
+<p>
+You can check the constructor property to find out if an object is an <code class="w3-codespan">Array</code> 
+(contains the word "Array"):</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">function</span> isArray(myArray) {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; <span class="jskeywordcolor" style="color:mediumblue">return</span> myArray.<span class="jspropertycolor" style="color:black">constructor</span>.<span class="jspropertycolor" style="color:black">toString</span>().<span class="jspropertycolor" style="color:black">indexOf</span>(<span class="jsstringcolor" style="color:brown">"Array"</span>) &gt; -<span class="jsnumbercolor" style="color:red">1</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p>Or even simpler, you can check if the object is an <strong>Array function</strong>:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">function</span> isArray(myArray) {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; <span class="jskeywordcolor" style="color:mediumblue">return</span> myArray.<span class="jspropertycolor" style="color:black">constructor</span> <span class="jsnumbercolor" style="color:red">
+</span>  === Array;<br><span class="jsnumbercolor" style="color:red">
+</span>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p>
+You can check the constructor property to find out if an object is a 
+<code class="w3-codespan">Date</code> (contains the word "Date"):</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">function</span> isDate(myDate) {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; <span class="jskeywordcolor" style="color:mediumblue">return</span> myDate.<span class="jspropertycolor" style="color:black">constructor</span>.<span class="jspropertycolor" style="color:black">toString</span>().<span class="jspropertycolor" style="color:black">indexOf</span>(<span class="jsstringcolor" style="color:brown">"Date"</span>) &gt; -<span class="jsnumbercolor" style="color:red">1</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<p>Or even simpler, you can check if the object is a <strong>Date function</strong>:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">function</span> isDate(myDate) {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; <span class="jskeywordcolor" style="color:mediumblue">return</span> myDate.<span class="jspropertycolor" style="color:black">constructor</span> === Date;<br><span class="jsnumbercolor" style="color:red">
+</span>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<hr>
+<h2>Undefined</h2>
+<p>In JavaScript, a variable without a value, has the value <code class="w3-codespan">undefined</code>. 
+The type is also <code class="w3-codespan">undefined</code>.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> car;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// Value is undefined, 
+    type is undefined </span></span></div>
+</div>
+<p>Any variable can be emptied, by setting the value to <code class="w3-codespan">undefined</code>. 
+The type will also be <code class="w3-codespan">undefined</code>.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span>    car = undefined;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// Value is undefined, 
+    type is undefined </span></span></div>
+</div>
+
+<hr>
+<h2>Empty Values </h2>
+<p>An empty value has nothing to do with <code class="w3-codespan">undefined</code>.</p>
+<p>An empty string has both a legal value and a type.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> car = <span class="jsstringcolor" style="color:brown">""</span>;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// 
+    The value is 
+    "", the typeof is "string" </span></span></div>
+</div>
+
+<hr>
+<h2>Null</h2>
+<p>In JavaScript <code class="w3-codespan">null</code> is "nothing". It is supposed to be something that doesn't exist.</p>
+<p>Unfortunately, in JavaScript, the data type of <code class="w3-codespan">null</code> is an object.</p>
+
+<div class="w3-panel w3-note">
+<p>You can consider it a bug in JavaScript that <code class="w3-codespan">typeof null</code> is an object. It should be <code class="w3-codespan">null</code>.</p>
+</div>
+
+<p>You can empty an object by setting it to <code class="w3-codespan">null</code>:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> person = {firstName:<span class="jsstringcolor" style="color:brown">"John"</span>, lastName:<span class="jsstringcolor" style="color:brown">"Doe"</span>, age:<span class="jsnumbercolor" style="color:red">50</span>, eyeColor:<span class="jsstringcolor" style="color:brown">"blue"</span>};<br>person = <span class="jskeywordcolor" style="color:mediumblue">null</span>;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// 
+  Now value is null, 
+    but type is still an object<br></span><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<p>You can also empty an object by setting it to <code class="w3-codespan">undefined</code>:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> person = {firstName:<span class="jsstringcolor" style="color:brown">"John"</span>, lastName:<span class="jsstringcolor" style="color:brown">"Doe"</span>, age:<span class="jsnumbercolor" style="color:red">50</span>, eyeColor:<span class="jsstringcolor" style="color:brown">"blue"</span>};<br>person = undefined;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// 
+  Now both value and type is undefined<br></span><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<hr>
+
+<h2>Difference Between Undefined and Null</h2>
+<p><code class="w3-codespan">undefined</code> and <code class="w3-codespan">null</code> are equal in value but different in type:</p>
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span> <span class="jskeywordcolor" style="color:mediumblue">typeof</span> undefined&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="jsnumbercolor" style="color:red">
+</span>    <span class="commentcolor" style="color:green">// undefined<br></span><span class="jskeywordcolor" style="color:mediumblue">typeof</span> <span class="jskeywordcolor" style="color:mediumblue">null</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="jsnumbercolor" style="color:red">
+</span>    <span class="commentcolor" style="color:green">// object<br></span><br><span class="jskeywordcolor" style="color:mediumblue">null</span> === undefined&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="jsnumbercolor" style="color:red">
+</span>    <span class="commentcolor" style="color:green">// false<br></span><span class="jskeywordcolor" style="color:mediumblue">null</span> == undefined&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="jsnumbercolor" style="color:red">
+</span>    <span class="commentcolor" style="color:green">// true </span></span></div>
+</div>
+
+<hr>
+<h2>The instanceof Operator</h2>
+<p>The <code class="w3-codespan">instanceof</code> operator returns <code class="w3-codespan">true</code> if an object is an instance of the specified object:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> cars = [<span class="jsstringcolor" style="color:brown">"Saab"</span>, <span class="jsstringcolor" style="color:brown">"Volvo"</span>, <span class="jsstringcolor" style="color:brown">"BMW"</span>];<br><br><span class="jsnumbercolor" style="color:red">
+</span>(cars <span class="jskeywordcolor" style="color:mediumblue">instanceof</span> Array);<br><span class="jsnumbercolor" style="color:red">
+</span>(cars <span class="jskeywordcolor" style="color:mediumblue">instanceof</span> Object);<br><span class="jsnumbercolor" style="color:red">
+</span>(cars <span class="jskeywordcolor" style="color:mediumblue">instanceof</span> String);<br><span class="jsnumbercolor" style="color:red">
+</span>(cars <span class="jskeywordcolor" style="color:mediumblue">instanceof</span> Number);<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<hr>
+
+<h2>The void Operator</h2>
+<p>The <strong>void</strong> operator evaluates an expression and returns 
+<strong>undefined</strong>. This operator is often used to obtain the undefined 
+primitive value, using "void(0)" (useful when evaluating an expression without 
+using the return value).</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate htmlHigh">
+ <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>a<span class="attributecolor" style="color:red"> href<span class="attributevaluecolor" style="color:mediumblue">="javascript:void(0);"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>&nbsp; Useless link<br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/a<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+ <br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>a<span class="attributecolor" style="color:red"> href<span class="attributevaluecolor" style="color:mediumblue">="javascript:void(document.body.style.backgroundColor='red');"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>&nbsp; Click me to change the background color of body to red<br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/a<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+ </div>
+</div>

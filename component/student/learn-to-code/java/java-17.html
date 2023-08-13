@@ -1,0 +1,107 @@
+
+
+    <div class="w3-row w3-white">
+      
+     
+  
+  <h1>What is <span class="color_h1">For Loop in Java?</span></h1>
+  
+  
+  <h2>Java For Loop</h2>
+  
+  <p>When you know exactly how many times you want to loop through a block of 
+  code, use the <code class="w3-codespan">for</code> loop instead of a <code class="w3-codespan">while</code> loop:</p>
+  
+  <div class="w3-Sample">
+  <h3>Syntax</h3>
+  <pre class="w3-white language-java" tabindex="0"><code class="language-java"><span class="token keyword keyword-for">for</span> <span class="token punctuation">(</span><i>statement <span class="token number">1</span></i><span class="token number"></span><span class="token punctuation">;</span><i> statement <span class="token number">2</span></i><span class="token number"></span><span class="token punctuation">;</span><i> statement <span class="token number">3</span></i><span class="token number"></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment"><i>// code block to be executed</i></span>
+  <span class="token punctuation">}</span></code></pre>
+  </div>
+  
+  <p><strong>Statement 1</strong> is executed (one time) before the execution of the code block.</p>
+  <p><strong>Statement 2</strong> defines the condition for executing the code block.</p>
+  <p><strong>Statement 3</strong> is executed (every time) after the code block has been executed.</p>
+  
+  <p>The Sample below will print the numbers 0 to 4:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <pre class="w3-white language-java" tabindex="0"><code class="language-java"><span class="token keyword keyword-for">for</span> <span class="token punctuation">(</span><span class="token keyword keyword-int">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  </code></pre>
+  <p>
+  </p>
+  </div>
+  
+  <h4>Sample explained</h4>
+  <p>Statement 1 sets a variable before the loop starts (int i = 0).</p>
+  <p>Statement 2 defines the condition for the loop to run (i must be less than 
+  5). If the condition is true, the loop will start over again, if it is false, 
+  the loop will end.</p>
+  <p>Statement 3 increases a value (i++) each time the code block in the loop has 
+  been executed.</p>
+  <hr>
+  <h2>Another Sample</h2>
+  <p>This Sample will only print even values between 0 and 10:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <pre class="w3-white language-java" tabindex="0"><code class="language-java"><span class="token keyword keyword-for">for</span> <span class="token punctuation">(</span><span class="token keyword keyword-int">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">10</span><span class="token punctuation">;</span> i <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span></code></pre>
+  <p>
+  </p>
+  </div>
+  <hr>
+  
+  <h2>Nested Loops</h2>
+  <p>It is also possible to place a loop inside another loop. This is called a
+  <strong>nested loop</strong>.</p>
+  <p>The "inner loop" will be executed one time for each iteration of the "outer loop":</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <pre class="w3-white language-java" tabindex="0"><code class="language-java"><span class="token comment">// Outer loop</span>
+  <span class="token keyword keyword-for">for</span> <span class="token punctuation">(</span><span class="token keyword keyword-int">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">2</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Outer: "</span> <span class="token operator">+</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Executes 2 times</span>
+    
+    <span class="token comment">// Inner loop</span>
+    <span class="token keyword keyword-for">for</span> <span class="token punctuation">(</span><span class="token keyword keyword-int">int</span> j <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;=</span> <span class="token number">3</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">" Inner: "</span> <span class="token operator">+</span> j<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Executes 6 times (2 * 3)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span> </code></pre>
+  <p>
+  </p>
+  
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+  <div class="w3-row w3-white">
+    
+   
+
+<h1>Java <span class="color_h1">For Each Loop</span></h1>
+
+<hr>
+
+<h2>For-Each Loop</h2>
+<p>There is also a "<b>for-each</b>" loop, which is used exclusively to loop through elements in an  <strong>array</strong></a>:</p>
+<div class="w3-Sample">
+<h3>Syntax</h3>
+<pre class="w3-white language-java" tabindex="0"><code class="language-java"><span class="token keyword keyword-for">for</span> <span class="token punctuation">(</span><em>type</em> <em>variableName</em> <span class="token operator">:</span> <em>arrayName</em><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment"><i>// code block to be executed</i></span>
+<span class="token punctuation">}</span>
+</code></pre>
+</div>
+<p>The following Sample outputs all elements in the <strong>cars</strong> 
+array, using a "<b>for-each</b>" loop:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<pre class="w3-white language-java" tabindex="0"><code class="language-java"><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> cars <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"Volvo"</span><span class="token punctuation">,</span> <span class="token string">"BMW"</span><span class="token punctuation">,</span> <span class="token string">"Ford"</span><span class="token punctuation">,</span> <span class="token string">"Mazda"</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-for">for</span> <span class="token punctuation">(</span><span class="token class-name">String</span> i <span class="token operator">:</span> cars<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+
+</div>
+<div class="w3-note w3-panel">
+<p><strong>Note:</strong> Don't worry if you don't understand the Sample above. You will learn more about Arrays in the Java Arrays chapter</a>.</p></div>
+

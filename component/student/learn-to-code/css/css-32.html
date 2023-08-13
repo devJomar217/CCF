@@ -1,0 +1,157 @@
+<!-- opacity-->
+
+ 
+    <div class="w3-row w3-white">
+   
+  
+  <h1>What is <span class="color_h1">Opacity / Transparency in Css?</span></h1>
+ 
+  <p class="intro">The <code class="w3-codespan">opacity</code> property specifies the opacity/transparency of an element.</p>
+  
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+  img <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp;&nbsp;opacity<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 0.5<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span> </span></div>
+   </div>
+  <hr>
+  
+  <h2>Transparent Hover Effect</h2>
+  <p>The <code class="w3-codespan">opacity</code> property is often used together with the <code class="w3-codespan">:hover</code> 
+  selector to change the opacity on mouse-over:</p>
+  <div class="w3-row-padding" style="margin:0 -16px">
+  <div class="w3-third w3-center">
+ 
+  
+  <div class="w3-Sample" style="margin-bottom:24px;">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+  img <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; opacity<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 0.5<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span><br><br>img:hover <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp;&nbsp;opacity<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 1.0<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span> </span></div>
+   </div>
+  
+  <h3>Sample explained</h3>
+  <p>The first CSS block is similar to the code in Sample 1. In addition, we have added what should happen when a user hovers over one of the images. In this case we want the image to NOT be transparent when the user hovers over it. The CSS for this is <code class="w3-codespan">opacity:1;</code>.</p>
+  <p>When the mouse pointer moves away from the image, the image will be transparent again.</p>
+  
+ 
+  
+  <h2>Transparent Box</h2>
+  <p>When using the <code class="w3-codespan">opacity</code> property to add transparency to the background of an element, all of its child elements 
+  inherit the same transparency. This can make the text inside a fully transparent element hard to read:</p>
+  <div class="w3-cell-row">
+  <div class="w3-cell w3-mobile w3-center">
+  <div style="background-color:#4CAF50;opacity:1;padding:50px;color:black"><p>opacity 1</p></div>
+  </div>
+  
+  <div class="w3-cell w3-mobile w3-center">
+  <div style="background-color:#4CAF50;opacity:0.6;padding:50px;color:black"><p>opacity 0.6</p></div>
+  </div>
+  
+  <div class="w3-cell w3-mobile w3-center">
+  <div style="background-color:#4CAF50;opacity:0.3;padding:50px;color:black"><p>opacity 0.3</p></div>
+  </div>
+  
+  <div class="w3-cell w3-mobile w3-center">
+  <div style="background-color:#4CAF50;opacity:0.1;padding:50px;color:black"><p>opacity 0.1</p></div>
+  </div>
+  
+  </div>
+  
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+  div <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp;&nbsp;opacity<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 0.3<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span> </span></div>
+   </div>
+  <hr>
+  
+  <h2>Transparency using RGBA</h2>
+  <p>If you do not want to apply opacity to child elements, like in our Sample above, use <strong>RGBA</strong> color values. 
+  The following Sample sets the opacity for the background color and not the text:</p>
+  
+  <div class="w3-cell-row">
+  <div class="w3-cell w3-mobile w3-center">
+  <div style="background:rgb(76, 175, 80);padding:50px;color:black"><p>100% opacity</p></div>
+  </div>
+  
+  <div class="w3-cell w3-mobile w3-center">
+  <div style="background:rgba(76, 175, 80,0.6);padding:50px;color:black"><p>60% opacity</p></div>
+  </div>
+  
+  <div class="w3-cell w3-mobile w3-center">
+  <div style="background:rgba(76, 175, 80,0.3);padding:50px;color:black"><p>30% opacity</p></div>
+  </div>
+  
+  <div class="w3-cell w3-mobile w3-center">
+  <div style="background:rgba(76, 175, 80,0.1);padding:50px;color:black"><p>10% opacity</p></div>
+  </div>
+  
+  </div>
+  <p>You learned from our CSS Colors Chapter</a>, that you can use RGB as a color value. In addition to RGB, 
+  you can use an RGB color value with an alpha channel (RGBA) - which specifies the opacity for a color.</p>
+  <p>An RGBA color value is specified with: rgba(red, green, blue, <em>alpha</em>). The 
+  <em>alpha</em> parameter is a number between 0.0 (fully transparent) and 1.0 (fully opaque).</p>
+  <p><strong>Tip:</strong> You will learn more about RGBA Colors in our CSS Colors Chapter</a>.</p>
+  
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+  div <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; background<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> rgba(76, 175, 80, 0.3) <span class="commentcolor" style="color:green">/* Green background with 30% 
+  opacity */</span><br></span></span><span class="cssdelimitercolor" style="color:black">}</span> </span></div>
+   </div>
+  <hr>
+  
+  <h2>Text in Transparent Box</h2>
+  <div class="background">
+  <div class="transbox">
+  <p>This is some text that is placed in the transparent box.</p>
+  </div>
+  </div>
+  
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate htmlHigh">
+  <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>html<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+  <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>head<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+  <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>style<span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="cssselectorcolor" style="color:brown"><br>
+  div.background <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>
+    &nbsp; background<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> url(klematis.jpg) repeat<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+    &nbsp; border<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 2px solid black<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+  </span><span class="cssdelimitercolor" style="color:black">}</span><br>
+  <br>
+  div.transbox <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>
+    &nbsp; margin<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 30px<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+    &nbsp; background-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> #ffffff<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+    &nbsp; border<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 1px solid black<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+  &nbsp;&nbsp;opacity<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 0.6<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+  </span><span class="cssdelimitercolor" style="color:black">}</span><br>
+  <br>
+  div.transbox p <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>
+  &nbsp;&nbsp;margin<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 5%<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+  &nbsp;&nbsp;font-weight<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> bold<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+    &nbsp; color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> #000000<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+  </span><span class="cssdelimitercolor" style="color:black">}</span><br>
+  </span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/style<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+  <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/head<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+  <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>body<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+  <br>
+  <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>div<span class="attributecolor" style="color:red"> class<span class="attributevaluecolor" style="color:mediumblue">="background"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+  &nbsp; <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>div<span class="attributecolor" style="color:red"> class<span class="attributevaluecolor" style="color:mediumblue">="transbox"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+  &nbsp;&nbsp;&nbsp; <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>p<span class="tagcolor" style="color:mediumblue">&gt;</span></span>This is some text that is placed in the transparent box.<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/p<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+  &nbsp; <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/div<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+  <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/div<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+  <br>
+  <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/body<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+  <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/html<span class="tagcolor" style="color:mediumblue">&gt;</span></span>
+   </div>
+   </div>
+  
+  <h2>Sample explained</h2>
+  <p>First, we create a &lt;div&gt; element (class="background") with a background image, and a border.
+  </p>
+  <p>Then we create another &lt;div&gt; (class="transbox") inside the first &lt;div&gt;. </p>
+  <p>The 
+  &lt;div class="transbox"&gt; have a background color, and a border - 
+  the div is transparent. </p>
+  <p>Inside the transparent 
+  &lt;div&gt;, we add some text inside a &lt;p&gt; element.</p>
+  
+ 

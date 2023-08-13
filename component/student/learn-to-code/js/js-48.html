@@ -1,0 +1,193 @@
+<!-- Maps-->
+
+
+  <div class="w3-row w3-white">
+     
+
+<h1>What is Maps in JavaScript?</h1>
+
+
+<div class="w3-info">
+<p>A Map holds key-value pairs where the keys can be any datatype.</p>
+<p>A Map remembers the original insertion order of the keys.</p>
+</div>
+
+<h2>Essential Map Methods</h2>
+<table class="ws-table-all">
+<tbody><tr><th width="120px">Method</th><th>Description</th></tr>
+<tr><td>new Map()</td><td>Creates a new Map</td></tr>
+<tr><td>set()</td><td>Sets the value for a key in a Map</td></tr>
+<tr><td>get()</td><td>Gets the value for a key in a Map</td></tr>
+<tr><td>delete()</td><td>Removes a Map element specified by the key</td></tr>
+<tr><td>has()</td><td>Returns true if a key exists in a Map</td></tr>
+<tr><td>forEach()</td><td>Calls a function for each key/value pair in a Map</td></tr>
+<tr><td>entries()</td><td>Returns an iterator with the [key, value] pairs in a Map</td></tr>
+<tr><th>Property</th><th>Description</th></tr>
+<tr><td>size</td><td>Returns the number of elements in a Map</td></tr>
+</tbody></table>
+
+<hr>
+<h2>How to Create a Map</h2>
+<p>You can create a JavaScript Map by:</p>
+<ul>
+<li>Passing an Array to <code class="w3-codespan">new Map()</code></li>
+<li>Create a Map and use <code class="w3-codespan">Map.set()</code></li>
+</ul>
+<hr>
+<h2>The new Map() Method</h2>
+<p>You can create a Map by passing an Array to the <code class="w3-codespan">new Map()</code> constructor:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Create a Map<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = <span class="jskeywordcolor" style="color:mediumblue">new</span> Map([<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp; [<span class="jsstringcolor" style="color:brown">"apples"</span>, <span class="jsnumbercolor" style="color:red">500</span>],<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp; [<span class="jsstringcolor" style="color:brown">"bananas"</span>, <span class="jsnumbercolor" style="color:red">300</span>],<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp; [<span class="jsstringcolor" style="color:brown">"oranges"</span>, <span class="jsnumbercolor" style="color:red">200</span>]<br><span class="jsnumbercolor" style="color:red">
+</span>]);<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<hr>
+<h2>The set() Method</h2>
+<p>You can add elements to a Map with the <code class="w3-codespan">set()</code> method:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Create a Map<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = <span class="jskeywordcolor" style="color:mediumblue">new</span> Map();<br><span class="jsnumbercolor" style="color:red">
+</span><br><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Set Map Values<br></span>
+fruits.<span class="jspropertycolor" style="color:black">set</span>(<span class="jsstringcolor" style="color:brown">"apples"</span>, <span class="jsnumbercolor" style="color:red">500</span>);<br>
+fruits.<span class="jspropertycolor" style="color:black">set</span>(<span class="jsstringcolor" style="color:brown">"bananas"</span>, <span class="jsnumbercolor" style="color:red">300</span>);<br>
+fruits.<span class="jspropertycolor" style="color:black">set</span>(<span class="jsstringcolor" style="color:brown">"oranges"</span>, <span class="jsnumbercolor" style="color:red">200</span>);<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p>The <code class="w3-codespan">set()</code> method can also be used to change existing Map values:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+fruits.<span class="jspropertycolor" style="color:black">set</span>(<span class="jsstringcolor" style="color:brown">"apples"</span>, <span class="jsnumbercolor" style="color:red">200</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<hr>
+<h2>The get() Method</h2>
+<p>The <code class="w3-codespan">get()</code> method gets the value of a key in a Map:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+fruits.<span class="jspropertycolor" style="color:black">get</span>(<span class="jsstringcolor" style="color:brown">"apples"</span>);&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Returns 500<br></span><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+
+<h2>The size Property</h2>
+<p>The <code class="w3-codespan">size</code> property returns the number of elements in a Map:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+fruits.<span class="jspropertycolor" style="color:black">size</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<hr>
+<h2>The delete() Method</h2>
+<p>The <code class="w3-codespan">delete()</code> method removes a Map element:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+fruits.<span class="jskeywordcolor" style="color:mediumblue">delete</span>(<span class="jsstringcolor" style="color:brown">"apples"</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<hr>
+<h2>The has() Method</h2>
+<p>The <code class="w3-codespan">has()</code> method returns true if a key exists in a Map:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+fruits.<span class="jspropertycolor" style="color:black">has</span>(<span class="jsstringcolor" style="color:brown">"apples"</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<h3>Try This:</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+fruits.<span class="jskeywordcolor" style="color:mediumblue">delete</span>(<span class="jsstringcolor" style="color:brown">"apples"</span>);<br>
+fruits.<span class="jspropertycolor" style="color:black">has</span>(<span class="jsstringcolor" style="color:brown">"apples"</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<hr>
+<h2>JavaScript Objects vs Maps</h2>
+<h4>Differences between JavaScript Objects and Maps:</h4>
+<table class="ws-table-all">
+<tbody><tr><th></th><th>Object</th><th>Map</th></tr>
+<tr><th>Iterable</th>
+<td>Not directly iterable</td>
+<td>Directly iterable</td></tr>
+<tr><th>Size</th>
+<td>Do not have a size property</td>
+<td>Have a size property</td></tr>
+<tr><th>Key Types</th>
+<td>Keys must be Strings (or Symbols)</td>
+<td>Keys can be any datatype</td></tr>
+<tr><th>Key Order</th>
+<td>Keys are not well ordered</td>
+<td>Keys are ordered by insertion</td></tr>
+<tr><th>Defaults</th>
+<td>Have default keys</td>
+<td>Do not have default keys</td></tr>
+</tbody></table>
+
+<hr>
+<h2>The forEach() Method</h2>
+<p>The <code class="w3-codespan">forEach()</code> method calls a function for each key/value pair in a Map:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// List all entries<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">""</span>;<br>
+fruits.<span class="jspropertycolor" style="color:black">forEach</span> (<span class="jskeywordcolor" style="color:mediumblue">function</span>(value, key) {<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;text += key + <span class="jsstringcolor" style="color:brown">' = '</span> + value;<br><span class="jsnumbercolor" style="color:red">
+</span>})<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<hr>
+<h2>The entries() Method</h2>
+<p>The <code class="w3-codespan">entries()</code> method returns an iterator object with the [key, values] in a Map:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// List all entries<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">""</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">for</span> (<span class="jskeywordcolor" style="color:mediumblue">const</span> x of fruits.<span class="jspropertycolor" style="color:black">entries</span>()) {<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;text += x;<br><span class="jsnumbercolor" style="color:red">
+</span>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<hr>
+<h2>Browser Support</h2>
+<p>JavaScript Maps are supported in all browsers, except Internet Explorer:</p>
+<div class="w3-responsive">
+<table class="browserref notranslate">
+  <tbody><tr style="height:50px">
+    <th style="width:16%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:16%;" class="bsEdge" title="Edge"></th>
+    <th style="width:16%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:16%;" class="bsSafari" title="Safari"></th>
+    <th style="width:16%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome</td>    
+    <td>Edge</td>
+    <td>Firefox</td>
+    <td>Safari</td>
+    <td>Opera</td>
+  </tr>
+</tbody></table>
+</div>

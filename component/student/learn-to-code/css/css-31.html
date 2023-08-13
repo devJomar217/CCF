@@ -1,0 +1,195 @@
+<!-- pseudo elemenet-->
+
+ 
+    <div class="w3-row w3-white">
+ 
+  <h1>What is <span class="color_h1">Pseudo-elements in Css?</span></h1>
+  
+  <h2>What are Pseudo-Elements?</h2>
+  <p>A CSS pseudo-element is used to style specified parts of an element.</p>
+  <p>For Sample, it can be used to:</p>
+  <ul>
+  <li>Style the first letter, or line, of an element</li>
+  <li>Insert content before, or after, the content of an element </li>
+  </ul>
+  <hr>
+  <h2>Syntax</h2>
+  <p>The syntax of pseudo-elements:</p>
+  <div class="w3-Sample">
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+  selector::pseudo-element <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp;&nbsp;property<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> value<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span> </span></div>
+  </div>
+  <hr>
+  
+  <h2>The ::first-line Pseudo-element</h2>
+  <p>The <code class="w3-codespan">::first-line</code> pseudo-element is used to add a special style 
+  to the first line of a text.</p>
+  <p>The following Sample formats the first line of the text in all &lt;p&gt; 
+  elements:</p>
+  
+  <div class="w3-Sample">
+  <h3>Sample&nbsp;</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+  p::first-line 
+  <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>
+    &nbsp;
+  color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> #ff0000<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+    &nbsp;
+  font-variant<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> small-caps<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+  </span><span class="cssdelimitercolor" style="color:black">}</span> </span></div>
+   </div>
+  
+  <p><strong>Note:</strong> The <code class="w3-codespan">::first-line</code> pseudo-element can only be applied to block-level 
+  elements.</p>
+  <p>The following properties apply to the <code class="w3-codespan">::first-line</code> 
+  pseudo-element:</p>
+  <ul>
+    <li>font properties</li>
+    <li>color properties</li>
+    <li>background properties</li>
+    <li>word-spacing</li>
+    <li>letter-spacing</li>
+    <li>text-decoration</li>
+    <li>vertical-align</li>
+    <li>text-transform</li>
+    <li>line-height</li>
+    <li>clear</li>
+  </ul>
+  
+  <div class="w3-panel w3-note">
+  <p><strong>Notice the double colon notation - </strong> <code class="w3-codespan">::first-line</code> versus
+  <code class="w3-codespan">:first-line</code><br><br>The double colon replaced the single-colon 
+  notation for pseudo-elements in CSS3. This was an attempt from W3C to 
+  distinguish between <strong>pseudo-classes</strong> 
+  and <strong>pseudo-elements</strong>.<br><br>The single-colon syntax was used 
+  for both pseudo-classes and pseudo-elements in CSS2 and CSS1.<br><br>For 
+  backward compatibility, the single-colon syntax is acceptable for CSS2 and CSS1 
+  pseudo-elements.</p>
+  </div>
+ 
+  
+  <h2>The ::first-letter Pseudo-element</h2>
+  <p>The <code class="w3-codespan">::first-letter</code> pseudo-element is used to add a special style to the first 
+  letter of a text.</p>
+  <p>The following Sample formats the first letter of the text in all &lt;p&gt; 
+  elements:&nbsp;</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+  p::first-letter 
+  <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>
+    &nbsp;
+  color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> #ff0000<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+    &nbsp;
+  font-size<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> xx-large<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+  </span><span class="cssdelimitercolor" style="color:black">}</span> </span></div>
+   </div>
+  
+  <p><strong>Note:</strong> The <code class="w3-codespan">::first-letter</code> pseudo-element can only be applied to block-level 
+  elements.</p>
+  <p>The following properties apply to the ::first-letter pseudo- element:&nbsp;</p>
+  <ul>
+    <li> font properties</li>
+    <li> color properties&nbsp;</li>
+    <li> background properties</li>
+    <li>margin properties</li>
+    <li>padding properties</li>
+    <li>border properties</li>
+    <li>text-decoration</li>
+    <li>vertical-align (only if "float" is "none")</li>
+    <li>text-transform</li>
+    <li>line-height</li>
+    <li>float</li>
+    <li>clear</li>
+  </ul>
+  <hr>
+  
+  <h2>Pseudo-elements and HTML Classes</h2>
+  <p>Pseudo-elements can be combined with HTML classes:&nbsp;</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+  p.intro::first-letter <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp;&nbsp;color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> #ff0000<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; 
+  font-size<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 200%<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span>  </span></div>
+   </div>
+  <p>The Sample above will display the first letter of paragraphs with class="intro", in 
+  red and in a larger size.</p>
+  <hr>
+  
+  <h2>Multiple Pseudo-elements</h2>
+  <p>Several pseudo-elements can also be combined.</p>
+  <p>In the following Sample, the first letter of a paragraph will be red, in 
+  an xx-large font size. The rest of the first line will be blue, and in 
+  small-caps. The rest of the paragraph will be the default font size and color:</p>
+  
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+  p::first-letter
+  <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>
+  &nbsp;&nbsp;color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> #ff0000<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+  &nbsp;&nbsp;font-size<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> xx-large<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+  </span><span class="cssdelimitercolor" style="color:black">}</span><br><br>
+  p::first-line 
+  <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>
+    &nbsp;
+  color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> #0000ff<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+    &nbsp;
+  font-variant<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> small-caps<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+  </span><span class="cssdelimitercolor" style="color:black">}</span> </span></div>
+   </div>
+  <hr>
+  
+  <h2>CSS - The ::before Pseudo-element</h2>
+  <p>The <code class="w3-codespan">::before</code> pseudo-element can be used to insert some content before the content of an element.</p>
+  <p>The following Sample inserts an image before the content of each &lt;h1&gt; element:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+  h1::before 
+  <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>
+  &nbsp;&nbsp;content<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> url(smiley.gif)<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+  </span><span class="cssdelimitercolor" style="color:black">}</span> </span></div>
+   </div>
+  <hr>
+  
+  <h2>CSS - The ::after Pseudo-element</h2>
+  <p>The <code class="w3-codespan">::after</code> pseudo-element can be used to insert some content after the content of an element.</p>
+  <p>The following Sample inserts an image after the content of each &lt;h1&gt; element:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+  h1::after
+  <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>
+  &nbsp;&nbsp;content<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> url(smiley.gif)<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+  </span><span class="cssdelimitercolor" style="color:black">}</span> </span></div>
+   </div>
+  <hr>
+  
+  <h2>CSS - The ::marker Pseudo-element</h2>
+  <p>The <code class="w3-codespan">::marker</code> pseudo-element selects the 
+  markers of list items.</p>
+  <p>The following Sample styles the markers of list items:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+  ::marker <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"> <br>
+  &nbsp;&nbsp;color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> red<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; font-size<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 23px<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+  </span><span class="cssdelimitercolor" style="color:black">}</span> </span></div>
+   </div>
+  <hr>
+  
+  <h2>CSS - The ::selection Pseudo-element</h2>
+  <p>The <code class="w3-codespan">::selection</code> pseudo-element matches the portion of an element that is 
+  selected by a user.</p>
+  <p>The following CSS properties can be applied to <code class="w3-codespan">::selection</code>: 
+  <code class="w3-codespan">color</code>, 
+  <code class="w3-codespan">background</code>, <code class="w3-codespan">cursor</code>, and <code class="w3-codespan">outline</code>.</p>
+  <p>The following Sample makes the selected text red on a yellow background:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+  ::selection <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp;&nbsp;color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> red<span class="cssdelimitercolor" style="color:black">;</span></span> <br>&nbsp; 
+  background<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> yellow<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span> </span></div>
+   </div>
+   

@@ -1,0 +1,149 @@
+<!-- Polymorphism-->
+
+
+ 
+  <div class="w3-row w3-white">
+ 
+
+<h1>What is <span class="color_h1">Polymorphism in Python?</span></h1>
+ 
+<p class="intro">The word "polymorphism" means "many forms", and in programming it refers to
+methods/functions/operators with the same name that can be executed on many 
+objects or classes.</p>
+<hr>
+
+<h2>Function Polymorphism</h2>
+<p>An Sample of a Python function that can be used on different objects is the 
+<code class="w3-codespan">len()</code> function.</p>
+
+<h3>String</h3>
+<p>For strings <code class="w3-codespan">len()</code> returns the number of characters:</p>
+<div class="w3-Sample">
+ <div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+x = <span class="pythonstringcolor" style="color:brown">"Hello World!"</span><br><span class="pythonnumbercolor" style="color:red">
+</span><br>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(<span class="pythonkeywordcolor" style="color:mediumblue">len</span>(x)) </span></div>
+ </div>
+<h3>Tuple</h3>
+<p>For tuples <code class="w3-codespan">len()</code> returns the number of items 
+in the tuple:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+mytuple = (<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>)<br><span class="pythonnumbercolor" style="color:red">
+</span><br>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(<span class="pythonkeywordcolor" style="color:mediumblue">len</span>(mytuple)) </span></div>
+ </div>
+<h3>Dictionary</h3>
+<p>For dictionaries <code class="w3-codespan">len()</code> returns the number of key/value pairs 
+in the dictionary:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thisdict =<span class="pythonnumbercolor" style="color:red">	</span>{<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"brand"</span>: <span class="pythonstringcolor" style="color:brown">"Ford"</span>,<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"model"</span>: <span class="pythonstringcolor" style="color:brown">"Mustang"</span>,<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonstringcolor" style="color:brown">"year"</span>: <span class="pythonnumbercolor" style="color:red">1964</span><br><span class="pythonnumbercolor" style="color:red">
+</span>}<br><span class="pythonnumbercolor" style="color:red">
+</span><br>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(<span class="pythonkeywordcolor" style="color:mediumblue">len</span>(thisdict)) </span></div>
+ </div>
+
+ 
+
+<h2>Class Polymorphism</h2>
+
+<p>Polymorphism is often used in Class methods, where we can have multiple 
+classes with the same method name.</p>
+
+<p>For Sample, say we have three classes: <code class="w3-codespan">Car</code>, 
+<code class="w3-codespan">Boat</code>, and <code class="w3-codespan">Plane</code>, and they all have 
+a method called <code class="w3-codespan">move()</code>:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+  <p>Different classes with the same method:</p>
+  <div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+<span class="pythonkeywordcolor" style="color:mediumblue">class</span> Car:<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonkeywordcolor" style="color:mediumblue">def</span> __init__(self, brand, model):<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;&nbsp;&nbsp;self.brand = brand<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;&nbsp;&nbsp;self.model = model<br><span class="pythonnumbercolor" style="color:red">
+</span><br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonkeywordcolor" style="color:mediumblue">def</span> move(self):<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;&nbsp; <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(<span class="pythonstringcolor" style="color:brown">"Drive!"</span>)<br><span class="pythonnumbercolor" style="color:red">
+</span><br>
+<span class="pythonkeywordcolor" style="color:mediumblue">class</span> Boat:<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonkeywordcolor" style="color:mediumblue">def</span> __init__(self, brand, model):<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;&nbsp;&nbsp;self.brand = brand<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;&nbsp;&nbsp;self.model = model<br><span class="pythonnumbercolor" style="color:red">
+</span><br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonkeywordcolor" style="color:mediumblue">def</span> move(self):<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(<span class="pythonstringcolor" style="color:brown">"Sail!"</span>)<br><span class="pythonnumbercolor" style="color:red">
+</span><br>
+<span class="pythonkeywordcolor" style="color:mediumblue">class</span> Plane:<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonkeywordcolor" style="color:mediumblue">def</span> __init__(self, brand, model):<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;&nbsp;&nbsp;self.brand = brand<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;&nbsp;&nbsp;self.model = model<br><span class="pythonnumbercolor" style="color:red">
+</span><br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="pythonkeywordcolor" style="color:mediumblue">def</span> move(self):<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(<span class="pythonstringcolor" style="color:brown">"Fly!"</span>)<br><span class="pythonnumbercolor" style="color:red">
+</span><br>
+car1 = Car(<span class="pythonstringcolor" style="color:brown">"Ford"</span>, <span class="pythonstringcolor" style="color:brown">"Mustang"</span>)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">#Create a Car 
+    class<br></span>
+boat1 = Boat(<span class="pythonstringcolor" style="color:brown">"Ibiza"</span>, <span class="pythonstringcolor" style="color:brown">"Touring 20"</span>) <span class="commentcolor" style="color:green">#Create a Boat class<br></span>
+plane1 = Plane(<span class="pythonstringcolor" style="color:brown">"Boeing"</span>, <span class="pythonstringcolor" style="color:brown">"747"</span>) &nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">#Create a Plane class<br></span><span class="pythonnumbercolor" style="color:red">
+</span><br>
+<span class="pythonkeywordcolor" style="color:mediumblue">for</span> x <span class="pythonkeywordcolor" style="color:mediumblue">in</span> (car1, boat1, plane1):<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;x.move()<br><span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </a>
+</div>
+
+<p>Look at the for loop at the end.
+Because of polymorphism we can execute the same method for all three classes.</p>
+
+<hr>
+
+<h2>Inheritance Class Polymorphism</h2>
+
+<p>What about classes with child classes with the same name? Can we use polymorphism there?</p>
+
+<p>Yes. If we use the Sample above and make a parent class called 
+<code class="w3-codespan">Vehicle</code>, and make <code class="w3-codespan">Car</code>, 
+<code class="w3-codespan">Boat</code>, <code class="w3-codespan">Plane</code>
+child classes of <code class="w3-codespan">Vehicle</code>, the child classes 
+inherits the <code class="w3-codespan">Vehicle</code> methods, but can override 
+them:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+  <p>Create a class called <code class="w3-codespan">Vehicle</code> and make <code class="w3-codespan">Car</code>, 
+<code class="w3-codespan">Boat</code>, <code class="w3-codespan">Plane</code>
+  child classes of 
+  <code class="w3-codespan">Vehicle</code>:</p>
+  <div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>    <span class="pythonkeywordcolor" style="color:mediumblue">class</span> Vehicle:<br>&nbsp; <span class="pythonkeywordcolor" style="color:mediumblue">def</span> __init__(self, brand, model):<br>&nbsp;&nbsp;&nbsp; <span class="pythonnumbercolor" style="color:red">
+</span>    self.brand = brand<br>&nbsp;&nbsp;&nbsp; self.model = model<br><br>&nbsp; <span class="pythonnumbercolor" style="color:red">
+</span>    <span class="pythonkeywordcolor" style="color:mediumblue">def</span> move(self):<br>&nbsp;&nbsp;&nbsp; <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(<span class="pythonstringcolor" style="color:brown">"Move!"</span>)<br><br><span class="pythonkeywordcolor" style="color:mediumblue">class</span> <span class="pythonnumbercolor" style="color:red">
+</span>    Car(Vehicle):<br>&nbsp; <span class="pythonkeywordcolor" style="color:mediumblue">pass</span><br><br><span class="pythonkeywordcolor" style="color:mediumblue">class</span> Boat(Vehicle):<br>&nbsp; <span class="pythonkeywordcolor" style="color:mediumblue">def</span> <span class="pythonnumbercolor" style="color:red">
+</span>    move(self):<br>&nbsp;&nbsp;&nbsp; <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(<span class="pythonstringcolor" style="color:brown">"Sail!"</span>)<br><br><span class="pythonkeywordcolor" style="color:mediumblue">class</span> <span class="pythonnumbercolor" style="color:red">
+</span>    Plane(Vehicle):<br>&nbsp; <span class="pythonkeywordcolor" style="color:mediumblue">def</span> move(self):<br>&nbsp;&nbsp;&nbsp; <span class="pythonnumbercolor" style="color:red">
+</span>    <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(<span class="pythonstringcolor" style="color:brown">"Fly!"</span>)<br><br>car1 = Car(<span class="pythonstringcolor" style="color:brown">"Ford"</span>, <span class="pythonstringcolor" style="color:brown">"Mustang"</span>) <span class="commentcolor" style="color:green">#Create a Car object<br></span><span class="pythonnumbercolor" style="color:red">
+</span>    boat1 = Boat(<span class="pythonstringcolor" style="color:brown">"Ibiza"</span>, <span class="pythonstringcolor" style="color:brown">"Touring 20"</span>) <span class="commentcolor" style="color:green">#Create a Boat object<br></span>plane1 = <span class="pythonnumbercolor" style="color:red">
+</span>    Plane(<span class="pythonstringcolor" style="color:brown">"Boeing"</span>, <span class="pythonstringcolor" style="color:brown">"747"</span>) <span class="commentcolor" style="color:green">#Create a Plane object<br></span><br><span class="pythonkeywordcolor" style="color:mediumblue">for</span> x <span class="pythonkeywordcolor" style="color:mediumblue">in</span> (car1, boat1, <span class="pythonnumbercolor" style="color:red">
+</span>    plane1):<br>&nbsp; <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(x.brand)<br>&nbsp; <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(x.model)<br>&nbsp; x.move()<br><span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </a>
+</div>
+
+<p>Child classes inherits the properties and methods from the parent class.</p>
+<p>In the Sample above you can see that the <code class="w3-codespan">Car</code> class is empty, but 
+it inherits <code class="w3-codespan">brand</code>, <code class="w3-codespan">
+model</code>, and <code class="w3-codespan">move()</code> from
+<code class="w3-codespan">Vehicle</code>.</p>
+<p>The <code class="w3-codespan">Boat</code> and <code class="w3-codespan">Plane</code> classes also 
+inherit <code class="w3-codespan">brand</code>, <code class="w3-codespan">model</code>, 
+and <code class="w3-codespan">move()</code> from <code class="w3-codespan">Vehicle</code>, but they both override the 
+<code class="w3-codespan">move()</code> method.</p>
+<p>Because of polymorphism we can execute the same method for all classes.</p>
+ 

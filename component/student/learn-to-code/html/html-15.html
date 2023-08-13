@@ -1,0 +1,298 @@
+<!-- Links-->
+
+ 
+    <div class="w3-row w3-white">
+      
+
+  
+  <h1>What is <span class="color_h1">Links in HTML?</span></h1>
+ 
+  <p class="intro">Links are found in nearly all web pages. Links allow users to click their way from page to page.</p>
+  <hr>
+  
+  <h2>HTML Links - Hyperlinks</h2>
+  <p>HTML links are hyperlinks.</p>
+  <p>You can click on a link and jump to another document.</p>
+  <p>When you move the mouse over a link, the mouse arrow will turn into a little hand.</p>
+  <div class="w3-panel w3-note">
+    <p><strong>Note:</strong> A link does not have to be text. A link can be an image 
+    or any other HTML element!</p>
+  </div>
+  <hr>
+  
+  <h2>HTML Links - Syntax</h2>
+  <p>The HTML <code class="w3-codespan">&lt;a&gt;</code> tag defines a hyperlink. 
+  It has the following syntax:</p>
+  <div class="w3-Sample">
+  <div class="w3-code notranslate htmlHigh">
+  <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>a<span class="attributecolor" style="color:red"> href<span class="attributevaluecolor" style="color:mediumblue">="<i>url</i>"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><i>link text</i><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/a<span class="tagcolor" style="color:mediumblue">&gt;</span></span>
+   </div>
+  </div>
+  
+  <p>The most important attribute of the <code class="w3-codespan">&lt;a&gt;</code>  
+  href</code> attribute, which indicates the link's destination.</a></p>
+  <p>The <em>link text</em> is the part that will be visible to the reader.</p>
+  <p>Clicking on the link text, will send the reader to the specified URL address.</p>
+  
+ 
+  
+  <p>By default, links will appear as follows in all browsers:</p>
+  <ul>
+    <li>An unvisited link is underlined and blue</li>
+    <li>A visited link is underlined and purple</li>
+    <li>An active link is underlined and red</li>
+  </ul>
+  <div class="w3-panel w3-note">
+    <p><strong>Tip:</strong> Links can of course be styled with CSS, to get 
+    another look!</p>
+  </div>
+  <hr>
+  
+  <h2>HTML Links - The target Attribute</h2>
+  <p>By default, the linked page will be displayed in the current browser window. 
+  To change this, you must specify another target for the link.</p>
+  <p>The <code class="w3-codespan">target</code> attribute specifies where to open the linked document.</p>
+  <p>The <code class="w3-codespan">target</code> attribute can have one of the following values:</p>
+  <ul>
+    <li><code class="w3-codespan">_self</code> - Default. Opens the document in 
+    the same window/tab as it was clicked</li>
+    <li><code class="w3-codespan">_blank</code> - Opens the document in a new window or tab</li>
+    <li><code class="w3-codespan">_parent</code> - Opens the document in the parent frame</li>
+    <li><code class="w3-codespan">_top</code> - Opens the document in the full body of the window</li>
+  </ul>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+    <p>Use target="_blank" to open the linked document in a new browser window or tab:</p>
+  <div class="w3-code notranslate htmlHigh">
+     </div>
+   </div>
+  <hr>
+  <h2>Absolute URLs vs. Relative URLs</h2>
+  <p>Both Samples above are using an <strong>absolute URL</strong> (a full web address) 
+  in the <code class="w3-codespan">href</code> attribute.</p>
+  <p>A local link (a link to a page within the same website) is specified with a 
+  <strong>relative URL</strong> (without the "https://www" part):</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate htmlHigh">
+    <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>h2<span class="tagcolor" style="color:mediumblue">&gt;</span></span>Absolute URLs<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/h2<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>p<span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>a<span class="attributecolor" style="color:red"> href<span class="attributevaluecolor" style="color:mediumblue">="https://www.w3.org/"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span>W3C<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/a<span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/p<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+    <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>p<span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>a<span class="attributecolor" style="color:red"> href<span class="attributevaluecolor" style="color:mediumblue">="https://www.google.com/"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span>Google<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/a<span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/p<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>h2<span class="tagcolor" style="color:mediumblue">&gt;</span></span>Relative 
+    URLs<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/h2<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>p<span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>a<span class="attributecolor" style="color:red"> href<span class="attributevaluecolor" style="color:mediumblue">="html_images.asp"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span>HTML Images<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/a<span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/p<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>p<span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>a<span class="attributecolor" style="color:red"> href<span class="attributevaluecolor" style="color:mediumblue">="/css/default.asp"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span>CSS 
+    Tutorial<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/a<span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/p<span class="tagcolor" style="color:mediumblue">&gt;</span></span> </div>
+   </div>
+ 
+  
+  <h2>HTML Links - Use an Image as a Link</h2>
+  <p>To use an image as a link, just put the <code class="w3-codespan">&lt;img&gt;</code> 
+  tag inside the <code class="w3-codespan">&lt;a&gt;</code> tag:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate htmlHigh">
+  <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>a<span class="attributecolor" style="color:red"> href<span class="attributevaluecolor" style="color:mediumblue">="default.asp"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>img<span class="attributecolor" style="color:red"> src<span class="attributevaluecolor" style="color:mediumblue">="smiley.gif"</span> alt<span class="attributevaluecolor" style="color:mediumblue">="HTML tutorial"</span> style<span class="attributevaluecolor" style="color:mediumblue">="width:42px;height:42px;"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/a<span class="tagcolor" style="color:mediumblue">&gt;</span></span>
+   </div>
+   </div>
+  <hr>
+  
+  <h2>Link to an Email Address</h2>
+  <p>Use <code class="w3-codespan">
+  mailto:</code> inside the <code class="w3-codespan">
+  href</code> attribute to create a link that opens the user's email program (to 
+  let them send a new email):</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate htmlHigh">
+    <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>a<span class="attributecolor" style="color:red"> href<span class="attributevaluecolor" style="color:mediumblue">="mailto:someone@Sample.com"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span>Send email<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/a<span class="tagcolor" style="color:mediumblue">&gt;</span></span>
+   </div>
+   </div>
+  <hr>
+  
+  <h2>Button as a Link</h2>
+  <p>To use an HTML button as a link, you have to add some JavaScript code.</p>
+  <p>JavaScript allows you to specify what happens at certain events, such as a click of a button:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate htmlHigh">
+  <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>button<span class="attributecolor" style="color:red"> 
+    onclick<span class="attributevaluecolor" style="color:mediumblue">="document.location='default.asp'"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span>HTML Tutorial<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/button<span class="tagcolor" style="color:mediumblue">&gt;</span></span>
+   </div>
+   </div>
+  <div class="w3-panel w3-note">
+   </div>
+  <hr>
+  
+  <h2>Link Titles</h2>
+  <p>The <code class="w3-codespan">title</code> attribute specifies extra information about an element.
+  The information is most often shown as a tooltip text when the mouse moves over the element.</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate htmlHigh">
+     section"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span>Visit our HTML Tutorial<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/a<span class="tagcolor" style="color:mediumblue">&gt;</span></span> </div>
+   </div>
+  <hr>
+  
+  <h2>More on Absolute URLs and Relative URLs</h2>
+  
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <p>Use a full URL to link to a web page:&nbsp;</p>
+  <div class="w3-code notranslate htmlHigh">
+   <p>
+   </div>
+  
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  
+  <p>Link to a page located in the html folder on the current web site:&nbsp;</p>
+  <div class="w3-code notranslate htmlHigh">
+    <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>a<span class="attributecolor" style="color:red"> href<span class="attributevaluecolor" style="color:mediumblue">="/html/default.asp"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span>HTML tutorial<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/a<span class="tagcolor" style="color:mediumblue">&gt;</span></span> </div>
+  <p>
+   </div>
+  
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  
+  <p>Link to a page located in the same folder as the current page:&nbsp;</p>
+  <div class="w3-code notranslate htmlHigh">
+    <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>a<span class="attributecolor" style="color:red"> href<span class="attributevaluecolor" style="color:mediumblue">="default.asp"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span>HTML tutorial<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/a<span class="tagcolor" style="color:mediumblue">&gt;</span></span> </div>
+  <p>
+   </div>
+  
+   
+  
+  <h2>Chapter Summary</h2>
+  <ul>
+    <li>Use the <code class="w3-codespan">&lt;a&gt;</code> element to define a link</li>
+    <li>Use the <code class="w3-codespan">href</code> attribute to define the link address</li>
+    <li>Use the <code class="w3-codespan">target</code> attribute to define where to open the linked document</li>
+    <li>Use the <code class="w3-codespan">&lt;img&gt;</code> element (inside <code class="w3-codespan">&lt;a&gt;</code>) 
+    to use an image as a link</li>
+    <li>Use the <code class="w3-codespan">
+    mailto:</code> scheme inside the <code class="w3-codespan">
+  href</code> attribute to create a link that opens the user's email program</li>
+  </ul>
+  <hr>
+  
+  <h2>HTML Link Tags</h2>
+  <table class="ws-table-all notranslate">
+  <tbody><tr>
+  <th style="width:30%">Tag</th>
+  <th>Description</th></tr><tr>
+  <td>&lt;a&gt;</a></td><td>Defines a hyperlink</td></tr>
+  </tbody></table>
+  <div class="w3-note w3-panel">
+   </div>
+  
+  
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<p>&nbsp;</p>
+    <p>&nbsp;</p>
+   
+    <div class="w3-row w3-white">
+      
+   
+  
+  <h1>HTML <span class="color_h1">Links - Different Colors</span></h1>
+  
+  <p class="intro">An HTML link is displayed in a different color depending on 
+  whether it has been visited, is unvisited, or is active.</p>
+  <hr>
+  
+  <h2>HTML Link Colors</h2>
+  <p>By default, a link will appear like this (in all browsers):</p>
+  <ul>
+    <li>An unvisited link is underlined and blue</li>
+    <li>A visited link is underlined and purple</li>
+    <li>An active link is underlined and red</li>
+  </ul>
+  <p>You can change the link state colors, by using CSS:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <p>Here, an unvisited link will be green with no underline. A visited link 
+  will be pink with no underline. An active link will be yellow and underlined. 
+  In addition, when mousing over a link (a:hover) it will become red and underlined:</p>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+  &lt;style&gt;<br>a:link <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp;&nbsp;color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> green<span class="cssdelimitercolor" style="color:black">;</span></span> <br>&nbsp;&nbsp;background-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> transparent<span class="cssdelimitercolor" style="color:black">;</span></span> 
+    <br>&nbsp;&nbsp;text-decoration<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> none<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span><br><br>
+  a:visited <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> pink<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; background-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> transparent<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; 
+    text-decoration<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> none<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span><br><br>a:hover <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> red<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; background-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> transparent<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+    &nbsp; text-decoration<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> underline<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span><br><br>
+    a:active <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> yellow<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; background-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> transparent<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; 
+    text-decoration<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> underline<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span><br>&lt;/style&gt;
+   </span></div>
+   </div>
+   
+  
+  <h2>Link Buttons</h2>
+  <p>A link can also be styled as a button, by using CSS:</p>
+   This is a link</a>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+  &lt;style&gt;<br>a:link, a:visited <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; background-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> #f44336<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; 
+    color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> white<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; padding<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 15px 25px<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; text-align<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> center<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; 
+    text-decoration<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> none<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; display<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> inline-block<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span><br><br>a:hover, a:active <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; 
+    background-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> red<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span><br>&lt;/style&gt;
+   </span></div>
+   </div>
+  
+   
+  
+  <h2>HTML Link Tags</h2>
+  <table class="ws-table-all notranslate">
+  <tbody><tr>
+  <th style="width:30%">Tag</th>
+  <th>Description</th></tr><tr>
+  <td> &lt;a&gt;</a></td><td>Defines a hyperlink</td></tr>
+  </tbody></table>
+  <div class="w3-note w3-panel">
+   </div>
+  
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+
+    <div class="w3-row w3-white">
+      
+  
+  
+  <h1>HTML <span class="color_h1">Links - Create Bookmarks</span></h1>
+  
+  <p class="intro">HTML links can be used to create bookmarks, so that readers can 
+  jump to specific parts of a web page.</p>
+  <hr>
+  
+  <h2>Create a Bookmark in HTML</h2>
+  <p>Bookmarks can be useful if a web page is very long.</p>
+  <p>To create a bookmark - first create the bookmark, then add a link 
+  to it.</p>
+  <p>When the link is clicked, the page will scroll down or up to the location with the 
+  bookmark.</p>
+  <h2>Sample</h2>
+  <p>First, use the <code class="w3-codespan">id</code> attribute to create a 
+  bookmark:</p>
+  <div class="w3-Sample">
+  <div class="w3-code notranslate htmlHigh">
+  <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>h2<span class="attributecolor" style="color:red"> id<span class="attributevaluecolor" style="color:mediumblue">="C4"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span>Chapter 4<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/h2<span class="tagcolor" style="color:mediumblue">&gt;</span></span> </div>
+  </div>
+  <p>Then, add a link to the bookmark ("Jump to Chapter 4"), from within the same page:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate htmlHigh">
+   <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>a<span class="attributecolor" style="color:red"> href<span class="attributevaluecolor" style="color:mediumblue">="#C4"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span>Jump to Chapter 4<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/a<span class="tagcolor" style="color:mediumblue">&gt;</span></span>
+   </div>
+   </div>
+  
+  <p>You can also add a link to a bookmark on another page:</p>
+  <div class="w3-Sample">
+  <div class="w3-code notranslate htmlHigh">
+  <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>a<span class="attributecolor" style="color:red"> href<span class="attributevaluecolor" style="color:mediumblue">="html_demo.html#C4"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span>Jump to Chapter 4<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/a<span class="tagcolor" style="color:mediumblue">&gt;</span></span>
+   </div>
+  </div>
+ 
+  <h2>Chapter Summary</h2>
+  <ul>
+    <li>Use the <code class="w3-codespan">id</code> attribute (id="<em>value</em>") to define bookmarks in a page</li>
+    <li>Use the <code class="w3-codespan">href</code> attribute (href="#<em>value</em>") to link to the bookmark</li>
+  </ul>
+  <hr>
+  

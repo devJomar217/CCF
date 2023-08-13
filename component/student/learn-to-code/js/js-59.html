@@ -1,0 +1,157 @@
+<!-- Arrow Function-->
+
+
+
+  <div class="w3-row w3-white">
+    
+ 
+
+<h1>What is Arrow Function in JavaScript?</h1>
+
+<div class="w3-info">
+
+<p>Arrow functions were introduced in ES6.</p>
+<p>Arrow functions allow us to write shorter function syntax:</p>
+<p></p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> myFunction = (a, b) =&gt; a * b;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p>
+ </p>
+
+
+</div>
+<div class="w3-Sample">
+<h3>Before Arrow:</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+hello = <span class="jskeywordcolor" style="color:mediumblue">function</span>() {<br>&nbsp; <span class="jskeywordcolor" style="color:mediumblue">return</span> <span class="jsstringcolor" style="color:brown">"Hello World!"</span>;<br>} </span></div>
+<p>
+ </p>
+</div>
+
+<div class="w3-Sample">
+<h3>With Arrow Function:</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+hello = () =&gt; {<br>&nbsp; <span class="jskeywordcolor" style="color:mediumblue">return</span> <span class="jsstringcolor" style="color:brown">"Hello World!"</span>;<br>} </span></div>
+<p>
+  
+</p>
+</div>
+
+<p>It gets shorter! If the function has only one statement, and the statement 
+returns a value, you can remove the brackets <em>and</em> the
+<code class="w3-codespan">return</code> keyword:</p>
+
+<div class="w3-Sample">
+<h3>Arrow Functions Return Value by Default:</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+hello = () =&gt; <span class="jsstringcolor" style="color:brown">"Hello World!"</span>; </span></div>
+<p>
+ </p>
+</div>
+<div class="w3-panel w3-note">
+<p><strong>Note:</strong> This works only if the function has only one 
+statement.</p>
+</div>
+
+<p>If you have parameters, you pass them inside the parentheses:</p>
+
+<div class="w3-Sample">
+<h3>Arrow Function With Parameters:</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+hello = (val) =&gt; <span class="jsstringcolor" style="color:brown">"Hello "</span> + val; </span></div>
+<p>
+ </p>
+</div>
+
+<p>In fact, if you have only one parameter, you can skip the parentheses as well:</p>
+
+<div class="w3-Sample">
+<h3>Arrow Function Without Parentheses:</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+hello = val =&gt; <span class="jsstringcolor" style="color:brown">"Hello "</span> + val; </span></div>
+<a name="arrowthis"><span style="display:none">this</span></a>
+<p>
+ </p>
+</div>
+
+ 
+
+<h2>What About <code class="w3-codespan">this</code>?</h2>
+<p>The handling of <code class="w3-codespan">this</code> is also different in arrow functions compared to regular 
+functions.</p>
+<p>In short, with arrow functions there are no binding of
+<code class="w3-codespan">this</code>.</p>
+<p>In regular functions the <code class="w3-codespan">this</code> keyword represented the object that called the 
+function, which could be the window, the document, a button or whatever.</p>
+<p>With arrow functions the <code class="w3-codespan">this</code> keyword <em>always</em> represents the 
+object that 
+defined the arrow function.</p>
+<p>Let us take a look at two Samples to understand the difference.</p>
+<p>Both Samples call a method twice, first when the page loads, and once again 
+when the user clicks a button.</p>
+<p>The first Sample uses a regular function, and the second Sample uses an 
+arrow function.</p>
+<p>The result shows that the first Sample returns two different objects (window and button), 
+and the 
+second Sample returns the window object twice, because the window object is the 
+"owner" of the function.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>With a regular function <code class="w3-codespan">this</code> represents the 
+object that <em>calls</em> the function:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span>  <span class="commentcolor" style="color:green">// Regular Function:<br></span>hello = <span class="jskeywordcolor" style="color:mediumblue">function</span>() {<br>&nbsp; document.<span class="jspropertycolor" style="color:black">getElementById</span>(<span class="jsstringcolor" style="color:brown">"demo"</span>).<span class="jspropertycolor" style="color:black">innerHTML</span> <span class="jsnumbercolor" style="color:red">
+</span>  += <span class="jskeywordcolor" style="color:mediumblue">this</span>;<br>}<br><br><span class="commentcolor" style="color:green">// The window object calls the function:<br></span><span class="jsnumbercolor" style="color:red">
+</span>  window.<span class="jspropertycolor" style="color:black">addEventListener</span>(<span class="jsstringcolor" style="color:brown">"load"</span>, hello);<br><br><span class="commentcolor" style="color:green">// A button object calls the 
+  function:<br></span>document.<span class="jspropertycolor" style="color:black">getElementById</span>(<span class="jsstringcolor" style="color:brown">"btn"</span>).<span class="jspropertycolor" style="color:black">addEventListener</span>(<span class="jsstringcolor" style="color:brown">"click"</span>, hello); </span></div>
+<p>
+ </p>
+</div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>With an arrow function <code class="w3-codespan">this</code> represents the 
+<em>owner</em> of the function:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span>  <span class="commentcolor" style="color:green">// Arrow Function:<br></span>hello = () =&gt; {<br>&nbsp; document.<span class="jspropertycolor" style="color:black">getElementById</span>(<span class="jsstringcolor" style="color:brown">"demo"</span>).<span class="jspropertycolor" style="color:black">innerHTML</span> <span class="jsnumbercolor" style="color:red">
+</span>  += <span class="jskeywordcolor" style="color:mediumblue">this</span>;<br>}<br><br><span class="commentcolor" style="color:green">// The window object calls the function:<br></span><span class="jsnumbercolor" style="color:red">
+</span>  window.<span class="jspropertycolor" style="color:black">addEventListener</span>(<span class="jsstringcolor" style="color:brown">"load"</span>, hello);<br><br><span class="commentcolor" style="color:green">// A button object calls the 
+  function:<br></span>document.<span class="jspropertycolor" style="color:black">getElementById</span>(<span class="jsstringcolor" style="color:brown">"btn"</span>).<span class="jspropertycolor" style="color:black">addEventListener</span>(<span class="jsstringcolor" style="color:brown">"click"</span>, hello); </span></div>
+<p>
+ </p>
+</div>
+
+<p>Remember these differences when you are working with functions. Sometimes the 
+behavior of regular functions is what you want, if not, use arrow functions.</p>
+
+<hr>
+
+<h2>Browser Support</h2>
+<p>The following table defines the first browser versions with full support for 
+Arrow Functions in JavaScript: </p>
+<div class="w3-responsive">
+<table class="browserref notranslate ws-table-all">
+  <tbody><tr style="height:50px;">
+    <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:20%;" class="bsEdge" title="Edge"></th>
+    <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:20%;" class="bsSafari" title="Safari"></th>
+    <th style="width:20%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome 45</td>
+    <td>Edge 12</td>    
+    <td>Firefox 22</td>
+    <td>Safari 10</td>
+    <td>Opera 32</td>
+  </tr>
+  <tr>
+    <td>Sep, 2015</td>
+    <td>Jul, 2015</td>    
+    <td>May, 2013</td>
+    <td>Sep, 2016</td>
+    <td>Sep, 2015</td>
+  </tr></tbody>
+</table>
+</div>

@@ -1,0 +1,115 @@
+<!-- IF ELSE-->
+
+ 
+  <div class="w3-row w3-white">
+    
+  
+
+<h1>What is <span class="color_h1">if...else...elseif</span> Statements in Php?</h1>
+ 
+<p class="intro">Conditional statements are used to perform different actions based on different conditions.</p>
+<hr>
+
+<h2>PHP Conditional Statements</h2>
+<p>Very often when you write code, you want to perform different actions for 
+different conditions. You can use conditional statements in your code to do this.</p>
+<p>In PHP we have the following conditional statements:</p>
+<ul>
+  <li><code class="w3-codespan">if</code> statement - executes some code if one condition is true</li>
+  <li><code class="w3-codespan">if...else</code> statement - executes some code if a condition is true and another code if that condition is false</li>
+  <li><code class="w3-codespan">if...elseif...else</code> statement  - executes different codes for more than two conditions</li>
+  <li><code class="w3-codespan">switch</code> statement - selects one of many blocks of code to be executed</li>
+</ul>
+<hr>
+
+<h2>PHP - The if Statement</h2>
+<p>The <code class="w3-codespan">if</code> statement executes some code if one condition is true.</p>
+
+<h3>Syntax</h3>
+<div class="w3-code w3-border notranslate"><div>
+if (<i>condition</i>) {<i><br>
+  &nbsp; code to be executed if condition is true</i>;<br>}
+</div></div>
+
+<div class="w3-Sample">
+   <p>Output "Have a good day!" if the current time (HOUR) is less than 20:</p>
+<div class="w3-code htmlHigh notranslate">
+<span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br>
+$t = date(<span class="phpstringcolor" style="color:brown">"H"</span>);<br><span class="phpnumbercolor" style="color:red">
+</span> <br><span class="phpkeywordcolor" style="color:mediumblue">if</span> ($t &lt; <span class="phpstringcolor" style="color:brown">"20"</span>) {<br><span class="phpnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"Have a good day!"</span>;<br><span class="phpnumbercolor" style="color:red">
+</span> }<br>
+<span class="phptagcolor" style="color:red">?&gt;</span></span>
+ </div>
+ </div>
+ 
+<h2>PHP - The if...else Statement</h2>
+<p>The <code class="w3-codespan">if...else</code> statement executes some code if a condition is true and 
+another code if that condition is false.</p>
+
+<h3>Syntax</h3>
+<div class="w3-code w3-border notranslate"><div>
+if (<i>condition</i>)&nbsp;{<br>
+  &nbsp; <i>code to be executed if condition is true;</i><br>
+ }
+else {<br>
+&nbsp;&nbsp;<i>code to be executed if condition is false;<br>
+ </i>}
+</div></div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+  <p>Output "Have a good day!" if the current time is less than 20, and "Have a 
+  good night!" otherwise:</p>
+<div class="w3-code htmlHigh notranslate">
+<span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br>
+$t = date(<span class="phpstringcolor" style="color:brown">"H"</span>);<br><br>
+<span class="phpkeywordcolor" style="color:mediumblue">if</span> ($t &lt; <span class="phpstringcolor" style="color:brown">"20"</span>) {<br><span class="phpnumbercolor" style="color:red">
+</span>&nbsp;
+<span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"Have a good day!"</span>;<br><span class="phpnumbercolor" style="color:red">
+</span> }
+<span class="phpkeywordcolor" style="color:mediumblue">else</span> {<br><span class="phpnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="phpkeywordcolor" style="color:mediumblue">echo</span> 
+<span class="phpstringcolor" style="color:brown">"Have a good night!"</span>;<br><span class="phpnumbercolor" style="color:red">
+</span> }<br>
+<span class="phptagcolor" style="color:red">?&gt;</span></span>
+ </div>
+ </div>
+<hr>
+
+<h2>PHP - The if...elseif...else Statement</h2>
+<p>The <code class="w3-codespan">if...elseif...else</code> statement executes different codes for more than two 
+conditions.</p>
+<h3>Syntax</h3>
+<div class="w3-code w3-border notranslate"><div>
+if (<i>condition</i>) {<br>
+  &nbsp; <i>code to be executed if this condition is true;<br>
+ </i>}
+elseif (<i>condition</i>) {<br>
+  &nbsp;<i> code to be executed if first condition is false and this 
+  condition is true;<br>
+ </i>} else {<br>
+&nbsp;&nbsp;<i>code to be executed if all conditions are false;<br>
+</i>}
+</div></div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+  <p>Output "Have a good morning!" if the current time is less than 10, and 
+  "Have a good day!" if the current time is less than 20. Otherwise it will 
+  output "Have a good night!":</p>
+<div class="w3-code htmlHigh notranslate">
+<span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br>
+$t = date(<span class="phpstringcolor" style="color:brown">"H"</span>);<br><span class="phpnumbercolor" style="color:red">
+</span> <br><span class="phpkeywordcolor" style="color:mediumblue">if</span> ($t &lt; <span class="phpstringcolor" style="color:brown">"10"</span>) {<br><span class="phpnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"Have a good morning!"</span>;<br><span class="phpnumbercolor" style="color:red">
+</span> }
+<span class="phpkeywordcolor" style="color:mediumblue">elseif</span> ($t &lt; <span class="phpstringcolor" style="color:brown">"20"</span>) {<br><span class="phpnumbercolor" style="color:red">
+</span>  &nbsp; <span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"Have a good day!"</span>;<br><span class="phpnumbercolor" style="color:red">
+</span> } <span class="phpkeywordcolor" style="color:mediumblue">else</span> {<br><span class="phpnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"Have a good night!"</span>;<br><span class="phpnumbercolor" style="color:red">
+</span> }<br>
+<span class="phptagcolor" style="color:red">?&gt;</span></span>
+ </div>
+ </div>
+ 

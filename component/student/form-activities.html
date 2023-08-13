@@ -1,290 +1,145 @@
-<meta property="og:url" content="https://www.your-domain.com/your-page.html" />
-<meta property="og:type" content="website" />
-<meta property="og:title" content="Your Website Title" />
-<meta property="og:description" content="Your description" />
-<meta property="og:image" content="https://www.your-domain.com/path/image.jpg" />
-
-<script>
-    window.fbAsyncInit = function() {
-        FB.init({
-            appId: 'your-app-id',
-            autoLogAppEvents: true,
-            xfbml: true,
-            version: 'v17.0'
-        });
-    };
-</script>
-
 <style>
-    .profile-header-container {
-        margin: 0 auto;
-        text-align: center;
-    }
-    
-    .profile-header-img>img.img-circle {
-        border: 2px solid #51D2B7;
-    }
-    
-    .rank-label-container {
-        margin-top: -19px;
-        /* z-index: 1000; */
-        text-align: center;
-    }
-    
-    .label.label-default.rank-label {
-        background-color: rgb(81, 210, 183);
-        border-radius: 27px;
+    img {
+        width: 100%;
     }
 </style>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v17.0" nonce="z2fQyic9"></script>
-<div class="mx-4 my-0 mt-3">
-    <div class="row mb-2">
-        <div class="col-lg-9 px-1">
-            <div class="card shadow-sm py-2 px-5" style="height: 320px">
-                <div class="card-body py-2 px-md-2 mr-0" id="login-form">
-                    <div id="card-form">
-                        <div class="row my-1">
-                            <div class="col-lg-4">
-                                <h1 class="pb-2" style="font-size: 45px;">What do you need to know?</h1>
-                                <input type="button" class="btn btn-primary btn-block px-5" data-toggle="modal" data-target="#modal-add-question" value="Ask a Question" />
-                            </div>
-                        </div>
-                        <div class="row my-3">
-                            <div class="col-lg-4 justify-content-center text-center">
-                                <b class="text-center">OR</b>
-                            </div>
-                        </div>
 
-                        <div class="d-flex justify-content-center">
-                            <input type="text" class="form-control mr-3" placeholder="Search for a question?" id="input-search">
-                            <input type="button" class="btn btn-primary btn-md" value=" Search" id="button-search" />
-                        </div>
-                    </div>
+
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+<div class="container mt-4 mb-5">
+    <h3 class="mt-4">My Activities</h3>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="" id="activity-question">Question</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="" id="activity-answer">Answer </a>
+        </li>
+    </ul>
+    <div class="card shadow-sm py-2 px-5">
+        <div class="card-body py-2 px-md-2 mr-0" id="login-form">
+            <div id="card-form">
+                <div id="container-activity">
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
-
-<!-- Footer -->
-<footer class="bg-link text-center shadow bg-white text-dark">
-    <!-- Grid container -->
-    <div class="">
-
-        <!-- Section: Links -->
-        <section class="">
-            <!--Grid row-->
-            <div class="row">
-                <!--Grid column-->
-
-                <!--Grid column-->
-                <div class="col mb-md-0 pt-3">
-                    <p>
-                        <i>Learning by Asking!</i>
-                    </p>
-                </div>
-                <!--Grid column-->
-
-                <!--Grid column-->
-            </div>
-            <!--Grid row-->
-        </section>
-        <!-- Section: Links -->
-
-    </div>
-    <!-- Grid container -->
-
-    <!-- Copyright -->
-    <div class="text-center p-3">
-        © 2020 Copyright:
-        <a class="text-dark" href="">Code Connect</a>
-    </div>
-    <!-- Copyright -->
-
-</footer>
-<!-- Footer -->
-
-<div class="modal fade" id="modal-add-question" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Post a Question</h5>
-            </div>
-            <form id="form-add-question" class="needs-validation" novalidate>
-                <div class="modal-body">
-                    <div class="form-outline mb-2">
-                        <label class="form-label" for="input-">Title</label>
-                        <input type="text" id="input-new-question-title" class="form-control" placeholder="Enter title" required/>
-                        <div class="invalid-feedback">
-                        </div>
-                    </div>
-
-                    <div class="form-group form-outline mb">
-                        <label for="exampleFormControlTextarea1">Description</label>
-                        <textarea class="form-control" id="input-new-question-description" rows="7" placeholder="Enter description"></textarea>
-                    </div>
-
-                    <div class="row d-flex justify-content-between">
-                        <div class="col">
-                            <div class="form-group form-outline mb">
-                                <a href=""><i class="fa fa-paperclip"></i>Add Attachment</a>
-                                <input type="file" value="Attachment" class="d-none">
-                            </div>
-                        </div>
-                        <div class="col d-flex align-middle">
-                            <label class="form-label align-middle pr-3 pt-2" for="input-scan">Subject: </label>
-                            <select class="form-control" class="dropdown" id="input-new-question-subject">
-                                <option value="" selected>--Please Select--</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal" id="button-close">Close</button>
-                    <button type="submit" class="btn btn-primary">POST</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="modal-report-question" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Report a Question</h5>
-            </div>
-            <form id="form-add-question" class="needs-validation" novalidate>
-                <div class="modal-body">
-                    <div class="form-outline mb-2">
-                        <label class="form-label" for="input-">Title</label>
-                        <input type="text" id="input-new-question-title" class="form-control" placeholder="Enter title" required/>
-                        <div class="invalid-feedback">
-                        </div>
-                    </div>
-
-                    <div class="form-group form-outline mb">
-                        <label for="exampleFormControlTextarea1">Description</label>
-                        <textarea class="form-control" id="input-new-question-description" rows="7" placeholder="Enter description"></textarea>
-                    </div>
-
-                    <div class="row d-flex justify-content-between">
-                        <div class="col">
-                            <div class="form-group form-outline mb">
-                                <a href=""><i class="fa fa-paperclip"></i>Add Attachment</a>
-                                <input type="file" value="Attachment" class="d-none">
-                            </div>
-                        </div>
-                        <div class="col d-flex align-middle">
-                            <label class="form-label align-middle pr-3 pt-2" for="input-scan">Subject: </label>
-                            <select class="form-control" class="dropdown" id="input-new-question-subject">
-                                <option value="" selected>--Please Select--</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal" id="button-close">Close</button>
-                    <button type="submit" class="btn btn-primary">POST</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-
-<!-- <script src="tinymce/tinymce.min.js"></script> -->
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<!-- <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script> -->
-<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/jquery.tinymce.min.js" referrerpolicy="origin"></script>
 
 <script>
     $(document).ready(function() {
-        var subjectList = new Array;
-        var limit = 3;
+        var subjectList;
+        var activityAnswer = "";
+        var activityQuestion = "";
         getSubjectList();
-        getLatestQuestion(-1, -1, limit, "");
-
-
-        // $('textarea#input-new-question-description').tinymce({
-        //     height: 500,
-        //     menubar: false,
-        //     plugins: [
-        //         'advlist autolink lists link image charmap print preview anchor',
-        //         'searchreplace visualblocks code fullscreen',
-        //         'insertdatetime media table paste code help wordcount'
-        //     ],
-        //     toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help'
-        // });
-
-
-        $("#input-status-filter").change(function() {
-            getLatestQuestion($("#input-subject-filter").val(), $("#input-status-filter").val(), limit, "");
+        retrieveActivities();
+        $("#activity-question").on("click", function() {
+            event.preventDefault();
+            $("#activity-question").addClass("active");
+            $("#activity-answer").removeClass("active");
+            $("#container-activity").html(activityQuestion);
         });
 
-        $("#input-subject-filter").change(function() {
-            getLatestQuestion($("#input-subject-filter").val(), $("#input-status-filter").val(), limit, "");
+        $("#activity-answer").on("click", function() {
+            event.preventDefault();
+            $("#activity-answer").addClass("active");
+            $("#activity-question").removeClass("active");
+            // console.log(activityAnswer);
+            $("#container-activity").html(activityAnswer);
         });
 
-        $("#load-more-question").click(function() {
-            limit += 1;
-            if ($("#input-search").val().length > 0) {
-                getLatestQuestion($("#input-subject-filter").val(), $("#input-status-filter").val(), limit, $("#input-search").val());
-            } else {
-                getLatestQuestion($("#input-subject-filter").val(), $("#input-status-filter").val(), limit, "");
-            }
-        });
-
-        $("#button-search").click(function() {
-            if ($("#input-search").val().length > 0) {
-                getLatestQuestion($("#input-subject-filter").val(), $("#input-status-filter").val(), limit, $("#input-search").val());
-            } else {
-                getLatestQuestion($("#input-subject-filter").val(), $("#input-status-filter").val(), limit, "");
-            }
-        });
-
-        function populateQuestionRow(questionID, img, userName, status, date, subject, title, description) {
-            return `<div class="row py-3">
-                        <div class="col-1"><img class="img-profile rounded-circle" style="width:60px;" src="${img}"></div>
-                        <div class="col">
-                            <div class="row mb-0 pb-0" >
-                                <div class="col mb-0 pb-0">
-                                    <h6 class="mb-0 pb-0"><b class="mb-0 pb-0">${userName}</b></h6>
-                                </div>
-                                <div class="col text-right class="mb-0 pb-0"">
-                                    ${status}
-                                </div>
+        function populateQuestionRow(questionID, date, subject, title) {
+            return `<div class="card-row py-2 px-5">
+                <div class="row py-3">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col-3">
+                                <small class="text-muted">${date}</small>
                             </div>
-                            <div class="row">
-                                <div class="col-3">
-                                    <small class="text-muted">${date}</small>
-                                </div>
-                                <div class="col-3">
-                                    <small class="text-muted">${subject}</small>
-                                </div>
+                            <div class="col-3">
+                                <small class="text-muted">${subject}</small>
                             </div>
-                            <div class="row mt-2 mb-0 pb-0">
-                                <div class="col">
-                                    <a href="">
-                                        <p class="mb-0 pb-0">${title}</p>
-                                    </a>
-                                </div>
+                        </div>
+                        <div class="row mt-4 mb-0 pb-0">
+                            <div class="col">
+                                <p class="mb-0 pb-0">
+                                <a href="?id=${questionID}#main-forum" id="${questionID}" class="button-select-question stretched-link">
+                                    ${title}
+                                </a>
+                            </p>
                             </div>
-                            <div class="row mt-0 pt-0">
-                                <div class="col">
-                                    <p class="mb-0 pb-0">${description}</p>
-                                </div>
-                                <div class="col-1 pl-5 pr-0">
-                                    <a href="#" class="button-report-question bg-black" data-toggle="modal" data-target="#modal-report-question" id="${questionID}"><span class="align-text-bottom"><i class="fa fa-flag"></i></span></a>
-                                </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col">
                             </div>
                         </div>
                     </div>
-                    <hr class="sidebar-divider my-2">`;
+                </div>
+            </div>
+            <hr class="sidebar-divider my-0">
+            `;
+        }
+
+        function populateAnswerRow(questionID, id, date, description) {
+            return `<div class="card-row py-2 px-5">
+                <div class="row py-3">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col-3">
+                                <small class="text-muted">${date}</small>
+                            </div>
+                        </div>
+                        <div class="row mt-4 mb-0 pb-0">
+                            <div class="col">
+                                <p class="mb-0 pb-0">
+                                <a href="?id=${questionID}#main-forum" id="${questionID}" class="button-select-question stretched-link">
+                                    ${description}
+                                </a>
+                            </p>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="sidebar-divider my-0">
+            `;
+        }
+
+        function retrieveActivities() {
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'retrieve-activities'
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode == 200) {
+
+                        dataResult.questionList.forEach(question => {
+                            activityQuestion += populateQuestionRow(question.questionID, question.creationDateTime, getSubjectName(question.subjectID), question.title);
+                        });
+
+                        dataResult.answerList.forEach(answer => {
+                            activityAnswer += populateAnswerRow(answer.questionID, answer.answerID, answer.creationDateTime, answer.answer);
+
+                        });
+
+                        $("#container-activity").html(activityQuestion);
+                    } else {
+                        alert("Unable to post the answer, please try again later!");
+                    }
+
+                    $(".button-select-question").on('click', function(event) {
+                        $("#main-container").load('./form-main-forum.html');
+                    });
+                }
+            });
         }
 
         function getSubjectList() {
@@ -300,57 +155,7 @@
                     var dataResult = JSON.parse(dataResult);
                     if (dataResult.statusCode == 200) {
                         subjectList = dataResult.subjectList;
-                        dataResult.subjectList.forEach(subject => {
-                            subjectOptions += "<option value='" + subject['subjectID'] + "'>" + subject['subject'] + "</option>";
-                        });
                     }
-
-                    $("#input-new-question-subject").html($("#input-new-question-subject").html() + subjectOptions);
-                    $("#input-subject-filter").html($("#input-subject-filter").html() + subjectOptions);
-                }
-            });
-        }
-
-        function getLatestQuestion(subject, status, limit, search) {
-            $.ajax({
-                url: "../../common/db.php",
-                type: "POST",
-                data: {
-                    action: 'retrieve-latest-question-list',
-                    subject: subject,
-                    status: status,
-                    limit: limit,
-                    search: search
-                },
-                cache: false,
-                success: function(dataResult) {
-                    var questionList = "";
-                    var dataResult = JSON.parse(dataResult);
-                    if (dataResult.statusCode == 200) {
-                        dataResult.questionList.forEach(question => {
-                            var picture = question['picture'];
-                            var status;
-                            var description = question['description'];
-                            var subjectName = getSubjectName(question['subjectID']);
-                            if (picture == "") {
-                                picture = "./../../resource/profile/default.svg";
-                            }
-
-                            if (question['status'] == 1) {
-                                status = "<span class='border border-danger rounded p-1 '>Unanswered</span>";
-                            } else if (question['status'] == 2) {
-                                status = "<span class='border border-success rounded p-1 '>Answered</span>";
-                            }
-
-                            if (description.length > 225) {
-                                description = description.substring(0, 225);
-                                description += '  <a href="">see more...</a>';
-                            }
-                            questionList += populateQuestionRow(question['questionID'], picture, question['name'], status, question['creationDateTime'], subjectName, question['title'], description);
-                        });
-                    }
-                    console.log(dataResult.questionList);
-                    $("#container-question").html(questionList);
                 }
             });
         }
@@ -365,34 +170,5 @@
             });
             return subjectName;
         }
-
-        $(".button-report-question").click(function() {
-            event.preventDefault();
-            alert("TEST");
-        });
-
-
-        $("#form-add-question").on("submit", function(event) {
-            event.preventDefault();
-            var title = $("#input-new-question-title").val();
-            var description = $("#input-new-question-description").val();
-            var subject = $("#input-new-question-subject").val();;
-            $.ajax({
-                url: "../../common/db.php",
-                type: "POST",
-                data: {
-                    action: 'save-question',
-                    title: title,
-                    description: description,
-                    subject: subject
-                },
-                cache: false,
-                success: function(dataResult) {
-                    var dataResult = JSON.parse(dataResult);
-                    console.log(dataResult);
-                }
-            });
-        });
-
     });
 </script>

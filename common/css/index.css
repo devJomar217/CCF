@@ -11006,7 +11006,7 @@ a:focus {
 }
 
 .sidebar-light hr.sidebar-divider {
-    border-top: 1px solid #eaecf4;
+    border-top: 2px solid black;
 }
 
 .sidebar-light .sidebar-heading {

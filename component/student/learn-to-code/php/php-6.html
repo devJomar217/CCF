@@ -1,0 +1,226 @@
+<!-- Variables-->
+
+ 
+  <div class="w3-row w3-white">
+ 
+
+<h1>What is <span class="color_h1">Variables in Php?</span></h1>
+ 
+<p class="intro">Variables are "containers" for storing information.</p>
+<hr>
+<h2>Creating (Declaring) PHP Variables</h2>
+<p>In PHP, a variable starts with the <code class="w3-codespan">$</code> sign, followed by the name of the variable:</p>
+<div class="w3-Sample">
+ <div class="w3-code notranslate htmlHigh">
+<span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br>
+$txt = <span class="phpstringcolor" style="color:brown">"Hello world!"</span>;<br>
+$x = <span class="phpnumbercolor" style="color:red">5</span>;<br>$y = <span class="phpnumbercolor" style="color:red">10.5</span>;<br>
+<span class="phptagcolor" style="color:red">?&gt;</span></span>
+ </div>
+ </div>
+<p>After the execution of the statements above, the variable 
+<code class="w3-codespan">$txt</code> will hold the value 
+<code class="w3-codespan">Hello world!</code>, the variable 
+<code class="w3-codespan">$x</code> will hold the value 
+<code class="w3-codespan">5</code>, 
+and the variable <code class="w3-codespan">$y</code> will hold the value 
+<code class="w3-codespan">10.5</code>.</p>
+<p><b>Note:</b> When you assign a text value to a variable, put quotes around the value.</p>
+<p><strong>Note:</strong> Unlike other programming languages, PHP has no command 
+for declaring a variable. It is created the moment you first assign a value to 
+it.</p>
+
+<div class="w3-panel w3-note">
+<p>Think of variables as containers for storing data.</p>
+</div>
+
+<hr>
+
+<h2>PHP Variables</h2>
+<p>A variable can have a short name (like x and y) or a more descriptive name (age, carname, total_volume).</p>
+<p>Rules for PHP variables:</p>
+<ul>
+  <li>A variable starts with the <code class="w3-codespan">$</code> sign, followed by the name of the variable</li>
+  <li>A variable name must start with a letter or the underscore character</li>
+  <li>A variable name cannot start with a number</li>
+  <li>A variable name can only contain alpha-numeric characters and underscores (A-z, 0-9, and _ )</li>
+  <li>Variable names are case-sensitive (<code class="w3-codespan">$age</code> and 
+  <code class="w3-codespan">$AGE</code> are two different variables)</li>
+</ul>
+
+<div class="w3-panel w3-note">
+<p>Remember that PHP variable names are case-sensitive!</p>
+</div>
+ 
+<h2>Output Variables</h2>
+<p>The PHP <code class="w3-codespan">echo</code> statement is often used to output data to the screen.</p>
+<p>The following Sample will show how to output text and a variable:</p>
+<div class="w3-Sample">
+ <h3>Sample</h3>
+<div class="w3-code notranslate htmlHigh">
+<span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br>
+$txt = <span class="phpstringcolor" style="color:brown">"CodeConnect.com"</span>;<br><span class="phpnumbercolor" style="color:red">
+</span> <span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"I love $txt!"</span>;<br><span class="phptagcolor" style="color:red">?&gt;</span></span>
+ </div>
+ </div>
+
+<p>The following Sample will produce the same output as the Sample above:</p>
+<div class="w3-Sample">
+ <h3>Sample</h3>
+<div class="w3-code htmlHigh notranslate">
+<span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br>
+$txt = <span class="phpstringcolor" style="color:brown">"CodeConnect.com"</span>;<br><span class="phpnumbercolor" style="color:red">
+</span> <span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"I love "</span> . $txt . <span class="phpstringcolor" style="color:brown">"!"</span>;<br><span class="phptagcolor" style="color:red">?&gt;</span></span>
+ </div>
+ </div>
+
+<p>The following Sample will output the sum of two variables:</p>
+<div class="w3-Sample">
+ <h3>Sample</h3>
+<div class="w3-code htmlHigh notranslate">
+<span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br><span class="phpnumbercolor" style="color:red">
+</span> $x = <span class="phpnumbercolor" style="color:red">5</span>;<br>$y = <span class="phpnumbercolor" style="color:red">4</span>;<br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> $x + $y;<br><span class="phptagcolor" style="color:red">?&gt;</span></span>
+ </div>
+ </div>
+<p><strong>Note:</strong> You will learn more about the <code class="w3-codespan">echo</code> statement and how 
+to output data to the screen in the next chapter.</p>
+<hr>
+
+<h2>PHP is a Loosely Typed Language</h2>
+<p>In the Sample above, notice that we did not have to tell PHP which data type the variable is.</p>
+<p>PHP automatically associates a data type to the variable, depending on its value. 
+Since the data types are not set in a strict sense, you can do things like 
+adding a string to an integer without causing an error.</p>
+<p>In PHP 7, type declarations were added. This gives an option to specify 
+the data type expected when declaring a function, and by enabling the strict requirement, it will throw a "Fatal 
+Error" on a type mismatch.</p>
+<p>You will learn more about <code class="w3-codespan">strict</code> and 
+<code class="w3-codespan">non-strict</code> requirements, and  
+data type declarations in the PHP Functions</a> chapter.</p>
+<hr>
+
+ <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+
+ 
+  <div class="w3-row w3-white">
+    
+     
+
+<h1>PHP <span class="color_h1">Variables Scope</span></h1>
+ 
+
+<h2>PHP Variables Scope</h2>
+<p>In PHP, variables can be declared anywhere in the script.</p>
+<p>The scope of a variable is the part of the script where the variable can be referenced/used.</p>
+<p>PHP has three different variable scopes:</p>
+<ul>
+  <li>local</li>
+  <li>global</li>
+  <li>static</li>
+</ul>
+<hr>
+
+<h2>Global and Local Scope</h2>
+<p>A variable declared <b>outside</b> a function has a GLOBAL SCOPE and can only 
+be accessed outside a function:</p>
+<div class="w3-Sample">
+   <p>Variable with global scope: </p>
+<div class="w3-code htmlHigh notranslate">
+ <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br>$x = <span class="phpnumbercolor" style="color:red">5</span>; <span class="commentcolor" style="color:green">// global scope<br></span><br><span class="phpkeywordcolor" style="color:mediumblue">function</span> myTest() {<br>&nbsp;&nbsp;<span class="commentcolor" style="color:green">// using x inside this function will generate an error<br></span>&nbsp;&nbsp;<span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"&lt;p&gt;Variable x inside function is: $x&lt;/p&gt;"</span>;<br>} <br>myTest();<br><br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"&lt;p&gt;Variable x outside function is: $x&lt;/p&gt;"</span>;<br><span class="phptagcolor" style="color:red">?&gt;</span></span>
+ </div>
+ </div>
+
+<p>A variable declared <b>within</b> a function has a LOCAL SCOPE and can only 
+be accessed within that function:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+  <p>Variable with local scope:</p>
+<div class="w3-code htmlHigh notranslate">
+ <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br><span class="phpkeywordcolor" style="color:mediumblue">function</span> myTest() {<br>&nbsp;&nbsp;$x = <span class="phpnumbercolor" style="color:red">5</span>; <span class="commentcolor" style="color:green">// local scope<br></span>&nbsp; <span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"&lt;p&gt;Variable x inside function is: $x&lt;/p&gt;"</span>;<br>} <br>myTest();<br><br><span class="commentcolor" style="color:green">// using x outside the function will generate an error<br></span><span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"&lt;p&gt;Variable x outside function is: $x&lt;/p&gt;"</span>;<br><span class="phptagcolor" style="color:red">?&gt;</span></span>
+ </div>
+ </div>
+
+<div class="w3-panel w3-note">
+<p>You can have local variables with the same name in different functions, 
+because local variables are only recognized by the function in which they are 
+declared.</p>
+</div>
+
+ 
+
+<h2>PHP The global Keyword</h2>
+<p>The <code class="w3-codespan">global</code> keyword is used to access a global variable from within a function.</p>
+<p>To do this, use the <code class="w3-codespan">global</code> keyword before the variables (inside the 
+function):</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code htmlHigh notranslate">
+<span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br>
+$x = <span class="phpnumbercolor" style="color:red">5</span>;<br>$y = <span class="phpnumbercolor" style="color:red">10</span>;<br><br>
+<span class="phpkeywordcolor" style="color:mediumblue">function</span> myTest()<span class="phpnumbercolor" style="color:red">
+</span>{<br><span class="phpnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="phpkeywordcolor" style="color:mediumblue">global</span> $x, $y;<br><span class="phpnumbercolor" style="color:red">
+</span>&nbsp;
+$y = $x + $y;<br><span class="phpnumbercolor" style="color:red">
+</span>}<br><br>
+myTest();<br>
+<span class="phpkeywordcolor" style="color:mediumblue">echo</span> $y; <span class="commentcolor" style="color:green">// outputs 15<br></span>
+<span class="phptagcolor" style="color:red">?&gt;</span></span>
+ </div>
+ </div>
+
+<p>PHP also stores all global variables in an array called 
+<code class="w3-codespan">$GLOBALS[<i>index</i>]</code>. 
+The <em><code class="w3-codespan">index</code></em> holds the name of the variable. This array is also accessible from 
+within functions and can be used to update global variables directly.</p>
+<p>The Sample above can be rewritten like this:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code htmlHigh notranslate">
+<span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br>
+$x = <span class="phpnumbercolor" style="color:red">5</span>;<br>
+$y = <span class="phpnumbercolor" style="color:red">10</span>;<br><span class="phpnumbercolor" style="color:red">
+</span><br>
+<span class="phpkeywordcolor" style="color:mediumblue">function</span> myTest()<span class="phpnumbercolor" style="color:red">
+</span>{<br><span class="phpnumbercolor" style="color:red">
+</span>&nbsp;
+<span class="phpglobalcolor" style="color:goldenrod">$GLOBALS</span>[<span class="phpstringcolor" style="color:brown">'y'</span>] = <span class="phpglobalcolor" style="color:goldenrod">$GLOBALS</span>[<span class="phpstringcolor" style="color:brown">'x'</span>] + <span class="phpglobalcolor" style="color:goldenrod">$GLOBALS</span>[<span class="phpstringcolor" style="color:brown">'y'</span>];<br><span class="phpnumbercolor" style="color:red">
+</span>} <br><span class="phpnumbercolor" style="color:red">
+</span><br>
+myTest();<br>
+<span class="phpkeywordcolor" style="color:mediumblue">echo</span> $y; <span class="commentcolor" style="color:green">// outputs 15<br></span>
+<span class="phptagcolor" style="color:red">?&gt;</span></span>
+ </div>
+ </div>
+<hr>
+
+<h2>PHP The static Keyword</h2>
+<p>Normally, when a function is completed/executed, all of its variables are deleted. 
+However, sometimes we want a local variable NOT to be deleted. We need it for a 
+further job.</p>
+<p>To do this, use the <code class="w3-codespan">static</code> keyword when you first declare the 
+variable:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code htmlHigh notranslate">
+<span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br><span class="phpkeywordcolor" style="color:mediumblue">function</span> myTest()<span class="phpnumbercolor" style="color:red">
+</span>{<br><span class="phpnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="phpkeywordcolor" style="color:mediumblue">static</span> $x = <span class="phpnumbercolor" style="color:red">0</span>;<br><span class="phpnumbercolor" style="color:red">
+</span>  &nbsp; <span class="phpkeywordcolor" style="color:mediumblue">echo</span> $x;<br><span class="phpnumbercolor" style="color:red">
+</span>  &nbsp; $x++;<br><span class="phpnumbercolor" style="color:red">
+</span>}<br><br>
+myTest();<br>
+myTest();<br>
+myTest();<br><span class="phptagcolor" style="color:red">?&gt;</span></span>
+ </div>
+ </div>
+
+<p>Then, each time the function is called, that variable will still have the 
+information it contained from the last time the function was called.</p>
+<p><b>Note:</b> The variable is still local to the function.</p>
+ 

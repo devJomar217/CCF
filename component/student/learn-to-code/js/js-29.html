@@ -1,0 +1,699 @@
+ <!-- aRRAY integration-->
+
+
+  <div class="w3-row w3-white">
+    
+
+
+<h1>What is Array Iteration in JavaScript?</h1>
+
+<p class="intro">Array iteration methods operate on every array item.</p>
+<hr>
+
+<h2>JavaScript Array forEach()</h2>
+<p>The <code class="w3-codespan">forEach()</code> method calls a function (a callback function) once for each array element.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> numbers = [<span class="jsnumbercolor" style="color:red">45</span>, <span class="jsnumbercolor" style="color:red">4</span>, <span class="jsnumbercolor" style="color:red">9</span>, <span class="jsnumbercolor" style="color:red">16</span>, <span class="jsnumbercolor" style="color:red">25</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> txt = <span class="jsstringcolor" style="color:brown">""</span>;<br>
+numbers.<span class="jspropertycolor" style="color:black">forEach</span>(myFunction);<br><br>
+<span class="jskeywordcolor" style="color:mediumblue">function</span> myFunction(value, index, array) {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp;
+txt += value + <span class="jsstringcolor" style="color:brown">"&lt;br&gt;"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p>Note that the function takes 3 arguments:</p>
+<ul>
+<li>The item value</li>
+<li>The item index </li>
+<li>The array itself</li>
+</ul>
+
+<p>The Sample above uses only the value parameter. The Sample can be rewritten 
+to:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> numbers = [<span class="jsnumbercolor" style="color:red">45</span>, <span class="jsnumbercolor" style="color:red">4</span>, <span class="jsnumbercolor" style="color:red">9</span>, <span class="jsnumbercolor" style="color:red">16</span>, <span class="jsnumbercolor" style="color:red">25</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> txt = <span class="jsstringcolor" style="color:brown">""</span>;<br>
+numbers.<span class="jspropertycolor" style="color:black">forEach</span>(myFunction);<br><br>
+<span class="jskeywordcolor" style="color:mediumblue">function</span> myFunction(value) {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp;
+txt += value + <span class="jsstringcolor" style="color:brown">"&lt;br&gt;"</span>; <br><span class="jsnumbercolor" style="color:red">
+</span>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+
+</div>
+
+<hr>
+
+<h2>JavaScript Array map()</h2>
+<p>The <code class="w3-codespan">map()</code> method creates a new array by performing a function on each array element.</p>
+<p>The <code class="w3-codespan">map()</code> method does not execute the function for array 
+elements without values.</p>
+<p>The <code class="w3-codespan">map()</code> method does not change the original array.</p>
+<p>This Sample multiplies each array value by 2: </p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> numbers1 = [<span class="jsnumbercolor" style="color:red">45</span>, <span class="jsnumbercolor" style="color:red">4</span>, <span class="jsnumbercolor" style="color:red">9</span>, <span class="jsnumbercolor" style="color:red">16</span>, <span class="jsnumbercolor" style="color:red">25</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> numbers2 = numbers1.<span class="jspropertycolor" style="color:black">map</span>(myFunction);<br><span class="jsnumbercolor" style="color:red">
+</span>  <br>
+<span class="jskeywordcolor" style="color:mediumblue">function</span> myFunction(value, index, array) {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; <span class="jskeywordcolor" style="color:mediumblue">return</span> value * <span class="jsnumbercolor" style="color:red">2</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<p>Note that the function takes 3 arguments:</p>
+<ul>
+<li>The item value</li>
+<li>The item index </li>
+<li>The array itself</li>
+</ul>
+
+<p>When a callback function uses only the value parameter, the index and array 
+parameters can be omitted: </p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> numbers1 = [<span class="jsnumbercolor" style="color:red">45</span>, <span class="jsnumbercolor" style="color:red">4</span>, <span class="jsnumbercolor" style="color:red">9</span>, <span class="jsnumbercolor" style="color:red">16</span>, <span class="jsnumbercolor" style="color:red">25</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> numbers2 = numbers1.<span class="jspropertycolor" style="color:black">map</span>(myFunction);<br><span class="jsnumbercolor" style="color:red">
+</span>  <br>
+<span class="jskeywordcolor" style="color:mediumblue">function</span> myFunction(value) {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; <span class="jskeywordcolor" style="color:mediumblue">return</span> value * <span class="jsnumbercolor" style="color:red">2</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<hr>
+ <h2>JavaScript Array flatMap()</h2>
+<p> ES2019</a> added the Array <code class="w3-codespan">flatMap()</code> method to JavaScript.</p>
+<p>The <code class="w3-codespan">flatMap()</code> method first maps all elements of an array
+and then creates a new array by flattening the array.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> myArr = [<span class="jsnumbercolor" style="color:red">1</span>, <span class="jsnumbercolor" style="color:red">2</span>, <span class="jsnumbercolor" style="color:red">3</span>, <span class="jsnumbercolor" style="color:red">4</span>, <span class="jsnumbercolor" style="color:red">5</span>, <span class="jsnumbercolor" style="color:red">6</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> newArr = myArr.<span class="jspropertycolor" style="color:black">flatMap</span>((x) =&gt; x * <span class="jsnumbercolor" style="color:red">2</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<h2>Browser Support</h2>
+<p>JavaScript Array <code class="w3-codespan">flatMap()</code> is supported in all modern browsers since January 2020:</p>
+<div class="w3-responsive">
+<table class="browserref notranslate">
+  <tbody><tr style="height:50px">
+    <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:20%;" class="bsEdge" title="Edge"></th>
+    <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:20%;" class="bsSafari" title="Safari"></th>
+    <th style="width:19%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome 69</td>    
+    <td>Edge 79</td>
+    <td>Firefox 62</td>
+    <td>Safari 12</td>
+    <td>Opera 56</td>
+  </tr>
+  <tr>
+    <td>Sep 2018</td>
+    <td>Jan 2020</td>    
+    <td>Sep 2018</td>
+    <td>Sep 2018</td>
+    <td>Sep 2018</td>
+  </tr>
+</tbody></table>
+</div>
+
+
+
+<h2>JavaScript Array filter()</h2>
+<p>The <code class="w3-codespan">filter()</code> method creates a new array with array elements that pass a test.</p>
+
+<p>This Sample creates a new array from elements with a value larger than 18:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> numbers = [<span class="jsnumbercolor" style="color:red">45</span>, <span class="jsnumbercolor" style="color:red">4</span>, <span class="jsnumbercolor" style="color:red">9</span>, <span class="jsnumbercolor" style="color:red">16</span>, <span class="jsnumbercolor" style="color:red">25</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> over18 = numbers.<span class="jspropertycolor" style="color:black">filter</span>(myFunction);<br><br>
+<span class="jskeywordcolor" style="color:mediumblue">function</span> myFunction(value, index, array) {<br>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">return</span> value &gt; <span class="jsnumbercolor" style="color:red">18</span>;<br>}  </span></div>
+</div>
+<p>Note that the function takes 3 arguments:</p>
+<ul>
+<li>The item value</li>
+<li>The item index </li>
+<li>The array itself</li>
+</ul>
+
+<p>In the Sample above, the callback function does not use the index and array 
+parameters, so they can be omitted:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> numbers = [<span class="jsnumbercolor" style="color:red">45</span>, <span class="jsnumbercolor" style="color:red">4</span>, <span class="jsnumbercolor" style="color:red">9</span>, <span class="jsnumbercolor" style="color:red">16</span>, <span class="jsnumbercolor" style="color:red">25</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> over18 = <span class="jsnumbercolor" style="color:red">
+</span>  numbers.<span class="jspropertycolor" style="color:black">filter</span>(myFunction);<br><br><span class="jskeywordcolor" style="color:mediumblue">function</span> myFunction(value) {<br>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">return</span> value &gt; <span class="jsnumbercolor" style="color:red">18</span>;<br>}  </span></div>
+</div>
+<hr>
+
+<h2>JavaScript Array reduce()</h2>
+<p>The <code class="w3-codespan">reduce()</code> method runs a function on each array element to produce (reduce it to) a single value.</p>
+<p>The <code class="w3-codespan">reduce()</code> method works from left-to-right in the array. See also <code class="w3-codespan">reduceRight()</code>.</p>
+<div class="w3-panel w3-note">
+<p>The <code class="w3-codespan">reduce()</code> method does not reduce the original array.</p>
+</div>
+<p>This Sample finds the sum of all numbers in an array:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> numbers = [<span class="jsnumbercolor" style="color:red">45</span>, <span class="jsnumbercolor" style="color:red">4</span>, <span class="jsnumbercolor" style="color:red">9</span>, <span class="jsnumbercolor" style="color:red">16</span>, <span class="jsnumbercolor" style="color:red">25</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> sum = numbers.<span class="jspropertycolor" style="color:black">reduce</span>(myFunction);<br><span class="jsnumbercolor" style="color:red">
+</span>  <br><span class="jskeywordcolor" style="color:mediumblue">function</span> myFunction(total, value, index, array) {<br>&nbsp; <span class="jsnumbercolor" style="color:red">
+</span>  <span class="jskeywordcolor" style="color:mediumblue">return</span> total + value;<br>}  </span></div>
+</div>
+<p>Note that the function takes 4 arguments:</p>
+<ul>
+  <li>The total (the initial value / previously returned value)</li>
+  <li>The item value</li>
+  <li>The item index </li>
+  <li>The array itself</li>
+</ul>
+
+<p>The Sample above does not use the index and array parameters. It can be 
+rewritten to:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> numbers = [<span class="jsnumbercolor" style="color:red">45</span>, <span class="jsnumbercolor" style="color:red">4</span>, <span class="jsnumbercolor" style="color:red">9</span>, <span class="jsnumbercolor" style="color:red">16</span>, <span class="jsnumbercolor" style="color:red">25</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> sum = numbers.<span class="jspropertycolor" style="color:black">reduce</span>(myFunction);<br><span class="jsnumbercolor" style="color:red">
+</span>  <br><span class="jskeywordcolor" style="color:mediumblue">function</span> myFunction(total, value) {<br>&nbsp; <span class="jsnumbercolor" style="color:red">
+</span>  <span class="jskeywordcolor" style="color:mediumblue">return</span> total + value;<br>}  </span></div>
+</div>
+
+<p>The <code class="w3-codespan">reduce()</code> method can accept an initial value:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> numbers = [<span class="jsnumbercolor" style="color:red">45</span>, <span class="jsnumbercolor" style="color:red">4</span>, <span class="jsnumbercolor" style="color:red">9</span>, <span class="jsnumbercolor" style="color:red">16</span>, <span class="jsnumbercolor" style="color:red">25</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> sum = numbers.<span class="jspropertycolor" style="color:black">reduce</span>(myFunction, <span class="jsnumbercolor" style="color:red">
+</span>  <span class="jsnumbercolor" style="color:red">100</span>);<br><span class="jsnumbercolor" style="color:red">
+</span>  <br><span class="jskeywordcolor" style="color:mediumblue">function</span> myFunction(total, value) {<br>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">return</span> total + value;<br>}  </span></div>
+</div>
+
+<hr>
+
+<h2>JavaScript Array reduceRight()</h2>
+<p>The <code class="w3-codespan">reduceRight()</code> method runs a function on each array element to produce (reduce it to) a single value.</p>
+<p>The <code class="w3-codespan">reduceRight()</code> works from right-to-left in the array. See also <code class="w3-codespan">reduce()</code>.</p>
+<div class="w3-panel w3-note">
+<p>The <code class="w3-codespan">reduceRight()</code> method does not reduce the original array.</p>
+</div>
+<p>This Sample finds the sum of all numbers in an array:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> numbers = [<span class="jsnumbercolor" style="color:red">45</span>, <span class="jsnumbercolor" style="color:red">4</span>, <span class="jsnumbercolor" style="color:red">9</span>, <span class="jsnumbercolor" style="color:red">16</span>, <span class="jsnumbercolor" style="color:red">25</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> sum = numbers.<span class="jspropertycolor" style="color:black">reduceRight</span>(myFunction);<br><span class="jsnumbercolor" style="color:red">
+</span>  <br><span class="jskeywordcolor" style="color:mediumblue">function</span> myFunction(total, value, index, array) {<br>&nbsp; <span class="jsnumbercolor" style="color:red">
+</span>  <span class="jskeywordcolor" style="color:mediumblue">return</span> total + value;<br>}  </span></div>
+</div>
+<p>Note that the function takes 4 arguments:</p>
+<ul>
+<li>The total (the initial value / previously returned value)</li>
+  <li>The item value</li>
+  <li>The item index </li>
+  <li>The array itself</li>
+</ul>
+
+<p>The Sample above does not use the index and array parameters. It can be 
+rewritten to:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> numbers = [<span class="jsnumbercolor" style="color:red">45</span>, <span class="jsnumbercolor" style="color:red">4</span>, <span class="jsnumbercolor" style="color:red">9</span>, <span class="jsnumbercolor" style="color:red">16</span>, <span class="jsnumbercolor" style="color:red">25</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> sum = numbers.<span class="jspropertycolor" style="color:black">reduceRight</span>(myFunction);<br><span class="jsnumbercolor" style="color:red">
+</span>  <br><span class="jskeywordcolor" style="color:mediumblue">function</span> myFunction(total, value) {<br>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">return</span> total + value;<br>}  </span></div>
+</div>
+
+<hr>
+
+<h2>JavaScript Array every()</h2>
+<p>The <code class="w3-codespan">every()</code> method checks if all array values pass a test.</p>
+
+<p>This Sample checks if all array values are larger than 18:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> numbers = [<span class="jsnumbercolor" style="color:red">45</span>, <span class="jsnumbercolor" style="color:red">4</span>, <span class="jsnumbercolor" style="color:red">9</span>, <span class="jsnumbercolor" style="color:red">16</span>, <span class="jsnumbercolor" style="color:red">25</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> allOver18 = <span class="jsnumbercolor" style="color:red">
+</span>  numbers.<span class="jspropertycolor" style="color:black">every</span>(myFunction);<br><br><span class="jskeywordcolor" style="color:mediumblue">function</span> myFunction(value, index, array) {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; <span class="jskeywordcolor" style="color:mediumblue">return</span> <span class="jsnumbercolor" style="color:red">
+</span>  value &gt; <span class="jsnumbercolor" style="color:red">18</span>;<br>}  </span></div>
+</div>
+<p>Note that the function takes 3 arguments:</p>
+<ul>
+  <li>The item value</li>
+  <li>The item index </li>
+  <li>The array itself</li>
+</ul>
+
+<p>When a callback function uses the first parameter only (value), the other 
+parameters can be omitted:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> numbers = [<span class="jsnumbercolor" style="color:red">45</span>, <span class="jsnumbercolor" style="color:red">4</span>, <span class="jsnumbercolor" style="color:red">9</span>, <span class="jsnumbercolor" style="color:red">16</span>, <span class="jsnumbercolor" style="color:red">25</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> allOver18 = <span class="jsnumbercolor" style="color:red">
+</span>  numbers.<span class="jspropertycolor" style="color:black">every</span>(myFunction);<br><br><span class="jskeywordcolor" style="color:mediumblue">function</span> myFunction(value) {<br>&nbsp; <span class="jskeywordcolor" style="color:mediumblue">return</span> <span class="jsnumbercolor" style="color:red">
+</span>  value &gt; <span class="jsnumbercolor" style="color:red">18</span>;<br>}  </span></div>
+</div>
+
+<hr>
+
+<h2>JavaScript Array some()</h2>
+<p>The <code class="w3-codespan">some()</code> method checks if some array values pass a test.</p>
+
+<p>This Sample checks if some array values are larger than 18:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> numbers = [<span class="jsnumbercolor" style="color:red">45</span>, <span class="jsnumbercolor" style="color:red">4</span>, <span class="jsnumbercolor" style="color:red">9</span>, <span class="jsnumbercolor" style="color:red">16</span>, <span class="jsnumbercolor" style="color:red">25</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> someOver18 = numbers.<span class="jspropertycolor" style="color:black">some</span>(myFunction);<br><br><span class="jskeywordcolor" style="color:mediumblue">function</span> myFunction(value, index, array) {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; <span class="jskeywordcolor" style="color:mediumblue">return</span> <span class="jsnumbercolor" style="color:red">
+</span>  value &gt; <span class="jsnumbercolor" style="color:red">18</span>;<br>}  </span></div>
+</div>
+<p>Note that the function takes 3 arguments:</p>
+<ul>
+  <li>The item value</li>
+<li>The item index </li>
+<li>The array itself</li>
+</ul>
+
+<hr>
+<h2>JavaScript Array indexOf()</h2>
+<p>The <code class="w3-codespan">indexOf()</code> method searches an array for an element value and returns its position.</p>
+<div class="w3-note">
+<p><strong>Note:</strong> The first item has position 0, the second item has position 1, and so on.</p>
+</div>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Search an array for the item "Apple":</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = [<span class="jsstringcolor" style="color:brown">"Apple"</span>, <span class="jsstringcolor" style="color:brown">"Orange"</span>, <span class="jsstringcolor" style="color:brown">"Apple"</span>, <span class="jsstringcolor" style="color:brown">"Mango"</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> position = fruits.<span class="jspropertycolor" style="color:black">indexOf</span>(<span class="jsstringcolor" style="color:brown">"Apple"</span>) + <span class="jsnumbercolor" style="color:red">1</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<h3>Syntax</h3>
+<div class="w3-code w3-border notranslate">
+<div>
+<i>array</i>.indexOf(<em>item</em>,<em> start</em>)
+</div>
+</div>
+
+<table class="ws-table-all notranslate"> 
+  <tbody><tr>
+    <td><em>item</em></td>
+    <td>Required. The item to search for.</td>
+  </tr>
+  <tr>
+    <td><em>start</em></td>
+    <td>Optional. Where to start the search. Negative values will start at the given position counting from the end, and search to the end.</td>
+  </tr>
+</tbody></table>
+
+<p><code class="w3-codespan">Array.indexOf()</code> returns -1 if the item is not found.</p>
+<p>If the item is present more than once, it returns the position of the first 
+occurrence.</p>
+<hr>
+
+<h2>JavaScript Array lastIndexOf()</h2>
+<p><code class="w3-codespan">Array.lastIndexOf()</code> is the same as <code class="w3-codespan">Array.indexOf()</code>, but 
+returns the position of the last occurrence of the specified element.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Search an array for the item "Apple":</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = [<span class="jsstringcolor" style="color:brown">"Apple"</span>, <span class="jsstringcolor" style="color:brown">"Orange"</span>, <span class="jsstringcolor" style="color:brown">"Apple"</span>, <span class="jsstringcolor" style="color:brown">"Mango"</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> position = fruits.<span class="jspropertycolor" style="color:black">lastIndexOf</span>(<span class="jsstringcolor" style="color:brown">"Apple"</span>) + <span class="jsnumbercolor" style="color:red">1</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+
+<h3>Syntax</h3>
+<div class="w3-code w3-border notranslate"><div>
+<i>array</i>.lastIndexOf(<em>item</em>,<em> start</em>)</div></div>
+<table class="ws-table-all notranslate"> 
+  <tbody><tr>
+    <td><em>item</em></td>
+    <td>Required. The item to search for</td>
+  </tr>
+  <tr>
+    <td><em>start</em></td>
+    <td>Optional. Where to start the search. Negative values will start at the given position counting from the end, and search to the beginning</td>
+  </tr>
+</tbody></table>
+<hr>
+
+<h2>JavaScript Array find()</h2>
+<p>The <code class="w3-codespan">find()</code> method returns the value of the first array element that passes a 
+test function.</p>
+
+<p>This Sample finds (returns the value of) the first element that is larger 
+than 18:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> numbers = [<span class="jsnumbercolor" style="color:red">4</span>, <span class="jsnumbercolor" style="color:red">9</span>, <span class="jsnumbercolor" style="color:red">16</span>, <span class="jsnumbercolor" style="color:red">25</span>, <span class="jsnumbercolor" style="color:red">29</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> first = <span class="jsnumbercolor" style="color:red">
+</span>  numbers.<span class="jspropertycolor" style="color:black">find</span>(myFunction);<br><br><span class="jskeywordcolor" style="color:mediumblue">function</span> myFunction(value, index, array) {<br>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">return</span> <span class="jsnumbercolor" style="color:red">
+</span>  value &gt; <span class="jsnumbercolor" style="color:red">18</span>;<br>}  </span></div>
+</div>
+<p>Note that the function takes 3 arguments:</p>
+<ul>
+  <li>The item value</li>
+  <li>The item index </li>
+  <li>The array itself</li>
+</ul>
+
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">find()</code> is an  ES6  feature</a> (JavaScript 2015).</p>
+<p>It is supported in all modern browsers:</p>
+<div class="w3-responsive">
+<table class="browserref notranslate">
+  <tbody><tr style="height:60px">
+    <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:20%;" class="bsEdge" title="Edge"></th>
+    <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:20%;" class="bsSafari" title="Safari"></th>
+    <th style="width:19.9%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome</td>
+    <td>Edge</td>
+    <td>Firefox</td>
+    <td>Safari</td>
+    <td>Opera</td>
+  </tr>
+  <tr>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+</tbody></table>
+</div>
+<p><code class="w3-codespan">find()</code> is not supported in Internet Explorer.</p>
+
+
+<hr>
+
+<h2>JavaScript Array findIndex()</h2>
+<p>The <code class="w3-codespan">findIndex()</code> method returns the index of the first array element that 
+passes a test function.</p>
+
+<p>This Sample finds the index of the first element that is larger than 18:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> numbers = [<span class="jsnumbercolor" style="color:red">4</span>, <span class="jsnumbercolor" style="color:red">9</span>, <span class="jsnumbercolor" style="color:red">16</span>, <span class="jsnumbercolor" style="color:red">25</span>, <span class="jsnumbercolor" style="color:red">29</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> first = <span class="jsnumbercolor" style="color:red">
+</span>  numbers.<span class="jspropertycolor" style="color:black">findIndex</span>(myFunction);<br><br><span class="jskeywordcolor" style="color:mediumblue">function</span> myFunction(value, index, array) {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; <span class="jskeywordcolor" style="color:mediumblue">return</span> <span class="jsnumbercolor" style="color:red">
+</span>  value &gt; <span class="jsnumbercolor" style="color:red">18</span>;<br>}  </span></div>
+</div>
+<p>Note that the function takes 3 arguments:</p>
+<ul>
+  <li>The item value</li>
+<li>The item index </li>
+<li>The array itself</li>
+</ul>
+
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">findIndex()</code> is an  ES6  feature</a> (JavaScript 2015).</p>
+<p>It is supported in all modern browsers:</p>
+<div class="w3-responsive">
+<table class="browserref notranslate">
+  <tbody><tr style="height:60px">
+    <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:20%;" class="bsEdge" title="Edge"></th>
+    <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:20%;" class="bsSafari" title="Safari"></th>
+    <th style="width:19.9%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome</td>
+    <td>Edge</td>
+    <td>Firefox</td>
+    <td>Safari</td>
+    <td>Opera</td>
+  </tr>
+  <tr>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+</tbody></table>
+</div>
+<p><code class="w3-codespan">findIndex()</code> is not supported in Internet Explorer.</p>
+
+
+<hr>
+
+<h2>JavaScript Array.from()</h2>
+<p>The <code class="w3-codespan">Array.from()</code> method returns an Array object from any object with a length 
+property or any iterable object.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Create an Array from a String:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+Array.<span class="jspropertycolor" style="color:black">from</span>(<span class="jsstringcolor" style="color:brown">"ABCDEFG"</span>);<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">from()</code> is an  ES6  feature</a> (JavaScript 2015).</p>
+<p>It is supported in all modern browsers:</p>
+<div class="w3-responsive">
+<table class="browserref notranslate">
+  <tbody><tr style="height:60px">
+    <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:20%;" class="bsEdge" title="Edge"></th>
+    <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:20%;" class="bsSafari" title="Safari"></th>
+    <th style="width:19.9%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome</td>
+    <td>Edge</td>
+    <td>Firefox</td>
+    <td>Safari</td>
+    <td>Opera</td>
+  </tr>
+  <tr>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+</tbody></table>
+</div>
+<p><code class="w3-codespan">from()</code> is not supported in Internet Explorer.</p>
+
+
+<hr>
+
+<h2>JavaScript Array Keys()</h2>
+<p>The <code class="w3-codespan">Array.keys()</code> method returns an Array Iterator object with the keys of an array.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Create an Array Iterator object, containing the keys of the array:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = [<span class="jsstringcolor" style="color:brown">"Banana"</span>, <span class="jsstringcolor" style="color:brown">"Orange"</span>, <span class="jsstringcolor" style="color:brown">"Apple"</span>, <span class="jsstringcolor" style="color:brown">"Mango"</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> keys = fruits.<span class="jspropertycolor" style="color:black">keys</span>();<br><br>
+<span class="jskeywordcolor" style="color:mediumblue">for</span> (<span class="jskeywordcolor" style="color:mediumblue">let</span> x of keys) {<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp; text += x + <span class="jsstringcolor" style="color:brown">"&lt;br&gt;"</span>;<br>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">keys()</code> is an  ES6  feature</a> (JavaScript 2015).</p>
+<p>It is supported in all modern browsers:</p>
+<div class="w3-responsive">
+<table class="browserref notranslate">
+  <tbody><tr style="height:60px">
+    <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:20%;" class="bsEdge" title="Edge"></th>
+    <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:20%;" class="bsSafari" title="Safari"></th>
+    <th style="width:19.9%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome</td>
+    <td>Edge</td>
+    <td>Firefox</td>
+    <td>Safari</td>
+    <td>Opera</td>
+  </tr>
+  <tr>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+</tbody></table>
+</div>
+<p><code class="w3-codespan">keys()</code> is not supported in Internet Explorer.</p>
+
+
+<hr>
+ <h2>JavaScript Array entries()</h2>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Create an Array Iterator, and then iterate over the key/value pairs:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = [<span class="jsstringcolor" style="color:brown">"Banana"</span>, <span class="jsstringcolor" style="color:brown">"Orange"</span>, <span class="jsstringcolor" style="color:brown">"Apple"</span>, <span class="jsstringcolor" style="color:brown">"Mango"</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> f = fruits.<span class="jspropertycolor" style="color:black">entries</span>();<br><br><span class="jskeywordcolor" style="color:mediumblue">for</span> (<span class="jskeywordcolor" style="color:mediumblue">let</span> x of f) {<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp; document.<span class="jspropertycolor" style="color:black">getElementById</span>(<span class="jsstringcolor" style="color:brown">"demo"</span>).<span class="jspropertycolor" style="color:black">innerHTML</span> += x;<br>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<p>The <code class="w3-codespan">entries()</code> method returns an Array Iterator object with key/value pairs:</p>
+<p>[0, "Banana"]<br>[1, "Orange"]<br>[2, "Apple"]<br>[3, "Mango"]</p>
+<p>The <code class="w3-codespan">entries()</code> method does not change the original array.</p>
+
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">entries()</code> is an  ES6  feature</a> (JavaScript 2015).</p>
+<p>It is supported in all modern browsers:</p>
+<div class="w3-responsive">
+<table class="browserref notranslate">
+  <tbody><tr style="height:60px">
+    <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:20%;" class="bsEdge" title="Edge"></th>
+    <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:20%;" class="bsSafari" title="Safari"></th>
+    <th style="width:19.9%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome</td>
+    <td>Edge</td>
+    <td>Firefox</td>
+    <td>Safari</td>
+    <td>Opera</td>
+  </tr>
+  <tr>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+</tbody></table>
+</div>
+<p><code class="w3-codespan">entries()</code> is not supported in Internet Explorer.</p>
+
+
+
+<hr>
+<h2>JavaScript Array includes()</h2>
+<p>ECMAScript 2016 introduced <code class="w3-codespan">Array.includes()</code> to arrays.
+This allows us to check if an element is present in an array (including NaN, unlike indexOf).</p>
+<div class="w3-Sample">
+
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = [<span class="jsstringcolor" style="color:brown">"Banana"</span>, <span class="jsstringcolor" style="color:brown">"Orange"</span>, <span class="jsstringcolor" style="color:brown">"Apple"</span>, <span class="jsstringcolor" style="color:brown">"Mango"</span>];<br><br>
+fruits.<span class="jspropertycolor" style="color:black">includes</span>(<span class="jsstringcolor" style="color:brown">"Mango"</span>); <span class="commentcolor" style="color:green">// is true
+ </span></span></div>
+</div>
+
+<h3>Syntax</h3>
+<div class="w3-code w3-border notranslate">
+<i>array</i>.includes(<em>search-item</em>)
+</div>
+<div class="w3-note">
+<p>Array.includes() allows to check for NaN values. Unlike Array.indexOf().</p>
+</div>
+
+
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">includes()</code> is an  ECMAScript 2016</a> feature.</p>
+<p>It is supported in all modern browsers:</p>
+<div class="w3-responsive">
+<table class="browserref notranslate">
+  <tbody><tr style="height:60px">
+    <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:20%;" class="bsEdge" title="Edge"></th>
+    <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:20%;" class="bsSafari" title="Safari"></th>
+    <th style="width:19.9%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome</td>
+    <td>Edge</td>
+    <td>Firefox</td>
+    <td>Safari</td>
+    <td>Opera</td>
+  </tr>
+  <tr>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+</tbody></table>
+</div>
+<p><code class="w3-codespan">includes()</code> is not supported in Internet Explorer.</p>
+
+
+<hr>
+ <h2>JavaScript Array Spread (...)</h2>
+<p>The ... operator expands an iterable (like an array) into more elements: 
+</p><div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> q1 = [<span class="jsstringcolor" style="color:brown">"Jan"</span>, <span class="jsstringcolor" style="color:brown">"Feb"</span>, <span class="jsstringcolor" style="color:brown">"Mar"</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> q2 = [<span class="jsstringcolor" style="color:brown">"Apr"</span>, <span class="jsstringcolor" style="color:brown">"May"</span>, <span class="jsstringcolor" style="color:brown">"Jun"</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> q3 = [<span class="jsstringcolor" style="color:brown">"Jul"</span>, <span class="jsstringcolor" style="color:brown">"Aug"</span>, <span class="jsstringcolor" style="color:brown">"Sep"</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> q4 = [<span class="jsstringcolor" style="color:brown">"Oct"</span>, <span class="jsstringcolor" style="color:brown">"Nov"</span>, <span class="jsstringcolor" style="color:brown">"May"</span>];<br><span class="jsnumbercolor" style="color:red">
+</span><br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> year = [.<span class="jspropertycolor" style="color:black"></span>.<span class="jspropertycolor" style="color:black"></span>.<span class="jspropertycolor" style="color:black">q1</span>, .<span class="jspropertycolor" style="color:black"></span>.<span class="jspropertycolor" style="color:black"></span>.<span class="jspropertycolor" style="color:black">q2</span>, .<span class="jspropertycolor" style="color:black"></span>.<span class="jspropertycolor" style="color:black"></span>.<span class="jspropertycolor" style="color:black">q3</span>, .<span class="jspropertycolor" style="color:black"></span>.<span class="jspropertycolor" style="color:black"></span>.<span class="jspropertycolor" style="color:black">q4</span>];<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">...</code> is an  ES6  feature</a> (JavaScript 2015).</p>
+<p>It is supported in all modern browsers:</p>
+<div class="w3-responsive">
+<table class="browserref notranslate">
+  <tbody><tr style="height:60px">
+    <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:20%;" class="bsEdge" title="Edge"></th>
+    <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:20%;" class="bsSafari" title="Safari"></th>
+    <th style="width:19.9%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome</td>
+    <td>Edge</td>
+    <td>Firefox</td>
+    <td>Safari</td>
+    <td>Opera</td>
+  </tr>
+  <tr>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+</tbody></table>
+</div>
+<p><code class="w3-codespan">...</code> is not supported in Internet Explorer.</p>
+
+

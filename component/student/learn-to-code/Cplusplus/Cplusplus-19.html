@@ -1,0 +1,426 @@
+<!-- ARRAYS-->
+
+
+
+
+
+<h1>What is  <span class="color_h1">Arrays in C++?</span></h1>
+<p>&nbsp;</p>
+
+<h2>C++ Arrays</h2>
+<p>Arrays are used to store multiple values in a single variable, instead of declaring separate variables for each 
+value.</p>
+<p>To declare an array, define the variable type, specify the name 
+of the array followed by <strong>square brackets</strong> 
+and specify the number of elements it should store:</p>
+
+<div class="w3-sample">
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  string cars[<span class="javanumbercolor" style="color:red">4</span>];<br><span class="javanumbercolor" style="color:red">
+</span>  </span></div>
+</div>
+<p>We have now declared a variable that holds an array of four strings. To insert 
+values to it, we can use an array literal - place the values in a 
+comma-separated list, inside curly braces:</p>
+<div class="w3-sample">
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  string cars[<span class="javanumbercolor" style="color:red">4</span>] = {<span class="javastringcolor" style="color:brown">"Volvo"</span>, <span class="javastringcolor" style="color:brown">"BMW"</span>, <span class="javastringcolor" style="color:brown">"Ford"</span>, <span class="javastringcolor" style="color:brown">"Mazda"</span>};<br><span class="javanumbercolor" style="color:red">
+</span>  </span></div>
+</div>
+
+<p>To create an array of three integers, you could write:</p>
+<div class="w3-sample">
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  <span class="javakeywordcolor" style="color:mediumblue">int</span> myNum[<span class="javanumbercolor" style="color:red">3</span>] = {<span class="javanumbercolor" style="color:red">10</span>, <span class="javanumbercolor" style="color:red">20</span>, <span class="javanumbercolor" style="color:red">30</span>};<br><span class="javanumbercolor" style="color:red">
+</span>  </span></div>
+</div>
+
+<hr>
+
+<h2>Access the Elements of an Array</h2>
+<p>You access an array element by referring to the index number inside square 
+brackets <code class="w3-codespan">[]</code>.</p>
+<p>This statement accesses the value of the <strong>first element</strong> in 
+<strong>cars</strong>:</p>
+
+<div class="w3-sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  string cars[<span class="javanumbercolor" style="color:red">4</span>] = {<span class="javastringcolor" style="color:brown">"Volvo"</span>, <span class="javastringcolor" style="color:brown">"BMW"</span>, <span class="javastringcolor" style="color:brown">"Ford"</span>, <span class="javastringcolor" style="color:brown">"Mazda"</span>};<br><span class="javanumbercolor" style="color:red">
+</span>  cout &lt;&lt; cars[<span class="javanumbercolor" style="color:red">0</span>];<br><span class="commentcolor" style="color:green">// Outputs Volvo<br></span><span class="javanumbercolor" style="color:red">
+</span>  </span></div>
+</div>
+
+<div class="w3-note w3-panel">
+<p><strong>Note:</strong> Array indexes start with 0: [0] is the first element. [1] is the second 
+element, etc.</p>
+</div>
+<hr>
+
+<h2>Change an Array Element</h2>
+
+<p>To change the value of a specific element, refer to the index number:</p>
+
+<div class="w3-sample">
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  cars[<span class="javanumbercolor" style="color:red">0</span>] = <span class="javastringcolor" style="color:brown">"Opel"</span>;<br><span class="javanumbercolor" style="color:red">
+</span>  </span></div>
+</div>
+<div class="w3-sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  string cars[<span class="javanumbercolor" style="color:red">4</span>] = {<span class="javastringcolor" style="color:brown">"Volvo"</span>, <span class="javastringcolor" style="color:brown">"BMW"</span>, <span class="javastringcolor" style="color:brown">"Ford"</span>, <span class="javastringcolor" style="color:brown">"Mazda"</span>};<br>cars[<span class="javanumbercolor" style="color:red">0</span>] = <span class="javastringcolor" style="color:brown">"Opel"</span>;<br><span class="javanumbercolor" style="color:red">
+</span>  cout &lt;&lt; cars[<span class="javanumbercolor" style="color:red">0</span>];<br><span class="javanumbercolor" style="color:red">
+</span>  <span class="commentcolor" style="color:green">// Now outputs Opel instead of Volvo<br></span><span class="javanumbercolor" style="color:red">
+</span>  </span></div>
+</div>
+<hr>
+
+
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+<p>&nbsp;</p> 
+<p>&nbsp;</p> 
+  <div class="w3-row w3-white">
+    
+    <div class="w3-col l10 m12" id="main">
+      
+      
+
+<h1>C++ <span class="color_h1">Arrays and Loops</span></h1>
+
+
+<h2>Loop Through an Array</h2>
+<p>You can loop through the array elements with the <code class="w3-codespan">for</code></a> 
+loop.</p>
+<p>The following sample outputs all elements in the <strong>cars</strong> 
+array:</p>
+
+<div class="w3-sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  string cars[<span class="javanumbercolor" style="color:red">5</span>] = {<span class="javastringcolor" style="color:brown">"Volvo"</span>, <span class="javastringcolor" style="color:brown">"BMW"</span>, <span class="javastringcolor" style="color:brown">"Ford"</span>, <span class="javastringcolor" style="color:brown">"Mazda"</span>, <span class="javanumbercolor" style="color:red">
+</span>  <span class="javastringcolor" style="color:brown">"Tesla"</span>};<br><span class="javakeywordcolor" style="color:mediumblue">for</span> (<span class="javakeywordcolor" style="color:mediumblue">int</span> i = <span class="javanumbercolor" style="color:red">0</span>; i &lt; <span class="javanumbercolor" style="color:red">5</span>; <span class="javanumbercolor" style="color:red">
+</span>  i++) {<br>&nbsp; cout &lt;&lt; cars[i] &lt;&lt; <span class="javastringcolor" style="color:brown">"\n"</span>;<br>}<br><span class="javanumbercolor" style="color:red">
+</span>  </span></div>
+</div>
+
+<p>This sample outputs the index of each element together with its value:</p>
+
+<div class="w3-sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  string cars[<span class="javanumbercolor" style="color:red">5</span>] = {<span class="javastringcolor" style="color:brown">"Volvo"</span>, <span class="javastringcolor" style="color:brown">"BMW"</span>, <span class="javastringcolor" style="color:brown">"Ford"</span>, <span class="javastringcolor" style="color:brown">"Mazda"</span>, <span class="javanumbercolor" style="color:red">
+</span>  <span class="javastringcolor" style="color:brown">"Tesla"</span>};<br><span class="javakeywordcolor" style="color:mediumblue">for</span> (<span class="javakeywordcolor" style="color:mediumblue">int</span> i = <span class="javanumbercolor" style="color:red">0</span>; i &lt; <span class="javanumbercolor" style="color:red">5</span>; <span class="javanumbercolor" style="color:red">
+</span>  i++) {<br>&nbsp; cout &lt;&lt; i &lt;&lt; <span class="javastringcolor" style="color:brown">" = "</span> &lt;&lt; cars[i] &lt;&lt; <span class="javastringcolor" style="color:brown">"\n"</span>;<br>}<br><span class="javanumbercolor" style="color:red">
+</span>  </span></div>
+</div>
+
+<p>And this sample shows how to loop through an array of integers:</p>
+
+<div class="w3-sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  <span class="javakeywordcolor" style="color:mediumblue">int</span> myNumbers[<span class="javanumbercolor" style="color:red">5</span>] = {<span class="javanumbercolor" style="color:red">10</span>, <span class="javanumbercolor" style="color:red">20</span>, <span class="javanumbercolor" style="color:red">30</span>, <span class="javanumbercolor" style="color:red">40</span>, <span class="javanumbercolor" style="color:red">50</span>};<br><span class="javakeywordcolor" style="color:mediumblue">for</span> (<span class="javakeywordcolor" style="color:mediumblue">int</span> i = <span class="javanumbercolor" style="color:red">0</span>; i &lt; <span class="javanumbercolor" style="color:red">5</span>; i++) {<br>&nbsp; <span class="javanumbercolor" style="color:red">
+</span>  cout &lt;&lt; myNumbers[i] &lt;&lt; <span class="javastringcolor" style="color:brown">"\n"</span>;<br>}<br><span class="javanumbercolor" style="color:red">
+</span>  </span></div>
+</div>
+<hr>
+
+<h2>The foreach Loop</h2>
+<p>There is also a "<strong>for-each</strong> loop" (introduced in C++ version 11 (2011), which is used exclusively to loop through elements in an array:</p>
+<div class="w3-sample">
+<h3>Syntax</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  <span class="javakeywordcolor" style="color:mediumblue">for</span> (<em>type variableName </em>: <em>arrayName</em>) {<br>&nbsp; <span class="commentcolor" style="color:green">// code block to be executed<br></span><span class="javanumbercolor" style="color:red">
+</span>  }<br><span class="javanumbercolor" style="color:red">
+</span>  </span></div>
+</div>
+
+<p>The following sample outputs all elements in an array, using a "<strong>for-each</strong> loop":</p>
+<div class="w3-sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  <span class="javakeywordcolor" style="color:mediumblue">int</span> myNumbers[<span class="javanumbercolor" style="color:red">5</span>] = {<span class="javanumbercolor" style="color:red">10</span>, <span class="javanumbercolor" style="color:red">20</span>, <span class="javanumbercolor" style="color:red">30</span>, <span class="javanumbercolor" style="color:red">40</span>, <span class="javanumbercolor" style="color:red">50</span>};<br><span class="javakeywordcolor" style="color:mediumblue">for</span> (<span class="javakeywordcolor" style="color:mediumblue">int</span> i : myNumbers) {<br>&nbsp; <span class="javanumbercolor" style="color:red">
+</span>  cout &lt;&lt; i &lt;&lt; <span class="javastringcolor" style="color:brown">"\n"</span>;<br>}<br><span class="javanumbercolor" style="color:red">
+</span>  </span></div>
+</div>
+
+
+
+  <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+
+  <p>&nbsp;</p> 
+  <p>&nbsp;</p> 
+  <div class="w3-row w3-white">
+    
+   
+
+<h1>C++ <span class="color_h1">Omit Array Size</span></h1>
+
+
+<h2>Omit Array Size</h2>
+<p>In C++, you don't have to specify the size of the array. The compiler is 
+smart enough to determine the size of the array based on the number of inserted values:</p>
+
+<div class="w3-sample">
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  string cars[] = {<span class="javastringcolor" style="color:brown">"Volvo"</span>, <span class="javastringcolor" style="color:brown">"BMW"</span>, <span class="javastringcolor" style="color:brown">"Ford"</span>}; <span class="commentcolor" style="color:green">// Three array elements<br></span><span class="javanumbercolor" style="color:red">
+</span>  </span></div>
+</div>
+<p>The sample above is equal to:</p>
+<div class="w3-sample">
+  <div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>    string cars[<span class="javanumbercolor" style="color:red">3</span>] = {<span class="javastringcolor" style="color:brown">"Volvo"</span>, <span class="javastringcolor" style="color:brown">"BMW"</span>, <span class="javastringcolor" style="color:brown">"Ford"</span>}; <span class="commentcolor" style="color:green">// Also three array elements<br></span><span class="javanumbercolor" style="color:red">
+</span>  </span></div>
+</div>
+
+<p> However, the last approach is considered as "good practice", because it will reduce 
+the chance of errors in your program.</p>
+
+<hr>
+
+<h2>Omit Elements on Declaration</h2>
+<p>It is also possible to declare an array without specifying the elements on declaration, and add them later:</p>
+<div class="w3-sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  string cars[<span class="javanumbercolor" style="color:red">5</span>];<br>cars[<span class="javanumbercolor" style="color:red">0</span>] = <span class="javastringcolor" style="color:brown">"Volvo"</span>;<br>cars[<span class="javanumbercolor" style="color:red">1</span>] = <span class="javastringcolor" style="color:brown">"BMW"</span>;<br><span class="javanumbercolor" style="color:red">
+</span>  .<span class="javapropertycolor" style="color:black"></span>.<span class="javapropertycolor" style="color:black"></span>.<span class="javapropertycolor" style="color:black"></span> </span></div>
+</div>
+
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-->
+<p>&nbsp;</p> 
+<p>&nbsp;</p> 
+  <div class="w3-row w3-white">
+    
+  
+
+<h1>C++ <span class="color_h1">Array Size</span></h1>
+
+<hr>
+
+<h2>Get the Size of an Array</h2>
+<p>To get the size of an array, you can use the <code class="w3-codespan">sizeof()</code> 
+operator:</p>
+
+<div class="w3-sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  <span class="javakeywordcolor" style="color:mediumblue">int</span> myNumbers[<span class="javanumbercolor" style="color:red">5</span>] = {<span class="javanumbercolor" style="color:red">10</span>, <span class="javanumbercolor" style="color:red">20</span>, <span class="javanumbercolor" style="color:red">30</span>, <span class="javanumbercolor" style="color:red">40</span>, <span class="javanumbercolor" style="color:red">50</span>};<br>cout &lt;&lt; <strong>sizeof(myNumbers)</strong>;<br><span class="javanumbercolor" style="color:red">
+</span>  </span></div>
+<p>Result:</p>
+<div class="notranslate w3-black w3-padding">
+<code>
+  20
+</code>
+</div>
+
+</div>
+
+<p>Why did the result show <code class="w3-codespan">20</code> instead of <code class="w3-codespan">
+5</code>, when the array contains 5 elements?</p>
+<p>It is because the <code class="w3-codespan">sizeof()</code> operator returns the size of a type in 
+<strong>bytes</strong>.</p>
+<p>You learned from the Data Types chapter</a> that an <code class="w3-codespan">int</code> 
+type is usually 4 bytes, so from the sample above, <em>4 x 5 (4 bytes x 5 elements) = <strong>20 bytes</strong></em>.</p>
+
+<p><strong>To find out how many elements an array has</strong>, you have to divide the size of the array by 
+the size of the data type it contains:</p>
+
+<div class="w3-sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  <span class="javakeywordcolor" style="color:mediumblue">int</span> myNumbers[<span class="javanumbercolor" style="color:red">5</span>] = {<span class="javanumbercolor" style="color:red">10</span>, <span class="javanumbercolor" style="color:red">20</span>, <span class="javanumbercolor" style="color:red">30</span>, <span class="javanumbercolor" style="color:red">40</span>, <span class="javanumbercolor" style="color:red">50</span>};<br><span class="javakeywordcolor" style="color:mediumblue">int</span> getArrayLength = <strong>
+  sizeof(myNumbers) / sizeof(<span class="javakeywordcolor" style="color:mediumblue">int</span>)</strong>;<br>cout &lt;&lt; getArrayLength;<br><span class="javanumbercolor" style="color:red">
+</span>  </span></div>
+<p>Result:</p>
+<div class="notranslate w3-black w3-padding">
+<code>
+  5
+</code>
+</div>
+
+</div>
+<hr>
+
+
+<h2>Loop Through an Array with sizeof()</h2>
+<p>In the  Arrays and Loops Chapter</a>, we wrote the size of the array in the loop condition (<code class="w3-codespan">i &lt; 
+5</code>). This is not ideal, since it will only work for arrays of a specified size.</p>
+<p>However, by using the <code class="w3-codespan">sizeof()</code> approach from 
+the sample above, we can now make loops that work for arrays of any size, which 
+is more 
+sustainable.</p>
+
+<p>Instead of writing:</p>
+
+<div class="w3-sample">
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  <span class="javakeywordcolor" style="color:mediumblue">int</span> myNumbers[<span class="javanumbercolor" style="color:red">5</span>] = {<span class="javanumbercolor" style="color:red">10</span>, <span class="javanumbercolor" style="color:red">20</span>, <span class="javanumbercolor" style="color:red">30</span>, <span class="javanumbercolor" style="color:red">40</span>, <span class="javanumbercolor" style="color:red">50</span>};<br><span class="javakeywordcolor" style="color:mediumblue">for</span> (<span class="javakeywordcolor" style="color:mediumblue">int</span> i = <span class="javanumbercolor" style="color:red">0</span>; i &lt; <span class="javanumbercolor" style="color:red">
+</span>  <span class="javanumbercolor" style="color:red">5</span>; i++) {<br>&nbsp; cout &lt;&lt; myNumbers[i] &lt;&lt; <span class="javanumbercolor" style="color:red">
+</span>  <span class="javastringcolor" style="color:brown">"\n"</span>;<br>}<span class="javanumbercolor" style="color:red">
+</span>  </span></div>
+</div>
+
+<p>It is better to write:</p>
+
+<div class="w3-sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  <span class="javakeywordcolor" style="color:mediumblue">int</span> myNumbers[<span class="javanumbercolor" style="color:red">5</span>] = {<span class="javanumbercolor" style="color:red">10</span>, <span class="javanumbercolor" style="color:red">20</span>, <span class="javanumbercolor" style="color:red">30</span>, <span class="javanumbercolor" style="color:red">40</span>, <span class="javanumbercolor" style="color:red">50</span>};<br><span class="javakeywordcolor" style="color:mediumblue">for</span> (<span class="javakeywordcolor" style="color:mediumblue">int</span> i = <span class="javanumbercolor" style="color:red">0</span>; i &lt; <span class="javanumbercolor" style="color:red">
+</span>  sizeof(myNumbers) / sizeof(<span class="javakeywordcolor" style="color:mediumblue">int</span>); i++) {<br>&nbsp; cout &lt;&lt; myNumbers[i] &lt;&lt; <span class="javanumbercolor" style="color:red">
+</span>  <span class="javastringcolor" style="color:brown">"\n"</span>;<br>}<span class="javanumbercolor" style="color:red">
+</span>  </span></div>
+</div>
+
+
+
+<p>Note that, in C++ version 11 (2011), you can also use the "for-each" loop</a>:</p>
+<div class="w3-sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  <span class="javakeywordcolor" style="color:mediumblue">int</span> myNumbers[<span class="javanumbercolor" style="color:red">5</span>] = {<span class="javanumbercolor" style="color:red">10</span>, <span class="javanumbercolor" style="color:red">20</span>, <span class="javanumbercolor" style="color:red">30</span>, <span class="javanumbercolor" style="color:red">40</span>, <span class="javanumbercolor" style="color:red">50</span>};<br><span class="javakeywordcolor" style="color:mediumblue">for</span> (<span class="javakeywordcolor" style="color:mediumblue">int</span> i : myNumbers) {<br>&nbsp; <span class="javanumbercolor" style="color:red">
+</span>  cout &lt;&lt; i &lt;&lt; <span class="javastringcolor" style="color:brown">"\n"</span>;<br>}<br><span class="javanumbercolor" style="color:red">
+</span>  </span></div>
+</div>
+
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<p>&nbsp;</p> 
+<p>&nbsp;</p> 
+
+  <div class="w3-row w3-white">
+    
+  
+
+<h1>C++ <span class="color_h1">Multi-Dimensional Arrays</span></h1>
+
+
+<h2>Multi-Dimensional Arrays</h2>
+<p>A multi-dimensional array is an array of arrays.</p>
+
+<p>To declare a multi-dimensional array, define the variable type, specify the name of the array followed by square brackets which specify how many elements the main array has, followed by another set of square brackets which indicates how many elements the sub-arrays have:</p>
+
+<div class="w3-sample">
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  string letters[<span class="javanumbercolor" style="color:red">2</span>][<span class="javanumbercolor" style="color:red">4</span>];<br><span class="javanumbercolor" style="color:red">
+</span>  </span></div>
+</div>
+
+<p>As with ordinary arrays, you can insert values with an array literal - a 
+comma-separated list inside curly braces. In a multi-dimensional array, each 
+element in an array literal is another array literal.</p>
+<div class="w3-sample">
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  string letters[<span class="javanumbercolor" style="color:red">2</span>][<span class="javanumbercolor" style="color:red">4</span>] = {<br>&nbsp; { <span class="javastringcolor" style="color:brown">"A"</span>, <span class="javastringcolor" style="color:brown">"B"</span>, <span class="javastringcolor" style="color:brown">"C"</span>, <span class="javastringcolor" style="color:brown">"D"</span> },<br>&nbsp; { <span class="javastringcolor" style="color:brown">"E"</span>, <span class="javanumbercolor" style="color:red">
+</span>  <span class="javastringcolor" style="color:brown">"F"</span>, <span class="javastringcolor" style="color:brown">"G"</span>, <span class="javastringcolor" style="color:brown">"H"</span> }<br>};<br><span class="javanumbercolor" style="color:red">
+</span>  </span></div>
+</div>
+
+<p>Each set of square brackets in an array declaration adds another <strong>dimension
+</strong>to an array. An array like the one above is said to have two dimensions.</p>
+
+<p>Arrays can have any number of dimensions. The more dimensions an array has, the more complex the code becomes. The following array has three dimensions:</p>
+
+<div class="w3-sample">
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  string letters[<span class="javanumbercolor" style="color:red">2</span>][<span class="javanumbercolor" style="color:red">2</span>][<span class="javanumbercolor" style="color:red">2</span>] = {<br>&nbsp; {<br>&nbsp;&nbsp;&nbsp; { <span class="javastringcolor" style="color:brown">"A"</span>, <span class="javastringcolor" style="color:brown">"B"</span> },<br>&nbsp;&nbsp;&nbsp; <span class="javanumbercolor" style="color:red">
+</span>  { <span class="javastringcolor" style="color:brown">"C"</span>, <span class="javastringcolor" style="color:brown">"D"</span> }<br>&nbsp; },<br>&nbsp; {<br>&nbsp;&nbsp;&nbsp; { <span class="javastringcolor" style="color:brown">"E"</span>, <span class="javastringcolor" style="color:brown">"F"</span> },<br>&nbsp;&nbsp;&nbsp; <span class="javanumbercolor" style="color:red">
+</span>  { <span class="javastringcolor" style="color:brown">"G"</span>, <span class="javastringcolor" style="color:brown">"H"</span> }<br>&nbsp; }<br>};<br><span class="javanumbercolor" style="color:red">
+</span>  </span></div>
+</div>
+
+<hr>
+
+<h2>Access the Elements of a Multi-Dimensional Array</h2>
+
+<p>To access an element of a multi-dimensional array, specify an index number in each of the array's dimensions.</p>
+
+<p>This statement accesses the value of the element in the <strong>first row (0)</strong> and <strong>third column 
+(2)</strong> of the <strong>letters</strong> array.</p>
+
+<div class="w3-sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  string letters[<span class="javanumbercolor" style="color:red">2</span>][<span class="javanumbercolor" style="color:red">4</span>] = {<br>&nbsp; { <span class="javastringcolor" style="color:brown">"A"</span>, <span class="javastringcolor" style="color:brown">"B"</span>, <span class="javastringcolor" style="color:brown">"C"</span>, <span class="javastringcolor" style="color:brown">"D"</span> },<br>&nbsp; { <span class="javastringcolor" style="color:brown">"E"</span>, <span class="javanumbercolor" style="color:red">
+</span>  <span class="javastringcolor" style="color:brown">"F"</span>, <span class="javastringcolor" style="color:brown">"G"</span>, <span class="javastringcolor" style="color:brown">"H"</span> }<br>};<br><br>cout &lt;&lt; letters[<span class="javanumbercolor" style="color:red">0</span>][<span class="javanumbercolor" style="color:red">2</span>];&nbsp; <span class="commentcolor" style="color:green">// Outputs "C" </span></span></div>
+</div>
+
+<div class="w3-note w3-panel">
+<p><strong>Remember that:</strong> Array indexes start with 0: [0] is the first element. [1] is the second element, etc.</p>
+</div>
+
+<hr>
+
+<h2>Change Elements in a Multi-Dimensional Array</h2>
+<p>To change the value of an element, refer to the index number of the element in each of the dimensions:</p>
+
+<div class="w3-sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  string letters[<span class="javanumbercolor" style="color:red">2</span>][<span class="javanumbercolor" style="color:red">4</span>] = {<br>&nbsp; { <span class="javastringcolor" style="color:brown">"A"</span>, <span class="javastringcolor" style="color:brown">"B"</span>, <span class="javastringcolor" style="color:brown">"C"</span>, <span class="javastringcolor" style="color:brown">"D"</span> },<br>&nbsp; { <span class="javastringcolor" style="color:brown">"E"</span>, <span class="javanumbercolor" style="color:red">
+</span>  <span class="javastringcolor" style="color:brown">"F"</span>, <span class="javastringcolor" style="color:brown">"G"</span>, <span class="javastringcolor" style="color:brown">"H"</span> }<br>};<br>letters[<span class="javanumbercolor" style="color:red">0</span>][<span class="javanumbercolor" style="color:red">0</span>] = <span class="javastringcolor" style="color:brown">"Z"</span>;<br><br>cout &lt;&lt; letters[<span class="javanumbercolor" style="color:red">0</span>][<span class="javanumbercolor" style="color:red">0</span>];&nbsp; <span class="commentcolor" style="color:green">// Now outputs 
+  "Z" instead of "A" </span></span></div>
+</div>
+<hr>
+
+<h2>Loop Through a Multi-Dimensional Array</h2>
+<p>To loop through a multi-dimensional array, you need one loop for each of the array's dimensions.</p>
+<p>The following sample outputs all elements in the <strong>letters</strong> array:</p>
+<div class="w3-sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  string letters[<span class="javanumbercolor" style="color:red">2</span>][<span class="javanumbercolor" style="color:red">4</span>] = {<br>&nbsp; { <span class="javastringcolor" style="color:brown">"A"</span>, <span class="javastringcolor" style="color:brown">"B"</span>, <span class="javastringcolor" style="color:brown">"C"</span>, <span class="javastringcolor" style="color:brown">"D"</span> },<br>&nbsp; { <span class="javastringcolor" style="color:brown">"E"</span>, <span class="javanumbercolor" style="color:red">
+</span>  <span class="javastringcolor" style="color:brown">"F"</span>, <span class="javastringcolor" style="color:brown">"G"</span>, <span class="javastringcolor" style="color:brown">"H"</span> }<br>};<br><br><span class="javakeywordcolor" style="color:mediumblue">for</span> (<span class="javakeywordcolor" style="color:mediumblue">int</span> i = <span class="javanumbercolor" style="color:red">0</span>; i &lt; <span class="javanumbercolor" style="color:red">2</span>; i++) {<br>&nbsp; <span class="javakeywordcolor" style="color:mediumblue">for</span> (<span class="javakeywordcolor" style="color:mediumblue">int</span> j <span class="javanumbercolor" style="color:red">
+</span>  = <span class="javanumbercolor" style="color:red">0</span>; j &lt; <span class="javanumbercolor" style="color:red">4</span>; j++) {<br>&nbsp;&nbsp;&nbsp; cout &lt;&lt; letters[i][j] &lt;&lt; <span class="javastringcolor" style="color:brown">"\n"</span>;<br>&nbsp; <span class="javanumbercolor" style="color:red">
+</span>  }<br>} </span></div>
+</div>
+
+<p>This sample shows how to loop through a three-dimensional array:</p>
+
+<div class="w3-sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  string letters[<span class="javanumbercolor" style="color:red">2</span>][<span class="javanumbercolor" style="color:red">2</span>][<span class="javanumbercolor" style="color:red">2</span>] = {<br>&nbsp; {<br>&nbsp;&nbsp;&nbsp; { <span class="javastringcolor" style="color:brown">"A"</span>, <span class="javastringcolor" style="color:brown">"B"</span> },<br>&nbsp;&nbsp;&nbsp; <span class="javanumbercolor" style="color:red">
+</span>  { <span class="javastringcolor" style="color:brown">"C"</span>, <span class="javastringcolor" style="color:brown">"D"</span> }<br>&nbsp; },<br>&nbsp; {<br>&nbsp;&nbsp;&nbsp; { <span class="javastringcolor" style="color:brown">"E"</span>, <span class="javastringcolor" style="color:brown">"F"</span> },<br>&nbsp;&nbsp;&nbsp; <span class="javanumbercolor" style="color:red">
+</span>  { <span class="javastringcolor" style="color:brown">"G"</span>, <span class="javastringcolor" style="color:brown">"H"</span> }<br>&nbsp; }<br>};<br><br><span class="javakeywordcolor" style="color:mediumblue">for</span> (<span class="javakeywordcolor" style="color:mediumblue">int</span> i = <span class="javanumbercolor" style="color:red">0</span>; i &lt; <span class="javanumbercolor" style="color:red">2</span>; i++) {<br>&nbsp; <span class="javanumbercolor" style="color:red">
+</span>  <span class="javakeywordcolor" style="color:mediumblue">for</span> (<span class="javakeywordcolor" style="color:mediumblue">int</span> j = <span class="javanumbercolor" style="color:red">0</span>; j &lt; <span class="javanumbercolor" style="color:red">2</span>; j++) {<br>&nbsp;&nbsp;&nbsp; <span class="javakeywordcolor" style="color:mediumblue">for</span> (<span class="javakeywordcolor" style="color:mediumblue">int</span> k = <span class="javanumbercolor" style="color:red">0</span>; k &lt; <span class="javanumbercolor" style="color:red">2</span>; k++) <span class="javanumbercolor" style="color:red">
+</span>  {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cout &lt;&lt; letters[i][j][k] &lt;&lt; <span class="javastringcolor" style="color:brown">"\n"</span>;<br>&nbsp;&nbsp;&nbsp; <span class="javanumbercolor" style="color:red">
+</span>  }<br>&nbsp; }<br>} </span></div>
+</div>
+<hr>
+
+<h2>Why Multi-Dimensional Arrays?</h2>
+<p>Multi-dimensional arrays are great at representing grids. This sample shows a
+practical use for them. In the following sample we use a multi-dimensional
+array to represent a small game of Battleship:</p>
+<div class="w3-sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  <span class="commentcolor" style="color:green">// We put "1" to indicate there is a ship.<br></span>bool ships[<span class="javanumbercolor" style="color:red">4</span>][<span class="javanumbercolor" style="color:red">4</span>] = {<br>&nbsp; { <span class="javanumbercolor" style="color:red">
+</span>  <span class="javanumbercolor" style="color:red">0</span>, <span class="javanumbercolor" style="color:red">1</span>, <span class="javanumbercolor" style="color:red">1</span>, <span class="javanumbercolor" style="color:red">0</span> },<br>&nbsp; { <span class="javanumbercolor" style="color:red">0</span>, <span class="javanumbercolor" style="color:red">0</span>, <span class="javanumbercolor" style="color:red">0</span>, <span class="javanumbercolor" style="color:red">0</span> },<br>&nbsp; { <span class="javanumbercolor" style="color:red">0</span>, <span class="javanumbercolor" style="color:red">0</span>, <span class="javanumbercolor" style="color:red">1</span>, <span class="javanumbercolor" style="color:red">0</span> },<br>&nbsp; { <span class="javanumbercolor" style="color:red">
+</span>  <span class="javanumbercolor" style="color:red">0</span>, <span class="javanumbercolor" style="color:red">0</span>, <span class="javanumbercolor" style="color:red">1</span>, <span class="javanumbercolor" style="color:red">0</span> }<br>};<br><br><span class="commentcolor" style="color:green">// Keep track of how many hits the player has and 
+  how many turns they have played in these variables<br></span><span class="javakeywordcolor" style="color:mediumblue">int</span> hits = <span class="javanumbercolor" style="color:red">0</span>;<br><span class="javakeywordcolor" style="color:mediumblue">int</span> <span class="javanumbercolor" style="color:red">
+</span>  numberOfTurns = <span class="javanumbercolor" style="color:red">0</span>;<br><br><span class="commentcolor" style="color:green">// Allow the player to keep going until they have 
+  hit all four ships<br></span><span class="javakeywordcolor" style="color:mediumblue">while</span> (hits &lt; <span class="javanumbercolor" style="color:red">4</span>) {<br>&nbsp; <span class="javakeywordcolor" style="color:mediumblue">int</span> row, column;<br><br>&nbsp; <span class="javanumbercolor" style="color:red">
+</span>  cout &lt;&lt; <span class="javastringcolor" style="color:brown">"Selecting coordinates\n"</span>;<br><br>&nbsp; <span class="commentcolor" style="color:green">// Ask the player for a row<br></span>&nbsp; <span class="javanumbercolor" style="color:red">
+</span>  cout &lt;&lt; <span class="javastringcolor" style="color:brown">"Choose a row number between 0 and 3: "</span>;<br>&nbsp; cin &gt;&gt; row;<br><br>&nbsp; <span class="javanumbercolor" style="color:red">
+</span>  <span class="commentcolor" style="color:green">// Ask the player for a column<br></span>&nbsp; cout &lt;&lt; <span class="javastringcolor" style="color:brown">"Choose a column number 
+  between 0 and 3: "</span>;<br>&nbsp; cin &gt;&gt; column;<br><br>&nbsp; <span class="commentcolor" style="color:green">// Check if a ship 
+  exists in those coordinates<br></span>&nbsp; <span class="javakeywordcolor" style="color:mediumblue">if</span> (ships[row][column]) {<br>&nbsp;&nbsp;&nbsp; <span class="javanumbercolor" style="color:red">
+</span>  <span class="commentcolor" style="color:green">// If the player hit a ship, remove it by setting the value to zero.<br></span>&nbsp;&nbsp;&nbsp; <span class="javanumbercolor" style="color:red">
+</span>  ships[row][column] = <span class="javanumbercolor" style="color:red">0</span>;<br><br>&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// Increase the hit counter<br></span>&nbsp;&nbsp;&nbsp; <span class="javanumbercolor" style="color:red">
+</span>  hits++;<br><br>&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// Tell the player that they have hit a ship 
+  and how many ships are left<br></span>&nbsp;&nbsp;&nbsp; cout &lt;&lt; <span class="javastringcolor" style="color:brown">"Hit! "</span> &lt;&lt; (<span class="javanumbercolor" style="color:red">4</span>-hits) <span class="javanumbercolor" style="color:red">
+</span>  &lt;&lt; <span class="javastringcolor" style="color:brown">" left.\n\n"</span>;<br>&nbsp; } <span class="javakeywordcolor" style="color:mediumblue">else</span> {<br>&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// Tell the player 
+  that they missed<br></span>&nbsp;&nbsp;&nbsp; cout &lt;&lt; <span class="javastringcolor" style="color:brown">"Miss\n\n"</span>;<br>&nbsp; }<br><br>&nbsp; <span class="javanumbercolor" style="color:red">
+</span>  <span class="commentcolor" style="color:green">// Count how many turns the player has taken<br></span>&nbsp; numberOfTurns++;<br>}<br><br><span class="javanumbercolor" style="color:red">
+</span>  cout &lt;&lt; <span class="javastringcolor" style="color:brown">"Victory!\n"</span>;<br>cout &lt;&lt; <span class="javastringcolor" style="color:brown">"You won in "</span> &lt;&lt; numberOfTurns &lt;&lt; <span class="javastringcolor" style="color:brown">" turns"</span>; </span></div>
+</div>
+
+

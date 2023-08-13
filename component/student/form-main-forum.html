@@ -3,6 +3,7 @@
 <meta property="og:title" content="Your Website Title" />
 <meta property="og:description" content="Your description" />
 <meta property="og:image" content="https://www.your-domain.com/path/image.jpg" />
+<link rel="stylesheet" type="text/css" href="./../../common/ckeditor/styles.css">
 <style>
     .profile-header-container {
         margin: 0 auto;
@@ -81,18 +82,48 @@
         background-color: DodgerBlue !important;
         color: #ffffff;
     }
+    
+    #question-description>p>img {
+        width: 100%;
+    }
+    
+    .container-description>p>img {
+        width: 100%;
+    }
+    
+    #question-description>figure>img {
+        width: 100%;
+    }
+    
+    figure>img {
+        width: 100%;
+    }
+    
+    pre {
+        background: hsla(0, 0%, 78%, .3);
+        border: 1px solid #c4c4c4;
+        border-radius: 2px;
+        color: #353535;
+        direction: ltr;
+        font-style: normal;
+        min-width: 200px;
+        padding: 1em;
+        tab-size: 4;
+        text-align: left;
+        white-space: pre-wrap;
+    }
 </style>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v17.0" nonce="z2fQyic9"></script>
-<div class="container mt-3">
+<div class="container mt-3 mb-5">
     <div class="row">
         <div class="col">
             <div class="card shadow-sm p-2">
                 <div class="card-body" id="login-form">
                     <div id="card-form">
                         <div class="row py-3 align-middle">
-                            <div class="col-1 pl-4 pt-0 mt-0"><img class="img-profile img-circle rounded-circle" style="width:60px; height: 60px;" src="" id="question-picture"></div>
+                            <div class="col-1 pl-4 pt-0 mt-0"><img class="img-profile img-circle rounded-circle" style="width:60px; height: 60px;" src="./../../resource/profile/default.svg" id="question-picture"></div>
                             <div class="col align-middle">
                                 <div class="row mb-0 pb-0">
                                     <div class="col align-middle">
@@ -104,9 +135,9 @@
                                         <div class="btn-group d-flex flex-row-reverse dropright">
                                             <i class="fa fa-solid fa-ellipsis-vertical pl-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
                                             <div class="dropdown-menu">
-                                                <button class="dropdown-item" type="button" data-toggle="modal" data-target="#modal-report-question" id=""><i class="fa fa-flag fa-sm"></i> Report</button>
-                                                <button class="dropdown-item" type="button"><i class="fa fa-pen fa-sm"></i> Edit Question</button>
-                                                <button class="dropdown-item" type="button"><i class="fa fa-trash fa-sm"></i> Delete Question</button>
+                                                <button class="dropdown-item for-non-creator for-non-creator-report-question" type="button" data-toggle="modal" data-target="#modal-report-question" id=""><i class="fa fa-flag fa-sm"></i> Report</button>
+                                                <button class="dropdown-item for-creator for-creator-edit-question" data-toggle="modal" data-target="#modal-edit-question" type="button"><i class="fa fa-pen fa-sm"></i> Edit Question</button>
+                                                <button class="dropdown-item for-creator for-creator-delete-question" data-toggle="modal" data-target="#modal-delete-question" type="button"><i class="fa fa-trash fa-sm"></i> Delete Question</button>
                                             </div>
                                         </div>
                                     </div>
@@ -131,11 +162,6 @@
                                 <p class="mb-0 pb-0" id="question-description" style="white-space: pre-line; tab-size: 8;"></p>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col d-flex mt-2 justify-content-end">
-                                <div class="justify-content-end p-2"><input type="submit" class="btn btn-primary btn-sm px-5" value="Answer Now"></div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -145,19 +171,21 @@
 
     <div class="row mt-3">
         <div class="col">
-            <div class="card shadow-sm">
+            <div class="card shadow-sm ">
                 <div class="card-body">
                     <div id="card-form">
                         <form class="" id="form-answer-now">
                             <div class="row">
                                 <div class="col">
-                                    <textarea class="form-control" name="" id="textarea-answer" cols="30" rows="5"></textarea>
+                                    <textarea class="form-control" name="" placeholder="Enter your answer here..." id="textarea-answer" required></textarea>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col d-flex mt-2">
-                                    <div class="justify-content-start mr-auto p-2t">Attachment</div>
-                                    <div class="justify-content-end p-2"><input type="submit" class="btn btn-primary btn-sm px-5" value="Post"></div>
+                                    <div class="col d-flex mt-2 justify-content-end">
+                                        <div class="justify-content-end p-2"><a href="#answer-now" id="btn-answer-now" class="btn btn-success btn-sm " value="">Use Text Editor <i class="fa fa-edit"></i></a></div>
+                                        <div class="justify-content-end p-2"><button type="submit" class="btn btn-primary btn-sm">Answer Now <i class="fa fa-paper-plane"></i></button></div>
+                                    </div>
                                 </div>
                             </div>
                         </form>
@@ -171,62 +199,70 @@
         </div>
     </div>
 </div>
-<footer class="bg-link text-center shadow bg-white text-dark mt-5">
-    <div class="">
-        <section class="">
-            <div class="row">
-                <div class="col mb-md-0 pt-3">
-                    <p>
-                        <i>Learning by Asking!</i>
-                    </p>
-                </div>
-            </div>
-        </section>
-    </div>
-    <div class="text-center p-3">
-        © 2020 Copyright:
-        <a class="text-dark" href="">Code Connect</a>
-    </div>
-</footer>
-
-<div class="modal fade" id="modal-add-question" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+<div class="modal fade" id="modal-edit-question" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Post a Question</h5>
+                <h5 class="modal-title">Edit Question</h5>
             </div>
-            <form id="form-add-question" class="needs-validation" novalidate>
+            <form id="form-edit-question" class="needs-validation container">
                 <div class="modal-body">
-                    <div class="form-outline mb-2">
-                        <label class="form-label" for="input-">Title</label>
-                        <input type="text" id="input-new-question-title" class="form-control" placeholder="Enter title" required/>
-                        <div class="invalid-feedback">
+
+                    <div class="row mb-3">
+                        <div class="col-1 d-flex align-middle text-center">
+                            <label class="form-label align-middle pr-2 pt-2" for="input-">Title</label>
                         </div>
-                    </div>
-
-                    <div class="form-group form-outline mb">
-                        <label for="exampleFormControlTextarea1">Description</label>
-                        <textarea class="form-control" id="input-new-question-description" rows="7" placeholder="Enter description"></textarea>
-                    </div>
-
-                    <div class="row d-flex justify-content-between">
                         <div class="col">
-                            <div class="form-group form-outline mb">
-                                <a href=""><i class="fa fa-paperclip"></i>Add Attachment</a>
-                                <input type="file" value="Attachment" class="d-none">
-                            </div>
+                            <input type="text" id="input-edit-question-title" class="form-control" placeholder="Enter title" required/>
                         </div>
-                        <div class="col d-flex align-middle">
-                            <label class="form-label align-middle pr-3 pt-2" for="input-scan">Subject: </label>
-                            <select class="form-control" class="dropdown" id="input-new-question-subject">
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-1">
+                            <label class="form-label align-middle pr-2 pt-2" for="input-scan">Subject</label>
+                        </div>
+                        <div class="col-5">
+                            <select class="form-control dropdown" id="input-edit-question-subject">
                                 <option value="" selected>--Please Select--</option>
                             </select>
+                        </div>
+                    </div>
+
+                    <div class="form-outline mb-3 ml-3 mt-4 mr-3">
+                        <div class="w-100">
+                            <div class="row row-editor">
+                                <div class="editor-container">
+                                    <div class="editor-edit-question">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal" id="button-close">Close</button>
-                    <button type="submit" class="btn btn-primary">POST</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-delete-question" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Are you sure do yo want to delete this question?</h5>
+            </div>
+            <form id="form-add-question" class="needs-validation" novalidate>
+                <div class="modal-body">
+                    <div class="form-outline mb-2">
+                        <label class="form-label" for="input-">Title:</label>
+                        <p id="question-delete-title"></p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="button-close">No</button>
+                    <button type="button" id="button-delete-question" class="btn btn-danger">Yes</button>
                 </div>
             </form>
         </div>
@@ -239,38 +275,87 @@
             <div class="modal-header">
                 <h5 class="modal-title">Report a Question</h5>
             </div>
-            <form id="form-add-question" class="needs-validation" novalidate>
+            <form id="form-report-question" class="needs-validation" novalidate>
                 <div class="modal-body">
-                    <div class="form-outline mb-2">
-                        <label class="form-label" for="input-">Title</label>
-                        <input type="text" id="input-new-question-title" class="form-control" placeholder="Enter title" required/>
-                        <div class="invalid-feedback">
-                        </div>
-                    </div>
-
                     <div class="form-group form-outline mb">
-                        <label for="exampleFormControlTextarea1">Description</label>
-                        <textarea class="form-control" id="input-new-question-description" rows="7" placeholder="Enter description"></textarea>
+                        <textarea class="form-control" id="input-report-detail" rows="7" placeholder="Enter why are you reporting this question..."></textarea>
                     </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="button-close">Close</button>
+                    <button type="submit" class="btn btn-primary">Report</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
-                    <div class="row d-flex justify-content-between">
-                        <div class="col">
-                            <div class="form-group form-outline mb">
-                                <a href=""><i class="fa fa-paperclip"></i>Add Attachment</a>
-                                <input type="file" value="Attachment" class="d-none">
+
+<div class="modal fade" id="modal-edit-answer" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Answer</h5>
+            </div>
+            <form id="form-edit-answer" class="needs-validation container">
+                <div class="modal-body">
+                    <div class="form-outline mb-3 ml-3 mt-2 mr-3">
+                        <div class="w-100">
+                            <div class="row row-editor">
+                                <div class="editor-container">
+                                    <div class="editor-edit-answer">
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col d-flex align-middle">
-                            <label class="form-label align-middle pr-3 pt-2" for="input-scan">Subject: </label>
-                            <select class="form-control" class="dropdown" id="input-new-question-subject">
-                                <option value="" selected>--Please Select--</option>
-                            </select>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal" id="button-close">Close</button>
-                    <button type="submit" class="btn btn-primary">POST</button>
+                    <button type="button" id="button-edit-answer" class="btn btn-primary">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-delete-answer" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Are you sure do yo want to delete this answer?</h5>
+            </div>
+            <form id="form-add-question" class="needs-validation" novalidate>
+                <div class="modal-body">
+                    <div class="form-outline mb-2">
+                        <label class="form-label" for="input-">Title:</label>
+                        <p id="answer-delete-title"></p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="button-close">No</button>
+                    <button type="button" id="button-delete-answer" class="btn btn-danger">Yes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-report-answer" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Report an Answer</h5>
+            </div>
+            <form id="form-report-answer" class="needs-validation" novalidate>
+                <div class="modal-body">
+                    <div class="form-group form-outline mb">
+                        <textarea class="form-control" id="input-report-answer" rows="7" placeholder="Enter why are you reporting this answer..."></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="button-close">Close</button>
+                    <button type="button" id="button-report-answer" class="btn btn-primary">Report</button>
                 </div>
             </form>
         </div>
@@ -279,21 +364,27 @@
 <script>
     $(document).ready(function() {
         var questionID = window.location.search.substring(1).split("=")[1];
-        retrieveForumDetails();
-        retrieveForumAnswers();
+        var userID;
+        var creatorID;
+        getUserProfile();
+        getSubjectList();
 
-        var inputField = document.getElementById('textarea-answer'); // get textarea object
-        inputField.onkeydown = function(e) { // list for when any key is pressed
-            if (e.keyCode === 9) { // block to catch when tab key is pressed
+        var inputField = document.getElementById('textarea-answer');
+        inputField.onkeydown = function(e) {
+            if (e.keyCode === 9) {
                 this.setRangeText(
                     '\t',
                     this.selectionStart,
                     this.selectionStart,
                     'end'
                 );
-                return false; //prevent default action
+                return false;
             }
         }
+
+        $("#btn-answer-now").click(function() {
+            $("#main-container").load('./form-answer-now.html');
+        });
 
         $("#form-answer-now").on('submit', function(event) {
             event.preventDefault();
@@ -304,13 +395,15 @@
                 data: {
                     action: 'save-answer',
                     questionID: questionID,
-                    answer: answer
+                    answer: answer,
+                    creatorID: creatorID
                 },
                 cache: false,
                 success: function(dataResult) {
                     var dataResult = JSON.parse(dataResult);
                     if (dataResult.statusCode == 200) {
                         $("#textarea-answer").val("");
+                        retrieveForumDetails();
                         retrieveForumAnswers();
                         alert("Success!");
                     } else {
@@ -320,127 +413,156 @@
             });
         });
 
-        function populateAnswerRow(answerID, img, userName, status, date, yearLevel, answer, replies) {
-            return `<div class="card-row card shadow mb-3 py-2 px-5" id="row-answer-${answerID}">
-                        <div class="row py-3">
-                            <div class="col"> 
-                                <div class="row mb-0 pb-0">
-                                    <div class="col-1">
-                                        <img class="img-profile rounded-circle" style="width:60px; height: 60px" src="${img}">
-                                    </div>
-                                    <div class="col mb-0 pb-0">
-                                        <div class="row">
-                                            <div class="col-11">
-                                                <h6 class="mb-0 pb-0"><b class="mb-0 pb-0">${userName}</b></h6>    
-                                            </div>
-                                            <div class="col-1" style="display: none" id="ellipsis-answer-${answerID}">
-                                                <div class="btn-group d-flex flex-row-reverse dropright">
-                                                    <i class="fa fa-solid fa-ellipsis-vertical pl-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
-                                                    <div class="dropdown-menu">
-                                                        <button class="dropdown-item" type="button" data-toggle="modal" data-target="#modal-report-question" id=""><i class="fa fa-flag fa-sm"></i> Report</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                                                         
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-2">
-                                                <small class="text-muted">${date}</small>
-                                            </div>
-                                            <div class="col-4">
-                                                <small class="text-muted">${yearLevel}</small>
-                                            </div>                                            
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+        $("#form-report-question").on('submit', function() {
+            event.preventDefault();
+            var detail = $("#input-report-detail").val();
+            report(questionID, detail, 1);
+        });
 
-                        <div class="row mt-3 pt-0">
-                            <div class="col">
-                                <p class="mb-0 pb-0">${answer}</p>
-                            </div>
-                        </div>
+        $("#button-report-answer").on('click', function() {
+            var answerID = $(this).data('id');
+            var detail = $("#input-report-answer").val();
+            if ($(this).data("type") == 1) {
+                report(answerID, detail, 2);
+            } else if ($(this).data("type") == 2) {
+                report(answerID, detail, 3);
+            }
+        });
 
-                        <div class="row d-flex flex-row-reverse align-middle mt-3 pt-0">
-                            <div class="">
-                                <input type="button" class="btn btn-primary btn-sm px-3 button-reply" id="${answerID}" value="Comment">
-                                <button type="button" class="btn border-primary btn-sm px-4"><i class="fa fa-regular fa-thumbs-up text-primary"></i> 0</button>
-                                <button type="button" class="btn border-danger btn-sm px-4"><i class="fa fa-regular fa-thumbs-down text-danger"></i> 0</button>
-                            </div>
-                        </div>
-                        
-                        <div class="d-none mb-3 mt-4" id="container-reply-${answerID}">
-                            <div class="row d-flex mt-3">
-                                <div class="col">
-                                    <textarea class="form-control " name="" id="textarea-reply-${answerID}" rows="2" placeholder="Enter you answer"></textarea>
-                                </div>
-                            </div>
-                            <div class="row d-flex mt-1">
-                                <div class="col flex-row-reverse text-right">
-                                    <input text="button" value="Send" id="${answerID}" class="button-answer-reply btn btn-primary btn-sm mt-2">
-                                </div>
-                            </div>           
-                        </div>
-
-                        <div class="container-answer-replies">
-                            ${replies}
-                        </div>                    
-                    </div>
-                    `;
+        function report(id, detail, type) {
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'report',
+                    detail: detail,
+                    id: id,
+                    type: type
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode == 200) {
+                        if (type == 1) {
+                            $("#modal-report-question").modal('toggle');
+                            alert("Report has been submitted!");
+                            $("#main-container").load('./form-forum.html');
+                        } else if (type == 2 || type == 3) {
+                            $("#modal-report-answer").modal('toggle');
+                            alert("Report has been submitted!");
+                        }
+                    } else {
+                        alert("Unable to report, please try again later!");
+                    }
+                }
+            });
         }
 
+        $("#button-edit-answer").on('click', function() {
+            var answerID = $(this).data('id');
+            if ($(this).data('type') == 1) {
+                updateAnswer(answerID);
+            } else if ($(this).data('type') == 2) {
+                updateReply(answerID);
+            }
+        });
 
-        function populateReplyRow(replyID, img, userName, status, date, yearLevel, reply) {
-            return `<div class="card-row py-2 pl-5" id="row-reply-${replyID}">
-                        <div class="row py-3">
-                            <div class="col"> 
-                                <div class="row mb-0 pb-0">
-                                    <div class="col-1">
-                                        <img class="img-profile rounded-circle" style="width:40px; height: 40px" src="${img}">
-                                    </div>
-                                    <div class="col mb-0 pb-0">
-                                        <div class="row">
-                                            <div class="col">
-                                                <h6 class="mb-0 pb-0"><b class="mb-0 pb-0">${userName}</b></h6>    
-                                            </div> 
-                                            <div class="col-2" style="display: none" id="ellipsis-reply-${replyID}">
-                                                <div class="btn-group d-flex flex-row-reverse dropright">
-                                                    <i class="fa fa-solid fa-ellipsis-vertical pl-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
-                                                    <div class="dropdown-menu">
-                                                        <button class="dropdown-item" type="button" data-toggle="modal" data-target="#modal-report-question" id=""><i class="fa fa-flag fa-sm"></i> Report</button>
-                                                    </div>
-                                                </div>
-                                            </div>                                           
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-3">
-                                                <small class="text-muted">${date}</small>
-                                            </div>
-                                            <div class="col-4">
-                                                <small class="text-muted">${yearLevel}</small>
-                                            </div>                                            
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row mt-3 pt-0">
-                            <div class="col">
-                                <p class="mb-0 pb-0">${reply}</p>
-                            </div>
-                        </div>
-
-                        <div class="row d-flex flex-row-reverse align-middle mt-3 pt-0">
-                            <div class="">
-                                <button type="button" class="btn border-primary btn-sm px-4"><i class="fa fa-regular fa-thumbs-up text-primary"></i> 0</button>
-                                <button type="button" class="btn border-danger btn-sm px-4"><i class="fa fa-regular fa-thumbs-down text-danger"></i> 0</button>
-                            </div>
-                        </div>
-                        <hr class="sidebar-divider mt-4">
-                    </div>`
+        function updateAnswer(answerID) {
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'update-answer',
+                    description: window.editorEditAnswer.getData(),
+                    answerID: answerID
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode == 200) {
+                        retrieveForumAnswers();
+                        $("#modal-edit-answer").modal('toggle');
+                        alert("Your answer has been successfully updated!");
+                    } else {
+                        alert("Unable to update the answer, please try again later!");
+                    }
+                }
+            });
         }
+
+        function updateReply(replyID) {
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'update-reply',
+                    description: window.editorEditAnswer.getData(),
+                    replyID: replyID
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode == 200) {
+                        retrieveForumAnswers();
+                        $("#modal-edit-answer").modal('toggle');
+                        alert("Your answer has been successfully updated!");
+                    } else {
+                        alert("Unable to update the answer, please try again later!");
+                    }
+                }
+            });
+        }
+
+        $("#form-edit-question").on('submit', function() {
+            event.preventDefault();
+            var title = $("#input-edit-question-title").val();
+            var subject = $("#input-edit-question-subject").val();
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'update-question',
+                    title: title,
+                    description: window.editorEditQuestion.getData(),
+                    subject: subject,
+                    questionID: questionID
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode == 200) {
+                        retrieveForumDetails();
+                        $("#modal-edit-question").modal('toggle');
+                        alert("Your question has been successfully updated!");
+                    } else {
+                        alert("Unable to update the question, please try again later!");
+                    }
+                }
+            });
+        });
+
+        // if (window.editorEditQuestion == null || window.editorEditQuestion == undefined) {
+        ClassicEditor
+            .create(document.querySelector('.editor-edit-question'), {
+                extraPlugins: [MyCustomUploadAdapterPlugin],
+            })
+            .then(editor => {
+                editor.setData("TEST");
+                window.editorEditQuestion = editor;
+            })
+            .catch(handleSampleError);
+        // }
+
+        // if (window.editorEditAnswer == null || window.editorEditAnswer == undefined) {
+        ClassicEditor
+            .create(document.querySelector('.editor-edit-answer'), {
+                extraPlugins: [MyCustomUploadAdapterPlugin],
+            })
+            .then(editor => {
+                window.editorEditAnswer = editor;
+            })
+            .catch(handleSampleError);
+        // }
 
         function retrieveForumDetails() {
             $.ajax({
@@ -453,7 +575,6 @@
                 cache: false,
                 success: function(dataResult) {
                     var dataResult = JSON.parse(dataResult);
-                    console.log(dataResult);
                     if (dataResult.statusCode == 200) {
                         var question = dataResult.question;
                         var picture = question['picture'];
@@ -471,16 +592,43 @@
                         } else if (question['status'] == 2) {
                             status = "<span class='border border-success status-success rounded p-1 '>Answered</span>";
                         }
+                        if (userID == question.studentID) {
+                            $(".for-non-creator").addClass("d-none");
+                        } else {
+                            $(".for-creator").addClass("d-none");
+                        }
+
+                        creatorID = question.studentID;
 
                         $("#question-picture").attr("src", picture);
                         $("#question-user-name").html(question.name);
                         $("#question-status").html(status);
                         $("#question-date").html(question.creationDateTime);
                         $("#question-subject").html(question.subject);
+                        $("#question-subject").data('id', question.subjectID);
                         $("#question-title").html(question.title);
-                        console.log(question.description.replace("    ", "&ensp;"));
-                        $("#question-description").html(question.description.replace(" ", "&ensp;"));
+                        $("#question-delete-title").html(question.title);
+                        $("#question-description").html(question.description);
+                        $("#input-edit-question-title").val(question.title);
+                        window.editorEditQuestion.setData(question.description);
+                        $("#input-edit-question-subject").val(question.subjectID).change();
                     }
+
+
+                    $(".for-creator-edit-question").on("click", function(e) {
+                        var answerID = $(this).data("id");
+                        var answer = $("#question-" + $(this).data("id")).html();
+                        $("#input-edit-question-title").val($("#question-title").html());
+                        $("#input-edit-question-subject").val($("#question-subject").data("id")).change();
+                    });
+
+                    $(".for-creator-delete-question").on("click", function(e) {
+                        // alert(questionID);
+                    });
+
+                    $(".for-non-creator-report-question").on("click", function(e) {
+                        // alert($(this).data("id"));
+                    });
                 }
             });
         }
@@ -520,7 +668,15 @@
                                         replyPicture = "./../../resource/profile/" + replyPicture;
                                     }
 
-                                    replies += populateReplyRow(reply.replyID, replyPicture, reply.name, reply.status, reply.creationDateTime, getYearLevel(reply.yearLevel), reply.answer);
+                                    var menu;
+                                    if (userID == reply.studentID) {
+                                        menu = `<button class="dropdown-item for-creator-edit-reply" type="button" data-id="${reply.replyID}" data-toggle="modal" data-target="#modal-edit-answer" id=""><i class="fa fa-pencil fa-sm"></i> Edit Answer</button>
+                                        <button class="dropdown-item for-creator-delete-reply" type="button" data-id="${reply.replyID}" data-toggle="modal" data-target="#modal-delete-answer" id=""><i class="fa fa-trash fa-sm"></i> Delete Answer</button>`;
+                                    } else {
+                                        menu = `<button class="dropdown-item for-non-creator-reply-report" type="button" data-id="${reply.replyID}" data-toggle="modal" data-target="#modal-report-answer" id=""><i class="fa fa-flag fa-sm"></i> Report</button>`;
+                                    }
+
+                                    replies += populateReplyRow(reply.replyID, replyPicture, reply.name, reply.status, reply.creationDateTime, getYearLevel(reply.yearLevel), reply.answer, menu);
                                 });
                                 replies = `<hr class="sidebar-divider my-2">
                                                 <div class="ml-5 my-4">
@@ -532,8 +688,38 @@
                                                     ${replies}
                                                 </div>`
                             }
-                            answerList += populateAnswerRow(answerID, picture, answer.name, status, answer.creationDateTime, getYearLevel(answer.yearLevel), text, replies);
+
+                            var menu;
+                            var hasRateButton = false;
+                            if (userID == studentID) {
+                                menu = `<button class="dropdown-item for-creator-edit-answer" type="button" data-id="${answerID}" data-toggle="modal" data-target="#modal-edit-answer" id=""><i class="fa fa-pencil fa-sm"></i> Edit Answer</button>
+                                        <button class="dropdown-item for-creator-delete-answer" type="button" data-id="${answerID}" data-toggle="modal" data-target="#modal-delete-answer" id=""><i class="fa fa-trash fa-sm"></i> Delete Answer</button>`;
+                            } else {
+                                menu = `<button class="dropdown-item for-non-creator-report-answer" type="button" data-id="${answerID}" data-toggle="modal" data-target="#modal-report-answer" id=""><i class="fa fa-flag fa-sm"></i> Report</button>`;
+                                hasRateButton = true;
+                            }
+
+                            answerList += populateAnswerRow(
+                                answerID,
+                                picture,
+                                answer.name,
+                                status,
+                                answer.creationDateTime,
+                                getYearLevel(answer.yearLevel),
+                                text,
+                                replies,
+                                getRatingID(answer.rating),
+                                getRating(answer.rating, 1),
+                                getRating(answer.rating, -1),
+                                hasUserRating(answer.rating, 1, userID),
+                                hasUserRating(answer.rating, -1, userID),
+                                menu,
+                                hasRateButton
+                            );
+
                         });
+                    } else {
+                        answerList = populateEmptyRow("No Answer");
                     }
                     $("#container-answers").html(answerList);
 
@@ -545,11 +731,105 @@
                         }
                     });
 
+                    $(".for-creator-edit-answer").on("click", function(e) {
+                        var answerID = $(this).data("id");
+                        window.editorEditAnswer.setData($("#answer-" + answerID).html());
+                        $("#button-edit-answer").data("id", answerID);
+                        $("#button-edit-answer").data("type", 1);
+                    });
+
+                    $(".for-creator-delete-answer").on("click", function(e) {
+                        var answerID = $(this).data("id");
+                        $("#answer-delete-title").html($("#answer-" + answerID).html());
+                        $("#button-delete-answer").data("id", answerID);
+                        $("#button-delete-answer").data("type", 1);
+                    });
+
+                    $(".for-non-creator-report-answer").on("click", function(e) {
+                        var answerID = $(this).data("id");
+                        $("#button-report-answer").data("id", answerID);
+                        $("#button-report-answer").data("type", 1);
+                    });
+
                     $(".button-answer-reply").on("click", function() {
                         var answerID = this.id;
                         var reply = $("#textarea-reply-" + answerID).val();
-
                         saveReply(answerID, reply);
+                    });
+
+                    $(".for-creator-edit-reply").on('click', function() {
+                        var answerID = $(this).data("id");
+                        window.editorEditAnswer.setData($("#reply-" + answerID).html());
+                        $("#button-edit-answer").data("id", answerID);
+                        $("#button-edit-answer").data("type", 2);
+                    });
+
+                    $(".for-creator-delete-reply").on('click', function() {
+                        var answerID = $(this).data("id");
+                        $("#answer-delete-title").html($("#reply-" + answerID).html());
+                        $("#button-delete-answer").data("id", answerID);
+                        $("#button-delete-answer").data("type", 2);
+                    });
+
+                    $(".for-non-creator-reply-report").on('click', function() {
+                        var answerID = $(this).data("id");
+                        $("#button-report-answer").data("id", answerID);
+                        $("#button-report-answer").data("type", 2);
+                    });
+
+                    $(".btn-thumbs-up").on("click", function() {
+                        var answerID = $(this).data("id");
+                        var value = $(this).data("value");
+                        var isSelected = $(this).data("selected");
+                        var ratingID = $(this).data("ratingid");
+
+                        // Uncheck
+                        if ($(this).hasClass("btn-primary")) {
+                            if (isSelected) {
+                                value = value - 1;
+                            }
+                            setRating(answerID, ratingID, 0);
+                            $(this).removeClass("btn-primary");
+                            $('#btn-thumbs-up-icon-' + answerID).removeClass("text-white");
+                            $('#btn-thumbs-up-icon-' + answerID).addClass("text-primary");
+                        } else {
+                            if (!isSelected) {
+                                value += 1;
+                            }
+                            setRating(answerID, ratingID, 1);
+                            uncheckedThumbsDown(answerID);
+                            $(this).addClass("btn-primary");
+                            $('#btn-thumbs-up-icon-' + answerID).removeClass("text-primary");
+                            $('#btn-thumbs-up-icon-' + answerID).addClass("text-white");
+                        }
+                        $('#btn-thumbs-up-value-' + answerID).text(value);
+                    });
+
+                    $(".btn-thumbs-down").on("click", function() {
+                        var isSelected = $(this).data("selected");
+                        var answerID = $(this).data("id");
+                        var value = $(this).data("value");
+                        var ratingID = $(this).data("ratingid");
+                        // Unchecked
+                        if ($(this).hasClass("btn-danger")) {
+                            if (isSelected) {
+                                value = value - 1;
+                            }
+                            setRating(answerID, ratingID, 0);
+                            $(this).removeClass("btn-danger");
+                            $('#btn-thumbs-down-icon-' + answerID).removeClass("text-white");
+                            $('#btn-thumbs-down-icon-' + answerID).addClass("text-danger");
+                        } else {
+                            if (!isSelected) {
+                                value += 1;
+                            }
+                            setRating(answerID, ratingID, -1);
+                            uncheckedThumbsUp(answerID);
+                            $(this).addClass("btn-danger");
+                            $('#btn-thumbs-down-icon-' + answerID).removeClass("text-danger");
+                            $('#btn-thumbs-down-icon-' + answerID).addClass("text-white");
+                        }
+                        $('#btn-thumbs-down-value-' + answerID).text(value);
                     });
 
                     $(".card-row").hover(
@@ -558,11 +838,9 @@
                             if (this.id.includes("row-reply-")) {
                                 id = this.id.split("-")[2];
                                 $("#ellipsis-reply-" + id).show();
-                                console.log("#ellipsis-reply-" + id);
                             } else if (this.id.includes("row-answer-")) {
                                 id = this.id.split("-")[2];
                                 $("#ellipsis-answer-" + id).show();
-                                console.log("#ellipsis-answer-" + id);
                             }
                         },
                         function() {
@@ -570,16 +848,227 @@
                             if (this.id.includes("row-reply-")) {
                                 id = this.id.split("-")[2];
                                 $("#ellipsis-reply-" + id).hide();
-                                console.log("#ellipsis-reply-" + id);
                             } else if (this.id.includes("row-answer-")) {
                                 id = this.id.split("-")[2];
                                 $("#ellipsis-answer-" + id).hide();
-                                console.log("#ellipsis-answer-" + id);
                             }
                         },
                     );
+
+
                 }
             });
+        }
+
+        function getSubjectList() {
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'retrieve-active-subject-list'
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var subjectOptions = "";
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode == 200) {
+                        subjectList = dataResult.subjectList;
+                        dataResult.subjectList.forEach(subject => {
+                            subjectOptions += "<option value='" + subject['subjectID'] + "'>" + subject['subject'] + "</option>";
+                        });
+                    }
+                    $("#input-edit-question-subject").html($("#input-edit-question-subject").html() + subjectOptions);
+                }
+            });
+        }
+
+        $("#button-delete-question").on('click', function() {
+            deleteQuestion();
+        });
+
+        $("#button-delete-answer").on('click', function() {
+            if ($(this).data("type") == 1) {
+                deleteAnswer($(this).data('id'));
+            } else if ($(this).data("type") == 2) {
+                deleteReply($(this).data('id'));
+            }
+        });
+
+        function deleteQuestion() {
+            $("#modal-delete-question").modal('toggle');
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'delete-question',
+                    questionID: questionID,
+                    status: 0
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode == 200) {
+                        alert("Question successfully deleted!");
+                        $("#main-container").load('./form-forum.html');
+                    } else {
+                        alert("Unable to delete question, please try again later!");
+                    }
+                }
+            });
+        }
+
+        function deleteAnswer(answerID) {
+            $("#modal-delete-answer").modal('toggle');
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'delete-answer',
+                    answerID: answerID,
+                    status: 0
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode == 200) {
+                        retrieveForumAnswers();
+                        alert("Answer successfully deleted!");
+                    } else {
+                        alert("Unable to delete answer, please try again later!");
+                    }
+                }
+            });
+        }
+
+        function deleteReply(replyID) {
+            $("#modal-delete-answer").modal('toggle');
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'delete-reply',
+                    replyID: replyID,
+                    status: 0
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode == 200) {
+                        retrieveForumAnswers();
+                        alert("Answer successfully deleted!");
+                    } else {
+                        alert("Unable to delete answer, please try again later!");
+                    }
+                }
+            });
+        }
+
+        function uncheckedThumbsDown(answerID) {
+            var buttonID = "#btn-thumbs-down-" + answerID;
+            var isSelected = $(buttonID).data("selected");
+            var answerID = $(buttonID).data("id");
+            var value = $(buttonID).data("value");
+            var ratingID = $(buttonID).data("ratingid");
+
+            if ($(buttonID).hasClass("btn-danger")) {
+                if (isSelected) {
+                    value = value - 1;
+                }
+                $(buttonID).removeClass("btn-danger");
+                $('#btn-thumbs-down-icon-' + answerID).removeClass("text-white");
+                $('#btn-thumbs-down-icon-' + answerID).addClass("text-danger");
+                $('#btn-thumbs-down-value-' + answerID).text(value);
+            }
+        }
+
+        function uncheckedThumbsUp(answerID) {
+            var buttonID = "#btn-thumbs-up-" + answerID;
+            var value = $(buttonID).data("value");
+            var isSelected = $(buttonID).data("selected");
+            var ratingID = $(buttonID).data("ratingid");
+
+            if ($(buttonID).hasClass("btn-primary")) {
+                if (isSelected) {
+                    value = value - 1;
+                }
+                $(buttonID).removeClass("btn-primary");
+                $('#btn-thumbs-up-icon-' + answerID).removeClass("text-white");
+                $('#btn-thumbs-up-icon-' + answerID).addClass("text-primary");
+                $('#btn-thumbs-up-value-' + answerID).text(value);
+            }
+
+        }
+
+        function getUserProfile() {
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'retrieve-user-profile'
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode == 200) {
+                        userID = dataResult.studentInformation.studentID;
+                        retrieveForumDetails();
+                        retrieveForumAnswers();
+                    }
+                }
+            });
+        }
+
+        function setRating(answerID, ratingID, rating) {
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'set-rating',
+                    answerID: answerID,
+                    ratingID: ratingID,
+                    rating: rating
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode == 200) {
+                        console.log("Success");
+                        $("#btn-thumbs-up-" + answerID).data("ratingid", dataResult.ratingID);
+                        $("#btn-thumbs-down-" + answerID).data("ratingid", dataResult.ratingID);
+                    } else {
+                        console.log("Something wen't wrong, please try again later!");
+                    }
+                }
+            });
+        }
+
+        function getRating(ratings, status) {
+            var length = ratings.filter(function(rating) {
+                return rating.rating == status;
+            }).length;
+            return length;
+        }
+
+        function getRatingID(ratings) {
+            var rating = ratings.find(function(rating) {
+                return rating.studentID == userID;
+            });
+            if (rating != null) {
+                return rating.ratingID;
+            }
+        }
+
+        function hasUserRating(ratings, status, userID) {
+            console.log("THIS IS RATINGS");
+            console.log(ratings);
+            console.log(status);
+            var length = ratings.filter(function(rating) {
+                return rating.studentID == userID && rating.rating == status;
+            }).length;
+
+            console.log(length);
+            console.log("END OF RATINGS ------------------------");
+            return length > 0;
         }
 
         function saveReply(answerID, response) {
@@ -589,7 +1078,9 @@
                 data: {
                     action: 'save-reply',
                     answerID: answerID,
-                    response: response
+                    questionID: questionID,
+                    response: response,
+                    creatorID: creatorID
                 },
                 cache: false,
                 success: function(dataResult) {

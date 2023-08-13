@@ -1,0 +1,96 @@
+<!-- Comments-->
+
+
+  <div class="w3-row w3-white">
+    
+   
+
+<h1>What is <span class="color_h1">Comments in JavaScript?</span></h1>
+
+<p class="intro">JavaScript comments can be used to explain JavaScript code, and 
+to make it more readable.</p>
+<p class="intro">JavaScript comments can also be used to prevent execution, when 
+testing alternative code.</p>
+<hr>
+
+<h2>Single Line Comments</h2>
+<p>Single line comments start with <code class="w3-codespan">//</code>.</p>
+<p>Any text between <code class="w3-codespan">//</code> and the end of the line will be ignored by JavaScript 
+(will not be executed).</p>
+<p>This Sample uses a single-line comment before each code line:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Change heading:<br></span>
+document.<span class="jspropertycolor" style="color:black">getElementById</span>(<span class="jsstringcolor" style="color:brown">"myH"</span>).<span class="jspropertycolor" style="color:black">innerHTML</span> = <span class="jsstringcolor" style="color:brown">"My First Page"</span>;<br><br><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Change paragraph:<br></span>
+document.<span class="jspropertycolor" style="color:black">getElementById</span>(<span class="jsstringcolor" style="color:brown">"myP"</span>).<span class="jspropertycolor" style="color:black">innerHTML</span> = <span class="jsstringcolor" style="color:brown">"My first paragraph."</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<p>This Sample uses a single line comment at the end of each line 
+to explain the code:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">5</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// Declare x, give it the value of 5<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = x + <span class="jsnumbercolor" style="color:red">2</span>;&nbsp; <span class="commentcolor" style="color:green">// Declare y, give it the value of x + 2
+ </span></span></div>
+</div>
+<hr>
+
+<h2>Multi-line Comments</h2>
+<p>Multi-line comments start with <code class="w3-codespan">/*</code> and end with  <code class="w3-codespan">*/</code>.</p>
+<p>Any text between <code class="w3-codespan">/*</code> and <code class="w3-codespan">*/</code> will be ignored by JavaScript.</p>
+<p>This Sample uses a multi-line comment (a comment block) to explain the code:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">/*<br>
+The code below will change<br>
+the heading with id = "myH"<br>
+and the paragraph with id = "myP"<br>
+in my web page:<br>
+*/</span><br>
+document.<span class="jspropertycolor" style="color:black">getElementById</span>(<span class="jsstringcolor" style="color:brown">"myH"</span>).<span class="jspropertycolor" style="color:black">innerHTML</span> = <span class="jsstringcolor" style="color:brown">"My First Page"</span>;<br>
+document.<span class="jspropertycolor" style="color:black">getElementById</span>(<span class="jsstringcolor" style="color:brown">"myP"</span>).<span class="jspropertycolor" style="color:black">innerHTML</span> = <span class="jsstringcolor" style="color:brown">"My first paragraph."</span>;<span class="jsnumbercolor" style="color:red">
+</span>  </span></div>
+</div>
+
+<div class="w3-panel w3-note">
+<p>It is most common to use single line comments.<br>Block comments are often 
+used for formal documentation.</p>
+</div> 
+</div>
+<hr>
+<h2>Using Comments to Prevent Execution</h2>
+<p>Using comments to prevent execution of code is suitable for 
+code testing.</p>
+
+<p>Adding <code class="w3-codespan">//</code> in front of a code line changes the code lines from an executable line to 
+a comment.</p>
+<p>This Sample uses // to prevent execution of one of the code lines:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">//document.getElementById("myH").innerHTML = "My First Page";<br></span>
+document.<span class="jspropertycolor" style="color:black">getElementById</span>(<span class="jsstringcolor" style="color:brown">"myP"</span>).<span class="jspropertycolor" style="color:black">innerHTML</span> = <span class="jsstringcolor" style="color:brown">"My first paragraph."</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p>This Sample uses a comment block to prevent execution of 
+multiple lines:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">/*<br>
+document.getElementById("myH").innerHTML = "My First Page";<br>
+document.getElementById("myP").innerHTML = "My first paragraph.";<br>
+*/</span><span class="jsnumbercolor" style="color:red">
+
+</span> </span></div>
+</div>
+

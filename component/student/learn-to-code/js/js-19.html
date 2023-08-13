@@ -1,0 +1,640 @@
+<!-- S method-->
+
+
+  <div class="w3-row w3-white">
+ 
+<h1>What is <span class="color_h1">String Methods in JavaScript?</span></h1>
+
+
+<div class="w3-info">
+<div class="w3-stretch">
+<table class="w3-table">
+<tbody><tr>
+<td>
+String length<br>
+String slice()<br>
+String substring()<br>
+String substr()<br>
+String replace()<br>
+String replaceAll()<br>
+String toUpperCase()<br>
+String toLowerCase()<br>
+String concat()<br>
+</td>
+<td>
+String trim()<br>
+String trimStart()<br>
+String trimEnd()<br>
+String padStart()<br>
+String padEnd()<br>
+String charAt()<br>
+String charCodeAt()<br>
+String split()<br>
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+
+<div class="w3-note">
+<h2>Note</h2>
+<p>String <b>search</b> methods are covered in the next chapter.</p>
+</div>
+<hr>
+
+<h2>JavaScript String Length</h2>
+<p>The <code class="w3-codespan">length</code> property returns the length of a string:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"ABCDEFGHIJKLMNOPQRSTUVWXYZ"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> length = text.<span class="jspropertycolor" style="color:black">length</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<hr>
+
+<h2>Extracting String Parts</h2>
+<p>There are 3 methods for extracting a part of a string:</p>
+<ul>
+  <li><code class="w3-codespan">slice(<em>start</em>, <em>end</em>)</code></li>
+  <li><code class="w3-codespan">substring(<em>start</em>, <em>end</em>)</code></li>
+  <li><code class="w3-codespan">substr(<em>start</em>, <em>length</em>)</code></li>
+</ul>
+<hr>
+<h2>JavaScript String slice()</h2>
+<p><code class="w3-codespan">slice()</code> extracts a part of a string and returns the 
+extracted part in a new string.</p>
+<p>The method takes 2 parameters: start position, and end position (end not included).</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Slice out a portion of a string from position 7 to position 13:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"Apple, Banana, Kiwi"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> part = text.<span class="jspropertycolor" style="color:black">slice</span>(<span class="jsnumbercolor" style="color:red">7</span>, <span class="jsnumbercolor" style="color:red">13</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<div class="w3-panel w3-note">
+<h2>Note</h2>
+<p>JavaScript counts positions from zero.</p>
+<p>First position is 0.</p>
+<p>Second position is 1.</p>
+</div>
+
+<div class="w3-Sample">
+<h3>Samples</h3>
+<p>If you omit the second parameter, the method will slice out the rest of the string:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"Apple, Banana, Kiwi"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> part = text.<span class="jspropertycolor" style="color:black">slice</span>(<span class="jsnumbercolor" style="color:red">7</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p>If a parameter is negative, the position is counted from the end of the string:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"Apple, Banana, Kiwi"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> part = text.<span class="jspropertycolor" style="color:black">slice</span>(-<span class="jsnumbercolor" style="color:red">12</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+
+<p>This Sample slices out a portion of a string from position -12 to position -6: </p>
+
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"Apple, Banana, Kiwi"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> part = text.<span class="jspropertycolor" style="color:black">slice</span>(-<span class="jsnumbercolor" style="color:red">12</span>, -<span class="jsnumbercolor" style="color:red">6</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+
+</div>
+
+
+
+<h2>JavaScript String substring()</h2>
+
+<p><code class="w3-codespan">substring()</code> is similar to <code class="w3-codespan">slice()</code>.</p>
+<p>The difference is that start and end values less than 0 are treated as 0 in
+<code class="w3-codespan">substring()</code>.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> str = <span class="jsstringcolor" style="color:brown">"Apple, Banana, Kiwi"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> part = str.<span class="jspropertycolor" style="color:black">substring</span>(<span class="jsnumbercolor" style="color:red">7</span>, <span class="jsnumbercolor" style="color:red">13</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p>If you omit the second parameter, <code class="w3-codespan">substring()</code> will slice out the rest of the 
+string.</p>
+
+<hr>
+<h2>JavaScript String substr()</h2>
+<p><code class="w3-codespan">substr()</code> is similar to <code class="w3-codespan">slice()</code>.</p>
+<p>The difference is 
+that the second parameter specifies the <b>length</b> 
+of the extracted part.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> str = <span class="jsstringcolor" style="color:brown">"Apple, Banana, Kiwi"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> part = str.<span class="jspropertycolor" style="color:black">substr</span>(<span class="jsnumbercolor" style="color:red">7</span>, <span class="jsnumbercolor" style="color:red">6</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p>If you omit the second parameter, <code class="w3-codespan">substr()</code> will slice out the rest of the 
+string.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> str = <span class="jsstringcolor" style="color:brown">"Apple, Banana, Kiwi"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> part = str.<span class="jspropertycolor" style="color:black">substr</span>(<span class="jsnumbercolor" style="color:red">7</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p>If the first parameter is negative, the position counts from the end of the 
+string.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> str = <span class="jsstringcolor" style="color:brown">"Apple, Banana, Kiwi"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> part = str.<span class="jspropertycolor" style="color:black">substr</span>(-<span class="jsnumbercolor" style="color:red">4</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<hr>
+
+<h2>Replacing String Content</h2>
+<p>The <code class="w3-codespan">replace()</code> method replaces a specified value with another 
+value in a string:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"Please visit Microsoft!"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> newText = text.<span class="jspropertycolor" style="color:black">replace</span>(<span class="jsstringcolor" style="color:brown">"Microsoft"</span>, <span class="jsstringcolor" style="color:brown">"CODECONNECT"</span>);<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-panel w3-note">
+<h2>Note</h2>
+<p>The <code class="w3-codespan">replace()</code> method does not change the string it is called on.</p>
+<p>The <code class="w3-codespan">replace()</code> method returns a new string.</p>
+<p>The <code class="w3-codespan">replace()</code> method replaces <strong>only the first</strong> match</p>
+<p>If you want to replace all matches, use a regular expression with the /g flag set. See Samples below.</p>
+
+</div>
+
+<p>By default, the <code class="w3-codespan">replace()</code> method replaces <strong>only the first</strong> match:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"Please visit Microsoft and Microsoft!"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> newText = text.<span class="jspropertycolor" style="color:black">replace</span>(<span class="jsstringcolor" style="color:brown">"Microsoft"</span>, <span class="jsstringcolor" style="color:brown">"CODECONNECT"</span>);<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p>
+</p>
+</div>
+
+<p>By default, the <code class="w3-codespan">replace()</code> method is case sensitive. Writing MICROSOFT (with 
+upper-case) will not work:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"Please visit Microsoft!"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> newText = text.<span class="jspropertycolor" style="color:black">replace</span>(<span class="jsstringcolor" style="color:brown">"MICROSOFT"</span>, <span class="jsstringcolor" style="color:brown">"CODECONNECT"</span>);<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p>
+</p>
+</div>
+
+<p>To replace case insensitive, use a <strong>regular expression</strong> with an <code class="w3-codespan">/i</code> flag (insensitive):</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"Please visit Microsoft!"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> newText = text.<span class="jspropertycolor" style="color:black">replace</span>(<span class="jsregexpcolor" style="color:#f50">/MICROSOFT/i</span>, <span class="jsstringcolor" style="color:brown">"CODECONNECT"</span>);<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p>
+</p>
+</div>
+
+<div class="w3-panel w3-note">
+<h2>Note</h2>
+<p>Regular expressions are written without quotes.</p>
+</div>
+
+<p>To replace all matches, use a <strong>regular expression</strong> with a <code class="w3-codespan">/g</code> flag (global match):</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"Please visit Microsoft and Microsoft!"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> newText = text.<span class="jspropertycolor" style="color:black">replace</span>(<span class="jsregexpcolor" style="color:#f50">/Microsoft/g</span>, <span class="jsstringcolor" style="color:brown">"CODECONNECT"</span>);<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p>
+</p>
+</div>
+
+<div class="w3-panel w3-note">
+<h2>Note</h2>
+<p>You will learn a lot more about regular expressions in the chapter JavaScript Regular 
+Expressions</a>.</p>
+</div>
+<hr>
+<h2>JavaScript String ReplaceAll()</h2>
+<p>In 2021, JavaScript introduced the string method <code class="w3-codespan">replaceAll()</code>:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+text = text.<span class="jspropertycolor" style="color:black">replaceAll</span>(<span class="jsstringcolor" style="color:brown">"Cats"</span>,<span class="jsstringcolor" style="color:brown">"Dogs"</span>);<br>
+text = text.<span class="jspropertycolor" style="color:black">replaceAll</span>(<span class="jsstringcolor" style="color:brown">"cats"</span>,<span class="jsstringcolor" style="color:brown">"dogs"</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<p>The <code class="w3-codespan">replaceAll()</code> method allows you to specify a
+regular expression instead of a string to be replaced.</p>
+<p>If the parameter is a regular expression, the global flag (g) must be set, otherwise
+a TypeError is thrown.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+text = text.<span class="jspropertycolor" style="color:black">replaceAll</span>(<span class="jsregexpcolor" style="color:#f50">/Cats/g</span>,<span class="jsstringcolor" style="color:brown">"Dogs"</span>);<br>
+text = text.<span class="jspropertycolor" style="color:black">replaceAll</span>(<span class="jsregexpcolor" style="color:#f50">/cats/g</span>,<span class="jsstringcolor" style="color:brown">"dogs"</span>);<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-note">
+<h2>Note</h2>
+<p><code class="w3-codespan">replaceAll()</code> is an ES2021</a> feature.</p>
+<p><code class="w3-codespan">replaceAll()</code> does not work in Internet Explorer.</p>
+</div>
+
+<hr>
+<h2>Converting to Upper and Lower Case</h2>
+<p>A string is converted to upper case with <code class="w3-codespan">toUpperCase()</code>:</p>
+<p>A string is converted to lower case with <code class="w3-codespan">toLowerCase()</code>:</p>
+<hr>
+<h2>JavaScript String toUpperCase()</h2>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text1 = <span class="jsstringcolor" style="color:brown">"Hello World!"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text2 = text1.<span class="jspropertycolor" style="color:black">toUpperCase</span>();<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<h2>JavaScript String toLowerCase()</h2>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text1 = <span class="jsstringcolor" style="color:brown">"Hello World!"</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// String<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text2 = text1.<span class="jspropertycolor" style="color:black">toLowerCase</span>();&nbsp;&nbsp;<span class="commentcolor" style="color:green">// text2 is text1 
+converted to lower
+ </span></span></div>
+</div>
+<hr>
+
+<h2>JavaScript String concat()</h2>
+<p><code class="w3-codespan">concat()</code> joins two or more strings:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text1 = <span class="jsstringcolor" style="color:brown">"Hello"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text2 = <span class="jsstringcolor" style="color:brown">"World"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text3 = text1.<span class="jspropertycolor" style="color:black">concat</span>(<span class="jsstringcolor" style="color:brown">" "</span>, text2);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<p>The <code class="w3-codespan">concat()</code> method can be used instead of the plus operator. 
+These two lines do the same:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+text = <span class="jsstringcolor" style="color:brown">"Hello"</span> + <span class="jsstringcolor" style="color:brown">" "</span> + <span class="jsstringcolor" style="color:brown">"World!"</span>;<br>
+text = <span class="jsstringcolor" style="color:brown">"Hello"</span>.<span class="jspropertycolor" style="color:black">concat</span>(<span class="jsstringcolor" style="color:brown">" "</span>, <span class="jsstringcolor" style="color:brown">"World!"</span>); </span></div>
+</div>
+
+<div class="w3-panel w3-note">
+<h2>Note</h2>
+<p>All string methods return a new string. They don't modify the original string.</p>
+<p>Formally said:</p><p>Strings are immutable: Strings cannot be changed, only replaced.</p>
+</div>
+<hr>
+
+<h2>JavaScript String trim()</h2>
+<p>The <code class="w3-codespan">trim()</code> method removes whitespace from both sides of a string:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text1 = <span class="jsstringcolor" style="color:brown">"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hello World! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text2 = text1.<span class="jspropertycolor" style="color:black">trim</span>();<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<hr>
+ <h2>JavaScript String trimStart()</h2>
+<p> ECMAScript 2019</a> added the String method <code class="w3-codespan">trimStart()</code> to JavaScript.
+</p><p>The <code class="w3-codespan">trimStart()</code> method works like <code class="w3-codespan">trim()</code>, but removes whitespace only from the start of a string.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text1 = <span class="jsstringcolor" style="color:brown">"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hello World!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text2 = text1.<span class="jspropertycolor" style="color:black">trimStart</span>();<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<p>JavaScript String <code class="w3-codespan">trimStart()</code> is supported in all modern browsers since January 2020:</p>
+<div class="w3-responsive">
+<table class="browserref notranslate">
+  <tbody><tr style="height:50px">
+    <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:20%;" class="bsEdge" title="Edge"></th>
+    <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:20%;" class="bsSafari" title="Safari"></th>
+    <th style="width:29%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome 66</td>    
+    <td>Edge 79</td>
+    <td>Firefox 61</td>
+    <td>Safari 12</td>
+    <td>Opera 50</td>
+  </tr>
+  <tr>
+    <td>Apr 2018</td>
+    <td>Jan 2020</td>    
+    <td>Jun 2018</td>
+    <td>Sep 2018</td>
+    <td>May 2018</td>
+  </tr>
+</tbody></table>
+</div>
+
+<hr>
+<h2>JavaScript String trimEnd()</h2>
+<p> ECMAScript 2019</a> added the string method <code class="w3-codespan">trimEnd()</code> to JavaScript.
+</p><p>The <code class="w3-codespan">trimEnd()</code> method works like <code class="w3-codespan">trim()</code>, but removes whitespace only from the end of a string.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text1 = <span class="jsstringcolor" style="color:brown">"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hello World!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text2 = text1.<span class="jspropertycolor" style="color:black">trimEnd</span>();<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<p>JavaScript String <code class="w3-codespan">trimEnd()</code> is supported in all modern browsers since January 2020:</p><div class="w3-responsive">
+<table class="browserref notranslate">
+  <tbody><tr style="height:50px">
+    <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:20%;" class="bsEdge" title="Edge"></th>
+    <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:20%;" class="bsSafari" title="Safari"></th>
+    <th style="width:19%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome 66</td>    
+    <td>Edge 79</td>
+    <td>Firefox 61</td>
+    <td>Safari 12</td>
+    <td>Opera 50</td>
+  </tr>
+  <tr>
+    <td>Apr 2018</td>
+    <td>Jan 2020</td>    
+    <td>Jun 2018</td>
+    <td>Sep 2018</td>
+    <td>May 2018</td>
+  </tr>
+</tbody></table>
+</div>
+
+
+<hr>
+<h2>JavaScript String Padding</h2>
+<p> ECMAScript 2017</a> added two new string methods to JavaScript: <code class="w3-codespan">padStart()</code>
+and <code class="w3-codespan">padEnd()</code> to support padding at the beginning and at the end of a string.</p>
+<hr>
+<h2>JavaScript String padStart()</h2>
+<p>The <code class="w3-codespan">padStart()</code> method pads a string from the start.</p>
+<p>It pads a string with another string (multiple times) until it reaches a given length.</p>
+<div class="w3-Sample">
+<h3>Samples</h3>
+<p>Pad a string with "0" until it reaches the length 4:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"5"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> padded = text.<span class="jspropertycolor" style="color:black">padStart</span>(<span class="jsnumbercolor" style="color:red">4</span>,<span class="jsstringcolor" style="color:brown">"0"</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p>Pad a string with "x" until it reaches the length 4:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"5"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> padded = text.<span class="jspropertycolor" style="color:black">padStart</span>(<span class="jsnumbercolor" style="color:red">4</span>,<span class="jsstringcolor" style="color:brown">"x"</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-note">
+<h2>Note</h2>
+<p>The <code class="w3-codespan">padStart()</code> method is a string method.</p> 
+<p>To pad a number, convert the number to a string first.</p>
+<p>See the Sample below.</p>
+</div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> numb = <span class="jsnumbercolor" style="color:red">5</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = numb.<span class="jspropertycolor" style="color:black">toString</span>();<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> padded = text.<span class="jspropertycolor" style="color:black">padStart</span>(<span class="jsnumbercolor" style="color:red">4</span>,<span class="jsstringcolor" style="color:brown">"0"</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">padStart()</code> is an ECMAScript 2017</a> feature.</p>
+<p>It is supported in all modern browsers:</p>
+<div class="w3-responsive">
+<table class="browserref notranslate">
+  <tbody><tr style="height:60px">
+    <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:20%;" class="bsEdge" title="Edge"></th>
+    <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:20%;" class="bsSafari" title="Safari"></th>
+    <th style="width:19.9%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome</td>
+    <td>Edge</td>
+    <td>Firefox</td>
+    <td>Safari</td>
+    <td>Opera</td>
+  </tr>
+  <tr>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+</tbody></table>
+</div>
+<p><code class="w3-codespan">padStart()</code> is not supported in Internet Explorer.</p>
+
+
+<hr>
+
+<h2>JavaScript String padEnd()</h2>
+<p>The <code class="w3-codespan">padEnd()</code> method pads a string from the end.</p>
+<p>It pads a string with another string (multiple times) until it reaches a given length.</p>
+
+<div class="w3-Sample">
+<h3>Samples</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"5"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> padded = text.<span class="jspropertycolor" style="color:black">padEnd</span>(<span class="jsnumbercolor" style="color:red">4</span>,<span class="jsstringcolor" style="color:brown">"0"</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"5"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> padded = text.<span class="jspropertycolor" style="color:black">padEnd</span>(<span class="jsnumbercolor" style="color:red">4</span>,<span class="jsstringcolor" style="color:brown">"x"</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-note">
+<h2>Note</h2>
+<p>The <code class="w3-codespan">padEnd()</code> method is a string method.</p> 
+<p>To pad a number, convert the number to a string first.</p>
+<p>See the Sample below.</p>
+</div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> numb = <span class="jsnumbercolor" style="color:red">5</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = numb.<span class="jspropertycolor" style="color:black">toString</span>();<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> padded = text.<span class="jspropertycolor" style="color:black">padEnd</span>(<span class="jsnumbercolor" style="color:red">4</span>,<span class="jsstringcolor" style="color:brown">"0"</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+
+<h2>Browser Support</h2>
+<p><code class="w3-codespan">padEnd()</code> is an ECMAScript 2017</a> feature.</p>
+<p>It is supported in all modern browsers:</p>
+<div class="w3-responsive">
+<table class="browserref notranslate">
+  <tbody><tr style="height:60px">
+    <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:20%;" class="bsEdge" title="Edge"></th>
+    <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:20%;" class="bsSafari" title="Safari"></th>
+    <th style="width:19.9%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome</td>
+    <td>Edge</td>
+    <td>Firefox</td>
+    <td>Safari</td>
+    <td>Opera</td>
+  </tr>
+  <tr>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+</tbody></table>
+</div>
+<p><code class="w3-codespan">padEnd()</code> is not supported in Internet Explorer.</p>
+
+
+<hr>
+
+<h2>Extracting String Characters</h2>
+<p>There are 3 methods for extracting string characters:</p>
+<ul>
+  <li><code class="w3-codespan">charAt(<em>position</em>)</code></li>
+  <li><code class="w3-codespan">charCodeAt(<em>position</em>)</code></li>
+  <li>Property access [ ]</li>
+</ul>
+<hr>
+
+<h2>JavaScript String charAt()</h2>
+<p>The <code class="w3-codespan">charAt()</code> method returns the character at a specified 
+index (position) in a string:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"HELLO WORLD"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> <span class="jskeywordcolor" style="color:mediumblue">char</span> = text.<span class="jspropertycolor" style="color:black">charAt</span>(<span class="jsnumbercolor" style="color:red">0</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<hr>
+
+<h2>JavaScript String charCodeAt()</h2>
+<p>The <code class="w3-codespan">charCodeAt()</code> method returns the unicode of the character 
+at a specified index in a string:</p>
+<p>The method returns a UTF-16 code (an integer between 0 and 65535).</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"HELLO WORLD"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> <span class="jskeywordcolor" style="color:mediumblue">char</span> = text.<span class="jspropertycolor" style="color:black">charCodeAt</span>(<span class="jsnumbercolor" style="color:red">0</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<hr>
+
+<h2>Property Access</h2>
+<p>ECMAScript 5 (2009) allows property access [ ] on strings:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"HELLO WORLD"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> <span class="jskeywordcolor" style="color:mediumblue">char</span> = text[<span class="jsnumbercolor" style="color:red">0</span>];<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<div class="w3-panel w3-note">
+<h2>Note</h2>
+<p>Property access might be a little <strong>unpredictable:</strong> </p>
+<ul>
+  <li>It makes strings look like arrays (but they are not)</li>
+  <li>If no character is found, [ ] returns undefined, while charAt() returns an empty string.</li>
+  <li>It is read only. str[0] = "A" gives no error (but does not work!)</li>
+</ul>
+</div>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"HELLO WORLD"</span>;<br>
+text[<span class="jsnumbercolor" style="color:red">0</span>] = <span class="jsstringcolor" style="color:brown">"A"</span>;&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Gives no error, but does not work<br></span><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<hr>
+
+<h2>Converting a String to an Array</h2>
+<div class="w3-panel w3-note">
+<p>If you want to work with a string as an array, you can convert it to an array.</p>
+</div>
+<h2>JavaScript String split()</h2>
+<p>A string can be converted to an array with the <code class="w3-codespan">split()</code> method:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+text.<span class="jspropertycolor" style="color:black">split</span>(<span class="jsstringcolor" style="color:brown">","</span>)&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Split on commas<br></span>
+text.<span class="jspropertycolor" style="color:black">split</span>(<span class="jsstringcolor" style="color:brown">" "</span>)&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Split on spaces<br></span>
+text.<span class="jspropertycolor" style="color:black">split</span>(<span class="jsstringcolor" style="color:brown">"|"</span>)&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Split on pipe
+ </span></span></div>
+</div>
+<p>If the separator is omitted, the returned array will contain the whole string 
+in index [0].</p>
+<p>If the separator is "", the returned array will be an array of single 
+characters:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+text.<span class="jspropertycolor" style="color:black">split</span>(<span class="jsstringcolor" style="color:brown">""</span>)<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+ 

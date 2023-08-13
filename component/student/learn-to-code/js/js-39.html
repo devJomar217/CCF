@@ -1,0 +1,125 @@
+<!-- If...Else-->
+
+
+  <div class="w3-row w3-white">
+    
+
+
+<h1>What is if, else, and else if in JavaScript?</h1>
+
+<p class="intro">Conditional statements are used to perform different actions based on different conditions.</p>
+<hr>
+
+<h2>Conditional Statements</h2>
+<p>Very often when you write code, you want to perform different actions for different decisions.</p>
+<p>You can use conditional statements in your code to do this.</p>
+<p>In JavaScript we have the following conditional statements:</p>
+<ul>
+  <li>Use <code class="w3-codespan">if</code> to specify a block of code to be executed, if a specified condition is true</li>
+  <li>Use <code class="w3-codespan">else</code> to specify a block of code to be executed, if the same condition is 
+  false</li>
+  <li>Use <code class="w3-codespan">else if</code> to specify a new condition to test, if the first condition is false</li>
+  <li>Use <code class="w3-codespan">switch</code> to specify many alternative blocks of code to be executed</li>
+</ul>
+<div class="w3-panel w3-note">
+<p>The <code class="w3-codespan">switch</code> statement is described in the next chapter.</p>
+</div>
+<hr>
+
+<h2>The if Statement</h2>
+<p>Use the <code class="w3-codespan">if</code> statement to specify a block of JavaScript code to 
+be executed if a condition is true.</p>
+
+<h3>Syntax</h3>
+<div class="w3-code w3-border notranslate jsHigh"><span class="jscolor" style="color:black"><div>
+<span class="jskeywordcolor" style="color:mediumblue">if</span> (<i>condition</i>) {<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="commentcolor" style="color:green">//<em>&nbsp; block of code to be executed if the condition is true<br></em></span><em><span class="jsnumbercolor" style="color:red">
+</span> </em>}
+</div>
+ </span></div>
+
+<div class="w3-panel w3-note">
+<p>Note that <code class="w3-codespan">if</code> is in lowercase letters. Uppercase letters (If or IF) will generate a JavaScript error.</p>
+</div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Make a "Good day" greeting if the hour is less than 
+18:00:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">if</span> (hour &lt; <span class="jsnumbercolor" style="color:red">18</span>) {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; greeting = <span class="jsstringcolor" style="color:brown">"Good day"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span> } </span></div>
+<p>The result of greeting will be:</p>
+<div class="w3-white w3-padding notranslate">
+
+
+<h2>The else Statement</h2>
+<p>Use the <code class="w3-codespan">else</code> statement to specify a block of code to be 
+executed if the condition is 
+false.</p>
+<div class="w3-code w3-border notranslate jsHigh"><span class="jscolor" style="color:black"><div>
+<span class="jskeywordcolor" style="color:mediumblue">if</span> (<i>condition</i>) {<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="commentcolor" style="color:green">//<em>&nbsp; block of code to be executed if the condition is true<br></em></span><em><span class="jsnumbercolor" style="color:red">
+</span> </em>}
+<span class="jskeywordcolor" style="color:mediumblue">else</span> {<span class="jsnumbercolor" style="color:red">
+</span><br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="commentcolor" style="color:green">//<em>&nbsp; block of code to be executed if the condition is false<br></em></span><em><span class="jsnumbercolor" style="color:red">
+</span> </em>}</div>
+ </span></div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>If the hour is less than 18, create a "Good day" 
+greeting, otherwise "Good evening":</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">if</span> (hour &lt; <span class="jsnumbercolor" style="color:red">18</span>) {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp;&nbsp;greeting = <span class="jsstringcolor" style="color:brown">"Good day"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span> }
+<span class="jskeywordcolor" style="color:mediumblue">else</span> {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; greeting = <span class="jsstringcolor" style="color:brown">"Good evening"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span> }<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p>The result of greeting will be:</p>
+<div class="w3-white w3-padding notranslate">
+<code>
+
+
+<h2>The else if&nbsp;Statement</h2>
+<p>Use the <code class="w3-codespan">else if</code> statement to specify a new condition if the first condition is false.</p>
+
+<h3>Syntax</h3>
+<div class="w3-code w3-border notranslate jsHigh"><span class="jscolor" style="color:black"><div>
+
+<span class="jskeywordcolor" style="color:mediumblue">if</span> (<i>condition1</i>) {<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="commentcolor" style="color:green">//<em>&nbsp; block of code to be executed if condition1 is true<br></em></span><em><span class="jsnumbercolor" style="color:red">
+</span> </em>}
+<span class="jskeywordcolor" style="color:mediumblue">else</span> <span class="jskeywordcolor" style="color:mediumblue">if</span> (<i>condition2</i>) {<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="commentcolor" style="color:green">//<em>&nbsp; block of code to be executed if the condition1 is false and condition2 is true</em><br></span><span class="jsnumbercolor" style="color:red">
+</span>} <span class="jskeywordcolor" style="color:mediumblue">else</span> {<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="commentcolor" style="color:green">//<em>&nbsp; block of code to be executed if the condition1 is false and condition2 is false<br></em></span><em><span class="jsnumbercolor" style="color:red">
+</span> </em>}</div>
+ </span></div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>If time is less than 10:00, create a "Good 
+morning" 
+greeting, if not, but time is less than 20:00, create a "Good day" greeting, 
+otherwise a "Good evening":</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">if</span> (time &lt; <span class="jsnumbercolor" style="color:red">10</span>) {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; greeting = <span class="jsstringcolor" style="color:brown">"Good morning"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span> }
+<span class="jskeywordcolor" style="color:mediumblue">else</span> <span class="jskeywordcolor" style="color:mediumblue">if</span> (time &lt; <span class="jsnumbercolor" style="color:red">20</span>)&nbsp;{<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; greeting = <span class="jsstringcolor" style="color:brown">"Good day"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span> }
+<span class="jskeywordcolor" style="color:mediumblue">else</span>&nbsp;{<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; greeting = <span class="jsstringcolor" style="color:brown">"Good evening"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span> }<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p>The result of greeting will be:</p>
+<div class="w3-white w3-padding notranslate">
+<code>
+
+

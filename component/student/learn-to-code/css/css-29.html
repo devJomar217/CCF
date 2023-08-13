@@ -1,0 +1,74 @@
+<!-- combinators-->
+
+ 
+    <div class="w3-row w3-white">
+      
+       
+  
+  <h1>What is <span class="color_h1">Combinators in Css?</span></h1>
+ 
+  
+  <h2>CSS Combinators</h2>
+  
+  <div class="w3-panel w3-note">
+    <p>A combinator is something that explains the relationship between the selectors.</p>
+  </div>
+ 
+  <p>A CSS selector can contain more than one simple selector. Between the simple 
+  selectors, we can include a combinator.</p>
+  
+  <p>There are four different combinators in CSS:</p>
+  <ul>
+  <li>descendant selector (space)</li>
+  <li>child selector (&gt;)</li>
+  <li>adjacent sibling selector (+)</li>
+  <li>general sibling selector (~)</li>
+  </ul>
+  <hr>
+  
+  <h2>Descendant Selector</h2>
+  <p>The descendant selector matches all elements that are descendants of a specified 
+  element.</p>
+  <p>The following Sample selects all &lt;p&gt; elements inside &lt;div&gt; elements:&nbsp;</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+  div p <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp;&nbsp;background-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> yellow<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span> </span></div>
+   </div>
+  <hr>
+  
+  <h2>Child Selector (&gt;)</h2>
+  <p>The child selector selects all elements that are the children of a 
+  specified element.</p>
+  <p>The following Sample selects all &lt;p&gt; elements that are  
+  children of a &lt;div&gt; 
+  element:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+  div &gt; p <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp;&nbsp;background-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> yellow<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span> </span></div>
+   </div>
+ 
+  
+  <h2>Adjacent Sibling Selector (+)</h2>
+  <p>The adjacent sibling selector is used to select an element that is directly 
+  after another specific element.</p>
+  <p>Sibling elements must have the same parent element, and "adjacent" means 
+  "immediately following".</p>
+  <p>The following Sample selects the first &lt;p&gt; element that are placed immediately after &lt;div&gt; elements:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+  div + p <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; background-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> yellow<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span> </span></div>
+   </div>
+  <hr>
+  
+  <h2>General Sibling Selector (~)</h2>
+  <p>The general sibling selector selects all elements that are next siblings of a specified element.</p>
+  <p>The following Sample selects all &lt;p&gt; elements that are next siblings of &lt;div&gt; elements:&nbsp;</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+  div ~ p <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; background-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> yellow<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span> </span></div>
+   </div>
+   

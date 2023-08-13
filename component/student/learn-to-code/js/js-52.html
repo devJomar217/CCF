@@ -1,0 +1,253 @@
+<!-- RegExp-->
+
+
+  <div class="w3-row w3-white">
+
+
+<h1>What is <span class="color_h1">Regular Expressions in JavaScript?</span></h1>
+
+<p class="intro">A regular expression is a sequence of characters that forms a 
+search pattern.</p>
+<p class="intro">The search pattern can be used for text search and text replace 
+operations. </p>
+<hr>
+
+<h2>What Is a Regular Expression?</h2>
+<p>A regular expression is a sequence of characters that forms a <strong>search 
+pattern</strong>.</p>
+<p>When you search for data in a text, you can use this search pattern to describe what you are searching for.</p>
+<p>A regular expression can be a single character, or a more complicated pattern.</p>
+<p>Regular expressions can be used to perform all types of <strong>text search</strong> 
+and <strong>text replace</strong> operations.</p>
+
+<h2>Syntax</h2>
+<div class="w3-code w3-border notranslate"><div>
+ /<em>pattern</em>/<em>modifiers</em>;
+</div></div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate">
+/CODECONNECT/i;</div>
+</div>
+<p>Sample explained:</p>
+<p><strong>/CODECONNECT/i</strong>&nbsp; is a regular expression.</p>
+<p><strong>CODECONNECT</strong>&nbsp; is a pattern (to be used in a search).</p>
+<p><strong>i</strong>&nbsp; is a modifier (modifies the search to be case-insensitive).</p>
+<hr>
+
+<h2>Using String Methods</h2>
+<p>In JavaScript, regular expressions are often used with the two <strong>string 
+methods</strong>: <code class="w3-codespan">search()</code> and <code class="w3-codespan">replace()</code>.</p>
+<p>The <code class="w3-codespan">search()</code> method uses an expression to search for a 
+match, and returns the position of the match.</p>
+<p>The <code class="w3-codespan">replace()</code> method returns a modified string where the 
+pattern is replaced.</p>
+<hr>
+
+<h2>Using String search() With a String</h2>
+<p>The <code class="w3-codespan">search()</code> method searches a string for a specified value and returns the position of the match:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Use a string to do a search for "CODECONNECT" in a string:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"Visit CODECONNECT!"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> n = text.<span class="jspropertycolor" style="color:black">search</span>(<span class="jsstringcolor" style="color:brown">"CODECONNECT"</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p>The result in <em>n</em> will be:</p>
+<div class="w3-white w3-padding notranslate">
+<code>6</code>
+</div>
+<p>
+</div>
+<hr>
+
+<h2>Using String search() With a Regular Expression</h2>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Use a regular expression to do a case-insensitive search for "CODECONNECT" in a string:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"Visit CODECONNECT"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> n = text.<span class="jspropertycolor" style="color:black">search</span>(<span class="jsregexpcolor" style="color:#f50">/CODECONNECT/i</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p>The result in <em>n</em> will be:</p>
+<div class="w3-white w3-padding notranslate">
+<code>6</code>
+</div>
+<p>
+</div>
+
+
+<h2>Using String replace() With a String</h2>
+<p>The <code class="w3-codespan">replace()</code> method replaces a specified value with another value in a string:</p>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"Visit Microsoft!"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> result = text.<span class="jspropertycolor" style="color:black">replace</span>(<span class="jsstringcolor" style="color:brown">"Microsoft"</span>, <span class="jsstringcolor" style="color:brown">"CODECONNECT"</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<hr>
+
+<h2>Use String replace() With a Regular Expression</h2>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Use a case insensitive regular expression to replace Microsoft with CODECONNECT 
+in a string:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"Visit Microsoft!"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> result = text.<span class="jspropertycolor" style="color:black">replace</span>(<span class="jsregexpcolor" style="color:#f50">/microsoft/i</span>, <span class="jsstringcolor" style="color:brown">"CODECONNECT"</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p>The result in <em>res</em> will be:</p>
+<div class="w3-white w3-padding notranslate">
+<code>Visit CODECONNECT!</code></div>
+</div>
+
+<hr>
+
+<h2>Did You Notice?</h2>
+
+<div class="w3-panel w3-note">
+<p>Regular expression arguments (instead of string arguments) can be used in the methods above.<br>
+Regular expressions can make your search much more powerful (case insensitive for Sample).</p>
+</div>
+
+<hr>
+<h2>Regular Expression Modifiers</h2>
+<p><strong>Modifiers</strong> can be used to perform case-insensitive more global searches:</p>
+
+<table class="ws-table-all notranslate">
+  <tbody><tr>
+    <th style="width:22%">Modifier</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>i</td>
+    <td>Perform case-insensitive matching</td>
+  </tr>
+  <tr>
+    <td>g</td>
+    <td>Perform a global match (find all matches rather than stopping after the first match)</td>
+  </tr>
+  <tr>
+    <td>m</td>
+    <td>Perform multiline matching</td>
+  </tr>
+</tbody></table>
+
+<h2>Regular Expression Patterns</h2>
+<p><strong>Brackets</strong> are used to find a range of characters:</p>
+<table class="ws-table-all notranslate">
+  <tbody><tr>
+    <th style="width:22%">Expression</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>[abc]</td>
+    <td>Find any of the characters between the brackets</td>
+  </tr><tr>
+    <td>[0-9]</td>
+    <td>Find any of the digits between the brackets</td>
+    </tr><tr>
+    <td>(x|y)</td>
+    <td>Find any of the alternatives separated with |</td>
+  </tr>
+</tbody></table>
+
+<p><strong>Metacharacters</strong> are characters with a special meaning:</p>
+<table class="ws-table-all notranslate">
+<tbody><tr>
+    <th style="width:22%">Metacharacter</th>
+    <th>Description</th>
+</tr>
+<tr>
+    <td>\d</td>
+    <td>Find a digit</td>
+</tr>
+<tr>
+    <td>\s</td>
+    <td>Find a whitespace character</td>
+</tr>
+<tr>
+    <td>\b</td>
+    <td>Find a match at the beginning of a word like this: \bWORD, or at the end of a word 
+    like this: WORD\b</td>
+    <td>
+      <br>
+    </td>
+</tr>
+<tr>
+    <td>\uxxxx</td>
+    <td>Find the Unicode character specified by the hexadecimal number xxxx</td>
+</tr>
+</tbody></table>
+
+<p><strong>Quantifiers</strong> define quantities:</p>
+<table class="ws-table-all notranslate">
+  <tbody><tr>
+    <th style="width:22%">Quantifier</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>n+</td>
+    <td>Matches any string that contains at least one <em>n</em></td>
+  </tr>
+  <tr>
+    <td>n*</td>
+    <td>Matches any string that contains zero or more occurrences of <em>n</em></td>
+  </tr>
+  <tr>
+    <td>n?</td>
+    <td>Matches any string that contains zero or one occurrences of <em>n</em></td>
+ </tr>
+</tbody></table>
+<hr>
+
+<h2>Using the RegExp Object</h2>
+<p>In JavaScript, the RegExp object is a regular expression object with 
+predefined properties and methods.</p>
+<hr>
+
+<h2>Using test()</h2>
+<p>The <code class="w3-codespan">test()</code> method is a RegExp expression method.</p>
+<p>It searches a string for a pattern, and returns true 
+or false, depending on the result.</p>
+<p>The following Sample searches a string for the character "e":</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> pattern = <span class="jsregexpcolor" style="color:#f50">/e/</span>;<br>
+pattern.<span class="jspropertycolor" style="color:black">test</span>(<span class="jsstringcolor" style="color:brown">"The best things in life are free!"</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p>Since there is an "e" in the string, the output of the code above will be:</p>
+<div class="w3-white w3-padding notranslate">
+<code>true</code>
+</div>
+<p>
+</p>
+</div>
+<div class="w3-Sample">
+<p>You don't have to put the regular expression in a variable first. The two 
+lines above can be shortened to one:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span><span class="jsregexpcolor" style="color:#f50">/e/</span>.<span class="jspropertycolor" style="color:black">test</span>(<span class="jsstringcolor" style="color:brown">"The best things in life are free!"</span>); </span></div>
+</div>
+<hr>
+
+<h2>Using exec()</h2>
+<p>The <code class="w3-codespan">exec()</code> method is a RegExp expression method.</p>
+<p>It searches a string for a specified pattern, and returns the found text as 
+an object. </p>
+<p>If no match is found, it returns an empty <i>(null)</i> object.</p>
+<p>The following Sample searches a string for the character "e":</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span> <span class="jsregexpcolor" style="color:#f50">/e/</span>.<span class="jspropertycolor" style="color:black">exec</span>(<span class="jsstringcolor" style="color:brown">"The best things in life are free!"</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>

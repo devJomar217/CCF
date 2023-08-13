@@ -1,0 +1,181 @@
+<!-- Group-->
+
+
+ 
+  <div class="w3-row w3-white">
+    
+ 
+
+<h1>What is  <span class="color_h1">GROUP BY</span> Statement in SQL?</h1>
+ 
+
+<h2>The SQL GROUP BY Statement</h2>
+<p>The <code class="w3-codespan">GROUP BY</code> statement groups rows that have the same values into summary 
+rows, like "find the number of customers in each country".</p>
+<p>The <code class="w3-codespan">GROUP BY</code> statement is often used with aggregate functions (<code class="w3-codespan">COUNT()</code>, 
+<code class="w3-codespan">MAX()</code>, 
+<code class="w3-codespan">MIN()</code>, <code class="w3-codespan">SUM()</code>, 
+<code class="w3-codespan">AVG()</code>) to group the result-set by one or more columns.</p>
+<h3>GROUP BY Syntax</h3>
+<div class="w3-Sample">
+<div class="w3-code notranslate sqlHigh"><span class="sqlcolor" style="color:black"><span class="sqlnumbercolor" style="color:">
+</span>  <span class="sqlkeywordcolor" style="color:mediumblue">SELECT</span> <em>column_name(s)</em><br><span class="sqlnumbercolor" style="color:">
+</span>  <span class="sqlkeywordcolor" style="color:mediumblue">FROM</span> <em>table_name</em><br><span class="sqlnumbercolor" style="color:">
+</span>  <span class="sqlkeywordcolor" style="color:mediumblue">WHERE</span> <em>condition</em><br><span class="sqlnumbercolor" style="color:">
+</span>  <span class="sqlkeywordcolor" style="color:mediumblue">GROUP</span> <span class="sqlkeywordcolor" style="color:mediumblue">BY</span> <em>column_name(s)<br></em><span class="sqlkeywordcolor" style="color:mediumblue">ORDER</span> <span class="sqlkeywordcolor" style="color:mediumblue">BY</span> <em>column_name(s);
+</em>
+ </span></div></div>
+<hr>
+
+<h2>Demo Database</h2>
+<p>Below is a selection from the "Customers" table in the Northwind sample 
+database:</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tbody><tr>
+    <th>CustomerID</th>
+    <th>CustomerName</th>
+    <th>ContactName</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>PostalCode</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>1<br><br></td>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Obere Str. 57</td>
+    <td>Berlin</td>
+    <td>12209</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Ana Trujillo Emparedados y helados</td>
+    <td>Ana Trujillo</td>
+    <td>Avda. de la Constitución 2222</td>
+    <td>México D.F.</td>
+    <td>05021</td>
+    <td>Mexico</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Antonio Moreno Taquería</td>
+    <td>Antonio Moreno</td>
+    <td>Mataderos 2312</td>
+    <td>México D.F.</td>
+    <td>05023</td>
+    <td>Mexico</td>
+  </tr>
+  <tr>
+    <td>4<br><br></td>
+    <td>Around the Horn</td>
+    <td>Thomas Hardy</td>
+    <td>120 Hanover Sq.</td>
+    <td>London</td>
+    <td>WA1 1DP</td>
+    <td>UK</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>Berglunds snabbköp</td>
+    <td>Christina Berglund</td>
+    <td>Berguvsvägen 8</td>
+    <td>Luleå</td>
+    <td>S-958 22</td>
+    <td>Sweden</td>
+  </tr>
+</tbody></table>
+</div>
+ 
+
+<h2>SQL GROUP BY Samples</h2>
+<p>The following SQL statement lists the number of customers in each country:</p>
+<div class="w3-Sample">
+ <div class="w3-code notranslate sqlHigh"><span class="sqlcolor" style="color:black"><span class="sqlnumbercolor" style="color:">
+</span>  <span class="sqlkeywordcolor" style="color:mediumblue">SELECT</span> <span class="sqlkeywordcolor" style="color:mediumblue">COUNT</span>(CustomerID), Country<br><span class="sqlkeywordcolor" style="color:mediumblue">FROM</span> Customers<br><span class="sqlkeywordcolor" style="color:mediumblue">GROUP</span> <span class="sqlkeywordcolor" style="color:mediumblue">BY</span> Country;<span class="sqlnumbercolor" style="color:">
+</span> </span></div>
+ 
+</div>
+<p>The following SQL statement lists the number of customers in each country, 
+sorted high to low:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate sqlHigh"><span class="sqlcolor" style="color:black"><span class="sqlnumbercolor" style="color:">
+</span>  <span class="sqlkeywordcolor" style="color:mediumblue">SELECT</span> <span class="sqlkeywordcolor" style="color:mediumblue">COUNT</span>(CustomerID), Country<br><span class="sqlkeywordcolor" style="color:mediumblue">FROM</span> Customers<br><span class="sqlkeywordcolor" style="color:mediumblue">GROUP</span> <span class="sqlkeywordcolor" style="color:mediumblue">BY</span> Country<br><span class="sqlnumbercolor" style="color:">
+</span>  <span class="sqlkeywordcolor" style="color:mediumblue">ORDER</span> <span class="sqlkeywordcolor" style="color:mediumblue">BY</span> <span class="sqlkeywordcolor" style="color:mediumblue">COUNT</span>(CustomerID) <span class="sqlkeywordcolor" style="color:mediumblue">DESC</span>;<span class="sqlnumbercolor" style="color:">
+</span> </span></div>
+ 
+</div>
+<hr>
+
+<h2>Demo Database</h2>
+<p>Below is a selection from the "Orders" table in the Northwind sample database:</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tbody><tr>
+    <th>OrderID</th>
+    <th>CustomerID</th>
+    <th>EmployeeID</th>
+    <th>OrderDate</th>
+    <th>ShipperID</th>
+  </tr>
+  <tr>
+    <td>10248</td>
+    <td>90</td>
+    <td>5</td>
+    <td>1996-07-04</td>
+    <td>3</td>
+  </tr>
+    <tr>
+    <td>10249</td>
+    <td>81</td>
+    <td>6</td>
+    <td>1996-07-05</td>
+    <td>1</td>
+    </tr>
+  <tr>
+    <td>10250</td>
+    <td>34</td>
+    <td>4</td>
+    <td>1996-07-08</td>
+    <td>2</td>
+    </tr>
+  </tbody></table>
+  </div>
+<p>And a selection from the "Shippers" table:</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tbody><tr>
+    <th>ShipperID</th>
+    <th>ShipperName</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Speedy Express</td>
+  </tr>
+    <tr>
+    <td>2</td>
+    <td>United Package</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Federal Shipping</td>
+  </tr>
+  </tbody></table>
+  </div>
+<hr>
+
+<h2>GROUP BY With JOIN Sample</h2>
+<p>The following SQL statement lists the number of orders sent by each shipper:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate sqlHigh"><span class="sqlcolor" style="color:black"><span class="sqlnumbercolor" style="color:">
+</span>  <span class="sqlkeywordcolor" style="color:mediumblue">SELECT</span> Shippers.ShipperName, <span class="sqlkeywordcolor" style="color:mediumblue">COUNT</span>(Orders.OrderID) <span class="sqlkeywordcolor" style="color:mediumblue">AS</span> NumberOfOrders <span class="sqlkeywordcolor" style="color:mediumblue">FROM</span> <span class="sqlnumbercolor" style="color:">
+</span>  Orders<br><span class="sqlkeywordcolor" style="color:mediumblue">LEFT</span> <span class="sqlkeywordcolor" style="color:mediumblue">JOIN</span> Shippers <span class="sqlkeywordcolor" style="color:mediumblue">ON</span> Orders.ShipperID = Shippers.ShipperID<br><span class="sqlnumbercolor" style="color:">
+</span>  <span class="sqlkeywordcolor" style="color:mediumblue">GROUP</span> <span class="sqlkeywordcolor" style="color:mediumblue">BY</span> ShipperName;<span class="sqlnumbercolor" style="color:">
+</span> </span></div>
+ 
+</div>
+ 

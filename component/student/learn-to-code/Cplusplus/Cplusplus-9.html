@@ -1,0 +1,195 @@
+<!-- DATA TYPES-->
+
+
+
+
+  <div class="w3-row w3-white">
+    
+
+
+<h1>What is <span class="color_h1">Data Types in C++?</span></h1>
+<p>&nbsp;</p>
+<hr>
+
+<h2>C++ Data Types</h2>
+<p>As explained in the  Variables</a> chapter, a variable in C++ must be a specified data type:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  <span class="javakeywordcolor" style="color:mediumblue">int</span> myNum = <span class="javanumbercolor" style="color:red">5</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="javanumbercolor" style="color:red">
+</span>  <span class="commentcolor" style="color:green">// Integer (whole number)<br></span><span class="javakeywordcolor" style="color:mediumblue">float</span> myFloatNum = <span class="javanumbercolor" style="color:red">5.99</span>;&nbsp;&nbsp;&nbsp;&nbsp; <span class="javanumbercolor" style="color:red">
+</span>  <span class="commentcolor" style="color:green">// Floating point number<br></span><span class="javakeywordcolor" style="color:mediumblue">double</span> myDoubleNum = <span class="javanumbercolor" style="color:red">9.98</span>;&nbsp; &nbsp;<span class="commentcolor" style="color:green">// Floating point number<br></span><span class="javakeywordcolor" style="color:mediumblue">char</span> myLetter = <span class="javastringcolor" style="color:brown">'D'</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="javanumbercolor" style="color:red">
+</span>  <span class="commentcolor" style="color:green">// Character<br></span>bool <span class="javanumbercolor" style="color:red">
+</span>  myBoolean = <span class="javakeywordcolor" style="color:mediumblue">true</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// Boolean<br></span>string myText = <span class="javastringcolor" style="color:brown">"Hello"</span>;&nbsp;&nbsp;&nbsp;&nbsp; <span class="javanumbercolor" style="color:red">
+</span>  <span class="commentcolor" style="color:green">// String </span></span></div>
+</div>
+
+<hr>
+
+<h2>Basic Data Types</h2>
+<p>The data type specifies the size and type of information the variable will store:</p>
+
+<div class="w3-responsive" style="margin:-16px 0">
+<table class="ws-table-all notranslate">
+<tbody><tr>
+<th style="width:15%">Data Type</th>
+<th style="width:15%">Size</th>
+<th style="width:70%">Description</th>
+</tr>
+<tr>
+<td><code class="w3-codespan" style="padding-left:0;">boolean</code></td>
+<td>1 byte</td>
+<td>Stores true or false values</td>
+</tr>
+<tr>
+<td><code class="w3-codespan" style="padding-left:0">char</code></td>
+<td>1 byte</td>
+<td>Stores a single character/letter/number, or ASCII values</td>
+</tr>
+<tr>
+<td><code class="w3-codespan" style="padding-left:0">int</code></td>
+<td>2 or 4 bytes</td>
+<td>Stores whole numbers, without decimals</td>
+</tr>
+<tr>
+<td><code class="w3-codespan" style="padding-left:0;background-color:white">float</code></td>
+<td>4 bytes</td>
+<td>Stores fractional numbers, containing one or more decimals. Sufficient for 
+storing 6-7 decimal digits</td>
+</tr>
+<tr>
+<td><code class="w3-codespan" style="padding-left:0">double</code></td>
+<td>8 bytes</td>
+<td>Stores fractional numbers, containing one or more decimals. Sufficient for 
+storing 15 decimal digits</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<p>&nbsp;</p> 
+<p>&nbsp;</p> 
+  <div class="w3-row w3-white">
+    
+   <p> &nbsp;</p>
+<p> &nbsp;</&nbsp;</&nbsp;</</p>
+<p> &nbsp;</p>
+<p> &nbsp;</&nbsp;</&nbsp;</</p>
+
+<h1>C++ <span class="color_h1">Numeric Data Types</span></h1>
+
+
+<h2>Numeric Types</h2>
+<p>Use <code class="w3-codespan">int</code> when you need to store a whole number without decimals, like 35 or 1000, and <code class="w3-codespan">float</code> or <code class="w3-codespan">double</code> when you need a 
+floating point number (with decimals), like 9.99 or 3.14515.</p>
+
+<div class="w3-Sample">
+<h3>int</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  <span class="javakeywordcolor" style="color:mediumblue">int</span> myNum = <span class="javanumbercolor" style="color:red">1000</span>;<br><span class="javanumbercolor" style="color:red">
+</span>  cout &lt;&lt; myNum; </span></div>
+</div>
+
+<div class="w3-Sample">
+<h3>float</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  <span class="javakeywordcolor" style="color:mediumblue">float</span> myNum = <span class="javanumbercolor" style="color:red">5.75</span>;<br><span class="javanumbercolor" style="color:red">
+</span>  cout &lt;&lt; myNum; </span></div>
+</div>
+
+<div class="w3-Sample">
+<h3>double</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  <span class="javakeywordcolor" style="color:mediumblue">double</span> myNum = <span class="javanumbercolor" style="color:red">19.99</span>;<br><span class="javanumbercolor" style="color:red">
+</span>  cout &lt;&lt; myNum; </span></div>
+</div>
+
+<div class="w3-note w3-panel">
+<p><code class="w3-codespan">float</code> vs. <code class="w3-codespan">double</code></p>
+<p>The <strong>precision</strong> of a floating point value indicates how many digits the value can have 
+after the decimal point.
+The precision of <code class="w3-codespan">float</code> is only six or seven 
+decimal digits, while <code class="w3-codespan">double</code> variables have a precision 
+of about 15 digits. Therefore it is safer to use <code class="w3-codespan">double</code> for most calculations.</p>
+</div>
+
+<h3>Scientific Numbers</h3>
+<p>A floating point number can also be a scientific number with an "e" to indicate the power of 10:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  <span class="javakeywordcolor" style="color:mediumblue">float</span> f1 = <span class="javanumbercolor" style="color:red">35e3</span>;<br><span class="javanumbercolor" style="color:red">
+</span>  <span class="javakeywordcolor" style="color:mediumblue">double</span> d1 = <span class="javanumbercolor" style="color:red">12E4</span>;<br><span class="javanumbercolor" style="color:red">
+</span>  cout &lt;&lt; f1;<br>cout &lt;&lt; d1; </span></div>
+</div>
+
+
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+  <div class="w3-row w3-white">
+    <p> &nbsp;</p>
+<p> &nbsp;</&nbsp;</&nbsp;</</p>
+
+<h1>C++ <span class="color_h1">Character Data Types</span></h1>
+
+
+<h2>Character Types</h2>
+<p>The <code class="w3-codespan">char</code> data type is used to store a 
+<strong>single</strong> character. The character must be 
+surrounded by single quotes, like 'A' or 'c':</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  <span class="javakeywordcolor" style="color:mediumblue">char</span> myGrade = <span class="javastringcolor" style="color:brown">'B'</span>;<br><span class="javanumbercolor" style="color:red">
+</span>  cout &lt;&lt; myGrade; </span></div>
+</div>
+<p>Alternatively, you can use ASCII values to display certain characters:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  <span class="javakeywordcolor" style="color:mediumblue">char</span> a = <span class="javanumbercolor" style="color:red">65</span>, b = <span class="javanumbercolor" style="color:red">66</span>, c = <span class="javanumbercolor" style="color:red">67</span>;<br>cout &lt;&lt; a;<br>cout &lt;&lt; b;<br>cout &lt;&lt; c; </span></div>
+  </div>
+<p><strong>Tip:</strong> A list of all ASCII values can be found in our  ASCII Table Reference</a>.</p>
+<hr>
+
+
+ <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+ <p>&nbsp;</p> 
+   <p>&nbsp;</p> 
+
+<p> &nbsp;</p>
+<p> &nbsp;</&nbsp;</&nbsp;</</p>
+
+  <div class="w3-row w3-white">
+    
+    
+
+<h1>C++ <span class="color_h1">String Data Types</span></h1>
+
+<hr>
+
+<h2>String Types</h2>
+<p>The <code class="w3-codespan">string</code> type is used to store a sequence of characters (text). 
+This is not a built-in type, but it behaves like one in its most basic usage. String values must be surrounded by double quotes:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  string greeting = <span class="javastringcolor" style="color:brown">"Hello"</span>;<br>cout &lt;&lt; greeting; </span></div>
+</div>
+<p>To use strings, you must include an additional header file in the source 
+code, the <code class="w3-codespan">&lt;string&gt;</code> library:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  <span class="commentcolor" style="color:green">// Include the string library<br></span>#include &lt;string&gt;<br><br><span class="commentcolor" style="color:green">// Create a string variable<br></span>string greeting = <span class="javastringcolor" style="color:brown">"Hello"</span>;<br><span class="javanumbercolor" style="color:red">
+</span>  <br><span class="commentcolor" style="color:green">// Output string value<br></span>cout &lt;&lt; greeting; </span></div>
+
+</div>
+<div class="w3-note w3-panel">
+<p>You will learn more about strings, in our C++ Strings Chapter</a>.</p>
+</div>

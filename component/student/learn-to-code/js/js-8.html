@@ -1,0 +1,389 @@
+<!-- Variables-->
+
+
+  <div class="w3-row w3-white">
+    
+  
+
+<h1>What is <span class="color_h1">Variables in JavaScript?</span></h1>
+
+
+<div class="w3-info">
+<h3>Variables are Containers for Storing Data</h3>
+<p>JavaScript Variables can be declared in 4 ways:</p>
+<ul>
+<li>Automatically</li>
+<li>Using <code class="w3-codespan">var</code></li>
+<li>Using <code class="w3-codespan">let</code></li>
+<li>Using <code class="w3-codespan">const</code></li>
+</ul>
+</div>
+
+<p>In this first Sample, <code class="w3-codespan">x</code>,
+<code class="w3-codespan">y</code>, and <code class="w3-codespan">z</code>
+are undeclared variables.</p>
+<p>They are automatically declared when first used:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+x = <span class="jsnumbercolor" style="color:red">5</span>;<br>
+y = <span class="jsnumbercolor" style="color:red">6</span>;<br>
+z = x + y;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+
+</div>
+<div class="w3-panel w3-note">
+<h2>Note</h2>
+<p>It is considered good programming practice to always declare variables before use.</p>
+</div>
+<p>From the Samples you can guess:</p>
+<ul>
+ <li>x stores the value 5</li>
+ <li>y stores the value 6</li>
+ <li>z stores the value 11</li>
+</ul>
+
+<div class="w3-Sample">
+<h3>Sample using var</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">var</span> x = <span class="jsnumbercolor" style="color:red">5</span>;<br><span class="jskeywordcolor" style="color:mediumblue">var</span> y = <span class="jsnumbercolor" style="color:red">6</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">var</span> z = x + y;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+
+</div>
+
+<div class="w3-panel w3-note">
+<h2>Note</h2>
+<p>The <code class="w3-codespan">var</code> keyword was used in all JavaScript code from 1995 to 2015.</p>
+<p>The <code class="w3-codespan">let</code> and <code class="w3-codespan">const</code> keywords were added to JavaScript in 2015.</p>
+<p>The <code class="w3-codespan">var</code> keyword should only be used in code written for older browsers.</p>
+</div>
+
+<div class="w3-Sample">
+<h3>Sample using let</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">5</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jsnumbercolor" style="color:red">6</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> z = x + y;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+
+</div>
+
+<div class="w3-Sample">
+<h3>Sample using const</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> x = <span class="jsnumbercolor" style="color:red">5</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> y = <span class="jsnumbercolor" style="color:red">6</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> z = x + y;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+
+</div>
+
+<div class="w3-Sample">
+<h3>Mixed Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> price1 = <span class="jsnumbercolor" style="color:red">5</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> price2 = <span class="jsnumbercolor" style="color:red">6</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> total = price1 + price2;<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+
+</div>
+<p>The two variables <code class="w3-codespan">price1</code> and <code class="w3-codespan">price2</code>
+are declared with the <code class="w3-codespan">const</code> keyword.</p>
+<p>These are constant values and cannot be changed.</p>
+<p>The variable <code class="w3-codespan">total</code> is declared with the <code class="w3-codespan">let</code> keyword.</p>
+<p>The value <code class="w3-codespan">total</code> can be changed.</p>
+
+<div class="w3-panel w3-note">
+<h2>When to Use var, let, or const?</h2>
+<p>1. Always declare variables</p>
+<p>2. Always use <code class="w3-codespan">const</code> if the value should not be changed</p>
+<p>3. Always use <code class="w3-codespan">const</code> if the type should not be changed (Arrays and Objects)</p>
+<p>4. Only use <code class="w3-codespan">let</code> if you can't use <code class="w3-codespan">const</code></p>
+<p>5. Only use <code class="w3-codespan">var</code> if you MUST support old browsers.</p>
+</div>
+
+
+<hr>
+<h2>Just Like Algebra</h2>
+
+<p>Just like in algebra, variables hold values:</p>
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">5</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jsnumbercolor" style="color:red">6</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<p>Just like in algebra, variables are used in expressions:</p>
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> z = x + y;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<p>From the Sample above, you can guess that the total is calculated to be 11.</p>
+<div class="w3-panel w3-note">
+<h2>Note</h2>
+<p>Variables are containers for storing values.</p>
+</div>
+
+
+
+<h2>JavaScript Identifiers</h2>
+<p>All JavaScript <strong>variables</strong> must be
+<strong>identified</strong> with <strong>unique names</strong>.</p>
+<p>These unique names are called <strong>identifiers</strong>.</p>
+
+<p>Identifiers can be short names (like x and y) or more descriptive names (age, sum, totalVolume).</p>
+<p>The general rules for constructing names for variables (unique identifiers) are:</p>
+<ul>
+  <li>Names can contain letters, digits, underscores, and dollar signs.</li>
+  <li>Names must begin with a letter.</li>
+  <li>Names can also begin with $ and _ (but we will not use it in this tutorial).</li>
+  <li>Names are case sensitive (y and Y are different variables).</li>
+  <li>Reserved words (like JavaScript keywords) cannot be used as names.</li>
+</ul>
+
+<div class="w3-panel w3-note">
+<h2>Note</h2>
+<p>JavaScript identifiers are case-sensitive.</p>
+</div>
+
+<hr>
+<h2>The Assignment Operator</h2>
+<p>In JavaScript, the equal sign (<code class="w3-codespan">=</code>) is an "assignment" operator, not an 
+"equal to" operator.</p>
+<p>This is different from algebra. The following does not make sense in 
+algebra:</p>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+x = x + <span class="jsnumbercolor" style="color:red">5</span> <span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<p>In JavaScript, however, it makes perfect sense: it assigns the value of x + 5 to 
+x.</p>
+<p>(It calculates the value of x + 5 and puts the result into x. The value of x 
+is incremented by 5.)</p>
+
+<div class="w3-panel w3-note">
+<h2>Note</h2>
+<p>The "equal to" operator is written like <code class="w3-codespan">==</code> in JavaScript.</p>
+</div>
+
+<hr>
+<h2>JavaScript Data Types</h2>
+<p>JavaScript variables can hold numbers like 100 and text values like "John 
+Doe".</p>
+<p>In programming, text values are called text strings.</p>
+<p>JavaScript can handle many types of data, but for now, just think of numbers and strings. </p>
+
+<p>Strings are written inside double or single quotes. Numbers are written 
+without quotes.</p>
+<p>If you put a number in quotes, it will be treated as a text string.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> pi = <span class="jsnumbercolor" style="color:red">3.14</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> person = <span class="jsstringcolor" style="color:brown">"John Doe"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> answer = <span class="jsstringcolor" style="color:brown">'Yes I am!'</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+
+
+</div>
+<hr>
+
+<h2>Declaring a JavaScript Variable</h2>
+<p>Creating a variable in JavaScript is called "declaring" a variable. </p>
+<p>You declare a JavaScript variable with the <code class="w3-codespan">var</code> or the <code class="w3-codespan">let</code> keyword:</p>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">var</span> carName;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+or:
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> carName;<span class="jsnumbercolor" style="color:red">
+</span> </span></div></div>
+
+<p>After the declaration, the variable has no value (technically it is <code class="w3-codespan">undefined</code>).</p>
+<p>To <strong>assign</strong> a value to the variable, use the equal sign:</p>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+carName = <span class="jsstringcolor" style="color:brown">"Volvo"</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p>You can also assign a value to the variable when you declare it:</p>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> carName = <span class="jsstringcolor" style="color:brown">"Volvo"</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<p>In the Sample below, we create a variable called <code class="w3-codespan">carName</code> and assign the value 
+"Volvo" to it.</p>
+<p>Then we "output" the value inside an HTML paragraph with id="demo":</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate htmlHigh">
+<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>p<span class="attributecolor" style="color:red"> id<span class="attributevaluecolor" style="color:mediumblue">="demo"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/p<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>script<span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="jscolor" style="color:black"><br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> carName = <span class="jsstringcolor" style="color:brown">"Volvo"</span>;<br>
+document.<span class="jspropertycolor" style="color:black">getElementById</span>(<span class="jsstringcolor" style="color:brown">"demo"</span>).<span class="jspropertycolor" style="color:black">innerHTML</span> = carName; <br></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/script<span class="tagcolor" style="color:mediumblue">&gt;</span></span> </div>
+
+</div>
+
+<div class="w3-panel w3-note">
+<h2>Note</h2>
+<p>It's a good programming practice to declare all variables at the beginning of a script.</p>
+</div>
+
+<hr>
+<h2>One Statement, Many Variables</h2>
+<p>You can declare many variables in one statement.</p>
+<p>Start the statement 
+with <code class="w3-codespan">let</code> and separate the variables by <strong>comma</strong>:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> person = <span class="jsstringcolor" style="color:brown">"John Doe"</span>, carName = <span class="jsstringcolor" style="color:brown">"Volvo"</span>, price = <span class="jsnumbercolor" style="color:red">200</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+
+</div>
+
+<p>A declaration can span multiple lines: </p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> person = <span class="jsstringcolor" style="color:brown">"John Doe"</span>,<br>
+carName = <span class="jsstringcolor" style="color:brown">"Volvo"</span>,<br>
+price = <span class="jsnumbercolor" style="color:red">200</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+
+</div>
+<hr>
+
+<h2>Value = undefined</h2>
+<p>In computer programs, variables are often declared without a value. The value 
+can be something that has to be calculated, or something that will be provided 
+later, like user input.</p>
+<p>A variable declared without a value will have the value <code class="w3-codespan">
+undefined</code>.</p>
+<p>The variable carName will have the value <code class="w3-codespan">undefined</code> after the execution of this statement:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> carName;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+
+</div>
+<hr>
+
+<h2>Re-Declaring JavaScript Variables</h2>
+<p>If you re-declare a JavaScript variable declared with <code class="w3-codespan">var</code>, it will not lose its value.</p>
+<p>The variable <code class="w3-codespan">carName</code> will still have the value "Volvo" after the execution of these statements:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">var</span> carName = <span class="jsstringcolor" style="color:brown">"Volvo"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">var</span> carName;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+
+</div>
+<div class="w3-note">
+<h2>Note</h2>
+<p>You cannot re-declare a variable declared with <code class="w3-codespan">let</code> or <code class="w3-codespan">const</code>.</p>
+<p>This will not work:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> carName = <span class="jsstringcolor" style="color:brown">"Volvo"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> carName;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<hr>
+
+<h2>JavaScript Arithmetic</h2>
+<p>As with algebra, you can do arithmetic with JavaScript variables, using 
+operators like <code class="w3-codespan">=</code> and <code class="w3-codespan">+</code>: </p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">5</span> + <span class="jsnumbercolor" style="color:red">2</span> + <span class="jsnumbercolor" style="color:red">3</span>;<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+
+</div>
+
+<p>You can also add strings, but strings will be concatenated:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsstringcolor" style="color:brown">"John"</span> + <span class="jsstringcolor" style="color:brown">" "</span> + <span class="jsstringcolor" style="color:brown">"Doe"</span>; </span></div>
+
+</div>
+
+<p>Also try this:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsstringcolor" style="color:brown">"5"</span> + <span class="jsnumbercolor" style="color:red">2</span> + <span class="jsnumbercolor" style="color:red">3</span>;<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+
+</div>
+
+<div class="w3-panel w3-note">
+<h2>Note</h2>
+<p>If you put a number in quotes, the rest of the numbers will be treated as strings, and concatenated.</p>
+</div>
+
+<p>Now try this:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">2</span> + <span class="jsnumbercolor" style="color:red">3</span> + <span class="jsstringcolor" style="color:brown">"5"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+
+</div>
+
+<hr>
+<h2>JavaScript Dollar Sign $</h2>
+
+<p>Since JavaScript treats a dollar sign as a letter, identifiers containing $ are valid variable names:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> $ = <span class="jsstringcolor" style="color:brown">"Hello World"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> $$$ = <span class="jsnumbercolor" style="color:red">2</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> $myMoney = <span class="jsnumbercolor" style="color:red">5</span>;<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+
+</div>
+
+<p>Using the dollar sign is not very common in JavaScript,
+but professional programmers often use it 
+as an alias for the main function in a JavaScript library.</p>
+<p>In the JavaScript library jQuery, for instance, the main function
+<code class="w3-codespan">$</code> is used to select HTML elements.
+In jQuery <code class="w3-codespan">$("p");</code> means "select all p elements".</p> 
+<hr>
+<h2>JavaScript Underscore (_)</h2>
+<p></p><p>Since JavaScript treats underscore as a letter, identifiers containing _ are valid variable names:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> _lastName = <span class="jsstringcolor" style="color:brown">"Johnson"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> _x = <span class="jsnumbercolor" style="color:red">2</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> _100 = <span class="jsnumbercolor" style="color:red">5</span>;<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+
+</div>
+
+<p>Using the underscore is not very common in JavaScript,
+
+but a convention among professional programmers is to use it as an alias for
+"private (hidden)" variables.</p>
+
+
+

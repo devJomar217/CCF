@@ -24,7 +24,7 @@ include '../../common/session.php';
                             <div class="col-lg-2"></div>
                             <div class="col-lg-8 text-center">
                                 <img class="img-fluid m-1" style="width: 300px" src="./../../resource/logo-bsit.png" alt="" srcset="">
-                                <img class="img-fluid" src="./../../resource/logo-codeconnect.png" alt="" srcset="">
+                                <img class="img-fluid" src="./../../resource/logo-codeconnect-colored.png" alt="" srcset="">
                                 <p style="color: hsl(217, 10%, 50.8%)">
                                     <h4><b><i>“Learning by Asking”</i></b></h4>
                                 </p>

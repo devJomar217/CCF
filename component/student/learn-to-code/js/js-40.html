@@ -1,0 +1,176 @@
+<!-- Switch-->
+
+
+
+  <div class="w3-row w3-white">
+    
+   
+
+<h1>What is <span class="color_h1">Switch</span> Statement in JavaScript?</h1>
+
+<p class="intro">The <code class="w3-codespan">switch</code> statement is used to perform different actions based on different conditions.</p>
+<hr>
+
+<h2>The JavaScript Switch Statement</h2>
+<p>Use the <code class="w3-codespan">switch</code> statement to select one of many code blocks to be executed.</p>
+<h3>Syntax</h3>
+<div class="w3-code w3-border notranslate jsHigh"><span class="jscolor" style="color:black"><div>
+<span class="jskeywordcolor" style="color:mediumblue">switch</span>(<em>expression</em>) {<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">case</span> <em>x</em>:<br><span class="jsnumbercolor" style="color:red">
+</span> <em>&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// code block<br></span><span class="jsnumbercolor" style="color:red">
+</span>    </em>&nbsp;&nbsp;&nbsp; <span class="jskeywordcolor" style="color:mediumblue">break</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">case</span> <em>y</em>:<br><span class="jsnumbercolor" style="color:red">
+</span> <em>&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// code block<br></span><span class="jsnumbercolor" style="color:red">
+</span> </em>&nbsp;&nbsp;&nbsp; <span class="jskeywordcolor" style="color:mediumblue">break</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">default</span>:<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp;&nbsp; &nbsp;<span class="commentcolor" style="color:green">// <em>code block</em><br></span><span class="jsnumbercolor" style="color:red">
+</span> }
+</div> </span></div>
+
+<p>This is how it works:</p>
+<ul>
+<li>The switch expression is evaluated once.</li>
+<li>The value of the expression is compared with the values of each case.</li>
+<li>If there is a match, the associated block of code is executed.</li>
+  <li>If there is no match, the default code block is executed.</li>
+</ul>
+<div class="w3-Sample">
+<h3>Sample</h3>
+ <p>The <code class="w3-codespan">getDay()</code> method returns the weekday as a number between 
+ 0 and 6.</p>
+  <p>(Sunday=0, Monday=1, Tuesday=2 ..)</p>
+<p>This Sample uses the weekday number to calculate the weekday name:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">switch</span> (<span class="jskeywordcolor" style="color:mediumblue">new</span> Date().<span class="jspropertycolor" style="color:black">getDay</span>()) {<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">case</span> <span class="jsnumbercolor" style="color:red">0</span>:<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp; &nbsp;&nbsp;day = <span class="jsstringcolor" style="color:brown">"Sunday"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">break</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">case</span> <span class="jsnumbercolor" style="color:red">1</span>:<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; &nbsp; day = <span class="jsstringcolor" style="color:brown">"Monday"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span> &nbsp;&nbsp;&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">break</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">case</span> <span class="jsnumbercolor" style="color:red">2</span>:<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; &nbsp;&nbsp; day = <span class="jsstringcolor" style="color:brown">"Tuesday"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp;&nbsp;&nbsp; <span class="jskeywordcolor" style="color:mediumblue">break</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">case</span> <span class="jsnumbercolor" style="color:red">3</span>:<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp; &nbsp; day = <span class="jsstringcolor" style="color:brown">"Wednesday"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp;&nbsp;&nbsp; <span class="jskeywordcolor" style="color:mediumblue">break</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">case</span> <span class="jsnumbercolor" style="color:red">4</span>:<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; &nbsp; day = <span class="jsstringcolor" style="color:brown">"Thursday"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span> &nbsp;&nbsp;&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">break</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">case</span> <span class="jsnumbercolor" style="color:red">5</span>:<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; &nbsp; day = <span class="jsstringcolor" style="color:brown">"Friday"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp;&nbsp;&nbsp; <span class="jskeywordcolor" style="color:mediumblue">break</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">case</span> <span class="jsnumbercolor" style="color:red">6</span>:<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp; &nbsp;&nbsp;day = <span class="jsstringcolor" style="color:brown">"Saturday"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p>The result of day will be:</p>
+<div class="w3-white w3-padding notranslate">
+
+<h2>The break Keyword</h2>
+<p>When JavaScript reaches a <code class="w3-codespan">break</code> 
+keyword, it breaks out of the switch block.</p>
+<p>This will stop the execution inside the switch block.</p>
+<p>It is not necessary to break the last case in a switch block. The block breaks (ends) there anyway.</p>
+
+<div class="w3-panel w3-note">
+<p><strong>Note: </strong>If you omit the break statement, the next case will be executed even if 
+the evaluation does not match the case.</p>
+</div>
+
+
+<hr>
+<h2>The default Keyword</h2>
+<p>The <code class="w3-codespan">default</code> keyword specifies the code to run if there is no 
+case match:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+ <p>The <code class="w3-codespan">getDay()</code> method returns the weekday as a number between 
+ 0 and 6.</p>
+ <p>If today is neither Saturday (6) nor Sunday (0), write a default message:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">switch</span> (<span class="jskeywordcolor" style="color:mediumblue">new</span> Date().<span class="jspropertycolor" style="color:black">getDay</span>()) {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp;
+<span class="jskeywordcolor" style="color:mediumblue">case</span> <span class="jsnumbercolor" style="color:red">6</span>:<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; &nbsp; text = <span class="jsstringcolor" style="color:brown">"Today is Saturday"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">break</span>; <br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">case</span> <span class="jsnumbercolor" style="color:red">0</span>:<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp;&nbsp;&nbsp; text = <span class="jsstringcolor" style="color:brown">"Today is Sunday"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp;&nbsp;&nbsp; <span class="jskeywordcolor" style="color:mediumblue">break</span>; <br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp;
+<span class="jskeywordcolor" style="color:mediumblue">default</span>: <br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp;&nbsp;&nbsp; text = <span class="jsstringcolor" style="color:brown">"Looking forward to the Weekend"</span>;<br>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p>The result of text will be:</p>
+<div class="w3-white w3-padding notranslate">
+
+</div>
+</div>
+<p>The <code class="w3-codespan">default</code> case does not have to be the last case in a switch 
+block:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+  <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">switch</span> (<span class="jskeywordcolor" style="color:mediumblue">new</span> Date().<span class="jspropertycolor" style="color:black">getDay</span>()) {<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">default</span>: <br><span class="jsnumbercolor" style="color:red">
+</span>    &nbsp;&nbsp;&nbsp; text = <span class="jsstringcolor" style="color:brown">"Looking forward to the Weekend"</span>;<br>&nbsp;&nbsp;&nbsp; <span class="jsnumbercolor" style="color:red">
+</span>  <span class="jskeywordcolor" style="color:mediumblue">break</span>;<br>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">case</span> <span class="jsnumbercolor" style="color:red">6</span>:<br><span class="jsnumbercolor" style="color:red">
+</span>    &nbsp; &nbsp; text = <span class="jsstringcolor" style="color:brown">"Today is Saturday"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>    &nbsp;&nbsp;&nbsp; <span class="jskeywordcolor" style="color:mediumblue">break</span>; <br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">case</span> <span class="jsnumbercolor" style="color:red">0</span>:<br><span class="jsnumbercolor" style="color:red">
+</span>    &nbsp;&nbsp;&nbsp; text = <span class="jsstringcolor" style="color:brown">"Today is Sunday"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>  }<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<div class="w3-panel w3-note">
+<p>If <code class="w3-codespan">default</code> is not the last case in the switch block, remember to end the default case with a break.</p>
+</div>
+<hr>
+
+<h2>Common Code Blocks</h2>
+<p>
+Sometimes you will want different 
+switch cases to use the same 
+code.</p>
+<p>
+In this Sample case 4 and 5 share the same code block, and 0 and 6 share 
+another code block:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">switch</span> (<span class="jskeywordcolor" style="color:mediumblue">new</span> Date().<span class="jspropertycolor" style="color:black">getDay</span>()) {<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">case</span> <span class="jsnumbercolor" style="color:red">4</span>:<br>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">case</span> <span class="jsnumbercolor" style="color:red">5</span>:<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;&nbsp; text = <span class="jsstringcolor" style="color:brown">"Soon it is Weekend"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp;&nbsp;&nbsp; <span class="jskeywordcolor" style="color:mediumblue">break</span>; <br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">case</span> <span class="jsnumbercolor" style="color:red">0</span>:<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">case</span> <span class="jsnumbercolor" style="color:red">6</span>:<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp;&nbsp;&nbsp; text = <span class="jsstringcolor" style="color:brown">"It is Weekend"</span>;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">break</span>;<br>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">default</span>: <br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;&nbsp;&nbsp;text = <span class="jsstringcolor" style="color:brown">"Looking forward to the Weekend"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>  }<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<hr>
+
+<h2>Switching Details</h2>
+<p>
+If multiple cases matches a case value, the <strong>first</strong> case is selected.</p>
+<p>
+If no matching cases are found, the program continues to the <strong>default</strong> label.</p>
+<p>
+If no default label is found, the program continues to the statement(s) <strong>after the switch</strong>.</p>
+<hr>
+
+<h2>Strict Comparison</h2>
+<p>Switch cases use <strong>strict</strong> comparison (===).</p>
+<p>The values must be of the same type to match.</p>
+<p>A strict comparison can only be true if the operands are of the same type.</p>
+<p>In this Sample there will be no match for x: </p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span>  <span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsstringcolor" style="color:brown">"0"</span>;<br><span class="jskeywordcolor" style="color:mediumblue">switch</span> (x) {<br>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">case</span> <span class="jsnumbercolor" style="color:red">0</span>:<br>&nbsp;&nbsp;&nbsp;&nbsp;text = <span class="jsstringcolor" style="color:brown">"Off"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp;&nbsp;&nbsp; <span class="jskeywordcolor" style="color:mediumblue">break</span>;<br>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">case</span> <span class="jsnumbercolor" style="color:red">1</span>:<br>&nbsp;&nbsp;&nbsp; text = <span class="jsstringcolor" style="color:brown">"On"</span>;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">break</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; <span class="jskeywordcolor" style="color:mediumblue">default</span>:<br>&nbsp;&nbsp;&nbsp; <span class="jsnumbercolor" style="color:red">
+</span>  text = <span class="jsstringcolor" style="color:brown">"No value found"</span>;<br>}  </span></div>
+</div>
