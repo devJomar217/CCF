@@ -1,11 +1,23 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+<link rel="stylesheet" href="./../../common/vendor/datatables/dataTables.bootstrap4.css" />
+<link href="./../../common/css/index.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css" integrity="sha512-ELV+xyi8IhEApPS/pSj66+Jiw+sOT1Mqkzlh8ExXihe4zfqbWkxPRi8wptXIO9g73FSlhmquFlUOuMSoXz5IRw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/theme.min.css" integrity="sha512-hbs/7O+vqWZS49DulqH1n2lVtu63t3c3MTAn0oYMINS5aT8eIAbJGDXgLt6IxDHcWyzVTgf9XyzZ9iWyVQ7mCQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="./../../common/vendor/jquery/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js" integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="./../../common/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="./../../common/vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="./../../common/js/sb-admin-2.min.js"></script>
+<script src="./../../common/vendor/datatables/jquery.dataTables.js"></script>
+<script src="./../../common/ckeditor/build/ckeditor.js"></script>
+<script src="./../../common/common.js"></script>
+<script src="./../../common/main.js"></script>
 <script src="../../common/vendor/chart.js/Chart.min.js">
 </script>
 <script src="./../../common/js/chart-area.js"></script>
-<script src="./../../common/js/chart-pie.js"></script>
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-    <a href="./form-generate-report.php" target="_blank" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id="generate-report"><i
-            class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+    <h1 class="h3 mb-0 text-gray-800">Report</h1>
 </div>
 
 <div class="row">
@@ -115,11 +127,6 @@
             <!-- Card Header - Dropdown -->
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-primary">Question</h6>
-                <div class="dropdown no-arrow">
-                    <select class="form-control input-subject" class="dropdown" id="input-subject" required>
-                        <option value="">All</option>
-                    </select>
-                </div>
             </div>
             <!-- Card Body -->
             <div class="card-body">
@@ -144,17 +151,8 @@
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <div class="row">
-                    <div class="col-lg-6 align-middle">
+                    <div class="col-lg-12 align-middle">
                         <h6 class="m-0 font-weight-bold text-primary">Subject</h6>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="row align-middle">
-                            <div class="col-lg-12">
-                                <select class="form-control input-subject" class="dropdown" id="input-subject" required>
-                                    <option value="">All</option>
-                                </select>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -182,10 +180,7 @@
 
 <script>
     $(document).ready(function() {
-        getSubjectList();
         getDashboardData();
-
-        $("#generate-report").on("click", function() {});
 
         function getDashboardData() {
             $.ajax({
@@ -208,29 +203,126 @@
                     var questionData = [dataResult.forum.unanswered, dataResult.forum.answered];
                     var questionLabels = ["Unanswered", "Answered"];
                     createTwoPieChart("subject-chart", questionLabels, questionData);
+                    
+                },
+                complete: function (data) {
+                    setTimeout(() => {
+                        
+                    }, 1000);
                 }
             });
         }
 
-        function getSubjectList() {
-            $.ajax({
-                url: "../../common/db.php",
-                type: "POST",
-                data: {
-                    action: 'retrieve-active-subject-list'
-                },
-                cache: false,
-                success: function(dataResult) {
-                    var subjectOptions = `<option value=''>All</option>`;
-                    var dataResult = JSON.parse(dataResult);
-                    if (dataResult.statusCode == 200) {
-                        dataResult.subjectList.forEach(subject => {
-                            subjectOptions += `<option value='${subject['subjectID']}'>${subject['subject']}</option>`;
-                        });
-                    }
-                    $(".input-subject").html(subjectOptions);
+        // Set new default font family and font color to mimic Bootstrap's default styling
+Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+Chart.defaults.global.defaultFontColor = '#858796';
+
+// Pie Chart Example
+
+
+function createPieChart(id, labels, data) {
+    var ctx = document.getElementById(id);
+    new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: labels,
+            datasets: [{
+                data: data,
+                backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', 'red'],
+                hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
+                hoverBorderColor: "rgba(234, 236, 244, 1)",
+            }],
+        },
+        options: {
+            maintainAspectRatio: false,
+            tooltips: {
+                backgroundColor: "rgb(255,255,255)",
+                bodyFontColor: "#858796",
+                borderColor: '#dddfeb',
+                borderWidth: 1,
+                xPadding: 15,
+                yPadding: 15,
+                displayColors: false,
+                caretPadding: 10,
+            },
+            legend: {
+                display: false
+            },
+            cutoutPercentage: 80,
+        },
+    });
+}
+
+function createTwoPieChart(id, labels, data) {
+    var ctx = document.getElementById(id);
+    new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: labels,
+            datasets: [{
+                data: data,
+                backgroundColor: ['#e74a3b', '#1cc88a'],
+                hoverBackgroundColor: ['#e74a3b', '#1cc88a'],
+                hoverBorderColor: "rgba(234, 236, 244, 1)",
+            }],
+        },
+        options: {
+            maintainAspectRatio: false,
+            tooltips: {
+                backgroundColor: "rgb(255,255,255)",
+                bodyFontColor: "#858796",
+                borderColor: '#dddfeb',
+                borderWidth: 1,
+                xPadding: 15,
+                yPadding: 15,
+                displayColors: false,
+                caretPadding: 10,
+            },
+            legend: {
+                display: false
+            },
+            cutoutPercentage: 80,
+            animation: {
+                onComplete: function() {
+                    window.print();
+                    setTimeout(window.close, 0);
                 }
-            });
-        }
+            },
+        },
+    });
+}
+
+
+
+var ctxSubject = document.getElementById("subject-chart");
+var subjectChart = new Chart(ctxSubject, {
+    type: 'doughnut',
+    data: {
+        labels: ["Answered", "Unanswered"],
+        datasets: [{
+            data: [55, 10],
+            backgroundColor: ['#1cc88a', 'red'],
+            hoverBackgroundColor: ['#2e59d9', '#2c9faf'],
+            hoverBorderColor: "rgba(234, 236, 244, 1)",
+        }],
+    },
+    options: {
+        maintainAspectRatio: false,
+        tooltips: {
+            backgroundColor: "rgb(255,255,255)",
+            bodyFontColor: "#858796",
+            borderColor: '#dddfeb',
+            borderWidth: 1,
+            xPadding: 15,
+            yPadding: 15,
+            displayColors: false,
+            caretPadding: 10,
+        },
+        legend: {
+            display: false
+        },
+        cutoutPercentage: 80,
+    },
+});
     });
 </script>

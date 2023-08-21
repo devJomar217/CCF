@@ -84,13 +84,12 @@ footer {
                         
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown-user" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img class="img-profile rounded-circle" src="./../../common/img/undraw_profile.svg">
+                                <img class="img-profile rounded-circle img-circle-xs" src="./../../resource/profile/<?php echo $_SESSION['picture']?>" />
                                 <b><span class="ml-2 d-none d-lg-inline text-white"><?php echo $_SESSION['user_name']; ?></span></b>
-
                             </a>
                             
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="dropdown-user">
-                                <a class="dropdown-item" id="nav-menu-profile">
+                                <a class="dropdown-item" id="nav-menu-profile" href="#profile">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
                                 </a>
                                 <div class="dropdown-divider"></div>
@@ -245,6 +244,10 @@ footer {
 
         $("#nav-menu-notification").click(function() {
             $("#main-container").load('./form-notification.html');
+        });
+
+        $("#nav-menu-profile").click(function() {
+            $("#main-container").load('./form-profile.html');
         });
 
         $("#nav-menu-activities").click(function() {

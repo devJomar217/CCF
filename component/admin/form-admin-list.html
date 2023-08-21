@@ -3,7 +3,7 @@
 
 
 <h1 class="h3 mb-2 text-gray-800">Admin Accounts</h1>
-<p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto nam delectus facilis veniam ea iusto officiis odit maxime, inventore nihil.</p>
+<p class="mb-4">This page contains list of active admin accounts.</p>
 
 
 <div class="card shadow mb-4">
@@ -13,7 +13,7 @@
                 <h6 class="m-0 font-weight-bold text-primary align-middle mt-2">Admin List</h6>
             </div>
             <div class="col-2 text-right">
-                <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-new-admin"><i class="fas fa-plus"></i> Add New Admin</button>
+                <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-new-admin"><i class="fas fa-plus"></i> Add New Admin</button>
             </div>
         </div>
     </div>
@@ -31,6 +31,7 @@
                         <th>Admin ID</th>
                         <th>Name</th>
                         <th>Email Address</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -39,6 +40,7 @@
                         <th>Admin ID</th>
                         <th>Name</th>
                         <th>Email Address</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>
@@ -387,11 +389,13 @@
                     if (dataResult.statusCode != 201) {
                         adminList = dataResult;
                         $.each(dataResult, function(key, admin) {
+
                             adminData = adminData.concat("<tr>",
                                 populateTableData(admin['adminID']),
                                 populateTableData(admin['name']),
                                 populateTableData(admin['email']),
-                                populateTableData("<a class='button-select btn btn-sm btn-primary'><i class='fas fa-eye'></i></a> | <a class='btnEdit btn btn-sm btn-success'><i class='fas fa-edit' data-toggle='modal-edit-admin'></i></a> | <a class='button-delete btn btn-sm btn-danger'><i class='fas fa-trash fa-cog'></i></a>"),
+                                populateTableData(admin['status'] == 0 ? "Inactive" : "Active"),
+                                populateTableData("<a class='button-select btn btn-sm btn-primary'><i class='fas fa-eye'></i> View</a> | <a class='btnEdit btn btn-sm btn-success'><i class='fas fa-edit' data-toggle='modal-edit-admin'></i> Edit</a> | <a class='button-delete btn btn-sm btn-danger'><i class='fas fa-trash fa-cog'></i> Delete</a>"),
                                 "</tr>");
                         });
                     } else {

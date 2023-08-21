@@ -2,7 +2,7 @@
 <script src="./../../common/vendor/datatables/jquery.dataTables.js"></script>
 
 <h1 class="h3 mb-2 text-gray-800">Answer List</h1>
-<p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto nam delectus facilis veniam ea iusto officiis odit maxime, inventore nihil.</p>
+<p class="mb-4">This page contains list of answers from the forums</p>
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
@@ -176,7 +176,7 @@
                                 "<td>" + answer['creationDateTime'] + "</td>" +
                                 "<td>" + answer['answer'] + "</td>" +
                                 "<td>" + rating + "</td>" +
-                                "<td><a class='button-select' data-id='" + answerID + "'><i class='fas fa-eye fa-cog'></a></i></td>" +
+                                "<td><a class='button-select btn btn-xs btn-primary' data-id='" + answerID + "'><i class='fas fa-eye fa-cog'></i></a></td>" +
                                 "</tr>";
                         });
                         $("#tableBody").html(answerData);

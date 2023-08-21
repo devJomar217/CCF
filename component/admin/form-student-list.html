@@ -46,9 +46,9 @@
                 <h5 class="modal-title">Student Information</h5>
             </div>
             <div class="modal-body">
-                <div class="row">
-                    <div class="col-lg-12 text-center">
-                        <img style="width: 150px;" class="img-profile rounded-circle  b-4" src="./../../common/img/undraw_profile.svg">
+                <div class="row px-3">
+                    <div class="col-lg-12 text-center mb-4">
+                        <img class="img-profile rounded-circle img-circle-md" id="modal-info-student-image" src="./../../common/img/undraw_profile.svg">
                     </div>
 
                     <div class="col-lg-12">
@@ -115,10 +115,11 @@
     </div>
 </div>
 
+
 <script>
     $(document).ready(function() {
         var studentList;
-        retrieveStudentRequestList();
+        retrieveStudentList();
 
         $("#button-delete").click(function() {
             var studentID = $('#modal-delete-student-id').html();
@@ -140,27 +141,13 @@
                     $('#modal-info-specialization').html(student['specialization']);
                     $('#modal-info-user-name').html(student['username']);
                     $('#modal-info-email').html(student['email']);
-                    $('#modal-info-picture').html(student['picture']);
-                    $('#modal-info-student').modal('toggle');
-                    return;
-                }
-            });
-        });
+                    var image = "default.svg";
+                    if (student['picture'] != null && student['picture'] != "") {
+                        image = student['picture'];
+                    }
 
-        $("#dataTable").on('click', '.btnEdit', function() {
-            var currentRow = $(this).closest("tr");
-            var studentID = currentRow.find("td:eq(0)").html();
-            $.each(studentList, function(key, student) {
-                console.log(student);
-                console.log(studentID == student['studentID']);
-                if (studentID == student['studentID']) {
-                    $('#modal-info-student-id').html(student['studentID']);
-                    $('#modal-info-name').html(student['name']);
-                    $('#modal-info-year-level').html(student['yearLevel']);
-                    $('#modal-info-specialization').html(student['specialization']);
-                    $('#modal-info-user-name').html(student['username']);
-                    $('#modal-info-email').html(student['email']);
-                    $('#modal-info-picture').html(student['picture']);
+                    var picture = "./../../resource/profile/" + image;
+                    $("#modal-info-student-image").attr("src", picture);
                     $('#modal-info-student').modal('toggle');
                     return;
                 }
@@ -187,37 +174,8 @@
             });
         });
 
-        $('#sbStudentAccountRequest').on('click', function() {});
 
-
-
-        function showStudentData(studentID) {
-            alert(studentID);
-        }
-
-        function updateAccountStatus(userID, status) {
-            $.ajax({
-                url: "../../common/db.php",
-                type: "POST",
-                data: {
-                    action: 'update-account-status',
-                    userID: userID,
-                    status: status
-                },
-                cache: false,
-                success: function(dataResult) {
-                    var dataResult = JSON.parse(dataResult);
-                    if (dataResult.statusCode == 200) {
-                        retrieveStudentRequestList();
-                    } else {
-                        alert("Failed");
-                    }
-                    $('#dataTable').DataTable();
-                }
-            });
-        }
-
-        function retrieveStudentRequestList() {
+        function retrieveStudentList() {
             $.ajax({
                 url: "../../common/db.php",
                 type: "POST",
@@ -228,15 +186,15 @@
                 success: function(dataResult) {
                     var dataResult = JSON.parse(dataResult);
                     if (dataResult.statusCode != 201) {
-                        studentList = dataResult;
+                        studentList = dataResult.studentList;
                         var studentData = '';
-                        $.each(dataResult, function(key, student) {
+                        $.each(dataResult.studentList, function(key, student) {
                             studentData = studentData.concat("<tr>",
                                 populateTableData(student['studentID']),
                                 populateTableData(student['name']),
                                 populateTableData(student['yearLevel']),
                                 populateTableData(student['email']),
-                                populateTableData("<a class='button-select btn btn-sm btn-primary'><i class='fas fa-eye'></i></a> | <a class='button-delete btn btn-sm btn-danger'><i class='fas fa-trash fa-cog'></i></a>"),
+                                populateTableData("<a class='button-select btn btn-sm btn-primary'><i class='fas fa-eye'></i> View</a> | <a class='button-delete btn btn-sm btn-danger'><i class='fas fa-trash fa-cog'></i> Delete</a>"),
                                 "</tr>");
                         });
                         $("#tableBody").html(studentData);
@@ -245,8 +203,6 @@
                 }
             });
         }
-
-
 
     });
 </script>

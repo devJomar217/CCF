@@ -101,19 +101,38 @@
             alert(errorMessage);
         }
 
+        function uploadCOR(image) {
+            var formData = new FormData();
+            formData.append('file', image);
+            formData.append('action', 'upload-attachment');
+            formData.append('path', './../resource/cor/');
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: formData,
+                dataType: 'json',
+                contentType: false,
+                processData: false,
+                cache: false,
+                success: function(dataResult) {
+                    if (dataResult.statusCode == 200) {
+                        $("#card-form").load('./form-student-account-creation.html', function() {
+                            $("#input-scan").val("1").change();
+                            $("#input-scan").prop("disabled", true);
+                        });
+                    } else {
+                        alert("Unable to upload COR, please try again later!");
+                    }
+                }
+            });
+        }
+
         $('#input-upload-cor').click(function() {
             $('#input-file-cor').trigger('click');
         });
 
         $('#input-file-cor').change(function() {
-            $("#profilePicture").attr("src", window.URL.createObjectURL(this.files[0]));
-            profileImage = this.files[0];
-
-            $("#card-form").load('./form-student-account-creation.html', function() {
-                $("#input-scan").val("1").change();
-                $("#input-scan").prop("disabled", true);
-
-            });
+            uploadCOR(this.files[0]);
         });
 
         $("#modal-qr").on("hidden.bs.modal", function() {

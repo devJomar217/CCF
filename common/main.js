@@ -101,7 +101,7 @@ function MyCustomUploadAdapterPlugin(editor) {
     };
 }
 
-function populateReplyRow(replyID, img, userName, status, date, yearLevel, reply, menu) {
+function populateReplyRow(replyID, img, userName, status, date, yearLevel, reply, menu, specialization) {
     return `<div class="card-row py-2 pl-5" id="row-reply-${replyID}">
                 <div class="row py-3">
                     <div class="col"> 
@@ -111,10 +111,13 @@ function populateReplyRow(replyID, img, userName, status, date, yearLevel, reply
                             </div>
                             <div class="col mb-0 pb-0">
                                 <div class="row">
-                                    <div class="col">
+                                    <div class="col-3">
                                         <h6 class="mb-0 pb-0"><b class="mb-0 pb-0">${userName}</b></h6>    
                                     </div> 
-                                    <div class="col-2" style="display: none" id="ellipsis-reply-${replyID}">
+                                    <div class="col-8">
+                                        <small class="text-muted">${specialization}</small>
+                                    </div> 
+                                    <div class="col-1" style="display: none" id="ellipsis-reply-${replyID}">
                                         <div class="btn-group d-flex flex-row-reverse dropright">
                                             <i class="fa fa-solid fa-ellipsis-vertical pl-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
                                             <div class="dropdown-menu">
@@ -151,7 +154,7 @@ function populateReplyRow(replyID, img, userName, status, date, yearLevel, reply
             </div>`
 }
 
-function populateAnswerRow(answerID, img, userName, status, date, yearLevel, answer, replies, ratingID, thumbsUp, thumbsDown, hasUserThumbsUp, hasUserThumbsDown, menu, hasRateButton) {
+function populateAnswerRow(answerID, img, userName, status, date, yearLevel, answer, replies, ratingID, thumbsUp, thumbsDown, hasUserThumbsUp, hasUserThumbsDown, menu, hasRateButton, specialization) {
     var thumbsUpSelected = `btn border-primary btn-sm px-4`;
     var thumbsUpSelectedColor = 'text-primary';
     var thumbsDownSelected = `btn border-danger btn-sm px-4`;
@@ -187,8 +190,11 @@ function populateAnswerRow(answerID, img, userName, status, date, yearLevel, ans
                             </div>
                             <div class="col mb-0 pb-0">
                                 <div class="row">
-                                    <div class="col-11">
+                                    <div class="col-3">
                                         <h6 class="mb-0 pb-0"><b class="mb-0 pb-0">${userName}</b></h6>    
+                                    </div>
+                                    <div class="col-8">
+                                    <small class="text-muted">${specialization}</small>    
                                     </div>
                                     <div class="col-1" style="display: none" id="ellipsis-answer-${answerID}">
                                         <div class="btn-group d-flex flex-row-reverse dropright">

@@ -5,7 +5,7 @@
 
 
 <h1 class="h3 mb-2 text-gray-800">Student Account Request</h1>
-<p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto nam delectus facilis veniam ea iusto officiis odit maxime, inventore nihil.</p>
+<p class="mb-4">This page contains list of student account request.</p>
 
 
 <div class="card shadow mb-4">
@@ -48,9 +48,9 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-lg-12 text-center mb-3">
+                    <!-- <div class="col-lg-12 text-center mb-3">
                         <img style="width: 150px;" class="img-profile rounded-circle  b-4" src="./../../common/img/undraw_profile.svg">
-                    </div>
+                    </div> -->
 
                     <div class="col-lg-12">
                         <b>Student ID:</b> <label for="" id="modal-info-student-id"></label>
@@ -81,6 +81,51 @@
     </div>
 </div>
 
+<div class="modal fade" id="modal-info-student-cor" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Student Information</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <!-- <div class="col-lg-12 text-center mb-3">
+                        <img style="width: 150px;" class="img-profile rounded-circle  b-4" src="./../../common/img/undraw_profile.svg">
+                    </div> -->
+
+                    <div class="col-lg-6">
+                        <b>Name:</b> <label for="" id="modal-info-name-cor"></label>
+                    </div>
+                    <div class="col-lg-6">
+                        <b>Student ID:</b> <label for="" id="modal-info-student-id-cor"></label>
+                    </div>
+                    <div class="col-lg-6">
+                        <b>Year Level:</b> <label for="" id="modal-info-year-level-cor"></label>
+                    </div>
+                    <div class="col-lg-6">
+                        <b>Username:</b> <label for="" id="modal-info-user-name-cor"></label>
+                    </div>
+                    <div class="col-lg-6">
+                        <b>Specialization:</b> <label for="" id="modal-info-specialization-cor"></label>
+                    </div>
+                    <div class="col-lg-6 mb-2">
+                        <b>Email:</b> <label for="" id="modal-info-email-cor"></label>
+                    </div>
+                    <div class="col-lg-12">
+                        <hr/>
+                        <a href="" target="_blank" class="mt-4" id="modal-info-img-a-cor"> <img id="modal-info-img-cor" style="width: 100%;" scr=""></a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="button-reject-cor">Reject</button>
+                <button type="button" class="btn btn-success" id="button-approve-cor">Approve</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
     $(document).ready(function() {
         var studentList;
@@ -89,11 +134,25 @@
         $("#button-reject").on('click', function() {
             var studentID = $('#modal-info-student-id').html();
             updateAccountStatus(studentID, '-1');
+            $('#modal-info-student').modal('toggle');
         });
 
         $("#button-approve").on('click', function() {
             var studentID = $('#modal-info-student-id').html();
             updateAccountStatus(studentID, '1');
+            $('#modal-info-student').modal('toggle');
+        });
+
+        $("#button-reject-cor").on('click', function() {
+            var studentID = $('#modal-info-student-id-cor').html();
+            updateAccountStatus(studentID, '-1');
+            $('#modal-info-student-cor').modal('toggle');
+        });
+
+        $("#button-approve-cor").on('click', function() {
+            var studentID = $('#modal-info-student-id-cor').html();
+            updateAccountStatus(studentID, '1');
+            $('#modal-info-student-cor').modal('toggle');
         });
 
         // code to read selected table row cell data (values).
@@ -105,13 +164,27 @@
                 console.log(studentID == student['studentID']);
                 if (studentID == student['studentID']) {
                     $('#modal-info-student-id').html(student['studentID']);
-                    $('#modal-info-name').html(student['name']);
-                    $('#modal-info-year-level').html(student['yearLevel']);
-                    $('#modal-info-specialization').html(student['specialization']);
-                    $('#modal-info-user-name').html(student['username']);
-                    $('#modal-info-email').html(student['email']);
-                    $('#modal-info-picture').html(student['picture']);
-                    $('#modal-info-student').modal('toggle');
+                    if (student['creationType'] == 1 && student['attachment'] != null) {
+                        $('#modal-info-student-cor').modal('toggle');
+                        $('#modal-info-student-id-cor').html(student['studentID']);
+                        $('#modal-info-name-cor').html(student['name']);
+                        $('#modal-info-year-level-cor').html(student['yearLevel']);
+                        $('#modal-info-specialization-cor').html(student['specialization']);
+                        $('#modal-info-user-name-cor').html(student['username']);
+                        $('#modal-info-email-cor').html(student['email']);
+                        $('#modal-info-picture-cor').html(student['picture']);
+                        $('#modal-info-img-cor').attr("src", "./../../resource/cor/" + student['attachment']);
+                        $('#modal-info-img-a-cor').attr("href", "./../../resource/cor/" + student['attachment']);
+                    } else {
+                        $('#modal-info-name').html(student['name']);
+                        $('#modal-info-year-level').html(student['yearLevel']);
+                        $('#modal-info-specialization').html(student['specialization']);
+                        $('#modal-info-user-name').html(student['username']);
+                        $('#modal-info-email').html(student['email']);
+                        $('#modal-info-picture').html(student['picture']);
+                        $('#modal-info-student').modal('toggle');
+                    }
+
                     return;
                 }
             });
@@ -136,7 +209,7 @@
                     if (dataResult.statusCode != 200) {
                         alert("There some error during the deletion, please try again later!");
                     }
-                    $('#modal-info-student').modal('toggle');
+
                     retrieveStudentRequestList();
                 }
             });
@@ -153,14 +226,14 @@
                     var dataResult = JSON.parse(dataResult);
                     var studentData = '';
                     if (dataResult.statusCode != 201) {
-                        studentList = dataResult;
-                        $.each(dataResult, function(key, student) {
+                        studentList = dataResult.studentList;
+                        $.each(dataResult.studentList, function(key, student) {
                             studentData = studentData.concat("<tr>",
                                 populateTableData(student['studentID']),
                                 populateTableData(student['name']),
                                 populateTableData(student['yearLevel']),
                                 populateTableData(student['email']),
-                                populateTableData("<a class='button-select btn btn-sm btn-primary'><i class='fas fa-eye'></i></a>"),
+                                populateTableData("<a class='button-select btn btn-sm btn-primary'><i class='fas fa-eye'></i> View</a>"),
                                 "</tr>");
                         });
                     } else {

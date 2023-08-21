@@ -1,10 +1,8 @@
-<link rel="stylesheet" href="./../../common/vendor/datatables/dataTables.bootstrap4.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css" />
 <script src="./../../common/vendor/datatables/jquery.dataTables.js"></script>
 
-
-<h1 class="h3 mb-2 text-gray-800">Answer List</h1>
-<p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto nam delectus facilis veniam ea iusto officiis odit maxime, inventore nihil.</p>
-
+<h1 class="h3 mb-2 text-gray-800">Reported Answers</h1>
+<p class="mb-4">This page contains list of answers from the forums</p>
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
@@ -15,21 +13,23 @@
             <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>Answer ID</th>
-                        <th>Student</th>
-                        <th>Subject</th>
-                        <th>Date Time</th>
+                        <th>ID</th>
+                        <th>StudentID</th>
+                        <th>QuestionID</th>
+                        <th>DateTime</th>
                         <th>Answer</th>
+                        <th>Rating</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
-                        <th>Answer ID</th>
-                        <th>Student</th>
-                        <th>Subject</th>
-                        <th>Date Time</th>
+                        <th>ID</th>
+                        <th>StudentID</th>
+                        <th>QuestionID</th>
+                        <th>DateTime</th>
                         <th>Answer</th>
+                        <th>Rating</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>
@@ -155,7 +155,7 @@
                 url: "../../common/db.php",
                 type: "POST",
                 data: {
-                    action: 'retrieve-reported-answer-list'
+                    action: 'retrieve-answer-list'
                 },
                 cache: false,
                 success: function(dataResult) {
@@ -165,13 +165,18 @@
                         var answerData;
                         $.each(dataResult, function(key, answer) {
                             var answerID = answer['answerID'];
+                            var rating = answer['rating'];
+                            if (rating == null) {
+                                rating = '0';
+                            }
                             answerData += "<tr>" +
                                 "<td>" + answerID + "</td>" +
                                 "<td>" + answer['studentID'] + "</td>" +
-                                "<td>" + answer['subjectID'] + "</td>" +
+                                "<td><a href='#'>" + answer['questionID'] + "<a/></td>" +
                                 "<td>" + answer['creationDateTime'] + "</td>" +
                                 "<td>" + answer['answer'] + "</td>" +
-                                "<td><a class='button-select' data-id='" + answerID + "'><i class='fas fa-eye fa-cog'></a></i></td>" +
+                                "<td>" + rating + "</td>" +
+                                "<td><a class='button-select btn btn-xs btn-primary' data-id='" + answerID + "'><i class='fas fa-eye fa-cog'></i></a></td>" +
                                 "</tr>";
                         });
                         $("#tableBody").html(answerData);

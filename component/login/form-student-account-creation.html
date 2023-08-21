@@ -82,7 +82,7 @@
     </div>
 
     <div class="form-check form-outline mb-3">
-        <input class="form-check-input" type="checkbox" value="" id="checkbox-terms-and-conditions" required>
+        <input class="form-check-input" type="checkbox" id="checkbox-terms-and-conditions" required>
         <label class="form-check-label" for="checkbox-terms-and-conditions">
             I have read and agreed to the <a href="./terms-and-conditions.html" rel="noopener noreferrer" target="_blank">Terms and Condition</a>
         </label>
@@ -166,9 +166,6 @@
         $('#checkbox-terms-and-conditions').change(function() {
             if (!$('#checkbox-terms-and-conditions').val()) {
                 $('#checkbox-terms-and-conditions').removeClass('is-invalid');
-                alert('False');
-            } else {
-                alert('True');
             }
         });
 
@@ -179,7 +176,7 @@
             eStudentID.removeClass('is-invalid');
             eUsername.removeClass('is-invalid');
             eEmail.removeClass('is-invalid');
-
+            console.log($('#checkbox-terms-and-conditions').val());
             if (!$('#checkbox-terms-and-conditions').val()) {
                 $('#checkbox-terms-and-conditions').addClass('is-invalid');
                 $('#helpertext-terms-and-conditions').html('You must agree with the terms and conditions to proceed with the registration');
@@ -195,6 +192,7 @@
             var yearLevel = eYearLevel.val();
             var password = ePassword.val();
             var confirmPassword = eConfirmPassword.val();
+            var scanType = $("#input-scan").val();
             let regex = /[a-zA-Z0-9.-]+@bulsu\.edu\.ph/i;
 
             if (password != confirmPassword) {
@@ -228,7 +226,8 @@
                         name: name,
                         specialization: specialization,
                         yearLevel: yearLevel,
-                        password: password
+                        password: password,
+                        scanType: scanType
                     },
                     cache: false,
                     success: function(dataResult) {

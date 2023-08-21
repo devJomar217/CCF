@@ -112,6 +112,19 @@
         text-align: left;
         white-space: pre-wrap;
     }
+    
+    .unread {
+        background-color: #bd511e !important;
+        color: white;
+    }
+    
+    .unread small {
+        color: white;
+    }
+    
+    .unread a {
+        color: white;
+    }
 </style>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
 <div id="fb-root"></div>
@@ -217,13 +230,30 @@
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <div class="col-1">
-                            <label class="form-label align-middle pr-2 pt-2" for="input-scan">Subject</label>
+                        <div class="col-8">
+                            <div class="row">
+                                <div class="col-2">
+                                    <label class="form-label align-middle pt-2" for="input-scan">Subject</label>
+                                </div>
+                                <div class="col-10">
+                                    <select class="form-control dropdown" id="input-edit-question-subject">
+                                    </select>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-5">
-                            <select class="form-control dropdown" id="input-edit-question-subject">
-                                <option value="" selected>--Please Select--</option>
-                            </select>
+
+                        <div class="col-4">
+                            <div class="row">
+                                <div class="col-4">
+                                    <label class="form-label align-middle pr-2 pt-2" for="input-scan">Status</label>
+                                </div>
+                                <div class="col-8">
+                                    <select class="form-control dropdown" id="input-edit-question-status">
+                                        <option value="1">Unanswered</option>
+                                        <option value="2">Answered</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -270,7 +300,7 @@
 </div>
 
 <div class="modal fade" id="modal-report-question" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Report a Question</h5>
@@ -278,7 +308,14 @@
             <form id="form-report-question" class="needs-validation" novalidate>
                 <div class="modal-body">
                     <div class="form-group form-outline mb">
-                        <textarea class="form-control" id="input-report-detail" rows="7" placeholder="Enter why are you reporting this question..."></textarea>
+                        <select class="form-control dropdown" id="input-report-detail">
+                            <option value="">--Please Select Reason--</option>
+                            <option value="spam">Spam or Misleading</option>
+                            <option value="hate_speech">Hate Speech or Offensive Content</option>
+                            <option value="harassment">Harassment or Bullying</option>
+                            <option value="inappropriate">Inappropriate Content</option>
+                            <option value="intellectual_property">Violation of Intellectual Property</option>
+                        </select>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -342,7 +379,7 @@
 </div>
 
 <div class="modal fade" id="modal-report-answer" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Report an Answer</h5>
@@ -350,7 +387,15 @@
             <form id="form-report-answer" class="needs-validation" novalidate>
                 <div class="modal-body">
                     <div class="form-group form-outline mb">
-                        <textarea class="form-control" id="input-report-answer" rows="7" placeholder="Enter why are you reporting this answer..."></textarea>
+                        <select class="form-control dropdown" id="input-report-answer">
+                            <option value="">--Please Select Reason--</option>
+                            <option value="spam">Spam or Misleading</option>
+                            <option value="hate_speech">Hate Speech or Offensive Content</option>
+                            <option value="harassment">Harassment or Bullying</option>
+                            <option value="inappropriate">Inappropriate Content</option>
+                            <option value="intellectual_property">Violation of Intellectual Property</option>
+                        </select>
+                        <!-- <textarea class="form-control" id="input-report-answer" rows="7" placeholder="Enter why are you reporting this answer..."></textarea> -->
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -517,6 +562,7 @@
             event.preventDefault();
             var title = $("#input-edit-question-title").val();
             var subject = $("#input-edit-question-subject").val();
+            var status = $("#input-edit-question-status").val();
             $.ajax({
                 url: "../../common/db.php",
                 type: "POST",
@@ -525,7 +571,8 @@
                     title: title,
                     description: window.editorEditQuestion.getData(),
                     subject: subject,
-                    questionID: questionID
+                    questionID: questionID,
+                    status: status
                 },
                 cache: false,
                 success: function(dataResult) {
@@ -588,9 +635,9 @@
                         }
 
                         if (question['status'] == 1) {
-                            status = "<span class='border border-danger status-danger rounded p-1 '>Unanswered</span>";
+                            status = "<span class='border bg-danger status-danger rounded py-1 px-3 text-white'>Unanswered</span>";
                         } else if (question['status'] == 2) {
-                            status = "<span class='border border-success status-success rounded p-1 '>Answered</span>";
+                            status = "<span class='border bg-success status-success rounded py-1 px-3 text-white'>Answered</span>";
                         }
                         if (userID == question.studentID) {
                             $(".for-non-creator").addClass("d-none");
@@ -612,6 +659,7 @@
                         $("#input-edit-question-title").val(question.title);
                         window.editorEditQuestion.setData(question.description);
                         $("#input-edit-question-subject").val(question.subjectID).change();
+                        $("#input-edit-question-status").val(question.status).change();
                     }
 
 
@@ -676,7 +724,7 @@
                                         menu = `<button class="dropdown-item for-non-creator-reply-report" type="button" data-id="${reply.replyID}" data-toggle="modal" data-target="#modal-report-answer" id=""><i class="fa fa-flag fa-sm"></i> Report</button>`;
                                     }
 
-                                    replies += populateReplyRow(reply.replyID, replyPicture, reply.name, reply.status, reply.creationDateTime, getYearLevel(reply.yearLevel), reply.answer, menu);
+                                    replies += populateReplyRow(reply.replyID, replyPicture, reply.name, reply.status, reply.creationDateTime, getYearLevel(reply.yearLevel), reply.answer, menu, reply.specialization);
                                 });
                                 replies = `<hr class="sidebar-divider my-2">
                                                 <div class="ml-5 my-4">
@@ -714,7 +762,8 @@
                                 hasUserRating(answer.rating, 1, userID),
                                 hasUserRating(answer.rating, -1, userID),
                                 menu,
-                                hasRateButton
+                                hasRateButton,
+                                answer.specialization
                             );
 
                         });

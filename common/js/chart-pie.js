@@ -38,6 +38,43 @@ function createPieChart(id, labels, data) {
     });
 }
 
+function createTwoPieChart(id, labels, data) {
+    console.log("==================================");
+    console.log(id);
+    console.log(labels);
+    console.log(data);
+    var ctx = document.getElementById(id);
+    new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: labels,
+            datasets: [{
+                data: data,
+                backgroundColor: ['#e74a3b', '#1cc88a'],
+                hoverBackgroundColor: ['#e74a3b', '#1cc88a'],
+                hoverBorderColor: "rgba(234, 236, 244, 1)",
+            }],
+        },
+        options: {
+            maintainAspectRatio: false,
+            tooltips: {
+                backgroundColor: "rgb(255,255,255)",
+                bodyFontColor: "#858796",
+                borderColor: '#dddfeb',
+                borderWidth: 1,
+                xPadding: 15,
+                yPadding: 15,
+                displayColors: false,
+                caretPadding: 10,
+            },
+            legend: {
+                display: false
+            },
+            cutoutPercentage: 80,
+        },
+    });
+}
+
 
 
 var ctxSubject = document.getElementById("subject-chart");

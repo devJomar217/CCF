@@ -11,6 +11,8 @@ class Student {
   public $picture;
   public $status;
   public $ranking;
+  public $creationType;
+  public $attachment;
 
   function set_studentID($studentID) {
     $this->studentID = $studentID;
@@ -73,6 +75,20 @@ class Student {
   }
   function get_ranking() {
     return $this->ranking;
+  }
+
+  function set_creationType($creationType) {
+    $this->creationType = $creationType;
+  }
+  function get_creationType() {
+    return $this->creationType;
+  }
+
+  function set_attachment($attachment) {
+    $this->attachment = $attachment;
+  }
+  function get_attachment() {
+    return $this->attachment;
   }
 }
 
@@ -258,6 +274,7 @@ class Answer {
   public $questionID;
   public $name;
   public $yearLevel;
+  public $specialization;
   public $creationDateTime;
   public $answerID;
   public $answer;
@@ -295,6 +312,14 @@ class Answer {
 
   function get_yearLevel() {
     return $this->yearLevel;
+  }
+
+  function set_specialization($specialization) {
+    $this->specialization = $specialization;
+  }
+
+  function get_specialization() {
+    return $this->specialization;
   }
 
   function set_creationDateTime($creationDateTime) {
@@ -361,6 +386,7 @@ class Reply {
   public $answerID;
   public $name;
   public $yearLevel;
+  public $specialization;
   public $creationDateTime;
   public $answer;
   public $thumbsUp;
@@ -398,6 +424,14 @@ class Reply {
 
   function get_yearLevel() {
     return $this->yearLevel;
+  }
+
+  function set_specialization($specialization) {
+    $this->specialization = $specialization;
+  }
+
+  function get_specialization() {
+    return $this->specialization;
   }
 
   function set_creationDateTime($creationDateTime) {
@@ -459,12 +493,22 @@ class Reply {
 
 
 class Notification {
+  public $notificationID;
   public $studentID;
   public $name;
   public $creationDateTime;
   public $detail;
   public $type;
   public $questionID;
+  public $status;
+
+  function set_notificationID($notificationID) {
+    $this->notificationID = $notificationID;
+  }
+
+  function get_notificationID() {
+    return $this->notificationID;
+  }
   
   function set_studentID($studentID) {
     $this->studentID = $studentID;
@@ -512,6 +556,14 @@ class Notification {
   
   function get_questionID() {
     return $this->questionID;
+  }
+
+  function set_status($status) {
+    $this->status = $status;
+  }
+  
+  function get_status() {
+    return $this->status;
   }
 }
 

@@ -59,7 +59,7 @@ include '../../common/session.php';
                 <div id="collapse-admin" class="collapse" aria-labelledby="headingTwo" data-parent="#sidebar-accordion">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" id="sidebar-admin-list" href="#admin.admin-list">Admin List</a>
-                        <a class="collapse-item" id="sidebar-inactive-admin" href="#admin.admin-inactive-list">Inactive Admin</a>
+                        <!-- <a class="collapse-item" id="sidebar-inactive-admin" href="#admin.admin-inactive-list">Inactive Admin</a> -->
                     </div>
                 </div>
             </li>
@@ -99,7 +99,7 @@ include '../../common/session.php';
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" id="sidebar-reported-question" href="#reported.reported-question">Question</a>
                         <a class="collapse-item" id="sidebar-reported-answer" href="#reported.reported-answer">Answer</a>
-                        <a class="collapse-item" id="sidebar-reported-student" href="#reported.reported-student">Student</a>
+                        <!-- <a class="collapse-item" id="sidebar-reported-student" href="#reported.reported-student">Student</a> -->
                     </div>
                 </div>
             </li>
@@ -142,7 +142,7 @@ include '../../common/session.php';
 
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown-user" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img class="img-profile rounded-circle" src="./../../resource/profile/<?php echo $_SESSION['picture']; ?>">
+                                <img class="img-profile rounded-circle img-circle-xs" src="./../../resource/profile/<?php echo $_SESSION['picture']; ?>">
                                 <b><span class="ml-2 d-none d-lg-inline text-gray-600"><?php echo $_SESSION['user_name']; ?></span></b>
 
                             </a>
@@ -315,15 +315,15 @@ include '../../common/session.php';
         });
 
         $('#sidebar-reported-question').on('click', function() {
-            $("#admin-container").load('./form-report-question.html');
+            $("#admin-container").load('./form-reported-question.html');
         });
 
         $('#sidebar-reported-answer').on('click', function() {
-            $("#admin-container").load('./form-report-answer.html');
+            $("#admin-container").load('./form-reported-answer.html');
         });
 
         $('#sidebar-reported-student').on('click', function() {
-            $("#admin-container").load('./form-report-student.html');
+            $("#admin-container").load('./form-reported-student.html');
         });
 
         $('#navbar-profile').on('click', function() {

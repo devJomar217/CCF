@@ -2,12 +2,29 @@
     img {
         width: 100%;
     }
+    
+    .unread {
+        background-color: #bd511e !important;
+        color: white;
+    }
+    
+    .unread small {
+        color: white;
+    }
+    
+    .unread a {
+        color: white;
+    }
+    
+    .unread .text-muted {
+        color: white !important;
+    }
 </style>
 
-<div class="container mt-4 mb-5">
+<div class="container mt-4 mb-5 p-0">
     <h3 class="mt-4">Notification</h3>
-    <div class="card shadow-sm py-2 px-5">
-        <div class="card-body py-2 px-md-2 mr-0" id="login-form">
+    <div class="card shadow-sm p-0">
+        <div class="card-body p-0 mr-0" id="login-form">
             <div id="card-form">
                 <div id="container-notification">
                 </div>
@@ -20,8 +37,8 @@
     $(document).ready(function() {
         retrieveNotification();
 
-        function populateNotificationRow(questionID, userName, message, description, date) {
-            return `<div class="card-row py-2 px-5">
+        function populateNotificationRow(notificationID, questionID, userName, message, description, date, style) {
+            return `<div class="card-row py-2 px-5 ${style}">
                 <div class="row py-3">
                     <div class="col-1"><img class="img-profile rounded-circle" style="width:60px; height: 60px" src="./../../resource/profile/default.svg"></div>
                     <div class="col">
@@ -38,7 +55,7 @@
                         <div class="row mt-4 mb-0 pb-0">
                             <div class="col">
                                 <p class="mb-0 pb-0">
-                                <a href="?id=${questionID}#main-forum" id="${questionID}" class="button-select-question stretched-link">
+                                <a href="?id=${questionID}#main-forum" id="${questionID}" data-id="${notificationID}" class="button-select-question stretched-link">
                                     ${description}
                                 </a>
                             </p>
@@ -53,6 +70,22 @@
             </div>
             <hr class="sidebar-divider my-0">
             `;
+        }
+
+        function updateNotificationStatus(id) {
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'update-notification',
+                    status: 1,
+                    id: id
+                },
+                cache: false,
+                success: function(dataResult) {
+                    $("#main-container").load('./form-main-forum.html');
+                }
+            });
         }
 
         function retrieveNotification() {
@@ -73,18 +106,37 @@
                             if (type == "1") {
                                 message = "answered your question!"
                             } else {
-                                message = "replied to you answer!"
+                                message = "replied to your answer!"
                             }
-                            notifications += populateNotificationRow(notification.questionID, notification.detail.name, message, notification.detail.answer, notification.creationDateTime);
+                            var style = "";
+                            if (notification.status == "0") {
+                                style = "unread";
+                            }
+
+                            if (notification.detail != null) {
+                                notifications += populateNotificationRow(notification.notificationID, notification.questionID, notification.detail.name, message, notification.detail.answer, notification.creationDateTime, style);
+                            }
                         });
-                        console.log("notifications");
+                        if (notifications == "") {
+                            notifications = `<div class="card-row p-5">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="row mb-0 pb-0">
+                                            <div class="col text-center">
+                                                <h4 class="mb-0 pb-0">No Notification</hh>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>`;
+                        }
                         $("#container-notification").html(notifications);
                     } else {
                         alert("Unable to post the answer, please try again later!");
                     }
 
                     $(".button-select-question").on('click', function(event) {
-                        $("#main-container").load('./form-main-forum.html');
+                        updateNotificationStatus($(this).data("id"));
                     });
                 }
             });

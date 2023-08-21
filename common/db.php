@@ -25,7 +25,7 @@ function databaseConnection(){
 
 function login($email, $password){
   $connectDB = databaseConnection();
-  $sql = "SELECT * FROM account_information where email='$email' AND password='$password' OR user_name='$email' AND password='$password' ";
+  $sql = "SELECT * FROM account_information where email='$email' AND password='$password' OR user_name='$email' AND password='$password' AND status <'3' ";
   $result = $connectDB->query($sql);
   
   if ($result->num_rows > 0) {
@@ -122,6 +122,7 @@ function createAccount(){
   $specialization=$_POST['specialization'];
   $yearLevel=$_POST['yearLevel'];
   $password=$_POST['password'];
+  $scanType=$_POST['scanType'];
   $statusCode = array();
   $duplicate=mysqli_query($connectDB,"select * from account_information where email='$email' OR user_name='$username' OR user_id='$studentID'");
   if (mysqli_num_rows($duplicate)>0){
@@ -139,14 +140,17 @@ function createAccount(){
       }
     }
   } else {
-    $insertAccountInformationQuery = "INSERT INTO `account_information`( `user_id`, `user_type`, `user_name`, `email`, `password`, `status`) 
-    VALUES ('$studentID','1','$username','$email', '$password', '0')";
+    $insertAccountInformationQuery = "INSERT INTO `account_information`( `user_id`, `user_type`, `user_name`, `email`, `password`, `status`, `creation_type`) 
+    VALUES ('$studentID','1','$username','$email', '$password', '0', '$scanType')";
 
     $insertStudentInformationQuery = "INSERT INTO `student_information`( `student_id`, `name`, `year_level`, `specialization`) 
     VALUES ('$studentID','$name','$yearLevel', '$specialization')";
 
     if (mysqli_query($connectDB, $insertAccountInformationQuery)) {
       array_push($statusCode, 200);
+      if($scanType == 1){
+        saveAttachment($connectDB, $studentID, $_SESSION['uploadedCOR'], $scanType);
+      }
     } else {
       array_push($statusCode, 5004);
     }
@@ -159,6 +163,17 @@ function createAccount(){
   }
   echo json_encode(array("statusCode"=>$statusCode));
   $connectDB->close();
+}
+
+function saveAttachment($connectDB, $userID, $fileName, $type){
+  $statusCode = array();  
+  $sql = "INSERT INTO `attachment`(`user_id`, `attachment`, `type`) 
+  VALUES ('$userID','$fileName', $type)";
+  if (mysqli_query($connectDB, $sql)) {
+    return 200;
+  } else {
+    return 201;
+  }
 }
 
 function createAdminAccount(){
@@ -289,7 +304,7 @@ function saveReply($answerID, $response){
 
 function retrieveStudentList($status){
   $connectDB = databaseConnection();
-  $sql = "SELECT account_information.user_id, account_information.email, account_information.user_name, account_information.status, student_information.name, student_information.year_level, student_information.specialization, student_information.picture FROM account_information INNER JOIN student_information ON account_information.user_id=student_information.student_id where account_information.status=$status AND account_information.user_type=1";
+  $sql = "SELECT account_information.user_id, account_information.email, account_information.creation_type, account_information.user_name, account_information.status, student_information.name, student_information.year_level, student_information.specialization, student_information.picture FROM account_information INNER JOIN student_information ON account_information.user_id=student_information.student_id where account_information.status=$status AND account_information.user_type=1";
   $result = $connectDB->query($sql);
 
   if ($result->num_rows > 0) {
@@ -304,13 +319,29 @@ function retrieveStudentList($status){
       $student->set_username($row["user_name"]);
       $student->set_picture($row["picture"]);
       $student->set_status($row["status"]);
+      $student->set_creationType($row["creation_type"]);
+      if($row["creation_type"] == 1 and $status == 0){
+        $student->set_attachment(retrieveAttachment($connectDB, $row["user_id"]));
+      }
       array_push($studentList, $student);
     }
-    echo json_encode($studentList);
+    echo json_encode(array("statusCode"=>200,"studentList"=>$studentList));
   } else {
     echo json_encode(array("statusCode"=>201));
   }
   $connectDB->close();
+}
+
+function retrieveAttachment($connectDB,$studentID){
+  $sql = "SELECT attachment FROM `attachment` WHERE user_id = '$studentID'";
+  $result = $connectDB->query($sql);
+  $attachment = "";
+  if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+      $attachment = $row['attachment'];
+    }
+  }
+  return $attachment;
 }
 
 function retrieveUserRank($studentID){
@@ -389,11 +420,11 @@ function retrieveUsername($connectDB, $userID){
 function retrieveQuestionNumber($status, $subject){
   $connectDB = databaseConnection();
   if($status != null AND $subject != null){
-    $sql = "SELECT question_id FROM question_information where status='$status'";
-  } else if($status != null) {
     $sql = "SELECT question_id FROM question_information where status='$status' AND subject_id='$subject'";
+  } else if($status != null) {
+    $sql = "SELECT question_id FROM question_information where status='$status'";
   } else {
-    $sql = "SELECT question_id FROM question_information";
+    $sql = "SELECT question_id FROM question_information where status != '0'";
   }
   
   $result = $connectDB->query($sql);
@@ -433,10 +464,34 @@ function retrieveAdminDetail($adminID){
   $connectDB->close();
 }
 
+function retrieveStudentInfo($studentID){
+  $connectDB = databaseConnection();
+  $sql = "SELECT account_information.user_id, account_information.email, account_information.user_name, account_information.status, student_information.* FROM account_information INNER JOIN student_information ON account_information.user_id=student_information.student_id where account_information.user_id=$studentID";
+  $result = $connectDB->query($sql);
+
+  if ($result->num_rows > 0) {
+    $student = new Student(); 
+    while($row = $result->fetch_assoc()) {
+      $student->set_studentID($row["user_id"]);
+      $student->set_name($row["name"]);
+      $student->set_email($row["email"]);
+      $student->set_yearLevel($row["year_level"]);
+      $student->set_specialization($row["specialization"]);
+      $student->set_username($row["user_name"]);
+      $student->set_picture(getProfilePicture($row["picture"]));
+      $student->set_status($row["status"]);
+    }
+    echo json_encode(array("statusCode"=>200, "student"=>$student));
+  } else {
+    echo json_encode(array("statusCode"=>201));
+  }
+  $connectDB->close();
+}
+
 
 function retrieveAdminList($status){
   $connectDB = databaseConnection();
-  $sql = "SELECT account_information.user_id, account_information.email, account_information.user_name, account_information.status, admin_information.name, admin_information.picture FROM account_information INNER JOIN admin_information ON account_information.user_id=admin_information.admin_id where account_information.status=$status AND account_information.user_type=2";
+  $sql = "SELECT account_information.user_id, account_information.email, account_information.user_name, account_information.status, admin_information.name, admin_information.picture FROM account_information INNER JOIN admin_information ON account_information.user_id=admin_information.admin_id where (account_information.status != 2 AND account_information.status != -1)  AND account_information.user_type=2";
   $result = $connectDB->query($sql);
 
   if ($result->num_rows > 0) {
@@ -792,6 +847,7 @@ function retrieveAnswers($questionID){
       $answer = new Answer();
       $answer->set_picture($row["picture"]);
       $answer->set_yearLevel($row["year_level"]);
+      $answer->set_specialization($row["specialization"]);
       $answer->set_name(retrieveUsername($connectDB, $row['student_id']));
       $answer->set_answerID($row["answer_id"]);
       $answer->set_studentID($row["student_id"]);
@@ -819,6 +875,7 @@ function retrieveReplies($connectDB, $answerID){
       $reply = new Reply();
       $reply->set_picture($row["picture"]);
       $reply->set_yearLevel($row["year_level"]);
+      $reply->set_specialization($row["specialization"]);
       $reply->set_name(retrieveUsername($connectDB, $row['student_id']));
       $reply->set_answerID($row["answer_id"]);
       $reply->set_studentID($row["student_id"]);
@@ -975,9 +1032,10 @@ function updateQuestion(){
   $description=$_POST['description'];
   $subject=$_POST['subject'];
   $questionID = $_POST['questionID'];
+  $status = $_POST['status'];
 
   $statusCode = array();  
-  $sql = "UPDATE `question_information` SET `title`='$title', `description`='$description', `subject_id`='$subject' WHERE question_id=$questionID";
+  $sql = "UPDATE `question_information` SET `title`='$title', `description`='$description', `subject_id`='$subject', `status`='$status' WHERE question_id=$questionID";
   if (mysqli_query($connectDB, $sql)) {
     array_push($statusCode, 200);
   } else {
@@ -1233,6 +1291,56 @@ function updateAdminRecord(){
   exit;
 }
 
+function updateStudentRecord(){
+  $studentID = $_POST['studentID'];
+  $userName = $_POST['userName'];
+  $name = $_POST['name'];
+  $email = $_POST['email'];
+  $specialization = $_POST['specialization'];
+  $yearLevel = $_POST['yearLevel'];
+  $statusCode = array();
+
+  $studentSQL = "UPDATE `student_information` SET `name`='$name', `specialization`='$specialization', `year_level`='$yearLevel' WHERE student_id=$studentID";
+
+  if($_FILES != null){
+    $target_dir = "./../resource/profile/";
+    $fileName = modifyImageName($studentID);
+    $location = $target_dir . $fileName;
+    $uploadStatus = uploadImage($location);
+    if($uploadStatus == 200) {
+      $studentSQL = "UPDATE `student_information` SET `picture`='$fileName', `name`='$name', `specialization`='$specialization', `year_level`='$yearLevel' WHERE student_id=$studentID";
+    } 
+    array_push($statusCode, $uploadStatus); 
+  }
+
+  $duplicateStatusCode = isEmailOrUsernameExisting($studentID, $userName, $email);
+  if(in_array(200, $duplicateStatusCode)){
+    $connectDB = databaseConnection();
+    $accountSQL = "UPDATE `account_information` SET `user_name`='$userName', `email`='$email' WHERE user_id=$studentID";
+    
+    if (mysqli_query($connectDB, $accountSQL)) {
+      if (mysqli_query($connectDB, $studentSQL)) {
+        $status = 200;
+        array_push($statusCode, 200);
+        $_SESSION['profile'] = $fileName;
+      } else {
+        array_push($statusCode, 5002);
+      }
+    } else {
+      array_push($statusCode, 201);
+    }
+
+    mysqli_close($connectDB); 
+  } else {
+    foreach ($duplicateStatusCode as $code) {
+      array_push($statusCode, $code);
+    }
+
+  }
+  echo json_encode(array("statusCode"=>$statusCode));
+  exit;
+}
+
 function uploadForumImage(){
   if($_FILES != null){
     $target_dir = "./../resource/forum/";
@@ -1273,7 +1381,7 @@ function report(){
 function sendNotification($connectDB, $creatorID, $questionID, $id, $type){
   $userID = $_SESSION['user_id'];
   $sql = "INSERT INTO `notification`(`student_id`, `question_id`, `id`, `type`, `status`) 
-  VALUES ('$creatorID','$questionID' ,'$id', '$type', '1')";
+  VALUES ('$creatorID','$questionID' ,'$id', '$type', '0')";
   if (mysqli_query($connectDB, $sql)) {
     return 200;
 	} else {
@@ -1284,15 +1392,17 @@ function sendNotification($connectDB, $creatorID, $questionID, $id, $type){
 function retrieveNotification(){
   $connectDB = databaseConnection();
   $userID = $_SESSION['user_id'];
-  $sql = "SELECT * FROM notification where student_id='$userID'";
+  $sql = "SELECT * FROM notification where student_id='$userID' ORDER BY creation_datetime DESC";
   $result = $connectDB->query($sql);
+  $notificationList = array(); 
   if ($result->num_rows > 0) {
-    $notificationList = array(); 
     while($row = $result->fetch_assoc()) {
       $notification = new Notification();
+      $notification->set_notificationID($row["notification_id"]);
       $notification->set_questionID($row["question_id"]);
       $notification->set_creationDateTime($row["creation_datetime"]);
       $notification->set_type($row['type']);
+      $notification->set_status($row['status']);
       $id = $row['id'];
       $type = $row['type'];
       if($type == 1){
@@ -1307,17 +1417,34 @@ function retrieveNotification(){
   $connectDB->close();
 }
 
+function updateNotification(){
+  $notificationID=$_POST['id'];
+  $status=$_POST['status'];
+  $connectDB = databaseConnection();
+	$sql = "UPDATE `notification` SET `status`='$status' WHERE notification_id=$notificationID";
+	if (mysqli_query($connectDB, $sql)) {
+		echo json_encode(array("statusCode"=>200));
+	} else {
+		echo json_encode(array("statusCode"=>201));
+	}
+	mysqli_close($connectDB);
+}
+
 function retrieveAnswerDetail($connectDB, $id){
   $sql = "SELECT * FROM answer where answer_id='$id'";
   $result = $connectDB->query($sql);
   $answer = new Answer();
   if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-      $answer->set_name(retrieveUsername($connectDB, $row['student_id']));
-      $answer->set_answer($row['answer']);
+    $row = $result->fetch_assoc();
+    $answer->set_name(retrieveUsername($connectDB, $row['student_id']));
+    $answer->set_answer($row['answer']);
+    $answer->set_studentID($row['student_id']);
+
+    if($_SESSION['user_id'] != $row['student_id']){
+      return $answer;
     }
   }
-  return $answer;
+  return null;
 }
 
 function retrieveReplyDetail($connectDB, $id){
@@ -1325,12 +1452,38 @@ function retrieveReplyDetail($connectDB, $id){
   $result = $connectDB->query($sql);
   $reply = new Answer();
   if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-      $reply->set_name(retrieveUsername($connectDB, $row['student_id']));
-      $reply->set_answer($row['reply']);
+    $row = $result->fetch_assoc();
+    $reply->set_name(retrieveUsername($connectDB, $row['student_id']));
+    $reply->set_answer($row['reply']);
+    $reply->set_studentID($row['student_id']);
+
+    if($_SESSION['user_id'] != $row['student_id']){
+      return $reply;
     }
   }
-  return $reply;
+  return null;
+}
+
+function uploadAttachment($path){
+  $statusCode = "201";
+  $fileName = "";
+  if($_FILES != null){
+    // $target_dir = "./../resource/profile/";
+    $fileName = generateRandomImageName();
+    $location = $path . $fileName;
+    $uploadStatus = uploadImage($location);
+    if($uploadStatus == 200) {
+      $statusCode = "200";
+      $_SESSION['uploadedCOR'] = $fileName;
+    }
+  }
+  echo json_encode(array("statusCode"=>$statusCode));
+  exit;
+}
+
+if($_POST['action']=='upload-attachment'){
+  uploadAttachment($_POST['path']);
+  exit;
 }
 
 
@@ -1424,6 +1577,11 @@ if($_POST['action']=='retrieve-admin-detail'){
   exit;
 }
 
+if($_POST['action']=='retrieve-student-detail'){
+  retrieveStudentInfo($_SESSION['user_id']);
+  exit;
+}
+
 if($_POST['action']=='update-account-status'){
   updateAccountStatus($_POST['userID'],$_POST['status']);
   exit;
@@ -1436,6 +1594,11 @@ if($_POST['action']=='change-password'){
 
 if($_POST['action']=='update-admin-record'){
   updateAdminRecord();
+  exit;
+}
+
+if($_POST['action']=='update-student-record'){
+  updateStudentRecord();
   exit;
 }
 
@@ -1539,14 +1702,20 @@ if($_POST['action'] == "retrieve-notification"){
   exit;
 }
 
+if($_POST['action'] == "update-notification"){
+  updateNotification();
+  exit;
+}
+
 if($_POST['action']=='get-dashboard-data'){
   // retrieveActiveUser();
   $numberOfStudent = retrieveStudentNumber(1);
   $numberOfStudentRequest = retrieveStudentNumber(0);
   $numberOfQuestion = retrieveQuestionNumber(null, null);
-  $numberOfAnsweredQuestion = retrieveQuestionNumber(1, null);
-  $numberOfUnansweredQuestion = retrieveQuestionNumber(0, null);
+  $numberOfAnsweredQuestion = retrieveQuestionNumber(2, null);
+  $numberOfUnansweredQuestion = retrieveQuestionNumber(1, null);
   $numberOfAnswer = retrieveAnswerNumber();
+
   $firstYear = retrieveStudentYearLevel(1);
   $secondYear = retrieveStudentYearLevel(2);
   $thirdYear = retrieveStudentYearLevel(3);

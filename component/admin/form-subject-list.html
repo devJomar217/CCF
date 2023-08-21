@@ -2,7 +2,7 @@
 <script src="./../../common/vendor/datatables/jquery.dataTables.js"></script>
 
 <h1 class="h3 mb-2 text-gray-800">Subject List</h1>
-<p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto nam delectus facilis veniam ea iusto officiis odit maxime, inventore nihil.</p>
+<p class="mb-4">This page contains list of subjects.</p>
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
@@ -11,7 +11,7 @@
                 <h6 class="m-0 font-weight-bold text-primary align-middle mt-2">Subject List</h6>
             </div>
             <div class="col-2 text-right">
-                <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-new-subject"><i class="fas fa-plus"></i> Add New Subject</button>
+                <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-new-subject"><i class="fas fa-plus"></i> Add New Subject</button>
             </div>
         </div>
     </div>
@@ -39,46 +39,6 @@
     </div>
 </div>
 
-<div class="modal fade" id="modal-update-subject" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Subject Information</h5>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <b>Picture:</b> <label for="" id="modal-info-picture"></label>
-                    </div>
-
-                    <div class="col-lg-12">
-                        <b>Subject ID:</b> <label for="" id="modal-info-subject-id"></label>
-                    </div>
-                    <div class="col-lg-12">
-                        <b>Name:</b> <label for="" id="modal-info-name"></label>
-                    </div>
-                    <div class="col-lg-12">
-                        <b>Year Level:</b> <label for="" id="modal-info-year-level"></label>
-                    </div>
-                    <div class="col-lg-12">
-                        <b>Specialization:</b> <label for="" id="modal-info-specialization"></label>
-                    </div>
-                    <div class="col-lg-12">
-                        <b>Username:</b> <label for="" id="modal-info-user-name"></label>
-                    </div>
-                    <div class="col-lg-12">
-                        <b>email:</b> <label for="" id="modal-info-email"></label>
-                    </div>
-                </div>
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" id="button-reject">Reject</button>
-                <button type="button" class="btn btn-success" id="button-approve">Approve</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 <div class="modal fade" id="modal-new-subject" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -131,7 +91,7 @@
                         </div>
                     </div>
                     <div class="form-outline mb-3">
-                        <label class="form-label" for="input-edit-status">Year Level</label>
+                        <label class="form-label" for="input-edit-status">Status</label>
                         <select class="form-control" class="dropdown" id="input-edit-status" required>
                         <option value="0">Inactive</option>
                         <option value="1">Active</option>
