@@ -5,9 +5,15 @@ $GLOBALS['home_dir'] = '/ccf/component/student/index.php';
 $GLOBALS['admin_dir'] = '/ccf/component/admin/index.php';
 $GLOBALS['user_type_student'] = '1';
 $GLOBALS['user_type_admin'] = '2';
+// DEV
 $GLOBALS['page_login'] = 'http://localhost/ccf/component/login/index.php';
 $GLOBALS['page_student'] = 'http://localhost/ccf/component/student/index.php';
 $GLOBALS['page_admin'] = 'http://localhost/ccf/component/admin/index.php';
+
+//PROD
+// $GLOBALS['page_login'] = 'http://code-connect.tech/component/login/index.php';
+// $GLOBALS['page_student'] = 'http://code-connect.tech/component/student/index.php';
+// $GLOBALS['page_admin'] = 'http://code-connect.tech/component/admin/index.php';
 
 function redirect($url) {
     header('Location: '.$url);
