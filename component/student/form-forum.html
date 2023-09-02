@@ -1,525 +1,13 @@
-<style>
-    .profile-header-container {
-        margin: 0 auto;
-        text-align: center;
-    }
-    
-    .profile-header-img>img.img-circle {
-        border: 2px solid #BD511E;
-    }
-    
-    .rank-label-container {
-        margin-top: -19px;
-        /* z-index: 1000; */
-        text-align: center;
-    }
-    
-    .label.label-default.rank-label {
-        background-color: #BD511E;
-    }
-    
-    body {
-        font: 16px Arial;
-    }
-    /*the container must be positioned relative:*/
-    
-    .autocomplete {
-        position: relative;
-        /* display: inline-block; */
-    }
-    
-    input {
-        border: 1px solid transparent;
-        background-color: #f1f1f1;
-        padding: 10px;
-        font-size: 16px;
-    }
-    
-    input[type=text] {
-        background-color: #f1f1f1;
-        width: 100%;
-    }
-    
-    input[type=submit] {
-        background-color: DodgerBlue;
-        color: #fff;
-        cursor: pointer;
-    }
-    
-    .autocomplete-items {
-        position: absolute;
-        border: 1px solid #d4d4d4;
-        border-bottom: none;
-        border-top: none;
-        z-index: 99;
-        /*position the autocomplete items to be the same width as the container:*/
-        top: 100%;
-        left: 0;
-        right: 0;
-    }
-    
-    .autocomplete-items div {
-        padding: 10px;
-        cursor: pointer;
-        background-color: #fff;
-        border-bottom: 1px solid #d4d4d4;
-    }
-    /*when hovering an item:*/
-    
-    .autocomplete-items div:hover {
-        background-color: #e9e9e9;
-    }
-    /*when navigating through the items using the arrow keys:*/
-    
-    .autocomplete-active {
-        background-color: DodgerBlue !important;
-        color: #ffffff;
-    }
-    
-    .card-row {
-        border-radius: 4px;
-        background: #fff;
-        /* box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05); */
-        transition: .3s transform cubic-bezier(.155, 1.105, .295, 1.12), .3s box-shadow, .3s -webkit-transform cubic-bezier(.155, 1.105, .295, 1.12);
-        padding: 14px 80px 18px 36px;
-        cursor: pointer;
-    }
-    
-    .card-row:hover {
-        z-index: -1;
-        transform: scale(1.05);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
-    }
-    
-    .status-danger:hover {
-        color: white;
-        background-color: #e74a3b !important;
-    }
-    
-    .status-success:hover {
-        color: white;
-        background-color: #1cc88a !important;
-    }
-    /**
- * @license Copyright (c) 2014-2023, CKSource Holding sp. z o.o. All rights reserved.
- * This file is licensed under the terms of the MIT License (see LICENSE.md).
- */
-    
-     :root {
-        --ck-sample-base-spacing: 2em;
-        --ck-sample-color-white: #fff;
-        --ck-sample-color-green: #279863;
-        --ck-sample-color-blue: #1a9aef;
-        --ck-sample-container-width: 100%;
-        --ck-sample-sidebar-width: 100%;
-        --ck-sample-editor-min-height: 400px;
-        --ck-sample-editor-z-index: 10;
-    }
-    /* --------- EDITOR STYLES  ---------------------------------------------------------------------------------------- */
-    
-    .ck-balloon-panel {
-        display: none !important;
-    }
-    
-    .editor__editable,
-    /* Classic build. */
-    
-    main .ck-editor[role='application'] .ck.ck-content,
-    /* Decoupled document build. */
-    
-    .ck.editor__editable[role='textbox'],
-    .ck.ck-editor__editable[role='textbox'],
-    /* Inline & Balloon build. */
-    
-    .ck.editor[role='textbox'] {
-        width: 100%;
-        background: #fff;
-        font-size: 1em;
-        line-height: 1.6em;
-        min-height: var(--ck-sample-editor-min-height);
-        padding: 1.5em 2em;
-    }
-    
-    .ck-editor {
-        width: 100% !important;
-    }
-    
-    .ck.ck-editor__editable {
-        background: #fff;
-        border: 1px solid hsl(0, 0%, 70%);
-        width: 100%;
-    }
-    /* Because of sidebar `position: relative`, Edge is overriding the outline of a focused editor. */
-    
-    .ck.ck-editor__editable {
-        position: relative;
-        z-index: var(--ck-sample-editor-z-index);
-    }
-    
-    .editor-container {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        position: relative;
-        width: 100%;
-        justify-content: center;
-    }
-    /* --------- DECOUPLED (DOCUMENT) BUILD. ---------------------------------------------*/
-    
-    body[data-editor='DecoupledDocumentEditor'] .document-editor__toolbar {
-        width: 100%;
-    }
-    
-    body[data-editor='DecoupledDocumentEditor'] .collaboration-demo__editable,
-    body[data-editor='DecoupledDocumentEditor'] .row-editor .editor {
-        /* A pixel is added for each of the border. */
-        width: 100%;
-        min-height: calc(29.7cm + 2px);
-        /* To avoid having extra scrolls inside the editor container. */
-        height: fit-content;
-        padding: 2cm 1.2cm;
-        margin: 2.5rem;
-        border: 1px hsl( 0, 0%, 82.7%) solid;
-        background-color: var(--ck-sample-color-white);
-        box-shadow: 0 0 5px hsla( 0, 0%, 0%, .1);
-        box-sizing: border-box;
-    }
-    
-    body[data-editor='DecoupledDocumentEditor'] .row-editor {
-        display: flex;
-        position: relative;
-        justify-content: center;
-        overflow-y: auto;
-        background-color: #f2f2f2;
-        border: 1px solid hsl(0, 0%, 77%);
-        /* Limit the max-height of the editor to avoid scrolling from bottom to top to see the toolbar. */
-        max-height: 700px;
-    }
-    
-    body[data-editor='DecoupledDocumentEditor'] .sidebar {
-        background: transparent;
-        border: 0;
-        box-shadow: none;
-    }
-    /* --------- COMMENTS & TRACK CHANGES FEATURE ---------------------------------------------------------------------- */
-    
-    .sidebar {
-        padding: 0 15px;
-        position: relative;
-        min-width: var(--ck-sample-sidebar-width);
-        max-width: var(--ck-sample-sidebar-width);
-        font-size: 20px;
-        border: 1px solid hsl(0, 0%, 77%);
-        background: hsl(0, 0%, 98%);
-        border-left: 0;
-        overflow: hidden;
-        min-height: 100%;
-        flex-grow: 1;
-    }
-    /* Do not inherit styles related to the editable editor content. See line 25.*/
-    
-    .sidebar .ck-content[role='textbox'],
-    .ck.ck-annotation-wrapper .ck-content[role='textbox'] {
-        min-height: unset;
-        width: unset;
-        padding: 0;
-        background: transparent;
-    }
-    
-    .sidebar.narrow {
-        min-width: 60px;
-        flex-grow: 0;
-    }
-    
-    .sidebar.hidden {
-        display: none !important;
-    }
-    
-    #sidebar-display-toggle {
-        position: absolute;
-        z-index: 1;
-        width: 30px;
-        height: 30px;
-        text-align: center;
-        left: 15px;
-        top: 30px;
-        border: 0;
-        padding: 0;
-        color: hsl( 0, 0%, 50%);
-        transition: 250ms ease color;
-        background-color: transparent;
-    }
-    
-    #sidebar-display-toggle:hover {
-        color: hsl( 0, 0%, 30%);
-        cursor: pointer;
-    }
-    
-    #sidebar-display-toggle:focus,
-    #sidebar-display-toggle:active {
-        outline: none;
-        border: 1px solid #a9d29d;
-    }
-    
-    #sidebar-display-toggle svg {
-        fill: currentColor;
-    }
-    /* --------- COLLABORATION FEATURES (USERS) ------------------------------------------------------------------------ */
-    
-    .row-presence {
-        width: 100%;
-        border: 1px solid hsl(0, 0%, 77%);
-        border-bottom: 0;
-        background: hsl(0, 0%, 98%);
-        padding: var(--ck-spacing-small);
-        /* Make `border-bottom` as `box-shadow` to not overlap with the editor border. */
-        box-shadow: 0 1px 0 0 hsl(0, 0%, 77%);
-        /* Make `z-index` bigger than `.editor` to properly display tooltips. */
-        z-index: 20;
-    }
-    
-    .ck.ck-presence-list {
-        flex: 1;
-        padding: 1.25rem .75rem;
-    }
-    
-    .presence .ck.ck-presence-list__counter {
-        order: 2;
-        margin-left: var(--ck-spacing-large)
-    }
-    /* --------- REAL TIME COLLABORATION FEATURES (SHARE TOPBAR CONTAINER) --------------------------------------------- */
-    
-    .collaboration-demo__row {
-        display: flex;
-        position: relative;
-        justify-content: center;
-        overflow-y: auto;
-        background-color: #f2f2f2;
-        border: 1px solid hsl(0, 0%, 77%);
-    }
-    
-    body[data-editor='InlineEditor'] .collaboration-demo__row {
-        border: 0;
-    }
-    
-    .collaboration-demo__container {
-        max-width: var(--ck-sample-container-width);
-        margin: 0 auto;
-        padding: 1.25rem;
-    }
-    
-    .presence,
-    .collaboration-demo__row {
-        transition: .2s opacity;
-    }
-    
-    .collaboration-demo__topbar {
-        background: #fff;
-        border: 1px solid var(--ck-color-toolbar-border);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-bottom: 0;
-        border-radius: 4px 4px 0 0;
-    }
-    
-    .collaboration-demo__topbar .btn {
-        margin-right: 1em;
-        outline-offset: 2px;
-        outline-width: 2px;
-        background-color: var( --ck-sample-color-blue);
-    }
-    
-    .collaboration-demo__topbar .btn:focus,
-    .collaboration-demo__topbar .btn:hover {
-        border-color: var( --ck-sample-color-blue);
-    }
-    
-    .collaboration-demo__share {
-        display: flex;
-        align-items: center;
-        padding: 1.25rem .75rem
-    }
-    
-    .collaboration-demo__share-description p {
-        margin: 0;
-        font-weight: bold;
-        font-size: 0.9em;
-    }
-    
-    .collaboration-demo__share input {
-        height: auto;
-        font-size: 0.9em;
-        min-width: 220px;
-        margin: 0 10px;
-        border-radius: 4px;
-        border: 1px solid var(--ck-color-toolbar-border)
-    }
-    
-    .collaboration-demo__share button,
-    .collaboration-demo__share input {
-        height: 40px;
-        padding: 5px 10px;
-    }
-    
-    .collaboration-demo__share button {
-        position: relative;
-    }
-    
-    .collaboration-demo__share button:focus {
-        outline: none;
-    }
-    
-    .collaboration-demo__share button[data-tooltip]::before,
-    .collaboration-demo__share button[data-tooltip]::after {
-        position: absolute;
-        visibility: hidden;
-        opacity: 0;
-        pointer-events: none;
-        transition: all .15s cubic-bezier(.5, 1, .25, 1);
-        z-index: 1;
-    }
-    
-    .collaboration-demo__share button[data-tooltip]::before {
-        content: attr(data-tooltip);
-        padding: 5px 15px;
-        border-radius: 3px;
-        background: #111;
-        color: #fff;
-        text-align: center;
-        font-size: 11px;
-        top: 100%;
-        left: 50%;
-        margin-top: 5px;
-        transform: translateX(-50%);
-    }
-    
-    .collaboration-demo__share button[data-tooltip]::after {
-        content: '';
-        border: 5px solid transparent;
-        width: 0;
-        font-size: 0;
-        line-height: 0;
-        top: 100%;
-        left: 50%;
-        transform: translateX(-50%);
-        border-bottom: 5px solid #111;
-        border-top: none;
-    }
-    
-    .collaboration-demo__share button[data-tooltip]:hover:before,
-    .collaboration-demo__share button[data-tooltip]:hover:after {
-        visibility: visible;
-        opacity: 1;
-    }
-    
-    .collaboration-demo--ready {
-        overflow: visible;
-        height: auto;
-    }
-    
-    .collaboration-demo--ready .presence,
-    .collaboration-demo--ready .collaboration-demo__row {
-        opacity: 1;
-    }
-    /* --------- PAGINATION FEATURE ------------------------------------------------------------------------------------ */
-    /* Pagination view line must be stacked at least at the same level as the editor,
-   otherwise it will be hidden underneath. */
-    
-    .ck.ck-pagination-view-line {
-        z-index: var(--ck-sample-editor-z-index);
-    }
-    /* --------- REVISION HISTORY FEATURE ------------------------------------------------------------------------------ */
-    
-    .revision-viewer-container {
-        display: none;
-    }
-    
-    .revision-viewer-sidebar {
-        position: relative;
-        min-width: 310px;
-        overflow: hidden;
-        background: var(--ck-color-toolbar-background);
-        border: 1px solid var(--ck-color-toolbar-border);
-        margin-left: -1px;
-    }
-    /* A case when Pagination and Revision History features are enabled in the editor. */
-    /* Move the square with page number from the Pagination plugin to the left side, so that it does not cover the RH sidebar. */
-    /* --------- DOCUMENT OUTLINE FEATURE ------------------------------------------------------------------------------ */
-    
-    .document-outline-container {
-        max-height: 80vh;
-        overflow-y: auto;
-        margin-bottom: 1em;
-    }
-    
-    .document-outline-container .ck.ck-document-outline {
-        min-height: 100%;
-        border: 1px solid var(--ck-color-base-border);
-        background-color: hsl(0, 0%, 96%);
-    }
-    /* --------- SAMPLE GENERIC STYLES (not related to CKEditor) ------------------------------------------------------- */
-    
-    main .message {
-        padding: 0 0 var(--ck-sample-base-spacing);
-        background: var(--ck-sample-color-green);
-        color: var(--ck-sample-color-white);
-    }
-    
-    main .message::after {
-        content: "";
-        z-index: -1;
-        display: block;
-        height: 10em;
-        width: 100%;
-        background: var(--ck-sample-color-green);
-        position: absolute;
-        left: 0;
-    }
-    
-    main .message h2 {
-        position: relative;
-        padding-top: 1em;
-        font-size: 2em;
-    }
-    
-    .centered {
-        /* Hide overlapping comments. */
-        overflow: hidden;
-        max-width: var(--ck-sample-container-width);
-        margin: 0 auto;
-        padding: 0 var(--ck-sample-base-spacing);
-    }
-    /* --------- RWD --------------------------------------------------------------------------------------------------- */
-    
-    @media screen and ( max-width: 800px) {
-         :root {
-            --ck-sample-base-spacing: 1em;
-        }
-        header h1 {
-            width: 100%;
-        }
-        header h1 img {
-            height: 40px;
-        }
-        header nav ul {
-            text-align: right;
-        }
-        main .message h2 {
-            font-size: 1.5em;
-        }
-    }
-</style>
-
+<link rel="stylesheet" href="./../../common/css/forum.css" />
 <div class="mx-4 my-0 mt-3">
-    <div class="row mb-2">
-        <div class="col-lg-9 px-1">
-            <div class="card shadow-sm py-2 px-5" style="height: 320px">
+    <div class="row">
+        <div class="col-sm-12 col-lg-9 px-1 mb-2">
+            <div class="card shadow-sm py-2 px-lg-5 px-sm-3" style="height: 320px">
                 <div class="card-body py-2 px-md-2 mr-0" id="login-form">
                     <div id="card-form">
                         <div class="row my-1">
-                            <div class="col-lg-4">
-                                <h1 class="pb-2" style="font-size: 45px;">What do you need to know?</h1>
+                            <div class="col-lg-5 col-md-12 col-sm-12">
+                                <h1 class="pb-2 forum-header">What do you need to know?</h1>
                                 <input type="button" class="btn btn-primary btn-block px-5" data-toggle="modal" data-target="#modal-add-question" value="Ask a Question" />
                             </div>
                         </div>
@@ -532,13 +20,13 @@
                             <div class="col-12">
                                 <form autocomplete="off" id="form-search-question">
                                     <div class="row">
-                                        <div class="col-10">
+                                        <div class="col-lg-10 col-sm-12">
                                             <div class="autocomplete">
                                                 <input type="text" class="form-control mr-3" name="input-search" placeholder="Search for a question?" id="input-search">
                                             </div>
                                         </div>
-                                        <div class="col-2">
-                                            <button type="submit" class="btn btn-primary btn-md px-4" value="Search" id="button-search">Search <i class="fa fa-search"></i></button>
+                                        <div class="col-lg-2 col-sm-12 mt-sm-1 mt-xs-1 mt-md-0">
+                                            <button type="submit" class="btn btn-primary btn-block px-4" value="Search" id="button-search">Search</button>
                                         </div>
                                     </div>
                                 </form>
@@ -549,7 +37,7 @@
             </div>
         </div>
 
-        <div class="col-lg-3 px-1">
+        <div class="col-sm-12 col-lg-3 px-1 mb-2">
             <div class="card shadow-sm" style="height: 320px">
                 <div class="card-body p-3">
                     <div id="card-form">
@@ -584,7 +72,7 @@
 
                         <div class="row form-outline mb-3">
                             <div class="col-4">
-                                <label class="form-label font-weight-bold" for="input-email">Specialization: </label>
+                                <label class="form-label font-weight-bold" for="input-email">Major: </label>
                             </div>
                             <div class="col">
                                 <span id="profile-specialization"></span>
@@ -672,7 +160,7 @@
             <form id="form-add-question" class="needs-validation container">
                 <div class="modal-body">
                     <div class="row mb-3">
-                        <div class="col-1 d-flex align-middle text-center">
+                        <div class="col-lg-1 d-flex align-middle text-center">
                             <label class="form-label align-middle pr-2 pt-2" for="input-">Title</label>
                         </div>
                         <div class="col">
@@ -680,7 +168,7 @@
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <div class="col-1">
+                        <div class="col-lg-1">
                             <label class="form-label align-middle pr-2 pt-2" for="input-scan">Subject</label>
                         </div>
                         <div class="col-5">

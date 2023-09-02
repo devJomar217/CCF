@@ -11,6 +11,7 @@ class Student {
   public $picture;
   public $status;
   public $ranking;
+  public $rating;
   public $creationType;
   public $attachment;
 
@@ -75,6 +76,13 @@ class Student {
   }
   function get_ranking() {
     return $this->ranking;
+  }
+
+  function set_rating($rating) {
+    $this->rating = $rating;
+  }
+  function get_rating() {
+    return $this->rating;
   }
 
   function set_creationType($creationType) {
@@ -147,8 +155,11 @@ class Admin {
 class Question {
   public $picture;
   public $studentID;
+  public $userName;
   public $name;
   public $yearLevel;
+  public $email;
+  public $specialization;
   public $questionID;
   public $subjectID;
   public $subject;
@@ -179,6 +190,30 @@ class Question {
 
   function get_name() {
     return $this->name;
+  }
+
+  function set_userName($userName) {
+    $this->userName = $userName;
+  }
+
+  function get_userName() {
+    return $this->userName;
+  }
+
+  function set_email($email) {
+    $this->email = $email;
+  }
+
+  function get_email() {
+    return $this->email;
+  }
+
+  function set_specialization($specialization) {
+    $this->specialization = $specialization;
+  }
+
+  function get_specialization() {
+    return $this->specialization;
   }
 
   function set_yearLevel($yearLevel) {
@@ -267,6 +302,63 @@ class FAQ {
   }
 }
 
+class Reported {
+  public $reportedID;
+  public $dateTime;
+  public $reason;
+  public $answerInformation;
+  public $questionInformation;
+  public $reporterInformation;
+  
+  function set_reporterInformation($reporterInformation) {
+    $this->reporterInformation = $reporterInformation;
+  }
+
+  function get_reporterInformation() {
+    return $this->reporterInformation;
+  }
+
+  function set_reportedID($reportedID) {
+    $this->reportedID = $reportedID;
+  }
+
+  function get_reportedID() {
+    return $this->reportedID;
+  }
+
+  function set_dateTime($dateTime) {
+    $this->dateTime = $dateTime;
+  }
+
+  function get_dateTime() {
+    return $this->dateTime;
+  }
+
+  function set_reason($reason) {
+    $this->reason = $reason;
+  }
+
+  function get_reason() {
+    return $this->reason;
+  }
+
+  function set_answerInformation($answerInformation) {
+    $this->answerInformation = $answerInformation;
+  }
+
+  function get_answerInformation() {
+    return $this->answerInformation;
+  }
+
+  function set_questionInformation($questionInformation) {
+    $this->questionInformation = $questionInformation;
+  }
+
+  function get_questionInformation() {
+    return $this->questionInformation;
+  }
+}
+
 
 class Answer {
   public $picture;
@@ -281,6 +373,8 @@ class Answer {
   public $rating;
   public $status;
   public $replies;
+  public $studentInformation;
+  public $questionInformation;
 
   function set_picture($picture) {
     $this->picture = $picture;
@@ -376,6 +470,22 @@ class Answer {
   
   function get_replies() {
     return $this->replies;
+  }
+
+  function set_studentInformation($studentInformation) {
+    $this->studentInformation = $studentInformation;
+  }
+  
+  function get_studentInformation() {
+    return $this->studentInformation;
+  }
+
+  function set_questionInformation($questionInformation) {
+    $this->questionInformation = $questionInformation;
+  }
+  
+  function get_questionInformation() {
+    return $this->questionInformation;
   }
 }
 

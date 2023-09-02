@@ -310,7 +310,7 @@ function populateRankingRow(image, name, specialization, yearLevel, rank, rating
 function populateQuestionRow(questionID, img, userName, status, date, subject, title, description) {
     return `<div class="card-row py-2 px-5">
                 <div class="row py-3">
-                    <div class="col-1"><img class="img-profile rounded-circle" style="width:60px; height: 60px" src="${img}"></div>
+                    <div class="col-lg-1 col-sm-2"><img class="img-profile rounded-circle" style="width:60px; height: 60px" src="${img}"></div>
                     <div class="col">
                         <div class="row mb-0 pb-0" >
                             <div class="col mb-0 pb-0">
@@ -321,10 +321,10 @@ function populateQuestionRow(questionID, img, userName, status, date, subject, t
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-3">
+                            <div class="col-lg-3">
                                 <small class="text-muted">${date}</small>
                             </div>
-                            <div class="col-3">
+                            <div class="col-lg-3">
                                 <small class="text-muted">${subject}</small>
                             </div>
                         </div>

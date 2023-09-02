@@ -1,7 +1,8 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css" />
 <script src="./../../common/vendor/datatables/jquery.dataTables.js"></script>
 <script src="./../../common/common.js"></script>
-
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v17.0" nonce="gm1pH6vl"></script>
 
 <h1 class="h3 mb-2 text-gray-800">Student List</h1>
 <p class="mb-4">This page contains the list of student registered on the website.</p>
@@ -9,7 +10,14 @@
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">List of Student</h6>
+        <div class="row justify-content-between">
+            <div class="col-4 align-middle">
+                <h6 class="m-0 font-weight-bold text-primary align-middle mt-2">List of Students</h6>
+            </div>
+            <div class="col-2 text-right">
+                <div class="fb-share-button btn btn-primary btn-sm" data-href="https://developers.facebook.com/docs/plugins/" data-layout="" data-size=""><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore text-white"><i class="fas fa-share"></i> Share Top 10 Student</a></div>
+            </div>
+        </div>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -20,6 +28,7 @@
                         <th>Name</th>
                         <th>Year Level</th>
                         <th>Email Address</th>
+                        <th>Rating</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -29,6 +38,7 @@
                         <th>Name</th>
                         <th>Year Level</th>
                         <th>Email Address</th>
+                        <th>Rating</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>
@@ -194,6 +204,7 @@
                                 populateTableData(student['name']),
                                 populateTableData(student['yearLevel']),
                                 populateTableData(student['email']),
+                                populateTableData(student['rating'] == null ? 0 : student['rating']),
                                 populateTableData("<a class='button-select btn btn-sm btn-primary'><i class='fas fa-eye'></i> View</a> | <a class='button-delete btn btn-sm btn-danger'><i class='fas fa-trash fa-cog'></i> Delete</a>"),
                                 "</tr>");
                         });

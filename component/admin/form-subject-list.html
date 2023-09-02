@@ -22,6 +22,7 @@
                     <tr>
                         <th>Subject ID</th>
                         <th>Subject</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -29,6 +30,7 @@
                     <tr>
                         <th>Subject ID</th>
                         <th>Subject</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>
@@ -184,6 +186,7 @@
                             subjectData = subjectData.concat("<tr>",
                                 populateTableData(subject['subjectID']),
                                 populateTableData(subject['subject']),
+                                populateTableData(subject['status'] == 1 ? "Active" : "Inactive"),
                                 populateTableData("<a class='btnEdit btn btn-sm btn-success'><i class='fas fa-edit'></i> Edit</a>"),
                                 "</tr>");
                         });

@@ -1,9 +1,25 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css" />
 <script src="./../../common/vendor/datatables/jquery.dataTables.js"></script>
 
+<style>
+    .form-control {
+        background-color: white !important;
+    }
+    
+    #report-reported-question-description img {
+        width: 100%;
+    }
+    
+    #report-reported-question-description {
+        height: auto !important;
+        /* border-color: 1px solid #d1d3e2;
+        border-radius: 0.35rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; */
+    }
+</style>
 
 <h1 class="h3 mb-2 text-gray-800">Reported Questions</h1>
-<p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto nam delectus facilis veniam ea iusto officiis odit maxime, inventore nihil.</p>
+<p class="mb-4">This page contains the list of reported questions.</p>
 
 
 <div class="card shadow mb-4">
@@ -17,8 +33,8 @@
                     <tr>
                         <th>ID</th>
                         <th>StudentID</th>
-                        <th>Subject</th>
                         <th>Date Time</th>
+                        <th>Reason</th>
                         <th>Question</th>
                         <th>Action</th>
                     </tr>
@@ -27,8 +43,8 @@
                     <tr>
                         <th>ID</th>
                         <th>StudentID</th>
-                        <th>Subject</th>
                         <th>Date Time</th>
+                        <th>Reason</th>
                         <th>Question</th>
                         <th>Action</th>
                     </tr>
@@ -39,79 +55,37 @@
     </div>
 </div>
 
-<div class="modal fade" id="modal-info-question" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Question Information</h5>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <b>Picture:</b> <label for="" id="modal-info-picture"></label>
-                    </div>
-
-                    <div class="col-lg-12">
-                        <b>Question ID:</b> <label for="" id="modal-info-question-id"></label>
-                    </div>
-                    <div class="col-lg-12">
-                        <b>Name:</b> <label for="" id="modal-info-name"></label>
-                    </div>
-                    <div class="col-lg-12">
-                        <b>Year Level:</b> <label for="" id="modal-info-year-level"></label>
-                    </div>
-                    <div class="col-lg-12">
-                        <b>Specialization:</b> <label for="" id="modal-info-specialization"></label>
-                    </div>
-                    <div class="col-lg-12">
-                        <b>Username:</b> <label for="" id="modal-info-user-name"></label>
-                    </div>
-                    <div class="col-lg-12">
-                        <b>email:</b> <label for="" id="modal-info-email"></label>
-                    </div>
-                </div>
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" id="button-reject">Reject</button>
-                <button type="button" class="btn btn-success" id="button-approve">Approve</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="modal-info-student" tabindex="-1" role="dialog" aria-labelledby="modal-info-student" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+<div class="modal fade" id="modal-info-student" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Student Information</h5>
             </div>
             <div class="modal-body">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <b>Picture:</b> <label for="" id="modal-student-picture"></label>
+                <div class="row px-3">
+                    <div class="col-lg-12 text-center mb-4">
+                        <img class="img-profile rounded-circle img-circle-md" id="modal-info-student-image" src="./../../common/img/undraw_profile.svg">
                     </div>
 
-                    <div class="col-lg-12">
-                        <b>Question ID:</b> <label for="" id="modal-info-question-id"></label>
+                    <div class="col-lg-6">
+                        <b>Student ID:</b> <label for="" class="form-control" id="modal-info-student-id"></label>
+                    </div>
+                    <div class="col-lg-6">
+                        <b>Username:</b> <label class="form-control" for="" id="modal-info-user-name"></label>
                     </div>
                     <div class="col-lg-12">
-                        <b>Name:</b> <label for="" id="modal-info-name"></label>
+                        <b>Name:</b> <label for="" class="form-control" id="modal-info-name"></label>
+                    </div>
+                    <div class="col-lg-10">
+                        <b>Email:</b> <label class="form-control" for="" id="modal-info-email"></label>
+                    </div>
+                    <div class="col-lg-2">
+                        <b>Year Level:</b> <label for="" class="form-control" id="modal-info-year-level"></label>
                     </div>
                     <div class="col-lg-12">
-                        <b>Year Level:</b> <label for="" id="modal-info-year-level"></label>
-                    </div>
-                    <div class="col-lg-12">
-                        <b>Specialization:</b> <label for="" id="modal-info-specialization"></label>
-                    </div>
-                    <div class="col-lg-12">
-                        <b>Username:</b> <label for="" id="modal-info-user-name"></label>
-                    </div>
-                    <div class="col-lg-12">
-                        <b>email:</b> <label for="" id="modal-info-email"></label>
+                        <b>Specialization:</b> <label class="form-control" for="" id="modal-info-specialization"></label>
                     </div>
                 </div>
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -120,65 +94,128 @@
     </div>
 </div>
 
+<div class="modal fade" id="modal-info-report" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title cc-primary-color">Report Information</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row px-3">
+                    <div class="col-lg-6 mb-3">
+                        <b>Report ID:</b> <input type="text" value="" id="report-id" class="form-control" readonly>
+                    </div>
+                    <div class="col-lg-6 mb-3">
+                        <b>Date Time:</b> <input type="text" value="" id="report-date-time" class="form-control" readonly>
+                    </div>
+                    <div class="col-lg-12 mb-3">
+                        <b>Reported by:</b> <input type="text" value="" id="report-reported-by" class="form-control" readonly>
+                    </div>
+                    <div class="col-lg-12 mb-3">
+                        <b>Reason:</b> <input type="text" value="" id="report-reason" class="form-control" readonly>
+                    </div>
+                    <div class="col-lg-12 mt-3">
+                        <h5 class="cc-primary-color">Reported Question Detail:</h5>
+                        <hr class="p-0 m-0">
+                    </div>
+                    <div class="col-lg-12 mb-3 mt-3">
+                        <b>Question ID:</b>
+                        <input type="text" value="" id="report-reported-question-id" class="form-control" readonly>
+                    </div>
+                    <div class="col-lg-12 mb-3">
+                        <b>Title:</b>
+                        <input type="text" value="" id="report-reported-question-title" class="form-control" readonly>
+                    </div>
+
+                    <div class="col-lg-12 mb-3">
+                        <b>Description:</b>
+                        <div id="report-reported-question-description" class="form-control"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="btn-report-reject">Reject</button>
+                <button type="button" class="btn btn-success" id="btn-report-accept">Accept</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <script>
     $(document).ready(function() {
-        var questionList;
+        var reportedList;
         retrieveQuestionList();
-
-        $("#dataTable").on('click', '.button-select', function() {
-            var currentRow = $(this).closest("tr");
-            var questionID = currentRow.find("td:eq(0)").html();
-            $.each(questionList, function(key, question) {
-                console.log(question);
-                console.log(questionID == question['questionID']);
-                if (questionID == question['questionID']) {
-                    $('#modal-info-question-id').html(question['questionID']);
-                    $('#modal-info-name').html(question['name']);
-                    $('#modal-info-year-level').html(question['yearLevel']);
-                    $('#modal-info-specialization').html(question['specialization']);
-                    $('#modal-info-user-name').html(question['username']);
-                    $('#modal-info-email').html(question['email']);
-                    $('#modal-info-picture').html(question['picture']);
-                    $('#modal-info-question').modal('toggle');
-                    return;
-                }
-            });
-        });
 
         $("#dataTable").on('click', '.button-student-id', function() {
             var currentRow = $(this).closest("tr");
-            var questionID = currentRow.find("td:eq(0)").html();
-            $.each(questionList, function(key, question) {
-                console.log(question);
-                console.log(questionID == question['questionID']);
-                if (questionID == question['questionID']) {
-                    $('#modal-info-name').html(question['studentID']);
-                    $('#modal-info-question').modal('toggle');
+            var reportID = currentRow.find("td:eq(0)").html();
+            $.each(reportedList, function(key, report) {
+                if (reportID == report['reportedID']) {
+                    $('#modal-info-student-id').html(report.reporterInformation.studentID);
+                    $('#modal-info-name').html(report.reporterInformation.name);
+                    $('#modal-info-year-level').html(report.reporterInformation.yearLevel);
+                    $('#modal-info-specialization').html(report.reporterInformation.specialization);
+                    $('#modal-info-user-name').html(report.reporterInformation.username);
+                    $('#modal-info-email').html(report.reporterInformation.email);
+                    var image = "default.svg";
+                    if (report.reporterInformation.picture != null && report.reporterInformation.picture != "") {
+                        image = report.reporterInformation.picture;
+                    }
+                    var picture = "./../../resource/profile/" + image;
+                    $("#modal-info-student-image").attr("src", picture);
+                    $('#modal-info-student').modal('toggle');
                     return;
                 }
             });
         });
 
-        function updateAccountStatus(userID, status) {
+        $("#dataTable").on('click', '.button-select', function() {
+            var currentRow = $(this).closest("tr");
+            var reportID = currentRow.find("td:eq(0)").html();
+            $.each(reportedList, function(key, report) {
+                if (reportID == report['reportedID']) {
+                    $('#report-id').val(report.reportedID);
+                    $('#report-reported-by').val(report.reporterInformation.name);
+                    $('#report-date-time').val(report.dateTime);
+                    $('#report-reason').val(report.reason);
+                    $('#report-reported-question-id').val(report.questionInformation.questionID);
+                    $('#report-reported-question-title').val(report.questionInformation.title);
+                    $('#report-reported-question-description').html(report.questionInformation.description);
+                    $('#modal-info-report').modal('toggle');
+                    return;
+                }
+            });
+        });
+
+        $("#btn-report-accept").on("click", function() {
+            updateReportStatus($('#report-id').val(), 3, $('#report-reported-question-id').val());
+        });
+
+        $("#btn-report-reject").on("click", function() {
+            updateReportStatus($('#report-id').val(), 2, $('#report-reported-question-id').val());
+        });
+
+        //1 - Raised, 2 - Reject, 3 - Accept
+        function updateReportStatus(reportID, status, questionID) {
             $.ajax({
                 url: "../../common/db.php",
                 type: "POST",
                 data: {
-                    action: 'update-account-status',
-                    userID: userID,
+                    action: 'update-report-status',
+                    reportID: reportID,
+                    reportedID: questionID,
+                    type: 1,
                     status: status
                 },
                 cache: false,
                 success: function(dataResult) {
                     var dataResult = JSON.parse(dataResult);
-                    if (dataResult.statusCode == 200) {
-                        alert("Success");
-                    } else {
-                        alert("Failed");
+                    if (dataResult.statusCode != 201) {
+                        retrieveQuestionList();
+                        alert("Updated");
+                        $('#modal-info-report').modal('toggle');
                     }
-                    $('#modal-info-question').modal('toggle');
-                    $('#dataTable').DataTable();
                 }
             });
         }
@@ -188,23 +225,23 @@
                 url: "../../common/db.php",
                 type: "POST",
                 data: {
-                    action: 'retrieve-question-list'
+                    action: 'retrieve-reported-question-list'
                 },
                 cache: false,
                 success: function(dataResult) {
                     var dataResult = JSON.parse(dataResult);
                     if (dataResult.statusCode != 201) {
-                        questionList = dataResult;
+                        reportedList = dataResult;
                         var questionData;
                         $.each(dataResult, function(key, question) {
                             var questionID = question['questionID'];
                             questionData +=
                                 `<tr>
-                                    <td>${questionID}</td>
-                                    <td><a href='#' class='button-student-id'>${question['studentID']}</a></td>
-                                    <td>${question['subject']}</td>
-                                    <td>${question['creationDateTime']}</td>
-                                    <td>${question['title']}</td>
+                                    <td>${question.reportedID}</td>
+                                    <td><a class='button-student-id'>${question.reporterInformation.studentID}</a></td>
+                                    <td>${question.dateTime}</td>
+                                    <td>${question.reason}</td>
+                                    <td>${question.questionInformation.title}</td>
                                     <td><a class='button-select btn btn-xs btn-primary' data-id='${questionID}'><i class='fas fa-eye fa-cog'></i> </a></td>
                                 </tr>`;
                         });
@@ -214,6 +251,5 @@
                 }
             });
         }
-
     });
 </script>

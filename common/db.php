@@ -25,7 +25,9 @@ function databaseConnection(){
 
 function login($email, $password){
   $connectDB = databaseConnection();
-  $sql = "SELECT * FROM account_information where email='$email' AND password='$password' OR user_name='$email' AND password='$password' AND status <'3' ";
+  $sql = "SELECT * FROM account_information 
+  where email='$email' AND password='$password' 
+  OR user_name='$email' AND password='$password' AND status <'3' ";
   $result = $connectDB->query($sql);
   
   if ($result->num_rows > 0) {
@@ -124,7 +126,8 @@ function createAccount(){
   $password=$_POST['password'];
   $scanType=$_POST['scanType'];
   $statusCode = array();
-  $duplicate=mysqli_query($connectDB,"select * from account_information where email='$email' OR user_name='$username' OR user_id='$studentID'");
+  $duplicate=mysqli_query($connectDB,"SELECT * from account_information where email='$email' OR user_name='$username' OR user_id='$studentID'");
+  
   if (mysqli_num_rows($duplicate)>0){
     while($row = $duplicate->fetch_assoc()) {
       if($row['user_id'] == $studentID){
@@ -304,7 +307,22 @@ function saveReply($answerID, $response){
 
 function retrieveStudentList($status){
   $connectDB = databaseConnection();
-  $sql = "SELECT account_information.user_id, account_information.email, account_information.creation_type, account_information.user_name, account_information.status, student_information.name, student_information.year_level, student_information.specialization, student_information.picture FROM account_information INNER JOIN student_information ON account_information.user_id=student_information.student_id where account_information.status=$status AND account_information.user_type=1";
+  $sql = "SELECT 
+  account_information.user_id, 
+  account_information.email, 
+  account_information.creation_type, 
+  account_information.user_name, 
+  account_information.status, 
+  student_information.name, 
+  student_information.year_level, 
+  student_information.specialization, 
+  student_information.picture,
+  SUM(rating.rating) as total_rating 
+  FROM account_information 
+  INNER JOIN student_information ON account_information.user_id=student_information.student_id 
+  LEFT JOIN rating ON student_information.student_id=rating.student_id 
+  where account_information.status=$status AND account_information.user_type=1
+  GROUP BY student_information.student_id";
   $result = $connectDB->query($sql);
 
   if ($result->num_rows > 0) {
@@ -319,6 +337,7 @@ function retrieveStudentList($status){
       $student->set_username($row["user_name"]);
       $student->set_picture($row["picture"]);
       $student->set_status($row["status"]);
+      $student->set_rating($row["total_rating"]);
       $student->set_creationType($row["creation_type"]);
       if($row["creation_type"] == 1 and $status == 0){
         $student->set_attachment(retrieveAttachment($connectDB, $row["user_id"]));
@@ -515,14 +534,19 @@ function retrieveAdminList($status){
 
 function retrieveQuestionList($status){
   $connectDB = databaseConnection();
-  $sql = "SELECT question_information.* ,subject.*  FROM question_information INNER JOIN subject ON question_information.subject_id=subject.subject_id where question_information.status=$status";
+  $sql = "SELECT question_information.* ,subject.subject, student_information.*, account_information.user_name, account_information.email FROM question_information LEFT JOIN subject ON question_information.subject_id=subject.subject_id JOIN student_information ON question_information.student_id=student_information.student_id JOIN account_information ON student_information.student_id=account_information.user_id where question_information.status=$status ORDER BY `question_information`.`question_id` ASC";
   $result = $connectDB->query($sql);
-
   if ($result->num_rows > 0) {
     $questionList = array(); 
     while($row = $result->fetch_assoc()) {
       $question = new Question();
       $question->set_studentID($row["student_id"]);
+      $question->set_name($row["name"]);
+      $question->set_userName($row["user_name"]);
+      $question->set_picture($row["picture"]);
+      $question->set_yearLevel($row["year_level"]);
+      $question->set_email($row["email"]);
+      $question->set_specialization($row["specialization"]);
       $question->set_questionID($row["question_id"]);
       $question->set_subjectID($row["subject_id"]);
       $question->set_subject($row["subject"]);
@@ -545,7 +569,7 @@ function retrieveLatestQuestionList($subject, $status, $limit, $search){
   $statusFilter = "";
   $searchFilter = "";
   if($status == -1){
-    $statusFilter = "question_information.status != 0";
+    $statusFilter = "question_information.status > 0";
   } else {
     $statusFilter = "question_information.status = ".$status;
   }
@@ -812,7 +836,23 @@ function retrieveQuestion($questionID){
 
 function retrieveAnswerList($status){
   $connectDB = databaseConnection();
-  $sql = "SELECT question.* ,answer.*  FROM answer INNER JOIN question ON answer.question_id=question.question_id where answer.status=$status";
+  $sql = "SELECT 
+  question_information.question_id, 
+  question_information.title, 
+  question_information.description, 
+  question_information.subject_id, 
+  question_information.creation_datetime,
+  answer.*, 
+  subject.subject, 
+  student_information.*, 
+  account_information.*, 
+  SUM(rating.rating) as total_rating 
+  FROM answer 
+  LEFT JOIN question_information ON answer.question_id=question_information.question_id 
+  LEFT JOIN student_information ON student_information.student_id=answer.student_id 
+  LEFT JOIN account_information ON student_information.student_id=account_information.user_id
+  LEFT JOIN rating ON rating.answer_id=answer.answer_id
+  LEFT JOIN subject on question_information.subject_id=subject.subject_id where answer.status=1 GROUP BY answer.answer_id";
   $result = $connectDB->query($sql);
 
   if ($result->num_rows > 0) {
@@ -825,7 +865,29 @@ function retrieveAnswerList($status){
       $answer->set_answer($row["answer"]);
       $answer->set_creationDateTime($row["creation_datetime"]);
       $answer->set_status($row["status"]);
+      $answer->set_rating($row["total_rating"]);
       $answer->set_rating(retrieveAnswerTotalRating($connectDB, $row['answer_id']));
+
+      $student = new Student();
+      $student->set_studentID($row["user_id"]);
+      $student->set_name($row["name"]);
+      $student->set_yearLevel($row["year_level"]);
+      $student->set_specialization($row["specialization"]);
+      $student->set_username($row["user_name"]);
+      $student->set_picture($row["picture"]);
+      $student->set_status($row["status"]);
+      $student->set_email($row["email"]);
+      $answer->set_studentInformation($student);
+
+      $question = new Question();
+      $question->set_questionID($row["question_id"]);
+      $question->set_subject($row["subject"]);
+      $question->set_creationDateTime($row["creation_datetime"]);
+      $question->set_title($row["title"]);
+      $question->set_description($row["description"]);
+      $question->set_status($row["status"]);
+      $answer->set_questionInformation($question);
+
       array_push($answerList, $answer);
     }
     echo json_encode($answerList);
@@ -1035,7 +1097,9 @@ function updateQuestion(){
   $status = $_POST['status'];
 
   $statusCode = array();  
-  $sql = "UPDATE `question_information` SET `title`='$title', `description`='$description', `subject_id`='$subject', `status`='$status' WHERE question_id=$questionID";
+  $sql = "UPDATE `question_information` 
+  SET `title`='$title', `description`='$description', `subject_id`='$subject', `status`='$status' 
+  WHERE question_id=$questionID";
   if (mysqli_query($connectDB, $sql)) {
     array_push($statusCode, 200);
   } else {
@@ -1045,15 +1109,13 @@ function updateQuestion(){
   $connectDB->close();
 }
 
-function updateQuestionStatus(){
+function updateQuestionStatus($questionID,$status){
   $connectDB = databaseConnection();
-  $questionID = $_POST['questionID'];
-  $status = $_POST['status'];
   $sql = "UPDATE `question_information` SET `status`='$status' WHERE question_id=$questionID";
 	if (mysqli_query($connectDB, $sql)) {
-		echo json_encode(array("statusCode"=>200));
+		return true;
 	} else {
-		echo json_encode(array("statusCode"=>201));
+		return false;
 	}
   $connectDB->close();
 }
@@ -1216,7 +1278,7 @@ function addRating($connectDB, $answerID, $rating){
   $sql = "INSERT INTO `rating`(`answer_id`, `student_id`, `rating`) 
   VALUES ('$answerID','$userID', '$rating')";
   if (mysqli_query($connectDB, $sql)) {
-    echo json_encode(array("statusCode"=>200, "ratingID"=>getRatingID($connectDB, $answerID, $rating)));
+    echo json_encode(array("statusCode"=>200, "ratingID"=>mysqli_insert_id($connectDB)));
 	} else {
 		echo json_encode(array("statusCode"=>201));
 	}
@@ -1481,6 +1543,206 @@ function uploadAttachment($path){
   exit;
 }
 
+function retrieveReportedQuestionList(){
+  $connectDB = databaseConnection();
+  $sql = "SELECT 
+  report.*, 
+
+  question_information.question_id, 
+  question_information.creation_datetime, 
+  question_information.title,
+  question_information.description,
+  question_information.subject_id,
+  question_information.status AS question_status,
+
+  subject.subject,
+
+  report_account_information.user_name AS report_account_user_name,
+  report_account_information.email AS report_account_email,
+  report_account_information.status AS report_account_status,
+
+  question_account_information.user_name AS question_account_user_name,
+  question_account_information.email AS question_account_email,
+  question_account_information.status AS question_account_status,
+
+  report_student.student_id AS report_student_student_id,
+  report_student.name AS report_student_name,
+  report_student.year_level AS report_student_year_level,
+  report_student.specialization AS report_student_specialization,
+  report_student.picture AS report_student_picture,
+
+  question_student.student_id AS question_student_student_id,
+  question_student.name AS question_student_name,
+  question_student.year_level AS question_student_year_level,
+  question_student.specialization AS question_student_specialization,
+  question_student.picture AS question_student_picture
+
+  FROM `report` 
+  LEFT JOIN question_information ON report.reported_id=question_information.question_id
+  LEFT JOIN account_information AS report_account_information ON report_account_information.user_id=report.student_id
+  LEFT JOIN account_information AS question_account_information ON question_account_information.user_id=question_information.student_id
+  LEFT JOIN student_information AS report_student ON report_student.student_id=report.student_id
+  LEFT JOIN student_information AS question_student ON question_student.student_id=question_information.student_id
+  LEFT JOIN subject ON question_information.subject_id=subject.subject_id
+  WHERE report.type=1 and report.status=1 and question_information.status > 0";
+
+  $result = $connectDB->query($sql);
+  if ($result->num_rows > 0) {
+    $reportedList = array(); 
+    while($row = $result->fetch_assoc()) {
+      $reported = new Reported();
+      $reported->set_reportedID($row["id"]);
+      $reported->set_dateTime($row["date_time"]);
+      $reported->set_reason($row["detail"]);
+      
+      $question = new Question();
+      $question->set_questionID($row["question_id"]);
+      $question->set_creationDateTime($row["creation_datetime"]);
+      $question->set_title($row["title"]);
+      $question->set_description($row["description"]);
+      $question->set_subject($row["subject"]);
+      $question->set_status($row["question_status"]);
+      $question->set_userName($row["question_account_user_name"]);
+      $question->set_email($row["question_account_email"]);
+      $question->set_studentID($row["question_student_student_id"]);
+      $question->set_name($row["question_student_name"]);
+      $question->set_yearLevel($row["question_student_year_level"]);
+      $question->set_specialization($row["question_student_specialization"]);
+      $question->set_picture($row["question_student_picture"]);
+      $reported->set_questionInformation($question);
+
+      $reporter = new Student();
+      $reporter->set_studentID($row["report_student_student_id"]);
+      $reporter->set_name($row["report_student_name"]);
+      $reporter->set_yearLevel($row["report_student_year_level"]);
+      $reporter->set_specialization($row["report_student_specialization"]);
+      $reporter->set_email($row["report_account_email"]);
+      $reporter->set_username($row["report_account_user_name"]);
+      $reporter->set_picture($row["report_student_picture"]);
+      $reporter->set_status($row["report_account_status"]);
+      $reported->set_reporterInformation($reporter);
+
+      array_push($reportedList, $reported);
+    }
+    echo json_encode($reportedList);
+  } else {
+    echo json_encode(array("statusCode"=>201));
+  }
+  $connectDB->close();
+}
+
+function retrieveReportedAnswerList(){
+  $connectDB = databaseConnection();
+  $sql = "SELECT 
+  report.*,
+  answer.question_id, 
+  answer.answer_id, 
+  answer.creation_datetime, 
+  answer.answer,
+  answer.status AS answer_status,
+  
+  reporter_account_student.user_name AS reporter_student_user_name,
+  reporter_account_student.email AS reporter_student_email,
+  reporter_account_student.status AS reporter_student_status,
+
+  answer_account_student.user_name AS answer_student_user_name,
+  answer_account_student.email AS answer_student_email,
+  
+  reporter_student.student_id AS reporter_student_student_id,
+  reporter_student.name AS reporter_student_name,
+  reporter_student.year_level AS reporter_student_year_level,
+  reporter_student.specialization AS reporter_student_specialization,
+  reporter_student.picture AS reporter_student_picture,
+  
+  answer_student.student_id AS answer_student_student_id,
+  answer_student.name AS answer_student_name,
+  answer_student.year_level AS answer_student_year_level,
+  answer_student.specialization AS answer_student_specialization,
+  answer_student.picture AS answer_student_picture
+  
+  FROM `report` 
+  LEFT JOIN answer ON report.reported_id=answer.answer_id
+  LEFT JOIN account_information AS reporter_account_student ON reporter_account_student.user_id=report.student_id
+  LEFT JOIN account_information AS answer_account_student ON answer_account_student.user_id=report.student_id
+  LEFT JOIN student_information AS reporter_student ON reporter_student.student_id=report.student_id
+  LEFT JOIN student_information AS answer_student ON answer_student.student_id=answer.student_id
+  WHERE report.type!=1 and report.status=1";
+  $result = $connectDB->query($sql);
+  if ($result->num_rows > 0) {
+    $reportedList = array(); 
+    while($row = $result->fetch_assoc()) {
+      $reported = new Reported();
+      $reported->set_reportedID($row["id"]);
+      $reported->set_dateTime($row["date_time"]);
+      $reported->set_reason($row["detail"]);
+      
+      $answer = new Answer();
+      $answer->set_questionID($row["question_id"]);
+      $answer->set_answerID($row["answer_id"]);
+      $answer->set_creationDateTime($row["creation_datetime"]);
+      $answer->set_answer($row["answer"]);
+      $answer->set_status($row["answer_status"]);
+
+      $reportedStudent = new Student();
+      $reportedStudent->set_userName($row["answer_student_user_name"]);
+      $reportedStudent->set_email($row["answer_student_email"]);
+      $reportedStudent->set_studentID($row["answer_student_student_id"]);
+      $reportedStudent->set_name($row["answer_student_name"]);
+      $reportedStudent->set_yearLevel($row["answer_student_year_level"]);
+      $reportedStudent->set_specialization($row["answer_student_specialization"]);
+      $reportedStudent->set_picture($row["answer_student_picture"]);
+      $answer->set_studentInformation($reportedStudent);
+
+      $reported->set_answerInformation($answer);
+
+      $reporter = new Student();
+      $reporter->set_studentID($row["reporter_student_student_id"]);
+      $reporter->set_name($row["reporter_student_name"]);
+      $reporter->set_yearLevel($row["reporter_student_year_level"]);
+      $reporter->set_specialization($row["reporter_student_specialization"]);
+      $reporter->set_email($row["reporter_student_email"]);
+      $reporter->set_username($row["reporter_student_user_name"]);
+      $reporter->set_picture($row["reporter_student_picture"]);
+      $reporter->set_status($row["reporter_student_status"]);
+      $reported->set_reporterInformation($reporter);
+
+      array_push($reportedList, $reported);
+    }
+    echo json_encode($reportedList);
+  } else {
+    echo json_encode(array("statusCode"=>201));
+  }
+  $connectDB->close();
+}
+
+
+
+//Question -> Report -> 2
+function updateReportStatus(){
+  $reportID = $_POST["reportID"];
+  $reportedID = $_POST["reportedID"];
+  $type = $_POST["type"];
+  $status = $_POST["status"];
+  $responseStatus;
+  $connectDB = databaseConnection();
+  $sql = "UPDATE `report` SET `status`='$status' WHERE id=$reportID";
+  if (mysqli_query($connectDB, $sql)) {
+    $responseStatus = 200;
+  } else {
+    $responseStatus = 201;
+  }
+  $connectDB->close();
+
+  if($type == 1 AND $status == 3){
+    if(updateQuestionStatus($reportedID,-1)){
+      $responseStatus = 200;
+    } else {
+      $responseStatus = 201;
+    }
+  }
+  echo json_encode(array("statusCode"=>$responseStatus));
+}
+
 if($_POST['action']=='upload-attachment'){
   uploadAttachment($_POST['path']);
   exit;
@@ -1673,7 +1935,11 @@ if($_POST['action'] == "upload-forum-image"){
 }
 
 if($_POST['action'] == "delete-question"){
-  updateQuestionStatus();
+  if (updateQuestionStatus($_POST['questionID'], $_POST['status'])) {
+		echo json_encode(array("statusCode"=>200));
+	} else {
+		echo json_encode(array("statusCode"=>201));
+	}
   exit;
 }
 
@@ -1704,6 +1970,21 @@ if($_POST['action'] == "retrieve-notification"){
 
 if($_POST['action'] == "update-notification"){
   updateNotification();
+  exit;
+}
+
+if($_POST['action'] == "retrieve-reported-question-list"){
+  retrieveReportedQuestionList();
+  exit;
+}
+
+if($_POST['action'] == "retrieve-reported-answer-list"){
+  retrieveReportedAnswerList();
+  exit;
+}
+
+if($_POST['action'] == "update-report-status"){
+  updateReportStatus();
   exit;
 }
 
