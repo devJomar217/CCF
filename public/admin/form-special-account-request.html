@@ -1,0 +1,210 @@
+<link rel="stylesheet" href="./../../common/vendor/datatables/dataTables.bootstrap4.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css" />
+<script src="./../../common/vendor/datatables/jquery.dataTables.js"></script>
+<script src="./../../common/common.js"></script>
+
+
+<h1 class="h3 mb-2 text-gray-800">Special Account Request</h1>
+<p class="mb-4">This page contains list of special account request.</p>
+
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Special Account Request</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Account ID</th>
+                        <th>Name</th>
+                        <th>Username</th>
+                        <th>Email Address</th>
+                        <th>Job</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Account ID</th>
+                        <th>Name</th>
+                        <th>Username</th>
+                        <th>Email Address</th>
+                        <th>Job</th>
+                        <th>Action</th>
+                    </tr>
+                </tfoot>
+                <tbody id="tableBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-info-student" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Special Account Information</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <!-- <div class="col-lg-12 text-center mb-3">
+                        <img style="width: 150px;" class="img-profile rounded-circle  b-4" src="./../../common/img/undraw_profile.svg">
+                    </div> -->
+
+                    <div class="col-lg-12">
+                        <b>Account ID:</b>
+                        <div class="form-control" for="" id="modal-info-student-id"></div>
+                    </div>
+                    <div class="col-lg-12">
+                        <b>Name:</b>
+                        <div class="form-control" for="" id="modal-info-name"></div>
+                    </div>
+                    <div class="col-lg-12">
+                        <b>Job:</b>
+                        <div class="form-control" for="" id="modal-info-specialization"></div>
+                    </div>
+                    <div class="col-lg-12">
+                        <b>Username:</b>
+                        <div class="form-control" for="" id="modal-info-user-name"></div>
+                    </div>
+                    <div class="col-lg-12">
+                        <b>Email:</b>
+                        <div class="form-control" for="" id="modal-info-email"></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="button-reject">Reject</button>
+                <button type="button" class="btn btn-success" id="button-approve">Approve</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        var studentList;
+        retrieveStudentRequestList();
+
+        $("#button-reject").on('click', function() {
+            var studentID = $('#modal-info-student-id').html();
+            updateAccountStatus(studentID, '-1');
+            $('#modal-info-student').modal('toggle');
+        });
+
+        $("#button-approve").on('click', function() {
+            var studentID = $('#modal-info-student-id').html();
+            updateAccountStatus(studentID, '1');
+            $('#modal-info-student').modal('toggle');
+        });
+
+        $("#button-reject-cor").on('click', function() {
+            var studentID = $('#modal-info-student-id-cor').html();
+            updateAccountStatus(studentID, '-1');
+            $('#modal-info-student-cor').modal('toggle');
+        });
+
+        $("#button-approve-cor").on('click', function() {
+            var studentID = $('#modal-info-student-id-cor').html();
+            updateAccountStatus(studentID, '1');
+            $('#modal-info-student-cor').modal('toggle');
+        });
+
+        // code to read selected table row cell data (values).
+        $("#dataTable").on('click', '.button-select', function() {
+            var currentRow = $(this).closest("tr");
+            var studentID = currentRow.find("td:eq(0)").html();
+            $.each(studentList, function(key, student) {
+                console.log(student);
+                console.log(studentID == student['studentID']);
+                if (studentID == student['studentID']) {
+                    $('#modal-info-student-id').html(student['studentID']);
+                    if (student['creationType'] == 1 && student['attachment'] != null) {
+                        $('#modal-info-student-cor').modal('toggle');
+                        $('#modal-info-student-id-cor').html(student['studentID']);
+                        $('#modal-info-name-cor').html(student['name']);
+                        $('#modal-info-year-level-cor').html(student['yearLevel']);
+                        $('#modal-info-specialization-cor').html(student['specialization']);
+                        $('#modal-info-user-name-cor').html(student['username']);
+                        $('#modal-info-email-cor').html(student['email']);
+                        $('#modal-info-picture-cor').html(student['picture']);
+                        $('#modal-info-img-cor').attr("src", "./../../resource/cor/" + student['attachment']);
+                        $('#modal-info-img-a-cor').attr("href", "./../../resource/cor/" + student['attachment']);
+                    } else {
+                        $('#modal-info-name').html(student['name']);
+                        $('#modal-info-year-level').html(student['yearLevel']);
+                        $('#modal-info-specialization').html(student['specialization']);
+                        $('#modal-info-user-name').html(student['username']);
+                        $('#modal-info-email').html(student['email']);
+                        $('#modal-info-picture').html(student['picture']);
+                        $('#modal-info-student').modal('toggle');
+                    }
+
+                    return;
+                }
+            });
+        });
+
+        function showStudentData(studentID) {
+            alert(studentID);
+        }
+
+        function updateAccountStatus(userID, status) {
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'update-account-status',
+                    userID: userID,
+                    status: status
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode != 200) {
+                        alert("There some error during the deletion, please try again later!");
+                    }
+
+                    retrieveStudentRequestList();
+                }
+            });
+        }
+
+        function retrieveStudentRequestList() {
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'retrieve-special-account-request'
+                },
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    var studentData = '';
+                    if (dataResult.statusCode != 201) {
+                        studentList = dataResult.specialAccountList;
+                        $.each(dataResult.specialAccountList, function(key, student) {
+                            studentData = studentData.concat("<tr>",
+                                populateTableData(student['studentID']),
+                                populateTableData(student['name']),
+                                populateTableData(student['username']),
+                                populateTableData(student['email']),
+                                populateTableData(student['specialization']),
+                                populateTableData("<a class='button-select btn btn-sm btn-primary'><i class='fas fa-eye'></i> View</a>"),
+                                "</tr>");
+                        });
+                    } else {
+                        studentData = studentData.concat("<tr class='odd'>",
+                            '<td valign="top" colspan="6" class="dataTables_empty">No Special Account Request Available</td>',
+                            "</tr>");
+                    }
+                    $("#tableBody").html(studentData);
+                    $('#dataTable').DataTable();
+                }
+            });
+        }
+    });
+</script>

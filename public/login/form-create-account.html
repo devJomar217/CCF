@@ -1,0 +1,173 @@
+<style>
+    main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #reader {
+        width: 600px;
+    }
+    
+    #result {
+        text-align: center;
+        font-size: 1.5rem;
+    }
+</style>
+
+<form onsubmit="event.preventDefault()">
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <h2>Create Account</h2>
+        </div>
+    </div>
+
+    <div class="form-outline mb-4">
+        <label class="form-label" for="input-scan"><b>Account Type:</b></label>
+        <select class="form-control" class="dropdown" id="input-account-type">
+            <option value="">--Please select--</option>
+            <option value="1">Student Account</option>
+            <option value="2">Special Account</option>
+        </select>
+    </div>
+
+    <div class="form-outline mb-4 d-none" id="form-scan">
+        <label class="form-label" for="input-scan"><b>Instruction:</b> kindly select the one of the value on the dropdown below to proceed.</label>
+        <select class="form-control" class="dropdown" id="input-scan">
+            <option value="">--Please select--</option>
+            <option value="1">COR Scan</option>
+            <option value="2">QR Code Scan</option>
+        </select>
+    </div>
+    <div class="form-check d-flex justify-content-center mb-2">
+        <a href="#" id="button-back">Back to login</a>
+    </div>
+</form>
+
+
+<div class="modal fade" id="modal-qr" tabindex="-1" role="dialog" aria-labelledby="modal-qr" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <b class="modal-title">ID QR Code Scan</b>
+            </div>
+            <div class="modal-body d-flex justify-content-center">
+                <div style="width: 500px" id="reader"></div>
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+                <b>Note:</b><span>You can locate the QR code at the back of your BSU Student ID</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-cor" tabindex="-1" role="dialog" aria-labelledby="modal-cor" aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <b class="modal-title">Upload COR</b>
+            </div>
+            <div class="modal-body d-flex justify-content-center">
+                <input type="file" name="" class="btn btn-primary d-none" id="input-file-cor">
+                <input type="button" class="btn btn-primary" id="input-upload-cor" value="Upload Certificate of Registration">
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+                <b>Note:</b><span>Kindly upload a photo of your <b>Certificate of Registration</b></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="./../../common/html5-qrcode.min.js" type="text/javascript"></script>
+
+<script>
+    $(document).ready(function() {
+        var html5QrcodeScanner = new Html5QrcodeScanner("reader", {
+            fps: 10,
+            qrbox: 250
+        });
+
+        function onScanSuccess(decodedText, decodedResult) {
+            var result = decodedText.split("\n");
+            var studentID = result[0].substring(13);
+            var fullName = result[1].substring(11);
+            var program = result[2].substring(9);
+            $('#modal-qr').modal('toggle');
+            html5QrcodeScanner.clear();
+            $("#card-form").load('./form-student-account-creation.html', function() {
+                $("#input-student-id").val(studentID);
+                $("#input-student-id").attr("readonly", true);
+                $("#input-student-id").attr("disabled", true);
+                $("#input-name").val(fullName);
+                $("#input-name").attr("readOnly", true);
+                $("#input-name").attr("disabled", true);
+                $("#input-scan").val("2").change();
+                $("#input-scan").prop("disabled", true);
+            });
+        }
+
+        function onScanError(errorMessage) {
+            // alert(errorMessage);
+        }
+
+        function uploadCOR(image) {
+            var formData = new FormData();
+            formData.append('file', image);
+            formData.append('action', 'upload-attachment');
+            formData.append('path', './../resource/cor/');
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: formData,
+                dataType: 'json',
+                contentType: false,
+                processData: false,
+                cache: false,
+                success: function(dataResult) {
+                    if (dataResult.statusCode == 200) {
+                        $("#card-form").load('./form-student-account-creation.html', function() {
+                            $("#input-scan").val("1").change();
+                            $("#input-scan").prop("disabled", true);
+                        });
+                    } else {
+                        alert("Unable to upload COR, please try again later!");
+                    }
+                }
+            });
+        }
+
+        $('#input-upload-cor').click(function() {
+            $('#input-file-cor').trigger('click');
+        });
+
+        $('#input-file-cor').change(function() {
+            uploadCOR(this.files[0]);
+        });
+
+        $("#modal-qr").on("hidden.bs.modal", function() {
+            html5QrcodeScanner.clear();
+        });
+
+        $("#input-scan").change(function() {
+            if (this.value == 1) {
+                $('#modal-cor').modal('toggle');
+            } else if (this.value == 2) {
+                $('#modal-qr').modal('toggle');
+                html5QrcodeScanner.render(onScanSuccess, onScanError);
+            }
+        });
+
+        $("#input-account-type").change(function() {
+            if (this.value == 1) {
+                $("#form-scan").removeClass("d-none");
+            } else if (this.value == 2) {
+                $("#form-scan").addClass("d-none");
+                $("#card-form").load('./form-special-account-creation.html');
+            }
+        });
+
+        $('#button-back').on('click', function() {
+            $("#card-form").load('./form-login.html');
+        });
+    });
+</script>

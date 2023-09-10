@@ -1,0 +1,236 @@
+<style>
+    #modal-info-question-description img {
+        width: 100%;
+    }
+</style>
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css" />
+<script src="./../../common/vendor/datatables/jquery.dataTables.js"></script>
+
+
+<h1 class="h3 mb-2 text-gray-800">Question List</h1>
+<p class="mb-4">This page contains list of question.</p>
+
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">List of Question</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Account ID</th>
+                        <th>Subject</th>
+                        <th>Date Time</th>
+                        <th>Question</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>ID</th>
+                        <th>Account ID</th>
+                        <th>Subject</th>
+                        <th>Date Time</th>
+                        <th>Question</th>
+                        <th>Action</th>
+                    </tr>
+                </tfoot>
+                <tbody id="tableBody"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-info-question" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Question Information</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <b>Question ID:</b>
+                        <div for="" class="form-control" id="modal-info-question-id"></div>
+                    </div>
+
+                    <div class="col-lg-9">
+                        <b>Creation Date Time:</b>
+                        <div for="" class="form-control" id="modal-info-question-creationDateTime"></div>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <b>Title:</b>
+                        <div for="" class="form-control" id="modal-info-question-title"></div>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <b>Description:</b>
+                        <div for="" class="form-control" style="height: auto;" id="modal-info-question-description"></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-info-student" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="information-title">Account Information</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row px-3">
+                    <div class="col-lg-12 text-center mb-4">
+                        <img class="rounded-circle img-circle-md" id="modal-info-student-image" src="./../../common/img/undraw_profile.svg">
+                    </div>
+
+                    <div class="col-lg-12">
+                        <b>Account ID:</b> <label for="" id="modal-info-student-id"></label>
+                    </div>
+                    <div class="col-lg-12">
+                        <b>Name:</b> <label for="" id="modal-info-name"></label>
+                    </div>
+                    <div class="col-lg-12" id="modal-info-year-level-container">
+                        <b>Year Level:</b> <label for="" id="modal-info-year-level"></label>
+                    </div>
+                    <div class="col-lg-12">
+                        <b>Specialization:</b> <label for="" id="modal-info-specialization"></label>
+                    </div>
+                    <div class="col-lg-12">
+                        <b>Username:</b> <label for="" id="modal-info-user-name"></label>
+                    </div>
+                    <div class="col-lg-12">
+                        <b>Email:</b> <label for="" id="modal-info-email"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function() {
+        var questionList;
+        retrieveQuestionList();
+
+        $("#dataTable").on('click', '.button-select', function() {
+            var currentRow = $(this).closest("tr");
+            var questionID = currentRow.find("td:eq(0)").html();
+            $.each(questionList, function(key, question) {
+                console.log(question);
+                console.log(questionID == question['questionID']);
+                if (questionID == question['questionID']) {
+                    $('#modal-info-question-id').html(question['questionID']);
+                    $('#modal-info-question-title').html(question['title']);
+                    $('#modal-info-question-description').html(question['description']);
+                    $('#modal-info-question-creationDateTime').html(question['creationDateTime']);
+
+                    $('#modal-info-question').modal('toggle');
+                    return;
+                }
+            });
+        });
+
+        $("#dataTable").on('click', '.button-student-id', function() {
+            var currentRow = $(this).closest("tr");
+            var questionID = currentRow.find("td:eq(0)").html();
+            $.each(questionList, function(key, question) {
+                if (questionID == question['questionID']) {
+                    $('#modal-info-student-id').html(question['studentID']);
+                    $('#modal-info-name').html(question['name']);
+
+                    if (question['yearLevel'] == null) {
+                        $('#modal-info-year-level-container').addClass("d-none");
+                        $('#information-title').html("Account Information");
+                    } else {
+                        $('#modal-info-year-level-container').removeClass("d-none");
+                        $('#information-title').html("Student Information");
+                    }
+
+                    $('#modal-info-year-level').html(question['yearLevel']);
+                    $('#modal-info-specialization').html(question['specialization']);
+                    $('#modal-info-user-name').html(question['userName']);
+                    $('#modal-info-email').html(question['email']);
+                    var image = "default.svg";
+                    if (question['picture'] != null && question['picture'] != "") {
+                        image = question['picture'];
+                    }
+                    var picture = "./../../resource/profile/" + image;
+                    $("#modal-info-student-image").attr("src", picture);
+                    $('#modal-info-student').modal('toggle');
+                    return;
+                }
+            });
+        });
+
+        function updateAccountStatus(userID, status) {
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'update-account-status',
+                    userID: userID,
+                    status: status
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode == 200) {
+                        alert("Success");
+                    } else {
+                        alert("Failed");
+                    }
+                    $('#modal-info-question').modal('toggle');
+                    $('#dataTable').DataTable();
+                }
+            });
+        }
+
+        function retrieveQuestionList() {
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'retrieve-question-list'
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode != 201) {
+                        questionList = dataResult;
+                        var questionData;
+                        $.each(dataResult, function(key, question) {
+                            var questionID = question['questionID'];
+                            questionData +=
+                                `<tr>
+                                    <td>${questionID}</td>
+                                    <td><a class='button-student-id'>${question['studentID']}</a></td>
+                                    <td>${question['subject']}</td>
+                                    <td>${question['creationDateTime']}</td>
+                                    <td>${question['title']}</td>
+                                    <td><a class='button-select btn btn-xs btn-primary' data-id='${questionID}'><i class='fas fa-eye fa-cog'></i> </a></td>
+                                </tr>`;
+                        });
+                        $("#tableBody").html(questionData);
+                    }
+                    $('#dataTable').DataTable();
+                }
+            });
+        }
+
+    });
+</script>

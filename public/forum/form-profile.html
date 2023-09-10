@@ -1,0 +1,439 @@
+<div class="row my-4 mx-3">
+    <div class="col-lg-8">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 bg-white">
+                <h6 class="m-0 font-weight-bold">Update Profile</h6>
+            </div>
+            <div class="card-body">
+                <form id="form-update-student-profile" class="needs-validation d-none">
+                    <div class="form-outline mb-2">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="alert d-none alert-dismissible text-center" id="student-info-message-profile">
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="text-center">
+                                    <img class="img-circle-md mb-2" id="student-image-profile-picture" src="" />
+                                </div>
+                            </div>
+                            <div class="col-lg-12 mb-4">
+                                <div class="text-center imposter-link">
+                                    <a href="#" id="updateStudentProfilePicture">Update Profile Picture</a>
+                                    <input type="file" class="d-none" id="student-input-file-profile-picture" accept="image/*">
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <label class="form-label" for="input-name">Student ID</label>
+                                <input type="text" id="student-input-profile-student-id" class="form-control" placeholder="Enter Student ID" required disabled/>
+                                <div class="invalid-feedback">
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="form-outline mb-2">
+                                    <label class="form-label" for="input-username">Username</label>
+                                    <input type="text" id="student-input-profile-user-name" class="form-control" placeholder="Enter user name" required/>
+                                    <div class="invalid-feedback" id="helpertext-username">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <label class="form-label" for="student-input-profile-name">Full name</label>
+                                <input type="text" id="student-input-profile-name" class="form-control" placeholder="Enter Full name" required/>
+                                <div class="invalid-feedback">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-outline mb-2">
+                                    <label class="form-label" for="student-input-profile-email">Email</label>
+                                    <input type="text" id="student-input-profile-email" class="form-control" placeholder="Enter Email Address" required/>
+                                    <div class="invalid-feedback" id="helpertext-username">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-9">
+                                <div class="form-outline mb-2">
+                                    <label class="form-label" for="input-profile-email">Specialization</label>
+                                    <input type="text" id="student-input-profile-specialization" class="form-control" placeholder="Enter Specialization" required/>
+                                    <div class="invalid-feedback" id="helpertext-username">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <label class="form-label" for="input-year-level">Year Level</label>
+                                <select class="form-control" class="dropdown" id="student-input-profile-year" required>
+                                    <option value="1">First Year</option>
+                                    <option value="2">Second Year</option>
+                                    <option value="3">Third Year</option>
+                                    <option value="4">Fourth Year</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block mb-2 mt-4 w-100">
+                      Update Profile
+                    </button>
+                </form>
+
+
+                <form id="form-update-special-account-profile" class="needs-validation d-none">
+                    <div class="form-outline mb-2">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="alert d-none alert-dismissible text-center" id="special-info-message-profile">
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="text-center">
+                                    <img class="img-circle-md mb-2" id="special-image-profile-picture" src="" />
+                                </div>
+                            </div>
+                            <div class="col-lg-12 mb-4">
+                                <div class="text-center imposter-link">
+                                    <a href="#" id="updateSpecialProfilePicture">Update Profile Picture</a>
+                                    <input type="file" class="d-none" id="special-input-file-profile-picture" accept="image/*">
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <label class="form-label" for="input-name">Account ID</label>
+                                <input type="text" id="special-input-profile-student-id" class="form-control" placeholder="Enter Account ID" required disabled/>
+                                <div class="invalid-feedback">
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="form-outline mb-2">
+                                    <label class="form-label" for="input-username">Username</label>
+                                    <input type="text" id="special-input-profile-user-name" class="form-control" placeholder="Enter user name" required/>
+                                    <div class="invalid-feedback" id="helpertext-username">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <label class="form-label" for="input-profile-name">Full name</label>
+                                <input type="text" id="special-input-profile-name" class="form-control" placeholder="Enter Full name" required/>
+                                <div class="invalid-feedback">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-outline mb-2">
+                                    <label class="form-label" for="input-profile-email">Email</label>
+                                    <input type="text" id="special-input-profile-email" class="form-control" placeholder="Enter Email Address" required/>
+                                    <div class="invalid-feedback" id="helpertext-username">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-outline mb-2">
+                                    <label class="form-label" for="special-input-profile-email">Job</label>
+                                    <input type="text" id="special-input-profile-specialization" class="form-control" placeholder="Enter Job" required/>
+                                    <div class="invalid-feedback" id="helpertext-username">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block mb-2 mt-4 w-100">
+                      Update Profile
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 bg-white">
+                <h6 class="m-0 font-weight-bold">Change Password</h6>
+            </div>
+            <div class="card-body">
+                <form id="form-change-password" class="needs-validation" novalidate>
+                    <div class="form-outline mb-2">
+                        <div class="alert d-none alert-dismissible" id="info-message-change-password">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                        </div>
+                    </div>
+                    <div class="form-outline mb-2">
+                        <label class="form-label" for="current-password">Current Password</label>
+                        <input type="password" id="current-password" class="form-control" placeholder="Enter Current Password" required/>
+                        <div class="invalid-feedback" id="helpertext-email">
+                        </div>
+                    </div>
+
+                    <div class="form-outline mb-2">
+                        <label class="form-label" for="input-email">New Password</label>
+                        <input type="password" id="new-password" class="form-control" placeholder="Enter New Password" required/>
+                        <div class="invalid-feedback" id="helpertext-email">
+                        </div>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="input-email">Confirm Password</label>
+                        <input type="password" id="confirm-password" class="form-control" placeholder="Enter Confirm Password" required/>
+                        <div class="invalid-feedback" id="helpertext-email">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block mb-2 mt-2 w-100">
+                      Change Password
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        retrieveStudentDetail();
+        var profileImage;
+
+        $('#updateStudentProfilePicture').click(function() {
+            $('#student-input-file-profile-picture').trigger('click');
+        });
+
+        $('#updateSpecialProfilePicture').click(function() {
+            $('#special-input-file-profile-picture').trigger('click');
+        });
+
+        $('#student-input-file-profile-picture').change(function() {
+            $("#student-image-profile-picture").attr("src", window.URL.createObjectURL(this.files[0]));
+            profileImage = this.files[0];
+        });
+
+        $('#special-input-file-profile-picture').change(function() {
+            $("#special-image-profile-picture").attr("src", window.URL.createObjectURL(this.files[0]));
+            profileImage = this.files[0];
+        });
+
+        $('#form-update-student-profile').on("submit", function(event) {
+            event.preventDefault();
+            var studentID = $("#student-input-profile-student-id").val();
+            var userName = $("#student-input-profile-user-name").val();
+            var name = $("#student-input-profile-name").val();
+            var email = $("#student-input-profile-email").val();
+            var specialization = $("#student-input-profile-specialization").val();
+            var yearLevel = $("#student-input-profile-year").val();
+            var formData = new FormData();
+            formData.append('file', profileImage);
+            formData.append('action', 'update-student-record');
+            formData.append('studentID', studentID);
+            formData.append('userName', userName);
+            formData.append('name', name);
+            formData.append('email', email);
+            formData.append('specialization', specialization);
+            formData.append('yearLevel', yearLevel);
+            var studentID = $("#input-profile-student-id").val();
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: formData,
+                dataType: 'json',
+                contentType: false,
+                processData: false,
+                cache: false,
+                success: function(dataResult) {
+                    $("#student-input-profile-user-name").removeClass('is-invalid');
+                    $("#student-input-profile-email").removeClass('is-invalid');
+
+                    if (dataResult.statusCode.includes(200)) {
+                        displayInfoMessage("#student-info-message-profile", true, "Profile has been successfully updated!");
+                    }
+
+                    if (dataResult.statusCode.includes(201)) {
+                        displayInfoMessage("#student-info-message-profile", false, "Something went wrong, please try again later!,");
+                    }
+
+                    if (dataResult.statusCode.includes(5000)) {
+                        displayInfoMessage("#student-info-message-profile", false, "Unable to upload image!");
+                    }
+
+                    if (dataResult.statusCode.includes(5001)) {
+                        displayInfoMessage("#student-info-message-profile", false, "Invalid image format!");
+                    }
+
+                    if (dataResult.statusCode.includes(5100) || dataResult.statusCode.includes(5101)) {
+                        displayInfoMessage("#student-info-message-profile", false, "Email or Username is already been used!");
+                        if (dataResult.statusCode.includes(5100)) {
+                            $("#student-input-profile-user-name").addClass('is-invalid');
+                        }
+                        if (dataResult.statusCode.includes(5101)) {
+                            $("#student-input-profile-email").addClass('is-invalid');
+                        }
+                    }
+                }
+            });
+        });
+
+        $('#form-update-special-account-profile').on("submit", function(event) {
+            event.preventDefault();
+            var studentID = $("#special-input-profile-student-id").val();
+            var userName = $("#special-input-profile-user-name").val();
+            var name = $("#special-input-profile-name").val();
+            var email = $("#special-input-profile-email").val();
+            var specialization = $("#special-input-profile-specialization").val();
+            var yearLevel = $("#special-input-profile-year").val();
+            var formData = new FormData();
+            formData.append('file', profileImage);
+            formData.append('action', 'update-special-account-record');
+            formData.append('studentID', studentID);
+            formData.append('userName', userName);
+            formData.append('name', name);
+            formData.append('email', email);
+            formData.append('specialization', specialization);
+            var studentID = $("#input-profile-student-id").val();
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: formData,
+                dataType: 'json',
+                contentType: false,
+                processData: false,
+                cache: false,
+                success: function(dataResult) {
+                    $("#special-input-profile-user-name").removeClass('is-invalid');
+                    $("#special-input-profile-email").removeClass('is-invalid');
+
+                    if (dataResult.statusCode.includes(200)) {
+                        displayInfoMessage("#special-info-message-profile", true, "Profile has been successfully updated!");
+                    }
+
+                    if (dataResult.statusCode.includes(201)) {
+                        displayInfoMessage("#special-info-message-profile", false, "Something went wrong, please try again later!,");
+                    }
+
+                    if (dataResult.statusCode.includes(5000)) {
+                        displayInfoMessage("#special-info-message-profile", false, "Unable to upload image!");
+                    }
+
+                    if (dataResult.statusCode.includes(5001)) {
+                        displayInfoMessage("#special-info-message-profile", false, "Invalid image format!");
+                    }
+
+                    if (dataResult.statusCode.includes(5100) || dataResult.statusCode.includes(5101)) {
+                        displayInfoMessage("#special-info-message-profile", false, "Email or Username is already been used!");
+                        if (dataResult.statusCode.includes(5100)) {
+                            $("#special-input-profile-user-name").addClass('is-invalid');
+                        }
+                        if (dataResult.statusCode.includes(5101)) {
+                            $("#special-input-profile-email").addClass('is-invalid');
+                        }
+                    }
+                }
+            });
+        });
+
+        function displayInfoMessage(id, isSuccess, message) {
+            $(id).removeClass("d-none");
+            $(id).html(message);
+            if (isSuccess) {
+                $(id).removeClass("alert-danger");
+                $(id).addClass("alert-success");
+            } else {
+                $(id).addClass("alert-danger");
+                $(id).removeClass("alert-success");
+            }
+        }
+
+        $('#form-change-password').on("submit", function(event) {
+            $("#info-message-change-password").addClass("d-none");
+            $("#current-password").removeClass('is-invalid');
+            $("#new-password").removeClass('is-invalid');
+            $("#confirm-password").removeClass('is-invalid');
+
+            event.preventDefault();
+            var studentID = $("#student-input-profile-student-id").val() != "" ? $("#student-input-profile-student-id").val() : $("#special-input-profile-student-id").val();
+            var newPassword = $("#new-password").val();
+            var currentPassword = $("#current-password").val();
+            var confirmPassword = $("#confirm-password").val();
+            if (newPassword != confirmPassword) {
+                $("#info-message-change-password").html("New password doesn't match to confirm password");
+                $("#info-message-change-password").addClass("alert-danger");
+                $("#info-message-change-password").removeClass("d-none");
+                $("#new-password").addClass('is-invalid');
+                $("#confirm-password").addClass('is-invalid');
+            } else {
+                changePassword(studentID, currentPassword, newPassword);
+            }
+        });
+
+        function retrieveStudentDetail() {
+            var studentID = $("#input-profile-student-id").val();
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'retrieve-account-detail'
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode == 200) {
+                        if (dataResult.account.userType == 1) {
+                            $("#form-update-special-account-profile").addClass("d-none");
+                            $("#form-update-student-profile").removeClass("d-none");
+
+                            $("#student-input-profile-user-name").val(dataResult.account.userName);
+                            $("#student-input-profile-name").val(dataResult.account.studentInfo.name);
+                            $("#student-input-profile-email").val(dataResult.account.email);
+                            $("#student-input-profile-student-id").val(dataResult.account.userID);
+                            $("#student-input-profile-specialization").val(dataResult.account.studentInfo.specialization);
+                            $("#student-input-profile-year").val(dataResult.account.studentInfo.yearLevel);
+
+                            var picture = "./../../resource/profile/" + dataResult.account.studentInfo.picture;
+                            $("#student-image-profile-picture").attr("src", picture);
+                        } else if (dataResult.account.userType == 3) {
+                            $("#form-update-student-profile").addClass("d-none");
+                            $("#form-update-special-account-profile").removeClass("d-none");
+
+                            $("#special-input-profile-student-id").val(dataResult.account.userID);
+                            $("#special-input-profile-name").val(dataResult.account.specialAccountInfo.name);
+                            $("#special-input-profile-email").val(dataResult.account.email);
+                            $("#special-input-profile-user-name").val(dataResult.account.userName);
+                            $("#special-input-profile-specialization").val(dataResult.account.specialAccountInfo.job);
+                            var picture = "./../../resource/profile/" + dataResult.account.specialAccountInfo.picture;
+                            $("#special-image-profile-picture").attr("src", picture);
+                        }
+                    } else {
+                        // alert("Error");
+                    }
+                }
+            });
+        }
+
+        function changePassword(studentID, currentPassword, newPassword) {
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'change-new-password',
+                    userID: studentID,
+                    currentPassword: currentPassword,
+                    newPassword: newPassword
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode == 200) {
+                        $("#info-message-change-password").html("Password successfully change!");
+                        $("#info-message-change-password").addClass("alert-success");
+                        $("#info-message-change-password").removeClass("alert-danger");
+
+                        $("#current-password").val('');
+                        $("#new-password").val('');
+                        $("#confirm-password").val('');
+                    } else if (dataResult.statusCode == 5000) {
+                        $("#info-message-change-password").html("Incorrect current password!");
+                        $("#info-message-change-password").addClass("alert-danger");
+                        $("#current-password").addClass('is-invalid');
+                    } else {
+                        $("#info-message-change-password").html("Unable to change the password, please try again later!");
+                        $("#info-message-change-password").addClass("alert-danger");
+                    }
+                    $("#info-message-change-password").removeClass("d-none");
+                }
+            });
+        }
+    });
+</script>
