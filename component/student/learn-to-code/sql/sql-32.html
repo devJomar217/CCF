@@ -1,0 +1,79 @@
+<!-- Select Into-->
+
+ 
+  <div class="w3-row w3-white">
+ 
+
+<h1>What is  <span class="color_h1">SELECT INTO</span> Statement in SQL?</h1>
+ 
+<h2>The SQL SELECT INTO Statement</h2>
+<p>The <code class="w3-codespan">SELECT INTO</code> statement copies data from one table into a new table.</p>
+
+<h3>SELECT INTO Syntax</h3>
+<p>Copy all columns into a new table:</p>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate sqlHigh"><span class="sqlcolor" style="color:black">
+<span class="sqlkeywordcolor" style="color:mediumblue">SELECT</span> *<br>
+<span class="sqlkeywordcolor" style="color:mediumblue">INTO</span> <em>newtable</em> [<span class="sqlkeywordcolor" style="color:mediumblue">IN</span> <em>externaldb</em>]<br>
+<span class="sqlkeywordcolor" style="color:mediumblue">FROM</span> <em>oldtable<br></em><span class="sqlkeywordcolor" style="color:mediumblue">WHERE</span> <em>condition</em>; </span></div></div>
+
+<p>Copy only some columns into a new table:</p>
+<div class="w3-Sample">
+<div class="w3-code notranslate sqlHigh"><span class="sqlcolor" style="color:black">
+<span class="sqlkeywordcolor" style="color:mediumblue">SELECT</span> <em>column1</em>, <em>column2</em>, <em>column3</em>, ...<br>
+<span class="sqlkeywordcolor" style="color:mediumblue">INTO</span> <em>newtable</em> [<span class="sqlkeywordcolor" style="color:mediumblue">IN</span> <em>externaldb</em>]<br> 
+<span class="sqlkeywordcolor" style="color:mediumblue">FROM</span> <em>oldtable<br></em><span class="sqlkeywordcolor" style="color:mediumblue">WHERE</span> <em>condition;</em> </span></div></div>
+
+<p>The new table will be created with the column-names and types as defined in the old table.
+You can create new column names using the <code class="w3-codespan">AS</code> clause.</p>
+<hr>
+
+<h2>SQL SELECT INTO Sample</h2>
+
+<p>The following SQL statement creates a backup copy of Customers:</p>
+<div class="w3-Sample">
+<div class="w3-code notranslate sqlHigh"><span class="sqlcolor" style="color:black">
+<span class="sqlkeywordcolor" style="color:mediumblue">SELECT</span> * <span class="sqlkeywordcolor" style="color:mediumblue">INTO</span> CustomersBackup2017<br>
+<span class="sqlkeywordcolor" style="color:mediumblue">FROM</span> Customers; </span></div></div>
+
+<p>The following SQL statement uses the <code class="w3-codespan">IN</code> clause to copy the table into a new 
+table in another database:</p>
+<div class="w3-Sample">
+<div class="w3-code notranslate sqlHigh"><span class="sqlcolor" style="color:black">
+<span class="sqlkeywordcolor" style="color:mediumblue">SELECT</span> *
+<span class="sqlkeywordcolor" style="color:mediumblue">INTO</span> CustomersBackup2017 <span class="sqlkeywordcolor" style="color:mediumblue">IN</span> <span class="sqlstringcolor" style="color:brown">'Backup.mdb'</span><br>
+<span class="sqlkeywordcolor" style="color:mediumblue">FROM</span> Customers; </span></div></div>
+
+<p>The following SQL statement copies only a few columns into a new table:</p>
+<div class="w3-Sample">
+<div class="w3-code notranslate sqlHigh"><span class="sqlcolor" style="color:black">
+<span class="sqlkeywordcolor" style="color:mediumblue">SELECT</span> CustomerName, ContactName <span class="sqlkeywordcolor" style="color:mediumblue">INTO</span> CustomersBackup2017<br>
+<span class="sqlkeywordcolor" style="color:mediumblue">FROM</span> Customers; </span></div></div>
+
+<p>The following SQL statement copies only the German customers into a new table:</p>
+<div class="w3-Sample">
+<div class="w3-code notranslate sqlHigh"><span class="sqlcolor" style="color:black">
+<span class="sqlkeywordcolor" style="color:mediumblue">SELECT</span> *
+<span class="sqlkeywordcolor" style="color:mediumblue">INTO</span> CustomersGermany<br>
+<span class="sqlkeywordcolor" style="color:mediumblue">FROM</span> Customers<br>
+<span class="sqlkeywordcolor" style="color:mediumblue">WHERE</span> Country = <span class="sqlstringcolor" style="color:brown">'Germany'</span>; </span></div></div>
+
+<p>The following SQL statement copies data from more than one table into a new table:</p>
+<div class="w3-Sample">
+<div class="w3-code notranslate sqlHigh"><span class="sqlcolor" style="color:black"><span class="sqlnumbercolor" style="color:">
+</span> <span class="sqlkeywordcolor" style="color:mediumblue">SELECT</span> Customers.CustomerName, Orders.OrderID<br><span class="sqlkeywordcolor" style="color:mediumblue">INTO</span> CustomersOrderBackup2017<br>
+<span class="sqlkeywordcolor" style="color:mediumblue">FROM</span> Customers<br><span class="sqlnumbercolor" style="color:">
+</span> <span class="sqlkeywordcolor" style="color:mediumblue">LEFT</span> <span class="sqlkeywordcolor" style="color:mediumblue">JOIN</span> Orders
+ <span class="sqlkeywordcolor" style="color:mediumblue">ON</span> Customers.CustomerID = Orders.CustomerID; </span></div>
+</div>
+
+<p><strong>Tip:</strong> <code class="w3-codespan">SELECT INTO</code> can also be used to create a 
+new, empty table using the schema of another. Just add a 
+<code class="w3-codespan">WHERE</code> clause that 
+causes the query to return no data:</p>
+<div class="w3-Sample">
+<div class="w3-code notranslate sqlHigh"><span class="sqlcolor" style="color:black">
+<span class="sqlkeywordcolor" style="color:mediumblue">SELECT</span> * <span class="sqlkeywordcolor" style="color:mediumblue">INTO</span> <em>newtable</em><br><span class="sqlkeywordcolor" style="color:mediumblue">FROM</span> <em>oldtable</em><br><span class="sqlkeywordcolor" style="color:mediumblue">WHERE</span> <span class="sqlnumbercolor" style="color:">1</span> = <span class="sqlnumbercolor" style="color:">0</span>; </span></div>
+</div>
+ 

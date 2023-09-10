@@ -1,0 +1,93 @@
+<!-- break/continue-->
+
+
+  <div class="w3-row w3-white">
+
+    <h1>What is <span class="color_h1">Break and Continue in C#?</span></h1>
+
+
+<h2>C# Break</h2>
+<p>You have already seen the <code class="w3-codespan">break</code> statement used in an earlier chapter of this tutorial. It was used to "jump out" of a <code class="w3-codespan">switch</code> statement.</p>
+<p>The <code class="w3-codespan">break</code> statement can also be used to jump out of a 
+<strong>loop</strong>.</p>
+<p>This Sample jumps out of the loop when <code class="w3-codespan">i</code> is equal to <code class="w3-codespan">4</code>:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<pre class="w3-white language-csharp" data-line="5" tabindex="0"><code class="language-csharp"><span class="token keyword keyword-for">for</span> <span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-int">int</span></span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> 
+<span class="token punctuation">{</span>
+  <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> <span class="token number">4</span><span class="token punctuation">)</span> 
+  <span class="token punctuation">{</span>
+    <span class="token keyword keyword-break">break</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<div aria-hidden="true" data-range="5" class=" line-highlight" data-start="5" style="top: 90px; width: 293px;"> 
+</div></code></pre>
+<p>
+</p>
+</div>
+
+<hr>
+
+<h2>C# Continue</h2>
+
+<p>The <code class="w3-codespan">continue</code> statement breaks one iteration (in the loop), if a specified condition occurs, and continues with the next iteration in the loop.</p>
+<p>ThisS skips the value of <code class="w3-codespan">4</code>:</p>
+
+<div class="w3S">
+<h3>Sample</h3>
+<pre class="w3-white language-csharp" data-line="5" tabindex="0"><code class="language-csharp"><span class="token keyword keyword-for">for</span> <span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-int">int</span></span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> 
+<span class="token punctuation">{</span>
+  <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> <span class="token number">4</span><span class="token punctuation">)</span> 
+  <span class="token punctuation">{</span>
+    <span class="token keyword keyword-continue">continue</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<div aria-hidden="true" data-range="5" class=" line-highlight" data-start="5" style="top: 90px; width: 293px;"> 
+</div></code></pre>
+<p>
+</p>
+</div>
+<hr>
+
+<h2>Break and Continue in While Loop</h2>
+<p>You can also use <code class="w3-codespan">break</code> and <code class="w3-codespan">continue</code> in while loops:</p>
+
+<div class="w3S">
+<h3>Break Sample</h3>
+<pre class="w3-white language-csharp" data-line="8" tabindex="0"><code class="language-csharp"><span class="token class-name"><span class="token keyword keyword-int">int</span></span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-while">while</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">)</span> 
+<span class="token punctuation">{</span>
+  Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  i<span class="token operator">++</span><span class="token punctuation">;</span>
+  <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> <span class="token number">4</span><span class="token punctuation">)</span> 
+  <span class="token punctuation">{</span>
+    <span class="token keyword keyword-break">break</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<div aria-hidden="true" data-range="8" class=" line-highlight" data-start="8" style="top: 157.5px; width: 293px;"> 
+</div></code></pre>
+<p>
+</p>
+</div>
+
+<div class="w3S">
+<h3>Continue Sample</h3>
+<pre class="w3-white language-csharp" data-line="7" tabindex="0"><code class="language-csharp"><span class="token class-name"><span class="token keyword keyword-int">int</span></span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-while">while</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">)</span> 
+<span class="token punctuation">{</span>
+  <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> <span class="token number">4</span><span class="token punctuation">)</span> 
+  <span class="token punctuation">{</span>
+    i<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-continue">continue</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  i<span class="token operator">++</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<div aria-hidden="true" data-range="7" class=" line-highlight" data-start="7" style="top: 135px; width: 293px;"> 
+</div></code></pre>
+<p>
+</p>
+</div>

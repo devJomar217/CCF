@@ -1,0 +1,105 @@
+<!-- Performances-->
+
+
+  <div class="w3-row w3-white">
+    
+
+
+<h1>What is <span class="color_h1">Performance in JavaScript?</span></h1>
+
+<p class="intro">How to speed up your JavaScript code.</p>
+<hr>
+
+<h2>Reduce Activity in Loops</h2>
+<p>Loops are often used in programming.</p>
+<p>Each statement in a loop, including the for statement, is executed for each iteration of the 
+loop.</p>
+<p>Statements or assignments that can be placed outside the loop will make the 
+loop run faster. </p>
+
+<div class="w3-Sample w3-pale-red">
+<h3>Bad:</h3>
+<div class="w3-code notranslate jsHigh w3-border-red"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">for</span> (<span class="jskeywordcolor" style="color:mediumblue">let</span> i = <span class="jsnumbercolor" style="color:red">0</span>; i &lt; arr.<span class="jspropertycolor" style="color:black">length</span>; i++) {<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-Sample">
+<h3>Better Code:</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> l = arr.<span class="jspropertycolor" style="color:black">length</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">for</span> (<span class="jskeywordcolor" style="color:mediumblue">let</span> i = <span class="jsnumbercolor" style="color:red">0</span>; i &lt; l; i++) { </span></div>
+</div>
+
+<p>The bad code accesses the length property of an array each time the loop is 
+iterated.</p>
+<p>The better code accesses the length property outside the loop and makes the 
+loop run faster.</p>
+
+<hr>
+
+<h2>Reduce DOM Access</h2>
+<p>Accessing the HTML DOM is very slow, compared to other JavaScript statements.</p>
+<p>If you expect to access a DOM element several times, access it once, and use 
+it as a local variable:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> obj = document.<span class="jspropertycolor" style="color:black">getElementById</span>(<span class="jsstringcolor" style="color:brown">"demo"</span>);<br>obj.<span class="jspropertycolor" style="color:black">innerHTML</span> = <span class="jsstringcolor" style="color:brown">"Hello"</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<h2>Reduce DOM Size</h2>
+<p>Keep the number of elements in the HTML DOM small.</p>
+<p>This will always 
+improve page loading, and speed up rendering (page display), especially on smaller devices.</p>
+<p>Every attempt to search the DOM (like getElementsByTagName) will benefit 
+from a smaller DOM.</p>
+<hr>
+
+<h2>Avoid Unnecessary Variables</h2>
+<p>Don't create new variables if you don't plan to save values.</p>
+<p>Often you can replace code like this:</p>
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> fullName = firstName + <span class="jsstringcolor" style="color:brown">" "</span> + lastName;<br>
+document.<span class="jspropertycolor" style="color:black">getElementById</span>(<span class="jsstringcolor" style="color:brown">"demo"</span>).<span class="jspropertycolor" style="color:black">innerHTML</span> = fullName;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<p>With this:</p>
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+document.<span class="jspropertycolor" style="color:black">getElementById</span>(<span class="jsstringcolor" style="color:brown">"demo"</span>).<span class="jspropertycolor" style="color:black">innerHTML</span> = firstName + <span class="jsstringcolor" style="color:brown">" "</span> + lastName;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<hr>
+
+<h2>Delay JavaScript Loading</h2>
+<p>Putting your scripts at the bottom of the page body lets the browser load the 
+page first.</p>
+<p>While a script is downloading, the browser will not start any other 
+downloads. In addition all parsing and rendering activity might be blocked.</p>
+
+<div class="w3-panel w3-note">
+<p>The HTTP specification defines that browsers should not download more than 
+two components in parallel.</p>
+</div>
+
+<p>An alternative is to use <code class="w3-codespan">defer="true"</code> in the script tag. The 
+defer attribute specifies that the script should be executed after the page has 
+finished parsing, but it only works for external scripts.</p>
+<p>If possible, you can add your script to the page by code, after the page has loaded:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate htmlHigh">
+<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>script<span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="jscolor" style="color:black"><br>window.<span class="jspropertycolor" style="color:black">onload</span> = <span class="jskeywordcolor" style="color:mediumblue">function</span>() {<br>&nbsp; 
+<span class="jskeywordcolor" style="color:mediumblue">const</span> element = document.<span class="jspropertycolor" style="color:black">createElement</span>(<span class="jsstringcolor" style="color:brown">"script"</span>);<br>&nbsp; 
+element.<span class="jspropertycolor" style="color:black">src</span> = <span class="jsstringcolor" style="color:brown">"myScript.js"</span>;<br>&nbsp; 
+document.<span class="jspropertycolor" style="color:black">body</span>.<span class="jspropertycolor" style="color:black">appendChild</span>(element);<br>};<br></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/script<span class="tagcolor" style="color:mediumblue">&gt;</span></span> </div>
+</div>
+<hr>
+
+<h2>Avoid Using with</h2>
+<p>Avoid using the <code class="w3-codespan">with</code> keyword. It has a negative effect on 
+speed. It also clutters up JavaScript scopes.</p>
+<p>The <code class="w3-codespan">with</code> keyword is <strong>not allowed</strong> in strict mode.</p>

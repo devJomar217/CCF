@@ -1,0 +1,281 @@
+<!-- Best Practice-->
+
+ 
+  <div class="w3-row w3-white">
+    
+   
+
+<h1>What is <span class="color_h1">Best Practices in JavaScript?</span></h1>
+ 
+<p class="intro">Avoid global variables, avoid <code class="w3-codespan">new</code>, avoid <code class="w3-codespan">==</code>, avoid <code class="w3-codespan">eval()</code></p>
+<hr>
+
+<h2>Avoid Global Variables</h2>
+<p>Minimize the use of global variables.</p>
+<p>This includes all data types, objects, and functions.</p>
+<p>Global variables and functions can be overwritten by other scripts.</p>
+<p>Use local variables instead, and learn how to use 
+ closures</a>. </p>
+<hr>
+
+<h2>Always Declare Local Variables</h2>
+<p>All variables used in a function should be declared as <strong>local</strong> variables. </p>
+
+<p>Local variables <strong>must</strong> be declared with the <code class="w3-codespan">var</code>, 
+the <code class="w3-codespan">let</code>, or the <code class="w3-codespan">const</code> keyword,
+otherwise they will become global variables.</p>
+
+<div class="w3-panel w3-note">
+<p>Strict mode does not allow undeclared variables.</p>
+</div>
+
+<hr>
+<h2>Declarations on Top</h2>
+<p>It is a good coding practice to put all declarations at the top of each script 
+or function.</p>
+<p>This will:</p>
+<ul>
+ <li>Give cleaner code</li>
+ <li>Provide a single place to look for local variables</li>
+ <li>Make it easier to avoid unwanted (implied) global variables</li>
+ <li>Reduce the possibility of unwanted re-declarations</li>
+</ul>
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Declare at the beginning<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> firstName, lastName, price, discount, fullPrice;<br><span class="jsnumbercolor" style="color:red">
+</span> <br><span class="commentcolor" style="color:green">// Use later<br></span>firstName = <span class="jsstringcolor" style="color:brown">"John"</span>;<br>lastName = <span class="jsstringcolor" style="color:brown">"Doe"</span>;<br><br>price = <span class="jsnumbercolor" style="color:red">19.90</span>;<br>
+discount = <span class="jsnumbercolor" style="color:red">0.10</span>;<br><br>fullPrice = price - discount; </span></div>
+</div>
+<p>This also goes for loop variables:</p>
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">for</span> (<span class="jskeywordcolor" style="color:mediumblue">let</span> i = <span class="jsnumbercolor" style="color:red">0</span>; i &lt; <span class="jsnumbercolor" style="color:red">5</span>; i++) <span class="jsnumbercolor" style="color:red">
+</span> { </span></div>
+</div>
+
+
+<h2>Initialize Variables</h2>
+<p>It is a good coding practice to initialize variables when you declare them.</p>
+<p>This will:</p>
+<ul>
+ <li>Give cleaner code</li>
+ <li>Provide a single place to initialize variables</li>
+ <li>Avoid undefined values</li>
+</ul>
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Declare and initiate at the beginning<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> firstName = <span class="jsstringcolor" style="color:brown">""</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> lastName = <span class="jsstringcolor" style="color:brown">""</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> price = <span class="jsnumbercolor" style="color:red">0</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> discount = <span class="jsnumbercolor" style="color:red">0</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> fullPrice = <span class="jsnumbercolor" style="color:red">0</span>,<br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> myArray = [];<br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> myObject = {}; </span></div>
+</div>
+
+<div class="w3-panel w3-note">
+<p>Initializing variables provides an idea of the intended use (and intended data type).</p>
+</div>
+<hr>
+<h2>Declare Objects with <b>const</b></h2>
+<p>Declaring objects with const will prevent any accidental change of type:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> car = {type:<span class="jsstringcolor" style="color:brown">"Fiat"</span>, model:<span class="jsstringcolor" style="color:brown">"500"</span>, color:<span class="jsstringcolor" style="color:brown">"white"</span>};<br>
+car = <span class="jsstringcolor" style="color:brown">"Fiat"</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Changes object to string<br></span><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<br>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> car = {type:<span class="jsstringcolor" style="color:brown">"Fiat"</span>, model:<span class="jsstringcolor" style="color:brown">"500"</span>, color:<span class="jsstringcolor" style="color:brown">"white"</span>};<br>
+car = <span class="jsstringcolor" style="color:brown">"Fiat"</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Not possible<br></span><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<hr>
+<h2>Declare Arrays with <b>const</b></h2>
+<p>Declaring arrays with const will prevent any accidential change of type:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> cars = [<span class="jsstringcolor" style="color:brown">"Saab"</span>, <span class="jsstringcolor" style="color:brown">"Volvo"</span>, <span class="jsstringcolor" style="color:brown">"BMW"</span>];<br>
+cars = <span class="jsnumbercolor" style="color:red">3</span>;&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Changes array to number<br></span><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<br>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> cars = [<span class="jsstringcolor" style="color:brown">"Saab"</span>, <span class="jsstringcolor" style="color:brown">"Volvo"</span>, <span class="jsstringcolor" style="color:brown">"BMW"</span>];<br>
+cars = <span class="jsnumbercolor" style="color:red">3</span>;&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Not possible<br></span><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<hr>
+
+<h2>Don't Use new Object()</h2>
+<ul>
+  <li>Use <code class="w3-codespan">""</code> instead of <code class="w3-codespan">new String()</code></li>
+  <li>Use <code class="w3-codespan">0</code> instead of <code class="w3-codespan">new Number()</code></li>
+  <li>Use <code class="w3-codespan">false</code> instead of <code class="w3-codespan">new Boolean()</code></li>
+  <li>Use <code class="w3-codespan">{}</code> instead of <code class="w3-codespan">new Object()</code></li>
+  <li>Use <code class="w3-codespan">[]</code> instead of <code class="w3-codespan">new Array()</code></li>
+  <li>Use <code class="w3-codespan">/()/</code> instead of <code class="w3-codespan">new RegExp()</code></li>
+  <li>Use <code class="w3-codespan">function (){}</code> instead of <code class="w3-codespan">new Function()</code></li>
+</ul>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x1 = <span class="jsstringcolor" style="color:brown">""</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// new primitive string<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x2 = <span class="jsnumbercolor" style="color:red">0</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// new primitive number<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x3 = <span class="jskeywordcolor" style="color:mediumblue">false</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// new primitive boolean<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> x4 = {};&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// new object<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> x5 = [];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// new array object<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> x6 = <span class="jsregexpcolor" style="color:#f50">/()/</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// new regexp object<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> x7 = <span class="jskeywordcolor" style="color:mediumblue">function</span>(){};&nbsp;<span class="commentcolor" style="color:green">// new function object </span></span></div>
+ </div>
+<hr>
+
+<h2>Beware of Automatic Type Conversions</h2>
+<p>JavaScript is loosely typed.</p>
+<p>A variable can contain all data types.</p>
+<p>A variable can change its data type:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsstringcolor" style="color:brown">"Hello"</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// typeof x is a string<br></span>
+x = <span class="jsnumbercolor" style="color:red">5</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// changes typeof x to a number
+ </span></span></div>
+ </div>
+<p>Beware that numbers can accidentally be converted to strings or <code class="w3-codespan">NaN</code> (Not a 
+Number).</p>
+
+<p>When doing mathematical operations, JavaScript can convert numbers to strings:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">5</span> + <span class="jsnumbercolor" style="color:red">7</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// x.valueOf() is 12,&nbsp; typeof x is a number<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">5</span> + <span class="jsstringcolor" style="color:brown">"7"</span>;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// x.valueOf() is 57,&nbsp; typeof x is a string<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsstringcolor" style="color:brown">"5"</span> + <span class="jsnumbercolor" style="color:red">7</span>;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// x.valueOf() is 57,&nbsp; typeof x is a string<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">5</span> - <span class="jsnumbercolor" style="color:red">7</span>; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// x.valueOf() is -2,&nbsp; typeof x is a number<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">5</span> - <span class="jsstringcolor" style="color:brown">"7"</span>; &nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// x.valueOf() is -2,&nbsp; typeof x is a number<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsstringcolor" style="color:brown">"5"</span> - <span class="jsnumbercolor" style="color:red">7</span>; &nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// x.valueOf() is -2,&nbsp; typeof x is a number<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">5</span> - <span class="jsstringcolor" style="color:brown">"x"</span>;&nbsp; &nbsp;&nbsp; <span class="commentcolor" style="color:green">// x.valueOf() is NaN, typeof x is a number
+ </span></span></div>
+ </div>
+
+<p>Subtracting a string from a string, does not 
+generate an error but returns <code class="w3-codespan">NaN</code> (Not a Number):</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span> <span class="jsstringcolor" style="color:brown">"Hello"</span> - <span class="jsstringcolor" style="color:brown">"Dolly"</span> &nbsp;&nbsp; <span class="commentcolor" style="color:green">// returns NaN </span></span></div>
+ </div>
+<hr>
+
+<h2>Use === Comparison</h2>
+<p>The <code class="w3-codespan">==</code> comparison operator always converts (to matching types) before 
+comparison.</p>
+<p>The <code class="w3-codespan">===</code> operator forces comparison of values and type: </p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+0</span> == <span class="jsstringcolor" style="color:brown">""</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// true<br></span><span class="jsnumbercolor" style="color:red">
+1</span> == <span class="jsstringcolor" style="color:brown">"1"</span>; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// true<br></span><span class="jsnumbercolor" style="color:red">
+1</span> == <span class="jskeywordcolor" style="color:mediumblue">true</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// true<br></span><br><span class="jsnumbercolor" style="color:red">
+0</span> === <span class="jsstringcolor" style="color:brown">""</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// false<br></span><span class="jsnumbercolor" style="color:red">
+1</span> === <span class="jsstringcolor" style="color:brown">"1"</span>; &nbsp;&nbsp; &nbsp; <span class="commentcolor" style="color:green">// false<br></span><span class="jsnumbercolor" style="color:red">
+1</span> === <span class="jskeywordcolor" style="color:mediumblue">true</span>;&nbsp;&nbsp;&nbsp;&nbsp; <span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// false
+ </span></span></div>
+ </div>
+<hr>
+
+<h2>Use Parameter Defaults</h2>
+<p>If a function is called with a missing argument, the value of the missing 
+argument is set to
+<code class="w3-codespan">undefined</code>.</p>
+<p>Undefined values can break your code. It is a good habit to assign default 
+values to arguments.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">function</span> myFunction(x, y) {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; <span class="jskeywordcolor" style="color:mediumblue">if</span> (y === undefined) {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp;&nbsp;&nbsp; y = <span class="jsnumbercolor" style="color:red">0</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp;  }<br><span class="jsnumbercolor" style="color:red">
+</span>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<div class="w3-Sample">
+<p> ECMAScript 2015</a> allows default parameters in the function definition:
+</p><div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">function</span> (a=<span class="jsnumbercolor" style="color:red">1</span>, b=<span class="jsnumbercolor" style="color:red">1</span>) {&nbsp;<span class="jsregexpcolor" style="color:#f50">/*function code*/</span>  }<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p>Read more about function parameters and arguments at Function Parameters</a></p>
+<hr>
+
+<h2>End Your Switches with Defaults</h2>
+<p>Always end your <code class="w3-codespan">switch</code> statements with a <code class="w3-codespan">default</code>. Even if you think there is 
+no need for it.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">switch</span> (<span class="jskeywordcolor" style="color:mediumblue">new</span> Date().<span class="jspropertycolor" style="color:black">getDay</span>()) {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp;
+<span class="jskeywordcolor" style="color:mediumblue">case</span> <span class="jsnumbercolor" style="color:red">0</span>:<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; &nbsp; day = <span class="jsstringcolor" style="color:brown">"Sunday"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp;&nbsp;&nbsp; <span class="jskeywordcolor" style="color:mediumblue">break</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">case</span> <span class="jsnumbercolor" style="color:red">1</span>:<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; &nbsp; day = <span class="jsstringcolor" style="color:brown">"Monday"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp;&nbsp;&nbsp; <span class="jskeywordcolor" style="color:mediumblue">break</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">case</span> <span class="jsnumbercolor" style="color:red">2</span>:<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp; &nbsp; day = <span class="jsstringcolor" style="color:brown">"Tuesday"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span> &nbsp;&nbsp;&nbsp; <span class="jskeywordcolor" style="color:mediumblue">break</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp;
+<span class="jskeywordcolor" style="color:mediumblue">case</span> <span class="jsnumbercolor" style="color:red">3</span>:<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp; &nbsp; day = <span class="jsstringcolor" style="color:brown">"Wednesday"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp;&nbsp;&nbsp; <span class="jskeywordcolor" style="color:mediumblue">break</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp;
+<span class="jskeywordcolor" style="color:mediumblue">case</span> <span class="jsnumbercolor" style="color:red">4</span>:<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;&nbsp; day = <span class="jsstringcolor" style="color:brown">"Thursday"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span> &nbsp;&nbsp;&nbsp; <span class="jskeywordcolor" style="color:mediumblue">break</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">case</span> <span class="jsnumbercolor" style="color:red">5</span>:<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; &nbsp; day = <span class="jsstringcolor" style="color:brown">"Friday"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp;&nbsp;&nbsp; <span class="jskeywordcolor" style="color:mediumblue">break</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">case</span> <span class="jsnumbercolor" style="color:red">6</span>:<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp; &nbsp; day = <span class="jsstringcolor" style="color:brown">"Saturday"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp;&nbsp;&nbsp; <span class="jskeywordcolor" style="color:mediumblue">break</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">default</span>:<br>&nbsp;&nbsp;&nbsp; day = <span class="jsnumbercolor" style="color:red">
+</span> <span class="jsstringcolor" style="color:brown">"Unknown"</span>;<br>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+<hr>
+<h2>Avoid Number, String, and Boolean as Objects</h2>
+<p>Always treat numbers, strings, or booleans as primitive values. Not as 
+objects.</p>
+<p>Declaring these types as objects, slows down execution speed, 
+and produces nasty side effects:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsstringcolor" style="color:brown">"John"</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jskeywordcolor" style="color:mediumblue">new</span> String(<span class="jsstringcolor" style="color:brown">"John"</span>);<br><span class="jsnumbercolor" style="color:red">
+</span>(x === y) <span class="commentcolor" style="color:green">// is false because x is a string and y is an object.
+ </span></span></div>
+ </div>
+<p>Or even worse:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jskeywordcolor" style="color:mediumblue">new</span> String(<span class="jsstringcolor" style="color:brown">"John"</span>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jskeywordcolor" style="color:mediumblue">new</span> String(<span class="jsstringcolor" style="color:brown">"John"</span>);<br><span class="jsnumbercolor" style="color:red">
+</span>(x == y) <span class="commentcolor" style="color:green">// is false because you cannot compare objects.
+ </span></span></div>
+ </div>
+

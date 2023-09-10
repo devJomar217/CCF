@@ -1,0 +1,302 @@
+ <!-- Array SORT-->
+
+
+
+  <div class="w3-row w3-white">
+
+
+<h1>What is <span class="color_h1">Sorting Arrays in JavaScript?</span></h1>
+
+
+<h2>Sorting an Array</h2>
+<p>The <code class="w3-codespan">sort()</code> method sorts an array alphabetically: </p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = [<span class="jsstringcolor" style="color:brown">"Banana"</span>, <span class="jsstringcolor" style="color:brown">"Orange"</span>, <span class="jsstringcolor" style="color:brown">"Apple"</span>, <span class="jsstringcolor" style="color:brown">"Mango"</span>];<br>
+fruits.<span class="jspropertycolor" style="color:black">sort</span>();<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<hr>
+
+<h2>Reversing an Array</h2>
+<p>The <code class="w3-codespan">reverse()</code> method reverses the elements in an array.</p>
+<p>You can use it to 
+sort an array in descending order: </p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = [<span class="jsstringcolor" style="color:brown">"Banana"</span>, <span class="jsstringcolor" style="color:brown">"Orange"</span>, <span class="jsstringcolor" style="color:brown">"Apple"</span>, <span class="jsstringcolor" style="color:brown">"Mango"</span>];<br>
+fruits.<span class="jspropertycolor" style="color:black">sort</span>();<br>
+fruits.<span class="jspropertycolor" style="color:black">reverse</span>();<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<hr>
+
+<h2>Numeric Sort</h2>
+<p>By default, the <code class="w3-codespan">sort()</code> function sorts values as <strong>strings</strong>.</p>
+<p>This works well for strings ("Apple" comes before "Banana").</p>
+<p>However, if numbers are sorted as strings, "25" is bigger than "100", 
+because "2" is bigger than "1".</p>
+<p>Because of this, the <code class="w3-codespan">sort()</code> method will produce incorrect result when sorting 
+numbers.</p>
+<p>You can fix this by providing a <strong>compare function</strong>:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> points = [<span class="jsnumbercolor" style="color:red">40</span>, <span class="jsnumbercolor" style="color:red">100</span>, <span class="jsnumbercolor" style="color:red">1</span>, <span class="jsnumbercolor" style="color:red">5</span>, <span class="jsnumbercolor" style="color:red">25</span>, <span class="jsnumbercolor" style="color:red">10</span>];<br>
+points.<span class="jspropertycolor" style="color:black">sort</span>(<span class="jskeywordcolor" style="color:mediumblue">function</span>(a, b){<span class="jskeywordcolor" style="color:mediumblue">return</span> a - b});<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<p>Use the same trick to sort an array descending:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> points = [<span class="jsnumbercolor" style="color:red">40</span>, <span class="jsnumbercolor" style="color:red">100</span>, <span class="jsnumbercolor" style="color:red">1</span>, <span class="jsnumbercolor" style="color:red">5</span>, <span class="jsnumbercolor" style="color:red">25</span>, <span class="jsnumbercolor" style="color:red">10</span>];<br>
+points.<span class="jspropertycolor" style="color:black">sort</span>(<span class="jskeywordcolor" style="color:mediumblue">function</span>(a, b){<span class="jskeywordcolor" style="color:mediumblue">return</span> b - a});<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+
+<h2>The Compare Function</h2>
+<p>The purpose of the compare function is to define an alternative sort 
+order.</p>
+<p>The compare function should return a negative, zero, or positive value, depending on 
+the arguments:</p>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">function</span>(a, b){<span class="jskeywordcolor" style="color:mediumblue">return</span> a - b}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<p>When the <code class="w3-codespan">sort()</code> function compares two values, it sends the values to the 
+compare function, and sorts the values according to the returned (negative, 
+zero, positive) value.</p>
+<p>If the result is negative, <code class="w3-codespan">a</code> is sorted before
+<code class="w3-codespan">b</code>.</p>
+<p>If the result is positive, <code class="w3-codespan">b</code> is sorted 
+before <code class="w3-codespan">a</code>.</p>
+<p>If the result is 0, no changes are done with the sort order of the two 
+values.</p>
+<p><strong>Sample:</strong></p>
+<p>The compare function compares all the values in the array, two values at a 
+time <code class="w3-codespan">(a, b)</code>.</p>
+<p>When comparing 40 and 100, the <code class="w3-codespan">sort()</code> method calls the compare function(40, 100).</p>
+<p>The function calculates 40 - 100 <code class="w3-codespan">(a - b)</code>, and 
+since the result is negative (-60),&nbsp; the sort function will sort 40 as a value lower than 100.</p>
+<p>You can use this code snippet to experiment with numerically and 
+alphabetically sorting:</p>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate htmlHigh">
+ <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>button<span class="attributecolor" style="color:red"> onclick<span class="attributevaluecolor" style="color:mediumblue">="myFunction1()"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span>Sort Alphabetically<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/button<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>button<span class="attributecolor" style="color:red"> 
+ onclick<span class="attributevaluecolor" style="color:mediumblue">="myFunction2()"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span>Sort Numerically<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/button<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>p<span class="attributecolor" style="color:red"> id<span class="attributevaluecolor" style="color:mediumblue">="demo"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/p<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+ <br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>script<span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="jscolor" style="color:black"><br><span class="jskeywordcolor" style="color:mediumblue">const</span> points = [<span class="jsnumbercolor" style="color:red">40</span>, <span class="jsnumbercolor" style="color:red">100</span>, <span class="jsnumbercolor" style="color:red">1</span>, <span class="jsnumbercolor" style="color:red">5</span>, <span class="jsnumbercolor" style="color:red">25</span>, <span class="jsnumbercolor" style="color:red">10</span>];<br><span class="jsnumbercolor" style="color:red">
+</span> document.<span class="jspropertycolor" style="color:black">getElementById</span>(<span class="jsstringcolor" style="color:brown">"demo"</span>).<span class="jspropertycolor" style="color:black">innerHTML</span> = points;<br><br><span class="jskeywordcolor" style="color:mediumblue">function</span> <span class="jsnumbercolor" style="color:red">
+</span> myFunction1() {<br>&nbsp;&nbsp;points.<span class="jspropertycolor" style="color:black">sort</span>();<br>&nbsp;&nbsp;document.<span class="jspropertycolor" style="color:black">getElementById</span>(<span class="jsstringcolor" style="color:brown">"demo"</span>).<span class="jspropertycolor" style="color:black">innerHTML</span> <span class="jsnumbercolor" style="color:red">
+</span> = points;<br>}<br><br><span class="jskeywordcolor" style="color:mediumblue">function</span> myFunction2() {<br>&nbsp; points.<span class="jspropertycolor" style="color:black">sort</span>(<span class="jskeywordcolor" style="color:mediumblue">function</span>(a, b){<span class="jskeywordcolor" style="color:mediumblue">return</span> <span class="jsnumbercolor" style="color:red">
+</span> a - b});<br>&nbsp;&nbsp;document.<span class="jspropertycolor" style="color:black">getElementById</span>(<span class="jsstringcolor" style="color:brown">"demo"</span>).<span class="jspropertycolor" style="color:black">innerHTML</span> = points;<br>}<br><span class="jsnumbercolor" style="color:red">
+</span> </span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/script<span class="tagcolor" style="color:mediumblue">&gt;</span></span> </div>
+</div>
+<hr>
+
+<h2>Sorting an Array in Random Order</h2>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> points = [<span class="jsnumbercolor" style="color:red">40</span>, <span class="jsnumbercolor" style="color:red">100</span>, <span class="jsnumbercolor" style="color:red">1</span>, <span class="jsnumbercolor" style="color:red">5</span>, <span class="jsnumbercolor" style="color:red">25</span>, <span class="jsnumbercolor" style="color:red">10</span>];<br>
+points.<span class="jspropertycolor" style="color:black">sort</span>(<span class="jskeywordcolor" style="color:mediumblue">function</span>(){<span class="jskeywordcolor" style="color:mediumblue">return</span> <span class="jsnumbercolor" style="color:red">0.5</span> - Math.<span class="jspropertycolor" style="color:black">random</span>()});<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p>
+</p>
+</div>
+<hr>
+
+<h2>The Fisher Yates Method</h2>
+<p>The above Sample, <em>array</em>.sort(), is not accurate. It will favor some 
+numbers over the others.</p>
+<p>The most popular correct method, is called the Fisher Yates shuffle, and was 
+introduced in data science as early as 1938!</p>
+<p>In JavaScript the method can be translated to this:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> points = [<span class="jsnumbercolor" style="color:red">40</span>, <span class="jsnumbercolor" style="color:red">100</span>, <span class="jsnumbercolor" style="color:red">1</span>, <span class="jsnumbercolor" style="color:red">5</span>, <span class="jsnumbercolor" style="color:red">25</span>, <span class="jsnumbercolor" style="color:red">10</span>];<br><br>
+<span class="jskeywordcolor" style="color:mediumblue">for</span> (<span class="jskeywordcolor" style="color:mediumblue">let</span> i = points.<span class="jspropertycolor" style="color:black">length</span> -<span class="jsnumbercolor" style="color:red">1</span>; i &gt; <span class="jsnumbercolor" style="color:red">0</span>; i--) {<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp; <span class="jskeywordcolor" style="color:mediumblue">let</span> j = Math.<span class="jspropertycolor" style="color:black">floor</span>(Math.<span class="jspropertycolor" style="color:black">random</span>() * (i+<span class="jsnumbercolor" style="color:red">1</span>));<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp; <span class="jskeywordcolor" style="color:mediumblue">let</span> k = points[i];<br>&nbsp; <span class="jsnumbercolor" style="color:red">
+</span>  points[i] = points[j];<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp; points[j] = k;<br>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p>
+</p>
+</div>
+<hr>
+
+<h2>Find the Highest (or Lowest) Array Value</h2>
+<p>There are no built-in functions for finding the max or min 
+value in an array.</p>
+<p>However, after you have sorted an array, you can use the 
+index to obtain the highest and lowest values.</p>
+<p>Sorting ascending:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> points = [<span class="jsnumbercolor" style="color:red">40</span>, <span class="jsnumbercolor" style="color:red">100</span>, <span class="jsnumbercolor" style="color:red">1</span>, <span class="jsnumbercolor" style="color:red">5</span>, <span class="jsnumbercolor" style="color:red">25</span>, <span class="jsnumbercolor" style="color:red">10</span>];<br>
+points.<span class="jspropertycolor" style="color:black">sort</span>(<span class="jskeywordcolor" style="color:mediumblue">function</span>(a, b){<span class="jskeywordcolor" style="color:mediumblue">return</span> a - b});<br><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// now points[0] contains the lowest value<br></span><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// and points[points.length-1] contains the highest value </span></span></div>
+</div>
+<p>Sorting descending:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> points = [<span class="jsnumbercolor" style="color:red">40</span>, <span class="jsnumbercolor" style="color:red">100</span>, <span class="jsnumbercolor" style="color:red">1</span>, <span class="jsnumbercolor" style="color:red">5</span>, <span class="jsnumbercolor" style="color:red">25</span>, <span class="jsnumbercolor" style="color:red">10</span>];<br>
+points.<span class="jspropertycolor" style="color:black">sort</span>(<span class="jskeywordcolor" style="color:mediumblue">function</span>(a, b){<span class="jskeywordcolor" style="color:mediumblue">return</span> b - a});<br><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// now points[0] contains the highest value<br></span><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// and points[points.length-1] contains the lowest value </span></span></div>
+</div>
+
+<div class="w3-panel w3-note">
+<p>Sorting a whole array is a very inefficient method if you only want to find the highest (or lowest) value.</p>
+</div>
+
+<hr>
+
+<h2>Using Math.max() on an Array</h2>
+<p>You can use <code class="w3-codespan">Math.max.apply</code> to find the highest number in an array:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">function</span> myArrayMax(arr) {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; <span class="jskeywordcolor" style="color:mediumblue">return</span> Math.<span class="jspropertycolor" style="color:black">max</span>.<span class="jspropertycolor" style="color:black">apply</span>(<span class="jskeywordcolor" style="color:mediumblue">null</span>, arr);<br>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p>
+</p>
+</div>
+
+<p><code class="w3-codespan">Math.max.apply(null, [1, 2, 3])</code> is equivalent to <code class="w3-codespan">Math.max(1, 2, 3)</code>.</p>
+
+<hr>
+
+<h2>Using Math.min() on an Array</h2>
+<p>You can use <code class="w3-codespan">Math.min.apply</code> to find the lowest number in an array:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">function</span> myArrayMin(arr) {<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">return</span> Math.<span class="jspropertycolor" style="color:black">min</span>.<span class="jspropertycolor" style="color:black">apply</span>(<span class="jskeywordcolor" style="color:mediumblue">null</span>, arr);<br>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p>
+</p>
+</div>
+
+<p><code class="w3-codespan">Math.min.apply(null, [1, 2, 3])</code> is equivalent to <code class="w3-codespan">Math.min(1, 2, 3)</code>.</p>
+
+<hr>
+
+<h2>My Min / Max JavaScript Methods</h2>
+<p>The fastest solution is to use a "home made" method.</p>
+<p>This function loops through an array comparing each value with the highest 
+value found: </p>
+<div class="w3-Sample">
+<h3>Sample (Find Max)</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">function</span> myArrayMax(arr) {<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">let</span> len = arr.<span class="jspropertycolor" style="color:black">length</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">let</span> max = -<span class="jsnumbercolor" style="color:red">Infinity</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">while</span> (len--) {<br><span class="jsnumbercolor" style="color:red">
+</span>    &nbsp;&nbsp;&nbsp; <span class="jsnumbercolor" style="color:red">
+</span>  <span class="jskeywordcolor" style="color:mediumblue">if</span> (arr[len] &gt; max) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="jsnumbercolor" style="color:red">
+</span>  max = arr[len];<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;}<br>&nbsp; <span class="jskeywordcolor" style="color:mediumblue">return</span> max;<br>} </span></div>
+<p>
+</p>
+</div>
+<p>This function loops through an array comparing each value with the lowest 
+value found: </p>
+<div class="w3-Sample">
+<h3>Sample (Find Min)</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span>  <span class="jskeywordcolor" style="color:mediumblue">function</span> myArrayMin(arr) {<br>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">let</span> len = arr.<span class="jspropertycolor" style="color:black">length</span>;<br>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">let</span> min = <span class="jsnumbercolor" style="color:red">Infinity</span>;<br>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">while</span> (len--) {<br>&nbsp;&nbsp;&nbsp; <span class="jsnumbercolor" style="color:red">
+</span>  <span class="jskeywordcolor" style="color:mediumblue">if</span> (arr[len] &lt; min) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="jsnumbercolor" style="color:red">
+</span>  min = arr[len];<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">return</span> min;<br>} </span></div>
+<p>
+</p>
+</div>
+
+<hr>
+
+<h2>Sorting Object Arrays</h2>
+<p>JavaScript arrays often contain objects:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> cars = [<br><span class="jsnumbercolor" style="color:red">
+</span> &nbsp;<span class="jsnumbercolor" style="color:red">
+</span> {type:<span class="jsstringcolor" style="color:brown">"Volvo"</span>, year:<span class="jsnumbercolor" style="color:red">2016</span>},<br><span class="jsnumbercolor" style="color:red">
+</span> &nbsp;<span class="jsnumbercolor" style="color:red">
+</span> {type:<span class="jsstringcolor" style="color:brown">"Saab"</span>, year:<span class="jsnumbercolor" style="color:red">2001</span>},<br><span class="jsnumbercolor" style="color:red">
+</span> &nbsp;<span class="jsnumbercolor" style="color:red">
+</span> {type:<span class="jsstringcolor" style="color:brown">"BMW"</span>, year:<span class="jsnumbercolor" style="color:red">2010</span>}<br>]; </span></div>
+</div>
+<p>Even if objects have properties of different data types, the <code class="w3-codespan">sort()</code> method 
+can be used to sort the array. </p>
+<p>The solution is to write a compare function to compare the property values:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span> cars.<span class="jspropertycolor" style="color:black">sort</span>(<span class="jskeywordcolor" style="color:mediumblue">function</span>(a, b){<span class="jskeywordcolor" style="color:mediumblue">return</span> a.<span class="jspropertycolor" style="color:black">year</span> - b.<span class="jspropertycolor" style="color:black">year</span>}); </span></div>
+</div>
+<p>Comparing string properties is a little more complex:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+cars.<span class="jspropertycolor" style="color:black">sort</span>(<span class="jskeywordcolor" style="color:mediumblue">function</span>(a, b){<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">let</span> x = a.<span class="jspropertycolor" style="color:black">type</span>.<span class="jspropertycolor" style="color:black">toLowerCase</span>();<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">let</span> y = b.<span class="jspropertycolor" style="color:black">type</span>.<span class="jspropertycolor" style="color:black">toLowerCase</span>();<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; <span class="jskeywordcolor" style="color:mediumblue">if</span> (x &lt; y) {<span class="jskeywordcolor" style="color:mediumblue">return</span> -<span class="jsnumbercolor" style="color:red">1</span>;}<br>&nbsp; <span class="jsnumbercolor" style="color:red">
+</span> <span class="jskeywordcolor" style="color:mediumblue">if</span> (x &gt; y) {<span class="jskeywordcolor" style="color:mediumblue">return</span> <span class="jsnumbercolor" style="color:red">1</span>;}<br>&nbsp; <span class="jskeywordcolor" style="color:mediumblue">return</span> <span class="jsnumbercolor" style="color:red">0</span>;<br>}); </span></div>
+</div>
+<hr>
+<h2>Stable Array sort()</h2>
+<p> ES2019</a> <b>revised</b> the Array <code class="w3-codespan">sort()</code> method.</p>
+<p>Before 2019, the specification allowed unstable sorting algorithms such as QuickSort.</p>
+<p>After ES2019, browsers must use a stable sorting algorithm:</p>
+<p>When sorting elements on a value, the elements must keep their relative position to other elements with the same value.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> myArr = [<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp; {name:<span class="jsstringcolor" style="color:brown">"X00"</span>,price:<span class="jsnumbercolor" style="color:red">100</span> },<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp; {name:<span class="jsstringcolor" style="color:brown">"X01"</span>,price:<span class="jsnumbercolor" style="color:red">100</span> },<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp; {name:<span class="jsstringcolor" style="color:brown">"X02"</span>,price:<span class="jsnumbercolor" style="color:red">100</span> },<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp; {name:<span class="jsstringcolor" style="color:brown">"X03"</span>,price:<span class="jsnumbercolor" style="color:red">100</span> },<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp; {name:<span class="jsstringcolor" style="color:brown">"X04"</span>,price:<span class="jsnumbercolor" style="color:red">110</span> },<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp; {name:<span class="jsstringcolor" style="color:brown">"X05"</span>,price:<span class="jsnumbercolor" style="color:red">110</span> },<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp; {name:<span class="jsstringcolor" style="color:brown">"X06"</span>,price:<span class="jsnumbercolor" style="color:red">110</span> },<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp; {name:<span class="jsstringcolor" style="color:brown">"X07"</span>,price:<span class="jsnumbercolor" style="color:red">110</span> }<br><span class="jsnumbercolor" style="color:red">
+</span>];<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<p>In the Sample above, when sorting on price, the result is not allowed to come out with the names
+in an other relative position like this:</p>
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+X01 <span class="jsnumbercolor" style="color:red">100</span><br>
+X03 <span class="jsnumbercolor" style="color:red">100</span><br>
+X00 <span class="jsnumbercolor" style="color:red">100</span><br>
+X03 <span class="jsnumbercolor" style="color:red">100</span><br>
+X05 <span class="jsnumbercolor" style="color:red">110</span><br>
+X04 <span class="jsnumbercolor" style="color:red">110</span><br>
+X06 <span class="jsnumbercolor" style="color:red">110</span><br>
+X07 <span class="jsnumbercolor" style="color:red">110</span><br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+ 
+
+

@@ -44,3 +44,36 @@ function decrypt(value) {
     var bytes = CryptoJS.AES.decrypt(value, SYMMETRIC_KEY);
     return bytes.toString(CryptoJS.enc.Utf8);
 }
+
+function getYearLevel(yearLevel) {
+    if (yearLevel == 1) {
+        return "First year";
+    } else if (yearLevel == 2) {
+        return "Second Year";
+    } else if (yearLevel == 3) {
+        return "Third Year";
+    } else if (yearLevel == 4) {
+        return "Fourth Year";
+    }
+}
+
+function getUserProfile() {
+    $.ajax({
+        url: "../../common/db.php",
+        type: "POST",
+        data: {
+            action: 'retrieve-user-profile'
+        },
+        cache: false,
+        success: function(dataResult) {
+            var dataResult = JSON.parse(dataResult);
+            if (dataResult.statusCode == 200) {
+                $("#profile-name").html(dataResult.studentInformation.name);
+                $("#profile-user-name").html(dataResult.studentInformation.username);
+                $("#profile-year-level").html(dataResult.studentInformation.yearLevel);
+                $("#profile-specialization").html(dataResult.studentInformation.specialization);
+                $("#profile-ranking").html(dataResult.studentInformation.ranking);
+            }
+        }
+    });
+}

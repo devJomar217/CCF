@@ -1,0 +1,84 @@
+<!-- syntax-->
+
+ 
+  <div class="w3-row w3-white">
+    
+ 
+<h1>What is <span class="color_h1">Syntax in Php?</span></h1>
+ 
+<p class="intro">A PHP script is executed on the server, and the plain HTML result is sent back to the browser.</p>
+<hr>
+
+<h2>Basic PHP Syntax</h2>
+<p>A PHP script can be placed anywhere in the document.</p>
+<p>A PHP script starts with <code class="w3-codespan">&lt;?php</code> and ends with 
+<code class="w3-codespan">?&gt;</code>:</p>
+<div class="w3-code w3-border notranslate"><div>
+&lt;?php<br>
+// PHP code goes here<br>
+?&gt;
+</div></div>
+<p>The default file extension for PHP files is "<code class="w3-codespan">.php</code>".</p>
+<p>A PHP file normally contains HTML tags, and some PHP scripting code.</p>
+<p>Below, we have an Sample of a simple PHP file, with a PHP script that uses a 
+built-in PHP function "<code class="w3-codespan">echo</code>" to output the text
+"Hello World!" on a web page:</p>
+<div class="w3-Sample">
+ <div class="w3-code htmlHigh notranslate">
+ <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>!DOCTYPE<span class="attributecolor" style="color:red"> html</span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+ <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>html<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+    <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>body<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br>
+    <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>h1<span class="tagcolor" style="color:mediumblue">&gt;</span></span>My first PHP page<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/h1<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br>
+ <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br><span class="phpnumbercolor" style="color:red">
+</span> <span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"Hello World!"</span>;<br><span class="phptagcolor" style="color:red">?&gt;</span></span><br><br>
+    <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/body<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+    <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/html<span class="tagcolor" style="color:mediumblue">&gt;</span></span>
+ </div>
+ </div>
+<p><strong>Note:</strong> PHP statements end with a semicolon (<code class="w3-codespan">;</code>).</p>
+ 
+
+<h2>PHP Case Sensitivity</h2>
+<p>In PHP, keywords (e.g. <code class="w3-codespan">if</code>, 
+<code class="w3-codespan">else</code>, <code class="w3-codespan">while</code>, 
+<code class="w3-codespan">echo</code>, etc.), classes, functions, 
+and user-defined functions are not case-sensitive.</p>
+<p>In the Sample below, all three echo statements below are equal and legal:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code htmlHigh notranslate">
+ <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>!DOCTYPE<span class="attributecolor" style="color:red"> html</span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+ <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>html<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+    <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>body<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br>
+    <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br><span class="phpnumbercolor" style="color:red">
+</span> <span class="phpkeywordcolor" style="color:mediumblue">ECHO</span> <span class="phpstringcolor" style="color:brown">"Hello World!&lt;br&gt;"</span>;<br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"Hello World!&lt;br&gt;"</span>;<br><span class="phpnumbercolor" style="color:red">
+</span> <span class="phpkeywordcolor" style="color:mediumblue">EcHo</span> <span class="phpstringcolor" style="color:brown">"Hello World!&lt;br&gt;"</span>;<br><span class="phptagcolor" style="color:red">?&gt;</span></span><br><br>
+    <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/body<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+    <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/html<span class="tagcolor" style="color:mediumblue">&gt;</span></span>
+ </div>
+ </div>
+
+<div class="w3-note w3-panel">
+<p><strong>Note:</strong> However; all variable names are case-sensitive!</p>
+</div>
+
+<p>Look at the Sample below; only the first statement will display the value of the 
+<code class="w3-codespan">$color</code> variable! This is because 
+<code class="w3-codespan">$color</code>, <code class="w3-codespan">$COLOR</code>, and 
+<code class="w3-codespan">$coLOR</code> are treated as three 
+different variables:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code htmlHigh notranslate">
+ <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>!DOCTYPE<span class="attributecolor" style="color:red"> html</span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+ <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>html<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+    <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>body<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br>
+    <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br>$color = <span class="phpstringcolor" style="color:brown">"red"</span>;<br><span class="phpnumbercolor" style="color:red">
+</span> <span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"My car is "</span> . $color . <span class="phpstringcolor" style="color:brown">"&lt;br&gt;"</span>;<br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"My house is "</span> . $COLOR . <span class="phpstringcolor" style="color:brown">"&lt;br&gt;"</span>;<br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"My boat is "</span> . $coLOR . <span class="phpstringcolor" style="color:brown">"&lt;br&gt;"</span>;<br><span class="phptagcolor" style="color:red">?&gt;</span></span><br><br>
+    <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/body<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+    <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/html<span class="tagcolor" style="color:mediumblue">&gt;</span></span>
+ </div>
+ </div>
+ 

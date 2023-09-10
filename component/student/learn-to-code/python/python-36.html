@@ -1,0 +1,109 @@
+<!-- String Formatting-->
+
+
+
+ 
+  <div class="w3-row w3-white">
+     
+
+<h1>What is <span class="color_h1">String Formatting in Python?</span></h1>
+ 
+
+<p class="intro">To make sure a string will display as expected, we can format the result with 
+the <code class="w3-codespan">format()</code> method.</p>
+
+<hr>
+
+<h2>String format()</h2>
+
+<p>The <code class="w3-codespan">format()</code> method allows you to format selected parts of a string.</p>
+
+<p>Sometimes there are parts of a text that you do not control, maybe 
+they come from a database, or user input?</p>
+<p>To control such values, 
+add placeholders (curly brackets <code class="w3-codespan">{}</code>) in the text, and run the values through the 
+<code class="w3-codespan">format()</code> method:</p>
+
+<div class="w3-Sample">
+ <p>Add a placeholder where you want to display the price:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  price = <span class="pythonnumbercolor" style="color:red">49</span><br>txt = <span class="pythonstringcolor" style="color:brown">"The price is {} dollars"</span><br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(txt.<span class="pythonkeywordcolor" style="color:mediumblue">format</span>(price))<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<p>You can add parameters inside the curly brackets to specify how to convert 
+the value:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Format the price to be displayed as a number with two decimals:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  txt = <span class="pythonstringcolor" style="color:brown">"The price is {:.2f} dollars"</span><br><span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+
+ 
+<hr>
+
+<h2>Multiple Values</h2>
+<p>If you want to use more values, just add more values to the format() method:</p>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(txt.<span class="pythonkeywordcolor" style="color:mediumblue">format</span>(price, itemno, count))<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p>And add more placeholders:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  quantity = <span class="pythonnumbercolor" style="color:red">3</span><br>itemno = <span class="pythonnumbercolor" style="color:red">567</span><br>price = <span class="pythonnumbercolor" style="color:red">49</span><br>myorder = <span class="pythonstringcolor" style="color:brown">"I want {} pieces of 
+  item number {} for {:.2f} dollars."</span><br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(myorder.<span class="pythonkeywordcolor" style="color:mediumblue">format</span>(quantity, itemno, price))<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+ 
+
+<h2>Index Numbers</h2>
+
+<p>You can use index numbers (a number inside the curly brackets <code class="w3-codespan">{0}</code>) to be sure the 
+values are placed 
+in the correct placeholders:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  quantity = <span class="pythonnumbercolor" style="color:red">3</span><br>itemno = <span class="pythonnumbercolor" style="color:red">567</span><br>price = <span class="pythonnumbercolor" style="color:red">49</span><br>myorder = <span class="pythonstringcolor" style="color:brown">"I want {0} pieces of 
+  item number {1} for {2:.2f} dollars."</span><br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(myorder.<span class="pythonkeywordcolor" style="color:mediumblue">format</span>(quantity, itemno, price))<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<p>Also, if you want to refer to the same value more than once, use the index number:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  age = <span class="pythonnumbercolor" style="color:red">36</span><br>name = <span class="pythonstringcolor" style="color:brown">"John"</span><br>txt = <span class="pythonstringcolor" style="color:brown">"His name is {1}. {1} is {0} years old."</span><br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(txt.<span class="pythonkeywordcolor" style="color:mediumblue">format</span>(age, <span class="pythonnumbercolor" style="color:red">
+</span>  name))<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<hr>
+
+<h2>Named Indexes</h2>
+
+<p>You can also use named indexes by entering a name inside the curly brackets <code class="w3-codespan">{carname}</code>, 
+but then you must use names when you pass the parameter values
+<code class="w3-codespan">txt.format(carname = "Ford")</code>:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  myorder = <span class="pythonstringcolor" style="color:brown">"I have a {carname}, it is a {model}."</span><br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(myorder.<span class="pythonkeywordcolor" style="color:mediumblue">format</span>(carname <span class="pythonnumbercolor" style="color:red">
+</span>  = <span class="pythonstringcolor" style="color:brown">"Ford"</span>, model = <span class="pythonstringcolor" style="color:brown">"Mustang"</span>))<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+ 

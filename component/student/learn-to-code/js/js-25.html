@@ -1,0 +1,178 @@
+<!-- N properties-->
+
+
+
+  <div class="w3-row w3-white">
+    
+
+
+<h1>What is <span class="color_h1">Number Properties in JavaScript?</span></h1>
+
+<div class="w3-stretch">
+<table class="ws-table-all notranslate">
+  <tbody><tr>
+    <th style="width:25%">Property</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>EPSILON</td>
+    <td>The difference between 1 and the smallest number &gt; 1.</td>
+  </tr>
+  <tr>
+    <td>MAX_VALUE</td>
+    <td>The largest number possible in JavaScript</td>
+  </tr>
+  <tr>
+    <td>MIN_VALUE</td>
+    <td>The smallest number possible in JavaScript</td>
+  </tr>
+  <tr>
+    <td>MAX_SAFE_INTEGER</td>
+    <td>The maximum safe integer (2<sup>53</sup> - 1)</td>
+  </tr>
+  <tr>
+    <td>MIN_SAFE_INTEGER</td>
+    <td>The minimum safe integer -(2<sup>53</sup> - 1)</td>
+  </tr>
+  <tr>
+    <td>POSITIVE_INFINITY</td>
+    <td>Infinity (returned on overflow)</td>
+  </tr>
+  <tr>
+    <td>NEGATIVE_INFINITY</td>
+    <td>Negative infinity (returned on overflow)</td>
+    </tr>
+  <tr>
+    <td>NaN</td>
+    <td>A "Not-a-Number" value</td>
+    </tr>
+</tbody></table>
+</div>
+<hr>
+<h2>JavaScript EPSILON</h2>
+<p><code class="w3-codespan">Number.EPSILON</code> is the difference between
+the smallest floating point number greater than 1 and 1.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = Number.<span class="jspropertycolor" style="color:black">EPSILON</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+
+</div>
+<div class="w3-note">
+<h2>Note</h2>
+<p><code class="w3-codespan">Number.EPSILON</code> is an ES6</a> feature.</p>
+<p>It does not work in Internet Explorer.</p>
+</div>
+<hr>
+
+<h2>JavaScript MAX_VALUE</h2>
+<p><code class="w3-codespan">Number.MAX_VALUE</code> is a constant representing the largest possible number in JavaScript.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = Number.<span class="jspropertycolor" style="color:black">MAX_VALUE</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+
+</div>
+
+<div class="w3-note">
+<h2>Number Properties Cannot be Used on Variables</h2>
+<p>Number properties belong to the JavaScript <strong>Number Object</strong>.</p>
+<p>These properties can only be accessed as <code class="w3-codespan">Number.MAX_VALUE</code>.</p>
+<p>Using x.MAX_VALUE, where x is a variable or a value,
+will return <code class="w3-codespan">undefined</code>:</p>
+</div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">6</span>;<br>
+x.<span class="jspropertycolor" style="color:black">MAX_VALUE
+</span> </span></div>
+</div>
+
+<hr>
+<h2>JavaScript MIN_VALUE</h2>
+<p><code class="w3-codespan">Number.MIN_VALUE</code> is a constant representing the lowest possible number in JavaScript.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = Number.<span class="jspropertycolor" style="color:black">MIN_VALUE</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<hr>
+
+<h2>JavaScript MAX_SAFE_INTEGER</h2>
+<p><code class="w3-codespan">Number.MAX_SAFE_INTEGER</code> represents the maximum safe integer in JavaScript.</p>
+<p><code class="w3-codespan">Number.MAX_SAFE_INTEGER</code> is (2<sup>53</sup> - 1).</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = Number.<span class="jspropertycolor" style="color:black">MAX_SAFE_INTEGER</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<hr>
+<h2>JavaScript MIN_SAFE_INTEGER</h2>
+<p><code class="w3-codespan">Number.MIN_SAFE_INTEGER</code> represents the minimum safe integer in JavaScript.</p>
+<p><code class="w3-codespan">Number.MIN_SAFE_INTEGER</code> is -(2<sup>53</sup> - 1).</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = Number.<span class="jspropertycolor" style="color:black">MIN_SAFE_INTEGER</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<div class="w3-note">
+<h2>Note</h2>
+<p><code class="w3-codespan">MAX_SAFE_INTEGER</code> and
+<code class="w3-codespan">MIN_SAFE_INTEGER</code> are ES6</a> features.</p>
+<p>They do not work in Internet Explorer.</p>
+</div>
+
+
+
+<h2>JavaScript POSITIVE_INFINITY</h2>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = Number.<span class="jspropertycolor" style="color:black">POSITIVE_INFINITY</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p><code class="w3-codespan">POSITIVE_INFINITY</code> is returned on overflow:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">1</span> / <span class="jsnumbercolor" style="color:red">0</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<hr>
+
+<h2>JavaScript NEGATIVE_INFINITY</h2>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = Number.<span class="jspropertycolor" style="color:black">NEGATIVE_INFINITY</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p><code class="w3-codespan">NEGATIVE_INFINITY</code> is returned on overflow:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = -<span class="jsnumbercolor" style="color:red">1</span> / <span class="jsnumbercolor" style="color:red">0</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<hr>
+<h2>JavaScript NaN - Not a Number</h2>
+<p><code class="w3-codespan">NaN</code> is a JavaScript reserved word for a number that is not a legal number.</p>
+<div class="w3-Sample">
+<h3>Samples</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = Number.<span class="jskeywordcolor" style="color:mediumblue">NaN</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p>Trying to do arithmetic with a non-numeric string will result in <code class="w3-codespan">NaN</code> (Not a 
+Number):</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">100</span> / <span class="jsstringcolor" style="color:brown">"Apple"</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p>
+</p>
+</div>
+

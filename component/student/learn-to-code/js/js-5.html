@@ -1,0 +1,188 @@
+<!-- Statement-->
+
+
+  <div class="w3-row w3-white">
+    
+<h1>What is <span class="color_h1">Statements in JavaScript?</span></h1>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x, y, z;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// Statement 1<br></span>
+x = <span class="jsnumbercolor" style="color:red">5</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// Statement 2<br></span>
+y = <span class="jsnumbercolor" style="color:red">6</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// Statement 3<br></span>
+z = x + y;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">//  Statement 4<br></span><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<hr>
+<h2>JavaScript Programs</h2>
+<p>A <strong>computer program</strong> is a list of "instructions" to be 
+"executed" by a computer.</p>
+<p>In a programming language, these programming instructions are called <strong>statements</strong>.</p>
+<p>A <strong>JavaScript program</strong> is a list of programming <strong>statements</strong>.</p>
+
+<div class="w3-panel w3-note">
+<p>In HTML, JavaScript programs are executed by the web browser.</p>
+</div>
+
+<hr>
+
+<h2>JavaScript Statements</h2>
+<p>JavaScript statements are composed of:</p>
+<p>Values, Operators, Expressions,&nbsp;Keywords, 
+and Comments.</p>
+<p>This statement tells the browser to write "Hello Dolly." 
+inside an HTML element with id="demo":</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+document.<span class="jspropertycolor" style="color:black">getElementById</span>(<span class="jsstringcolor" style="color:brown">"demo"</span>).<span class="jspropertycolor" style="color:black">innerHTML</span> = <span class="jsstringcolor" style="color:brown">"Hello Dolly."</span>; </span></div>
+</div>
+
+<p>Most JavaScript 
+programs contain many JavaScript statements.</p>
+<p>The statements are executed, one by one, in the 
+same order as they are written.</p>
+
+<div class="w3-panel w3-note">
+<p>JavaScript programs (and JavaScript statements) are often called JavaScript code.
+</p>
+</div>
+
+<hr>
+<h2>Semicolons ;</h2>
+<p>Semicolons separate JavaScript statements.</p>
+<p>Add a semicolon at the end of each executable statement: </p>
+<div class="w3-Sample">
+<h3>Samples</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> a, b, c;&nbsp; <span class="commentcolor" style="color:green">// Declare 3 variables<br></span>
+a = <span class="jsnumbercolor" style="color:red">5</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// Assign the value 5 to a<br></span>
+b = <span class="jsnumbercolor" style="color:red">6</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// Assign the 
+  value 6 to b<br></span>
+c = a + b;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// Assign the sum of a and b to c<br></span><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<p>
+When separated by semicolons, multiple statements on one line are allowed:</p>
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+a = <span class="jsnumbercolor" style="color:red">5</span>; b = <span class="jsnumbercolor" style="color:red">6</span>; c = a + b;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-panel w3-note">
+<p>On the web, you might see Samples without semicolons. <br>
+Ending statements with semicolon is not required, but highly recommended.</p>
+</div>
+
+
+</div>
+<hr>
+<h2>JavaScript White Space</h2>
+<p>JavaScript ignores multiple spaces. You can add white space to your script to make it more readable.</p>
+<p>The following lines are equivalent:</p>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> person = <span class="jsstringcolor" style="color:brown">"Hege"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> person=<span class="jsstringcolor" style="color:brown">"Hege"</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<p>A good practice is to put spaces around operators ( = + - * / ):</p>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = y + z; </span></div>
+</div>
+<hr>
+
+<h2>JavaScript Line Length and Line Breaks</h2>
+<p>For best readability, programmers often like to avoid code lines longer than 80 
+characters.</p>
+<p>If a JavaScript statement does not fit on one line, the best place to break 
+it is after an operator:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+document.<span class="jspropertycolor" style="color:black">getElementById</span>(<span class="jsstringcolor" style="color:brown">"demo"</span>).<span class="jspropertycolor" style="color:black">innerHTML</span> =<br><span class="jsstringcolor" style="color:brown">"Hello Dolly!"</span>; </span></div>
+</div>
+<hr>
+
+<h2>JavaScript Code Blocks</h2>
+<p>JavaScript statements can be grouped together in code blocks, inside curly 
+brackets {...}.</p>
+<p>The purpose of code blocks is to define statements to be executed together.</p>
+<p>One place you will find statements grouped together in blocks, is in 
+JavaScript functions:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span> <span class="jskeywordcolor" style="color:mediumblue">function</span> myFunction() {<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;document.<span class="jspropertycolor" style="color:black">getElementById</span>(<span class="jsstringcolor" style="color:brown">"demo1"</span>).<span class="jspropertycolor" style="color:black">innerHTML</span> = <span class="jsstringcolor" style="color:brown">"Hello Dolly!"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;document.<span class="jspropertycolor" style="color:black">getElementById</span>(<span class="jsstringcolor" style="color:brown">"demo2"</span>).<span class="jspropertycolor" style="color:black">innerHTML</span> = <span class="jsstringcolor" style="color:brown">"How are you?"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>}<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+
+<div class="w3-panel w3-note">
+<p>In this tutorial we use 2 spaces of indentation for code blocks.<br>
+You will learn more about functions later in this tutorial.</p>
+</div>
+
+<hr>
+<h2>JavaScript Keywords</h2>
+<p>JavaScript statements often start with a <strong>keyword</strong> 
+to identify the JavaScript action to be performed.</p>
+<p>Our Reserved Words Reference</a> lists all JavaScript keywords.</p>
+<p>Here is a list of some of the keywords you will learn about in 
+this tutorial: </p>
+<table class="ws-table-all" style="width: 100%">
+<tbody><tr>
+ <th style="height: 25px">Keyword</th>
+ <th style="height: 25px">Description</th>
+</tr>
+
+<tr>
+<td class="notranslate">var</td>
+<td>Declares a variable</td>
+</tr>
+<tr>
+<td class="notranslate">let</td>
+<td>Declares a block variable</td>
+</tr>
+<tr>
+<td class="notranslate">const</td>
+<td>Declares a block constant</td>
+</tr>
+<tr>
+<td class="notranslate">if</td>
+<td>Marks a block of statements to be executed on a condition</td>
+</tr>
+<tr>
+<td class="notranslate">switch</td>
+<td>Marks a block of statements to be executed in different cases</td>
+</tr>
+<tr>
+<td class="notranslate">for</td>
+<td>Marks a block of statements to be executed in a loop</td>
+</tr>
+<tr>
+<td class="notranslate">function</td>
+<td>Declares a function</td>
+</tr>
+<tr>
+<td class="notranslate">return</td>
+<td>Exits a function</td>
+</tr>
+<tr>
+<td class="notranslate">try</td>
+<td>Implements error handling to a block of statements</td>
+</tr>
+</tbody></table>
+
+<div class="w3-panel w3-note">
+<p>JavaScript keywords are reserved words. Reserved words cannot be used as names for variables.</p>
+</div>
+

@@ -1,0 +1,450 @@
+<!-- Type Conversation-->
+
+
+  <div class="w3-row w3-white">
+    
+
+
+<h1>What is <span class="color_h1">Type Conversion in JavaScript?</span></h1>
+
+<div class="w3-info">
+<ul>
+<li>Converting Strings to Numbers</li>
+<li>Converting Numbers to Strings</li>
+<li>Converting Dates to Numbers</li>
+<li>Converting Numbers to Dates</li>
+<li>Converting Booleans to Numbers</li>
+<li>Converting Numbers to Booleans</li>
+</ul>
+</div>
+
+<h2>JavaScript Type Conversion</h2>
+<p>JavaScript variables can be converted to a new variable and another data type:</p>
+<ul>
+  <li>By the use of a JavaScript function</li>
+  <li><strong>Automatically</strong> by JavaScript itself</li>
+</ul>
+<hr>
+<h2>Converting Strings to Numbers</h2>
+<p>The global method <code class="w3-codespan">Number()</code> converts a variable (or a value) into a number.</p>
+<p>A numeric string (like "3.14") converts to a number (like 3.14).</p>
+<p>An empty string (like "") converts to 0.</p>
+<p>A non numeric string (like "John") converts to <code class="w3-codespan">NaN</code> (Not a Number).</p>
+
+<div class="w3-Sample">
+<h3>Samples</h3>
+<p>These will convert:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+Number(<span class="jsstringcolor" style="color:brown">"3.14"</span>)<br>
+Number(Math.<span class="jspropertycolor" style="color:black">PI</span>)<br>
+Number(<span class="jsstringcolor" style="color:brown">" "</span>)<br>
+Number(<span class="jsstringcolor" style="color:brown">""</span>)<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p>These will not convert:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+Number(<span class="jsstringcolor" style="color:brown">"99 88"</span>)<br>
+Number(<span class="jsstringcolor" style="color:brown">"John"</span>)<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+
+</div>
+<hr>
+<h2>Number Methods</h2>
+<p>In the chapter Number Methods</a>, you 
+will find more methods that can be used to convert strings to 
+numbers:</p>
+<table class="ws-table-all notranslate">
+  <tbody><tr>
+    <th style="width:25%">Method</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>Number()</td>
+    <td>Returns a number, converted from its argument</td>
+    </tr>
+  <tr>
+  </tr><tr>
+    <td>parseFloat()</td>
+    <td>Parses a string and returns a floating point number</td>
+    </tr>
+  <tr>
+    <td>parseInt()</td>
+    <td>Parses a string and returns an integer</td>
+    </tr>
+</tbody></table>
+<hr>
+
+<h2>The Unary + Operator</h2>
+<p>The <strong>unary + operator</strong> can be used to 
+convert a variable to a number:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jsstringcolor" style="color:brown">"5"</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// y is a string<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = + y;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// x is a number
+ </span></span></div>
+</div>
+<p>
+If the 
+variable cannot be converted, it will still become a number, but with the value <code class="w3-codespan">NaN</code> 
+(Not a Number):</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jsstringcolor" style="color:brown">"John"</span>;&nbsp;&nbsp;<span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// y is a string<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = + y;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// x is a number (NaN) </span></span></div>
+</div>
+
+
+
+<h2>Converting Numbers to Strings</h2>
+<p>The global method <code class="w3-codespan">String()</code> can convert numbers to strings.</p>
+
+<p>It can be used on any type of numbers, literals, variables, or expressions:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span> String(x)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// returns a string from a number variable x<br></span><span class="jsnumbercolor" style="color:red">
+</span> String(<span class="jsnumbercolor" style="color:red">123</span>)&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// returns a string from a number literal 123<br></span><span class="jsnumbercolor" style="color:red">
+</span> String(<span class="jsnumbercolor" style="color:red">100</span> + <span class="jsnumbercolor" style="color:red">23</span>)&nbsp; <span class="commentcolor" style="color:green">// returns a string from a number from an expression </span></span></div>
+</div>
+<p>The Number method <code class="w3-codespan">toString()</code> does the same.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+ <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+x.<span class="jspropertycolor" style="color:black">toString</span>()<br>(<span class="jsnumbercolor" style="color:red">123</span>).<span class="jspropertycolor" style="color:black">toString</span>()<br>(<span class="jsnumbercolor" style="color:red">100</span> + <span class="jsnumbercolor" style="color:red">23</span>).<span class="jspropertycolor" style="color:black">toString</span>() </span></div>
+</div>
+<hr>
+<h2>More Methods</h2>
+<p>In the chapter Number Methods</a>, you 
+will find more methods that can be used to convert numbers to 
+strings:</p>
+<table class="ws-table-all notranslate">
+  <tbody><tr>
+    <th style="width:25%">Method</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>toExponential()</td>
+    <td>Returns a string, with a number rounded and written using exponential notation.</td>
+  </tr>
+  <tr>
+    <td>toFixed()</td>
+    <td>Returns a string, with a number rounded and written with a specified number of decimals.</td>
+  </tr>
+  <tr>
+    <td>toPrecision()</td>
+    <td>Returns a string, with a number written with a specified length</td>
+  </tr>
+</tbody></table>
+<hr>
+
+<h2>Converting Dates to Numbers</h2>
+<p>The global method <code class="w3-codespan">Number()</code> can be used to convert dates to 
+numbers.</p>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date();<br>Number(d)&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// returns 1404568027739
+ </span></span></div>
+</div>
+
+<p>The date method <code class="w3-codespan">getTime()</code>  does the same.</p>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date();<br>d.<span class="jspropertycolor" style="color:black">getTime</span>()&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; <span class="commentcolor" style="color:green">// returns 1404568027739
+ </span></span></div>
+</div>
+<hr>
+
+<h2>Converting Dates to Strings</h2>
+
+<p>The global method <code class="w3-codespan">String()</code> can convert dates to 
+strings.</p>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span>  String(Date())&nbsp; <span class="commentcolor" style="color:green">// returns "Thu Jul 17 2014 15:38:19 GMT+0200 (W. Europe Daylight Time)" </span></span></div>
+</div>
+
+<p>The Date method <code class="w3-codespan">toString()</code> does the same.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+ <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span>  Date().<span class="jspropertycolor" style="color:black">toString</span>()&nbsp; <span class="commentcolor" style="color:green">// returns "Thu Jul 17 2014 15:38:19 GMT+0200 (W. Europe Daylight Time)" </span></span></div>
+</div>
+
+<p>In the chapter Date Methods</a>, you 
+will find more methods that can be used to convert dates to 
+strings:</p>
+<table class="ws-table-all notranslate">
+<tbody><tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>getDate()</td>
+<td>Get the day as a number (1-31)</td>
+</tr>
+<tr>
+<td>getDay()</td>
+<td>Get the weekday a number (0-6)</td>
+</tr>
+<tr>
+<td>getFullYear()</td>
+<td>Get the four digit year (yyyy)</td>
+</tr>
+<tr>
+<td>getHours()</td>
+<td>Get the hour (0-23)</td>
+</tr>
+<tr>
+<td>getMilliseconds()</td>
+<td>Get the milliseconds (0-999)</td>
+</tr>
+<tr>
+<td>getMinutes()</td>
+<td>Get the minutes (0-59)</td>
+</tr>
+<tr>
+<td>getMonth()</td>
+<td>Get the month (0-11)</td>
+</tr>
+<tr>
+<td>getSeconds()</td>
+<td>Get the seconds (0-59)</td>
+</tr>
+<tr>
+<td>getTime()</td>
+<td>Get the time (milliseconds since January 1, 1970)</td>
+</tr>
+</tbody></table>
+<hr>
+
+<h2>Converting Booleans to Numbers</h2>
+<p>The global method <code class="w3-codespan">Number()</code> can also convert booleans to numbers.</p>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+Number(<span class="jskeywordcolor" style="color:mediumblue">false</span>)&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// returns 0<br></span>
+Number(<span class="jskeywordcolor" style="color:mediumblue">true</span>)&nbsp; &nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// returns 1
+ </span></span></div>
+</div>
+<hr>
+<h2>Converting Booleans to Strings</h2>
+
+<p>The global method <code class="w3-codespan">String()</code> can convert booleans to 
+strings.</p>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+String(<span class="jskeywordcolor" style="color:mediumblue">false</span>)&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<span class="commentcolor" style="color:green">// returns "false"<br></span>
+String(<span class="jskeywordcolor" style="color:mediumblue">true</span>)&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <span class="commentcolor" style="color:green">// returns "true"
+ </span></span></div>
+</div>
+
+<p>The Boolean method <code class="w3-codespan">toString()</code> does the same.</p>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">false</span>.<span class="jspropertycolor" style="color:black">toString</span>()&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// returns "false"<br></span><span class="jsnumbercolor" style="color:red">
+</span>  <span class="jskeywordcolor" style="color:mediumblue">true</span>.<span class="jspropertycolor" style="color:black">toString</span>()&nbsp; &nbsp; <span class="commentcolor" style="color:green">// returns "true"
+ </span></span></div>
+</div>
+<hr>
+
+<h2>Automatic Type Conversion</h2>
+<p>When JavaScript tries to operate on a "wrong" data type, it will try to 
+convert the value to a "right" type.</p>
+<p>The result is not always what you expect:</p>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span> <span class="jsnumbercolor" style="color:red">5</span> + <span class="jskeywordcolor" style="color:mediumblue">null</span>&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// returns 5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; because null is converted to 0<br></span><span class="jsstringcolor" style="color:brown">"5"</span> + <span class="jskeywordcolor" style="color:mediumblue">null</span>&nbsp; <span class="commentcolor" style="color:green">// returns "5null"&nbsp;&nbsp; because null is converted to "null"<br></span><span class="jsstringcolor" style="color:brown">"5"</span> + <span class="jsnumbercolor" style="color:red">2</span>&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// returns 
+    "52"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; because 2 is converted to "2"<br></span><span class="jsnumbercolor" style="color:red">
+</span> <span class="jsstringcolor" style="color:brown">"5"</span> - <span class="jsnumbercolor" style="color:red">2</span>&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// returns 3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; because "5" is converted to 5<br></span><span class="jsstringcolor" style="color:brown">"5"</span> * <span class="jsstringcolor" style="color:brown">"2"</span>&nbsp;&nbsp; <span class="commentcolor" style="color:green">// returns 
+    10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; because "5" and "2" are 
+    converted to 5 and 2 </span></span></div>
+</div>
+<hr>
+
+<h2>Automatic String Conversion</h2>
+<p>JavaScript automatically calls the variable's <code class="w3-codespan">toString()</code> function when you try 
+to "output" an object or a variable:</p>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+document.<span class="jspropertycolor" style="color:black">getElementById</span>(<span class="jsstringcolor" style="color:brown">"demo"</span>).<span class="jspropertycolor" style="color:black">innerHTML</span> = myVar;<br><br><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// if myVar = {name:"Fjohn"}&nbsp; // toString converts to "[object Object]"<br></span><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// if myVar = [1,2,3,4]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // toString converts to "1,2,3,4"<br></span><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// if myVar = new Date()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // toString converts to "Fri Jul 18 2014 09:08:55 GMT+0200"<br></span><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p>Numbers and booleans are also converted, but this is not very visible:</p>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// if myVar = 123&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // toString converts to "123"<br></span><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// if myVar = true &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // toString converts to "true"<br></span><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// if myVar = false&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // toString converts to "false"
+ </span></span></div>
+</div>
+
+<hr>
+
+<h2>JavaScript Type Conversion Table</h2>
+<p>This table shows the result of converting different JavaScript values to Number, String, and Boolean:</p>
+
+<div class="w3-responsive" style="margin:-16px 0">
+<table class="ws-table-all notranslate">
+ <tbody><tr>
+  <th>Original<br>Value</th>
+  <th>Converted<br>to Number</th>
+  <th>Converted<br>to String</th>
+  <th>Converted<br>to Boolean</th>
+ </tr>
+ <tr>
+  <td>false</td>
+  <td>0</td>
+  <td>"false"</td>
+  <td>false</td>
+ </tr>
+ <tr>
+  <td>true</td>
+  <td>1</td>
+  <td>"true"</td>
+  <td>true</td>
+ </tr>
+ <tr>
+  <td>0</td>
+  <td>0</td>
+  <td>"0"</td>
+  <td>false</td>
+ </tr>
+ <tr>
+  <td>1</td>
+  <td>1</td>
+  <td>"1"</td>
+  <td>true</td>
+ </tr>
+ <tr>
+  <td>"0"</td>
+  <td>0</td>
+  <td>"0"</td>
+  <td class="important">true</td>
+ </tr>
+ <tr>
+  <td>"000"</td>
+  <td>0</td>
+  <td>"000"</td>
+  <td class="important">true</td>
+ </tr>
+ <tr>
+  <td>"1"</td>
+  <td>1</td>
+  <td>"1"</td>
+  <td>true</td>
+ </tr>
+ <tr>
+  <td>NaN</td>
+  <td>NaN</td>
+  <td>"NaN"</td>
+  <td>false</td>
+ </tr>
+ <tr>
+  <td>Infinity</td>
+  <td>Infinity</td>
+  <td>"Infinity"</td>
+  <td>true</td>
+ </tr>
+ <tr>
+  <td>-Infinity</td>
+  <td>-Infinity</td>
+  <td>"-Infinity"</td>
+  <td>true</td>
+ </tr>
+ <tr>
+  <td>""</td>
+  <td class="important">0</td>
+  <td>""</td>
+  <td class="important">false</td>
+ </tr>
+ <tr>
+  <td>"20"</td>
+  <td>20</td>
+  <td>"20"</td>
+  <td>true</td>
+ </tr>
+ <tr>
+  <td>"twenty"</td>
+  <td>NaN</td>
+  <td>"twenty"</td>
+  <td>true</td>
+ </tr>
+ <tr>
+  <td>[ ]</td>
+  <td class="important">0</td>
+  <td>""</td>
+  <td>true</td>
+ </tr>
+ <tr>
+  <td>[20]</td>
+  <td class="important">20</td>
+  <td>"20"</td>
+  <td>true</td>
+ </tr>
+ <tr>
+  <td>[10,20]</td>
+  <td>NaN</td>
+  <td>"10,20"</td>
+  <td>true</td>
+ </tr>
+ <tr>
+  <td>["twenty"]</td>
+  <td>NaN</td>
+  <td>"twenty"</td>
+  <td>true</td>
+ </tr>
+ <tr>
+  <td>["ten","twenty"]</td>
+  <td>NaN</td>
+  <td>"ten,twenty"</td>
+  <td>true</td>
+ </tr>
+ <tr>
+  <td>function(){}</td>
+  <td>NaN</td>
+  <td>"function(){}"</td>
+  <td>true</td>
+ </tr>
+ <tr>
+  <td>{ }</td>
+  <td>NaN</td>
+  <td>"[object Object]"</td>
+  <td>true</td>
+ </tr>
+ <tr>
+  <td>null</td>
+  <td class="important">0</td>
+  <td>"null"</td>
+  <td>false</td>
+ </tr>
+ <tr>
+  <td>undefined</td>
+  <td>NaN</td>
+  <td>"undefined"</td>
+  <td>false</td>
+ </tr>
+</tbody></table>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Values in quotes indicate string values.</p>
+<p><span class="important">Red values</span> indicate values (some) programmers might not expect.</p>
+<br>

@@ -122,7 +122,7 @@
                         location.href = "../login/index.php";
                     } else if (dataResult.statusCode == 201) {
                         eError.show();
-                        // eError.html(ErrorMessage.INCORRECT_CREDENTIAL);
+                        eError.html("Incorrect username or password!");
                         eEmail.addClass("is-invalid");
                         ePassword.addClass("is-invalid");
                     } else if (dataResult.statusCode == 5000) {

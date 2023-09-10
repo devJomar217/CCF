@@ -1,0 +1,238 @@
+<!-- if...else-->
+
+
+  <div class="w3-row w3-white">
+ 
+    <h1>What is <span class="color_h1">If ... Else in C#?</span></h1>
+
+
+<h2>C# Conditions and If Statements</h2>
+
+<p>C# supports the usual logical conditions from mathematics:</p>
+<ul>
+<li>Less than: <span class="w3-codespan">a &lt; b</span></li>
+<li>Less than or equal to: <span class="w3-codespan">a &lt;= b</span></li>
+<li>Greater than: <span class="w3-codespan">a &gt; b</span></li>
+<li>Greater than or equal to: <span class="w3-codespan">a &gt;= b</span></li>
+<li>Equal to <span class="w3-codespan">a == b</span></li>
+<li>Not Equal to: <span class="w3-codespan">a != b</span></li>
+</ul>
+<p>You can use these conditions to perform different actions for different decisions.</p>
+<p>C# has the following conditional statements:</p>
+<ul>
+  <li>Use <code class="w3-codespan">if</code> to specify a block of code to be executed, if a specified condition is true</li>
+  <li>Use <code class="w3-codespan">else</code> to specify a block of code to be executed, if the same condition is false</li>
+  <li>Use <code class="w3-codespan">else if</code> to specify a new condition to test, if the first condition is false</li>
+  <li>Use <code class="w3-codespan">switch</code> to specify many alternative blocks of code to be executed</li>
+</ul>
+
+<hr>
+
+<h2>The if Statement</h2>
+
+<p>Use the <code class="w3-codespan">if</code> statement to specify a block of C# code to be executed if a condition is 
+<code class="w3-codespan">True</code>.</p>
+
+<div class="w3-Sample">
+<h3>Syntax</h3>
+<pre class="w3-white language-csharp" tabindex="0"><code class="language-csharp"><span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span><em>condition</em><span class="token punctuation">)</span> 
+<span class="token punctuation">{</span>
+  <span class="token comment"><em>// block of code to be executed if the condition is True</em></span>
+<span class="token punctuation">}</span>
+</code></pre>
+</div>
+
+<div class="w3-panel w3-note">
+<p>Note that <code class="w3-codespan">if</code> is in lowercase letters. Uppercase letters (If or IF) will generate an error.</p>
+</div>
+<p>In the Sample below, we test two values to find out if 20 is greater than 
+18. If the condition is <code class="w3-codespan">True</code>, print some text:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<pre class="w3-white language-csharp" tabindex="0"><code class="language-csharp"><span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span><span class="token number">20</span> <span class="token operator">&gt;</span> <span class="token number">18</span><span class="token punctuation">)</span> 
+<span class="token punctuation">{</span>
+  Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"20 is greater than 18"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>
+</p>
+</div>
+
+<p>We can also test variables:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<pre class="w3-white language-csharp" tabindex="0"><code class="language-csharp"><span class="token class-name"><span class="token keyword keyword-int">int</span></span> x <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token keyword keyword-int">int</span></span> y <span class="token operator">=</span> <span class="token number">18</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>x <span class="token operator">&gt;</span> y<span class="token punctuation">)</span> 
+<span class="token punctuation">{</span>
+  Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"x is greater than y"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>
+</p>
+</div>
+<h4>Sample explained</h4>
+<p>In the Sample above we use two variables, <strong>x</strong> and <strong>y</strong>, 
+to test whether x is greater than y 
+(using the <code class="w3-codespan">&gt;</code> operator). As x is 20, and y is 18, and we know that 20 is greater than 18, we print to the screen that "x is greater than y".</p>
+
+ <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+ <p>&nbsp;</p> 
+ <p>&nbsp;</p> 
+  <div class="w3-row w3-white">
+  
+ 
+    <h1>C# <span class="color_h1">The else Statement</span></h1>
+
+
+<h2>The else Statement</h2>
+<p>Use the <code class="w3-codespan">else</code> statement to specify a block of code to be executed if the condition is 
+<code class="w3-codespan">False</code>.</p>
+
+<div class="w3-Sample">
+<h3>Syntax</h3>
+<pre class="w3-white language-csharp" tabindex="0"><code class="language-csharp"><span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span><em>condition</em><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token comment"><em>// block of code to be executed if the condition is True</em></span>
+<span class="token punctuation">}</span> 
+<span class="token keyword keyword-else">else</span> 
+<span class="token punctuation">{</span>
+  <span class="token comment"><em>// block of code to be executed if the condition is False</em></span>
+<span class="token punctuation">}</span>
+</code></pre>
+</div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<pre class="w3-white language-csharp" data-line="6" tabindex="0"><code class="language-csharp"><span class="token class-name"><span class="token keyword keyword-int">int</span></span> time <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>time <span class="token operator">&lt;</span> <span class="token number">18</span><span class="token punctuation">)</span> 
+<span class="token punctuation">{</span>
+  Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Good day."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
+<span class="token keyword keyword-else">else</span> 
+<span class="token punctuation">{</span>
+  Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Good evening."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// Outputs "Good evening."</span>
+<div aria-hidden="true" data-range="6" class=" line-highlight" data-start="6" style="top: 112.5px; width: 335px;"> 
+</div></code></pre>
+<p>
+</p>
+</div>
+<h4>Sample explained</h4>
+<p>In the Sample above, time (20) is greater than 18, so the condition is 
+<code class="w3-codespan">False</code>. 
+Because of this, we move on to the <code class="w3-codespan">else</code> condition and print to the screen "Good 
+evening". If the time was less than 18, the program would print "Good day".</p>
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+<p>&nbsp;</p> 
+<p>&nbsp;</p> 
+  <div class="w3-row w3-white">
+    
+
+    <h1>C# <span class="color_h1">The else if Statement</span></h1>
+
+
+<h2>The else if Statement</h2>
+
+<p>Use the <code class="w3-codespan">else if</code> statement to specify a new condition if the first condition is 
+<code class="w3-codespan">False</code>.</p>
+
+<div class="w3-Sample">
+<h3>Syntax</h3>
+<pre class="w3-white language-csharp" data-keep-tags="em" tabindex="0"><code class="language-csharp"><span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span><em>condition1</em><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token comment"><em>// block of code to be executed if condition1 is True</em></span>
+<span class="token punctuation">}</span> 
+<span class="token keyword keyword-else">else</span> <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span><em>condition2</em><span class="token punctuation">)</span> 
+<span class="token punctuation">{</span>
+  <span class="token comment"><em>// block of code to be executed if the condition1 is false and condition2 is True</em></span>
+<span class="token punctuation">}</span> 
+<span class="token keyword keyword-else">else</span>
+<span class="token punctuation">{</span>
+  <span class="token comment"><em>// block of code to be executed if the condition1 is false and condition2 is False</em></span>
+<span class="token punctuation">}</span>
+</code></pre>
+</div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<pre class="w3-white language-csharp" data-line="6" tabindex="0"><code class="language-csharp"><span class="token class-name"><span class="token keyword keyword-int">int</span></span> time <span class="token operator">=</span> <span class="token number">22</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>time <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">)</span> 
+<span class="token punctuation">{</span>
+  Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Good morning."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
+<span class="token keyword keyword-else">else</span> <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>time <span class="token operator">&lt;</span> <span class="token number">20</span><span class="token punctuation">)</span> 
+<span class="token punctuation">{</span>
+  Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Good day."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
+<span class="token keyword keyword-else">else</span> 
+<span class="token punctuation">{</span>
+  Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Good evening."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// Outputs "Good evening."</span>
+<div aria-hidden="true" data-range="6" class=" line-highlight" data-start="6" style="top: 112.5px; width: 335px;"> 
+</div></code></pre>
+<p>
+</p>
+</div>
+<h4>Sample explained</h4>
+<p>In the Sample above, time (22) is greater than 10, so the <strong>first condition</strong> is 
+<code class="w3-codespan">False</code>. The next condition, in the  
+<code class="w3-codespan">else if</code> statement, is also 
+<code class="w3-codespan">False</code>, so we move on to the <code class="w3-codespan">else</code>
+condition since <strong>condition1</strong> and <strong>condition2</strong> is both 
+<code class="w3-codespan">False</code> - and print to the screen "Good 
+evening".</p>
+<p>However, if the time was 14, our program would print "Good day."</p>
+
+
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<p>&nbsp;</p> 
+<p>&nbsp;</p> 
+
+  <div class="w3-row w3-white">
+ 
+    <h1>C# <span class="color_h1">Short Hand If...Else</span></h1>
+
+
+<h2>Short Hand If...Else (Ternary Operator)</h2>
+<p>There is also a short-hand if else, which is known as the <strong>ternary 
+operator</strong> because it consists of three operands. It can be used to 
+replace multiple lines of code with a single line. It is often used to replace 
+simple if else statements:</p>
+
+<div class="w3-Sample">
+<h3>Syntax</h3>
+<em><pre class="w3-white language-csharp" tabindex="0"><code class="language-csharp"><em>variable</em> <span class="token operator">=</span> <span class="token punctuation">(</span><em>condition</em><span class="token punctuation">)</span> <span class="token punctuation">?</span> <em>expressionTrue</em> <span class="token punctuation">:</span> <em> expressionFalse</em><span class="token punctuation">;</span>
+</code></pre></em>
+</div>
+
+<p>Instead of writing:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<pre class="w3-white language-csharp" tabindex="0"><code class="language-csharp"><span class="token class-name"><span class="token keyword keyword-int">int</span></span> time <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>time <span class="token operator">&lt;</span> <span class="token number">18</span><span class="token punctuation">)</span> 
+<span class="token punctuation">{</span>
+  Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Good day."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
+<span class="token keyword keyword-else">else</span> 
+<span class="token punctuation">{</span>
+  Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Good evening."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>
+</p>
+</div>
+<p>You can simply write:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<pre class="w3-white language-csharp" tabindex="0"><code class="language-csharp"><span class="token class-name"><span class="token keyword keyword-int">int</span></span> time <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token keyword keyword-string">string</span></span> result <span class="token operator">=</span> <span class="token punctuation">(</span>time <span class="token operator">&lt;</span> <span class="token number">18</span><span class="token punctuation">)</span> <span class="token punctuation">?</span> <span class="token string">"Good day."</span> <span class="token punctuation">:</span> <span class="token string">"Good evening."</span><span class="token punctuation">;</span>
+Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>
+</p>
+</div>

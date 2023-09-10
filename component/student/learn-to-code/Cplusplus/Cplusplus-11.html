@@ -1,0 +1,216 @@
+<!-- STRING-->
+
+  <div class="w3-row w3-white">
+    
+    
+
+<h1>What is  <span class="color_h1">Strings in C++?</span></h1>
+<p>&nbsp;</p>
+<h2>C++ Strings</h2>
+
+<p>Strings are used for storing text.</p>
+<p>A <code class="w3-codespan">string</code> variable contains a collection of characters surrounded by double quotes:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Create a variable of type <code class="w3-codespan">string</code> and assign it a value:</p>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  string greeting = <span class="javastringcolor" style="color:brown">"Hello"</span>; </span></div>
+</div>
+<p>To use strings, you must include an additional header file in the source 
+code, the <code class="w3-codespan">&lt;string&gt;</code> library:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  <span class="commentcolor" style="color:green">// Include the string library<br></span>#include &lt;string&gt;<br><br><span class="commentcolor" style="color:green">// Create a string variable<br></span>string greeting = <span class="javastringcolor" style="color:brown">"Hello"</span>; </span></div>
+
+</div>
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+
+<p>&nbsp;</p> 
+<p>&nbsp;</p> 
+  <div class="w3-row w3-white">
+    
+   
+
+<h1>C++ <span class="color_h1">Numbers and Strings</span></h1>
+
+<hr>
+
+<h2>Adding Numbers and Strings</h2>
+<div class="w3-panel w3-warning">
+<p>WARNING!</p>
+ <p>C++ uses the <code class="w3-codespan">+</code> operator for both <strong>addition</strong> and 
+ <strong>concatenation</strong>.</p>
+ <p>Numbers are added. Strings are concatenated.</p>
+</div>
+<p>If you add two numbers, the result will be a number:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  <span class="javakeywordcolor" style="color:mediumblue">int</span> x = <span class="javanumbercolor" style="color:red">10</span>;<br><span class="javanumbercolor" style="color:red">
+</span>  <span class="javakeywordcolor" style="color:mediumblue">int</span> y = <span class="javanumbercolor" style="color:red">20</span>;<br><span class="javanumbercolor" style="color:red">
+</span>  <span class="javakeywordcolor" style="color:mediumblue">int</span> z = x + y;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// z will be 30 (an integer)
+ </span></span></div>
+</div>
+
+<p>If you add two strings, the result will be a string concatenation:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  string x = <span class="javastringcolor" style="color:brown">"10"</span>;<br><span class="javanumbercolor" style="color:red">
+</span>  string y = <span class="javastringcolor" style="color:brown">"20"</span>;<br><span class="javanumbercolor" style="color:red">
+</span>  string z = x + y;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// z will be 1020 (a string)
+ </span></span></div>
+</div>
+
+<p>If you try to add a number to a string, an error occurs:</p>
+<div class="w3-Sample w3-pale-red">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh w3-border-red"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  string x = <span class="javastringcolor" style="color:brown">"10"</span>;<br><span class="javanumbercolor" style="color:red">
+</span>  <span class="javakeywordcolor" style="color:mediumblue">int</span> y = <span class="javanumbercolor" style="color:red">20</span>;<br><span class="javanumbercolor" style="color:red">
+</span>  string z = x + y; </span></div>
+</div>
+
+ <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+ <p>&nbsp;</p> 
+   <p>&nbsp;</p> 
+  <div class="w3-row w3-white">
+    
+    <div class="w3-col l10 m12" id="main">
+     
+
+<h1>C++ <span class="color_h1">Special Characters</span></h1>
+
+<hr>
+
+<h2>Strings - Special Characters</h2>
+
+<p>Because strings must be written within quotes, C++ will misunderstand this string, 
+and generate an error:</p>
+
+<div class="w3-Sample w3-pale-red">
+<div class="w3-code notranslate javaHigh w3-border-red"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  string txt = <span class="javastringcolor" style="color:brown">"We are the so-called "</span>Vikings<span class="javastringcolor" style="color:brown">" from the north."</span>;<br><span class="javanumbercolor" style="color:red">
+</span>  </span></div>
+</div>
+
+
+<p>The solution to avoid this problem, is to use the <strong>backslash escape character</strong>.</p>
+<p>The backslash (<code class="w3-codespan">\</code>) escape character turns special characters into string characters:</p>
+
+<table class="ws-table-all notranslate">
+<tbody><tr>
+  <th width="35%">Escape character</th>
+  <th>Result</th>
+  <th>Description</th>
+</tr>
+<tr>
+  <td>\'</td>
+  <td>'</td>
+  <td>Single quote</td>
+</tr>
+<tr>
+  <td>\"</td>
+  <td>"</td>
+  <td>Double quote</td>
+</tr>
+<tr>
+  <td>\\</td>
+  <td>\</td>
+  <td>Backslash</td>
+</tr>
+</tbody></table>
+
+<p>The sequence <code class="w3-codespan">\"</code>&nbsp; inserts a double quote in a string:</p><p>
+
+</p><div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  string txt = <span class="javastringcolor" style="color:brown">"We are the so-called \"Vikings\" from the north."</span>;<br><span class="javanumbercolor" style="color:red">
+</span>  </span></div>
+</div>
+
+
+<p>The sequence <code class="w3-codespan">\'</code>&nbsp; inserts a single quote in a string:</p><p>
+
+</p><div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  string txt = <span class="javastringcolor" style="color:brown">"It\'s alright."</span>;<br><span class="javanumbercolor" style="color:red">
+</span>  </span></div>
+</div>
+
+<p>The sequence <code class="w3-codespan">\\</code>&nbsp; inserts a single backslash in a string:</p><p>
+
+</p><div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  string txt = <span class="javastringcolor" style="color:brown">"The character \\ is called backslash."</span>;<br><span class="javanumbercolor" style="color:red">
+</span>  </span></div>
+</div>
+
+<p>Other popular escape characters in C++ are:</p>
+<table class="ws-table-all notranslate">
+<tbody><tr>
+  <th width="27%">Escape Character</th>
+  <th>Result</th>
+ 
+</tr>
+<tr>
+  <td>\n</td>
+  <td>New Line</td>
+ </tr>
+<tr>
+  <td>\t</td>
+  <td>Tab</td>
+ </tr>
+</tbody></table>
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<p>&nbsp;</p> 
+<p>&nbsp;</p> 
+
+
+  <div class="w3-row w3-white">
+    
+   
+<h1>C++ <span class="color_h1">User Input Strings</span></h1>
+
+
+<h2>User Input Strings</h2>
+
+<p>It is possible to use the extraction operator <code class="w3-codespan">&gt;&gt;</code> on <code class="w3-codespan">cin</code> to 
+store a string entered by a user:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  string firstName;<br>cout &lt;&lt; <span class="javastringcolor" style="color:brown">"Type your first name: "</span>; <br>cin &gt;&gt; <span class="javanumbercolor" style="color:red">
+</span>  firstName; <span class="javanumbercolor" style="color:red">
+</span>  <span class="commentcolor" style="color:green">// get user input from the keyboard<br></span>cout &lt;&lt; <span class="javastringcolor" style="color:brown">"Your name is: "</span> &lt;&lt; <span class="javanumbercolor" style="color:red">
+</span>  firstName;<br><br><strong><span class="commentcolor" style="color:green">// Type your first name: John</span></strong><br></span><strong><span class="commentcolor" style="color:green">// Your name is: John</span></strong> </div>
+ </div>
+
+<p>However, <code class="w3-codespan">cin</code> considers a space (whitespace, tabs, etc) as a terminating 
+character, which means that it can only store a single word (even if you type 
+many words):</p>
+<div class="w3-Sample w3-pale-red">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh w3-border-red"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  string fullName;<br>cout &lt;&lt; <span class="javastringcolor" style="color:brown">"Type your full name: "</span>; <br>cin &gt;&gt; <span class="javanumbercolor" style="color:red">
+</span>  fullName;<br>cout &lt;&lt; <span class="javastringcolor" style="color:brown">"Your name is: "</span> &lt;&lt; <span class="javanumbercolor" style="color:red">
+</span>  fullName;<br><br><strong><span class="commentcolor" style="color:green">// Type your full name: John Doe<br></span><span class="commentcolor" style="color:green">// Your name is: John</span></strong> </span></div>
+</div>
+
+<p>From the Sample above, you would expect the program to print "John Doe", but it only prints "John".<br><br> That's why, when working with strings, we often use the <code class="w3-codespan">getline()</code> 
+function to read a line of text. It takes <code class="w3-codespan">cin</code> as the first parameter, and the string 
+variable as second:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  string fullName;<br>cout &lt;&lt; <span class="javastringcolor" style="color:brown">"Type your full name: "</span>; <br><span class="javanumbercolor" style="color:red">
+</span>  getline (cin, fullName);<br>cout &lt;&lt; <span class="javastringcolor" style="color:brown">"Your name is: "</span> &lt;&lt; <span class="javanumbercolor" style="color:red">
+</span>  fullName;<br><br><span class="commentcolor" style="color:green">// Type your full name: John Doe<br></span><span class="commentcolor" style="color:green">// Your name is: John Doe </span></span></div>
+</div>
+

@@ -1,0 +1,299 @@
+<!-- Comparison-->
+
+
+  <div class="w3-row w3-white">
+
+
+<h1>What is Comparison and Logical Operators in JavaScript?</h1>
+
+
+<p class="intro">Comparison and Logical operators are used to test for <code class="w3-codespan">true</code> or 
+<code class="w3-codespan">false</code>.</p>
+<hr>
+
+<h2>Comparison Operators</h2>
+<p>Comparison operators are used in logical statements to determine equality or difference between variables or values. </p>
+<p>Given that <code class="w3-codespan">x = 5</code>, the table below explains the comparison operators:</p>
+
+<div class="w3-responsive" style="margin:-16px 0">
+<table class="ws-table-all notranslate">
+<tbody><tr>
+<th style="width:12%">Operator</th>
+<th>Description</th>
+<th>Comparing</th>
+<th>Returns</th>
+</tr>
+<tr class="spes_table_row1">
+<td rowspan="3">==</td>
+<td rowspan="3">equal to</td>
+<td>x == 8</td>
+<td>false</td>
+</tr>
+<tr class="spes_table_row1">
+<td>x == 5</td>
+<td>true</td>
+</tr>
+<tr class="spes_table_row1">
+<td>x == "5"</td>
+<td>true</td>
+</tr>
+<tr class="spes_table_row2">
+<td rowspan="2">===</td>
+<td rowspan="2">equal value and equal type</td>
+<td>x === 5</td>
+<td>true</td>
+</tr>
+<tr class="spes_table_row2">
+<td>x === "5"</td>
+<td>false</td>
+</tr>
+<tr class="spes_table_row1">
+<td>!=</td>
+<td>not equal</td>
+<td>x != 8</td>
+<td>true</td>
+</tr>
+<tr class="spes_table_row2">
+<td rowspan="3">!==</td>
+<td rowspan="3">not equal value or not equal type</td>
+<td>x !== 5</td>
+<td>false</td>
+<td>
+</tr>
+<tr class="spes_table_row2">
+<td>x !== "5"</td>
+<td>true</td>
+<td>
+</tr>
+<tr class="spes_table_row2">
+<td>x !== 8</td>
+<td>true</td>
+<td>
+</tr>
+<tr class="spes_table_row1">
+<td>&gt;</td>
+<td>greater than</td>
+<td>x &gt; 8</td>
+<td>false</td>
+</tr>
+<tr class="spes_table_row2">
+<td>&lt;</td>
+<td>less than</td>
+<td>x &lt; 8</td>
+<td>true</td>
+</tr>
+<tr class="spes_table_row1">
+<td>&gt;=</td>
+<td>greater than or equal to</td>
+<td>x &gt;= 8</td>
+<td>false</td>
+</tr>
+<tr class="spes_table_row2">
+<td>&lt;=</td>
+<td>less than or equal to</td>
+<td>x &lt;= 8</td>
+<td>true</td>
+</tr>
+</tbody></table>
+</div>
+
+<p>&nbsp;</p>
+<h2>How Can it be Used</h2>
+<p>Comparison operators can be used in conditional statements to compare values 
+and take action depending on the result:</p>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">if</span> (age &lt; <span class="jsnumbercolor" style="color:red">18</span>) text = <span class="jsstringcolor" style="color:brown">"Too young to buy alcohol"</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div></div>
+
+<p>You will learn more about the use of conditional statements in the next chapter of this tutorial.</p>
+<hr>
+
+<h2>Logical Operators</h2>
+<p>Logical operators are used to determine the logic between variables or values.</p>
+<p>Given that <code class="w3-codespan">x = 6</code> and <code class="w3-codespan">y = 3</code>, the table below explains the logical operators: </p>
+
+<div class="w3-responsive" style="margin:-16px 0">
+<table class="ws-table-all notranslate">
+<tbody><tr>
+<th style="width:12%">Operator</th>
+<th>Description</th>
+<th>Sample</th>
+</tr>
+<tr>
+<td>&amp;&amp;</td>
+<td>and</td>
+<td> (x &lt; 10 &amp;&amp; y &gt; 1) is true</td>
+</tr>
+<tr>
+<td>||</td>
+<td>or</td>
+<td>(x == 5 || y == 5) is false</td>
+</tr>
+<tr>
+<td>!</td>
+<td>not</td>
+<td> !(x == y) is true</td>
+</tr>
+</tbody></table>
+</div>
+<hr>
+
+<h2>Conditional (Ternary) Operator</h2>
+<p>JavaScript also contains a conditional operator that assigns a value to a variable based on some condition.</p>
+<h3>Syntax</h3>
+
+<div class="w3-code w3-border notranslate"><div>
+ <em>variablename </em>= (<em>condition</em>) ?<em> value1</em>:<em>value2</em>&nbsp;</div></div>
+
+<h3>Sample</h3>
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> voteable = (age &lt; <span class="jsnumbercolor" style="color:red">18</span>) ? <span class="jsstringcolor" style="color:brown">"Too young"</span>:<span class="jsstringcolor" style="color:brown">"Old enough"</span>; </span></div></div>
+<p>If the variable age is a value below 18, the value of the variable voteable 
+will be "Too young", otherwise the value of voteable will be "Old enough".</p>
+
+<hr>
+<h2>Comparing Different Types</h2>
+<p>Comparing data of different types may give unexpected results.</p>
+<p>When comparing a string with a number, JavaScript will convert the string to 
+a number when doing the comparison. An empty string converts to 0. A non-numeric 
+string converts to <code class="w3-codespan">NaN</code> which is always <code class="w3-codespan">false</code>.</p>
+
+<table class="ws-table-all notranslate">
+ <tbody><tr>
+  <th>Case</th>
+  <th>Value</th>
+ </tr>
+ <tr>
+  <td>2 &lt; 12</td>
+  <td>true</td>
+ </tr>
+ <tr>
+  <td>2 &lt; "12"</td>
+  <td>true</td>
+ </tr>
+ <tr>
+  <td>2 &lt; "John"</td>
+  <td>false</td>
+ </tr>
+ <tr>
+  <td>2 &gt; "John"</td>
+  <td>false</td>
+ </tr>
+ <tr>
+  <td>2 == "John"</td>
+  <td>false</td>
+ </tr>
+ <tr>
+  <td>"2" &lt; "12"</td>
+  <td>false</td>
+ </tr>
+ <tr>
+  <td>"2" &gt; "12"</td>
+  <td>true</td>
+ </tr>
+ <tr>
+  <td>"2" == "12"</td>
+  <td>false</td>
+ </tr>
+</tbody></table>
+
+<p>When comparing two strings, "2" will be greater than "12", because 
+(alphabetically) 1 is less than 2.</p>
+<p>To secure a proper result, variables should be converted to the proper type 
+before comparison:</p>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+age = Number(age);<br>
+<span class="jskeywordcolor" style="color:mediumblue">if</span> (isNaN(age)) {<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;voteable = <span class="jsstringcolor" style="color:brown">"Input is not a number"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>} <span class="jskeywordcolor" style="color:mediumblue">else</span> {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; voteable = (age &lt; <span class="jsnumbercolor" style="color:red">18</span>) ? <span class="jsstringcolor" style="color:brown">"Too young"</span> : <span class="jsstringcolor" style="color:brown">"Old enough"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<hr>
+<h2>The Nullish Coalescing Operator (??)</h2>
+<p>The <code class="w3-codespan">??</code> operator returns the first argument if it is not <b>nullish</b>
+(<code class="w3-codespan">null</code> or <code class="w3-codespan">undefined</code>).</p>
+<p>Otherwise it returns the second argument.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> name = <span class="jskeywordcolor" style="color:mediumblue">null</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"missing"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> result = name ?? text;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<p>The nullish operator is supported in all browsers since March 2020:</p>
+<div class="w3-responsive">
+<table class="browserref notranslate">
+  <tbody><tr style="height:50px">
+    <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:20%;" class="bsEdge" title="Edge"></th>
+    <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:20%;" class="bsSafari" title="Safari"></th>
+    <th style="width:19%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome 80</td>    
+    <td>Edge 80</td>
+    <td>Firefox 72</td>
+    <td>Safari 13.1</td>
+    <td>Opera 67</td>
+  </tr>
+  <tr>
+    <td>Feb 2020</td>
+    <td>Feb 2020</td>    
+    <td>Jan 2020</td>
+    <td>Mar 2020</td>
+    <td>Mar 2020</td>
+  </tr>
+</tbody></table>
+</div>
+
+<hr>
+ <h2>The Optional Chaining Operator (?.)</h2>
+<p>The <code class="w3-codespan">?.</code> operator returns <code class="w3-codespan">undefined</code> if an object is
+<code class="w3-codespan">undefined</code> or <code class="w3-codespan">null</code> (instead of throwing an error).</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Create an object:<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> car = {type:<span class="jsstringcolor" style="color:brown">"Fiat"</span>, model:<span class="jsstringcolor" style="color:brown">"500"</span>, color:<span class="jsstringcolor" style="color:brown">"white"</span>};<br><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Ask for car name:<br></span>
+document.<span class="jspropertycolor" style="color:black">getElementById</span>(<span class="jsstringcolor" style="color:brown">"demo"</span>).<span class="jspropertycolor" style="color:black">innerHTML</span> = car?.<span class="jspropertycolor" style="color:black">name</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<p>The optional chaining operator is supported in all browsers since March 2020:</p>
+<div class="w3-responsive">
+<table class="browserref notranslate">
+  <tbody><tr style="height:50px">
+    <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:20%;" class="bsEdge" title="Edge"></th>
+    <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:20%;" class="bsSafari" title="Safari"></th>
+    <th style="width:19%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome 80</td>    
+    <td>Edge 80</td>
+    <td>Firefox 72</td>
+    <td>Safari 13.1</td>
+    <td>Opera 67</td>
+  </tr>
+  <tr>
+    <td>Feb 2020</td>
+    <td>Feb 2020</td>    
+    <td>Jan 2020</td>
+    <td>Mar 2020</td>
+    <td>Mar 2020</td>
+  </tr>
+</tbody></table>
+</div>
+

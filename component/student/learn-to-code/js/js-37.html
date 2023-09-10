@@ -1,0 +1,222 @@
+<!-- Booleans-->
+
+
+
+  <div class="w3-row w3-white">
+    
+
+
+<h1>What is <span class="color_h1">Booleans in JavaScript?</span></h1>
+
+<div class="w3-info">
+<p>A JavaScript Boolean represents one of two values: <strong>true</strong> or 
+<strong>false</strong>.</p>
+</div>
+
+<h2>Boolean Values</h2>
+<p>Very often, in programming, you will need a data type that can only have one 
+of two values, like</p>
+<ul>
+  <li>YES / NO</li>
+  <li>ON / OFF</li>
+  <li>TRUE / FALSE</li>
+</ul>
+<p>For this, JavaScript has a <strong>Boolean</strong> data type. It can only 
+take the values <strong>true</strong> or <strong>false</strong>.</p>
+<hr>
+
+<h2>The Boolean() Function</h2>
+<p>You can use the <code class="w3-codespan">Boolean()</code> function to find out if an expression (or a variable) is 
+true:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+Boolean(<span class="jsnumbercolor" style="color:red">10</span> &gt; <span class="jsnumbercolor" style="color:red">9</span>)<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+<p>Or even easier:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span>(<span class="jsnumbercolor" style="color:red">10</span> &gt; <span class="jsnumbercolor" style="color:red">9</span>)<br><span class="jsnumbercolor" style="color:red">
+10</span> &gt; <span class="jsnumbercolor" style="color:red">9
+</span> </span></div>
+ </div>
+<hr>
+
+<h2>Comparisons and Conditions</h2>
+<p>The chapter JS Comparisons gives a full overview of comparison operators.</p>
+<p>The chapter JS Conditions gives a full overview of conditional statements.</p>
+<p>Here are some Samples:</p>
+
+<table class="ws-table-all notranslate">
+<tbody><tr>
+<th style="width:10%">Operator</th>
+<th>Description</th>
+<th>Sample</th>
+</tr>
+<tr>
+<td>==</td>
+<td>equal to</td>
+<td> if (day == "Monday")</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>greater than</td>
+<td>if (salary &gt; 9000)</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>less than</td>
+<td> if (age &lt; 18)</td>
+</tr>
+</tbody></table>
+
+<div class="w3-panel w3-note">
+<p>The Boolean value of an expression is the basis for all JavaScript comparisons and conditions.</p>
+</div>
+
+ 
+<h2>Everything With a "Value" is True</h2>
+<div class="w3-Sample">
+<h3>Samples</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+100</span><br><br><span class="jsnumbercolor" style="color:red">
+3.14</span><br><br><span class="jsnumbercolor" style="color:red">
+</span>-<span class="jsnumbercolor" style="color:red">15</span><br><br>
+<span class="jsstringcolor" style="color:brown">"Hello"</span><br><br>
+<span class="jsstringcolor" style="color:brown">"false"</span><br><br><span class="jsnumbercolor" style="color:red">
+7</span> + <span class="jsnumbercolor" style="color:red">1</span> + <span class="jsnumbercolor" style="color:red">3.14</span> </span></div>
+ </div>
+<hr>
+
+<h2>Everything Without a "Value" is False</h2>
+<div class="w3-Sample">
+<p>The Boolean value of <strong>0</strong> (zero) is <strong>false</strong>:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">0</span>;<br>
+Boolean(x);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<div class="w3-Sample">
+<p>The Boolean value of <strong>-0</strong> (minus zero) is <strong>false</strong>:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = -<span class="jsnumbercolor" style="color:red">0</span>;<br>
+Boolean(x);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<div class="w3-Sample">
+<p>The Boolean value of <strong>"" </strong>(empty string) is <strong>false</strong>:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsstringcolor" style="color:brown">""</span>;<br>
+Boolean(x);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<div class="w3-Sample">
+<p>The Boolean value of <strong>undefined</strong> is <strong>false</strong>:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x;<br>
+Boolean(x);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<div class="w3-Sample">
+<p>The Boolean value of <strong>null</strong> is <strong>false</strong>:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jskeywordcolor" style="color:mediumblue">null</span>;<br>
+Boolean(x);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<div class="w3-Sample">
+<p>The Boolean value of <strong>false</strong> is (you guessed it) <strong>false</strong>:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jskeywordcolor" style="color:mediumblue">false</span>;<br>
+Boolean(x);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<div class="w3-Sample">
+<p>The Boolean value of <strong>NaN</strong> is <strong>false</strong>:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">10</span> / <span class="jsstringcolor" style="color:brown">"Hallo"</span>;<br>
+Boolean(x);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+<hr>
+
+<h2>JavaScript Booleans as Objects</h2>
+
+<p>Normally JavaScript booleans are primitive values created from literals:</p>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jskeywordcolor" style="color:mediumblue">false</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p>But booleans can also be defined as objects with the keyword <code class="w3-codespan">new</code>:</p>
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jskeywordcolor" style="color:mediumblue">new</span> Boolean(<span class="jskeywordcolor" style="color:mediumblue">false</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jskeywordcolor" style="color:mediumblue">false</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jskeywordcolor" style="color:mediumblue">new</span> Boolean(<span class="jskeywordcolor" style="color:mediumblue">false</span>);<br><br><span class="jsnumbercolor" style="color:red">
+</span> <span class="commentcolor" style="color:green">//
+typeof x returns boolean<br></span><span class="jsnumbercolor" style="color:red">
+</span> <span class="commentcolor" style="color:green">//
+typeof y returns object
+ </span></span></div>
+ </div>
+
+<div class="w3-panel w3-note">
+<p>Do not create Boolean objects.</p>
+<p>The <code class="w3-codespan">new</code> keyword complicates the code and slows down execution speed.</p>
+<p>Boolean objects can produce unexpected results:</p>
+</div>
+
+<div class="w3-Sample">
+<p> When using the <code class="w3-codespan">==</code> operator, x and y are <b>equal</b>:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jskeywordcolor" style="color:mediumblue">false</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jskeywordcolor" style="color:mediumblue">new</span> Boolean(<span class="jskeywordcolor" style="color:mediumblue">false</span>);<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<div class="w3-Sample">
+<p> When using the <code class="w3-codespan">===</code> operator, x and y are <b>not equal</b>:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jskeywordcolor" style="color:mediumblue">false</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jskeywordcolor" style="color:mediumblue">new</span> Boolean(<span class="jskeywordcolor" style="color:mediumblue">false</span>);<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<div class="w3-panel w3-note">
+<p>Note the difference between (x==y) and (x===y).</p>
+</div>
+
+<div class="w3-Sample">
+<p><code class="w3-codespan">(x == y)</code> true or false?</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jskeywordcolor" style="color:mediumblue">new</span> Boolean(<span class="jskeywordcolor" style="color:mediumblue">false</span>);<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jskeywordcolor" style="color:mediumblue">new</span> Boolean(<span class="jskeywordcolor" style="color:mediumblue">false</span>);<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+
+ </div>
+<div class="w3-Sample">
+<p><code class="w3-codespan">(x === y)</code> true or false?</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jskeywordcolor" style="color:mediumblue">new</span> Boolean(<span class="jskeywordcolor" style="color:mediumblue">false</span>);<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jskeywordcolor" style="color:mediumblue">new</span> Boolean(<span class="jskeywordcolor" style="color:mediumblue">false</span>);<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>

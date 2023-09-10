@@ -1,0 +1,266 @@
+  <div class="w3-row w3-white">
+     
+  
+  <h1>What is <span class="color_h1">Strings in Java?</span></h1>
+  <p>&nbsp;</p>
+  <hr>
+  
+  <h2>Java Strings</h2>
+  
+  <p>Strings are used for storing text.</p>
+  <p>A <code class="w3-codespan">String</code> variable contains a collection of characters surrounded by double quotes:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <p>Create a variable of type <code class="w3-codespan">String</code> and assign it a value:</p>
+  <pre class="w3-white language-java" tabindex="0"><code class="language-java"><span class="token class-name">String</span> greeting <span class="token operator">=</span> <span class="token string">"Hello"</span><span class="token punctuation">;</span>
+  </code></pre>
+  <p>
+  </p>
+  </div>
+  <hr>
+  
+  <h2>String Length</h2>
+  <p>A String in Java is actually an object, which contain methods that can perform certain operations on strings. For Sample, the length of a string can be found with the <code class="w3-codespan">length()</code> method:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <pre class="w3-white language-java" tabindex="0"><code class="language-java"><span class="token class-name">String</span> txt <span class="token operator">=</span> <span class="token string">"ABCDEFGHIJKLMNOPQRSTUVWXYZ"</span><span class="token punctuation">;</span>
+  <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"The length of the txt string is: "</span> <span class="token operator">+</span> txt<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  </code></pre>
+  <p>
+  </p>
+  </div>
+  
+  <hr>
+  
+  <h2>More String Methods</h2>
+  
+  <p>There are many string methods available, for Sample <code class="w3-codespan">toUpperCase()</code> and <code class="w3-codespan">toLowerCase()</code>:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <pre class="w3-white language-java" tabindex="0"><code class="language-java"><span class="token class-name">String</span> txt <span class="token operator">=</span> <span class="token string">"Hello World"</span><span class="token punctuation">;</span>
+  <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>txt<span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// Outputs "HELLO WORLD"</span>
+  <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>txt<span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// Outputs "hello world"</span>
+  </code></pre>
+  <p>
+  </p>
+  </div>
+  <hr>
+  
+  <h2>Finding a Character in a String</h2>
+  <p>The <code class="w3-codespan">indexOf()</code> method returns the <strong>index</strong> (the position) 
+  of the first occurrence of a specified text in a string 
+  (including whitespace):</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <pre class="w3-white language-java" tabindex="0"><code class="language-java"><span class="token class-name">String</span> txt <span class="token operator">=</span> <span class="token string">"Please locate where 'locate' occurs!"</span><span class="token punctuation">;</span>
+  <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>txt<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">"locate"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Outputs 7</span>
+  </code></pre>
+  <p>
+  </p>
+  </div>
+  <div class="w3-panel w3-note">
+  <p>Java counts positions from zero.<br>0 is the first position in a 
+  string, 1 is the second, 2 is the third ...</p>
+  </div>
+  <hr>
+  <div>
+  <h2>Complete String Reference</h2>
+  <p>For a complete reference of String methods, go to our Java String Methods Reference</a>.</p>
+  <p>The reference contains descriptions and samples of all string methods.</p>
+  </div>
+  <hr>
+  
+  <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+  <p>&nbsp;</p> 
+  <p>&nbsp;</p> 
+      <div class="w3-col l10 m12" id="main">
+        
+  
+  <h1>Java <span class="color_h1">String Concatenation</span></h1>
+ 
+  <hr>
+  
+  <h2>String Concatenation</h2>
+  
+  <p>The <code class="w3-codespan">+</code> operator can be used between strings to 
+  combine them. This is called <strong>concatenation</strong>:</p>
+  <div class="w3-Sample">
+  <h3>Sample
+
+  </h3>
+  <pre class="w3-white language-java" tabindex="0"><code class="language-java"><span class="token class-name">String</span> firstName <span class="token operator">=</span> <span class="token string">"John"</span><span class="token punctuation">;</span>
+  <span class="token class-name">String</span> lastName <span class="token operator">=</span> <span class="token string">"Doe"</span><span class="token punctuation">;</span>
+  <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>firstName <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span> lastName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  </code></pre>
+  <p>
+
+  </p>
+  </div>
+  <div class="w3-note w3-panel"><p>Note that we have added an empty text (" ") to create a space between firstName and lastName on print.</p></div>
+  <p>You can also use the <code class="w3-codespan">concat()</code> method to concatenate two strings:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <pre class="w3-white language-java" tabindex="0"><code class="language-java"><span class="token class-name">String</span> firstName <span class="token operator">=</span> <span class="token string">"John "</span><span class="token punctuation">;</span>
+  <span class="token class-name">String</span> lastName <span class="token operator">=</span> <span class="token string">"Doe"</span><span class="token punctuation">;</span>
+  <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>firstName<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>lastName<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  </code></pre>
+  <p>
+
+  </p>
+  </div>
+  <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+      
+      <div class="w3-col l10 m12" id="main">
+        
+  
+  <h1>Java <span class="color_h1">Numbers and Strings</span></h1>
+  
+  <hr>
+  
+  <h2>Adding Numbers and Strings</h2>
+  <div class="w3-panel w3-warning">
+  <p>WARNING!</p>
+   <p>Java uses the <code class="w3-codespan">+</code> operator for both addition and concatenation.</p>
+   <p>Numbers are added. Strings are concatenated.</p>
+  </div>
+  <p>If you add two numbers, the result will be a number:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <pre class="w3-white language-java" tabindex="0"><code class="language-java"><span class="token keyword keyword-int">int</span> x <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+  <span class="token keyword keyword-int">int</span> y <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+  <span class="token keyword keyword-int">int</span> z <span class="token operator">=</span> x <span class="token operator">+</span> y<span class="token punctuation">;</span>  <span class="token comment">// z will be 30 (an integer/number)</span>
+  </code></pre>
+  <p>
+  </p>
+  </div>
+  
+  <p>If you add two strings, the result will be a string concatenation:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <pre class="w3-white language-java" tabindex="0"><code class="language-java"><span class="token class-name">String</span> x <span class="token operator">=</span> <span class="token string">"10"</span><span class="token punctuation">;</span>
+  <span class="token class-name">String</span> y <span class="token operator">=</span> <span class="token string">"20"</span><span class="token punctuation">;</span>
+  <span class="token class-name">String</span> z <span class="token operator">=</span> x <span class="token operator">+</span> y<span class="token punctuation">;</span>  <span class="token comment">// z will be 1020 (a String)</span>
+  </code></pre>
+  <p>
+  </p>
+  </div>
+  
+  <p>If you add a number and a string, the result will be a string concatenation:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <pre class="w3-white language-java" tabindex="0"><code class="language-java"><span class="token class-name">String</span> x <span class="token operator">=</span> <span class="token string">"10"</span><span class="token punctuation">;</span>
+  <span class="token keyword keyword-int">int</span> y <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+  <span class="token class-name">String</span> z <span class="token operator">=</span> x <span class="token operator">+</span> y<span class="token punctuation">;</span>  <span class="token comment">// z will be 1020 (a String)</span>
+  </code></pre>
+  <p>
+  </p>
+  </div>
+  <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+  <p>&nbsp;</p> 
+  <p>&nbsp;</p> 
+    <div class="w3-row w3-white">
+      
+     
+  
+  <h1>Java <span class="color_h1">Special Characters</span></h1>
+ 
+  <hr>
+  
+  <h2>Strings - Special Characters</h2>
+  
+  <p>Because strings must be written within quotes, Java will misunderstand this string, 
+  and generate an error:</p>
+  
+  <div class="w3-Sample w3-pale-red">
+  <pre class="w3-border-red w3-white language-java" tabindex="0"><code class="language-java"><span class="token class-name">String</span> txt <span class="token operator">=</span> <span class="token string">"We are the so-called "</span><span class="token class-name">Vikings</span><span class="token string">" from the north."</span><span class="token punctuation">;</span>
+  </code></pre>
+  </div>
+  
+  <p>The solution to avoid this problem, is to use the <strong>backslash escape character</strong>.</p>
+  <p>The backslash (<code class="w3-codespan">\</code>) escape character turns special characters into string characters:</p>
+  
+  <table class="ws-table-all notranslate">
+  <tbody><tr>
+    <th width="35%">Escape character</th>
+    <th>Result</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>\'</td>
+    <td>'</td>
+    <td>Single quote</td>
+  </tr>
+  <tr>
+    <td>\"</td>
+    <td>"</td>
+    <td>Double quote</td>
+  </tr>
+  <tr>
+    <td>\\</td>
+    <td>\</td>
+    <td>Backslash</td>
+  </tr>
+  </tbody></table>
+  
+  <p>The sequence <code class="w3-codespan">\"</code>&nbsp; inserts a double quote in a string:</p><p>
+  </p><div class="w3-Sample">
+  <h3>Sample</h3>
+  <pre class="w3-white language-java" tabindex="0"><code class="language-java"><span class="token class-name">String</span> txt <span class="token operator">=</span> <span class="token string">"We are the so-called \"Vikings\" from the north."</span><span class="token punctuation">;</span>
+  </code></pre>
+  <p>
+
+  </p>
+  </div>
+  <p>The sequence <code class="w3-codespan">\'</code>&nbsp; inserts a single quote in a string:</p><p>
+  </p><div class="w3-Sample">
+  <h3>Sample</h3>
+  <pre class="w3-white language-java" tabindex="0"><code class="language-java"><span class="token class-name">String</span> txt <span class="token operator">=</span> <span class="token string">"It\'s alright."</span><span class="token punctuation">;</span>
+  </code></pre>
+  <p>
+
+  </p>
+  </div>
+  <p>The sequence <code class="w3-codespan">\\</code>&nbsp; inserts a single backslash in a string:</p><p>
+  </p><div class="w3-Sample">
+  <h3>Sample</h3>
+  <pre class="w3-white language-java" tabindex="0"><code class="language-java"><span class="token class-name">String</span> txt <span class="token operator">=</span> <span class="token string">"The character \\ is called backslash."</span><span class="token punctuation">;</span>
+  </code></pre>
+  <p>
+
+  </p>
+  </div>
+  
+  <p>Other common escape sequences that are valid in Java are:</p>
+  <table class="ws-table-all notranslate">
+  <tbody><tr>
+    <th width="25%">Code</th>
+    <th>Result</th>
+   
+  </tr>
+  <tr>
+    <td>\n</td>
+    <td>New Line</td>
+
+  </tr>
+  <tr>
+    <td>\r</td>
+    <td>Carriage Return</td>
+
+  </tr>
+  <tr>
+    <td>\t</td>
+    <td>Tab</td>
+
+  </tr>
+  <tr>
+    <td>\b</td>
+    <td>Backspace</td>
+
+  </tr>
+  <tr>
+    <td>\f</td>
+    <td>Form Feed</td>
+  <td></td>
+  </tr>
+  </tbody></table>
+  

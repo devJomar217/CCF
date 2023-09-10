@@ -1,0 +1,81 @@
+<!-- important-->
+
+ 
+    <div class="w3-row w3-white">
+     
+  
+  <h1>What is <span class="color_h1">The !important Rule in Css?</span></h1>
+   
+  
+  <h2>What is !important?</h2>
+  <p>The <code class="w3-codespan">!important</code> rule in CSS is used to add more importance to a property/value than normal.</p>
+  <p>In fact, if you use the <code class="w3-codespan">!important</code> rule, it will override ALL previous styling rules for that 
+  specific property on that element!</p>
+  <p>Let us look at an Sample:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+  #myid <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; background-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> blue<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span><br><br>.myclass <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; 
+    background-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> gray<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span><br><br>p <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; background-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> red <span class="cssimportantcolor" style="color:red;font-weight:bold;">!important</span><span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span> </span></div>
+   </div>
+  <h3>Sample Explained</h3>
+  <p>In the Sample above. all three paragraphs will get a red background 
+  color, even though the ID selector and the class selector have a higher 
+  specificity. The <code class="w3-codespan">!important</code> rule overrides the <code class="w3-codespan">
+  background-color</code> property in both cases.</p>
+  <hr>
+  
+  <h2>Important About !important</h2>
+  <p>The only way to override an <code class="w3-codespan">!important</code> 
+  rule is to include another <code class="w3-codespan">!important</code> 
+  rule on a declaration with the same (or higher) specificity in the source code - and here the problem starts!
+  This makes the CSS code confusing and the debugging will be hard, especially if 
+  you have a large style sheet!</p>
+  <p>Here we have created a simple Sample. It is not very clear, when you look at 
+  the CSS source code, which color is considered most important:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+    #myid <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; background-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> blue <span class="cssimportantcolor" style="color:red;font-weight:bold;">!important</span><span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span><br><br>.myclass <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; 
+    background-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> gray <span class="cssimportantcolor" style="color:red;font-weight:bold;">!important</span><span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span><br><br>p <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; background-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> red <span class="cssimportantcolor" style="color:red;font-weight:bold;">!important</span><span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span> </span></div>
+   </div>
+  <p><strong>Tip:</strong> It is good to know about the <code class="w3-codespan">!important</code> 
+  rule. You might see it in some CSS source code. 
+  However, do not use it unless you absolutely have to.</p>
+ 
+  
+  <h2>Maybe One or Two Fair Uses of !important</h2>
+  
+  <p>One way to use <code class="w3-codespan">!important</code> is if you have to override 
+  a style that cannot be overridden in any other way. This could be if you are 
+  working on a Content Management System (CMS) and cannot edit the CSS code. 
+  Then you can set some custom styles to override some of the CMS styles.</p>
+  <p>Another way to use <code class="w3-codespan">!important</code> is: Assume you 
+  want a special look for all buttons on a page. Here, buttons are styled with a gray 
+  background color, white text, and some padding and border:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+    .button <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; background-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> #8c8c8c<span class="cssdelimitercolor" style="color:black">;</span></span> <br>&nbsp; color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> white<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; 
+    padding<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 5px<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; border<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 1px solid black<span class="cssdelimitercolor" style="color:black">;</span></span> <br></span><span class="cssdelimitercolor" style="color:black">}</span> </span></div>
+   </div>
+  <p>The look of a button can sometimes change if we put it inside another element with 
+  higher specificity, and the properties get in conflict. Here is an Sample of this:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+    .button <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; background-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> #8c8c8c<span class="cssdelimitercolor" style="color:black">;</span></span> <br>&nbsp; color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> white<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; 
+    padding<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 5px<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; border<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 1px solid black<span class="cssdelimitercolor" style="color:black">;</span></span> <br></span><span class="cssdelimitercolor" style="color:black">}</span><br><br>#myDiv a <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; 
+    color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> red<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; background-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> yellow<span class="cssdelimitercolor" style="color:black">;</span></span> <br></span><span class="cssdelimitercolor" style="color:black">}</span> </span></div>
+   </div>
+  <p>To "force" all buttons to have the same look, no matter what, we can add the <code class="w3-codespan">!important</code> 
+  rule to the properties of the button, like this:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+    .button <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; background-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> #8c8c8c <span class="cssimportantcolor" style="color:red;font-weight:bold;">!important</span><span class="cssdelimitercolor" style="color:black">;</span></span> <br>&nbsp; color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> white 
+    <span class="cssimportantcolor" style="color:red;font-weight:bold;">!important</span><span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; 
+    padding<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 5px <span class="cssimportantcolor" style="color:red;font-weight:bold;">!important</span><span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; border<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 1px solid black <span class="cssimportantcolor" style="color:red;font-weight:bold;">!important</span><span class="cssdelimitercolor" style="color:black">;</span></span> <br></span><span class="cssdelimitercolor" style="color:black">}</span><br><br>#myDiv a <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; 
+    color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> red<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; background-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> yellow<span class="cssdelimitercolor" style="color:black">;</span></span> <br></span><span class="cssdelimitercolor" style="color:black">}</span> </span></div>
+   </div>
+  

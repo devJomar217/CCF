@@ -1,0 +1,86 @@
+<!-- Loop for Of-->
+
+
+
+  <div class="w3-row w3-white">
+  
+
+<h1>What is For Of in JavaScript?</h1>
+
+
+<h2>The For Of Loop</h2>
+<p>The JavaScript <code class="w3-codespan">for of</code> statement loops 
+through the values of an iterable object.</p>
+<p>It lets you loop over iterable data structures 
+such as Arrays, Strings, Maps, NodeLists, and more:</p>
+<div class="w3-Sample">
+ <h3>Syntax</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">for</span> (variable of iterable) {<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp; <span class="commentcolor" style="color:green">// <i>code block to be executed</i><br></span><span class="jsnumbercolor" style="color:red">
+</span>}<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div></div>
+
+<p><b>variable</b> - For every iteration the value of the next property is 
+assigned to the variable. <em>Variable</em> can be declared with
+<code class="w3-codespan">const</code>, <code class="w3-codespan">let</code>, or <code class="w3-codespan">var</code>.</p>
+<p><b>iterable</b> - An object that has iterable properties.</p>
+<hr>
+
+<h2>Browser Support</h2>
+<p><b>For/of</b> was added to JavaScript in 2015 ( ES6</a>)</p>
+<p>Safari 7 was the first browser to support for of:</p>
+<div class="w3-responsive">
+<table class="browserref notranslate ws-table-all">
+  <tbody><tr style="height:50px">
+    <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:20%;" class="bsEdge" title="Edge"></th>
+    <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:20%;" class="bsSafari" title="Safari"></th>
+    <th style="width:19%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome 38</td>    
+    <td>Edge 12</td>
+    <td>Firefox 51</td>
+    <td>Safari 7</td>
+    <td>Opera 25</td>
+  </tr>
+  <tr>
+    <td>Oct 2014</td>
+    <td>Jul 2015</td>    
+    <td>Oct 2016</td>
+    <td>Oct 2013</td>
+    <td>Oct 2014</td>
+  </tr>
+</tbody></table>
+</div>
+<p><strong>For/of</strong> is not supported in Internet Explorer.</p>
+
+<hr>
+
+<h2>Looping over an Array</h2>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> cars = [<span class="jsstringcolor" style="color:brown">"BMW"</span>, <span class="jsstringcolor" style="color:brown">"Volvo"</span>, <span class="jsstringcolor" style="color:brown">"Mini"</span>];<br><br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">""</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">for</span> (<span class="jskeywordcolor" style="color:mediumblue">let</span> x of cars) {<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp; text += x;<br><span class="jsnumbercolor" style="color:red">
+</span>}<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<hr>
+
+<h2>Looping over a String</h2>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> language = <span class="jsstringcolor" style="color:brown">"JavaScript"</span>;<br><br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">""</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">for</span> (<span class="jskeywordcolor" style="color:mediumblue">let</span> x of language) {<br><span class="jsnumbercolor" style="color:red">
+</span>  text += x;<br><span class="jsnumbercolor" style="color:red">
+</span>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div> 
+</div>
+

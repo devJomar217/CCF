@@ -1,0 +1,211 @@
+<!-- Array const-->
+ 
+ 
+  <div class="w3-row w3-white">
+    
+ 
+
+<h1>What is <span class="color_h1">Array Const in JavaScript?</span></h1>
+ 
+<hr>
+<h2>ECMAScript 2015 (ES6)</h2>
+<p>In 2015, JavaScript introduced an important new keyword: <code class="w3-codespan">const</code>.</p>
+<p>It has become a common practice to declare arrays using <code class="w3-codespan">const</code>:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> cars = [<span class="jsstringcolor" style="color:brown">"Saab"</span>, <span class="jsstringcolor" style="color:brown">"Volvo"</span>, <span class="jsstringcolor" style="color:brown">"BMW"</span>];<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+<hr>
+<h2>Cannot be Reassigned</h2>
+<p>An array declared with <code class="w3-codespan">const</code> cannot be reassigned:</p>
+
+<div class="w3-Sample  w3-pale-red">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh w3-border-red"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> cars = [<span class="jsstringcolor" style="color:brown">"Saab"</span>, <span class="jsstringcolor" style="color:brown">"Volvo"</span>, <span class="jsstringcolor" style="color:brown">"BMW"</span>];<br>
+cars = [<span class="jsstringcolor" style="color:brown">"Toyota"</span>, <span class="jsstringcolor" style="color:brown">"Volvo"</span>, <span class="jsstringcolor" style="color:brown">"Audi"</span>];&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// ERROR
+ </span></span></div>
+ </div>
+
+<hr>
+<h2>Arrays are Not Constants</h2>
+<p>The keyword <code class="w3-codespan">const</code> is a little misleading.</p>
+<p>It does NOT define a constant array. It defines a constant reference to an array.</p>
+<p>Because of this, we can still change the elements of a constant array.</p>
+
+<hr>
+<h2>Elements Can be Reassigned</h2>
+<p>You can change the elements of a constant array:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// You can create a constant array:<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> cars = [<span class="jsstringcolor" style="color:brown">"Saab"</span>, <span class="jsstringcolor" style="color:brown">"Volvo"</span>, <span class="jsstringcolor" style="color:brown">"BMW"</span>];<br><br><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// You can change an element:<br></span>
+cars[<span class="jsnumbercolor" style="color:red">0</span>] = <span class="jsstringcolor" style="color:brown">"Toyota"</span>;<br><br><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// You can add an element:<br></span>
+cars.<span class="jspropertycolor" style="color:black">push</span>(<span class="jsstringcolor" style="color:brown">"Audi"</span>);<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<hr>
+<h2>Browser Support</h2>
+<p>The <code class="w3-codespan">const</code> keyword is not supported in Internet Explorer 10 or earlier.</p>
+<p>The following table defines the first browser versions with full support for the <code class="w3-codespan">const</code> keyword: </p>
+<div class="w3-responsive">
+<table class="browserref notranslate ws-table-all">
+  <tbody><tr style="height:50px;">
+    <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:20%;" class="bsEdge" title="Edge"></th>
+    <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:20%;" class="bsSafari" title="Safari"></th>
+    <th style="width:20%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome 49</td>
+    <td>IE 11 / Edge</td>    
+    <td>Firefox 36</td>
+    <td>Safari 10</td>
+    <td>Opera 36</td>
+  </tr>
+  <tr>
+    <td>Mar, 2016</td>
+    <td>Oct, 2013</td>    
+    <td>Feb, 2015</td>
+    <td>Sep, 2016</td>
+    <td>Mar, 2016</td>
+  </tr></tbody>
+</table>
+</div>
+
+<hr>
+
+<h2>Assigned when Declared</h2>
+<p>JavaScript <code class="w3-codespan">const</code> variables must be assigned a value when they are declared:
+</p><p>Meaning: An array declared with <code class="w3-codespan">const</code> must be initialized when it is declared.</p>
+<p>Using <code class="w3-codespan">const</code> without initializing the array is a syntax 
+error:</p> 
+
+<div class="w3-Sample w3-pale-red">
+<h3>Sample</h3>
+<p>This will not work:</p>
+<div class="w3-code notranslate jsHigh w3-border-red"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> cars;<br>
+cars = [<span class="jsstringcolor" style="color:brown">"Saab"</span>, <span class="jsstringcolor" style="color:brown">"Volvo"</span>, <span class="jsstringcolor" style="color:brown">"BMW"</span>];<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p>Arrays declared with <code class="w3-codespan">var</code> can be initialized at any time.</p>
+<p>You can even use the array before it is declared:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>This is OK:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+cars = [<span class="jsstringcolor" style="color:brown">"Saab"</span>, <span class="jsstringcolor" style="color:brown">"Volvo"</span>, <span class="jsstringcolor" style="color:brown">"BMW"</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">var</span> cars;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<hr>
+<h2>Const Block Scope</h2>
+<p>An array declared with <code class="w3-codespan">const</code> has <b>Block Scope</b>.</p>
+<p>An array declared in a block is not the same as an array declared outside the block:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> cars = [<span class="jsstringcolor" style="color:brown">"Saab"</span>, <span class="jsstringcolor" style="color:brown">"Volvo"</span>, <span class="jsstringcolor" style="color:brown">"BMW"</span>];<br><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Here cars[0] is "Saab"<br></span><span class="jsnumbercolor" style="color:red">
+</span>{<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">const</span> cars = [<span class="jsstringcolor" style="color:brown">"Toyota"</span>, <span class="jsstringcolor" style="color:brown">"Volvo"</span>, <span class="jsstringcolor" style="color:brown">"BMW"</span>];<br> <span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Here cars[0] is "Toyota"<br></span><span class="jsnumbercolor" style="color:red">
+</span>}<br><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Here cars[0] is <b>"Saab"</b>
+ </span></span></div>
+ </div>
+<p>An array declared with <code class="w3-codespan">var</code> does not have block scope:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">var</span> cars = [<span class="jsstringcolor" style="color:brown">"Saab"</span>, <span class="jsstringcolor" style="color:brown">"Volvo"</span>, <span class="jsstringcolor" style="color:brown">"BMW"</span>];<br><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Here cars[0] is "Saab"<br></span><span class="jsnumbercolor" style="color:red">
+</span>{<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">var</span> cars = [<span class="jsstringcolor" style="color:brown">"Toyota"</span>, <span class="jsstringcolor" style="color:brown">"Volvo"</span>, <span class="jsstringcolor" style="color:brown">"BMW"</span>];<br> <span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Here cars[0] is "Toyota"<br></span><span class="jsnumbercolor" style="color:red">
+</span>}<br><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Here cars[0] is <b>"Toyota"</b>
+ </span></span></div>
+ </div>
+<p>You can learn more about Block Scope in the chapter: JavaScript Scope</a>.</p>
+
+
+<h2>Redeclaring Arrays</h2>
+<p>Redeclaring an array declared with <code class="w3-codespan">var</code> is allowed anywhere in a program:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">var</span> cars = [<span class="jsstringcolor" style="color:brown">"Volvo"</span>, <span class="jsstringcolor" style="color:brown">"BMW"</span>]; &nbsp;&nbsp;<span class="commentcolor" style="color:green">// Allowed<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">var</span> cars = [<span class="jsstringcolor" style="color:brown">"Toyota"</span>, <span class="jsstringcolor" style="color:brown">"BMW"</span>]; &nbsp;<span class="commentcolor" style="color:green">// Allowed<br></span>
+cars = [<span class="jsstringcolor" style="color:brown">"Volvo"</span>, <span class="jsstringcolor" style="color:brown">"Saab"</span>]; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Allowed<br></span><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<p>Redeclaring or reassigning an array to <code class="w3-codespan">const</code>, in the same scope, or in 
+the same block, is not allowed:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">var</span> cars = [<span class="jsstringcolor" style="color:brown">"Volvo"</span>, <span class="jsstringcolor" style="color:brown">"BMW"</span>];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Allowed<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> cars = [<span class="jsstringcolor" style="color:brown">"Volvo"</span>, <span class="jsstringcolor" style="color:brown">"BMW"</span>];&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Not allowed<br></span><span class="jsnumbercolor" style="color:red">
+</span>{<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">var</span> cars = [<span class="jsstringcolor" style="color:brown">"Volvo"</span>, <span class="jsstringcolor" style="color:brown">"BMW"</span>];&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Allowed<br></span><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">const</span> cars = [<span class="jsstringcolor" style="color:brown">"Volvo"</span>, <span class="jsstringcolor" style="color:brown">"BMW"</span>];&nbsp;<span class="commentcolor" style="color:green">// Not allowed<br></span><span class="jsnumbercolor" style="color:red">
+</span>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p>Redeclaring or reassigning an existing <code class="w3-codespan">const</code> array, in the same scope, or in 
+the same block, is not allowed:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> cars = [<span class="jsstringcolor" style="color:brown">"Volvo"</span>, <span class="jsstringcolor" style="color:brown">"BMW"</span>];&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Allowed<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> cars = [<span class="jsstringcolor" style="color:brown">"Volvo"</span>, <span class="jsstringcolor" style="color:brown">"BMW"</span>];&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Not allowed<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">var</span> cars = [<span class="jsstringcolor" style="color:brown">"Volvo"</span>, <span class="jsstringcolor" style="color:brown">"BMW"</span>];&nbsp; &nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Not allowed<br></span>
+cars = [<span class="jsstringcolor" style="color:brown">"Volvo"</span>, <span class="jsstringcolor" style="color:brown">"BMW"</span>];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Not allowed<br></span><span class="jsnumbercolor" style="color:red">
+</span><br><span class="jsnumbercolor" style="color:red">
+</span>{<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">const</span> cars = [<span class="jsstringcolor" style="color:brown">"Volvo"</span>, <span class="jsstringcolor" style="color:brown">"BMW"</span>];&nbsp;<span class="commentcolor" style="color:green">// Allowed<br></span><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">const</span> cars = [<span class="jsstringcolor" style="color:brown">"Volvo"</span>, <span class="jsstringcolor" style="color:brown">"BMW"</span>];&nbsp;<span class="commentcolor" style="color:green">// Not allowed<br></span><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">var</span> cars = [<span class="jsstringcolor" style="color:brown">"Volvo"</span>, <span class="jsstringcolor" style="color:brown">"BMW"</span>];&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Not allowed<br></span><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;cars = [<span class="jsstringcolor" style="color:brown">"Volvo"</span>, <span class="jsstringcolor" style="color:brown">"BMW"</span>];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Not allowed<br></span><span class="jsnumbercolor" style="color:red">
+</span>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p>Redeclaring an array with <code class="w3-codespan">const</code>, in another scope, or in another block, is allowed:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> cars = [<span class="jsstringcolor" style="color:brown">"Volvo"</span>, <span class="jsstringcolor" style="color:brown">"BMW"</span>];&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Allowed<br></span><span class="jsnumbercolor" style="color:red">
+</span>{<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">const</span> cars = [<span class="jsstringcolor" style="color:brown">"Volvo"</span>, <span class="jsstringcolor" style="color:brown">"BMW"</span>];&nbsp;<span class="commentcolor" style="color:green">// Allowed<br></span><span class="jsnumbercolor" style="color:red">
+</span>}<br><span class="jsnumbercolor" style="color:red">
+</span>{<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">const</span> cars = [<span class="jsstringcolor" style="color:brown">"Volvo"</span>, <span class="jsstringcolor" style="color:brown">"BMW"</span>];&nbsp;<span class="commentcolor" style="color:green">// Allowed<br></span><span class="jsnumbercolor" style="color:red">
+</span>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-note">
+<h2>Complete Array Reference</h2>
+<p>For a complete Array reference, go to our:</p>
+<p>Complete JavaScript Array Reference</a>.</p>
+<p>The reference contains descriptions and Samples of all Array 
+properties and methods.</p>
+</div>
+ 

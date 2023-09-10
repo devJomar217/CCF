@@ -1,0 +1,154 @@
+<!-- MATH-->
+
+
+  <div class="w3-row w3-white">
+    
+   
+<h1>What is  <span class="color_h1">Math in C++?</span></h1>
+<p>&nbsp;</p>
+
+<h2>C++ Math</h2>
+<p>C++ has many functions that allows you to perform mathematical tasks on numbers.</p>
+<hr>
+
+<h2>Max and min</h2>
+
+<p>The <code class="w3-codespan">max(<em>x</em>,<em>y</em>)</code> function can be used to find the highest value of <em>x</em> and
+<em>y</em>:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  cout &lt;&lt; max(<span class="javanumbercolor" style="color:red">5</span>, <span class="javanumbercolor" style="color:red">10</span>);<br><span class="javanumbercolor" style="color:red">
+</span>  </span></div>
+</div>
+
+<p>And the <code class="w3-codespan">min(<em>x</em>,<em>y</em>)</code> function can be used to find the lowest value of 
+<em>x</em> 
+and <em>y</em>:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  cout &lt;&lt; min(<span class="javanumbercolor" style="color:red">5</span>, <span class="javanumbercolor" style="color:red">10</span>);<br><span class="javanumbercolor" style="color:red">
+</span>  </span></div>
+</div>
+<hr>
+
+<h2>C++  &lt;cmath&gt; Header</h2>
+<p>Other functions, such as <code class="w3-codespan">sqrt</code> (square root), <code class="w3-codespan">round</code> (rounds a number) and <code class="w3-codespan">log</code> 
+(natural logarithm), can be found in the <code class="w3-codespan">&lt;cmath&gt;</code> header 
+file:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  <span class="commentcolor" style="color:green">// Include the cmath library<br></span>#include &lt;cmath&gt;<br><br>cout &lt;&lt; <span class="javanumbercolor" style="color:red">
+</span>  sqrt(<span class="javanumbercolor" style="color:red">64</span>);<br>cout &lt;&lt; round(<span class="javanumbercolor" style="color:red">2.6</span>);<br>cout &lt;&lt; log(<span class="javanumbercolor" style="color:red">2</span>);<br><span class="javanumbercolor" style="color:red">
+</span>  </span></div>
+
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<h2>Other Math Functions</h2>
+<p>A list of other popular Math functions (from the <code class="w3-codespan">&lt;cmath&gt;</code> library) can be found in the table below:</p>
+
+<table class="ws-table-all notranslate" style="margin:0">
+  <tbody><tr>
+    <th style="width:23%">Function</th>
+    <th style="width:77%">Description</th>
+  </tr>
+  <tr>
+    <td>abs(x)</td>
+    <td>Returns the absolute value of x</td>
+  </tr>
+  <tr>
+    <td>acos(x)</td>
+    <td>Returns the arccosine of x</td>
+  </tr>
+  <tr>
+    <td>asin(x)</td>
+    <td>Returns the arcsine of x</td>
+  </tr>
+  <tr>
+    <td>atan(x)</td>
+    <td>Returns the arctangent of x</td>
+  </tr>
+  <tr>
+    <td>cbrt(x)</td>
+    <td>Returns the cube root of x</td>
+ </tr>
+  <tr>
+    <td>ceil(x)</td>
+    <td>Returns the value of x rounded up to its nearest integer</td>
+  </tr>
+  <tr>
+    <td>cos(x)</td>
+    <td>Returns the cosine of x</td>
+  </tr>
+  <tr>
+    <td>cosh(x)</td>
+    <td>Returns the hyperbolic cosine of x</td>
+ </tr>
+  <tr>
+    <td>exp(x)</td>
+    <td>Returns the value of E<sup>x</sup></td>
+ </tr>
+  <tr>
+    <td>expm1(x)</td>
+    <td>Returns e<sup>x</sup> -1</td>
+ </tr>
+  <tr>
+    <td>fabs(x)</td>
+    <td>Returns the absolute value of a floating x</td>
+  </tr>
+  <tr>
+    <td>fdim(x, y)</td>
+    <td>Returns the positive difference between x and y</td>
+  </tr>
+  <tr>
+    <td>floor(x)</td>
+    <td>Returns the value of x rounded down to its nearest integer</td>
+  </tr>
+  <tr>
+    <td>hypot(x, y)</td>
+    <td>Returns sqrt(x<sup>2</sup> +y<sup>2</sup>) without intermediate overflow or underflow</td>
+ </tr>
+  <tr>
+    <td>fma(x, y, z)</td>
+    <td>Returns x*y+z without losing precision</td>
+ </tr>
+  <tr>
+    <td>fmax(x, y)</td>
+    <td>Returns the highest value of a floating x and y</td>
+ </tr>
+  <tr>
+    <td>fmin(x, y)</td>
+    <td>Returns the lowest value of a floating x and y</td>
+ </tr>
+  <tr>
+    <td>fmod(x, y)</td>
+    <td>Returns the floating point remainder of x/y</td>
+ </tr>
+  <tr>
+    <td>pow(x, y)</td>
+    <td>Returns the value of x to the power of y</td>
+  </tr>
+  <tr>
+    <td>sin(x)</td>
+    <td>Returns the sine of x (x is in radians)</td>
+ </tr>
+  <tr>
+    <td>sinh(x)</td>
+   <td>Returns the hyperbolic sine of a double value</td>
+ </tr>
+  <tr>
+    <td>tan(x)</td>
+    <td>Returns the tangent of an angle</td>
+  </tr>
+  <tr>
+    <td>tanh(x)</td>
+    <td>Returns the hyperbolic tangent of a double value</td>
+ </tr>
+</tbody>
+</table>
+<hr>
+

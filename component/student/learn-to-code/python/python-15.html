@@ -1,0 +1,581 @@
+<!-- Sets-->
+
+ 
+  <div class="w3-row w3-white">
+    
+  
+
+<h1>What is <span class="color_h1">Sets in Python?</span></h1>
+  
+<hr>
+
+<div class="w3-codeline notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+myset = {<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>}<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+
+<hr>
+<h2>Set</h2>
+
+<p>Sets are used to store multiple items in a single variable.</p>
+
+<p>Set is one of 4 built-in data types in Python used to store collections of 
+data, the other 3 are List</a>, 
+ Tuple</a>, and Dictionary</a>, all with different qualities and usage.</p>
+
+<p>A set is a collection which is <em>unordered</em>, <em>unchangeable*</em>, and <em>unindexed</em>.</p>
+
+<div class="w3-panel w3-note">
+  <p><strong>* Note:</strong> Set <em>items</em> are unchangeable, but you can remove 
+  items and add new items.</p>
+</div>
+
+
+<p>Sets are written with curly brackets.</p>
+
+<div class="w3-Sample">
+ <p>Create a Set:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thisset = {<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>}<br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thisset) </span></div>
+ </div>
+
+<div class="w3-panel w3-note">
+  <p><strong>Note:</strong> Sets are unordered, so you cannot be sure in which 
+  order the items will appear.</p>
+</div>
+
+<hr>
+
+<h2>Set Items</h2>
+
+<p>Set items are unordered, unchangeable, and do not allow duplicate values.</p>
+
+<hr>
+
+<h2>Unordered</h2>
+
+<p>Unordered means that the items in a set do not have a defined order.</p>
+<p>Set items can appear in a different order every time you use them, 
+and cannot be referred to by index or key.</p>
+
+<hr>
+<h2>Unchangeable</h2>
+
+<p>Set items are unchangeable, meaning that we cannot change the items after the set has been created.</p>
+<div class="w3-panel w3-note">
+<p>Once a set is created, you cannot change its items, but you can remove items 
+and add new items.</p>
+</div>
+
+<hr>
+
+<h2>Duplicates Not Allowed</h2>
+<p>Sets cannot have two items with the same value.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Duplicate values will be ignored:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  thisset = {<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>, <span class="pythonstringcolor" style="color:brown">"apple"</span>}<br><br><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thisset)<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<div class="w3-panel w3-note">
+  <p><strong>Note:</strong> The values <code class="w3-codespan">True</code>
+  and <code class="w3-codespan">1</code> are considered the same value in sets, 
+  and are treated as duplicates:</p>
+</div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p><code class="w3-codespan">True</code>
+  and <code class="w3-codespan">1</code> is considered the same value:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  thisset = {<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>, <span class="pythonkeywordcolor" style="color:mediumblue">True</span>, <span class="pythonnumbercolor" style="color:red">1</span>, <span class="pythonnumbercolor" style="color:red">2</span>}<br><br><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thisset)<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+ 
+
+<h2>Get the Length of a Set</h2>
+
+<p>To determine how many items a set has, use the <code class="w3-codespan">len()</code> 
+function.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Get the number of items in a set:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  thisset = {<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>}<br><br><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(<span class="pythonkeywordcolor" style="color:mediumblue">len</span>(thisset)) </span></div>
+ </div>
+
+<hr>
+<h2>Set Items - Data Types</h2>
+
+<p>Set items can be of any data type:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>String, int and boolean data types:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  set1 = {<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>}<br><span class="pythonnumbercolor" style="color:red">
+</span>  set2 = {<span class="pythonnumbercolor" style="color:red">1</span>, <span class="pythonnumbercolor" style="color:red">5</span>, <span class="pythonnumbercolor" style="color:red">7</span>, <span class="pythonnumbercolor" style="color:red">9</span>, <span class="pythonnumbercolor" style="color:red">3</span>}<br><span class="pythonnumbercolor" style="color:red">
+</span>  set3 = {<span class="pythonkeywordcolor" style="color:mediumblue">True</span>, <span class="pythonkeywordcolor" style="color:mediumblue">False</span>, <span class="pythonkeywordcolor" style="color:mediumblue">False</span>} </span></div>
+ </div>
+
+<p>A set can contain different data types:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>A set with strings, integers and boolean values:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  set1 = {<span class="pythonstringcolor" style="color:brown">"abc"</span>, <span class="pythonnumbercolor" style="color:red">34</span>, <span class="pythonkeywordcolor" style="color:mediumblue">True</span>, <span class="pythonnumbercolor" style="color:red">40</span>, <span class="pythonstringcolor" style="color:brown">"male"</span>} </span></div>
+ </div>
+
+<hr>
+<h2>type()</h2>
+
+<p>From Python's perspective, sets are defined as objects with the data type 'set':</p>
+
+<div class="w3-codeline notranslate">
+&lt;class 'set'&gt;
+</div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>What is the data type of a set?</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+myset = {<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>}<br>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(<span class="pythonkeywordcolor" style="color:mediumblue">type</span>(myset))<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<hr>
+
+<h2>The set() Constructor</h2>
+<p>It is also possible to use the <span class="w3-codespan">set()</span> 
+constructor to make a set.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Using the set() constructor to make a set:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thisset = set((<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>)) <span class="commentcolor" style="color:green"># note the double round-brackets<br></span>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thisset) </span></div>
+ </div>
+
+<hr>
+<h2>Python Collections (Arrays)</h2>
+<p>There are four collection data types in the Python programming language:</p>
+<ul>
+<li><strong> List</a></strong> is a collection which is ordered and changeable. Allows duplicate members.</li>
+<li><strong> Tuple</a></strong> is a collection which is ordered and unchangeable. Allows duplicate members.</li>
+<li><strong>Set</strong> is a collection which is unordered, unchangeable*, and unindexed. No duplicate members.</li>
+<li><strong> Dictionary</a></strong> is a collection which is ordered** 
+and changeable. No duplicate members.</li>
+</ul>
+
+<div class="w3-panel w3-note">
+  <p>*Set <em>items</em> are unchangeable, but you can remove items and add new 
+  items.</p>
+  <p>**As of Python version 3.7, dictionaries are <em>ordered</em>. 
+  In Python 3.6 and earlier, dictionaries are <em>unordered</em>.</p>
+</div>
+
+<p>When choosing a collection type, it is useful to understand the properties of that type. Choosing the right type for a particular data set could mean retention of meaning, and, it could mean an increase in efficiency or security.</p>
+ 
+
+
+ <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+ <p>&nbsp;</p>
+    <p>&nbsp;</p> 
+
+  <div class="w3-row w3-white">
+    
+    
+
+<h1>Python - <span class="color_h1">Access Set Items</span></h1>
+ 
+<h2>Access Items</h2>
+
+<p>You cannot access items in a set by referring to an index or a key.</p>
+<p>But you can loop through the set items using a <code class="w3-codespan">for</code> 
+loop, or ask if a specified value is present in a set, by using the
+<code class="w3-codespan">in</code> keyword.</p>
+
+<div class="w3-Sample">
+ <p>Loop through the set, and print the values:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  thisset = {<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>}<br><br><span class="pythonkeywordcolor" style="color:mediumblue">for</span> x <span class="pythonkeywordcolor" style="color:mediumblue">in</span> thisset:<br>&nbsp; <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(x) </span></div>
+ </div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Check if "banana" is present in the set:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  thisset = {<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>}<br><br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(<span class="pythonstringcolor" style="color:brown">"banana"</span> <span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">in</span> thisset) </span></div>
+ </div>
+
+<hr>
+<h2>Change Items</h2>
+
+<div class="w3-panel w3-note">
+<p>Once a set is created, you cannot change its items, but you can add new items.</p>
+</div>
+ 
+
+ <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+<p>&nbsp;</p>
+    <p>&nbsp;</p> 
+
+  <div class="w3-row w3-white">
+  
+
+<h1>Python - <span class="color_h1">Add Set Items</span></h1>
+  
+
+<h2>Add Items</h2>
+
+<div class="w3-panel w3-note">
+<p>Once a set is created, you cannot change its items, but you can add new items.</p>
+</div>
+
+<p>To add one item to a set use the <code class="w3-codespan">add()</code> 
+method.</p>
+
+<div class="w3-Sample">
+ <p>Add an item to a set, using the <code class="w3-codespan">add()</code> 
+method:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  thisset = {<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>}<br><br><span class="pythonnumbercolor" style="color:red">
+</span>  thisset.add(<span class="pythonstringcolor" style="color:brown">"orange"</span>)<br><br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thisset) </span></div>
+ </div>
+
+<hr>
+
+<h2>Add Sets</h2>
+
+<p>To add items from another set into the current set, use the <code class="w3-codespan">update()</code> 
+method.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Add elements from <code class="w3-codespan">tropical</code> into <code class="w3-codespan">
+thisset</code>:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  thisset = {<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>}<br>tropical = {<span class="pythonstringcolor" style="color:brown">"pineapple"</span>, <span class="pythonstringcolor" style="color:brown">"mango"</span>, <span class="pythonstringcolor" style="color:brown">"papaya"</span>}<br><br><span class="pythonnumbercolor" style="color:red">
+</span>  thisset.update(tropical)<br><span class="pythonnumbercolor" style="color:red">
+</span>  <br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thisset) </span></div>
+ </div>
+
+<hr>
+
+<h2>Add Any Iterable</h2>
+
+<p>The object in the <code class="w3-codespan">update()</code> method does not have 
+to be a set, it can be any iterable object (tuples, lists, dictionaries etc.).</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Add elements of a list to at set:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  thisset = {<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>}<br><span class="pythonnumbercolor" style="color:red">
+</span>  mylist = [<span class="pythonstringcolor" style="color:brown">"kiwi"</span>, <span class="pythonstringcolor" style="color:brown">"orange"</span>]<br><br><span class="pythonnumbercolor" style="color:red">
+</span>  thisset.update(mylist)<br><span class="pythonnumbercolor" style="color:red">
+</span>  <br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thisset) </span></div>
+ </div>
+ 
+
+
+  <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+  <p>&nbsp;</p>
+  <p>&nbsp;</p> 
+
+
+  <div class="w3-row w3-white">
+    
+     
+
+<h1>Python - <span class="color_h1">Remove Set Items</span></h1>
+ 
+
+<h2>Remove Item</h2>
+
+<p>To remove an item in a set, use the <code class="w3-codespan">remove()</code>, or the <code class="w3-codespan">discard()</code> method.</p>
+
+<div class="w3-Sample">
+ <p>Remove "banana" by using the <code class="w3-codespan">remove()</code> 
+method:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  thisset = {<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>}<br><br><span class="pythonnumbercolor" style="color:red">
+</span>  thisset.remove(<span class="pythonstringcolor" style="color:brown">"banana"</span>)<br><br><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thisset) </span></div>
+ </div>
+
+<div class="w3-panel w3-note">
+  <p><strong>Note:</strong> If the item to remove does not exist, <code class="w3-codespan">remove()</code> will raise an error.</p>
+</div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Remove "banana" by using the <code class="w3-codespan">discard()</code> 
+method:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  thisset = {<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>}<br><br><span class="pythonnumbercolor" style="color:red">
+</span>  thisset.discard(<span class="pythonstringcolor" style="color:brown">"banana"</span>)<br><br><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thisset) </span></div>
+ </div>
+
+<div class="w3-panel w3-note">
+<p><strong>Note:</strong> If the item to remove does not exist, <code class="w3-codespan">discard()</code> will 
+  <strong>NOT</strong> raise an error.</p>
+</div>
+
+<p>You can also use the <code class="w3-codespan">pop()</code> method to remove 
+an item, but this method will remove a random item, so you cannot be sure what item that gets removed.</p>
+<p>The return value of the <code class="w3-codespan">pop()</code> method is the 
+removed item.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Remove a random item by using the <code class="w3-codespan">pop()</code> 
+method:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  thisset = {<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>}<br><br><span class="pythonnumbercolor" style="color:red">
+</span>  x =<span class="pythonnumbercolor" style="color:red">
+</span>  thisset.pop()<br><br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(x)<br><br><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thisset) </span></div>
+ </div>
+
+<div class="w3-panel w3-note">
+<p><strong>Note:</strong> Sets are <em>unordered</em>, so when using the <code class="w3-codespan">pop()</code> method, 
+you do not know which item that gets removed.</p>
+</div>
+
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>The <code class="w3-codespan">clear()</code> 
+method empties the set:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  thisset = {<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>}<br><br><span class="pythonnumbercolor" style="color:red">
+</span>  thisset.clear()<br><br><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thisset) </span></div>
+ </div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>The <code class="w3-codespan">del</code> keyword will delete the set 
+completely:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  thisset = {<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>}<br><br><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">del</span><span class="pythonnumbercolor" style="color:red">
+</span>  thisset<br><br><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thisset) </span></div>
+ </div>
+ 
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+ <p>&nbsp;</p>
+    <p>&nbsp;</p> 
+
+  <div class="w3-row w3-white">
+    
+ 
+
+<h1>Python - <span class="color_h1">Loop Sets</span></h1>
+ 
+
+<h2>Loop Items</h2>
+
+<p>You can loop through the set items by using a <code class="w3-codespan">for</code> 
+loop:</p>
+
+<div class="w3-Sample">
+ <p>Loop through the set, and print the values:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  thisset = {<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>}<br><br><span class="pythonkeywordcolor" style="color:mediumblue">for</span> x <span class="pythonkeywordcolor" style="color:mediumblue">in</span> thisset:<br>&nbsp; <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(x) </span></div>
+ </div>
+ 
+
+
+ <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+ <p>&nbsp;</p>
+ <p>&nbsp;</p> 
+
+  <div class="w3-row w3-white">
+    
+ 
+
+<h1>Python - <span class="color_h1">Join Sets</span></h1>
+ 
+
+<h2>Join Two Sets</h2>
+<p>There are several ways to join two or more sets in Python.</p>
+<p>You can use the <code class="w3-codespan">union()</code> method that returns a new set containing all items from both sets,
+or the <code class="w3-codespan">update()</code> method that inserts all the items from one set into another:</p>
+
+<div class="w3-Sample">
+ <p>The <code class="w3-codespan">union()</code> method returns a new set with all items from both sets:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  set1 = {<span class="pythonstringcolor" style="color:brown">"a"</span>, <span class="pythonstringcolor" style="color:brown">"b"</span> , <span class="pythonstringcolor" style="color:brown">"c"</span>}<br>set2 = {<span class="pythonnumbercolor" style="color:red">1</span>, <span class="pythonnumbercolor" style="color:red">2</span>, <span class="pythonnumbercolor" style="color:red">3</span>}<br><br><span class="pythonnumbercolor" style="color:red">
+</span>  set3 = set1.union(set2)<br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(set3) </span></div>
+ </div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>The <code class="w3-codespan">update()</code> method inserts the items in set2 into set1:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  set1 = {<span class="pythonstringcolor" style="color:brown">"a"</span>, <span class="pythonstringcolor" style="color:brown">"b"</span> , <span class="pythonstringcolor" style="color:brown">"c"</span>}<br>set2 = {<span class="pythonnumbercolor" style="color:red">1</span>, <span class="pythonnumbercolor" style="color:red">2</span>, <span class="pythonnumbercolor" style="color:red">3</span>}<br><br><span class="pythonnumbercolor" style="color:red">
+</span>  set1.update(set2)<br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(set1) </span></div>
+ </div>
+
+<div class="w3-panel w3-note">
+<p><strong>Note:</strong> Both <code class="w3-codespan">union()</code> and <code class="w3-codespan">update()</code>
+will exclude any duplicate items.</p>
+</div>
+ 
+
+<h2>Keep ONLY the Duplicates</h2>
+
+<p>The <code class="w3-codespan">intersection_update()</code> method will keep only the items that are present in both sets.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Keep the items that exist in both set <code class="w3-codespan">x</code>, and set <code class="w3-codespan">y</code>:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  x = {<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>}<br>y = {<span class="pythonstringcolor" style="color:brown">"google"</span>, <span class="pythonstringcolor" style="color:brown">"microsoft"</span>, <span class="pythonstringcolor" style="color:brown">"apple"</span>}<br><span class="pythonnumbercolor" style="color:red">
+</span>  <br>x.intersection_update(y)<br><br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(x) </span></div>
+ </div>
+
+<p>The <code class="w3-codespan">intersection()</code> method will return a <em>new</em> set, that only contains the items that are present in both sets.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Return a set that contains the items that exist in both set <code class="w3-codespan">x</code>, and set <code class="w3-codespan">y</code>:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  x = {<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>}<br>y = {<span class="pythonstringcolor" style="color:brown">"google"</span>, <span class="pythonstringcolor" style="color:brown">"microsoft"</span>, <span class="pythonstringcolor" style="color:brown">"apple"</span>}<br><span class="pythonnumbercolor" style="color:red">
+</span>  <br>z = x.intersection(y)<br><br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(z) </span></div>
+ </div>
+
+<hr>
+<h2>Keep All, But NOT the Duplicates</h2>
+
+<p>The <code class="w3-codespan">symmetric_difference_update()</code> method will 
+keep only the elements that are NOT present in both sets.</p>
+
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Keep the items that are not present in both sets:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  x = {<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>}<br>y = {<span class="pythonstringcolor" style="color:brown">"google"</span>, <span class="pythonstringcolor" style="color:brown">"microsoft"</span>, <span class="pythonstringcolor" style="color:brown">"apple"</span>}<br><span class="pythonnumbercolor" style="color:red">
+</span>  <br>x.symmetric_difference_update(y)<br><br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(x) </span></div>
+ </div>
+<p>The <code class="w3-codespan">symmetric_difference()</code> method will return a new set,
+that contains only the elements that are NOT present in both sets.</p>
+
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Return a set that contains all items from both sets, except items that are 
+present in both:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  x = {<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>}<br>y = {<span class="pythonstringcolor" style="color:brown">"google"</span>, <span class="pythonstringcolor" style="color:brown">"microsoft"</span>, <span class="pythonstringcolor" style="color:brown">"apple"</span>}<br><span class="pythonnumbercolor" style="color:red">
+</span>  <br>z = x.symmetric_difference(y)<br><br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(z) </span></div>
+ </div>
+<div class="w3-panel w3-note">
+  <p><strong>Note:</strong> The values <code class="w3-codespan">True</code>
+  and <code class="w3-codespan">1</code> are considered the same value in sets, 
+  and are treated as duplicates:</p>
+</div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p><code class="w3-codespan">True</code>
+  and <code class="w3-codespan">1</code> is considered the same value:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  x = {<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>, <span class="pythonkeywordcolor" style="color:mediumblue">True</span>}<br>y = {<span class="pythonstringcolor" style="color:brown">"google"</span>, <span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonnumbercolor" style="color:red">1</span>, <span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonnumbercolor" style="color:red">2</span>}<br><span class="pythonnumbercolor" style="color:red">
+</span>  <br>z = x.symmetric_difference(y)<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+ 
+
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++===-->
+
+ <p>&nbsp;</p>
+    <p>&nbsp;</p> 
+
+  <div class="w3-row w3-white">
+    
+  
+
+<h1>Python - <span class="color_h1">Set Methods</span></h1>
+ 
+
+<h2>Set Methods</h2>
+
+<p>Python has a set of built-in methods that you can use on sets.</p>
+
+<table class="ws-table-all notranslate">
+<tbody><tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+<tr><td> add()</a></td><td>Adds an element to the 
+  set</td></tr>
+<tr><td> clear()</a></td><td>Removes all the 
+  elements from the set</td></tr>
+<tr><td> copy()</a></td><td>Returns a copy of the set</td></tr>
+  <tr>
+    <td> difference()</a></td><td>Returns a set 
+    containing the difference between two or more sets</td>
+  </tr>
+  <tr>
+    <td> difference_update()</a></td><td>Removes the 
+    items in this set that are also included in another, specified set</td>
+  </tr>
+<tr><td> discard()</a></td><td>Remove the specified 
+  item</td></tr>
+  <tr>
+    <td> intersection()</a></td><td>Returns a set, 
+    that is the intersection of two other sets</td>
+  </tr>
+<tr><td> intersection_update()</a></td><td>
+  Removes the items in this set that are not present in other, specified set(s)</td></tr>
+  <tr>
+    <td> isdisjoint()</a></td><td>Returns whether 
+    two sets have a intersection or not</td>
+  </tr>
+  <tr>
+    <td> issubset()</a></td><td>Returns whether 
+    another set contains this set or not</td>
+  </tr>
+<tr><td> issuperset()</a></td><td>Returns whether 
+  this set contains another set or not</td></tr>
+<tr><td> pop()</a></td><td>Removes an element from the 
+  set</td></tr>
+<tr><td> remove()</a></td><td>Removes the specified element</td></tr>
+  <tr>
+    <td> symmetric_difference()</a></td><td>Returns 
+    a set with the symmetric differences of two sets</td>
+  </tr>
+<tr><td> symmetric_difference_update()</a></td><td>
+  inserts the symmetric differences from this set and another</td></tr>
+  <tr>
+    <td> union()</a></td><td>Return a set containing 
+    the union of sets</td>
+  </tr>
+<tr><td> update()</a></td><td>Update the set with the 
+  union of this set and others</td></tr>
+</tbody></table>
+ 
+
+
+ 

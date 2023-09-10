@@ -1,0 +1,68 @@
+<!-- type casting-->
+
+
+
+  <div class="w3-row w3-white">
+    
+    <h1>What is <span class="color_h1">Type Casting in C#?</span></h1>
+
+<h2>C# Type Casting</h2>
+<p>Type casting is when you assign a value of one data type to another type.</p>
+<p>In C#, there are two types of casting:</p>
+<ul>
+<li><strong>Implicit Casting</strong> (automatically) - converting a smaller type 
+to a larger type size<br>
+  <code class="w3-codespan">char</code> -&gt; <code class="w3-codespan">int</code> -&gt; <code class="w3-codespan">long</code> -&gt; <code class="w3-codespan">float</code> -&gt; <code class="w3-codespan">double</code><br><br>
+</li><li><strong>Explicit Casting</strong> (manually) - converting a larger type 
+to a smaller size type<br>
+  <code class="w3-codespan">double</code> -&gt; <code class="w3-codespan">float</code> -&gt; <code class="w3-codespan">long</code> -&gt; <code class="w3-codespan">int</code> -&gt; <code class="w3-codespan">char</code></li></ul>
+<hr>
+
+<h2>Implicit Casting</h2>
+<p>Implicit casting is done automatically when passing a smaller size type to a 
+larger size type:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<pre class="w3-white language-csharp" tabindex="0"><code class="language-csharp"><span class="token class-name"><span class="token keyword keyword-int">int</span></span> myInt <span class="token operator">=</span> <span class="token number">9</span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token keyword keyword-double">double</span></span> myDouble <span class="token operator">=</span> myInt<span class="token punctuation">;</span>       <span class="token comment">// Automatic casting: int to double</span>
+
+Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>myInt<span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment">// Outputs 9</span>
+Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>myDouble<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// Outputs 9</span>
+</code></pre>
+<p>
+</p>
+</div>
+<hr>
+
+<h2>Explicit Casting</h2>
+<p>Explicit casting must be done manually by placing the type in parentheses 
+in front of the value:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<pre class="w3-white language-csharp" tabindex="0"><code class="language-csharp"><span class="token class-name"><span class="token keyword keyword-double">double</span></span> myDouble <span class="token operator">=</span> <span class="token number">9.78</span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token keyword keyword-int">int</span></span> myInt <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword keyword-int">int</span><span class="token punctuation">)</span> myDouble<span class="token punctuation">;</span>    <span class="token comment">// Manual casting: double to int</span>
+
+Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>myDouble<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// Outputs 9.78</span>
+Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>myInt<span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment">// Outputs 9</span>
+</code></pre>
+<p>
+</p>
+</div>
+<hr>
+
+<h2>Type Conversion Methods</h2>
+<p>It is also possible to convert data types explicitly by using built-in methods, such as <code class="w3-codespan">Convert.ToBoolean</code>, <code class="w3-codespan">Convert.ToDouble</code>, <code class="w3-codespan">Convert.ToString</code>, <code class="w3-codespan">Convert.ToInt32</code> (<code class="w3-codespan">int</code>) and <code class="w3-codespan">Convert.ToInt64</code> (<code class="w3-codespan">long</code>):</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<pre class="w3-white language-csharp" tabindex="0"><code class="language-csharp"><span class="token class-name"><span class="token keyword keyword-int">int</span></span> myInt <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token keyword keyword-double">double</span></span> myDouble <span class="token operator">=</span> <span class="token number">5.25</span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token keyword keyword-bool">bool</span></span> myBool <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+
+Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>Convert<span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span>myInt<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// convert int to string</span>
+Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>Convert<span class="token punctuation">.</span><span class="token function">ToDouble</span><span class="token punctuation">(</span>myInt<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// convert int to double</span>
+Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>Convert<span class="token punctuation">.</span><span class="token function">ToInt32</span><span class="token punctuation">(</span>myDouble<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// convert double to int</span>
+Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>Convert<span class="token punctuation">.</span><span class="token function">ToString</span><span class="token punctuation">(</span>myBool<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// convert bool to string</span></code></pre>
+<p>
+</p>
+</div>
+

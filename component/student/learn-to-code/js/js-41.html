@@ -1,0 +1,172 @@
+<!-- Loop For-->
+
+
+  <div class="w3-row w3-white">
+    
+
+
+<h1>What is <span class="color_h1">For Loop in JavaScript?</span></h1>
+
+<hr>
+<p class="intro">Loops can execute a block of code a number of times.</p>
+<hr>
+
+<h2>JavaScript Loops</h2>
+<p>Loops are handy, if you want to run the same code over and over again, each 
+time with a different value.</p>
+<p>Often this is the case when working with arrays:</p>
+
+<div class="w3-Sample">
+<h3>Instead of writing:</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span>  text += cars[<span class="jsnumbercolor" style="color:red">0</span>] + <span class="jsstringcolor" style="color:brown">"&lt;br&gt;"</span>; <br>text += cars[<span class="jsnumbercolor" style="color:red">1</span>] + <span class="jsstringcolor" style="color:brown">"&lt;br&gt;"</span>; <br><span class="jsnumbercolor" style="color:red">
+</span> text += cars[<span class="jsnumbercolor" style="color:red">2</span>] + <span class="jsstringcolor" style="color:brown">"&lt;br&gt;"</span>; <br>text += cars[<span class="jsnumbercolor" style="color:red">3</span>] + <span class="jsstringcolor" style="color:brown">"&lt;br&gt;"</span>; <br><span class="jsnumbercolor" style="color:red">
+</span> text += cars[<span class="jsnumbercolor" style="color:red">4</span>] + <span class="jsstringcolor" style="color:brown">"&lt;br&gt;"</span>; <br>text += cars[<span class="jsnumbercolor" style="color:red">5</span>] + <span class="jsstringcolor" style="color:brown">"&lt;br&gt;"</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<h3>You can write:</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">for</span> (<span class="jskeywordcolor" style="color:mediumblue">let</span> i = <span class="jsnumbercolor" style="color:red">0</span>; i &lt; cars.<span class="jspropertycolor" style="color:black">length</span>; i++) { <br>&nbsp;&nbsp;text += cars[i] + <span class="jsstringcolor" style="color:brown">"&lt;br&gt;"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span> } </span></div>
+</div>
+<hr>
+
+<h2>Different Kinds of Loops</h2>
+<p>JavaScript supports different kinds of loops:</p>
+<ul>
+  <li><code class="w3-codespan">for</code> - loops through a block of code a number of times</li>
+  <li><code class="w3-codespan">for/in</code> - loops through the properties of an object</li>
+  <li><code class="w3-codespan">for/of</code> - loops through the values of an 
+  iterable object </li>
+  <li><code class="w3-codespan">while</code> - loops through a block of code while a specified condition is true</li>
+  <li><code class="w3-codespan">do/while</code> - also loops through a block of code while a specified condition is true</li>
+</ul>
+<hr>
+
+<h2>The For Loop</h2>
+<p>The <code class="w3-codespan">for</code> statement creates a loop with 3 optional expressions:</p>
+
+<div class="w3-code w3-border notranslate jsHigh"><span class="jscolor" style="color:black"><div>
+
+<span class="jskeywordcolor" style="color:mediumblue">for</span> (<i>expression 1</i>;<i> expression 2</i>;<i> expression 3</i>) {<br><span class="jsnumbercolor" style="color:red">
+</span>    &nbsp; <span class="commentcolor" style="color:green">// <i>code block to be executed</i><br></span><span class="jsnumbercolor" style="color:red">
+</span> }<br>
+</div> </span></div>
+
+<p><strong>Expression 1</strong> is executed (one time) before the execution of the code block.</p>
+<p><strong>Expression 2</strong> defines the condition for executing the code block.</p>
+<p><strong>Expression 3</strong> is executed (every time) after the code block has been executed.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">for</span> (<span class="jskeywordcolor" style="color:mediumblue">let</span> i = <span class="jsnumbercolor" style="color:red">0</span>; i &lt; <span class="jsnumbercolor" style="color:red">5</span>; i++) {<br><span class="jsnumbercolor" style="color:red">
+</span> &nbsp; text += <span class="jsstringcolor" style="color:brown">"The number is "</span> + i + <span class="jsstringcolor" style="color:brown">"&lt;br&gt;"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>}<br><span class="jsnumbercolor" style="color:red">
+</span>  </span></div>
+</div>
+
+<p>From the Sample above, you can read:</p>
+<p>Expression 1 sets a variable before the loop starts (let i = 0).</p>
+<p>Expression 2 defines the condition for the loop to run (i must be less than 
+5).</p>
+<p>Expression 3 increases a value (i++) each time the code block in the loop has 
+been executed.</p>
+
+<h2>Expression 1</h2>
+<p>Normally you will use expression 1 to initialize the variable used in the loop (let i = 0).</p>
+<p>This is not always the case. JavaScript doesn't care. Expression 1 is 
+optional.</p>
+<p>You can initiate many values in expression 1 (separated by comma):</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">for</span> (<span class="jskeywordcolor" style="color:mediumblue">let</span> i = <span class="jsnumbercolor" style="color:red">0</span>, len = cars.<span class="jspropertycolor" style="color:black">length</span>, text = <span class="jsstringcolor" style="color:brown">""</span>; i &lt; len; i++) { <br>&nbsp; text += cars[i] + <span class="jsstringcolor" style="color:brown">"&lt;br&gt;"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span> } </span></div>
+</div>
+<p>And you can omit expression 1 (like when your values are set 
+before the loop starts):</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> i = <span class="jsnumbercolor" style="color:red">2</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> len = cars.<span class="jspropertycolor" style="color:black">length</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">""</span>;<br><span class="jskeywordcolor" style="color:mediumblue">for</span> (; i &lt; len; i++) { <br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; text += cars[i] + <span class="jsstringcolor" style="color:brown">"&lt;br&gt;"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span> } </span></div>
+</div>
+
+<h2>Expression 2</h2>
+<p>Often expression 2 is used to evaluate the condition of the initial variable.</p>
+<p>This is not always the case. JavaScript doesn't care. Expression 2 is 
+also optional.</p>
+<p>If expression 2 returns true, the loop will start over again. If it returns false, the 
+loop will end.</p>
+
+<div class="w3-panel w3-note">
+<p>If you omit expression 2, you must provide a <strong>break</strong> inside the 
+loop. Otherwise the loop will never end. This will crash your browser.
+Read about breaks in a later chapter of this tutorial.</p>
+</div>
+
+<hr>
+<h2>Expression 3</h2>
+<p>Often expression 3 increments the value of the initial variable.</p>
+<p>This is not always the case. JavaScript doesn't care. Expression 3 is 
+optional.</p>
+<p>Expression 3 can do anything like negative increment (i--), positive 
+increment (i = i + 15), or anything else.</p>
+<p>Expression 3 can also be omitted (like when you increment your values inside the loop): </p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> i = <span class="jsnumbercolor" style="color:red">0</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> len = cars.<span class="jspropertycolor" style="color:black">length</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">""</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">for</span> (; i &lt; len; ) { <br>&nbsp; text += cars[i] + <span class="jsstringcolor" style="color:brown">"&lt;br&gt;"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp;<span class="jsnumbercolor" style="color:red">
+</span> i++;<br>} </span></div>
+</div>
+<hr>
+<h2>Loop Scope</h2>
+<p>Using <code class="w3-codespan">var</code> in a loop:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">var</span> i = <span class="jsnumbercolor" style="color:red">5</span>;<br><span class="jsnumbercolor" style="color:red">
+</span><br>
+<span class="jskeywordcolor" style="color:mediumblue">for</span> (<span class="jskeywordcolor" style="color:mediumblue">var</span> i = <span class="jsnumbercolor" style="color:red">0</span>; i &lt; <span class="jsnumbercolor" style="color:red">10</span>; i++) {<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="commentcolor" style="color:green">// some code<br></span>}<br><span class="jsnumbercolor" style="color:red">
+</span><br><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Here i is 10
+ </span></span></div>
+</div>
+
+<p>Using <code class="w3-codespan">let</code> in a loop:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> i = <span class="jsnumbercolor" style="color:red">5</span>;<br><span class="jsnumbercolor" style="color:red">
+</span><br>
+<span class="jskeywordcolor" style="color:mediumblue">for</span> (<span class="jskeywordcolor" style="color:mediumblue">let</span> i = <span class="jsnumbercolor" style="color:red">0</span>; i &lt; <span class="jsnumbercolor" style="color:red">10</span>; i++) {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; <span class="commentcolor" style="color:green">// some code<br></span>}<br><span class="jsnumbercolor" style="color:red">
+</span><br><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Here i is 5
+ </span></span></div>
+</div>
+<p>In the first Sample, using <code class="w3-codespan">var</code>, the variable declared in 
+the loop redeclares the variable outside the loop. </p>
+<p>In the second Sample, using <code class="w3-codespan">let</code>, the variable declared in 
+the loop does not redeclare the variable outside the loop. </p>
+<p>When <code class="w3-codespan">let</code> is used to declare the i variable in a loop, the i 
+variable will only be visible within the loop. </p>
+
+<hr>
+
+<h2>For/Of and For/In Loops</h2>
+<p>The <code class="w3-codespan">for/in</code> loop and the <code class="w3-codespan">for/of</code> loop are explained in the next chapter.</p>
+<hr>
+<h2>While Loops</h2>
+<p>The <code class="w3-codespan">while</code> loop and the <code class="w3-codespan">do/while</code> are explained in the next chapters.</p>

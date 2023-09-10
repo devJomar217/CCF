@@ -1,0 +1,220 @@
+<!-- specification-->
+
+ 
+  <div class="w3-row w3-white">
+    
+    
+
+<h1>What is <span class="color_h1">Specificity in Css?</span></h1>
+ 
+<h2>What is Specificity?</h2>
+<p>If there are two or more CSS rules that point to the same 
+element, the selector with the highest specificity value will "win", and its 
+style declaration will be applied to that HTML element.</p>
+<p>Think of specificity as a score/rank that determines which style declaration 
+is ultimately applied to an element.</p>
+
+<p>Look at the following Samples:</p>
+<div class="w3-Sample">
+<h3>Sample 1</h3>
+<p>In this Sample, we have used the "p" element as selector, and specified a red color 
+for this element. The text will be red:</p>
+<div class="w3-code notranslate htmlHigh">
+  <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>html<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>head<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>&nbsp; <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>style<span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="cssselectorcolor" style="color:brown"><br>&nbsp;&nbsp;&nbsp; p <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red">color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> red<span class="cssdelimitercolor" style="color:black">;</span></span></span><span class="cssdelimitercolor" style="color:black">}</span> <br>&nbsp; 
+  </span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/style<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/head<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>body<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>p<span class="tagcolor" style="color:mediumblue">&gt;</span></span>Hello World!<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/p<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+  <br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/body<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+  <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/html<span class="tagcolor" style="color:mediumblue">&gt;</span></span> </div>
+ </div>
+
+<p>Now, look at Sample 2:</p>
+<div class="w3-Sample">
+<h3>Sample 2</h3>
+<p>In this Sample, we have added a class selector (named "test"), and 
+specified a green 
+color for this class. The text will now be green (even though we have specified 
+a red 
+color for the element selector "p"). This is because the class selector is given 
+higher priority:</p>
+<div class="w3-code notranslate htmlHigh">
+  <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>html<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>head<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>&nbsp; <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>style<span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="cssselectorcolor" style="color:brown"><br>&nbsp;&nbsp;&nbsp; .test <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red">color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> green<span class="cssdelimitercolor" style="color:black">;</span></span></span><span class="cssdelimitercolor" style="color:black">}</span>
+  <br>&nbsp;&nbsp;&nbsp; p <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red">color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> red<span class="cssdelimitercolor" style="color:black">;</span></span></span><span class="cssdelimitercolor" style="color:black">}</span> <br>&nbsp; </span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/style<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/head<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>body<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+  <br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>p<span class="attributecolor" style="color:red"> class<span class="attributevaluecolor" style="color:mediumblue">="test"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span>Hello World!<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/p<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/body<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/html<span class="tagcolor" style="color:mediumblue">&gt;</span></span> </div>
+ </div>
+
+<p>Now, look at Sample 3:</p>
+<div class="w3-Sample">
+<h3>Sample 3</h3>
+<p>In this Sample, we have added the id selector (named "demo"). The text will now be 
+blue, because the id selector is given higher priority:</p>
+<div class="w3-code notranslate htmlHigh">
+  <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>html<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>head<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>&nbsp; <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>style<span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="cssselectorcolor" style="color:brown"><br>&nbsp;&nbsp;&nbsp; #demo <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red">color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> blue<span class="cssdelimitercolor" style="color:black">;</span></span></span><span class="cssdelimitercolor" style="color:black">}</span><br>&nbsp;&nbsp;&nbsp; 
+  .test <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red">color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> green<span class="cssdelimitercolor" style="color:black">;</span></span></span><span class="cssdelimitercolor" style="color:black">}</span> <br>&nbsp;&nbsp;&nbsp; p <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red">color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> red<span class="cssdelimitercolor" style="color:black">;</span></span></span><span class="cssdelimitercolor" style="color:black">}</span> <br>&nbsp; 
+  </span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/style<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/head<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>body<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>p<span class="attributecolor" style="color:red"> id<span class="attributevaluecolor" style="color:mediumblue">="demo"</span> class<span class="attributevaluecolor" style="color:mediumblue">="test"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span>Hello 
+  World!<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/p<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/body<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/html<span class="tagcolor" style="color:mediumblue">&gt;</span></span> </div>
+ </div>
+
+<p>Now, look at Sample 4:</p>
+<div class="w3-Sample">
+<h3>Sample 4</h3>
+<p>In this Sample, we have added an inline style for the "p" element. The 
+text will now be pink, because the inline style is given the highest priority:</p>
+<div class="w3-code notranslate htmlHigh">
+  <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>html<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>head<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>&nbsp; <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>style<span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="cssselectorcolor" style="color:brown"><br>&nbsp;&nbsp;&nbsp; #demo <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red">color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> blue<span class="cssdelimitercolor" style="color:black">;</span></span></span><span class="cssdelimitercolor" style="color:black">}</span><br>&nbsp;&nbsp;&nbsp; 
+  .test <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red">color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> green<span class="cssdelimitercolor" style="color:black">;</span></span></span><span class="cssdelimitercolor" style="color:black">}</span> <br>&nbsp;&nbsp;&nbsp; p <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red">color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> red<span class="cssdelimitercolor" style="color:black">;</span></span></span><span class="cssdelimitercolor" style="color:black">}</span> <br>&nbsp; 
+  </span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/style<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/head<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>body<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>p<span class="attributecolor" style="color:red"> id<span class="attributevaluecolor" style="color:mediumblue">="demo"</span> class<span class="attributevaluecolor" style="color:mediumblue">="test"</span> 
+  style<span class="attributevaluecolor" style="color:mediumblue">="color: pink;"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span>Hello World!<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/p<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/body<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/html<span class="tagcolor" style="color:mediumblue">&gt;</span></span> </div>
+ </div>
+<hr>
+
+<h2>Specificity Hierarchy </h2>
+<p>Every CSS selector has its place in the specificity hierarchy.</p>
+<p>There are four categories which define the specificity level of a selector:</p>
+<ol>
+  <li><strong>Inline styles</strong> - Sample: 
+&lt;h1 style="color: pink;"&gt;</li>
+  <li><strong>IDs</strong> - Sample: 
+#navbar</li>
+  <li><strong>Classes, pseudo-classes, attribute selectors</strong> - Sample: .test, 
+  :hover, [href]</li>
+  <li><strong>Elements and pseudo-elements</strong> - Sample: h1, ::before</li>
+</ol>
+<hr>
+<h2>How to Calculate Specificity?</h2>
+<p>Memorize how to calculate specificity!</p>
+<p>Start at 0, add 100 for each ID value, add 10 for each 
+class value (or 
+pseudo-class or attribute selector), add 1 for each element selector or pseudo-element.</p>
+
+<div class="w3-panel w3-note">
+<p><strong>Note:</strong> Inline style gets a specificity value of 1000, and is 
+always given the highest priority!</p>
+  <p><strong>Note 2:</strong> There is one 
+exception to this rule: if you use the !important</code></a> 
+rule, it will even override inline styles!</p>
+</div>
+
+<p>The table below shows some Samples on how to calculate specificity values:</p>
+<table class="ws-table-all notranslate">
+  <tbody><tr>
+    <th>Selector</th>
+    <th>Specificity Value</th>
+    <th>Calculation</th>
+  </tr>
+  <tr>
+    <td>p</td>
+    <td>1</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>p.test</td>
+    <td>11</td>
+    <td>1 + 10</td>
+  </tr>
+  <tr>
+    <td>p#demo</td>
+    <td>101</td>
+    <td>1 + 100</td>
+  </tr>
+  <tr>
+    <td>&lt;p style="color: pink;"&gt;</td>
+    <td>1000</td>
+    <td>1000</td>
+  </tr>
+  <tr>
+    <td>#demo</td>
+    <td>100</td>
+    <td>100</td>
+  </tr>
+  <tr>
+    <td>.test</td>
+    <td>10</td>
+    <td>10</td>
+  </tr>
+  <tr>
+    <td>p.test1.test2</td>
+    <td>21</td>
+    <td>1 + 10 + 10</td>
+  </tr>
+  <tr>
+    <td>#navbar p#demo</td>
+    <td>201</td>
+    <td>100 + 1 + 100</td>
+  </tr>
+  <tr>
+    <td>*</td>
+    <td>0</td>
+    <td>0 (the universal selector is ignored)</td>
+  </tr>
+  </tbody></table>
+
+
+<p><strong>The selector with the highest specificity value will win and take effect!</strong></p>
+<p>Consider these three code fragments:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate htmlHigh">
+A: h1<br>B: h1#content<br>C: <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>h1<span class="attributecolor" style="color:red"> id<span class="attributevaluecolor" style="color:mediumblue">="content"</span> style<span class="attributevaluecolor" style="color:mediumblue">="color: 
+  pink;"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span>Heading<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/h1<span class="tagcolor" style="color:mediumblue">&gt;</span></span> </div>
+</div>
+
+<p>The specificity of A is 1 (one element selector)<br>The specificity of B is 
+101 (one ID reference + one element selector)<br>The specificity of C is 1000 (inline styling)</p>
+<p>Since the third rule (C) has the highest specificity value (1000), this style 
+declaration will be applied.</p>
+ 
+
+<h2>More Specificity Rules Samples</h2>
+<p><strong>Equal specificity: the latest rule wins </strong>- 
+If the same rule is written twice into the external style sheet, then 
+the latest rule wins:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+h1 <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red">background-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> yellow<span class="cssdelimitercolor" style="color:black">;</span></span></span><span class="cssdelimitercolor" style="color:black">}</span><br>
+h1 <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red">background-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> red<span class="cssdelimitercolor" style="color:black">;</span></span></span><span class="cssdelimitercolor" style="color:black">}</span>
+ </span></div>
+ </div>
+<hr>
+
+<p><strong>ID selectors have a higher specificity than attribute selectors</strong> 
+- Look at the following three code lines:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+div#a <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red">background-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> green<span class="cssdelimitercolor" style="color:black">;</span></span></span><span class="cssdelimitercolor" style="color:black">}</span><br>#a <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red">background-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> yellow<span class="cssdelimitercolor" style="color:black">;</span></span></span><span class="cssdelimitercolor" style="color:black">}</span><br>div[id=a] <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red">background-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> blue<span class="cssdelimitercolor" style="color:black">;</span></span></span><span class="cssdelimitercolor" style="color:black">}</span>
+ </span></div>
+ </div>
+<p>the first rule is more specific than the other two, and will therefore be applied.</p>
+<hr>
+
+<p><strong>Contextual selectors are more specific than a single element 
+selector - </strong>The embedded style sheet is closer to the element to be styled. So in the 
+following situation</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+<strong>From external CSS file:</strong><br>#content h1 <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red">background-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> red<span class="cssdelimitercolor" style="color:black">;</span></span></span><span class="cssdelimitercolor" style="color:black">}</span><br><br><strong>
+In HTML file:</strong><br>&lt;style&gt;<br>#content h1 <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red">background-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 
+yellow<span class="cssdelimitercolor" style="color:black">;</span></span></span><span class="cssdelimitercolor" style="color:black">}</span><br>&lt;/style&gt;
+ </span></div>
+</div>
+<p>the latter rule will be applied.</p>
+<hr>
+
+<p><strong>A class selector beats any number of element selectors </strong>- a class selector such as .intro beats h1, p, div, etc:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+  .intro <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red">background-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> yellow<span class="cssdelimitercolor" style="color:black">;</span></span></span><span class="cssdelimitercolor" style="color:black">}</span><br>h1 <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red">background-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 
+  red<span class="cssdelimitercolor" style="color:black">;</span></span></span><span class="cssdelimitercolor" style="color:black">}</span>
+ </span></div>
+ </div>
+<hr>
+
+<p><strong>The universal selector (*) and inherited values have a specificity of 0</strong> - 
+The universal selector (*) and inherited values are ignored!</p>
+ 

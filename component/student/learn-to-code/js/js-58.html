@@ -1,0 +1,231 @@
+<!--  This Key Word-->
+
+
+ 
+  <div class="w3-row w3-white">
+    
+  
+
+<h1>What is <b>this</b> Keyword in JavaScript?</h1>
+ 
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> <b>person</b> = {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; firstName: <span class="jsstringcolor" style="color:brown">"John"</span>,<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;lastName : <span class="jsstringcolor" style="color:brown">"Doe"</span>,<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;<span class="jsnumbercolor" style="color:red">5566</span>,<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; fullName : <span class="jskeywordcolor" style="color:mediumblue">function</span>() {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp;&nbsp;&nbsp; <span class="jskeywordcolor" style="color:mediumblue">return</span> <b><span class="jskeywordcolor" style="color:mediumblue">this</span></b>.<span class="jspropertycolor" style="color:black">firstName</span> + <span class="jsstringcolor" style="color:brown">" "</span> + <b><span class="jskeywordcolor" style="color:mediumblue">this</span></b>.<span class="jspropertycolor" style="color:black">lastName</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp;&nbsp;}<br><span class="jsnumbercolor" style="color:red">
+</span>};<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+<hr>
+<h2>What is <b>this</b>?</h2>
+<p>In JavaScript, the <code class="w3-codespan">this</code> keyword refers to an <b>object</b>.</p>
+<p><b>Which</b> object depends on how <code class="w3-codespan">this</code> is being invoked (used or called).</p>
+
+<p>The <code class="w3-codespan">this</code> keyword refers to different objects depending on how it is used:</p>
+
+<table class="ws-table-all">
+<tbody><tr><td>In an object method, <code class="w3-codespan">this</code> refers to the <b>object</b>.</td></tr>
+<tr><td>Alone, <code class="w3-codespan">this</code> refers to the <b>global object</b>.</td></tr>
+<tr><td>In a function, <code class="w3-codespan">this</code> refers to the <b>global object</b>.</td></tr>
+<tr><td>In a function, in strict mode, <code class="w3-codespan">this</code> is <code class="w3-codespan">undefined</code>.</td></tr>
+<tr><td>In an event, <code class="w3-codespan">this</code> refers to the <b>element</b> that received the event.</td></tr>
+<tr><td>Methods like <code class="w3-codespan">call()</code>, <code class="w3-codespan">apply()</code>,
+and <code class="w3-codespan">bind()</code> can refer <code class="w3-codespan">this</code> to <b>any object</b>.</td></tr>
+</tbody></table>
+
+<div class="w3-note">
+<h2>Note</h2>
+<code class="w3-codespan">this</code> is not a variable. It is a keyword. You cannot change the value of <code class="w3-codespan">this</code>.
+
+
+
+</div>
+
+<hr>
+<h2><b>this</b> in a Method</h2>
+<p>When used in an object method, <code class="w3-codespan">this</code> refers to the <b>object</b>.</p>
+<p>In the Sample on top of this page, <code class="w3-codespan">this</code> refers to the <b>person</b> object.</p>
+<p>Because the <b>fullName</b> method is a method of the <b>person</b> object.</p>
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+fullName : <span class="jskeywordcolor" style="color:mediumblue">function</span>() {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; <span class="jskeywordcolor" style="color:mediumblue">return</span> <b><span class="jskeywordcolor" style="color:mediumblue">this</span></b>.<span class="jspropertycolor" style="color:black">firstName</span> + <span class="jsstringcolor" style="color:brown">" "</span> + <b><span class="jskeywordcolor" style="color:mediumblue">this</span></b>.<span class="jspropertycolor" style="color:black">lastName</span>;<br>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<hr>
+<h2><b>this</b> Alone</h2>
+<p>When used alone, <code class="w3-codespan">this</code> refers to the <b>global object</b>.</p>
+<p>Because <code class="w3-codespan">this</code> is running in the global scope.</p>
+<p>In a browser window the global object is <code class="w3-codespan">[object Window]</code>:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jskeywordcolor" style="color:mediumblue">this</span>; <span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<p>&nbsp;In <strong>strict mode</strong>, when used alone, <code class="w3-codespan">this</code> also refers to the <b>global object</b>:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span>  <span class="jsstringcolor" style="color:brown">"use strict"</span>;<br><span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jskeywordcolor" style="color:mediumblue">this</span>; <span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<hr>
+<h2><b>this</b> in a Function (Default)</h2>
+
+<p>In a function, the <b>global object</b> is the default binding for <code class="w3-codespan">this</code>.</p>
+<p>In a browser window the global object is <code class="w3-codespan">[object Window]</code>:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">function</span> myFunction() {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; <span class="jskeywordcolor" style="color:mediumblue">return</span> <span class="jskeywordcolor" style="color:mediumblue">this</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+ 
+<h2><b>this</b> in a Function (Strict) </h2>
+
+<p>JavaScript <strong>strict mode</strong> does not allow default binding.</p>
+<p>So, when used in a function, in strict mode, <code class="w3-codespan">this</code> is <code class="w3-codespan">undefined</code>.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jsstringcolor" style="color:brown">"use strict"</span>;<br><span class="jskeywordcolor" style="color:mediumblue">function</span> myFunction() {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; <span class="jskeywordcolor" style="color:mediumblue">return</span> <span class="jskeywordcolor" style="color:mediumblue">this</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<hr>
+<h2><b>this</b> in Event Handlers</h2>
+<p>In HTML event handlers, <code class="w3-codespan">this</code> refers to the HTML element that received the 
+event:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate htmlHigh">
+  <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>button<span class="attributecolor" style="color:red"> onclick<span class="attributevaluecolor" style="color:mediumblue">="this.style.display='none'"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>&nbsp; Click to 
+  Remove Me!<br><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/button<span class="tagcolor" style="color:mediumblue">&gt;</span></span> </div>
+<p>
+ </p>
+</div>
+
+
+<hr>
+<h2>Object Method Binding</h2>
+<p>In these Samples, <code class="w3-codespan">this</code> is the <b>person object</b>:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> <b>person</b> = {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; firstName&nbsp; : <span class="jsstringcolor" style="color:brown">"John"</span>,<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; lastName&nbsp;&nbsp; : <span class="jsstringcolor" style="color:brown">"Doe"</span>,<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;<span class="jsnumbercolor" style="color:red">5566</span>,<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; myFunction : <span class="jskeywordcolor" style="color:mediumblue">function</span>() {<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;&nbsp; <span class="jskeywordcolor" style="color:mediumblue">return</span> <b><span class="jskeywordcolor" style="color:mediumblue">this</span></b>;<br>&nbsp;&nbsp;}<br><span class="jsnumbercolor" style="color:red">
+</span>};<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> <b>person</b> = {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; firstName: <span class="jsstringcolor" style="color:brown">"John"</span>,<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; lastName : <span class="jsstringcolor" style="color:brown">"Doe"</span>,<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;<span class="jsnumbercolor" style="color:red">5566</span>,<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; fullName : <span class="jskeywordcolor" style="color:mediumblue">function</span>() {<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">return</span> <b><span class="jskeywordcolor" style="color:mediumblue">this</span></b>.<span class="jspropertycolor" style="color:black">firstName</span> + <span class="jsstringcolor" style="color:brown">" "</span> + 
+<b><span class="jskeywordcolor" style="color:mediumblue">this</span></b>.<span class="jspropertycolor" style="color:black">lastName</span>;<br>&nbsp;&nbsp;}<br><span class="jsnumbercolor" style="color:red">
+</span>};<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+<p>i.e. <b>this.firstName</b> is the <b>firstName</b> property of <b>this</b> (the person object).</p>  
+
+<hr>
+<h2>Explicit Function Binding</h2>
+<p>The <code class="w3-codespan">call()</code> and <code class="w3-codespan">apply()</code> methods are predefined JavaScript methods.</p>
+<p>They can both be used to call an object method with another object as argument.</p>
+
+<div class="w3-panel w3-note">
+<h2>See Also:</h2>
+<p> The Function call() Method </a></p>
+<p> The Function apply() Method</a></p>
+<p> The Function bind() Method</a></p>
+</div>
+
+<p>The Sample below calls person1.fullName with person2 as an argument, <b>this</b> refers to person2,
+even if fullName is a method of person1:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> person1 = {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; fullName: <span class="jskeywordcolor" style="color:mediumblue">function</span>() {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp;&nbsp;&nbsp; <span class="jskeywordcolor" style="color:mediumblue">return</span> <span class="jskeywordcolor" style="color:mediumblue">this</span>.<span class="jspropertycolor" style="color:black">firstName</span> + <span class="jsstringcolor" style="color:brown">" "</span> + <span class="jskeywordcolor" style="color:mediumblue">this</span>.<span class="jspropertycolor" style="color:black">lastName</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp;&nbsp;}<br>}<br><span class="jsnumbercolor" style="color:red">
+</span><br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> person2 = {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; firstName:<span class="jsstringcolor" style="color:brown">"John"</span>,<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; lastName: <span class="jsstringcolor" style="color:brown">"Doe"</span>,<br><span class="jsnumbercolor" style="color:red">
+</span>}<br><span class="jsnumbercolor" style="color:red">
+</span><br><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Return "John Doe":<br></span>
+person1.<span class="jspropertycolor" style="color:black">fullName</span>.<span class="jspropertycolor" style="color:black">call</span>(person2);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p>
+ </p>
+</div>
+
+<hr>
+<h2>Function Borrowing</h2>
+<p>With the <code class="w3-codespan">bind()</code> method, an object can borrow a method from another object.</p>
+
+<p>This Sample creates 2 objects (person and member).</p>
+<p>The member object borrows the fullname method from the person object:</p> 
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> person = {<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;firstName:<span class="jsstringcolor" style="color:brown">"John"</span>,<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;lastName: <span class="jsstringcolor" style="color:brown">"Doe"</span>,<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; fullName: <span class="jskeywordcolor" style="color:mediumblue">function</span> () {<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;&nbsp; <span class="jskeywordcolor" style="color:mediumblue">return</span> <span class="jskeywordcolor" style="color:mediumblue">this</span>.<span class="jspropertycolor" style="color:black">firstName</span> + <span class="jsstringcolor" style="color:brown">" "</span> + <span class="jskeywordcolor" style="color:mediumblue">this</span>.<span class="jspropertycolor" style="color:black">lastName</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp;&nbsp;}<br><span class="jsnumbercolor" style="color:red">
+</span>}<br><span class="jsnumbercolor" style="color:red">
+</span><br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> member = {<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;firstName:<span class="jsstringcolor" style="color:brown">"Hege"</span>,<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;lastName: <span class="jsstringcolor" style="color:brown">"Nilsen"</span>,<br><span class="jsnumbercolor" style="color:red">
+</span>}<br><span class="jsnumbercolor" style="color:red">
+</span><br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> fullName = person.<span class="jspropertycolor" style="color:black">fullName</span>.<span class="jspropertycolor" style="color:black">bind</span>(member);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<hr>
+<h2><b>This</b> Precedence</h2>
+<p>To determine which object <code class="w3-codespan">this</code> refers to; use the following precedence of order.</p>
+<table class="ws-table-all">
+<tbody><tr></tr>
+<tr><td width="120px">Precedence</td><td>Object</td></tr>
+<tr><td>1</td><td>bind()</td></tr>
+<tr><td>2</td><td>apply() and call()</td></tr>
+<tr><td>3</td><td>Object method</td></tr>
+<tr><td>4</td><td>Global scope</td></tr>
+</tbody></table>
+<p>Is <code class="w3-codespan">this</code> in a function being called using bind()?</p>
+<p>Is <code class="w3-codespan">this</code> in a function being called using apply()?</p>
+<p>Is <code class="w3-codespan">this</code> in a function being called using call()?</p>
+<p>Is <code class="w3-codespan">this</code> in an object function (method)?
+</p><p>Is <code class="w3-codespan">this</code> in a function in the global scope.</p>
+<br>

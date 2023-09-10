@@ -1,0 +1,233 @@
+<!-- Scope-->
+
+
+
+  <div class="w3-row w3-white">
+
+
+<h1>What is <span class="color_h1">Scope in JavaScript?</span></h1>
+
+<div class="w3-info">
+<p class="intro">Scope determines the accessibility (visibility) of variables.</p>
+<p>JavaScript has 3 types of scope:</p>
+<ul>
+<li>Block scope</li>
+<li>Function scope</li>
+<li>Global scope</li>
+</ul>
+</div>
+
+<h2>Block Scope</h2>
+<p>Before ES6 (2015), JavaScript had only <b>Global Scope</b> and <b>Function Scope</b>.</p>
+<p>ES6 introduced two important new JavaScript keywords: <code class="w3-codespan">let</code> and <code class="w3-codespan">const</code>.</p>
+<p>These two keywords provide <strong>Block Scope</strong> in JavaScript.</p>
+<p>Variables declared inside a { } block cannot be accessed 
+from outside the block:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span>{ <br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">2</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>  }<br><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// x can NOT be used here </span></span></div>
+</div>
+
+<p>Variables declared with the <code class="w3-codespan">var</code> keyword can NOT have block scope.</p>
+<p>Variables declared inside a { } block can be accessed from 
+outside the block. </p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span>{ <br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">var</span> x = <span class="jsnumbercolor" style="color:red">2</span>; <br><span class="jsnumbercolor" style="color:red">
+</span>  }<br><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// x CAN be used here </span></span></div>
+</div>
+
+<hr>
+<h2>Local Scope</h2>
+<p>Variables declared within a JavaScript function, become <strong>
+LOCAL</strong> to 
+the function.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// code here can NOT use carName<br></span><br><span class="jskeywordcolor" style="color:mediumblue">function</span> myFunction() {<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="jskeywordcolor" style="color:mediumblue">let</span> carName = <span class="jsstringcolor" style="color:brown">"Volvo"</span>;<br>&nbsp; <span class="commentcolor" style="color:green">// code here CAN use carName<br></span>}<br><span class="jsnumbercolor" style="color:red">
+</span>  <br><span class="commentcolor" style="color:green">// code here can NOT use carName
+ </span></span></div>
+ </div>
+<div class="w3-note">
+<p>Local variables have <strong>Function Scope</strong>:</p>
+<p>They can only be accessed from within the function.</p>
+</div>
+
+
+<p>Since local variables are only recognized inside their functions, variables with the same name can be used in different functions.</p>
+<p>Local variables are created when a function starts, and deleted when the function is completed.</p>
+
+<hr>
+
+<h2>Function Scope</h2>
+<p>JavaScript has function scope: Each function creates a new scope. </p>
+<p>Variables defined inside a function are not accessible (visible) from outside the 
+function.</p>
+
+
+<p>Variables declared with <code class="w3-codespan">var</code>, <code class="w3-codespan">let</code>
+and <code class="w3-codespan">const</code> are 
+quite similar when declared inside a function.</p>
+<p>They all have <strong>Function Scope</strong>:</p>
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">function</span> myFunction() {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; <span class="jskeywordcolor" style="color:mediumblue">var</span> carName = <span class="jsstringcolor" style="color:brown">"Volvo"</span>;&nbsp;&nbsp; <span class="jsnumbercolor" style="color:red">
+</span>  <span class="commentcolor" style="color:green">// Function Scope<br></span><span class="jsnumbercolor" style="color:red">
+</span>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">function</span> myFunction() {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; <span class="jskeywordcolor" style="color:mediumblue">let</span> carName = <span class="jsstringcolor" style="color:brown">"Volvo"</span>;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// 
+  Function Scope<br></span><span class="jsnumbercolor" style="color:red">
+</span>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">function</span> myFunction() {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; <span class="jskeywordcolor" style="color:mediumblue">const</span> carName = <span class="jsstringcolor" style="color:brown">"Volvo"</span>;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// 
+  Function Scope<br></span><span class="jsnumbercolor" style="color:red">
+</span>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<hr>
+
+<h2>Global JavaScript Variables</h2>
+<p>A variable declared outside a function, becomes <strong>GLOBAL</strong>.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> carName = <span class="jsstringcolor" style="color:brown">"Volvo"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// code here can use carName<br></span><br>
+<span class="jskeywordcolor" style="color:mediumblue">function</span> myFunction() {<br><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// code here can also use carName <br></span>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+<div class="w3-note">
+<p>A global variable has <strong>Global Scope</strong>:</p>
+<p>All scripts and functions on a web page can access it.&nbsp;</p>
+</div>
+
+<hr>
+
+<h2>Global Scope</h2>
+<p>Variables declared <strong>Globally</strong> (outside any function) have
+<strong>Global Scope</strong>.</p>
+
+
+<p><strong>Global</strong> variables can be accessed from anywhere in a JavaScript program. </p>
+<p>Variables declared with <code class="w3-codespan">var</code>, <code class="w3-codespan">let</code>
+and <code class="w3-codespan">const</code> are 
+quite similar when declared outside a block.</p>
+<p>They all have <strong>Global Scope</strong>:</p>
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">var</span> x = <span class="jsnumbercolor" style="color:red">2</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="jsnumbercolor" style="color:red">
+</span>  <span class="commentcolor" style="color:green">// Global scope </span></span></div>
+</div>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span>  <span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">2</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// 
+  Global scope </span></span></div>
+</div>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span>  <span class="jskeywordcolor" style="color:mediumblue">const</span> x = <span class="jsnumbercolor" style="color:red">2</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// 
+  Global scope </span></span></div>
+</div>
+
+<hr>
+<h2>JavaScript Variables</h2>
+<p>In JavaScript, objects and functions are also variables.</p>
+<div class="w3-panel w3-note">
+<p>Scope determines the accessibility of variables, objects, and functions from 
+different parts of the code.</p>
+</div>
+
+
+
+<h2>Automatically Global</h2>
+<p>If you assign a value to a variable that has not been declared, it will automatically become a <b>GLOBAL</b> variable.</p>
+<p>This code Sample will declare a global variable <code class="w3-codespan">carName</code>, even if 
+the value is assigned inside a function.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span> myFunction();<br><br><span class="commentcolor" style="color:green">// code here can use carName
+ <br></span><br><span class="jskeywordcolor" style="color:mediumblue">function</span> myFunction() {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; carName = <span class="jsstringcolor" style="color:brown">"Volvo"</span>;<br>} </span></div>
+ </div>
+
+<hr>
+<h2>Strict Mode</h2>
+<p>All modern browsers support running JavaScript in "Strict Mode".</p>
+<p>You will learn more about how to use strict mode in a later chapter of this tutorial.</p>
+
+<div class="w3-panel w3-warning">
+<p>In "Strict Mode", undeclared variables are not automatically global.</p>
+</div>
+
+<hr>
+<h2>Global Variables in HTML</h2>
+<p>With JavaScript, the global scope is the JavaScript environment. </p>
+<p>In HTML, the global scope is the window object.</p>
+<p>Global variables defined with the <code class="w3-codespan">var</code> keyword belong to the window object:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span> <span class="jskeywordcolor" style="color:mediumblue">var</span> carName = <span class="jsstringcolor" style="color:brown">"Volvo"</span>;<br><span class="commentcolor" style="color:green">// code here 
+ can use window.carName<br></span> </span></div>
+ </div>
+
+<p>Global variables defined with the <code class="w3-codespan">let</code> keyword do not belong to the window object:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> carName = <span class="jsstringcolor" style="color:brown">"Volvo"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// code here can not use window.carName
+ </span></span></div>
+ </div>
+
+
+<hr>
+<h2>Warning</h2>
+<div class="w3-panel w3-warning">
+<p>Do NOT create global variables unless you intend to.</p>
+<p>Your global variables (or functions) can overwrite window variables (or 
+functions).<br>Any function, including the window object, can overwrite your global 
+variables and functions.</p>
+</div>
+
+<hr>
+<h2>The Lifetime of JavaScript Variables</h2>
+<p>The lifetime of a JavaScript variable starts when it is declared.</p>
+<p>Function (local) variables are deleted when the function is completed.</p>
+<p>In a web browser, global variables are deleted when you close the browser 
+window (or tab).</p>
+<hr>
+
+<h2>Function Arguments</h2>
+<p>Function arguments (parameters) work as local variables inside functions.</p>

@@ -1,9 +1,15 @@
+<style>
+    #modal-info-question-description img {
+        width: 100%;
+    }
+</style>
+
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css" />
 <script src="./../../common/vendor/datatables/jquery.dataTables.js"></script>
 
 
 <h1 class="h3 mb-2 text-gray-800">Question List</h1>
-<p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto nam delectus facilis veniam ea iusto officiis odit maxime, inventore nihil.</p>
+<p class="mb-4">This page contains list of question.</p>
 
 
 <div class="card shadow mb-4">
@@ -15,8 +21,8 @@
             <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>Question ID</th>
-                        <th>Student</th>
+                        <th>ID</th>
+                        <th>StudentID</th>
                         <th>Subject</th>
                         <th>Date Time</th>
                         <th>Question</th>
@@ -25,8 +31,8 @@
                 </thead>
                 <tfoot>
                     <tr>
-                        <th>Question ID</th>
-                        <th>Student</th>
+                        <th>ID</th>
+                        <th>StudentID</th>
                         <th>Subject</th>
                         <th>Date Time</th>
                         <th>Question</th>
@@ -40,7 +46,7 @@
 </div>
 
 <div class="modal fade" id="modal-info-question" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Question Information</h5>
@@ -48,52 +54,48 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-lg-12">
-                        <b>Picture:</b> <label for="" id="modal-info-picture"></label>
+                        <b>Question ID:</b>
+                        <div for="" id="modal-info-question-id"></div>
                     </div>
 
                     <div class="col-lg-12">
-                        <b>Question ID:</b> <label for="" id="modal-info-question-id"></label>
+                        <b>Creation Date Time:</b>
+                        <div for="" id="modal-info-question-creationDateTime"></div>
                     </div>
+
                     <div class="col-lg-12">
-                        <b>Name:</b> <label for="" id="modal-info-name"></label>
+                        <b>Title:</b>
+                        <div for="" id="modal-info-question-title"></div>
                     </div>
+
                     <div class="col-lg-12">
-                        <b>Year Level:</b> <label for="" id="modal-info-year-level"></label>
-                    </div>
-                    <div class="col-lg-12">
-                        <b>Specialization:</b> <label for="" id="modal-info-specialization"></label>
-                    </div>
-                    <div class="col-lg-12">
-                        <b>Username:</b> <label for="" id="modal-info-user-name"></label>
-                    </div>
-                    <div class="col-lg-12">
-                        <b>email:</b> <label for="" id="modal-info-email"></label>
+                        <b>Description:</b>
+                        <div for="" id="modal-info-question-description"></div>
                     </div>
                 </div>
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" id="button-reject">Reject</button>
-                <button type="button" class="btn btn-success" id="button-approve">Approve</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
 </div>
 
-<div class="modal fade" id="modal-info-student" tabindex="-1" role="dialog" aria-labelledby="modal-info-student" aria-hidden="true">
+<div class="modal fade" id="modal-info-student" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Student Information</h5>
             </div>
             <div class="modal-body">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <b>Picture:</b> <label for="" id="modal-student-picture"></label>
+                <div class="row px-3">
+                    <div class="col-lg-12 text-center mb-4">
+                        <img class="img-profile rounded-circle img-circle-md" id="modal-info-student-image" src="./../../common/img/undraw_profile.svg">
                     </div>
 
                     <div class="col-lg-12">
-                        <b>Question ID:</b> <label for="" id="modal-info-question-id"></label>
+                        <b>Student ID:</b> <label for="" id="modal-info-student-id"></label>
                     </div>
                     <div class="col-lg-12">
                         <b>Name:</b> <label for="" id="modal-info-name"></label>
@@ -108,10 +110,9 @@
                         <b>Username:</b> <label for="" id="modal-info-user-name"></label>
                     </div>
                     <div class="col-lg-12">
-                        <b>email:</b> <label for="" id="modal-info-email"></label>
+                        <b>Email:</b> <label for="" id="modal-info-email"></label>
                     </div>
                 </div>
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -134,12 +135,10 @@
                 console.log(questionID == question['questionID']);
                 if (questionID == question['questionID']) {
                     $('#modal-info-question-id').html(question['questionID']);
-                    $('#modal-info-name').html(question['name']);
-                    $('#modal-info-year-level').html(question['yearLevel']);
-                    $('#modal-info-specialization').html(question['specialization']);
-                    $('#modal-info-user-name').html(question['username']);
-                    $('#modal-info-email').html(question['email']);
-                    $('#modal-info-picture').html(question['picture']);
+                    $('#modal-info-question-title').html(question['title']);
+                    $('#modal-info-question-description').html(question['description']);
+                    $('#modal-info-question-creationDateTime').html(question['creationDateTime']);
+
                     $('#modal-info-question').modal('toggle');
                     return;
                 }
@@ -150,11 +149,20 @@
             var currentRow = $(this).closest("tr");
             var questionID = currentRow.find("td:eq(0)").html();
             $.each(questionList, function(key, question) {
-                console.log(question);
-                console.log(questionID == question['questionID']);
                 if (questionID == question['questionID']) {
-                    $('#modal-info-name').html(question['studentID']);
-                    $('#modal-info-question').modal('toggle');
+                    $('#modal-info-student-id').html(question['studentID']);
+                    $('#modal-info-name').html(question['name']);
+                    $('#modal-info-year-level').html(question['yearLevel']);
+                    $('#modal-info-specialization').html(question['specialization']);
+                    $('#modal-info-user-name').html(question['userName']);
+                    $('#modal-info-email').html(question['email']);
+                    var image = "default.svg";
+                    if (question['picture'] != null && question['picture'] != "") {
+                        image = question['picture'];
+                    }
+                    var picture = "./../../resource/profile/" + image;
+                    $("#modal-info-student-image").attr("src", picture);
+                    $('#modal-info-student').modal('toggle');
                     return;
                 }
             });
@@ -198,14 +206,15 @@
                         var questionData;
                         $.each(dataResult, function(key, question) {
                             var questionID = question['questionID'];
-                            questionData += "<tr>" +
-                                "<td>" + questionID + "</td>" +
-                                "<td><a href='#' class='button-student-id'>" + question['studentID'] + "</a></td>" +
-                                "<td>" + question['subject'] + "</td>" +
-                                "<td>" + question['creationDateTime'] + "</td>" +
-                                "<td>" + question['question'] + "</td>" +
-                                "<td><a class='button-select' data-id='" + questionID + "'><i class='fas fa-eye fa-cog'></a></i></td>" +
-                                "</tr>";
+                            questionData +=
+                                `<tr>
+                                    <td>${questionID}</td>
+                                    <td><a class='button-student-id'>${question['studentID']}</a></td>
+                                    <td>${question['subject']}</td>
+                                    <td>${question['creationDateTime']}</td>
+                                    <td>${question['title']}</td>
+                                    <td><a class='button-select btn btn-xs btn-primary' data-id='${questionID}'><i class='fas fa-eye fa-cog'></i> </a></td>
+                                </tr>`;
                         });
                         $("#tableBody").html(questionData);
                     }

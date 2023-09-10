@@ -1,0 +1,81 @@
+<!-- Echo/Print-->
+
+
+ 
+  <div class="w3-row w3-white">
+     
+
+<h1>What is <span class="color_h1">echo and print Statements in Php?</span></h1>
+ 
+<hr>
+<p class="intro">With PHP, there are two basic ways to get output: <code class="w3-codespan">echo</code> and <code class="w3-codespan">print</code>.</p>
+<p class="intro">In this tutorial we use <code class="w3-codespan">echo</code> 
+or <code class="w3-codespan">print</code> in almost every 
+Sample. So, this chapter contains a little more info about those two output 
+statements.</p>
+<hr>
+
+<h2>PHP echo and print Statements</h2>
+<p><code class="w3-codespan">echo</code> and <code class="w3-codespan">print</code> are more or less the same. They are both used to output data 
+to the screen. </p>
+<p>The differences are small: <code class="w3-codespan">echo</code> has no return value while <code class="w3-codespan">print</code> has a return value of 1 so it can be used in 
+expressions. <code class="w3-codespan">echo</code> can take multiple parameters (although such usage is rare) 
+while <code class="w3-codespan">print</code> can take one argument. <code class="w3-codespan">echo</code> is marginally 
+faster than <code class="w3-codespan">print</code>.</p>
+<hr>
+
+<h2>The PHP echo Statement</h2>
+<p>The <code class="w3-codespan">echo</code> statement can be used with or without parentheses: 
+<code class="w3-codespan">echo</code> or <code class="w3-codespan">echo()</code>.</p>
+<p><strong>Display Text</strong></p>
+<p>The following Sample shows how to output text with the <code class="w3-codespan">echo</code> 
+command (notice that the text can contain HTML markup):</p>
+<div class="w3-Sample">
+ <div class="w3-code htmlHigh notranslate">
+<span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br><span class="phpnumbercolor" style="color:red">
+</span> <span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"&lt;h2&gt;PHP is Fun!&lt;/h2&gt;"</span>;<br><span class="phpnumbercolor" style="color:red">
+</span> <span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"Hello world!&lt;br&gt;"</span>;<br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"I'm about to learn PHP!&lt;br&gt;"</span>;<br><span class="phpnumbercolor" style="color:red">
+</span> <span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"This "</span>, <span class="phpstringcolor" style="color:brown">"string "</span>, <span class="phpstringcolor" style="color:brown">"was "</span>, <span class="phpstringcolor" style="color:brown">"made "</span>, <span class="phpstringcolor" style="color:brown">"with multiple parameters."</span>;<br>
+<span class="phptagcolor" style="color:red">?&gt;</span></span>
+ </div>
+ </div>
+<p><strong>Display Variables</strong></p>
+<p>The following Sample shows how to output text and variables with the <code class="w3-codespan">echo</code> 
+statement:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code htmlHigh notranslate">
+ <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br>$txt1 = <span class="phpstringcolor" style="color:brown">"Learn PHP"</span>;<br>$txt2 = <span class="phpstringcolor" style="color:brown">"CodeConnect.com"</span>;<br><span class="phpnumbercolor" style="color:red">
+</span> $x = <span class="phpnumbercolor" style="color:red">5</span>;<br>$y = <span class="phpnumbercolor" style="color:red">4</span>;<br><span class="phpnumbercolor" style="color:red">
+</span> <br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"&lt;h2&gt;"</span> . $txt1 . <span class="phpstringcolor" style="color:brown">"&lt;/h2&gt;"</span>;<br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"Study PHP at 
+  "</span> . $txt2 . <span class="phpstringcolor" style="color:brown">"&lt;br&gt;"</span>;<br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> $x + $y;<br><span class="phptagcolor" style="color:red">?&gt;</span></span>  </div>
+ </div>
+ 
+<h2>The PHP print Statement</h2>
+<p>The <code class="w3-codespan">print</code> statement can be used with or without 
+parentheses: 
+<code class="w3-codespan">print</code> or <code class="w3-codespan">print()</code>.</p>
+<p><strong>Display Text</strong></p>
+<p>The following Sample shows how to output text with the <code class="w3-codespan">print</code> 
+command (notice that the text can contain HTML markup):</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code htmlHigh notranslate">
+<span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br><span class="phpnumbercolor" style="color:red">
+</span> <span class="phpkeywordcolor" style="color:mediumblue">print</span> <span class="phpstringcolor" style="color:brown">"&lt;h2&gt;PHP is Fun!&lt;/h2&gt;"</span>;<br><span class="phpnumbercolor" style="color:red">
+</span> <span class="phpkeywordcolor" style="color:mediumblue">print</span> <span class="phpstringcolor" style="color:brown">"Hello world!&lt;br&gt;"</span>;<br><span class="phpkeywordcolor" style="color:mediumblue">print</span> <span class="phpstringcolor" style="color:brown">"I'm about to learn PHP!"</span>;<br>
+<span class="phptagcolor" style="color:red">?&gt;</span></span>
+ </div>
+ </div>
+<p><strong>Display Variables</strong></p>
+<p>The following Sample shows how to output text and variables with the 
+<code class="w3-codespan">print</code> statement:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code htmlHigh notranslate">
+ <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br>$txt1 = <span class="phpstringcolor" style="color:brown">"Learn PHP"</span>;<br>$txt2 = <span class="phpstringcolor" style="color:brown">"CodeConnect.com"</span>;<br><span class="phpnumbercolor" style="color:red">
+</span> $x = <span class="phpnumbercolor" style="color:red">5</span>;<br>$y = <span class="phpnumbercolor" style="color:red">4</span>;<br><span class="phpnumbercolor" style="color:red">
+</span> <br><span class="phpkeywordcolor" style="color:mediumblue">print</span> <span class="phpstringcolor" style="color:brown">"&lt;h2&gt;"</span> . $txt1 . <span class="phpstringcolor" style="color:brown">"&lt;/h2&gt;"</span>;<br><span class="phpnumbercolor" style="color:red">
+</span> <span class="phpkeywordcolor" style="color:mediumblue">print</span> <span class="phpstringcolor" style="color:brown">"Study PHP at "</span> . $txt2 . <span class="phpstringcolor" style="color:brown">"&lt;br&gt;"</span>;<br><span class="phpkeywordcolor" style="color:mediumblue">print</span> $x + $y;<br><span class="phptagcolor" style="color:red">?&gt;</span></span>  </div>
+ </div>
+ 

@@ -1,0 +1,665 @@
+<!-- String-->
+
+ 
+  <div class="w3-row w3-white">
+    
+    
+
+<h1>What is <span class="color_h1">Strings in Python?</span></h1>
+ 
+
+<h2>Strings</h2>
+
+<p>Strings in python are surrounded by either single quotation marks, or double quotation marks.</p>
+
+<p><span class="w3-codespan">'hello'</span> is the same as <span class="w3-codespan">"hello"</span>.</p>
+
+<p>You can display a string literal with the <code class="w3-codespan">print()</code> function:</p>
+
+<div class="w3-Sample">
+ <div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(<span class="pythonstringcolor" style="color:brown">"Hello"</span>)<br>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(<span class="pythonstringcolor" style="color:brown">'Hello'</span>)<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<hr>
+<h2>Assign String to a Variable</h2>
+
+<p>Assigning a string to a variable is done with the variable name followed by 
+an equal sign and the string:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+a = <span class="pythonstringcolor" style="color:brown">"Hello"</span><br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(a) </span></div>
+ </div>
+
+<hr>
+
+<h2>Multiline Strings</h2>
+
+<p>You can assign a multiline string to a variable by using three quotes:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>You can use three double quotes:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  a = <span class="pythonstringcolor" style="color:brown">""</span><span class="pythonstringcolor" style="color:brown">"Lorem ipsum dolor sit amet,<br>consectetur adipiscing elit,<br>sed do 
+  eiusmod tempor incididunt<br>ut labore et dolore magna aliqua."</span><span class="pythonstringcolor" style="color:brown">""</span><br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(a) </span></div>
+ </div>
+
+<p>Or three single quotes:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  a = <span class="pythonstringcolor" style="color:brown">''</span><span class="pythonstringcolor" style="color:brown">'Lorem ipsum dolor sit amet,<br>consectetur adipiscing elit,<br>sed do 
+  eiusmod tempor incididunt<br>ut labore et dolore magna aliqua.'</span><span class="pythonstringcolor" style="color:brown">''</span><br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(a) </span></div>
+ </div>
+
+<div class="w3-panel w3-note">
+  <p><strong>Note:</strong> in the result, the line breaks are inserted at the same position as in the code.</p>
+</div>
+
+ 
+
+<h2>Strings are Arrays</h2>
+
+<p>Like many other popular programming languages, strings in Python are arrays of bytes representing unicode characters.</p>
+<p>However, Python does not have a character data type, a single character is simply a string with a length of 1.</p>
+<p>Square brackets can be used to access elements of the string.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Get the character at position 1 (remember that the first character has the 
+position 0):</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+a = <span class="pythonstringcolor" style="color:brown">"Hello, World!"</span><br>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(a[<span class="pythonnumbercolor" style="color:red">1</span>])<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+<hr>
+
+<h2>Looping Through a String</h2>
+
+<p>Since strings are arrays, we can loop through the characters in a string, with a <code class="w3-codespan">for</code> loop.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Loop through the letters in the word "banana":</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">for</span> x <span class="pythonkeywordcolor" style="color:mediumblue">in</span> <span class="pythonstringcolor" style="color:brown">"banana"</span>:<br>&nbsp; <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(x)<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<p>Learn more about For Loops in our Python For Loops</a> chapter.</p>
+
+<hr>
+
+<h2>String Length</h2>
+
+<p>To get the length of a string, use the <code class="w3-codespan">len()</code> function.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>The <code class="w3-codespan">len()</code> function returns the length of a string:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+a = <span class="pythonstringcolor" style="color:brown">"Hello, World!"</span><br>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(<span class="pythonkeywordcolor" style="color:mediumblue">len</span>(a))<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+<hr>
+<h2>Check String</h2>
+
+<p>To check if a certain phrase or character is present in a string, we can use 
+the keyword 
+<code class="w3-codespan">in</code>.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Check if "free" is present in the following text:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  txt = <span class="pythonstringcolor" style="color:brown">"The best things in life are free!"</span><br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(<span class="pythonstringcolor" style="color:brown">"free"</span> <span class="pythonkeywordcolor" style="color:mediumblue">in</span> txt)<br><span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<p>Use it in an <code class="w3-codespan">if</code> statement:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Print only if "free" is present:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  txt = <span class="pythonstringcolor" style="color:brown">"The best things in life are free!"</span><br><span class="pythonkeywordcolor" style="color:mediumblue">if</span> <span class="pythonstringcolor" style="color:brown">"free"</span> <span class="pythonkeywordcolor" style="color:mediumblue">in</span> txt:<br>&nbsp;
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(<span class="pythonstringcolor" style="color:brown">"Yes, 'free' is present."</span>)<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+<p>Learn more about If statements in our Python 
+If...Else</a> chapter.</p>
+<hr>
+
+<h2>Check if NOT</h2>
+
+<p>To check if a certain phrase or character is NOT present in a string, we can use 
+the keyword <code class="w3-codespan">not in</code>.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Check if "expensive" is NOT present in the following text:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  txt = <span class="pythonstringcolor" style="color:brown">"The best things in life are free!"</span><br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(<span class="pythonstringcolor" style="color:brown">"expensive"</span> not <span class="pythonkeywordcolor" style="color:mediumblue">in</span> txt)<span class="pythonnumbercolor" style="color:red">
+</span>   </span></div>
+ </div>
+
+<p>Use it in an <code class="w3-codespan">if</code> statement:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>print only if "expensive" is NOT present:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  txt = <span class="pythonstringcolor" style="color:brown">"The best things in life are free!"</span><br><span class="pythonkeywordcolor" style="color:mediumblue">if</span> <span class="pythonstringcolor" style="color:brown">"expensive"</span> not <span class="pythonkeywordcolor" style="color:mediumblue">in</span> txt:<br>&nbsp;
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(<span class="pythonstringcolor" style="color:brown">"No, 'expensive' is NOT present."</span>)<span class="pythonnumbercolor" style="color:red">
+</span>   </span></div>
+ </div>
+  <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=-->
+  <p>&nbsp;</p>
+  <p>&nbsp;</p> 
+
+  <div class="w3-row w3-white">
+    
+    
+
+<h1>Python - <span class="color_h1">Slicing Strings</span></h1>
+ 
+
+<h2>Slicing</h2>
+
+<p>You can return a range of characters by using the slice syntax.</p>
+<p>Specify the start index and the end index, separated by a colon, to return a 
+part of the string.</p>
+
+<div class="w3-Sample">
+ <p>Get the characters from position 2 to position 5 (not included):</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+b = <span class="pythonstringcolor" style="color:brown">"Hello, World!"</span><br><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(b[<span class="pythonnumbercolor" style="color:red">2</span>:<span class="pythonnumbercolor" style="color:red">5</span>])<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<div class="w3-panel w3-note">
+  <p><strong>Note: </strong>The first character has index 0.</p>
+</div>
+<hr>
+
+<h2>Slice From the Start</h2>
+<p>By leaving out the start index, the range will start at the first character:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Get the characters from the start to position 5 (not included):</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+b = <span class="pythonstringcolor" style="color:brown">"Hello, World!"</span><br><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(b[:<span class="pythonnumbercolor" style="color:red">5</span>])<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+ 
+<h2>Slice To the End</h2>
+<p>By leaving out the <em>end </em>index, the range will go to the end:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Get the characters from position 2, and all the way to the end:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+b = <span class="pythonstringcolor" style="color:brown">"Hello, World!"</span><br><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(b[<span class="pythonnumbercolor" style="color:red">2</span>:])<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<hr>
+
+<h2>Negative Indexing</h2>
+
+Use negative indexes to start the slice from the end of the string:
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Get the characters:</p>
+  <p>From: "o" in "World!" (position -5)</p>
+  <p>To, but not included: "d" in "World!" (position -2):</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+b = <span class="pythonstringcolor" style="color:brown">"Hello, World!"</span><br><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(b[-<span class="pythonnumbercolor" style="color:red">5</span>:-<span class="pythonnumbercolor" style="color:red">2</span>])<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+
+
+  <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+ <p>&nbsp;</p>
+    <p>&nbsp;</p> 
+
+  <div class="w3-row w3-white">
+    
+
+<h1>Python - <span class="color_h1">Modify Strings</span></h1>
+ 
+<p class="intro">Python has a set of built-in methods that you can use on strings.</p>
+
+<hr>
+
+<h2>Upper Case</h2>
+
+<div class="w3-Sample">
+ <p>The <code class="w3-codespan">upper()</code> method returns the string in upper case:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+a = <span class="pythonstringcolor" style="color:brown">"Hello, World!"</span><br>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(a.upper())<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+<hr>
+
+<h2>Lower Case</h2>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>The <code class="w3-codespan">lower()</code> method returns the string in lower case:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+a = <span class="pythonstringcolor" style="color:brown">"Hello, World!"</span><br>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(a.lower())<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<hr>
+
+<h2>Remove Whitespace</h2>
+
+<p>Whitespace is the space before and/or after the actual text, and very often you want to remove this space.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>The <code class="w3-codespan">strip()</code> method removes any whitespace from the beginning or the end:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+a = <span class="pythonstringcolor" style="color:brown">" Hello, World! "</span><br>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(a.strip()) <span class="commentcolor" style="color:green"># returns "Hello, World!"
+ </span></span></div>
+ </div>
+ 
+
+<h2>Replace String</h2>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>The <code class="w3-codespan">replace()</code> method replaces a string with another string:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+a = <span class="pythonstringcolor" style="color:brown">"Hello, World!"</span><br>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(a.replace(<span class="pythonstringcolor" style="color:brown">"H"</span>, <span class="pythonstringcolor" style="color:brown">"J"</span>))<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+<hr>
+
+
+<h2>Split String</h2>
+<p>The <code class="w3-codespan">split()</code> method returns a list where the text between the specified separator becomes the list items.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>The <code class="w3-codespan">split()</code> method splits the string into substrings if it finds instances of the separator:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+a = <span class="pythonstringcolor" style="color:brown">"Hello, World!"</span><br>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(a.split(<span class="pythonstringcolor" style="color:brown">","</span>)) <span class="commentcolor" style="color:green"># 
+  returns ['Hello', ' World!']
+ </span></span></div>
+ </div>
+ 
+
+
+
+
+  <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+  <p>&nbsp;</p>
+  <p>&nbsp;</p> 
+  <div class="w3-row w3-white">
+    
+    >
+
+<h1>Python - <span class="color_h1">Format - Strings</span></h1>
+ 
+
+<h2>String Format</h2>
+
+<p>As we learned in the Python Variables chapter, we cannot combine strings and numbers like this:</p>
+
+<div class="w3-Sample w3-pale-red">
+ <div class="w3-code notranslate pythonHigh w3-border-red"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  age = <span class="pythonnumbercolor" style="color:red">36</span><br>txt = <span class="pythonstringcolor" style="color:brown">"My name is John, I am "</span> + age<br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(txt)<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<p>But we can combine strings and numbers by using the <code class="w3-codespan">format()</code> method!</p>
+
+<p>The <code class="w3-codespan">format()</code> method takes the passed arguments, 
+formats them, and places them in the string where the placeholders
+<code class="w3-codespan">{}</code> are:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Use the <code class="w3-codespan">format()</code> method to insert numbers 
+into strings:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  age = <span class="pythonnumbercolor" style="color:red">36</span><br>txt = <span class="pythonstringcolor" style="color:brown">"My name is John, and I am {}"</span><br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(txt.<span class="pythonkeywordcolor" style="color:mediumblue">format</span>(age))<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<p>The format() method takes unlimited number of arguments, and are placed into 
+the respective placeholders:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  quantity = <span class="pythonnumbercolor" style="color:red">3</span><br>itemno = <span class="pythonnumbercolor" style="color:red">567</span><br>price = <span class="pythonnumbercolor" style="color:red">49.95</span><br>myorder = <span class="pythonstringcolor" style="color:brown">"I want {} 
+  pieces of item {} for {} dollars."</span><br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(myorder.<span class="pythonkeywordcolor" style="color:mediumblue">format</span>(quantity, <span class="pythonnumbercolor" style="color:red">
+</span>  itemno, price))<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<p>You can use index numbers <code class="w3-codespan">{0}</code> to be sure the arguments are placed 
+in the correct placeholders:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  quantity = <span class="pythonnumbercolor" style="color:red">3</span><br>itemno = <span class="pythonnumbercolor" style="color:red">567</span><br>price = <span class="pythonnumbercolor" style="color:red">49.95</span><br>myorder = <span class="pythonstringcolor" style="color:brown">"I want to pay {2} 
+  dollars for {0} pieces of item {1}."</span><br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(myorder.<span class="pythonkeywordcolor" style="color:mediumblue">format</span>(quantity, <span class="pythonnumbercolor" style="color:red">
+</span>  itemno, price))<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+ 
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+ <p>&nbsp;</p>
+    <p>&nbsp;</p> 
+
+  <div class="w3-row w3-white">
+    
+  
+
+<h1>Python - <span class="color_h1">Escape Characters</span></h1>
+ 
+
+<h2>Escape Character</h2>
+
+<p>To insert characters that are illegal in a string, use an escape character.</p>
+<p>An escape character is a backslash <code class="w3-codespan">\</code> followed by the character you want to insert.</p>
+<p>An Sample of an illegal character is a double quote inside a string that is surrounded by double quotes:</p>
+
+<div class="w3-Sample w3-pale-red">
+ <p>You will get an error if you use double quotes inside a string that is 
+surrounded by double quotes:</p>
+<div class="w3-code notranslate pythonHigh w3-border-red"><span class="pythoncolor" style="color:black">
+txt = <span class="pythonstringcolor" style="color:brown">"We are the so-called "</span>Vikings<span class="pythonstringcolor" style="color:brown">" from the north."</span><span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<p>To fix this problem, use the escape character <code class="w3-codespan">\"</code>:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>The escape character allows you to use double quotes when you normally would not be allowed:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+txt = <span class="pythonstringcolor" style="color:brown">"We are the so-called \"</span>Vikings\<span class="pythonstringcolor" style="color:brown">" from the north."</span><span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+<hr>
+
+<h2>Escape Characters</h2>
+<p>Other escape characters used in Python:</p>
+
+<table class="ws-table-all notranslate">
+<tbody><tr>
+  <th width="25%">Code</th>
+  <th>Result</th>
+ </tr>
+<tr>
+  <td>\'</td>
+  <td>Single Quote</td>
+ </tr>
+<tr>
+  <td>\\</td>
+  <td>Backslash</td>
+ </tr>
+<tr>
+  <td>\n</td>
+  <td>New Line</td>
+ </tr>
+<tr>
+  <td>\r</td>
+  <td>Carriage Return</td>
+ </tr>
+<tr>
+  <td>\t</td>
+  <td>Tab</td>
+ </tr>
+<tr>
+  <td>\b</td>
+  <td>Backspace</td>
+ </tr>
+<tr>
+  <td>\f</td>
+  <td>Form Feed</td>
+<td></td>
+</tr>
+<tr>
+  <td>\ooo</td>
+  <td>Octal value</td>
+ </tr>
+<tr>
+  <td>\xhh</td>
+  <td>Hex value</td>
+ </tr>
+</tbody></table>
+ 
+
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<p>&nbsp;</p>
+    <p>&nbsp;</p>   
+
+
+  <div class="w3-row w3-white">
+    
+   
+
+<h1>Python - <span class="color_h1">String Methods</span></h1>
+ 
+
+<h2>String Methods</h2>
+<p>Python has a set of built-in methods that you can use on strings.</p>
+
+<div class="w3-panel w3-note">
+  <p><strong>Note:</strong> All string methods return new values. They do not change the original string.</p>
+</div>
+
+<table class="ws-table-all notranslate">
+<tbody><tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+  <tr>
+    <td> capitalize()</a></td><td>Converts the first 
+    character to upper case</td>
+  </tr>
+  <tr>
+    <td> casefold()</a></td><td>Converts string into 
+    lower case</td>
+  </tr>
+  <tr>
+    <td> center()</a></td><td>Returns a centered 
+    string</td>
+  </tr>
+  <tr>
+    <td> count()</a></td><td>Returns the number of 
+    times a specified value occurs in a string</td>
+  </tr>
+  <tr>
+    <td> encode()</a></td><td>Returns an encoded 
+    version of the string</td>
+  </tr>
+  <tr>
+    <td> endswith()</a></td><td>Returns true if the 
+    string ends with the specified value</td>
+  </tr>
+  <tr>
+    <td> expandtabs()</a></td><td>Sets the 
+    tab size of the string</td>
+  </tr>
+  <tr>
+    <td> find()</a></td><td>Searches the string for a 
+    specified value and returns the position of where it was found</td>
+  </tr>
+  <tr>
+    <td> format()</a></td><td>Formats specified 
+    values in a string</td>
+  </tr>
+  <tr>
+    <td>format_map()</td><td>Formats specified 
+    values in a string</td>
+  </tr>
+  <tr>
+    <td> index()</a></td><td>Searches the string 
+    for a specified value and returns the position of where it was found</td>
+  </tr>
+  <tr>
+    <td> isalnum()</a></td><td>Returns True if all 
+    characters in the string are alphanumeric</td>
+  </tr>
+  <tr>
+    <td> isalpha()</a></td><td>Returns True if all 
+    characters in the string are in the alphabet</td>
+  </tr>
+  <tr>
+    <td> isascii()</a></td><td>Returns True if all 
+    characters in the string are ascii characters</td>
+  </tr>
+  <tr>
+    <td> isdecimal()</a></td><td>Returns True if all 
+    characters in the string are decimals</td>
+  </tr>
+  <tr>
+    <td> isdigit()</a></td><td>Returns True if all 
+    characters in the string are digits</td>
+  </tr>
+  <tr>
+    <td> isidentifier()</a></td><td>Returns True if 
+    the string is an identifier</td>
+  </tr>
+  <tr>
+    <td> islower()</a></td><td>Returns True if all 
+    characters in the string are lower case</td>
+  </tr>
+  <tr>
+    <td> isnumeric()</a></td><td>Returns True if 
+    all characters in the string are numeric</td>
+  </tr>
+  <tr>
+    <td> isprintable()</a></td><td>Returns True if 
+    all characters in the string are printable</td>
+  </tr>
+  <tr>
+    <td> isspace()</a></td><td>Returns True if all 
+    characters in the string are whitespaces</td>
+  </tr>
+  <tr>
+    <td> istitle()</a></td>
+    <td>Returns True if the string follows the rules of a 
+    title</td>
+  </tr>
+  <tr>
+    <td> isupper()</a></td><td>Returns True if all 
+    characters in the string are upper case</td>
+  </tr>
+  <tr>
+    <td> join()</a></td><td>Joins the elements of 
+    an iterable to the end of the string</td>
+  </tr>
+  <tr>
+    <td> ljust()</a></td><td>Returns a left justified 
+    version of the string</td>
+  </tr>
+  <tr>
+    <td> lower()</a></td><td>Converts a string into 
+    lower case</td>
+  </tr>
+  <tr>
+    <td> lstrip()</a></td><td>Returns a left trim 
+    version of the string</td>
+  </tr>
+  <tr>
+    <td> maketrans()</a></td><td>Returns a 
+    translation table to be used in translations</td>
+  </tr>
+  <tr>
+    <td> partition()</a></td><td>Returns a tuple 
+    where the string is parted into three parts</td>
+  </tr>
+  <tr>
+    <td> replace()</a></td><td>Returns a string 
+    where a specified value is replaced with a specified value</td>
+  </tr>
+  <tr>
+    <td> rfind()</a></td><td>Searches the string for 
+    a specified value and returns the last position of where it was found</td>
+  </tr>
+  <tr>
+    <td> rindex()</a></td><td>Searches the string for 
+    a specified value and returns the last position of where it was found</td>
+  </tr>
+  <tr>
+    <td> rjust()</a></td><td>Returns a right justified 
+    version of the string</td>
+  </tr>
+  <tr>
+    <td> rpartition()</a></td><td>Returns a tuple 
+    where the string is parted into three parts</td>
+  </tr>
+  <tr>
+    <td> rsplit()</a></td><td>Splits the string at 
+    the specified separator, and returns a list</td>
+  </tr>
+  <tr>
+    <td> rstrip()</a></td><td>Returns a right trim 
+    version of the string</td>
+  </tr>
+  <tr>
+    <td> split()</a></td><td>Splits the string at 
+    the specified separator, and returns a list</td>
+  </tr>
+  <tr>
+    <td> splitlines()</a></td><td>Splits the string 
+    at line breaks and returns a list</td>
+  </tr>
+  <tr>
+    <td> startswith()</a></td><td>Returns true if 
+    the string starts with the specified value</td>
+  </tr>
+  <tr>
+    <td> strip()</a></td><td>Returns a trimmed version of the string</td>
+  </tr>
+  <tr>
+    <td> swapcase()</a></td><td>Swaps cases, lower 
+    case becomes upper case and vice versa</td>
+  </tr>
+  <tr>
+    <td> title()</a></td><td>Converts the first 
+    character of each word to upper case</td>
+  </tr>
+  <tr>
+    <td> translate()</a></td><td>Returns a 
+    translated string</td>
+  </tr>
+  <tr>
+    <td> upper()</a></td><td>Converts a string 
+    into upper case</td>
+  </tr>
+<tr><td> zfill()</a></td><td>Fills the string with 
+  a specified number of 0 values at the beginning</td></tr>
+</tbody></table>
+ 
+ 

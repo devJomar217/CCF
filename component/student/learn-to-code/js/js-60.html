@@ -1,0 +1,194 @@
+<!-- Classes-->
+
+
+
+  <div class="w3-row w3-white">
+    
+   
+
+<h1>What is Classes in JavaScript?</h1>
+
+<div class="w3-info">
+<p>ECMAScript 2015, also known as ES6, introduced JavaScript Classes.</p>
+<p>JavaScript Classes are templates for JavaScript Objects.</p>
+</div>
+
+<h2>JavaScript Class Syntax</h2>
+<p>Use the keyword <code class="w3-codespan">class</code> to create a class.</p>
+<p>Always add a method named <code class="w3-codespan">constructor()</code>:</p>
+
+<div class="w3-Sample">
+<h3>Syntax</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">class</span> ClassName {<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;  constructor() { .<span class="jspropertycolor" style="color:black"></span>.<span class="jspropertycolor" style="color:black"></span>.<span class="jspropertycolor" style="color:black"></span> }<br><span class="jsnumbercolor" style="color:red">
+</span>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">class</span> Car {<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;  constructor(name, year) {<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;&nbsp; <span class="jskeywordcolor" style="color:mediumblue">this</span>.<span class="jspropertycolor" style="color:black">name</span> = name;<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;&nbsp; <span class="jskeywordcolor" style="color:mediumblue">this</span>.<span class="jspropertycolor" style="color:black">year</span> = year;<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp; }<br><span class="jsnumbercolor" style="color:red">
+</span>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p>The Sample above creates a class named "Car".</p>
+<p>The class has two initial properties: "name" and "year".</p>
+
+
+<div class="w3-panel w3-note">
+<p>A JavaScript class is <b>not</b> an object.</p>
+<p>It is a <b>template</b> for JavaScript objects.</p>
+</div>
+<hr>
+<h2>Using a Class</h2>
+<p>When you have a class, you can use the class to create objects:</p>
+
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> myCar1 = <span class="jskeywordcolor" style="color:mediumblue">new</span> Car(<span class="jsstringcolor" style="color:brown">"Ford"</span>, <span class="jsnumbercolor" style="color:red">2014</span>);<br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> myCar2 = <span class="jskeywordcolor" style="color:mediumblue">new</span> Car(<span class="jsstringcolor" style="color:brown">"Audi"</span>, <span class="jsnumbercolor" style="color:red">2019</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p>
+ </p>
+</div>
+
+<p>The Sample above uses the <b>Car class</b> to create two <b>Car objects</b>.</p>
+
+<div class="w3-panel w3-note">
+<p>The constructor method is called automatically when a new object is created.</p>
+</div>
+
+<hr>
+<h2>The Constructor Method</h2>
+
+<p>The constructor method is a special method:</p>
+<ul>
+<li>It has to have the exact name "constructor"</li>
+<li>It is executed automatically when a new object is created</li>
+<li>It is used to initialize object properties</li>
+</ul>
+<p>If you do not define a constructor method, JavaScript 
+will add an empty constructor method.
+</p>
+
+ 
+<h2>Class Methods</h2>
+
+<p>Class methods are created with the same syntax as object methods.</p>
+<p>Use the keyword <code class="w3-codespan">class</code> to create a class.</p>
+<p>Always add a <code class="w3-codespan">constructor()</code> method.</p>
+<p>Then add any number of methods.</p>
+
+<div class="w3-Sample">
+<h3>Syntax</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">class</span> ClassName {<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;  constructor() { .<span class="jspropertycolor" style="color:black"></span>.<span class="jspropertycolor" style="color:black"></span>.<span class="jspropertycolor" style="color:black"></span> }<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;method_1() { .<span class="jspropertycolor" style="color:black"></span>.<span class="jspropertycolor" style="color:black"></span>.<span class="jspropertycolor" style="color:black"></span> }<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;method_2() { .<span class="jspropertycolor" style="color:black"></span>.<span class="jspropertycolor" style="color:black"></span>.<span class="jspropertycolor" style="color:black"></span> }<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;method_3() { .<span class="jspropertycolor" style="color:black"></span>.<span class="jspropertycolor" style="color:black"></span>.<span class="jspropertycolor" style="color:black"></span> }<br><span class="jsnumbercolor" style="color:red">
+</span>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p>Create a Class method named "age", that returns the Car age:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">class</span> Car {<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;  constructor(name, year) {<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;&nbsp; <span class="jskeywordcolor" style="color:mediumblue">this</span>.<span class="jspropertycolor" style="color:black">name</span> = name;<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;&nbsp; <span class="jskeywordcolor" style="color:mediumblue">this</span>.<span class="jspropertycolor" style="color:black">year</span> = year;<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;  }<br>&nbsp; age() {<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;&nbsp; <span class="jskeywordcolor" style="color:mediumblue">const</span> date = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date();<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;&nbsp; <span class="jskeywordcolor" style="color:mediumblue">return</span> date.<span class="jspropertycolor" style="color:black">getFullYear</span>() - <span class="jskeywordcolor" style="color:mediumblue">this</span>.<span class="jspropertycolor" style="color:black">year</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;  }<br>}<br><br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> myCar = <span class="jskeywordcolor" style="color:mediumblue">new</span> Car(<span class="jsstringcolor" style="color:brown">"Ford"</span>, <span class="jsnumbercolor" style="color:red">2014</span>);<br>
+document.<span class="jspropertycolor" style="color:black">getElementById</span>(<span class="jsstringcolor" style="color:brown">"demo"</span>).<span class="jspropertycolor" style="color:black">innerHTML</span> =<br>
+<span class="jsstringcolor" style="color:brown">"My car is "</span> + myCar.<span class="jspropertycolor" style="color:black">age</span>() + <span class="jsstringcolor" style="color:brown">" years old."</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p>
+ </p>
+</div>
+
+<p>You can send parameters to Class methods:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">class</span> Car {<br>&nbsp; constructor(name, year) {<br>&nbsp;&nbsp;&nbsp; <span class="jsnumbercolor" style="color:red">
+</span>  <span class="jskeywordcolor" style="color:mediumblue">this</span>.<span class="jspropertycolor" style="color:black">name</span> = name;<br>&nbsp;&nbsp;&nbsp; <span class="jskeywordcolor" style="color:mediumblue">this</span>.<span class="jspropertycolor" style="color:black">year</span> = year;<br>&nbsp; }<br>&nbsp; <span class="jsnumbercolor" style="color:red">
+</span>  age(x) {<br>&nbsp;&nbsp;&nbsp; <span class="jskeywordcolor" style="color:mediumblue">return</span> x - <span class="jskeywordcolor" style="color:mediumblue">this</span>.<span class="jspropertycolor" style="color:black">year</span>;<br>&nbsp; }<br>}<br><br><span class="jsnumbercolor" style="color:red">
+</span>  <span class="jskeywordcolor" style="color:mediumblue">const</span> date = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date();<br><span class="jsnumbercolor" style="color:red">
+</span>  <span class="jskeywordcolor" style="color:mediumblue">let</span> year = date.<span class="jspropertycolor" style="color:black">getFullYear</span>();<br><br><span class="jskeywordcolor" style="color:mediumblue">const</span> myCar = <span class="jskeywordcolor" style="color:mediumblue">new</span> <span class="jsnumbercolor" style="color:red">
+</span>  Car(<span class="jsstringcolor" style="color:brown">"Ford"</span>, <span class="jsnumbercolor" style="color:red">2014</span>);<br>document.<span class="jspropertycolor" style="color:black">getElementById</span>(<span class="jsstringcolor" style="color:brown">"demo"</span>).<span class="jspropertycolor" style="color:black">innerHTML=</span><br><span class="jsstringcolor" style="color:brown">"My car is 
+  "</span> + myCar.<span class="jspropertycolor" style="color:black">age</span>(year) + <span class="jsstringcolor" style="color:brown">" years old."</span>;  </span></div>
+<p>
+ </p>
+</div>
+
+<style type="text/css">
+table.browserref
+{
+border-collapse:collapse;width:100%;
+}
+
+table.browserref th:first-child,table.browserref td:first-child{padding-left:16px}
+
+table.browserref th{
+height:32px;background-repeat:no-repeat;background-position:center center;font-weight:normal;padding:11px 5px 11px 5px;vertical-align:middle;
+}
+
+table.browserref .bsChrome   {background-image:url('/images/compatible_chrome.png');}
+table.browserref .bsEdge     {background-image:url('/images/compatible_edge.png');}
+table.browserref .bsFirefox  {background-image:url('/images/compatible_firefox.png')}
+table.browserref .bsSafari   {background-image:url('/images/compatible_safari.png');}
+table.browserref .bsOpera    {background-image:url('/images/compatible_opera.png')}
+
+table.browserref td{
+text-align:center;padding:8px;vertical-align:top;
+}
+</style>
+<hr>
+<h2>Browser Support</h2>
+<p>The following table defines the first browser version with full support for 
+Classes in JavaScript: </p>
+<div class="w3-responsive">
+<table class="browserref notranslate ws-table-all">
+  <tbody><tr style="height:50px;">
+    <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:20%;" class="bsEdge" title="Edge"></th>
+    <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:20%;" class="bsSafari" title="Safari"></th>
+    <th style="width:20%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome 49</td>
+    <td>Edge 12</td>    
+    <td>Firefox 45</td>
+    <td>Safari 9</td>
+    <td>Opera 36</td>
+  </tr>
+  <tr>
+    <td>Mar, 2016</td>
+    <td>Jul, 2015</td>    
+    <td>Mar, 2016</td>
+    <td>Oct, 2015</td>
+    <td>Mar, 2016</td>
+  </tr></tbody>
+</table>
+</div>
+
+<div class="w3-panel w3-note">
+<p>You will learn a lot more about JavaScript Classes later in this tutorial.</p>
+</div>

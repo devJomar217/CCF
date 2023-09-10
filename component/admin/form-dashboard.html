@@ -4,7 +4,7 @@
 <script src="./../../common/js/chart-pie.js"></script>
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+    <a href="./form-generate-report.php" target="_blank" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id="generate-report"><i
             class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
 </div>
 
@@ -44,7 +44,6 @@
         </div>
     </div>
 
-    <!-- Earnings (Monthly) Card Example -->
     <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-info shadow h-100 py-2">
             <div class="card-body">
@@ -83,59 +82,12 @@
 
 
 <div class="row">
-
-    <!-- Area Chart -->
-    <div class="col-xl-8 col-lg-7">
-        <div class="card shadow mb-4">
-            <!-- Card Header - Dropdown -->
-            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Forum Overview</h6>
-                <!-- <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                        aria-labelledby="dropdownMenuLink">
-                        <div class="dropdown-header">Dropdown Header:</div>
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </div> -->
-            </div>
-            <!-- Card Body -->
-            <div class="card-body">
-                <div class="chart-area">
-                    <canvas id="myAreaChart"></canvas>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Pie Chart -->
     <div class="col-xl-4 col-lg-5">
         <div class="card shadow mb-4">
-            <!-- Card Header - Dropdown -->
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-primary">Students</h6>
-                <!-- <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                        aria-labelledby="dropdownMenuLink">
-                        <div class="dropdown-header">Dropdown Header:</div>
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </div> -->
             </div>
-            <!-- Card Body -->
             <div class="card-body">
                 <div class="chart-pie pt-4 pb-2">
                     <canvas id="pie-chart"></canvas>
@@ -157,14 +109,37 @@
             </div>
         </div>
     </div>
-</div>
 
-<!-- Content Row -->
-<div class="row">
+    <div class="col-xl-4 col-lg-4">
+        <div class="card shadow mb-4">
+            <!-- Card Header - Dropdown -->
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Question</h6>
+                <div class="dropdown no-arrow">
+                    <select class="form-control input-subject" class="dropdown" id="input-subject" required>
+                        <option value="">All</option>
+                    </select>
+                </div>
+            </div>
+            <!-- Card Body -->
+            <div class="card-body">
+                <div class="chart-pie pt-4 pb-2">
+                    <canvas id="subject-chart"></canvas>
+                </div>
+                <div class="mt-4 text-center small">
+                    <span class="mr-2">
+                        <i class="fas fa-circle text-success"></i> Answered
+                    </span>
+                    <span class="mr-2">
+                        <i class="fas fa-circle text-danger"></i> Unanswered
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Content Column -->
-    <div class="col-lg-8 mb-10">
-
+    <div class="col-lg-4 mb-10">
         <!-- Project Card Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
@@ -175,12 +150,8 @@
                     <div class="col-lg-6">
                         <div class="row align-middle">
                             <div class="col-lg-12">
-                                <select class="form-control" class="dropdown" id="input-subject" required>
+                                <select class="form-control input-subject" class="dropdown" id="input-subject" required>
                                     <option value="">All</option>
-                                    <option value="1">Java</option>
-                                    <option value="2">React</option>
-                                    <option value="3">Angular</option>
-                                    <option value="4">Spring</option>
                                 </select>
                             </div>
                         </div>
@@ -207,43 +178,14 @@
             </div>
         </div>
     </div>
-
-    <div class="col-xl-4 col-lg-5">
-        <div class="card shadow mb-4">
-            <!-- Card Header - Dropdown -->
-            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Question</h6>
-                <div class="dropdown no-arrow">
-                    <select class="form-control" class="dropdown" id="input-subject" required>
-                        <option value="">All</option>
-                        <option value="1">Java</option>
-                        <option value="2">React</option>
-                        <option value="3">Angular</option>
-                        <option value="4">Spring</option>
-                    </select>
-                </div>
-            </div>
-            <!-- Card Body -->
-            <div class="card-body">
-                <div class="chart-pie pt-4 pb-2">
-                    <canvas id="subject-chart"></canvas>
-                </div>
-                <div class="mt-4 text-center small">
-                    <span class="mr-2">
-                        <i class="fas fa-circle text-success"></i> Answered
-                    </span>
-                    <span class="mr-2">
-                        <i class="fas fa-circle text-danger"></i> Unanswered
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 
 <script>
     $(document).ready(function() {
+        getSubjectList();
         getDashboardData();
+
+        $("#generate-report").on("click", function() {});
 
         function getDashboardData() {
             $.ajax({
@@ -265,7 +207,28 @@
 
                     var questionData = [dataResult.forum.unanswered, dataResult.forum.answered];
                     var questionLabels = ["Unanswered", "Answered"];
-                    createPieChart("subject-chart", questionLabels, questionData);
+                    createTwoPieChart("subject-chart", questionLabels, questionData);
+                }
+            });
+        }
+
+        function getSubjectList() {
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'retrieve-active-subject-list'
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var subjectOptions = `<option value=''>All</option>`;
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode == 200) {
+                        dataResult.subjectList.forEach(subject => {
+                            subjectOptions += `<option value='${subject['subjectID']}'>${subject['subject']}</option>`;
+                        });
+                    }
+                    $(".input-subject").html(subjectOptions);
                 }
             });
         }

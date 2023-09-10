@@ -1,53 +1,13 @@
-<meta property="og:url" content="https://www.your-domain.com/your-page.html" />
-<meta property="og:type" content="website" />
-<meta property="og:title" content="Your Website Title" />
-<meta property="og:description" content="Your description" />
-<meta property="og:image" content="https://www.your-domain.com/path/image.jpg" />
-
-<script>
-    window.fbAsyncInit = function() {
-        FB.init({
-            appId: 'your-app-id',
-            autoLogAppEvents: true,
-            xfbml: true,
-            version: 'v17.0'
-        });
-    };
-</script>
-
-<style>
-    .profile-header-container {
-        margin: 0 auto;
-        text-align: center;
-    }
-    
-    .profile-header-img>img.img-circle {
-        border: 2px solid #51D2B7;
-    }
-    
-    .rank-label-container {
-        margin-top: -19px;
-        /* z-index: 1000; */
-        text-align: center;
-    }
-    
-    .label.label-default.rank-label {
-        background-color: rgb(81, 210, 183);
-        border-radius: 27px;
-    }
-</style>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v17.0" nonce="z2fQyic9"></script>
+<link rel="stylesheet" href="./../../common/css/forum.css" />
 <div class="mx-4 my-0 mt-3">
-    <div class="row mb-2">
-        <div class="col-lg-9 px-1">
-            <div class="card shadow-sm py-2 px-5" style="height: 320px">
+    <div class="row">
+        <div class="col-sm-12 col-lg-9 px-1 mb-2">
+            <div class="card shadow-sm py-2 px-lg-5 px-sm-3" style="height: 320px">
                 <div class="card-body py-2 px-md-2 mr-0" id="login-form">
                     <div id="card-form">
                         <div class="row my-1">
-                            <div class="col-lg-4">
-                                <h1 class="pb-2" style="font-size: 45px;">What do you need to know?</h1>
+                            <div class="col-lg-5 col-md-12 col-sm-12">
+                                <h1 class="pb-2 forum-header">What do you need to know?</h1>
                                 <input type="button" class="btn btn-primary btn-block px-5" data-toggle="modal" data-target="#modal-add-question" value="Ask a Question" />
                             </div>
                         </div>
@@ -56,42 +16,75 @@
                                 <b class="text-center">OR</b>
                             </div>
                         </div>
-
-                        <div class="d-flex justify-content-center">
-                            <input type="text" class="form-control mr-3" placeholder="Search for a question?">
-                            <input type="button" class="btn btn-primary btn-md" value=" Search" />
+                        <div class="d-flex justify-content-center row">
+                            <div class="col-12">
+                                <form autocomplete="off" id="form-search-question">
+                                    <div class="row">
+                                        <div class="col-lg-10 col-sm-12">
+                                            <div class="autocomplete">
+                                                <input type="text" class="form-control mr-3" name="input-search" placeholder="Search for a question?" id="input-search">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2 col-sm-12 mt-sm-1 mt-xs-1 mt-md-0">
+                                            <button type="submit" class="btn btn-primary btn-block px-4" value="Search" id="button-search">Search</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="col-lg-3 px-1">
+        <div class="col-sm-12 col-lg-3 px-1 mb-2">
             <div class="card shadow-sm" style="height: 320px">
                 <div class="card-body p-3">
                     <div id="card-form">
-                        <div class="form-outline">
-                            <h5 class="form-text font-weight-bold"><b>Profile</b></h5>
-                        </div>
-                        <hr class="sidebar-divider my-2">
-                        <div class="form-outline mb-2">
-                            <label class="form-label" for="input-name">Name: </label>
-                        </div>
-
-                        <div class="form-outline mb-2">
-                            <label class="form-label" for="input-email">Username: </label>
-                        </div>
-
-                        <div class="form-outline mb-2">
-                            <label class="form-label" for="input-email">Year Level: </label>
+                        <h5 class="card-title font-weight-bold">Profile</h5>
+                        <hr class="sidebar-divider sidebar-dark my-2">
+                        <div class="row form-outline mb-3 pt-3">
+                            <div class="col-4">
+                                <label class="form-label font-weight-bold" for="input-name">Name: </label>
+                            </div>
+                            <div class="col">
+                                <span class="fw-bolder" id="profile-name"></span>
+                            </div>
                         </div>
 
-                        <div class="form-outline mb-2">
-                            <label class="form-label" for="input-email">Specialization: </label>
+                        <div class="row form-outline mb-3">
+                            <div class="col-4">
+                                <label class="form-label font-weight-bold" for="input-email">Username: </label>
+                            </div>
+                            <div class="col">
+                                <span id="profile-user-name"></span>
+                            </div>
                         </div>
 
-                        <div class="form-outline mb-2">
-                            <label class="form-label" for="input-email">Ranking: </label>
+                        <div class="row form-outline mb-3">
+                            <div class="col-4">
+                                <label class="form-label font-weight-bold" for="input-email">Year Level: </label>
+                            </div>
+                            <div class="col">
+                                <span id="profile-year-level"></span>
+                            </div>
+                        </div>
+
+                        <div class="row form-outline mb-3">
+                            <div class="col-4">
+                                <label class="form-label font-weight-bold" for="input-email">Major: </label>
+                            </div>
+                            <div class="col">
+                                <span id="profile-specialization"></span>
+                            </div>
+                        </div>
+                        <div class="row form-outline mb-3">
+                            <div class="col-4">
+                                <label class="form-label font-weight-bold" for="input-email">Ranking: </label>
+                            </div>
+                            <div class="col">
+                                <span id="profile-ranking"></span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -107,69 +100,29 @@
                         <div class="form-outline">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <h5 class="form-text font-weight-bold"><b>Latest Question</b></h5>
+                                    <h5 class="card-title font-weight-bold mt-1">Latest Question</h5>
                                 </div>
                                 <div class="col d-flex align-middle">
                                     <label class="form-label align-middle pr-3 pt-2" for="input-scan">Subject: </label>
                                     <select class="form-control" class="dropdown" id="input-subject-filter">
-                                        <option value="" selected>All</option>
+                                        <option value="-1" selected>All</option>
                                     </select>
                                 </div>
                                 <div class="col d-flex">
                                     <label class="form-label pr-3 pt-2" for="input-scan">Status: </label>
-                                    <select class="form-control" class="dropdown" id="input-scan">
-                                        <option value="" selected>All</option>
-                                        <option value="1">Answered</option>
-                                        <option value="2">Unanswered</option>
+                                    <select class="form-control" class="dropdown" id="input-status-filter">
+                                        <option value="-1" selected>All</option>
+                                        <option value="1">Unanswered</option>
+                                        <option value="2">Answered</option>
                                     </select>
                                 </div>
                             </div>
                             <hr class="sidebar-divider my-2">
-                            <div class="container vertical-scrollable">
-                                <div id="container-question">
-
-                                </div>
-                                <div class="row py-3">
-                                    <div class="col-1 p-4"><img class="img-profile rounded-circle" style="width:60px;" src="./../../common/img/undraw_profile.svg"></div>
-                                    <div class="col">
-                                        <div class="row">
-                                            <div class="col">
-                                                <b>Mr.Nobody</b>
-                                            </div>
-                                            <div class="col text-right">
-                                                Unanswered
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-1">
-                                                Date
-                                            </div>
-                                            <div class="col-1">
-                                                Subject
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col">
-                                                <a href="">
-                                                    <h5>Title</h5>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col">
-                                                Descriptoin
-                                                <a href="">see more...</a>
-                                            </div>
-                                            <div class="col-1 mt-4 pl-5 pr-0">
-                                                <a href=""><span class="align-text-bottom"><i class="fa fa-flag"></i></span></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr class="sidebar-divider my-2">
+                            <div class="vertical-scrollable">
+                                <div id="container-question"></div>
                                 <div class="row">
                                     <div class="col text-center my-2">
-                                        <input type="button" value="Load More" class="btn btn-primary px-5" />
+                                        <input type="button" value="Load More" id="load-more-question" class="btn btn-primary btn-sm" />
                                     </div>
                                 </div>
                             </div>
@@ -183,91 +136,12 @@
             <div class="card shadow-sm p-2">
                 <div class="card-body py-2 px-md-2" id="login-form">
                     <div id="card-form">
-                        <div class="form-outline">
-                            <h5 class="form-text font-weight-bold"><b>Ranking</b></h5>
-                        </div>
+                        <h5 class="card-title font-weight-bold">Ranking</h5>
                         <hr class="sidebar-divider my-2">
-                        <div class="row">
-                            <div class="col-3">
-                                <div class="container pt-2">
-                                    <div class="row">
-                                        <div class="profile-header-container">
-                                            <div class="profile-header-img">
-                                                <img class="img-profile img-circle rounded-circle" style="width:60px;" src="./../../common/img/undraw_profile.svg">
-                                                <div class="rank-label-container pt-2">
-                                                    <span class="label label-default rank-label text-white px-4 py-0">#1</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="row">
-                                    <div class="col">
-                                        Name: <span>John Doe</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        Specialization: <span>Mobile and web</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        Year Level: <span>3rd</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        Thumbs up: <span>12222</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr class="sidebar-divider my-2">
-                        <div class="row">
-                            <div class="col-3">
-                                <div class="container pt-2">
-                                    <div class="row">
-                                        <div class="profile-header-container">
-                                            <div class="profile-header-img">
-                                                <img class="img-profile img-circle rounded-circle" style="width:60px;" src="./../../common/img/undraw_profile.svg">
-                                                <div class="rank-label-container pt-2">
-                                                    <span class="label label-default rank-label text-white px-4 py-0">#1</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="row">
-                                    <div class="col">
-                                        Name: <span>John Doe</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        Specialization: <span>Mobile and web</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        Year Level: <span>3rd</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        Thumbs up: <span>12222</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr class="sidebar-divider my-2">
+                        <div id="container-ranking"></div>
                         <div class="row text-center">
                             <div class="col text-center">
-                                <a href="">Load More</a>
+                                <a href="" id="load-more-ranking" class="btn btn-primary btn-sm">Load More</a>
                             </div>
                         </div>
                     </div>
@@ -277,78 +151,41 @@
     </div>
 </div>
 
-
-
-<!-- Footer -->
-<footer class="bg-link text-center bg-white text-dark">
-    <!-- Grid container -->
-    <div class="container p-4">
-
-        <!-- Section: Links -->
-        <section class="">
-            <!--Grid row-->
-            <div class="row">
-                <!--Grid column-->
-
-                <!--Grid column-->
-                <div class="col mb-md-0">
-                    <p>
-                        <i>Learning by Asking!</i>
-                    </p>
-                </div>
-                <!--Grid column-->
-
-                <!--Grid column-->
-            </div>
-            <!--Grid row-->
-        </section>
-        <!-- Section: Links -->
-
-    </div>
-    <!-- Grid container -->
-
-    <!-- Copyright -->
-    <div class="text-center p-3">
-        © 2020 Copyright:
-        <a class="text-dark" href="">Code Connect</a>
-    </div>
-    <!-- Copyright -->
-
-</footer>
-<!-- Footer -->
-
 <div class="modal fade" id="modal-add-question" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Post a Question</h5>
+                <h5 class="modal-title">Ask a Question</h5>
             </div>
-            <form id="form-add-question" class="needs-validation" novalidate>
+            <form id="form-add-question" class="needs-validation container">
                 <div class="modal-body">
-                    <div class="form-outline mb-2">
-                        <label class="form-label" for="input-">Title</label>
-                        <input type="text" id="input-new-question-title" class="form-control" placeholder="Enter title" required/>
-                        <div class="invalid-feedback">
+                    <div class="row mb-3">
+                        <div class="col-lg-1 d-flex align-middle text-center">
+                            <label class="form-label align-middle pr-2 pt-2" for="input-">Title</label>
                         </div>
-                    </div>
-
-                    <div class="form-group form-outline mb">
-                        <label for="exampleFormControlTextarea1">Description</label>
-                        <textarea class="form-control" id="input-new-question-description" rows="7" placeholder="Enter description"></textarea>
-                    </div>
-
-                    <div class="row d-flex justify-content-between">
                         <div class="col">
-                            <div class="form-group form-outline mb">
-                                <a href=""><i class="fa fa-paperclip"></i>Add Attachement</a>
-                                <input type="file" value="Attachment" class="d-none">
-                            </div>
+                            <input type="text" id="input-new-question-title" class="form-control" placeholder="Enter title" required/>
                         </div>
-                        <div class="col d-flex align-middle">
-                            <label class="form-label align-middle pr-3 pt-2" for="input-scan">Subject: </label>
-                            <select class="form-control" class="dropdown" id="input-new-question-subject">
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-lg-1">
+                            <label class="form-label align-middle pr-2 pt-2" for="input-scan">Subject</label>
+                        </div>
+                        <div class="col-5">
+                            <select class="form-control dropdown" id="input-new-question-subject" required>
                                 <option value="" selected>--Please Select--</option>
                             </select>
+                        </div>
+                    </div>
+                    <div class="form-outline mb-3 ml-3 mt-3 mr-3">
+                        <div class="w-100">
+                            <div class="row row-editor">
+                                <div class="editor-container">
+                                    <div class="editor">
+                                        <h5>Description:</h5>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -360,10 +197,158 @@
         </div>
     </div>
 </div>
-
+<script src="./../../common/ckeditor/script.js"></script>
 <script>
     $(document).ready(function() {
+        var subjectList = new Array;
+        var limit = 10;
+        var rankingLimit = 10;
+        var listOfFAQ = [];
+        var autoCompleteXHR;
         getSubjectList();
+        getLatestQuestion(-1, -1, limit, "");
+        getUserProfile();
+        populateRanking(rankingLimit);
+        getFAQ();
+
+        function populateRanking(rankingLimit) {
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'retrieve-ranking-list',
+                    limit: rankingLimit,
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var rankingList = "";
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode == 200) {
+                        dataResult.rankingList.forEach(rank => {
+                            var picture = rank.studentInformation['picture'];
+                            if (picture == "") {
+                                picture = "./../../resource/profile/default.svg";
+                            } else {
+                                picture = "./../../resource/profile/" + picture;
+                            }
+                            rankingList += populateRankingRow(
+                                picture,
+                                rank.studentInformation['username'],
+                                rank.studentInformation['specialization'],
+                                getYearLevel(rank.studentInformation['yearLevel']),
+                                rank['rank'],
+                                rank['rating']
+                            );
+                        });
+                    } else {
+                        rankingList = populateEmptyRow();
+                    }
+                    $("#container-ranking").html(rankingList);
+                }
+            });
+        }
+
+        function getFAQ() {
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'retrieve-faq'
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode == 200) {
+                        const faqList = [];
+                        dataResult.faqList.forEach(faq => {
+                            faqList.push(faq.title);
+                        });
+
+                        listOfFAQ = faqList;
+                        $("#input-search").autocomplete({
+                            source: faqList,
+                            minLength: 0
+                        }).bind('focus', function() {
+                            $("#input-search").autocomplete("search");
+                        });
+                    }
+                }
+            });
+        }
+
+        $("#input-search").on("keyup", function() {
+            if ($(this).val() == "") {
+                $("#input-search").autocomplete({
+                    source: listOfFAQ,
+                    minLength: 0
+                });
+                return;
+            }
+            if (autoCompleteXHR != null) {
+                autoCompleteXHR.abort();
+            }
+            autoCompleteXHR = $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'search-faq',
+                    search: $(this).val()
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode == 200) {
+                        const faqList = [];
+                        dataResult.faqList.forEach(faq => {
+                            faqList.push(faq.title);
+                            console.log(faqList);
+                        });
+
+                        $("#input-search").autocomplete({
+                            source: faqList
+                        });
+                    }
+                }
+            });
+        });
+
+        $("#load-more-ranking").click(function(event) {
+            event.preventDefault();
+            rankingLimit += 10;
+            populateRanking(rankingLimit);
+        });
+
+        function getUserProfile() {
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'retrieve-user-profile'
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode == 200) {
+                        var rank = dataResult.studentInformation.ranking.rank;
+                        var rating = dataResult.studentInformation.ranking.rating;
+
+                        if (rank == null) {
+                            rank = "Unranked";
+                        }
+
+                        if (rating == null) {
+                            rating = 0;
+                        }
+
+                        $("#profile-name").html(dataResult.studentInformation.name);
+                        $("#profile-user-name").html(dataResult.studentInformation.username);
+                        $("#profile-year-level").html(dataResult.studentInformation.yearLevel);
+                        $("#profile-specialization").html(dataResult.studentInformation.specialization);
+                        $("#profile-ranking").html(`${rank} (${rating} Points)`);
+                    }
+                }
+            });
+        }
 
         function getSubjectList() {
             $.ajax({
@@ -377,64 +362,138 @@
                     var subjectOptions = "";
                     var dataResult = JSON.parse(dataResult);
                     if (dataResult.statusCode == 200) {
+                        subjectList = dataResult.subjectList;
                         dataResult.subjectList.forEach(subject => {
                             subjectOptions += "<option value='" + subject['subjectID'] + "'>" + subject['subject'] + "</option>";
                         });
                     }
-
                     $("#input-new-question-subject").html($("#input-new-question-subject").html() + subjectOptions);
-
                     $("#input-subject-filter").html($("#input-subject-filter").html() + subjectOptions);
                 }
             });
         }
 
-        function getLatestQuestion() {
+        function getLatestQuestion(subject, status, limit, search) {
             $.ajax({
                 url: "../../common/db.php",
                 type: "POST",
                 data: {
-                    action: 'retrieve-active-subject-list'
+                    action: 'retrieve-latest-question-list',
+                    subject: subject,
+                    status: status,
+                    limit: limit,
+                    search: search
                 },
                 cache: false,
                 success: function(dataResult) {
                     var questionList = "";
                     var dataResult = JSON.parse(dataResult);
-                    if (dataResult.questionList == 200) {
-                        dataResult.subjectList.forEach(subject => {
-                            subjectOptions +=
-                                "<option value='" + subject['subjectID'] + "'>" + subject['subject'] + "</option>";
+                    if (dataResult.statusCode == 200) {
+                        dataResult.questionList.forEach(question => {
+                            var picture = question['picture'];
+                            var status;
+                            var description = question['description'];
+                            var subjectName = getSubjectName(question['subjectID']);
+                            if (picture == "") {
+                                picture = "./../../resource/profile/default.svg";
+                            } else {
+                                picture = "./../../resource/profile/" + picture;
+                            }
+
+                            if (question['status'] == 1) {
+                                status = "<span class='border border-danger status-danger rounded p-1 '>Unanswered</span>";
+                            } else if (question['status'] == 2) {
+                                status = "<span class='border border-success status-success rounded p-1 '>Answered</span>";
+                            }
+
+                            var questionID = question['questionID'];
+
+                            if (description.length > 225) {
+                                description = description.substring(0, 225);
+                                description += ` <a href="?id=${questionID}#main-forum" class="button-select-question"> see more...</a>`;
+                            }
+                            questionList += populateQuestionRow(questionID, picture, question['name'], status, question['creationDateTime'], subjectName, question['title'], description);
                         });
+                    } else {
+                        questionList = populateEmptyRow();
                     }
+                    $("#container-question").html(questionList);
 
-
-                    $("#input-subject-filter").html($("#input-subject-filter").html() + subjectOptions);
+                    $(".button-select-question").on('click', function(event) {
+                        $("#main-container").load('./form-main-forum.html');
+                    });
                 }
             });
         }
 
+        function getSubjectName(subjectID) {
+            var subjectName = "";
+            subjectList.forEach(subject => {
+                if (subjectID == subject['subjectID']) {
+                    subjectName = subject['subject'];
+                    return;
+                }
+            });
+            return subjectName;
+        }
+
+        $("#input-status-filter").change(function() {
+            getLatestQuestion($("#input-subject-filter").val(), $("#input-status-filter").val(), limit, "");
+        });
+
+        $("#input-subject-filter").change(function() {
+            getLatestQuestion($("#input-subject-filter").val(), $("#input-status-filter").val(), limit, "");
+        });
+
+        $("#load-more-question").click(function() {
+            limit += 10;
+            if ($("#input-search").val().length > 0) {
+                getLatestQuestion($("#input-subject-filter").val(), $("#input-status-filter").val(), limit, $("#input-search").val());
+            } else {
+                getLatestQuestion($("#input-subject-filter").val(), $("#input-status-filter").val(), limit, "");
+            }
+        });
+
+        $("#form-search-question").on('submit', function(event) {
+            event.preventDefault();
+            if ($("#input-search").val().length > 0) {
+                getLatestQuestion($("#input-subject-filter").val(), $("#input-status-filter").val(), limit, $("#input-search").val());
+            } else {
+                getLatestQuestion($("#input-subject-filter").val(), $("#input-status-filter").val(), limit, "");
+            }
+        });
 
         $("#form-add-question").on("submit", function(event) {
             event.preventDefault();
             var title = $("#input-new-question-title").val();
-            var description = $("#input-new-question-description").val();
-            var subject = $("#input-new-question-subject").val();;
+            var subject = $("#input-new-question-subject").val();
             $.ajax({
                 url: "../../common/db.php",
                 type: "POST",
                 data: {
                     action: 'save-question',
                     title: title,
-                    description: description,
+                    description: window.editor.getData(),
                     subject: subject
                 },
                 cache: false,
                 success: function(dataResult) {
                     var dataResult = JSON.parse(dataResult);
-                    console.log(dataResult);
+                    if (dataResult.statusCode == 200) {
+                        getLatestQuestion(-1, -1, limit, "");
+                        $("#modal-add-question").modal('toggle');
+                        alert("Your question has been successfully posted!");
+                    } else {
+                        alert("Unable to post the question, please try again later!");
+                    }
                 }
             });
         });
 
+        $('#modal-add-question').on('hidden.bs.modal', function() {
+            $("#input-new-question-title").val("");
+            $("#input-new-question-subject").val("").change();
+            window.editor.setData(`<p>Description:</p><p><br><br><br><br data-cke-filler="true"></p>`);
+        });
     });
 </script>

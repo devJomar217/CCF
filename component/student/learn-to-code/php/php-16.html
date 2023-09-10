@@ -1,0 +1,190 @@
+<!-- Loops-->
+
+ 
+  <div class="w3-row w3-white">
+   
+
+<h1>What is <span class="color_h1">Loops in Php?</span></h1>
+ 
+<hr>
+
+<p class="intro">In the following chapters you will learn how to repeat code by 
+using loops in PHP.</p>
+<hr>
+
+<h2>PHP Loops</h2>
+<p>Often when you write code, you want the same block of code to run over and 
+over again a certain number of times. So, instead of adding several almost equal code-lines in a script, we 
+can use loops.</p>
+<p>Loops are used to execute the same block of code again and again, as long as 
+a certain condition is true.</p>
+<p>In PHP, we have the following loop types:</p>
+<ul>
+  <li><code class="w3-codespan">while</code> - loops through a block of code as long as the specified condition is true</li>
+  <li><code class="w3-codespan">do...while</code> - loops through a block of code once, and then repeats the loop 
+  as long as the specified condition is true</li>
+  <li><code class="w3-codespan">for</code> - loops through a block of code a specified number of times</li>
+  <li><code class="w3-codespan">foreach</code> - loops through a block of code for each element in an 
+  array</li>
+</ul>
+<p>The following chapters will explain and give Sample of each loop type.</p>
+ <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+  <div class="w3-row w3-white">
+ 
+<h1>PHP <span class="color_h1">while</span>  Loop</h1>
+ 
+<p class="intro">The <code class="w3-codespan">while</code> loop - Loops through 
+a block of code as long as the specified condition is true.</p>
+<hr>
+
+<h2>The PHP while Loop</h2>
+<p>The <code class="w3-codespan">while</code> loop executes a block of code as long as the specified condition is true.</p>
+<h3>Syntax</h3>
+<div class="w3-code w3-border notranslate"><div>
+while (<i>condition is true</i>) {<br>
+<i>&nbsp;&nbsp;code to be executed</i>;<br>
+ }
+</div></div>
+
+<h3>Sample</h3>
+<p>The Sample below displays the numbers from 1 to 5:</p>
+<div class="w3-Sample">
+ <div class="w3-code htmlHigh notranslate">
+ <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span> <br>$x = <span class="phpnumbercolor" style="color:red">1</span>; <br><br><span class="phpkeywordcolor" style="color:mediumblue">while</span>($x &lt;= <span class="phpnumbercolor" style="color:red">5</span>) {<br>&nbsp; <span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"The number is: $x &lt;br&gt;"</span>;<br>&nbsp;&nbsp;$x++;<br>} <br><span class="phptagcolor" style="color:red">?&gt;</span></span>  </div>
+ </div>
+
+<h3>Sample Explained</h3>
+<ul>
+  <li>$x = 1; - Initialize the loop counter ($x), and set the start value to 1</li>
+  <li>$x &lt;= 5 - Continue the loop as long as $x is less than or equal to 5</li>
+  <li>$x++; - Increase the loop counter value by 1 for each iteration</li>
+</ul>
+
+<p>This Sample counts to 100 by tens:</p>
+<div class="w3-Sample">
+  <h3>Sample</h3>
+<div class="w3-code htmlHigh notranslate">
+ <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span> <br>$x = <span class="phpnumbercolor" style="color:red">0</span>; <br><br><span class="phpkeywordcolor" style="color:mediumblue">while</span>($x &lt;= <span class="phpnumbercolor" style="color:red">100</span>) {<br>&nbsp;&nbsp;<span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"The number is: $x &lt;br&gt;"</span>;<br><span class="phpnumbercolor" style="color:red">
+</span>  &nbsp; $x+=<span class="phpnumbercolor" style="color:red">10</span>;<br>} <br><span class="phptagcolor" style="color:red">?&gt;</span></span>  </div>
+ </div>
+<h3>Sample Explained</h3>
+<ul>
+  <li>$x = 0; - Initialize the loop counter ($x), and set the start value to 0</li>
+  <li>$x &lt;= 100 - Continue the loop as long as $x is less than or equal to 100</li>
+  <li>$x+=10; - Increase the loop counter value by 10 for each iteration</li>
+</ul>
+ <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+
+  <div class="w3-row w3-white">
+    
+     
+
+<h1>PHP <span class="color_h1">do while</span>  Loop</h1>
+ 
+<p class="intro">The <code class="w3-codespan">do...while</code> loop - Loops 
+through a block of code once, and then repeats the loop as long as the specified 
+condition is true.</p>
+<hr>
+
+<h2>The PHP do...while Loop</h2>
+<p>The <code class="w3-codespan">do...while</code> loop will always execute the block of code once, it 
+will then check the condition, and repeat the loop while the specified condition is true.</p>
+<h3>Syntax</h3>
+<div class="w3-code w3-border notranslate"><div>
+do
+{<br>
+  <i>&nbsp; code to be executed;<br>
+</i>}
+while (<i>condition is true</i>);
+</div></div>
+
+<h3>Sample</h3>
+<p>The Sample below first sets a variable $x to 1 ($x = 1). Then, the do while 
+loop will write some output, and then increment the variable $x with 1. Then the condition is checked (is 
+$x less than, or equal to 5?), and the loop will continue to run as long as $x is less than, or equal to 5:</p>
+<div class="w3-Sample">
+ <div class="w3-code htmlHigh notranslate">
+ <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span> <br>$x = <span class="phpnumbercolor" style="color:red">1</span>; <br><br><span class="phpkeywordcolor" style="color:mediumblue">do</span> {<br>&nbsp;&nbsp;<span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"The number is: $x &lt;br&gt;"</span>;<br><span class="phpnumbercolor" style="color:red">
+</span>  &nbsp; $x++;<br>} <span class="phpkeywordcolor" style="color:mediumblue">while</span> ($x &lt;= <span class="phpnumbercolor" style="color:red">5</span>);<br><span class="phptagcolor" style="color:red">?&gt;</span></span>  </div>
+ </div>
+
+<div class="w3-panel w3-note">
+<p><strong>Note:</strong> In a <code class="w3-codespan">do...while</code> loop the condition is tested AFTER executing 
+the statements within the loop. This means that the <code class="w3-codespan">do...while</code> loop will execute 
+its statements at least once, even if the condition is false. See Sample below.</p>
+</div>
+
+<p>This Sample sets the $x variable to 6, then it runs the loop, <strong>
+and then the condition is checked</strong>:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code htmlHigh notranslate">
+ <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span> <br>$x = <span class="phpnumbercolor" style="color:red">6</span>;<br> <br><span class="phpkeywordcolor" style="color:mediumblue">do</span> {<br>&nbsp; <span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"The number is: $x &lt;br&gt;"</span>;<br>&nbsp;&nbsp;$x++;<br>} <span class="phpkeywordcolor" style="color:mediumblue">while</span> ($x &lt;= <span class="phpnumbercolor" style="color:red">5</span>);<br><span class="phptagcolor" style="color:red">?&gt;</span></span>  </div>
+ </div>
+ 
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<p>&nbsp;</p>
+    <p>&nbsp;</p>
+
+  <div class="w3-row w3-white">
+    
+ 
+
+<h1>PHP <span class="color_h1">for</span> Loop</h1>
+ 
+<p class="intro">The <code class="w3-codespan">for</code> loop - Loops through a block of code a specified number of times.</p>
+<hr>
+
+<h2>The PHP for Loop</h2>
+<p>The <code class="w3-codespan">for</code> loop is used when you know in advance how many times the script should run.</p>
+<h3>Syntax</h3>
+<div class="w3-code w3-border notranslate"><div>
+for (<i>init counter; test counter; increment counter</i>)
+{<br>
+&nbsp;&nbsp;<i>code to be executed 
+  for each iteration;</i><br>
+}
+</div></div>
+
+<p>Parameters:</p>
+<ul>
+  <li><i>init counter</i>: Initialize the loop counter value</li>
+  <li><i>test counter</i>: Evaluated for each loop iteration. If it evaluates to TRUE, the loop continues. If it evaluates to FALSE, the loop ends.</li>
+  <li><i>increment counter</i>: Increases the loop counter value</li>
+</ul>
+
+<h3>Sample</h3>
+
+<p>The Sample below displays the numbers from 0 to 10:</p>
+<div class="w3-Sample">
+ <div class="w3-code htmlHigh notranslate">
+<span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span> <br><span class="phpkeywordcolor" style="color:mediumblue">for</span> ($x = <span class="phpnumbercolor" style="color:red">0</span>; $x &lt;= <span class="phpnumbercolor" style="color:red">10</span>; $x++)<span class="phpnumbercolor" style="color:red">
+</span>{<br><span class="phpnumbercolor" style="color:red">
+</span> &nbsp;&nbsp;<span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"The number is: $x &lt;br&gt;"</span>;<br>} <br><span class="phptagcolor" style="color:red">?&gt;</span></span>  </div>
+ </div>
+<h3>Sample Explained</h3>
+<ul>
+  <li>$x = 0; - Initialize the loop counter ($x), and set the start value to 0</li>
+  <li>$x &lt;= 10; - Continue the loop as long as $x is less than or equal to 10</li>
+  <li>$x++ - Increase the loop counter value by 1 for each iteration</li>
+</ul>
+
+<p>This Sample counts to 100 by tens:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code htmlHigh notranslate">
+<span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span> <br><span class="phpkeywordcolor" style="color:mediumblue">for</span> ($x = <span class="phpnumbercolor" style="color:red">0</span>; $x &lt;= <span class="phpnumbercolor" style="color:red">100</span>; $x+=<span class="phpnumbercolor" style="color:red">10</span>)<span class="phpnumbercolor" style="color:red">
+</span>{<br><span class="phpnumbercolor" style="color:red">
+</span>  &nbsp; <span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"The number is: $x &lt;br&gt;"</span>;<br>} <br><span class="phptagcolor" style="color:red">?&gt;</span></span>  </div>
+ </div>
+<h3>Sample Explained</h3>
+<ul>
+  <li>$x = 0; - Initialize the loop counter ($x), and set the start value to 0</li>
+  <li>$x &lt;= 100; - Continue the loop as long as $x is less than or equal to 100</li>
+  <li>$x+=10 - Increase the loop counter value by 10 for each iteration</li>
+</ul>
+  

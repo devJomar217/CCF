@@ -1,0 +1,190 @@
+<!-- Functions-->
+
+ 
+  <div class="w3-row w3-white">
+    
+  
+
+<h1>What is <span class="color_h1">Functions in Php?</span></h1>
+ 
+<p class="intro">The real power of PHP comes from its functions.</p>
+<p class="intro">PHP has more 
+than 1000 built-in functions, and in addition you can create your own custom 
+functions.</p>
+<hr>
+
+<h2>PHP Built-in Functions</h2>
+<p>PHP has over 1000 built-in functions that can be called directly, from within 
+a script, to perform 
+a specific task.</p>
+<p>Please check out our PHP reference for a complete overview of the
+ PHP built-in functions</a>.</p>
+<hr>
+
+<h2>PHP User Defined Functions</h2>
+<p>Besides the built-in PHP functions, it is possible to create your own functions.</p>
+<ul>
+  <li>A function is a block of statements that can be used repeatedly in a program.</li>
+  <li>A function will not execute automatically when a page loads.</li>
+  <li>A function will be executed by a call to the function.</li>
+</ul>
+<hr>
+
+<h2>Create a User Defined Function in PHP</h2>
+<p>A user-defined function declaration starts with the word <code class="w3-codespan">function</code>:</p>
+<h3>Syntax</h3>
+<div class="w3-code w3-border notranslate"><div>
+ function <i>functionName</i>()
+ {<br>
+<i>&nbsp; code to be executed</i>;<br>
+ }
+</div></div>
+<div class="w3-panel w3-note">
+<p><strong>Note:</strong> A function name must start with a letter or an underscore. Function names are NOT case-sensitive.</p>
+</div>
+
+<p><strong>Tip:</strong> Give the function a name that reflects what the 
+function does!</p>
+
+<p>In the Sample below, we create a function named "writeMsg()". The opening 
+curly brace ( { ) indicates the beginning of the function code, and the closing 
+curly brace ( } ) indicates the end of the function. The function outputs "Hello 
+world!". To call the function, just write its name followed by brackets ():</p>
+<div class="w3-Sample">
+ <div class="w3-code htmlHigh notranslate">
+ <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br><span class="phpkeywordcolor" style="color:mediumblue">function</span> writeMsg() {<br>&nbsp;&nbsp;<span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"Hello world!"</span>;<br><span class="phpnumbercolor" style="color:red">
+</span> }<br><br>writeMsg(); <span class="commentcolor" style="color:green">// call the function<br></span><span class="phptagcolor" style="color:red">?&gt;</span></span> </div>
+ </div>
+ 
+<h2>PHP Function Arguments</h2>
+<p>Information can be passed to functions through arguments. An argument is just 
+like a variable.</p>
+<p>Arguments are specified after the function name, inside the parentheses. You 
+can add as many arguments as you want, just separate them with a comma. </p>
+
+<p>The following Sample has a function with one argument ($fname). When the 
+familyName() function is called, we also pass along a name (e.g. Jani), and the 
+name is used inside the function, which outputs several different first names, 
+but an equal last name:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code htmlHigh notranslate">
+ <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br><span class="phpkeywordcolor" style="color:mediumblue">function</span> familyName($fname) {<br>&nbsp; <span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"$fname Refsnes.&lt;br&gt;"</span>;<br><span class="phpnumbercolor" style="color:red">
+</span> }<br><br>familyName(<span class="phpstringcolor" style="color:brown">"Jani"</span>);<br>familyName(<span class="phpstringcolor" style="color:brown">"Hege"</span>);<br><span class="phpnumbercolor" style="color:red">
+</span> familyName(<span class="phpstringcolor" style="color:brown">"Stale"</span>);<br>familyName(<span class="phpstringcolor" style="color:brown">"Kai Jim"</span>);<br>familyName(<span class="phpstringcolor" style="color:brown">"Borge"</span>);<br><span class="phptagcolor" style="color:red">?&gt;</span></span> </div>
+ </div>
+
+<p>The following Sample has a function with two arguments ($fname and $year):</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code htmlHigh notranslate">
+ <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br><span class="phpkeywordcolor" style="color:mediumblue">function</span> familyName($fname, $year) {<br>&nbsp; <span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"$fname Refsnes. Born in $year &lt;br&gt;"</span>;<br>}<br><br>familyName(<span class="phpstringcolor" style="color:brown">"Hege"</span>, <span class="phpstringcolor" style="color:brown">"1975"</span>);<br><span class="phpnumbercolor" style="color:red">
+</span> familyName(<span class="phpstringcolor" style="color:brown">"Stale"</span>, <span class="phpstringcolor" style="color:brown">"1978"</span>);<br>familyName(<span class="phpstringcolor" style="color:brown">"Kai Jim"</span>, <span class="phpstringcolor" style="color:brown">"1983"</span>);<br><span class="phptagcolor" style="color:red">?&gt;</span></span> </div>
+ </div>
+<hr>
+
+<h2>PHP is a Loosely Typed Language</h2>
+<p>In the Sample above, notice that we did not have to tell PHP which data type the variable is.</p>
+<p>PHP automatically associates a data type to the variable, depending on its value. 
+Since the data types are not set in a strict sense, you can do things like 
+adding a string to an integer without causing an error.</p>
+<p>In PHP 7, type declarations were added. This gives us an option to specify 
+the expected data type when declaring a function, and by adding the <code class="w3-codespan">strict</code> 
+declaration, it will throw a "Fatal 
+Error" if the data type mismatches.</p>
+<p>In the following Sample we try to send both a number and a string to the 
+function without using <code class="w3-codespan">strict</code>:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code htmlHigh notranslate">
+  <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br><span class="phpkeywordcolor" style="color:mediumblue">function</span> addNumbers(int $a, int $b) {<br>&nbsp;&nbsp;<span class="phpkeywordcolor" style="color:mediumblue">return</span> $a <span class="phpnumbercolor" style="color:red">
+</span>  + $b;<br>}<br><span class="phpnumbercolor" style="color:red">
+</span>  <span class="phpkeywordcolor" style="color:mediumblue">echo</span> addNumbers(<span class="phpnumbercolor" style="color:red">5</span>, <span class="phpstringcolor" style="color:brown">"5 days"</span>); <br><span class="commentcolor" style="color:green">// since strict is NOT enabled "5 days" is 
+  changed to int(5), and it will return 10<br></span><span class="phptagcolor" style="color:red">?&gt;</span></span>  </div>
+ </div>
+
+<p>To specify <code class="w3-codespan">strict</code> we need to set <code class="w3-codespan">declare(strict_types=1);</code>. 
+This must be on the very first line of the PHP file.</p>
+
+<p>In the following Sample we try to send both a number and a string to the 
+function, but here we have added the <code class="w3-codespan">strict</code> 
+declaration:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code htmlHigh notranslate">
+  <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span> <span class="phpkeywordcolor" style="color:mediumblue">declare</span>(strict_types=<span class="phpnumbercolor" style="color:red">1</span>); <span class="commentcolor" style="color:green">// strict requirement<br></span><br><span class="phpkeywordcolor" style="color:mediumblue">function</span> <span class="phpnumbercolor" style="color:red">
+</span>  addNumbers(int $a, int $b) {<br>&nbsp;&nbsp;<span class="phpkeywordcolor" style="color:mediumblue">return</span> $a + $b;<br>}<br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> addNumbers(<span class="phpnumbercolor" style="color:red">5</span>, <span class="phpstringcolor" style="color:brown">"5 
+  days"</span>); <br><span class="commentcolor" style="color:green">// since strict is enabled and "5 days" is not an integer, an 
+  error will be thrown<br></span><span class="phptagcolor" style="color:red">?&gt;</span></span>
+ </div>
+ </div>
+
+<div class="w3-panel w3-note">
+<p>The <code class="w3-codespan">strict</code> declaration forces things to be used in the intended way.</p>
+</div>
+<hr>
+
+<h2>PHP Default Argument Value</h2>
+<p>The following Sample shows how to use a default parameter. If we call the 
+function setHeight() without arguments it takes the default value as argument:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code htmlHigh notranslate">
+ <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span> <span class="phpkeywordcolor" style="color:mediumblue">declare</span>(strict_types=<span class="phpnumbercolor" style="color:red">1</span>); <span class="commentcolor" style="color:green">// strict requirement<br></span><span class="phpkeywordcolor" style="color:mediumblue">function</span> setHeight(int $minheight = <span class="phpnumbercolor" style="color:red">50</span>) {<br>&nbsp;&nbsp;<span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"The height is : $minheight &lt;br&gt;"</span>;<br>}<br><br>setHeight(<span class="phpnumbercolor" style="color:red">350</span>);<br>setHeight(); <span class="commentcolor" style="color:green">// will use the default value of 50<br></span>setHeight(<span class="phpnumbercolor" style="color:red">135</span>);<br>setHeight(<span class="phpnumbercolor" style="color:red">80</span>);<br><span class="phptagcolor" style="color:red">?&gt;</span></span> </div>
+ </div>
+<hr>
+
+<h2>PHP Functions - Returning values</h2>
+<p>To let a function return a value, use the <code class="w3-codespan">return</code> statement:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code htmlHigh notranslate">
+ <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span> <span class="phpkeywordcolor" style="color:mediumblue">declare</span>(strict_types=<span class="phpnumbercolor" style="color:red">1</span>); <span class="commentcolor" style="color:green">// strict requirement<br></span><span class="phpkeywordcolor" style="color:mediumblue">function</span> sum(int $x, <span class="phpnumbercolor" style="color:red">
+</span>  int $y) {<br>&nbsp; $z = $x + $y;<br>&nbsp;&nbsp;<span class="phpkeywordcolor" style="color:mediumblue">return</span> $z;<br>}<br><br><span class="phpnumbercolor" style="color:red">
+</span> <span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"5 + 10 = "</span> . sum(<span class="phpnumbercolor" style="color:red">5</span>, <span class="phpnumbercolor" style="color:red">10</span>) . <span class="phpstringcolor" style="color:brown">"&lt;br&gt;"</span>;<br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"7 + 13 = "</span> . sum(<span class="phpnumbercolor" style="color:red">7</span>, <span class="phpnumbercolor" style="color:red">13</span>) . <span class="phpstringcolor" style="color:brown">"&lt;br&gt;"</span>;<br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"2 + 4 = "</span> . sum(<span class="phpnumbercolor" style="color:red">2</span>, <span class="phpnumbercolor" style="color:red">4</span>);<br><span class="phptagcolor" style="color:red">?&gt;</span></span> </div>
+ </div>
+<hr>
+
+<h2>PHP Return Type Declarations</h2>
+<p>PHP 7 also supports Type Declarations for the <code class="w3-codespan">return</code> 
+statement. Like with the type declaration for function arguments, by enabling the strict requirement, it will throw a "Fatal 
+Error" on a type mismatch.</p>
+<p>To declare a type for the function return, add a colon (
+<code class="w3-codespan">:</code> ) and the type right before the opening curly 
+( <code class="w3-codespan">{</code> )bracket when declaring the function.</p>
+<p>In the following Sample we specify the return type for the function:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code htmlHigh notranslate">
+  <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span> <span class="phpkeywordcolor" style="color:mediumblue">declare</span>(strict_types=<span class="phpnumbercolor" style="color:red">1</span>); <span class="commentcolor" style="color:green">// strict requirement<br></span><span class="phpkeywordcolor" style="color:mediumblue">function</span> addNumbers(float <span class="phpnumbercolor" style="color:red">
+</span>  $a, float $b) : float {<br>&nbsp;&nbsp;<span class="phpkeywordcolor" style="color:mediumblue">return</span> $a + $b;<br>}<br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> addNumbers(<span class="phpnumbercolor" style="color:red">1.2</span>, <span class="phpnumbercolor" style="color:red">5.2</span>);<span class="phpnumbercolor" style="color:red">
+</span>  <br><span class="phptagcolor" style="color:red">?&gt;</span></span>  </div>
+ </div>
+
+<p>You can specify a different return type, than the argument types, but make 
+sure the return is the correct type:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code htmlHigh notranslate">
+  <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span> <span class="phpkeywordcolor" style="color:mediumblue">declare</span>(strict_types=<span class="phpnumbercolor" style="color:red">1</span>); <span class="commentcolor" style="color:green">// strict requirement<br></span><span class="phpkeywordcolor" style="color:mediumblue">function</span> addNumbers(float <span class="phpnumbercolor" style="color:red">
+</span>  $a, float $b) : int {<br>&nbsp; <span class="phpkeywordcolor" style="color:mediumblue">return</span> (int)($a + $b);<br>}<br><span class="phpnumbercolor" style="color:red">
+</span>  <span class="phpkeywordcolor" style="color:mediumblue">echo</span> addNumbers(<span class="phpnumbercolor" style="color:red">1.2</span>, <span class="phpnumbercolor" style="color:red">5.2</span>); <br><span class="phptagcolor" style="color:red">?&gt;</span></span>
+ </div>
+ </div>
+<hr>
+
+<h2>Passing Arguments by Reference</h2>
+<p>In PHP, arguments are usually passed by value, which means that a copy of the value is
+used in the function and the variable that was passed into the function cannot be changed.</p>
+<p>When a function argument is passed by reference, changes to the argument also change
+the variable that was passed in. To turn a function argument into a reference, the <code class="w3-codespan">&amp;</code>
+operator is used:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Use a pass-by-reference argument to update a variable:</p>
+<div class="w3-code htmlHigh notranslate">
+  <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br><span class="phpkeywordcolor" style="color:mediumblue">function</span> add_five(&amp;$value) {<br>&nbsp; $value += <span class="phpnumbercolor" style="color:red">5</span>;<br>}<br><br>$num <span class="phpnumbercolor" style="color:red">
+</span>  = <span class="phpnumbercolor" style="color:red">2</span>;<br>add_five($num);<br><span class="phpnumbercolor" style="color:red">
+</span>  <span class="phpkeywordcolor" style="color:mediumblue">echo</span> $num;<br><span class="phptagcolor" style="color:red">?&gt;</span></span>  </div>
+ </div>
+ 

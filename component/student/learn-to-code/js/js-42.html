@@ -1,0 +1,108 @@
+<!-- Loop For In-->
+
+
+
+  <div class="w3-row w3-white">
+    
+ 
+
+<h1>What is For In in JavaScript?</h1>
+
+
+<h2>The For In Loop </h2>
+<p>The JavaScript <code class="w3-codespan">for in</code> statement loops through the properties of an Object:</p>
+
+<div class="w3-Sample">
+<h3>Syntax</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">for</span> (key <span class="jskeywordcolor" style="color:mediumblue">in</span> object) {<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp; <span class="commentcolor" style="color:green">// <i>code block to be executed</i><br></span><span class="jsnumbercolor" style="color:red">
+
+</span>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> person = {fname:<span class="jsstringcolor" style="color:brown">"John"</span>, lname:<span class="jsstringcolor" style="color:brown">"Doe"</span>, age:<span class="jsnumbercolor" style="color:red">25</span>};<br><br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">""</span>;<br><span class="jskeywordcolor" style="color:mediumblue">for</span> (<span class="jskeywordcolor" style="color:mediumblue">let</span> x <span class="jskeywordcolor" style="color:mediumblue">in</span> person) {<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp; text += person[x];<br><span class="jsnumbercolor" style="color:red">
+</span>} </span></div>
+</div>
+<h2>Sample Explained</h2>
+<ul>
+<li>The <b>for in</b> loop iterates over a <b>person</b> object</li>
+<li>Each iteration returns a <b>key</b> (x)</li>
+<li>The key is used to access the <b>value</b> of the key</li>
+<li>The value of the key is <b>person[x]</b></li>
+</ul>
+<hr>
+
+<h2>For In Over Arrays</h2>
+<p>The JavaScript <code class="w3-codespan">for in</code> statement can also loop over the properties of an Array:</p>
+
+<div class="w3-Sample">
+<h3>Syntax</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">for</span> (variable <span class="jskeywordcolor" style="color:mediumblue">in</span> array) {<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;code<br><span class="jsnumbercolor" style="color:red">
+</span>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> numbers = [<span class="jsnumbercolor" style="color:red">45</span>, <span class="jsnumbercolor" style="color:red">4</span>, <span class="jsnumbercolor" style="color:red">9</span>, <span class="jsnumbercolor" style="color:red">16</span>, <span class="jsnumbercolor" style="color:red">25</span>];<br><br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> txt = <span class="jsstringcolor" style="color:brown">""</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">for</span> (<span class="jskeywordcolor" style="color:mediumblue">let</span> x <span class="jskeywordcolor" style="color:mediumblue">in</span> numbers) {<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp; txt += numbers[x];<br> <span class="jsnumbercolor" style="color:red">
+</span>}<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-panel w3-note">
+<p>Do not use <b>for in</b> over an Array if the index <b>order</b> is important.</p>
+<p>The index order is implementation-dependent, and array values may not be accessed in the order you expect.</p>
+<p>It is better to use a <b>for</b> loop, a <b>for of</b> loop, or <b>Array.forEach()</b> when the order is important.</p>
+</div>
+
+
+
+<h2>Array.forEach()</h2>
+<p>The <code class="w3-codespan">forEach()</code> method calls a function (a callback function) once for each array element.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> numbers = [<span class="jsnumbercolor" style="color:red">45</span>, <span class="jsnumbercolor" style="color:red">4</span>, <span class="jsnumbercolor" style="color:red">9</span>, <span class="jsnumbercolor" style="color:red">16</span>, <span class="jsnumbercolor" style="color:red">25</span>];<br><br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> txt = <span class="jsstringcolor" style="color:brown">""</span>;<br>
+numbers.<span class="jspropertycolor" style="color:black">forEach</span>(myFunction);<br><br>
+<span class="jskeywordcolor" style="color:mediumblue">function</span> myFunction(value, index, array) {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp;
+txt += value;<br><span class="jsnumbercolor" style="color:red">
+</span>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p>Note that the function takes 3 arguments:</p>
+<ul>
+<li>The item value</li>
+<li>The item index </li>
+<li>The array itself</li>
+</ul>
+
+<p>The Sample above uses only the value parameter. It can be rewritten to:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> numbers = [<span class="jsnumbercolor" style="color:red">45</span>, <span class="jsnumbercolor" style="color:red">4</span>, <span class="jsnumbercolor" style="color:red">9</span>, <span class="jsnumbercolor" style="color:red">16</span>, <span class="jsnumbercolor" style="color:red">25</span>];<br><br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> txt = <span class="jsstringcolor" style="color:brown">""</span>;<br>
+numbers.<span class="jspropertycolor" style="color:black">forEach</span>(myFunction);<br><br>
+<span class="jskeywordcolor" style="color:mediumblue">function</span> myFunction(value) {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp;
+txt += value; <br><span class="jsnumbercolor" style="color:red">
+</span>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+

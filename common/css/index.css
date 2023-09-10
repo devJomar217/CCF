@@ -2067,6 +2067,13 @@ select.form-control:focus::-ms-value {
     border-width: 1px 0;
 }
 
+.footer-student {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
 .form-control-plaintext.form-control-sm,
 .form-control-plaintext.form-control-lg {
     padding-right: 0;
@@ -6093,6 +6100,7 @@ a.close.disabled {
 .modal-title {
     margin-bottom: 0;
     line-height: 1.5;
+    color: #BD511E;
 }
 
 .modal-body {
@@ -10274,6 +10282,10 @@ a:focus {
     background-size: cover;
 }
 
+.cc-primary-color {
+    color: #BD511E;
+}
+
 .bg-gradient-secondary {
     background-color: #858796;
     background-image: linear-gradient(180deg, #858796 10%, #60616f 100%);
@@ -10532,6 +10544,11 @@ a:focus {
 
 .sidebar .nav-item .nav-link .img-profile,
 .topbar .nav-item .nav-link .img-profile {
+    height: 2rem;
+    width: 2rem;
+}
+
+.img-profile {
     height: 2rem;
     width: 2rem;
 }
@@ -10974,7 +10991,7 @@ a:focus {
         width: 6.5rem;
     }
     .sidebar.toggled .nav-item .nav-link span {
-        font-size: 0.65rem;
+        font-size: 0.85rem;
         display: block;
     }
     .sidebar.toggled .nav-item .nav-link i {
@@ -10999,7 +11016,7 @@ a:focus {
 }
 
 .sidebar-light hr.sidebar-divider {
-    border-top: 1px solid #eaecf4;
+    border-top: 2px solid black;
 }
 
 .sidebar-light .sidebar-heading {

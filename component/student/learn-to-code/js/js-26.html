@@ -1,0 +1,460 @@
+   <!-- Arrays-->
+
+
+
+
+  <div class="w3-row w3-white">
+    
+ 
+
+<h1>What is <span class="color_h1">Arrays in JavaScript?</span></h1>
+
+<div class="w3-info">
+<p>An array is a special variable, which can hold more than one value:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> cars = [<span class="jsstringcolor" style="color:brown">"Saab"</span>, <span class="jsstringcolor" style="color:brown">"Volvo"</span>, <span class="jsstringcolor" style="color:brown">"BMW"</span>];<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<h2>Why Use Arrays?</h2>
+<p>If you have a list of items (a list of car names, for Sample), storing the 
+cars in single variables could look like this:</p>
+
+<div class="w3-code w3-border notranslate jsHigh"><span class="jscolor" style="color:black">
+<div>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> car1 = <span class="jsstringcolor" style="color:brown">"Saab"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> car2 = <span class="jsstringcolor" style="color:brown">"Volvo"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> car3 = <span class="jsstringcolor" style="color:brown">"BMW"</span>;
+</div> </span></div>
+
+<p>However, what if you want to loop through the cars and find a specific one? 
+And what if you had not 3 cars, but 300?</p>
+<p>The solution is an array!</p>
+<p>An array can hold many values under a single name, and you can 
+access the values by referring to an index number.</p>
+<hr>
+
+<h2>Creating an Array</h2>
+<p>Using an array literal is the easiest way to create a JavaScript Array.</p>
+<p>Syntax: </p>
+<div class="w3-code w3-border notranslate jsHigh"><span class="jscolor" style="color:black"><div>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> <em>array_name</em> = [<em>item1</em>, <em>item2</em>, .<span class="jspropertycolor" style="color:black"></span>.<span class="jspropertycolor" style="color:black"></span>.<span class="jspropertycolor" style="color:black"></span>];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+</div> </span></div>
+<div class="w3-note">
+<p>It is a common practice to declare arrays with the <span class="w3-codespan">const</span> keyword.</p>
+<p>Learn more about <span class="w3-codespan">const</span> with arrays in the chapter:  JS Array Const</a>.</p>
+</div>
+
+<div class="w3-Sample">
+ <h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> cars = [<span class="jsstringcolor" style="color:brown">"Saab"</span>, <span class="jsstringcolor" style="color:brown">"Volvo"</span>, <span class="jsstringcolor" style="color:brown">"BMW"</span>];<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<p>Spaces and line breaks are not important. A declaration can span multiple lines:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> cars = [<br><span class="jsnumbercolor" style="color:red">
+</span>&nbsp;&nbsp;<span class="jsstringcolor" style="color:brown">"Saab"</span>,<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; <span class="jsstringcolor" style="color:brown">"Volvo"</span>,<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; <span class="jsstringcolor" style="color:brown">"BMW"</span><br><span class="jsnumbercolor" style="color:red">
+</span>]; </span></div>
+</div>
+<p>You can also create an array, and then provide the elements:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> cars = [];<br>
+cars[<span class="jsnumbercolor" style="color:red">0</span>]= <span class="jsstringcolor" style="color:brown">"Saab"</span>;<br>
+cars[<span class="jsnumbercolor" style="color:red">1</span>]= <span class="jsstringcolor" style="color:brown">"Volvo"</span>;<br>
+cars[<span class="jsnumbercolor" style="color:red">2</span>]= <span class="jsstringcolor" style="color:brown">"BMW"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<hr>
+<h2>Using the JavaScript Keyword new</h2>
+<p>The following Sample also creates an Array, and assigns values to it:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> cars = <span class="jskeywordcolor" style="color:mediumblue">new</span> Array(<span class="jsstringcolor" style="color:brown">"Saab"</span>, <span class="jsstringcolor" style="color:brown">"Volvo"</span>, <span class="jsstringcolor" style="color:brown">"BMW"</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-panel w3-note">
+<p>The two Samples above do exactly the same.</p>
+<p>There is no need to use <code class="w3-codespan">new Array()</code>.</p>
+<p>For simplicity, readability and execution speed, use the array literal method.</p>
+</div>
+
+<h2>Accessing Array Elements</h2>
+<p>You access an array element by referring to the <b>index number</b>:</p>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> cars = [<span class="jsstringcolor" style="color:brown">"Saab"</span>, <span class="jsstringcolor" style="color:brown">"Volvo"</span>, <span class="jsstringcolor" style="color:brown">"BMW"</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> car = cars[<span class="jsnumbercolor" style="color:red">0</span>];<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-panel w3-note">
+<p><strong>Note:</strong> Array indexes start with 0.</p>
+<p>[0] is the first element.
+[1] is the second element.</p>
+</div>
+
+<hr>
+<h2>Changing an Array Element</h2>
+<p>This statement changes the value of the first element in <code class="w3-codespan">cars</code>:</p>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+cars[<span class="jsnumbercolor" style="color:red">0</span>] = <span class="jsstringcolor" style="color:brown">"Opel"</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> cars = [<span class="jsstringcolor" style="color:brown">"Saab"</span>, <span class="jsstringcolor" style="color:brown">"Volvo"</span>, <span class="jsstringcolor" style="color:brown">"BMW"</span>];<br>
+cars[<span class="jsnumbercolor" style="color:red">0</span>] = <span class="jsstringcolor" style="color:brown">"Opel"</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<hr>
+<h2>Converting an Array to a String</h2>
+
+<p>The JavaScript method <code class="w3-codespan">toString()</code> converts an array to a 
+string of (comma separated) array values.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = [<span class="jsstringcolor" style="color:brown">"Banana"</span>, <span class="jsstringcolor" style="color:brown">"Orange"</span>, <span class="jsstringcolor" style="color:brown">"Apple"</span>, <span class="jsstringcolor" style="color:brown">"Mango"</span>];<br>
+document.<span class="jspropertycolor" style="color:black">getElementById</span>(<span class="jsstringcolor" style="color:brown">"demo"</span>).<span class="jspropertycolor" style="color:black">innerHTML</span> = fruits.<span class="jspropertycolor" style="color:black">toString</span>();<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p>Result:</p>
+<div class="w3-white w3-padding notranslate">
+ Banana,Orange,Apple,Mango<br>
+</div>
+</div>
+
+<hr>
+<h2>Access the Full Array</h2>
+<p>With JavaScript, the full array can be accessed by referring to the array 
+name:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+ <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> cars = [<span class="jsstringcolor" style="color:brown">"Saab"</span>, <span class="jsstringcolor" style="color:brown">"Volvo"</span>, <span class="jsstringcolor" style="color:brown">"BMW"</span>];<br>
+document.<span class="jspropertycolor" style="color:black">getElementById</span>(<span class="jsstringcolor" style="color:brown">"demo"</span>).<span class="jspropertycolor" style="color:black">innerHTML</span> = cars;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+                    
+<hr>
+
+<h2>Arrays are Objects</h2>
+<p>Arrays are a special type of objects. The <code class="w3-codespan">typeof</code> operator in JavaScript returns "object" for 
+arrays.</p>
+<p>But, JavaScript arrays are best described as arrays.</p>
+<p>Arrays use <strong>numbers</strong> to access its "elements". In this 
+Sample, <code class="w3-codespan">person[0]</code> 
+returns John:</p>
+
+<div class="w3-Sample">
+<h3>Array:</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> person = [<span class="jsstringcolor" style="color:brown">"John"</span>, <span class="jsstringcolor" style="color:brown">"Doe"</span>, <span class="jsnumbercolor" style="color:red">46</span>];<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<p>Objects use <strong>names</strong> to access its "members". In this Sample, 
+<code class="w3-codespan">person.firstName</code> 
+returns John:</p>
+<div class="w3-Sample">
+<h3>Object:</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> person = {firstName:<span class="jsstringcolor" style="color:brown">"John"</span>, lastName:<span class="jsstringcolor" style="color:brown">"Doe"</span>, age:<span class="jsnumbercolor" style="color:red">46</span>};<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<hr>
+
+<h2>Array Elements Can Be Objects</h2>
+<p>JavaScript variables can be objects. Arrays are special kinds of objects.</p>
+<p>Because of this, you can have variables of different types in the 
+same Array.</p>
+<p>You can have objects in an Array. You can have functions in an Array. You can 
+have arrays in an Array:</p>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+myArray[<span class="jsnumbercolor" style="color:red">0</span>] = Date.<span class="jspropertycolor" style="color:black">now</span>;<br>
+myArray[<span class="jsnumbercolor" style="color:red">1</span>] = myFunction;<br>
+myArray[<span class="jsnumbercolor" style="color:red">2</span>] = myCars;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<hr>
+
+<h2>Array Properties and Methods</h2>
+<p>The real strength of JavaScript arrays are the built-in array properties and 
+methods:</p>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+cars.<span class="jspropertycolor" style="color:black">length</span>&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Returns the number of elements<br></span>
+cars.<span class="jspropertycolor" style="color:black">sort</span>()&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Sorts the array
+ </span></span></div>
+</div>
+<p>Array methods are covered in the next chapters.</p>
+<hr>
+
+<h2>The length Property</h2>
+<p>The <code class="w3-codespan">length</code> property of an array returns the length of an array (the number of array 
+elements).</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = [<span class="jsstringcolor" style="color:brown">"Banana"</span>, <span class="jsstringcolor" style="color:brown">"Orange"</span>, <span class="jsstringcolor" style="color:brown">"Apple"</span>, <span class="jsstringcolor" style="color:brown">"Mango"</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> length = fruits.<span class="jspropertycolor" style="color:black">length</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-panel w3-note">
+<p>The <code class="w3-codespan">length</code> property is always one more than the highest array index.</p>
+</div>
+
+<hr>
+
+<h2>Accessing the First Array Element</h2>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = [<span class="jsstringcolor" style="color:brown">"Banana"</span>, <span class="jsstringcolor" style="color:brown">"Orange"</span>, <span class="jsstringcolor" style="color:brown">"Apple"</span>, <span class="jsstringcolor" style="color:brown">"Mango"</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> fruit = fruits[<span class="jsnumbercolor" style="color:red">0</span>];<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<hr>
+
+<h2>Accessing the Last Array Element</h2>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = [<span class="jsstringcolor" style="color:brown">"Banana"</span>, <span class="jsstringcolor" style="color:brown">"Orange"</span>, <span class="jsstringcolor" style="color:brown">"Apple"</span>, <span class="jsstringcolor" style="color:brown">"Mango"</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> fruit = fruits[fruits.<span class="jspropertycolor" style="color:black">length</span> - <span class="jsnumbercolor" style="color:red">1</span>];<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<hr>
+
+<h2>Looping Array Elements</h2>
+<p>One way to loop through an array, is using a <code class="w3-codespan">for</code> loop:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = [<span class="jsstringcolor" style="color:brown">"Banana"</span>, <span class="jsstringcolor" style="color:brown">"Orange"</span>, <span class="jsstringcolor" style="color:brown">"Apple"</span>, <span class="jsstringcolor" style="color:brown">"Mango"</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> fLen = fruits.<span class="jspropertycolor" style="color:black">length</span>;<br><br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"&lt;ul&gt;"</span>;<br><span class="jskeywordcolor" style="color:mediumblue">for</span> (<span class="jskeywordcolor" style="color:mediumblue">let</span> i = <span class="jsnumbercolor" style="color:red">0</span>; i &lt; fLen; i++) {<br>&nbsp;&nbsp;text += <span class="jsstringcolor" style="color:brown">"&lt;li&gt;"</span> + fruits[i] + <span class="jsstringcolor" style="color:brown">"&lt;/li&gt;"</span>;<br>}<br>text <span class="jsnumbercolor" style="color:red">
+</span>  += <span class="jsstringcolor" style="color:brown">"&lt;/ul&gt;"</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p>You can also use the <code class="w3-codespan">Array.forEach()</code> function:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = [<span class="jsstringcolor" style="color:brown">"Banana"</span>, <span class="jsstringcolor" style="color:brown">"Orange"</span>, <span class="jsstringcolor" style="color:brown">"Apple"</span>, <span class="jsstringcolor" style="color:brown">"Mango"</span>];<br><span class="jsnumbercolor" style="color:red">
+</span><br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">"&lt;ul&gt;"</span>;<br>fruits.<span class="jspropertycolor" style="color:black">forEach</span>(myFunction);<br>text += <span class="jsstringcolor" style="color:brown">"&lt;/ul&gt;"</span>;<br><span class="jsnumbercolor" style="color:red">
+</span>  <br><span class="jskeywordcolor" style="color:mediumblue">function</span> <span class="jsnumbercolor" style="color:red">
+</span>  myFunction(value) {<br>&nbsp; <span class="jsnumbercolor" style="color:red">
+</span> text += <span class="jsstringcolor" style="color:brown">"&lt;li&gt;"</span> + value + <span class="jsstringcolor" style="color:brown">"&lt;/li&gt;"</span>;<br>} </span></div>
+</div>
+
+<hr>
+<h2>Adding Array Elements</h2>
+<p>The easiest way to add a new element to an array is using the <code class="w3-codespan">push()</code> method:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = [<span class="jsstringcolor" style="color:brown">"Banana"</span>, <span class="jsstringcolor" style="color:brown">"Orange"</span>, <span class="jsstringcolor" style="color:brown">"Apple"</span>];<br>
+fruits.<span class="jspropertycolor" style="color:black">push</span>(<span class="jsstringcolor" style="color:brown">"Lemon"</span>);&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Adds a new element (Lemon) to fruits </span></span></div>
+</div>
+<p>New element can also be added to an array using the <code class="w3-codespan">length</code> property:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = [<span class="jsstringcolor" style="color:brown">"Banana"</span>, <span class="jsstringcolor" style="color:brown">"Orange"</span>, <span class="jsstringcolor" style="color:brown">"Apple"</span>];<br>
+fruits[fruits.<span class="jspropertycolor" style="color:black">length</span>] = <span class="jsstringcolor" style="color:brown">"Lemon"</span>;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Adds "Lemon" to fruits </span></span></div>
+</div>
+
+<div class="w3-panel w3-warning">
+<p><strong>WARNING !</strong><br>
+</p><p>Adding elements with high indexes can create undefined "holes" in an array:</p>
+</div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = [<span class="jsstringcolor" style="color:brown">"Banana"</span>, <span class="jsstringcolor" style="color:brown">"Orange"</span>, <span class="jsstringcolor" style="color:brown">"Apple"</span>];<br>
+fruits[<span class="jsnumbercolor" style="color:red">6</span>] = <span class="jsstringcolor" style="color:brown">"Lemon"</span>;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Creates undefined "holes" in fruits </span></span></div>
+</div>
+<hr>
+
+<h2>Associative Arrays</h2>
+<p>Many programming languages support arrays with named indexes.</p>
+<p>Arrays with named indexes are called associative 
+arrays (or hashes).</p>
+<p>JavaScript does <strong>not</strong> support arrays with named indexes.</p>
+<p>In JavaScript, <strong>arrays</strong> always use <strong>numbered indexes</strong>.&nbsp;&nbsp; </p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> person = [];<br>
+person[<span class="jsnumbercolor" style="color:red">0</span>] = <span class="jsstringcolor" style="color:brown">"John"</span>;<br>
+person[<span class="jsnumbercolor" style="color:red">1</span>] = <span class="jsstringcolor" style="color:brown">"Doe"</span>;<br>
+person[<span class="jsnumbercolor" style="color:red">2</span>] = <span class="jsnumbercolor" style="color:red">46</span>;<br>
+person.<span class="jspropertycolor" style="color:black">length</span>;&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Will return 3<br></span>
+person[<span class="jsnumbercolor" style="color:red">0</span>];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Will return "John" </span></span></div>
+</div>
+
+<div class="w3-panel w3-warning">
+<p><strong>WARNING !!</strong><br>
+If you use named indexes, JavaScript will redefine the array to an object.</p>
+<p>After that, some array methods and properties will produce <strong>incorrect 
+results</strong>.</p>
+</div>
+
+<div class="w3-Sample">
+<h3>&nbsp;Sample:</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> person = [];<br>
+person[<span class="jsstringcolor" style="color:brown">"firstName"</span>] = <span class="jsstringcolor" style="color:brown">"John"</span>;<br>
+person[<span class="jsstringcolor" style="color:brown">"lastName"</span>] = <span class="jsstringcolor" style="color:brown">"Doe"</span>;<br>
+person[<span class="jsstringcolor" style="color:brown">"age"</span>] = <span class="jsnumbercolor" style="color:red">46</span>;<br>
+person.<span class="jspropertycolor" style="color:black">length</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// Will return 0<br></span>
+person[<span class="jsnumbercolor" style="color:red">0</span>];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// Will return undefined </span></span></div>
+</div>
+<hr>
+
+<h2>The Difference Between Arrays and Objects</h2>
+<p>In JavaScript, <strong>arrays</strong> use <strong>numbered indexes</strong>.&nbsp;&nbsp; </p>
+<p>In JavaScript, <strong>objects</strong> use <strong>named indexes</strong>.</p>
+
+<div class="w3-panel w3-note">
+<p>Arrays are a special kind of objects, with numbered indexes.</p>
+</div>
+
+<hr>
+<h2>When to Use Arrays. When to use Objects.</h2>
+<ul>
+<li>JavaScript does not support associative arrays.</li>
+<li>You should use <strong>objects</strong> when you want the element names to be 
+<strong>strings (text)</strong>.</li>
+<li>You should use <strong>arrays</strong> when you want the element names to be
+<strong>numbers</strong>.</li>
+</ul>
+<hr>
+
+<h2>JavaScript new Array()</h2>
+<p>JavaScript has a built-in array constructor <code class="w3-codespan">new Array()</code>.</p>
+<p>But you can safely use <code class="w3-codespan">[]</code> instead.</p>
+<p>These two different statements both create a new empty array named points:</p>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> points = <span class="jskeywordcolor" style="color:mediumblue">new</span> Array();<br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> points = [];<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<p>These two different statements both create a new array containing 6 numbers:</p>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> points = <span class="jskeywordcolor" style="color:mediumblue">new</span> Array(<span class="jsnumbercolor" style="color:red">40</span>, <span class="jsnumbercolor" style="color:red">100</span>, <span class="jsnumbercolor" style="color:red">1</span>, <span class="jsnumbercolor" style="color:red">5</span>, <span class="jsnumbercolor" style="color:red">25</span>, <span class="jsnumbercolor" style="color:red">10</span>);<br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> points = [<span class="jsnumbercolor" style="color:red">40</span>, <span class="jsnumbercolor" style="color:red">100</span>, <span class="jsnumbercolor" style="color:red">1</span>, <span class="jsnumbercolor" style="color:red">5</span>, <span class="jsnumbercolor" style="color:red">25</span>, <span class="jsnumbercolor" style="color:red">10</span>];<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p>The <code class="w3-codespan">new</code> keyword can produce some unexpected results:</p>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Create an array with three elements:<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> points = <span class="jskeywordcolor" style="color:mediumblue">new</span> Array(<span class="jsnumbercolor" style="color:red">40</span>, <span class="jsnumbercolor" style="color:red">100</span>, <span class="jsnumbercolor" style="color:red">1</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Create an array with two elements:<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> points = <span class="jskeywordcolor" style="color:mediumblue">new</span> Array(<span class="jsnumbercolor" style="color:red">40</span>, <span class="jsnumbercolor" style="color:red">100</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Create an array with one element ???<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> points = <span class="jskeywordcolor" style="color:mediumblue">new</span> Array(<span class="jsnumbercolor" style="color:red">40</span>);&nbsp;&nbsp;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-Sample">
+<h3>A Common Error</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> points = [<span class="jsnumbercolor" style="color:red">40</span>]; </span></div>
+<p>is not the same as:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> points = <span class="jskeywordcolor" style="color:mediumblue">new</span> Array(<span class="jsnumbercolor" style="color:red">40</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Create an array with one element:<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> points = [<span class="jsnumbercolor" style="color:red">40</span>];<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Create an array with 40 undefined elements:<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> points = <span class="jskeywordcolor" style="color:mediumblue">new</span> Array(<span class="jsnumbercolor" style="color:red">40</span>);&nbsp;&nbsp;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<hr>
+<h2>How to Recognize an Array</h2>
+<p>A common question is: How do I know if a variable is an array?</p>
+<p>The problem is that the JavaScript operator <code class="w3-codespan">typeof</code> returns 
+"<code class="w3-codespan">object</code>":</p>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = [<span class="jsstringcolor" style="color:brown">"Banana"</span>, <span class="jsstringcolor" style="color:brown">"Orange"</span>, <span class="jsstringcolor" style="color:brown">"Apple"</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> type = <span class="jskeywordcolor" style="color:mediumblue">typeof</span> fruits;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<p>The typeof operator returns object because a JavaScript array is an 
+object. </p>
+<h3>Solution 1:</h3>
+<p>To solve this problem ECMAScript 5 (JavaScript 2009) defined a new method <code class="w3-codespan">Array.isArray()</code>:</p>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+Array.<span class="jspropertycolor" style="color:black">isArray</span>(fruits);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<h3>Solution 2:</h3>
+<p>The <code class="w3-codespan">instanceof</code> operator returns true if an object is created 
+by a given constructor:</p>
+
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = [<span class="jsstringcolor" style="color:brown">"Banana"</span>, <span class="jsstringcolor" style="color:brown">"Orange"</span>, <span class="jsstringcolor" style="color:brown">"Apple"</span>];<br><span class="jsnumbercolor" style="color:red">
+</span>    <br>fruits <span class="jskeywordcolor" style="color:mediumblue">instanceof</span> Array;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+ 
+

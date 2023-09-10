@@ -1,0 +1,138 @@
+<!-- Math Functions-->
+
+ 
+    <div class="w3-row w3-white">
+      
+ 
+  
+  <h1>What is <span class="color_h1">Math Functions in Css?</span></h1>
+ 
+  <p class="intro">The CSS math functions allow mathematical expressions to be 
+  used as property values. Here, we will explain the <code class="w3-codespan">calc()</code>, <code class="w3-codespan">
+  max()</code> and <code class="w3-codespan">min()</code> functions.</p>
+  <hr>
+  
+  <h2>The calc() Function</h2>
+  <p>The <code class="w3-codespan">calc()</code> function performs a calculation to be used as the property value.</p>
+  
+  <h3>CSS Syntax</h3>
+  <div class="w3-code w3-border notranslate"><div>
+   calc(<em>expression</em>)</div>
+  </div>
+  
+  <table class="ws-table-all notranslate">
+    <tbody><tr>
+      <th style="width:20%">Value</th>
+      <th>Description</th>
+    </tr>  
+    <tr>
+      <td><i>expression</i></td>
+      <td>Required. A mathematical expression. The result will be used as the value.<br>The following operators can be used: + - * /</td>
+    </tr>
+  </tbody></table>
+  
+  <p>Let us look at an Sample:</p>
+  
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <p>Use calc() to calculate the width of a &lt;div&gt; element:</p>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+   #div1 <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; position<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> absolute<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; left<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 50px<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; width<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> calc(100% - 100px)<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+    &nbsp; border<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 1px solid black<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; background-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> yellow<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; padding<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 5px<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span>   
+   </span></div>
+   <br>
+  </div>
+  <hr>
+  
+  <h2>The max() Function</h2>
+  <p>The <code class="w3-codespan">max()</code> function uses the largest value, 
+  from a comma-separated list of values, as the property value.</p>
+  
+  <h3>CSS Syntax</h3>
+  <div class="w3-code w3-border notranslate"><div>
+    max(<em>value1</em>, <em>value2</em>, ...)</div>
+  </div>
+  
+  <table class="ws-table-all notranslate">
+    <tbody><tr>
+      <th style="width:20%">Value</th>
+      <th>Description</th>
+    </tr>  
+    <tr>
+      <td><em>value1</em>, <em>value2</em>, ...</td>
+      <td>Required. A list of comma-separated values - where the largest value is 
+      chosen</td>
+    </tr>
+  </tbody></table>
+  
+  <p>Let us look at an Sample:</p>
+  
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <p>Use max() to set the width of #div1 to whichever value is largest, 50% or 
+  300px:</p>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+   #div1 <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; background-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> yellow<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; height<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 100px<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; 
+    width<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> max(50%, 300px)<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span>   
+   </span></div>
+   <br>
+  </div>
+ 
+  
+  <h2>The min() Function</h2>
+  <p>The <code class="w3-codespan">min()</code> function uses the smallest value, 
+  from a comma-separated list of values, as the property value.</p>
+  
+  <h3>CSS Syntax</h3>
+  <div class="w3-code w3-border notranslate"><div>
+    min(<em>value1</em>, <em>value2</em>, ...)</div>
+  </div>
+  
+  <table class="ws-table-all notranslate">
+    <tbody><tr>
+      <th style="width:20%">Value</th>
+      <th>Description</th>
+    </tr>  
+    <tr>
+      <td><em>value1</em>, <em>value2</em>, ...</td>
+      <td>Required. A list of comma-separated values - where the smallest value is 
+      chosen</td>
+    </tr>
+  </tbody></table>
+  
+  <p>Let us look at an Sample:</p>
+  
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <p>Use min() to set the width of #div1 to whichever value is smallest, 50% or 
+  300px:</p>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+   #div1 <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; background-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> yellow<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; height<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 100px<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; 
+    width<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> min(50%, 300px)<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span>   
+   </span></div>
+   <br>
+  </div>
+  <hr>
+  
+  <h2>All CSS Math Functions</h2>
+  <table class="ws-table-all notranslate">
+    <tbody><tr>
+      <th style="width:30%">Function</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td> calc()</a></td>
+      <td>Allows you to perform calculations to determine CSS property values</td>
+    </tr>  
+    <tr>
+      <td> max()</a></td>
+      <td>Uses the largest value, from a comma-separated list of values, as the 
+      property value</td>
+    </tr>
+    <tr>
+      <td> min()</a></td>
+      <td>Uses the smallest value, from a comma-separated list of values, as the 
+      property value</td>
+    </tr>
+    </tbody></table>
+   

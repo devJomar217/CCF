@@ -1,0 +1,179 @@
+<!-- Aliases-->
+
+ 
+  <div class="w3-row w3-white">
+    
+ 
+
+<h1>What is  <span class="color_h1">Aliases in SQL?</span></h1>
+ 
+<hr>
+<h2>SQL Aliases</h2>
+<p>SQL aliases are used to give a table, or a column in a table, a temporary name.</p>
+<p>Aliases are often used to make column names more readable.</p>
+<p>An alias only exists for the duration of that query.</p>
+<p>An alias is created with the <code class="w3-codespan">AS</code> keyword.</p>
+<h3>Alias Column Syntax</h3>
+<div class="w3-Sample">
+<div class="w3-code notranslate sqlHigh"><span class="sqlcolor" style="color:black"><span class="sqlnumbercolor" style="color:">
+</span> <span class="sqlkeywordcolor" style="color:mediumblue">SELECT</span> <em>column_name</em> <span class="sqlkeywordcolor" style="color:mediumblue">AS</span> <em>alias_name</em><br><span class="sqlnumbercolor" style="color:">
+</span> <span class="sqlkeywordcolor" style="color:mediumblue">FROM</span> <em>table_name;</em> </span></div></div>
+
+<h3>Alias Table Syntax</h3>
+<div class="w3-Sample">
+<div class="w3-code notranslate sqlHigh"><span class="sqlcolor" style="color:black"><span class="sqlnumbercolor" style="color:">
+</span> <span class="sqlkeywordcolor" style="color:mediumblue">SELECT</span> <em>column_name(s)</em><br><span class="sqlnumbercolor" style="color:">
+</span> <span class="sqlkeywordcolor" style="color:mediumblue">FROM</span> <em>table_name </em><span class="sqlkeywordcolor" style="color:mediumblue">AS</span> <em>alias_name;</em>
+ </span></div></div>
+<hr>
+
+<h2>Demo Database</h2>
+<p>In this tutorial we will use the well-known Northwind sample database.</p>
+<p>Below is a selection from the "Customers" table:</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tbody><tr>
+    <th>CustomerID</th>
+    <th>CustomerName</th>
+    <th>ContactName</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>PostalCode</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Ana Trujillo Emparedados y helados</td>
+    <td>Ana Trujillo</td>
+    <td>Avda. de la Constitución 2222</td>
+    <td>México D.F.</td>
+    <td>05021</td>
+    <td>Mexico</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Antonio Moreno Taquería</td>
+    <td>Antonio Moreno</td>
+    <td>Mataderos 2312</td>
+    <td>México D.F.</td>
+    <td>05023</td>
+    <td>Mexico</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>Around the Horn</td>
+    <td>Thomas Hardy</td>
+    <td>120 Hanover Sq.</td>
+    <td>London</td>
+    <td>WA1 1DP</td>
+    <td>UK</td>
+  </tr>
+</tbody></table>
+</div>
+
+<p>And a selection from the "Orders" table:</p>
+<div class="w3-responsive">
+<table class="ws-table-all notranslate">
+  <tbody><tr>
+    <th>OrderID</th>
+    <th>CustomerID</th>
+    <th>EmployeeID</th>
+    <th>OrderDate</th>
+    <th>ShipperID</th>
+  </tr>
+  <tr>
+    <td>10354</td>
+    <td>58</td>
+    <td>8</td>
+    <td>1996-11-14</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>10355</td>
+    <td>4</td>
+    <td>6</td>
+    <td>1996-11-15</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>10356</td>
+    <td>86</td>
+    <td>6</td>
+    <td>1996-11-18</td>
+    <td>2</td>
+  </tr>
+</tbody></table>
+</div>
+ 
+
+<h2>Alias for Columns Samples</h2>
+<p>The following SQL statement creates two aliases, one for the CustomerID 
+column and one for the CustomerName column:</p>
+<div class="w3-Sample">
+ <div class="w3-code notranslate sqlHigh"><span class="sqlcolor" style="color:black"><span class="sqlnumbercolor" style="color:">
+</span> <span class="sqlkeywordcolor" style="color:mediumblue">SELECT</span> CustomerID <span class="sqlkeywordcolor" style="color:mediumblue">AS</span> ID, CustomerName <span class="sqlkeywordcolor" style="color:mediumblue">AS</span> Customer<br><span class="sqlnumbercolor" style="color:">
+</span> <span class="sqlkeywordcolor" style="color:mediumblue">FROM</span> Customers; </span></div>
+ </div>
+
+<p>The following SQL statement creates two aliases, one for the CustomerName 
+column and one for the ContactName column. <strong>Note:</strong> It requires 
+double quotation marks or square brackets if the alias name contains spaces:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate sqlHigh"><span class="sqlcolor" style="color:black"><span class="sqlnumbercolor" style="color:">
+</span> <span class="sqlkeywordcolor" style="color:mediumblue">SELECT</span> CustomerName <span class="sqlkeywordcolor" style="color:mediumblue">AS</span> Customer, ContactName <span class="sqlkeywordcolor" style="color:mediumblue">AS</span> [Contact Person]<br><span class="sqlnumbercolor" style="color:">
+</span> <span class="sqlkeywordcolor" style="color:mediumblue">FROM</span> Customers; </span></div>
+ </div>
+
+<p>The following SQL statement creates an alias named "Address" that combine four columns (Address, PostalCode, 
+City and Country):</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate sqlHigh"><span class="sqlcolor" style="color:black"><span class="sqlnumbercolor" style="color:">
+</span>  <span class="sqlkeywordcolor" style="color:mediumblue">SELECT</span> CustomerName, Address + <span class="sqlstringcolor" style="color:brown">', '</span> + PostalCode + <span class="sqlstringcolor" style="color:brown">' '</span> + City + <span class="sqlstringcolor" style="color:brown">', '</span> + Country <span class="sqlnumbercolor" style="color:">
+</span>  <span class="sqlkeywordcolor" style="color:mediumblue">AS</span> Address<br><span class="sqlnumbercolor" style="color:">
+</span> <span class="sqlkeywordcolor" style="color:mediumblue">FROM</span> Customers; </span></div>
+ </div>
+
+<p><strong>Note:</strong> To get the SQL statement above to work in MySQL use the following:</p>
+<div class="w3-Sample">
+<div class="w3-code notranslate sqlHigh"><span class="sqlcolor" style="color:black">
+<span class="sqlkeywordcolor" style="color:mediumblue">SELECT</span> CustomerName, CONCAT(Address,<span class="sqlstringcolor" style="color:brown">', '</span>,PostalCode,<span class="sqlstringcolor" style="color:brown">', '</span>,City,<span class="sqlstringcolor" style="color:brown">', '</span>,Country) <span class="sqlkeywordcolor" style="color:mediumblue">AS</span> Address<br>
+<span class="sqlkeywordcolor" style="color:mediumblue">FROM</span> Customers; </span></div></div>
+
+<p><strong>Note:</strong> To get the SQL statement above to work in Oracle use the following:</p>
+<div class="w3-Sample">
+<div class="w3-code notranslate sqlHigh"><span class="sqlcolor" style="color:black"><span class="sqlnumbercolor" style="color:">
+</span>  <span class="sqlkeywordcolor" style="color:mediumblue">SELECT</span> CustomerName, (Address || <span class="sqlstringcolor" style="color:brown">', '</span> || PostalCode || <span class="sqlstringcolor" style="color:brown">' '</span> || City || <span class="sqlstringcolor" style="color:brown">', '</span> || <span class="sqlnumbercolor" style="color:">
+</span>  Country) <span class="sqlkeywordcolor" style="color:mediumblue">AS</span> Address<br><span class="sqlkeywordcolor" style="color:mediumblue">FROM</span> Customers; </span></div></div>
+
+<hr>
+
+<h2>Alias for Tables Sample</h2>
+<p>The following SQL statement selects all the orders from the customer with 
+CustomerID=4 (Around the Horn). We use the "Customers" and "Orders" tables, and 
+give them the table aliases of "c" and "o" respectively (Here we use 
+aliases to make the SQL shorter):</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate sqlHigh"><span class="sqlcolor" style="color:black"><span class="sqlnumbercolor" style="color:">
+</span> <span class="sqlkeywordcolor" style="color:mediumblue">SELECT</span> o.OrderID, o.OrderDate, c.CustomerName<br><span class="sqlkeywordcolor" style="color:mediumblue">FROM</span> Customers <span class="sqlkeywordcolor" style="color:mediumblue">AS</span> c, Orders <span class="sqlkeywordcolor" style="color:mediumblue">AS</span> o<br><span class="sqlkeywordcolor" style="color:mediumblue">WHERE</span> c.CustomerName=<span class="sqlstringcolor" style="color:brown">'Around the Horn'</span> <span class="sqlkeywordcolor" style="color:mediumblue">AND</span> c.CustomerID=o.CustomerID;<span class="sqlnumbercolor" style="color:">
+</span> </span></div>
+ </div>
+
+<p>The following SQL statement is the same as above, but without aliases:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate sqlHigh"><span class="sqlcolor" style="color:black"><span class="sqlnumbercolor" style="color:">
+</span> <span class="sqlkeywordcolor" style="color:mediumblue">SELECT</span> Orders.OrderID, Orders.OrderDate, Customers.CustomerName<br><span class="sqlkeywordcolor" style="color:mediumblue">FROM</span> Customers, Orders<br><span class="sqlkeywordcolor" style="color:mediumblue">WHERE</span> Customers.CustomerName=<span class="sqlstringcolor" style="color:brown">'Around the Horn'</span> <span class="sqlkeywordcolor" style="color:mediumblue">AND</span> Customers.CustomerID=Orders.CustomerID;<span class="sqlnumbercolor" style="color:">
+</span> </span></div>
+ </div>
+
+<p>Aliases can be useful when:</p>
+<ul>
+  <li>There are more than one table involved in a query</li>
+  <li>Functions are used in the query</li>
+  <li>Column names are big or not very readable</li>
+  <li>Two or more columns are combined together</li>
+</ul>
+ 

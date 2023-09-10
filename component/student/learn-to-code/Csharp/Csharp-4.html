@@ -1,0 +1,71 @@
+<!-- syntax-->
+
+
+
+    <h1>What is <span class="color_h1">Syntax in C#?</span></h1>
+
+<hr>
+
+<h2>C# Syntax</h2>
+
+<p>In the previous chapter, we created a C# file called Program.cs, and we used the following code to print "Hello World" to the screen:</p>
+
+<div class="w3-Sample">
+<h4>Program.cs</h4>
+<pre class="w3-white language-csharp" tabindex="0"><code class="language-csharp"><span class="token keyword keyword-using">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-namespace">namespace</span> <span class="token namespace">HelloWorld</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword keyword-class">class</span> <span class="token class-name">Program</span>
+  <span class="token punctuation">{</span>
+    <span class="token keyword keyword-static">static</span> <span class="token return-type class-name"><span class="token keyword keyword-void">void</span></span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword keyword-string">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> args<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+      Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Hello World!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>Result:</p>
+<div class="notranslate w3-black w3-padding">
+  <code>
+  Hello World!</code>
+</div>
+<p>
+</p>
+</div>
+
+<h3>Sample explained</h3>
+<p><strong>Line 1:</strong> <code class="w3-codespan">using System</code> means 
+that we can use classes from the <code class="w3-codespan">System</code> namespace.</p>
+<p><strong>Line 2:</strong> A blank line. C# ignores white space. However, multiple lines makes the code more readable.</p>
+<p><strong>Line 3:</strong> <code class="w3-codespan">namespace</code> is used to organize your code, and it is a container for classes and other namespaces.</p>
+<p><strong>Line 4:</strong> The curly braces <code class="w3-codespan">{}</code> marks the beginning and the end of a block of code.</p>
+<p><strong>Line 5:</strong> <code class="w3-codespan">class</code> is a 
+container for data and methods, which brings functionality to your program. Every line of code that runs in C# must be inside a class. In our Sample, we named the class Program.</p>
+<div class="w3-note w3-panel">
+<p>Don't worry if you don't understand how <code class="w3-codespan">using 
+System</code>, <code class="w3-codespan">namespace</code> and <code class="w3-codespan">class</code> works. Just think of it as something that (almost) always appears in your program, and that you will learn more about them in a later chapter.</p>
+</div>
+<p><strong>Line 7:</strong> Another thing that always appear in a C# program, is 
+the <code class="w3-codespan">Main</code> method. Any code inside its curly brackets <code class="w3-codespan">{}</code> will be executed.
+You don't have to understand the keywords before and after Main. You will get to 
+know them bit by bit while reading this tutorial.</p>
+<p><strong>Line 9:</strong> <code class="w3-codespan">Console</code> is a class of the <code class="w3-codespan">System</code> namespace, which 
+has a <code class="w3-codespan">WriteLine()</code> method that is used to output/print text. In our Sample it will output "Hello World!". </p>
+<p>If you omit the <code class="w3-codespan">using System</code> line, you would have to write 
+<code class="w3-codespan">System.Console.WriteLine()</code> to print/output text.</p>
+<p><strong>Note:</strong> Every C# statement ends with a semicolon <code class="w3-codespan">;</code>.</p>
+<p><strong>Note:</strong> C# is case-sensitive: "MyClass" and "myclass" has 
+different meaning.</p>
+<p><strong>Note:</strong> Unlike  Java</a>, the name of the C# file does not have to match the class name, but they often do (for better organization).
+When saving the file, save it using a proper name and add ".cs" to the end of 
+the filename. To run the Sample above on your computer, make sure that C# is 
+properly installed: Go to the Get Started Chapter</a> for how to install C#. The output should be:</p>
+<div class="w3-Sample w3-padding-16">
+<div class="notranslate w3-black w3-padding">
+<code class="notranslate">
+Hello World!
+</code>
+</div>
+</div>
+
+

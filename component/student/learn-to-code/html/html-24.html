@@ -1,0 +1,96 @@
+<!-- Iframes-->
+
+ 
+    <div class="w3-row w3-white">
+      
+       
+  
+  <h1>What is <span class="color_h1">Iframes in HTML?</span></h1>
+   
+  <p class="intro">An HTML iframe is used to display a web page within a web page.</p>
+ 
+  
+  <h2>HTML Iframe Syntax</h2>
+  <p>The HTML <code class="w3-codespan">&lt;iframe&gt;</code> tag specifies an 
+  inline frame.</p>
+  <p>An inline frame is used to embed another document within the current HTML document.</p>
+  <div class="w3-Sample">
+  <h3>Syntax</h3>
+  <div class="w3-code notranslate htmlHigh">
+  <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>iframe<span class="attributecolor" style="color:red"> src<span class="attributevaluecolor" style="color:mediumblue">="<i>url</i>"</span> title<span class="attributevaluecolor" style="color:mediumblue">="<em>description</em>"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/iframe<span class="tagcolor" style="color:mediumblue">&gt;</span></span>
+   </div></div>
+  <p><strong>Tip:</strong> It is a good practice to always include a <code class="w3-codespan">
+  title</code> attribute for the <code class="w3-codespan">&lt;iframe&gt;</code>. 
+  This is used by screen readers to read out what the content of the iframe is.</p>
+  <hr>
+  
+  <h2>Iframe - Set Height and Width</h2>
+  <p>Use the <code class="w3-codespan">height</code> and <code class="w3-codespan">width</code> attributes to specify the 
+  size of the iframe.</p>
+  <p>The height and width are specified in pixels by default:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate htmlHigh">
+  <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>iframe<span class="attributecolor" style="color:red"> src<span class="attributevaluecolor" style="color:mediumblue">="demo_iframe.htm"</span> height<span class="attributevaluecolor" style="color:mediumblue">="200"</span> width<span class="attributevaluecolor" style="color:mediumblue">="300"</span> 
+    title<span class="attributevaluecolor" style="color:mediumblue">="Iframe Sample"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/iframe<span class="tagcolor" style="color:mediumblue">&gt;</span></span> </div>
+   </div>
+  
+  <p>Or you can add the <code class="w3-codespan">style</code> attribute and use 
+  the CSS <code class="w3-codespan">height</code> and <code class="w3-codespan">width</code> 
+  properties:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate htmlHigh">
+  <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>iframe<span class="attributecolor" style="color:red"> src<span class="attributevaluecolor" style="color:mediumblue">="demo_iframe.htm"</span> style<span class="attributevaluecolor" style="color:mediumblue">="height:200px;width:300px;"</span> 
+    title<span class="attributevaluecolor" style="color:mediumblue">="Iframe Sample"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/iframe<span class="tagcolor" style="color:mediumblue">&gt;</span></span> </div>
+   </div>
+   
+  
+  <h2>Iframe - Remove the Border</h2>
+  <p>By default, an iframe has a border around it. </p>
+  <p>To remove the border, add the <code class="w3-codespan">style</code> attribute and use the CSS 
+  <code class="w3-codespan">border</code> property:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate htmlHigh">
+  <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>iframe<span class="attributecolor" style="color:red"> src<span class="attributevaluecolor" style="color:mediumblue">="demo_iframe.htm"</span> style<span class="attributevaluecolor" style="color:mediumblue">="border:none;"</span> 
+    title<span class="attributevaluecolor" style="color:mediumblue">="Iframe Sample"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/iframe<span class="tagcolor" style="color:mediumblue">&gt;</span></span> </div>
+   </div>
+  <p>With CSS, you can also change the size, style and color of the iframe's border:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate htmlHigh">
+  <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>iframe<span class="attributecolor" style="color:red"> src<span class="attributevaluecolor" style="color:mediumblue">="demo_iframe.htm"</span> style<span class="attributevaluecolor" style="color:mediumblue">="border:2px solid red;"</span> 
+    title<span class="attributevaluecolor" style="color:mediumblue">="Iframe Sample"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/iframe<span class="tagcolor" style="color:mediumblue">&gt;</span></span> </div>
+   </div>
+  <hr>
+  
+  <h2>Iframe - Target for a Link</h2>
+  <p>An iframe can be used as the target frame for a link.</p>
+  <p>The <code class="w3-codespan">target</code> attribute 
+  of the link must refer to the <code class="w3-codespan">name</code> attribute of the iframe:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  
+  <div class="w3-code notranslate htmlHigh">
+   <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>iframe<span class="attributecolor" style="color:red"> src<span class="attributevaluecolor" style="color:mediumblue">="demo_iframe.htm"</span> name<span class="attributevaluecolor" style="color:mediumblue">="iframe_a"</span> title<span class="attributevaluecolor" style="color:mediumblue">="Iframe 
+    Sample"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/iframe<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br>
+   <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>p<span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>a<span class="attributecolor" style="color:red"> href<span class="attributevaluecolor" style="color:mediumblue">="https://www..com"</span> target<span class="attributevaluecolor" style="color:mediumblue">="iframe_a"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span>CODECONNECT.com<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/a<span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/p<span class="tagcolor" style="color:mediumblue">&gt;</span></span>
+   </div>
+   </div>
+  <hr>
+  
+  <h2>Chapter Summary</h2>
+  <ul>
+  <li>The HTML <code class="w3-codespan">&lt;iframe&gt;</code> tag specifies an 
+  inline frame</li>
+    <li>The <code class="w3-codespan">src</code> 
+  attribute defines the URL of the page to embed</li>
+    <li>Always include a <code class="w3-codespan">
+  title</code> attribute (for screen readers)</li>
+    <li>The <code class="w3-codespan">height</code> and <code class="w3-codespan">width</code> attributes specify the 
+  size of the iframe</li>
+    <li>Use <code class="w3-codespan">border:none;</code> to remove the border 
+    around the iframe</li>
+  </ul>
+  

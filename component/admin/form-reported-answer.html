@@ -1,156 +1,220 @@
-<link rel="stylesheet" href="./../../common/vendor/datatables/dataTables.bootstrap4.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css" />
 <script src="./../../common/vendor/datatables/jquery.dataTables.js"></script>
 
+<style>
+    .form-control {
+        background-color: white !important;
+    }
+    
+    #report-reported-answer-answer img {
+        width: 100%;
+    }
+    
+    #report-reported-answer-answer {
+        height: auto !important;
+        /* border-color: 1px solid #d1d3e2;
+        border-radius: 0.35rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; */
+    }
+</style>
 
-<h1 class="h3 mb-2 text-gray-800">Answer List</h1>
-<p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto nam delectus facilis veniam ea iusto officiis odit maxime, inventore nihil.</p>
+<h1 class="h3 mb-2 text-gray-800">Reported Answers</h1>
+<p class="mb-4">This page contains the list of reported answers.</p>
 
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">List of Answer</h6>
+        <h6 class="m-0 font-weight-bold text-primary">List of Answers</h6>
     </div>
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>Answer ID</th>
-                        <th>Student</th>
-                        <th>Subject</th>
+                        <th>ID</th>
+                        <th>StudentID</th>
                         <th>Date Time</th>
+                        <th>Reason</th>
                         <th>Answer</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
-                        <th>Answer ID</th>
-                        <th>Student</th>
-                        <th>Subject</th>
+                        <th>ID</th>
+                        <th>StudentID</th>
                         <th>Date Time</th>
+                        <th>Reason</th>
                         <th>Answer</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>
-                <tbody id="tableBody">
-                </tbody>
+                <tbody id="tableBody"></tbody>
             </table>
         </div>
     </div>
 </div>
 
-<div class="modal fade" id="modal-info-answer" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+<div class="modal fade" id="modal-info-student" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Answer Information</h5>
+                <h5 class="modal-title">Student Information</h5>
             </div>
             <div class="modal-body">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <b>Picture:</b> <label for="" id="modal-info-picture"></label>
+                <div class="row px-3">
+                    <div class="col-lg-12 text-center mb-4">
+                        <img class="img-profile rounded-circle img-circle-md" id="modal-info-student-image" src="./../../common/img/undraw_profile.svg">
                     </div>
 
-                    <div class="col-lg-12">
-                        <b>Answer ID:</b> <label for="" id="modal-info-answer-id"></label>
+                    <div class="col-lg-6">
+                        <b>Student ID:</b> <label for="" class="form-control" id="modal-info-student-id"></label>
+                    </div>
+                    <div class="col-lg-6">
+                        <b>Username:</b> <label class="form-control" for="" id="modal-info-user-name"></label>
                     </div>
                     <div class="col-lg-12">
-                        <b>Name:</b> <label for="" id="modal-info-name"></label>
+                        <b>Name:</b> <label for="" class="form-control" id="modal-info-name"></label>
+                    </div>
+                    <div class="col-lg-10">
+                        <b>Email:</b> <label class="form-control" for="" id="modal-info-email"></label>
+                    </div>
+                    <div class="col-lg-2">
+                        <b>Year Level:</b> <label for="" class="form-control" id="modal-info-year-level"></label>
                     </div>
                     <div class="col-lg-12">
-                        <b>Year Level:</b> <label for="" id="modal-info-year-level"></label>
-                    </div>
-                    <div class="col-lg-12">
-                        <b>Specialization:</b> <label for="" id="modal-info-specialization"></label>
-                    </div>
-                    <div class="col-lg-12">
-                        <b>Username:</b> <label for="" id="modal-info-user-name"></label>
-                    </div>
-                    <div class="col-lg-12">
-                        <b>email:</b> <label for="" id="modal-info-email"></label>
+                        <b>Specialization:</b> <label class="form-control" for="" id="modal-info-specialization"></label>
                     </div>
                 </div>
-
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" id="button-reject">Reject</button>
-                <button type="button" class="btn btn-success" id="button-approve">Approve</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
 </div>
 
+<div class="modal fade" id="modal-info-report" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title cc-primary-color">Report Information</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row px-3">
+                    <div class="col-lg-6 mb-3">
+                        <b>Report ID:</b> <input type="text" value="" id="report-id" class="form-control" readonly>
+                    </div>
+                    <div class="col-lg-6 mb-3">
+                        <b>Date Time:</b> <input type="text" value="" id="report-date-time" class="form-control" readonly>
+                    </div>
+                    <div class="col-lg-12 mb-3">
+                        <b>Reported by:</b> <input type="text" value="" id="report-reported-by" class="form-control" readonly>
+                    </div>
+                    <div class="col-lg-12 mb-3">
+                        <b>Reason:</b> <input type="text" value="" id="report-reason" class="form-control" readonly>
+                    </div>
+                    <div class="col-lg-12 mt-3">
+                        <h5 class="cc-primary-color">Reported Answer Detail:</h5>
+                        <hr class="p-0 m-0">
+                    </div>
+                    <div class="col-lg-12 mb-3 mt-3">
+                        <b>Answer ID:</b>
+                        <input type="text" value="" id="report-reported-answer-id" class="form-control" readonly>
+                    </div>
+                    <div class="col-lg-12 mb-3">
+                        <b>Answer:</b>
+                        <div id="report-reported-answer-answer" class="form-control"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="btn-report-reject">Reject</button>
+                <button type="button" class="btn btn-success" id="btn-report-accept">Accept</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <script>
     $(document).ready(function() {
-        var answerList;
-        retrieveAnswerRequestList();
+        var reportedList;
+        retrieveAnswerList();
 
-        $("#button-reject").on('click', function() {
-            var answerID = $('#modal-info-answer-id').html();
-            updateAccountStatus(answerID, '1');
-        });
-
-        $("#button-approve").on('click', function() {
-            var answerID = $('#modal-info-answer-id').html();
-            updateAccountStatus(answerID, '-1');
-        });
-
-        // code to read selected table row cell data (values).
-        $("#dataTable").on('click', '.button-select', function() {
+        $("#dataTable").on('click', '.button-student-id', function() {
             var currentRow = $(this).closest("tr");
-            var answerID = currentRow.find("td:eq(0)").html();
-            $.each(answerList, function(key, answer) {
-                console.log(answer);
-                console.log(answerID == answer['answerID']);
-                if (answerID == answer['answerID']) {
-                    $('#modal-info-answer-id').html(answer['answerID']);
-                    $('#modal-info-name').html(answer['name']);
-                    $('#modal-info-year-level').html(answer['yearLevel']);
-                    $('#modal-info-specialization').html(answer['specialization']);
-                    $('#modal-info-user-name').html(answer['username']);
-                    $('#modal-info-email').html(answer['email']);
-                    $('#modal-info-picture').html(answer['picture']);
-                    $('#modal-info-answer').modal('toggle');
+            var reportID = currentRow.find("td:eq(0)").html();
+            $.each(reportedList, function(key, report) {
+                if (reportID == report['reportedID']) {
+                    $('#modal-info-student-id').html(report.reporterInformation.studentID);
+                    $('#modal-info-name').html(report.reporterInformation.name);
+                    $('#modal-info-year-level').html(report.reporterInformation.yearLevel);
+                    $('#modal-info-specialization').html(report.reporterInformation.specialization);
+                    $('#modal-info-user-name').html(report.reporterInformation.username);
+                    $('#modal-info-email').html(report.reporterInformation.email);
+                    var image = "default.svg";
+                    if (report.reporterInformation.picture != null && report.reporterInformation.picture != "") {
+                        image = report.reporterInformation.picture;
+                    }
+                    var picture = "./../../resource/profile/" + image;
+                    $("#modal-info-student-image").attr("src", picture);
+                    $('#modal-info-student').modal('toggle');
                     return;
                 }
             });
         });
 
-        $('#sidebar-answer-account-request').on('click', function() {
-            $("#admin-container").load('./answer-account-request.html');
+        $("#dataTable").on('click', '.button-select', function() {
+            var currentRow = $(this).closest("tr");
+            var reportID = currentRow.find("td:eq(0)").html();
+            $.each(reportedList, function(key, report) {
+                if (reportID == report['reportedID']) {
+                    $('#report-id').val(report.reportedID);
+                    $('#report-reported-by').val(report.reporterInformation.name);
+                    $('#report-date-time').val(report.dateTime);
+                    $('#report-reason').val(report.reason);
+                    $('#report-reported-answer-id').val(report.answerInformation.answerID);
+                    $('#report-reported-answer-answer').html(report.answerInformation.answer);
+                    $('#modal-info-report').modal('toggle');
+                    return;
+                }
+            });
         });
 
+        $("#btn-report-accept").on("click", function() {
+            updateReportStatus($('#report-id').val(), 3, $('#report-reported-question-id').val());
+        });
 
+        $("#btn-report-reject").on("click", function() {
+            updateReportStatus($('#report-id').val(), 2, $('#report-reported-question-id').val());
+        });
 
-        function showAnswerData(answerID) {
-            alert(answerID);
-        }
-
-        function updateAccountStatus(userID, status) {
+        //1 - Raised, 2 - Reject, 3 - Accept
+        function updateReportStatus(reportID, status, questionID) {
             $.ajax({
                 url: "../../common/db.php",
                 type: "POST",
                 data: {
-                    action: 'update-account-status',
-                    userID: userID,
+                    action: 'update-report-status',
+                    reportID: reportID,
+                    reportedID: questionID,
+                    type: 1,
                     status: status
                 },
                 cache: false,
                 success: function(dataResult) {
                     var dataResult = JSON.parse(dataResult);
-                    if (dataResult.statusCode == 200) {
-                        alert("Success");
-                    } else {
-                        alert("Failed");
+                    if (dataResult.statusCode != 201) {
+                        retrieveAnswerList();
+                        alert("Updated");
+                        $('#modal-info-report').modal('toggle');
                     }
-                    $('#modal-info-answer').modal('toggle');
-                    $('#dataTable').DataTable();
                 }
             });
         }
 
-        function retrieveAnswerRequestList() {
+        function retrieveAnswerList() {
             $.ajax({
                 url: "../../common/db.php",
                 type: "POST",
@@ -161,18 +225,19 @@
                 success: function(dataResult) {
                     var dataResult = JSON.parse(dataResult);
                     if (dataResult.statusCode != 201) {
-                        answerList = dataResult;
+                        reportedList = dataResult;
                         var answerData;
                         $.each(dataResult, function(key, answer) {
                             var answerID = answer['answerID'];
-                            answerData += "<tr>" +
-                                "<td>" + answerID + "</td>" +
-                                "<td>" + answer['studentID'] + "</td>" +
-                                "<td>" + answer['subjectID'] + "</td>" +
-                                "<td>" + answer['creationDateTime'] + "</td>" +
-                                "<td>" + answer['answer'] + "</td>" +
-                                "<td><a class='button-select' data-id='" + answerID + "'><i class='fas fa-eye fa-cog'></a></i></td>" +
-                                "</tr>";
+                            answerData +=
+                                `<tr>
+                                    <td>${answer.reportedID}</td>
+                                    <td><a class='button-student-id'>${answer.reporterInformation.studentID}</a></td>
+                                    <td>${answer.dateTime}</td>
+                                    <td>${answer.reason}</td>
+                                    <td>${answer.answerInformation.answer}</td>
+                                    <td><a class='button-select btn btn-xs btn-primary' data-id='${answerID}'><i class='fas fa-eye fa-cog'></i> </a></td>
+                                </tr>`;
                         });
                         $("#tableBody").html(answerData);
                     }

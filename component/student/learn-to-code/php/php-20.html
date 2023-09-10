@@ -1,0 +1,238 @@
+<!-- REGex-->
+
+ 
+  <div class="w3-row w3-white">
+    
+
+<h1>What is <span class="color_h1">Regular Expressions in Php?</span></h1>
+ 
+
+ 
+<p>A regular expression is a sequence of characters that forms a search pattern.
+When you search for data in a text, you can use this search pattern to describe what you
+are searching for.</p>
+<p>A regular expression can be a single character, or a more complicated pattern.</p>
+<p>Regular expressions can be used to perform all types of text search and text replace
+operations.</p>
+<hr>
+
+<h2>Syntax</h2>
+<p>In PHP, regular expressions are strings composed of delimiters, a pattern and optional
+modifiers.</p>
+<div class="w3-code w3-border notranslate phpHigh"><div>
+  $exp = "/CodeConnect/i";</div>
+</div>
+
+<p>In the Sample above, <code class="w3-codespan">/</code> is the <strong>delimiter</strong>, <em>CodeConnect</em> is the <strong>pattern </strong>that is being searched for,
+and <code class="w3-codespan">i</code> is a <strong>modifier </strong>that makes the search case-insensitive.</p>
+<p>The delimiter can be any character that is not a letter, number, backslash or space. The
+most common delimiter is the forward slash (/), but when your pattern contains forward
+slashes it is convenient to choose other delimiters such as # or ~.</p>
+<hr>
+
+<h2>Regular Expression Functions</h2>
+<p>PHP provides a variety of functions that allow you to use regular expressions. The
+<code class="w3-codespan">preg_match()</code>, <code class="w3-codespan">preg_match_all()</code> and <code class="w3-codespan">preg_replace()</code> functions are some of the
+most commonly used ones:</p>
+
+<table class="ws-table-all notranslate">
+  <tbody><tr>
+    <th style="width:20%">Function</th>
+    <th style="width:80%">Description</th>
+  </tr>
+  <tr>
+    <td>preg_match()</td>
+    <td>Returns 1 if the pattern was found in the string and 0 if not</td>
+  </tr>
+  <tr>
+    <td>preg_match_all()</td>
+    <td>Returns the number of times the pattern was found in the string, which may also be 0</td>
+  </tr>
+  <tr>
+    <td>preg_replace()</td>
+    <td>Returns a new string where matched patterns have been replaced with another string</td>
+  </tr>
+</tbody></table>
+<hr>
+
+<h2>Using preg_match()</h2>
+<p>The <code class="w3-codespan">preg_match()</code> function will tell you whether a string contains matches of a pattern.</p>
+
+<div class="w3-Sample">
+ <p>Use a regular expression to do a case-insensitive search for "CodeConnect" in a string:</p>
+<div class="w3-code htmlHigh notranslate">
+ <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br>$str = <span class="phpstringcolor" style="color:brown">"Visit CodeConnect"</span>;<br>$pattern = <span class="phpstringcolor" style="color:brown">"/CodeConnect/i"</span>;<br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpnumbercolor" style="color:red">
+</span>  preg_match($pattern, $str); <span class="commentcolor" style="color:green">// Outputs 1<br></span><span class="phptagcolor" style="color:red">?&gt;</span></span> </div>
+ </div>
+<hr>
+
+
+<h2>Using preg_match_all()</h2>
+<p>The <code class="w3-codespan">preg_match_all()</code> function will tell you how many matches were found for a pattern in a
+string.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Use a regular expression to do a case-insensitive count of the number of
+occurrences of "ain" in a string:</p>
+<div class="w3-code htmlHigh notranslate">
+ <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br>$str = <span class="phpstringcolor" style="color:brown">"The rain in SPAIN falls mainly on the plains."</span>;<br><span class="phpnumbercolor" style="color:red">
+</span>  $pattern = <span class="phpstringcolor" style="color:brown">"/ain/i"</span>;<br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> preg_match_all($pattern, $str); <span class="commentcolor" style="color:green">// Outputs 4<br></span><span class="phptagcolor" style="color:red">?&gt;</span></span> </div>
+ </div>
+<hr>
+
+<h2>Using preg_replace()</h2>
+<p>The <code class="w3-codespan">preg_replace()</code> function will replace all of the matches of the pattern in a string with
+another string.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Use a case-insensitive regular expression to replace Microsoft with
+CodeConnect in a string:</p>
+<div class="w3-code htmlHigh notranslate">
+ <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br>$str = <span class="phpstringcolor" style="color:brown">"Visit Microsoft!"</span>;<br>$pattern = <span class="phpstringcolor" style="color:brown">"/microsoft/i"</span>;<br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpnumbercolor" style="color:red">
+</span>  preg_replace($pattern, <span class="phpstringcolor" style="color:brown">"CodeConnect"</span>, $str); <span class="commentcolor" style="color:green">// Outputs "Visit
+  CodeConnect!"<br></span><span class="phptagcolor" style="color:red">?&gt;</span></span> </div>
+ </div>
+ 
+
+<h2>Regular Expression Modifiers</h2>
+<p>Modifiers can change how a search is performed.</p>
+<table class="ws-table-all notranslate">
+  <tbody><tr>
+    <th style="width:22%">Modifier</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>i</td>
+    <td>Performs a case-insensitive search</td>
+  </tr>
+  <tr>
+    <td>m</td>
+    <td>Performs a multiline search (patterns that search for the
+beginning or end of a string will match the beginning or end
+of each line)</td>
+  </tr>
+  <tr>
+    <td>u</td>
+    <td>Enables correct matching of UTF-8 encoded patterns</td>
+  </tr>
+</tbody></table>
+<hr>
+
+<h2>Regular Expression Patterns</h2>
+<p>Brackets are used to find a range of characters:</p>
+<table class="ws-table-all notranslate">
+  <tbody><tr>
+    <th style="width:22%">Expression</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>[abc]</td>
+    <td>Find one character from the options between the brackets</td>
+  </tr>
+  <tr>
+    <td>[^abc]</td>
+    <td>Find any character NOT between the brackets</td>
+  </tr>
+  <tr>
+    <td>[0-9]</td>
+    <td>Find one character from the range 0 to 9</td>
+  </tr>
+</tbody></table>
+
+<h2>Metacharacters</h2>
+<p>Metacharacters are characters with a special meaning:</p>
+<table class="ws-table-all notranslate">
+  <tbody><tr>
+    <th style="width:22%">Metacharacter</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>|</td>
+    <td>Find a match for any one of the patterns separated by | as in: cat|dog|fish</td>
+  </tr>
+  <tr>
+    <td>.</td>
+    <td>Find just one instance of any character</td>
+  </tr>
+  <tr>
+    <td>^</td>
+    <td>Finds a match as the beginning of a string as in: ^Hello</td>
+  </tr>
+  <tr>
+    <td>$</td>
+    <td>Finds a match at the end of the string as in: World$</td>
+  </tr>
+  <tr>
+    <td>\d</td>
+    <td>Find a digit</td>
+  </tr>
+  <tr>
+    <td>\s</td>
+    <td>Find a whitespace character</td>
+  </tr>
+  <tr>
+    <td>\b</td>
+    <td>Find a match at the beginning of a word like this: \bWORD, or at the end of a word like this: WORD\b</td>
+  </tr>
+  <tr>
+    <td>\uxxxx</td>
+    <td>Find the Unicode character specified by the hexadecimal number xxxx</td>
+  </tr>
+</tbody></table>
+
+<h2>Quantifiers</h2>
+<p>Quantifiers define quantities:</p>
+<table class="ws-table-all notranslate">
+  <tbody><tr>
+    <th style="width:22%">Quantifier</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>n+</td>
+    <td>Matches any string that contains at least one <em>n</em></td>
+  </tr>
+  <tr>
+    <td>n*</td>
+    <td>Matches any string that contains zero or more occurrences of <em>n</em></td>
+  </tr>
+  <tr>
+    <td>n?</td>
+    <td>Matches any string that contains zero or one occurrences of <em>n</em></td>
+  </tr>
+  <tr>
+    <td>n{x}</td>
+    <td>Matches any string that contains a sequence of <i>X</i> <i>n</i>'s</td>
+  </tr>
+  <tr>
+    <td>n{x,y}</td>
+    <td>Matches any string that contains a sequence of X to Y <i>n</i>'s</td>
+  </tr>
+  <tr>
+    <td>n{x,}</td>
+    <td>Matches any string that contains a sequence of at least X <i>n</i>'s</td>
+  </tr>
+</tbody></table>
+
+<div class="w3-note w3-panel">
+<p><strong>Note:</strong> If your expression needs to search for one of the special characters you can use a
+backslash ( \ ) to escape them.
+For Sample, to search for one or more question marks you can use the following
+expression: $pattern = '/\?+/';</p>
+</div>
+<hr>
+
+<h2>Grouping</h2>
+<p>You can use parentheses <code class="w3-codespan">( )</code> to apply quantifiers to entire patterns. They also can be used
+to select parts of the pattern to be used as a match.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Use grouping to search for the word "banana" by looking for <em>ba</em> followed by
+two instances of <em>na</em>:</p>
+<div class="w3-code htmlHigh notranslate">
+ <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br>$str = <span class="phpstringcolor" style="color:brown">"Apples and bananas."</span>;<br>$pattern = <span class="phpstringcolor" style="color:brown">"/ba(na){2}/i"</span>;<br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpnumbercolor" style="color:red">
+</span>  preg_match($pattern, $str); <span class="commentcolor" style="color:green">// Outputs 1<br></span><span class="phptagcolor" style="color:red">?&gt;</span></span> </div>
+ </div>
+ 

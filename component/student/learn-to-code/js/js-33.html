@@ -1,0 +1,377 @@
+<!-- Date Get Method-->
+
+ 
+  <div class="w3-row w3-white">
+ 
+
+<h1>What is <span class="color_h1">Get Date Methods in JavaScript?</span></h1>
+ 
+
+<h2>The new Date() Constructor</h2>
+<p>In JavaScript, date objects are created with <code class="w3-codespan">new Date()</code>.</p>
+<p><code class="w3-codespan">new Date()</code> returns a date object with the current date and time.</p>
+
+<div class="w3-Sample">
+<h3>Get the Current Time</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> date = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date();<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<hr>
+<h2>Date Get Methods</h2>
+<table class="ws-table-all notranslate">
+<tbody><tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>getFullYear()</td>
+<td>Get <strong>year</strong> as a four digit number (yyyy)</td>
+</tr>
+<tr>
+<td>getMonth()</td>
+<td>Get <strong>month</strong> as a number (0-11)</td>
+</tr>
+<tr>
+<td>getDate()</td>
+<td>Get <strong>day</strong> as a number (1-31)</td>
+</tr>
+<tr>
+<td>getDay()</td>
+<td>Get <b>weekday</b> as a number (0-6)</td>
+</tr>
+<tr>
+<td>getHours()</td>
+<td>Get <strong>hour</strong> (0-23)</td>
+</tr>
+<tr>
+<td>getMinutes()</td>
+<td>Get <strong>minute</strong> (0-59)</td>
+</tr>
+<tr>
+<td>getSeconds()</td>
+<td>Get <strong>second</strong> (0-59)</td>
+</tr>
+<tr>
+<td>getMilliseconds()</td>
+<td>Get <strong>millisecond</strong> (0-999)</td>
+</tr>
+<tr>
+<td>getTime()</td>
+<td>Get <b>time</b> (milliseconds since January 1, 1970)</td>
+</tr>
+</tbody></table>
+
+<div class="w3-note">
+<h2>Note 1</h2>
+<p>The get methods above return <b>Local time</b>.</p>
+<p><b>Universal time</b> (UTC) is documented at the bottom of this page.</p>
+</div>
+<div class="w3-note">
+<h2>Note 2</h2>
+<p>The get methods return information from existing date objects.</p>
+<p>In a date object, the time is static. The "clock" is not "running".</p>
+<p>The time in a date object is NOT the same as current time.</p>
+</div>
+<hr>
+
+<h2>The getFullYear() Method</h2>
+<p>The <code class="w3-codespan">getFullYear()</code> method returns the year of a date as a four digit number:</p>
+
+<div class="w3-Sample">
+<h3>Samples</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date(<span class="jsstringcolor" style="color:brown">"2021-03-25"</span>);<br>
+d.<span class="jspropertycolor" style="color:black">getFullYear</span>();<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date();<br>
+d.<span class="jspropertycolor" style="color:black">getFullYear</span>();<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+<div class="w3-warning">
+<h2>Warning !</h2>
+<p>Old JavaScript code might use the non-standard method getYear().</p>
+<p>getYear() is supposed to return a 2-digit year.</p>
+<p>getYear() is deprecated. Do not use it!</p>
+</div>
+<hr>
+<h2>The getMonth() Method</h2>
+<p>The <code class="w3-codespan">getMonth()</code> method returns the month of a date as a number (0-11).</p>
+<div class="w3-panel w3-note">
+<h2>Note</h2>
+<p>In JavaScript, January is month number 0, February is number 1, ...</p>
+<p>Finally, December is month number 11.</p>
+</div>
+
+<div class="w3-Sample">
+<h3>Samples</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date(<span class="jsstringcolor" style="color:brown">"2021-03-25"</span>);<br>
+d.<span class="jspropertycolor" style="color:black">getMonth</span>();<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date();<br>
+d.<span class="jspropertycolor" style="color:black">getMonth</span>();<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<div class="w3-panel w3-note">
+<h2>Note</h2>
+<p>You can use an array of names to return the month as a name:</p>
+</div>
+
+<div class="w3-Sample">
+<h3>Samples</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> months = [<span class="jsstringcolor" style="color:brown">"January"</span>, <span class="jsstringcolor" style="color:brown">"February"</span>, <span class="jsstringcolor" style="color:brown">"March"</span>, <span class="jsstringcolor" style="color:brown">"April"</span>, <span class="jsstringcolor" style="color:brown">"May"</span>,
+<span class="jsstringcolor" style="color:brown">"June"</span>, <span class="jsstringcolor" style="color:brown">"July"</span>, <span class="jsstringcolor" style="color:brown">"August"</span>, <span class="jsstringcolor" style="color:brown">"September"</span>, <span class="jsstringcolor" style="color:brown">"October"</span>,
+<span class="jsstringcolor" style="color:brown">"November"</span>, <span class="jsstringcolor" style="color:brown">"December"</span>];<br><span class="jsnumbercolor" style="color:red">
+</span><br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date(<span class="jsstringcolor" style="color:brown">"2021-03-25"</span>);<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> month = months[d.<span class="jspropertycolor" style="color:black">getMonth</span>()];<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> months = [<span class="jsstringcolor" style="color:brown">"January"</span>, <span class="jsstringcolor" style="color:brown">"February"</span>, <span class="jsstringcolor" style="color:brown">"March"</span>, <span class="jsstringcolor" style="color:brown">"April"</span>, <span class="jsstringcolor" style="color:brown">"May"</span>,
+<span class="jsstringcolor" style="color:brown">"June"</span>, <span class="jsstringcolor" style="color:brown">"July"</span>, <span class="jsstringcolor" style="color:brown">"August"</span>, <span class="jsstringcolor" style="color:brown">"September"</span>, <span class="jsstringcolor" style="color:brown">"October"</span>,
+<span class="jsstringcolor" style="color:brown">"November"</span>, <span class="jsstringcolor" style="color:brown">"December"</span>];<br><span class="jsnumbercolor" style="color:red">
+</span><br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date();<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> month = months[d.<span class="jspropertycolor" style="color:black">getMonth</span>()];<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+
+<hr>
+
+<h2>The getDate() Method</h2>
+<p>The <code class="w3-codespan">getDate()</code> method returns the day of a date as a number (1-31):</p>
+
+<div class="w3-Sample">
+<h3>Samples</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date(<span class="jsstringcolor" style="color:brown">"2021-03-25"</span>);<br>
+d.<span class="jspropertycolor" style="color:black">getDate</span>();<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date();<br>
+d.<span class="jspropertycolor" style="color:black">getDate</span>();<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+ 
+
+<h2>The getHours() Method</h2>
+  
+<p>The <code class="w3-codespan">getHours()</code> method returns the hours of a date as a number (0-23):</p>
+
+<div class="w3-Sample">
+<h3>Samples</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date(<span class="jsstringcolor" style="color:brown">"2021-03-25"</span>);<br>
+d.<span class="jspropertycolor" style="color:black">getHours</span>();<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date();<br>
+d.<span class="jspropertycolor" style="color:black">getHours</span>();<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+<hr>
+
+<h2>The getMinutes() Method</h2>
+<p>The <code class="w3-codespan">getMinutes()</code> method returns the minutes of a date as a number (0-59):</p>
+<div class="w3-Sample">
+<h3>Samples</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date(<span class="jsstringcolor" style="color:brown">"2021-03-25"</span>);<br>
+d.<span class="jspropertycolor" style="color:black">getMinutes</span>();<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date();<br>
+d.<span class="jspropertycolor" style="color:black">getMinutes</span>();<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<hr>
+
+<h2>The getSeconds() Method</h2>
+<p>The <code class="w3-codespan">getSeconds()</code> method returns the seconds of a date as a number (0-59):</p>
+<div class="w3-Sample">
+<h3>Samples</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date(<span class="jsstringcolor" style="color:brown">"2021-03-25"</span>);<br>
+d.<span class="jspropertycolor" style="color:black">getSeconds</span>();<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date();<br>
+d.<span class="jspropertycolor" style="color:black">getSeconds</span>();<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<hr>
+
+<h2>The getMilliseconds() Method</h2>
+<p>The <code class="w3-codespan">getMilliseconds()</code> method returns the milliseconds of a date as a number (0-999):</p>
+<div class="w3-Sample">
+<h3>Samples</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date(<span class="jsstringcolor" style="color:brown">"2021-03-25"</span>);<br>
+d.<span class="jspropertycolor" style="color:black">getMilliseconds</span>();<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date();<br>
+d.<span class="jspropertycolor" style="color:black">getMilliseconds</span>();<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<hr>
+
+<h2>The getDay() Method</h2>
+  
+<p>The <code class="w3-codespan">getDay()</code> method returns the weekday of a date as a number (0-6).</p>
+<div class="w3-panel w3-note">
+<h2>Note</h2>
+<p>In JavaScript, the first day of the week (day 0) is Sunday.</p>
+<p>Some countries in the world consider the first day of the week to be Monday.</p>
+</div>
+
+<div class="w3-Sample">
+<h3>Samples</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date(<span class="jsstringcolor" style="color:brown">"2021-03-25"</span>);<br>
+d.<span class="jspropertycolor" style="color:black">getDay</span>();<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date();<br>
+d.<span class="jspropertycolor" style="color:black">getDay</span>();<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<div class="w3-note">
+<h2>Note</h2>
+<p>You can use an array of names, and <code class="w3-codespan">getDay()</code> to return weekday as a name:</p>
+</div>
+
+<div class="w3-Sample">
+<h3>Samples</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> days = [<span class="jsstringcolor" style="color:brown">"Sunday"</span>, <span class="jsstringcolor" style="color:brown">"Monday"</span>, <span class="jsstringcolor" style="color:brown">"Tuesday"</span>, <span class="jsstringcolor" style="color:brown">"Wednesday"</span>,
+<span class="jsstringcolor" style="color:brown">"Thursday"</span>, <span class="jsstringcolor" style="color:brown">"Friday"</span>, <span class="jsstringcolor" style="color:brown">"Saturday"</span>];<br><span class="jsnumbercolor" style="color:red">
+</span><br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date(<span class="jsstringcolor" style="color:brown">"2021-03-25"</span>);<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> day = days[d.<span class="jspropertycolor" style="color:black">getDay</span>()];<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> days = [<span class="jsstringcolor" style="color:brown">"Sunday"</span>, <span class="jsstringcolor" style="color:brown">"Monday"</span>, <span class="jsstringcolor" style="color:brown">"Tuesday"</span>, <span class="jsstringcolor" style="color:brown">"Wednesday"</span>,
+<span class="jsstringcolor" style="color:brown">"Thursday"</span>, <span class="jsstringcolor" style="color:brown">"Friday"</span>, <span class="jsstringcolor" style="color:brown">"Saturday"</span>];<br><span class="jsnumbercolor" style="color:red">
+</span><br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date();<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> day = days[d.<span class="jspropertycolor" style="color:black">getDay</span>()];<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+<hr>
+<h2>The getTime() Method</h2>
+ 
+<p>The <code class="w3-codespan">getTime()</code> method returns the number of milliseconds since January 1, 1970:</p>
+
+<div class="w3-Sample">
+<h3>Samples</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date(<span class="jsstringcolor" style="color:brown">"1970-01-01"</span>);<br>
+d.<span class="jspropertycolor" style="color:black">getTime</span>();<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date(<span class="jsstringcolor" style="color:brown">"2021-03-25"</span>);<br>
+d.<span class="jspropertycolor" style="color:black">getTime</span>();<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> d = <span class="jskeywordcolor" style="color:mediumblue">new</span> Date();<br>
+d.<span class="jspropertycolor" style="color:black">getTime</span>();<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+<hr>
+<h2>The Date.now() Method</h2>
+<p><code class="w3-codespan">Date.now()</code> returns the number of milliseconds since January 1, 1970.</p>
+<div class="w3-Sample">
+<h3>Samples</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> ms = Date.<span class="jspropertycolor" style="color:black">now</span>();<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ <p>Calculate the number of years since 1970/01/01:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> minute = <span class="jsnumbercolor" style="color:red">1000</span> * <span class="jsnumbercolor" style="color:red">60</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> hour = minute * <span class="jsnumbercolor" style="color:red">60</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> day = hour * <span class="jsnumbercolor" style="color:red">24</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> year = day * <span class="jsnumbercolor" style="color:red">365</span>;<br><span class="jsnumbercolor" style="color:red">
+</span><br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> years = Math.<span class="jspropertycolor" style="color:black">round</span>(Date.<span class="jspropertycolor" style="color:black">now</span>() / year); </span></div>
+ </div>
+
+<p><code class="w3-codespan">Date.now()</code> is a static method of the Date object.</p>
+<p>You cannot use it on a date object like <code class="w3-codespan">myDate.now()</code>.</p>
+<p>The syntax is always <code class="w3-codespan">Date.now()</code>.</p>
+<hr>
+<h2>UTC Date Get Methods</h2>
+<table class="ws-table-all notranslate">
+<tbody><tr>
+<th>Method</th>
+<th>Same As</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>getUTCDate()</td>
+<td>getDate()</td><td>Returns the UTC date</td>
+</tr>
+<tr>
+<td>getUTCFullYear()</td>
+<td>getFullYear()</td><td>Returns the UTC year</td>
+</tr>
+<tr>
+<td>getUTCMonth()</td>
+<td>getMonth()</td><td>Returns the UTC month</td>
+</tr>
+<tr>
+<td>getUTCDay()</td>
+<td>getDay()</td><td>Returns the UTC day</td>
+</tr>
+<tr>
+<td>getUTCHours()</td>
+<td>getHours()</td><td>Returns the UTC hour</td>
+</tr>
+<tr>
+<td>getUTCMinutes()</td>
+<td>getMinutes()</td><td>Returns the UTC minutes</td>
+</tr>
+<tr>
+<td>getUTCSeconds()</td>
+<td>getSeconds()</td><td>Returns the UTC seconds</td>
+</tr>
+<tr>
+<td>getUTCMilliseconds()</td>
+<td>getMilliseconds()</td><td>Returns the UTC milliseconds</td>
+</tr>
+</tbody></table>
+
+<p>UTC methods use UTC time (Coordinated Universal Time).</p>
+<p>UTC time is the same as GMT (Greenwich Mean Time).</p>
+ 
+
+<hr>
+<h2>The getTimezoneOffset() Method</h2>
+<p>The <code class="w3-codespan">getTimezoneOffset()</code> method returns the difference (in minutes)
+between local time an UTC time:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> diff = d.<span class="jspropertycolor" style="color:black">getTimezoneOffset</span>();<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<div class="w3-note">
+<h2>Complete JavaScript Date Reference</h2>
+<p>For a complete Date reference, go to our:</p>
+<p> Complete JavaScript Date Reference</a>.</p>
+<p>The reference contains descriptions and Samples of all Date properties and 
+methods.</p>
+</div>
+ 

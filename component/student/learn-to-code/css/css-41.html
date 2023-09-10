@@ -1,0 +1,196 @@
+<!-- units-->
+
+ 
+    <div class="w3-row w3-white">
+      
+   
+  
+  <h1>What is <span class="color_h1">Units in Css?</span></h1>
+  
+  <h2>CSS Units</h2>
+  <p>CSS has several different units for expressing a length.</p>
+  <p>Many CSS properties take "length" values, such as <code class="w3-codespan">width</code>, <code class="w3-codespan">margin</code>, <code class="w3-codespan">padding</code>, 
+  <code class="w3-codespan">font-size</code>, etc.</p>
+  <p><strong>Length</strong> is a number followed by a length unit, such as <code class="w3-codespan">10px</code>, 
+  <code class="w3-codespan">2em</code>, etc.</p>
+  
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <p>Set different length values, using px (pixels):</p>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+    h1 <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; font-size<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 60px<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span><br><br>p <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; font-size<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 25px<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; 
+    line-height<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 50px<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span> </span></div>
+   </div>
+  
+  <p><strong>Note:</strong> A whitespace cannot appear between the number and the unit. However, if the value is 
+  <code class="w3-codespan">0</code>, the unit can be omitted.</p>
+  
+  <p>For some CSS properties, negative lengths are allowed.</p>
+  <p>There are two types of length units: <strong>absolute </strong>and <strong>relative</strong>.</p>
+  <hr>
+  <h2>Absolute Lengths</h2>
+  <p>The absolute length units are fixed and a length expressed in any of these will appear as exactly that size.</p>
+  <p>Absolute length units are not recommended for use on screen, because screen sizes vary so much. 
+  However, they can be used if the output medium is known, such 
+  as for print layout.</p>
+  <div class="w3-responsive" style="margin-top:-16px;margin-bottom:-16px">
+  <table class="ws-table-all notranslate">
+    <tbody><tr>
+      <th style="width:12%">Unit</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>cm</td>
+      <td>centimeters
+       </td>
+    </tr>
+      <tr>
+      <td>mm</td>
+      <td>millimeters
+       </td>
+      </tr>
+    <tr>
+      <td>in</td>
+      <td>inches (1in = 96px = 2.54cm)
+       </td>
+    </tr>
+      <tr>
+      <td>px *</td>
+      <td>pixels (1px = 1/96th of 1in)
+       </td>
+      </tr>
+    <tr>
+      <td>pt</td>
+      <td>points (1pt = 1/72 of 1in)
+       </td>
+    </tr>
+    <tr>
+      <td>pc</td>
+      <td>picas (1pc = 12 pt)
+       </td>
+    </tr>
+  </tbody></table>
+  </div>
+  <p>* Pixels (px) are relative to the viewing device. For low-dpi devices, 1px is one device pixel (dot) of the display. For printers and high resolution 
+  screens 1px implies multiple device pixels.</p>
+  <hr>
+  <h2>Relative Lengths</h2>
+  <p>Relative length units specify a length relative to another length property. 
+  Relative length units scale better between different rendering mediums.</p>
+  <div class="w3-responsive" style="margin-top:-16px;margin-bottom:-16px">
+  <table class="ws-table-all notranslate">
+    <tbody><tr>
+      <th style="width:12%">Unit</th>
+      <th>Description</th>
+      <th></th>
+    </tr>
+    <tr>
+      <td>em</td>
+      <td>Relative to the font-size of the element (2em means 2 times the size of the current font)</td>
+     </tr>
+    <tr>
+      <td>ex</td>
+      <td>Relative to the x-height of the current font (rarely used)</td>
+     </tr>
+    <tr>
+      <td>ch</td>
+      <td>Relative to width of the "0" (zero)</td>
+     </tr>
+    <tr>
+      <td>rem</td>
+      <td>Relative to font-size of the root element</td>
+     </tr>
+    <tr>
+      <td>vw</td>
+      <td>Relative to 1% of the width of the viewport*</td>
+     </tr>
+    <tr>
+      <td>vh</td>
+      <td>Relative to 1% of the height of the viewport*</td>
+     </tr>
+    <tr>
+      <td>vmin</td>
+      <td>Relative to 1% of viewport's* smaller dimension</td>
+     </tr>
+    <tr>
+      <td>vmax</td>
+      <td>Relative to 1% of viewport's* larger dimension</td>
+     </tr>
+    <tr>
+      <td>%</td>
+      <td>Relative to the parent element</td>
+     </tr>
+      </tbody></table>
+  </div>
+  <div class="w3-panel w3-note">
+    <p><strong>Tip:</strong> The em and rem units are practical in creating perfectly 
+  scalable layout!<br>* Viewport = the browser window size. If the viewport is 50cm 
+  wide, 1vw = 0.5cm.</p>
+  </div>
+ 
+  
+  <h2>Browser Support</h2>
+  <p>The numbers in the table specify the first browser version that fully supports the 
+  length unit.</p>
+  <div class="w3-responsive">
+  <table class="browserref notranslate">
+    <tbody><tr>
+      <th style="width:20%;font-size:16px;text-align:left;">Length Unit</th>
+      <th style="width:16%;" class="bsChrome" title="Chrome"></th>
+      <th style="width:16%;" class="bsEdge" title="Internet Explorer"></th>
+      <th style="width:16%;" class="bsFirefox" title="Firefox"></th>
+      <th style="width:16%;" class="bsSafari" title="Safari"></th>
+      <th style="width:16%;" class="bsOpera" title="Opera"></th>                
+    </tr>
+    <tr>
+      <td style="text-align:left;">em, ex, %, px, cm, mm, in, pt, pc</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3.5</td>
+    </tr>
+    <tr>
+      <td style="text-align:left;">ch</td>
+      <td>27.0</td>
+      <td>9.0</td>
+      <td>1.0</td>
+      <td>7.0</td>
+      <td>20.0</td>
+    </tr>
+    <tr>
+      <td style="text-align:left;">rem</td>
+      <td>4.0</td>
+      <td>9.0</td>
+      <td>3.6</td>
+      <td>4.1</td>
+      <td>11.6</td>
+    </tr>
+    <tr>
+      <td style="text-align:left;">vh, vw</td>
+      <td>20.0</td>
+      <td>9.0</td>
+      <td>19.0</td>
+      <td>6.0</td>
+      <td>20.0</td>
+    </tr>
+    <tr>
+      <td style="text-align:left;">vmin</td>
+      <td>20.0</td>
+      <td>12.0</td>
+      <td>19.0</td>
+      <td>6.0</td>
+      <td>20.0</td>
+    </tr>
+    <tr>
+      <td style="text-align:left;">vmax</td>
+      <td>26.0</td>
+      <td>16.0</td>
+      <td>19.0</td>
+      <td>7.0</td>
+      <td>20.0</td>
+    </tr>
+    </tbody></table>
+  </div>
+  <br>
+   

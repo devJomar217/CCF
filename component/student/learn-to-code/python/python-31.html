@@ -1,0 +1,175 @@
+<!-- JSON-->
+
+ 
+  <div class="w3-row w3-white">
+    
+  
+
+<h1>What is <span class="color_h1">JSON in Python?</span></h1>
+ 
+<p class="intro">JSON is a syntax for storing and exchanging data.</p>
+<p class="intro">JSON is text, written with JavaScript object notation.</p>
+<hr>
+
+<h2>JSON in Python</h2>
+
+<p>Python has a built-in package called <code class="w3-codespan">json</code>, which can be used to work with JSON data.</p>
+
+<div class="w3-Sample">
+   <p>Import the json module:</p>
+  <div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>    <span class="pythonkeywordcolor" style="color:mediumblue">import</span> json
+   </span></div>
+</div>
+
+
+<hr>
+<h2>Parse JSON - Convert from JSON to Python</h2>
+
+<p>If you have a JSON string, you can parse it by using the
+<code class="w3-codespan">json.loads()</code> method.</p>
+
+<div class="w3-panel w3-note">
+ </div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Convert from JSON to Python:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">import</span> json<br><br><span class="commentcolor" style="color:green"># some JSON:<br></span>x =&nbsp; <span class="pythonstringcolor" style="color:brown">'{ "name":"John", "age":30, "city":"New 
+  York"}'</span><br><br><span class="commentcolor" style="color:green"># parse x:<br></span>y = json.loads(x)<br><br><span class="commentcolor" style="color:green"># the result is a 
+  Python dictionary:<br></span><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(y[<span class="pythonstringcolor" style="color:brown">"age"</span>]) </span></div>
+ </div>
+
+<hr>
+<h2>Convert from Python to JSON</h2>
+
+<p>If you have a Python object, you can convert it into a JSON string by 
+using the <code class="w3-codespan">json.dumps()</code> method.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Convert from Python to JSON:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">import</span> json<br><br><span class="commentcolor" style="color:green"># a Python object (dict):<br></span>x = {<br>&nbsp; <span class="pythonstringcolor" style="color:brown">"name"</span>: <span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonstringcolor" style="color:brown">"John"</span>,<br>&nbsp; <span class="pythonstringcolor" style="color:brown">"age"</span>: <span class="pythonnumbercolor" style="color:red">30</span>,<br>&nbsp; <span class="pythonstringcolor" style="color:brown">"city"</span>: <span class="pythonstringcolor" style="color:brown">"New York"</span><br>}<br><br><span class="commentcolor" style="color:green"># 
+  convert into JSON:<br></span>y = json.dumps(x)<br><br><span class="commentcolor" style="color:green"># the result is a JSON string:<br></span><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(y) </span></div>
+ </div>
+ 
+
+<p>You can convert Python objects of the following types, into JSON strings:</p>
+<ul>
+<li>dict</li>
+<li>list</li>
+<li>tuple</li>
+<li>string</li>
+<li>int</li>
+  <li>float</li>
+  <li>True</li>
+  <li>False</li>
+  <li>None</li>
+</ul>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Convert Python objects into JSON strings, and print the values:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">import</span> json<br><br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(json.dumps({<span class="pythonstringcolor" style="color:brown">"name"</span>: <span class="pythonstringcolor" style="color:brown">"John"</span>, <span class="pythonstringcolor" style="color:brown">"age"</span>: <span class="pythonnumbercolor" style="color:red">30</span>}))<br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(json.dumps([<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonstringcolor" style="color:brown">"bananas"</span>]))<br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(json.dumps((<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"bananas"</span>)))<br><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(json.dumps(<span class="pythonstringcolor" style="color:brown">"hello"</span>))<br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(json.dumps(<span class="pythonnumbercolor" style="color:red">42</span>))<br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(json.dumps(<span class="pythonnumbercolor" style="color:red">31.76</span>))<br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(json.dumps(<span class="pythonkeywordcolor" style="color:mediumblue">True</span>))<br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(json.dumps(<span class="pythonkeywordcolor" style="color:mediumblue">False</span>))<br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(json.dumps(None)) </span></div>
+ </div>
+<hr>
+
+<p>When you convert from Python to JSON, Python objects are converted into the JSON (JavaScript) equivalent:</p>
+
+<table class="ws-table-all notranslate">
+<tbody><tr>
+<th>Python</th>
+<th>JSON</th>
+</tr>
+<tr>
+<td>dict</td>
+<td>Object</td>
+</tr>
+<tr>
+<td>list</td>
+<td>Array</td>
+</tr>
+<tr>
+<td>tuple</td>
+<td>Array</td>
+</tr>
+<tr>
+<td>str</td>
+<td>String</td>
+</tr>
+<tr>
+<td>int</td>
+<td>Number</td>
+</tr>
+<tr>
+<td>float</td>
+<td>Number</td>
+</tr>
+<tr>
+<td>True</td>
+<td>true</td>
+</tr>
+<tr>
+<td>False</td>
+<td>false</td>
+</tr>
+<tr>
+<td>None</td>
+<td>null</td>
+</tr>
+</tbody></table>
+<hr>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Convert a Python object containing all the legal data types:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">import</span> json<br><br>x = {<br>&nbsp; <span class="pythonstringcolor" style="color:brown">"name"</span>: <span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonstringcolor" style="color:brown">"John"</span>,<br>&nbsp; <span class="pythonstringcolor" style="color:brown">"age"</span>: <span class="pythonnumbercolor" style="color:red">30</span>,<br>&nbsp; <span class="pythonstringcolor" style="color:brown">"married"</span>: <span class="pythonkeywordcolor" style="color:mediumblue">True</span>,<br>&nbsp; <span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonstringcolor" style="color:brown">"divorced"</span>: <span class="pythonkeywordcolor" style="color:mediumblue">False</span>,<br>&nbsp; <span class="pythonstringcolor" style="color:brown">"children"</span>: (<span class="pythonstringcolor" style="color:brown">"Ann"</span>,<span class="pythonstringcolor" style="color:brown">"Billy"</span>),<br>&nbsp; <span class="pythonstringcolor" style="color:brown">"pets"</span>: <span class="pythonnumbercolor" style="color:red">
+</span>  None,<br>&nbsp; <span class="pythonstringcolor" style="color:brown">"cars"</span>: [<br>&nbsp;&nbsp;&nbsp; {<span class="pythonstringcolor" style="color:brown">"model"</span>: <span class="pythonstringcolor" style="color:brown">"BMW 230"</span>, <span class="pythonstringcolor" style="color:brown">"mpg"</span>: <span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonnumbercolor" style="color:red">27.5</span>},<br>&nbsp;&nbsp;&nbsp; {<span class="pythonstringcolor" style="color:brown">"model"</span>: <span class="pythonstringcolor" style="color:brown">"Ford Edge"</span>, <span class="pythonstringcolor" style="color:brown">"mpg"</span>: <span class="pythonnumbercolor" style="color:red">24.1</span>}<br>&nbsp; ]<br><span class="pythonnumbercolor" style="color:red">
+</span>  }<br><br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(json.dumps(x))<br> </span></div>
+ </div>
+<hr>
+<h2>Format the Result</h2>
+<p>The Sample above prints a JSON string, but it is not very easy to read, with no indentations and line breaks.</p>
+<p>The <code class="w3-codespan">json.dumps()</code> method has parameters to 
+make it easier to read the result:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Use the <code class="w3-codespan">indent</code> parameter to define the numbers 
+of indents:</p>
+  <div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>    json.dumps(x, indent=<span class="pythonnumbercolor" style="color:red">4</span>)<br> </span></div>
+ </div>
+<p>You can also define the separators, default value is (", ", ": "), which 
+means using a comma and a space to separate each object, and a colon and a space 
+to separate keys from values:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Use the <code class="w3-codespan">separators</code> parameter to change the 
+default separator:</p>
+  <div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>    json.dumps(x, indent=<span class="pythonnumbercolor" style="color:red">4</span>, separators=(<span class="pythonstringcolor" style="color:brown">". "</span>, <span class="pythonstringcolor" style="color:brown">" = "</span>))<br> </span></div>
+ </div>
+
+<hr>
+<h2>Order the Result</h2>
+<p>The <code class="w3-codespan">json.dumps()</code> method has parameters to 
+order the keys in the result:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Use the <code class="w3-codespan">sort_keys</code> parameter to specify if 
+the result should be sorted or not:</p>
+  <div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>    json.dumps(x, indent=<span class="pythonnumbercolor" style="color:red">4</span>, sort_keys=<span class="pythonkeywordcolor" style="color:mediumblue">True</span>)<br> </span></div>
+ </div>
+ 

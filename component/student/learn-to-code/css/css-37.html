@@ -1,0 +1,127 @@
+<!-- attr selectors-->
+
+ 
+    <div class="w3-row w3-white">
+      
+     
+  <h1>What is <span class="color_h1">Attribute in Css?</span> Selectors</h1>
+  
+  <h2>Style HTML Elements With Specific Attributes</h2>
+  <p>It is possible to style HTML elements that have specific attributes or attribute values.</p>
+  <hr>
+  
+  <h2>CSS [attribute] Selector</h2>
+  <p>The <code class="w3-codespan">[attribute]</code> selector is used to select elements with a specified 
+  attribute.</p>
+  <p>The following Sample selects all &lt;a&gt; elements with a target attribute:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+  a[target] <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; background-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> yellow<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span>  </span></div>
+   </div>
+  <hr>
+  
+  <h2>CSS [attribute="value"] Selector</h2>
+  <p>The <code class="w3-codespan">[attribute="value"]</code> selector is used to select elements with a specified 
+  attribute and value.</p>
+  <p>The following Sample selects all &lt;a&gt; elements with a target="_blank" attribute:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+  a[target="_blank"] <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"> <br>&nbsp; background-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> yellow<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span>
+   </span></div>
+   </div>
+  <hr>
+  
+  <h2>CSS [attribute~="value"] Selector</h2>
+  <p>The <code class="w3-codespan">[attribute~="value"]</code> selector is used to select elements with an attribute 
+  value containing a specified word.</p>
+  <p>The following Sample selects all elements with a title attribute that 
+  contains a space-separated list of words, one of which is "flower":</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+  [title~="flower"] <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; border<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 5px solid yellow<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span> </span></div>
+   </div>
+  <p>The Sample above will match elements with title="flower", title="summer 
+  flower", and title="flower new", but not title="my-flower" or title="flowers".</p>
+ 
+  
+  <h2>CSS [attribute|="value"] Selector</h2>
+  <p>The <code class="w3-codespan">[attribute|="value"]</code> selector 
+  is used to select elements with the specified attribute, whose value can be 
+  exactly the specified value, or the specified value followed by a hyphen (-).</p>
+  <p><strong>Note:</strong> The value has to be a whole word, either alone, like 
+  class="top", or followed by a hyphen( - ), like class="top-text".</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+  [class|="top"] <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; background<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> yellow<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span>
+   </span></div>
+   </div>
+  <hr>
+  
+  <h2>CSS [attribute^="value"] Selector</h2>
+  <p>The <code class="w3-codespan">[attribute^="value"]</code> selector 
+  is used to select elements with the specified attribute, whose value starts with 
+  the specified value.</p>
+  <p>The following Sample selects all elements with a class attribute value that 
+  starts with "top":</p>
+  <p><strong>Note:</strong> The value does not have to be a whole word!</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+  [class^="top"] <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp;&nbsp;background<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> yellow<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span>
+   </span></div>
+   </div>
+  <hr>
+  
+  <h2>CSS [attribute$="value"] Selector</h2>
+  <p>The <code class="w3-codespan">[attribute$="value"]</code> selector is used to select elements whose attribute 
+  value ends with a specified value.</p>
+  <p>The following Sample selects all elements with a class attribute value that 
+  ends with "test":</p>
+  <p><strong>Note:</strong> The value does not have to be a whole word!&nbsp;&nbsp;</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+  [class$="test"] <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp;&nbsp;background<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> yellow<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span> </span></div>
+   </div>
+  <hr>
+  
+  <h2>CSS [attribute*="value"] Selector</h2>
+  <p>The <code class="w3-codespan">[attribute*="value"]</code> selector is used to select elements whose attribute 
+  value contains a specified value.</p>
+  <p>The following Sample selects all elements with a class attribute value that 
+  contains "te":</p>
+  <p><strong>Note:</strong> The value does not have to be a whole word!&nbsp;&nbsp;</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+  [class*="te"] <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; background<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> yellow<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span> </span></div>
+   </div>
+  <hr>
+  
+  <h2>Styling Forms</h2>
+  <p>The attribute selectors can be useful for styling forms without class or ID:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+  input[type="text"]
+  <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>
+  &nbsp;&nbsp;width<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 150px<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+    &nbsp;
+  display<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> block<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+    &nbsp;
+  margin-bottom<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 10px<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+    &nbsp;
+  background-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> yellow<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+  </span><span class="cssdelimitercolor" style="color:black">}</span><br><br>
+  input[type="button"]
+  <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>
+  &nbsp;&nbsp;width<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 120px<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+  &nbsp;&nbsp;margin-left<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 35px<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+  &nbsp;&nbsp;display<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> block<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+  </span><span class="cssdelimitercolor" style="color:black">}</span> </span></div>
+   </div>
+  

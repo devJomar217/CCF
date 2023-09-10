@@ -134,9 +134,10 @@
             $.ajax({
                 url: "../../common/db.php",
                 type: "POST",
-                data: {
-                    action: 'get-user-id'
-                },
+                data: formData,
+                dataType: 'json',
+                contentType: false,
+                processData: false,
                 cache: false,
                 success: function(dataResult) {
                     $("#input-profile-user-name").removeClass('is-invalid');

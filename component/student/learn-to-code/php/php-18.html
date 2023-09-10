@@ -1,0 +1,361 @@
+<!-- arrays-->
+
+ 
+  <div class="w3-row w3-white">
+    
+ 
+
+<h1>What is <span class="color_h1">Arrays in Php?</span></h1>
+ 
+<p class="intro">An array stores multiple values in one single variable:</p>
+<div class="w3-Sample">
+ <div class="w3-code htmlHigh notranslate">
+<span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br>
+$cars = <span class="phpkeywordcolor" style="color:mediumblue">array</span>(<span class="phpstringcolor" style="color:brown">"Volvo"</span>, <span class="phpstringcolor" style="color:brown">"BMW"</span>, <span class="phpstringcolor" style="color:brown">"Toyota"</span>);<br>
+<span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"I like "</span> . $cars[<span class="phpnumbercolor" style="color:red">0</span>] . <span class="phpstringcolor" style="color:brown">", "</span> . $cars[<span class="phpnumbercolor" style="color:red">1</span>] . <span class="phpstringcolor" style="color:brown">" and "</span> . $cars[<span class="phpnumbercolor" style="color:red">2</span>] . <span class="phpstringcolor" style="color:brown">"."</span>;<br>
+<span class="phptagcolor" style="color:red">?&gt;</span></span>
+ </div>
+ </div>
+<hr>
+
+<h2>What is an Array?</h2>
+<p>An array is a special variable, which can hold more than one value at a time.</p>
+<p>If you have a list of items (a list of car names, for Sample), storing the cars in single variables could look like this:</p>
+
+<div class="w3-code w3-border notranslate"><div>
+$cars1 = "Volvo";<br>
+$cars2 = "BMW";<br>
+$cars3 = "Toyota";
+</div></div>
+
+<p>However, what if you want to loop through the cars and find a specific one? And what if you had not 3 cars, but 300?</p>
+<p>The solution is to create an array!</p>
+<p>An array can hold many values under a single name, and you can access the values by referring to an index number.</p>
+<hr>
+<h2>Create an Array in PHP</h2>
+<p>In PHP, the <code class="w3-codespan">array()</code> function is used to create an array:</p>
+<div class="w3-code w3-border notranslate"><div>
+ array();</div></div>
+
+<p>In PHP, there are three types of arrays:</p>
+<ul>
+  <li><b>Indexed arrays</b> - Arrays with a numeric index</li>
+  <li><b>Associative arrays</b> - Arrays with named keys</li>
+  <li><b>Multidimensional arrays</b> - Arrays containing one or more arrays</li>
+</ul>
+ 
+
+<h2>Get The Length of an Array - The count() Function</h2>
+<p>The <code class="w3-codespan">count()</code> function is used to return the length (the number of elements) of 
+an array:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code htmlHigh notranslate">
+<span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br><span class="phpnumbercolor" style="color:red">
+</span> $cars = <span class="phpkeywordcolor" style="color:mediumblue">array</span>(<span class="phpstringcolor" style="color:brown">"Volvo"</span>, <span class="phpstringcolor" style="color:brown">"BMW"</span>, <span class="phpstringcolor" style="color:brown">"Toyota"</span>);<br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> count($cars);<br><span class="phptagcolor" style="color:red">?&gt;</span></span>
+ </div>
+ </div>
+<hr>
+
+<h2>Complete PHP Array Reference</h2>
+<p>For a complete reference of all array functions, go to our complete PHP Array Reference</a>.</p>
+<p>The reference contains a brief description, and Sample of use, for each function!</p>
+ 
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+<p>&nbsp;</p>
+    <p>&nbsp;</p>
+
+  <div class="w3-row w3-white">
+     
+
+<h1>PHP <span class="color_h1">Indexed Arrays</span></h1>
+ 
+<h2>PHP Indexed Arrays</h2>
+<p>There are two ways to create indexed arrays:</p>
+<p>The index can be assigned automatically (index 
+always starts at 0), like this:</p>
+<div class="w3-code w3-border notranslate"><div>
+$cars = array("Volvo", "BMW", "Toyota");</div></div>
+
+<p>or the index can be assigned manually:</p>
+<div class="w3-code w3-border notranslate"><div>
+$cars[0] = "Volvo";<br>
+$cars[1] = "BMW";<br>
+$cars[2] = "Toyota";
+</div></div>
+<p>The following Sample creates an indexed array named $cars, assigns three 
+elements to it, and then prints a text containing the array values:</p>
+
+<div class="w3-Sample">
+ <div class="w3-code htmlHigh notranslate">
+<span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br><span class="phpnumbercolor" style="color:red">
+</span> $cars = <span class="phpkeywordcolor" style="color:mediumblue">array</span>(<span class="phpstringcolor" style="color:brown">"Volvo"</span>, <span class="phpstringcolor" style="color:brown">"BMW"</span>, <span class="phpstringcolor" style="color:brown">"Toyota"</span>);<br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"I like "</span> . $cars[<span class="phpnumbercolor" style="color:red">0</span>] . <span class="phpstringcolor" style="color:brown">", "</span> . $cars[<span class="phpnumbercolor" style="color:red">1</span>] . <span class="phpstringcolor" style="color:brown">" and "</span> . $cars[<span class="phpnumbercolor" style="color:red">2</span>] . <span class="phpstringcolor" style="color:brown">"."</span>;<br>
+<span class="phptagcolor" style="color:red">?&gt;</span></span>
+ </div>
+ </div>
+<hr>
+
+<h2>Loop Through an Indexed Array</h2>
+<p>To loop through and print all the values of an indexed array, you could use a <code class="w3-codespan">for</code> loop, like this:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code htmlHigh notranslate">
+<span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br><span class="phpnumbercolor" style="color:red">
+</span> $cars = <span class="phpkeywordcolor" style="color:mediumblue">array</span>(<span class="phpstringcolor" style="color:brown">"Volvo"</span>, <span class="phpstringcolor" style="color:brown">"BMW"</span>, <span class="phpstringcolor" style="color:brown">"Toyota"</span>);<br><span class="phpnumbercolor" style="color:red">
+</span> $arrlength = count($cars);<br><br><span class="phpkeywordcolor" style="color:mediumblue">for</span>($x = <span class="phpnumbercolor" style="color:red">0</span>; $x &lt; $arrlength; $x++) {<br>&nbsp; <span class="phpkeywordcolor" style="color:mediumblue">echo</span> $cars[$x];<br>&nbsp;&nbsp;<span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"&lt;br&gt;"</span>;<br>}<br><span class="phptagcolor" style="color:red">?&gt;</span></span>
+ </div>
+ </div>
+ 
+
+<h2>Complete PHP Array Reference</h2>
+<p>For a complete reference of all array functions, go to our complete  PHP Array Reference</a>.</p>
+<p>The reference contains a brief description, and Sample of use, for each function!</p>
+<hr>
+ 
+ <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+ 
+ <div class="w3-row w3-white">
+    
+     
+
+<h1>PHP <span class="color_h1">Associative Arrays</span></h1>
+ 
+<h2>PHP Associative Arrays</h2>
+<p>Associative arrays are arrays that use named keys that you assign to them.</p>
+<p>There are two ways to create an associative array:&nbsp;</p>
+<div class="w3-code w3-border notranslate"><div>
+
+$age = array("Peter"=&gt;"35", "Ben"=&gt;"37", "Joe"=&gt;"43");</div></div>
+<p>or:</p>
+<div class="w3-code w3-border notranslate"><div>
+
+$age['Peter'] = "35";<br>
+$age['Ben'] = "37";<br>
+$age['Joe'] = "43"; 
+</div></div>
+<p>The named keys can then be used in a script:</p>
+
+<div class="w3-Sample">
+ <div class="w3-code htmlHigh notranslate">
+<span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br>
+
+$age = <span class="phpkeywordcolor" style="color:mediumblue">array</span>(<span class="phpstringcolor" style="color:brown">"Peter"</span>=&gt;<span class="phpstringcolor" style="color:brown">"35"</span>, <span class="phpstringcolor" style="color:brown">"Ben"</span>=&gt;<span class="phpstringcolor" style="color:brown">"37"</span>, <span class="phpstringcolor" style="color:brown">"Joe"</span>=&gt;<span class="phpstringcolor" style="color:brown">"43"</span>);<br>
+<span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"Peter is "</span> . $age[<span class="phpstringcolor" style="color:brown">'Peter'</span>] . <span class="phpstringcolor" style="color:brown">" years old."</span>;<br>
+<span class="phptagcolor" style="color:red">?&gt;</span></span>
+ </div>
+ </div>
+<hr>
+
+<h2>Loop Through an Associative Array</h2>
+<p>To loop through and print all the values of an associative array, you could use a <code class="w3-codespan">foreach</code> loop, like this:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code htmlHigh notranslate">
+ <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br>$age = <span class="phpkeywordcolor" style="color:mediumblue">array</span>(<span class="phpstringcolor" style="color:brown">"Peter"</span>=&gt;<span class="phpstringcolor" style="color:brown">"35"</span>, <span class="phpstringcolor" style="color:brown">"Ben"</span>=&gt;<span class="phpstringcolor" style="color:brown">"37"</span>, <span class="phpstringcolor" style="color:brown">"Joe"</span>=&gt;<span class="phpstringcolor" style="color:brown">"43"</span>);<br><span class="phpnumbercolor" style="color:red">
+</span> <br><span class="phpkeywordcolor" style="color:mediumblue">foreach</span>($age <span class="phpkeywordcolor" style="color:mediumblue">as</span> $x =&gt; $x_value) {<br>&nbsp; <span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"Key="</span> . $x . <span class="phpstringcolor" style="color:brown">", Value="</span> . $x_value;<br>&nbsp;&nbsp;<span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"&lt;br&gt;"</span>;<br>}<br><span class="phptagcolor" style="color:red">?&gt;</span></span>
+ </div>
+ </div>
+ 
+
+<h2>Complete PHP Array Reference</h2>
+<p>For a complete reference of all array functions, go to our complete PHP Array Reference</a>.</p>
+<p>The reference contains a brief description, and Sample of use, for each function!</p>
+<hr>
+  <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <div class="w3-row w3-white">
+    
+
+<h1>PHP <span class="color_h1">Multidimensional Arrays</span></h1>
+ 
+<p class="intro">In the previous pages, we have described arrays that are a 
+single list of key/value pairs.</p>
+<p class="intro">However, sometimes you want to store values with more than one 
+key. For this, we have multidimensional arrays.</p>
+<hr>
+
+<h2>PHP - Multidimensional Arrays</h2>
+<p>A multidimensional array is an array containing one or more arrays.</p>
+<p>PHP supports multidimensional arrays that are two, three, four, five, or 
+more levels deep. However, arrays more than three levels deep are hard to manage for most people.</p>
+
+<div class="w3-panel w3-note"><p>
+<strong>The dimension of an array indicates the number of indices you need to select an element.</strong>
+</p><ul>
+<li>For a two-dimensional array you need two indices to select an element</li>
+<li>For a three-dimensional array you need three indices to select an element</li>
+</ul></div>
+
+<hr>
+
+<h2>PHP - Two-dimensional Arrays</h2>
+<p>A two-dimensional array is an array of arrays (a three-dimensional array is an array of arrays of arrays).</p>
+<p>First, take a look at the following table:</p>
+<table class="ws-table-all notranslate">
+  <tbody><tr>
+    <th>Name</th>
+    <th>Stock</th>
+    <th>Sold</th>
+  </tr>
+  <tr>
+    <td>Volvo</td>
+    <td>22</td>
+    <td>18</td>
+  </tr>
+  <tr>
+    <td>BMW</td>
+    <td>15</td>
+    <td>13</td>
+  </tr>
+  <tr>
+    <td>Saab</td>
+    <td>5</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>Land Rover</td>
+    <td>17</td>
+    <td>15</td>
+  </tr>
+</tbody></table>
+
+<p>We can store the data from the table above in a two-dimensional array, like this:</p>
+<div class="w3-code w3-border notranslate"><div>
+ $cars = array (<br>&nbsp; array("Volvo",22,18),<br>&nbsp; array("BMW",15,13),<br>&nbsp; array("Saab",5,2),<br>&nbsp; array("Land Rover",17,15)<br>);</div></div>
+
+<p>Now the two-dimensional $cars array contains four arrays, and it has two indices: row and column.</p>
+<p>To get access to the elements of the $cars array we must point to the two 
+indices (row and column):</p>
+<div class="w3-Sample">
+ <div class="w3-code htmlHigh notranslate">
+ <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> $cars[<span class="phpnumbercolor" style="color:red">0</span>][<span class="phpnumbercolor" style="color:red">0</span>].<span class="phpstringcolor" style="color:brown">": In stock: "</span>.$cars[<span class="phpnumbercolor" style="color:red">0</span>][<span class="phpnumbercolor" style="color:red">1</span>].<span class="phpstringcolor" style="color:brown">", sold: "</span>.$cars[<span class="phpnumbercolor" style="color:red">0</span>][<span class="phpnumbercolor" style="color:red">2</span>].<span class="phpstringcolor" style="color:brown">".&lt;br&gt;"</span>;<br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> $cars[<span class="phpnumbercolor" style="color:red">1</span>][<span class="phpnumbercolor" style="color:red">0</span>].<span class="phpstringcolor" style="color:brown">": In stock: "</span>.$cars[<span class="phpnumbercolor" style="color:red">1</span>][<span class="phpnumbercolor" style="color:red">1</span>].<span class="phpstringcolor" style="color:brown">", sold: "</span>.$cars[<span class="phpnumbercolor" style="color:red">1</span>][<span class="phpnumbercolor" style="color:red">2</span>].<span class="phpstringcolor" style="color:brown">".&lt;br&gt;"</span>;<br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> $cars[<span class="phpnumbercolor" style="color:red">2</span>][<span class="phpnumbercolor" style="color:red">0</span>].<span class="phpstringcolor" style="color:brown">": In stock: "</span>.$cars[<span class="phpnumbercolor" style="color:red">2</span>][<span class="phpnumbercolor" style="color:red">1</span>].<span class="phpstringcolor" style="color:brown">", sold: "</span>.$cars[<span class="phpnumbercolor" style="color:red">2</span>][<span class="phpnumbercolor" style="color:red">2</span>].<span class="phpstringcolor" style="color:brown">".&lt;br&gt;"</span>;<br><span class="phpkeywordcolor" style="color:mediumblue">echo</span> $cars[<span class="phpnumbercolor" style="color:red">3</span>][<span class="phpnumbercolor" style="color:red">0</span>].<span class="phpstringcolor" style="color:brown">": In stock: "</span>.$cars[<span class="phpnumbercolor" style="color:red">3</span>][<span class="phpnumbercolor" style="color:red">1</span>].<span class="phpstringcolor" style="color:brown">", sold: "</span>.$cars[<span class="phpnumbercolor" style="color:red">3</span>][<span class="phpnumbercolor" style="color:red">2</span>].<span class="phpstringcolor" style="color:brown">".&lt;br&gt;"</span>;<br><span class="phptagcolor" style="color:red">?&gt;</span></span> </div>
+ </div>
+<p>We can also put a <code class="w3-codespan">for</code> loop inside another <code class="w3-codespan">for</code> loop to get the elements of the 
+$cars array (we still have to point to the two indices):</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code htmlHigh notranslate">
+ <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br><span class="phpkeywordcolor" style="color:mediumblue">for</span> ($row = <span class="phpnumbercolor" style="color:red">0</span>; $row &lt; <span class="phpnumbercolor" style="color:red">4</span>; $row++) {<br>&nbsp; <span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"&lt;p&gt;&lt;b&gt;Row number $row&lt;/b&gt;&lt;/p&gt;"</span>;<br>&nbsp; <span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"&lt;ul&gt;"</span>;<br>&nbsp; <span class="phpkeywordcolor" style="color:mediumblue">for</span> ($col = <span class="phpnumbercolor" style="color:red">0</span>; $col &lt; <span class="phpnumbercolor" style="color:red">3</span>; $col++) {<br>&nbsp;&nbsp;&nbsp; <span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"&lt;li&gt;"</span>.$cars[$row][$col].<span class="phpstringcolor" style="color:brown">"&lt;/li&gt;"</span>;<br>&nbsp; }<br>&nbsp; <span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"&lt;/ul&gt;"</span>;<br>}<br><span class="phptagcolor" style="color:red">?&gt;</span></span> </div>
+ </div>
+
+
+
+ <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+
+  <div class="w3-row w3-white">
+   
+
+<h1>PHP <span class="color_h1">Sorting Arrays</span></h1>
+ 
+<p class="intro">The elements in an array can be sorted in alphabetical or numerical order, descending or ascending.</p>
+<hr>
+
+<h2>PHP - Sort Functions For Arrays</h2>
+<p>In this chapter, we will go through the following PHP array sort functions:</p>
+<ul>
+  <li><code class="w3-codespan">sort()</code> - sort arrays in ascending order</li>
+  <li><code class="w3-codespan">rsort()</code> - sort arrays in descending order</li>
+  <li><code class="w3-codespan">asort()</code> - sort associative arrays in ascending order, according to the value</li>
+  <li><code class="w3-codespan">ksort()</code> - sort associative arrays in ascending order, according to the key</li>
+  <li><code class="w3-codespan">arsort()</code> - sort associative arrays in descending order, according to the value</li>
+  <li><code class="w3-codespan">krsort()</code> - sort associative arrays in descending order, according to the key</li>
+</ul>
+<hr>
+
+<h2>Sort Array in Ascending Order - sort()</h2>
+<p>The following Sample sorts the elements of the $cars array in ascending alphabetical order:</p>
+<div class="w3-Sample">
+ <div class="w3-code htmlHigh notranslate">
+<span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br><span class="phpnumbercolor" style="color:red">
+</span> $cars = <span class="phpkeywordcolor" style="color:mediumblue">array</span>(<span class="phpstringcolor" style="color:brown">"Volvo"</span>, <span class="phpstringcolor" style="color:brown">"BMW"</span>, <span class="phpstringcolor" style="color:brown">"Toyota"</span>);<br>sort($cars);<br><span class="phptagcolor" style="color:red">?&gt;</span></span>
+ </div>
+ </div>
+
+<p>The following Sample sorts the elements of the $numbers array in ascending 
+numerical order:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code htmlHigh notranslate">
+<span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br><span class="phpnumbercolor" style="color:red">
+</span> $numbers = <span class="phpkeywordcolor" style="color:mediumblue">array</span>(<span class="phpnumbercolor" style="color:red">4</span>, <span class="phpnumbercolor" style="color:red">6</span>, <span class="phpnumbercolor" style="color:red">2</span>, <span class="phpnumbercolor" style="color:red">22</span>, <span class="phpnumbercolor" style="color:red">11</span>);<br>sort($numbers);<br><span class="phptagcolor" style="color:red">?&gt;</span></span>
+ </div>
+ </div>
+ 
+<h2>Sort Array in Descending Order - rsort()</h2>
+<p>The following Sample sorts the elements of the $cars array in descending alphabetical order:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code htmlHigh notranslate">
+<span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br><span class="phpnumbercolor" style="color:red">
+</span> $cars = <span class="phpkeywordcolor" style="color:mediumblue">array</span>(<span class="phpstringcolor" style="color:brown">"Volvo"</span>, <span class="phpstringcolor" style="color:brown">"BMW"</span>, <span class="phpstringcolor" style="color:brown">"Toyota"</span>);<br>rsort($cars);<br><span class="phptagcolor" style="color:red">?&gt;</span></span>
+ </div>
+ </div>
+<p>The following Sample sorts the elements of the $numbers array in descending 
+numerical order:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code htmlHigh notranslate">
+<span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br><span class="phpnumbercolor" style="color:red">
+</span> $numbers = <span class="phpkeywordcolor" style="color:mediumblue">array</span>(<span class="phpnumbercolor" style="color:red">4</span>, <span class="phpnumbercolor" style="color:red">6</span>, <span class="phpnumbercolor" style="color:red">2</span>, <span class="phpnumbercolor" style="color:red">22</span>, <span class="phpnumbercolor" style="color:red">11</span>);<br>rsort($numbers);<br><span class="phptagcolor" style="color:red">?&gt;</span></span>
+ </div>
+ </div>
+<hr>
+
+<h2>Sort Array (Ascending Order), According to Value - asort()</h2>
+<p>The following Sample sorts an associative array in ascending order, 
+according to the value:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code htmlHigh notranslate">
+<span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br><span class="phpnumbercolor" style="color:red">
+</span> $age = <span class="phpkeywordcolor" style="color:mediumblue">array</span>(<span class="phpstringcolor" style="color:brown">"Peter"</span>=&gt;<span class="phpstringcolor" style="color:brown">"35"</span>, <span class="phpstringcolor" style="color:brown">"Ben"</span>=&gt;<span class="phpstringcolor" style="color:brown">"37"</span>, <span class="phpstringcolor" style="color:brown">"Joe"</span>=&gt;<span class="phpstringcolor" style="color:brown">"43"</span>);<br><span class="phpnumbercolor" style="color:red">
+</span> asort($age);<br><span class="phptagcolor" style="color:red">?&gt;</span></span>
+ </div>
+ </div>
+<hr>
+
+<h2>Sort Array (Ascending Order), According to Key - ksort()</h2>
+<p>The following Sample sorts an associative array in ascending order, 
+according to the key:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code htmlHigh notranslate">
+<span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br><span class="phpnumbercolor" style="color:red">
+</span> $age = <span class="phpkeywordcolor" style="color:mediumblue">array</span>(<span class="phpstringcolor" style="color:brown">"Peter"</span>=&gt;<span class="phpstringcolor" style="color:brown">"35"</span>, <span class="phpstringcolor" style="color:brown">"Ben"</span>=&gt;<span class="phpstringcolor" style="color:brown">"37"</span>, <span class="phpstringcolor" style="color:brown">"Joe"</span>=&gt;<span class="phpstringcolor" style="color:brown">"43"</span>);<br><span class="phpnumbercolor" style="color:red">
+</span> ksort($age);<br><span class="phptagcolor" style="color:red">?&gt;</span></span>
+ </div>
+ </div>
+<hr>
+
+<h2>Sort Array (Descending Order), According to Value - arsort()</h2>
+<p>The following Sample sorts an associative array in descending order, 
+according to the value:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code htmlHigh notranslate">
+<span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br><span class="phpnumbercolor" style="color:red">
+</span> $age = <span class="phpkeywordcolor" style="color:mediumblue">array</span>(<span class="phpstringcolor" style="color:brown">"Peter"</span>=&gt;<span class="phpstringcolor" style="color:brown">"35"</span>, <span class="phpstringcolor" style="color:brown">"Ben"</span>=&gt;<span class="phpstringcolor" style="color:brown">"37"</span>, <span class="phpstringcolor" style="color:brown">"Joe"</span>=&gt;<span class="phpstringcolor" style="color:brown">"43"</span>);<br><span class="phpnumbercolor" style="color:red">
+</span> arsort($age);<br><span class="phptagcolor" style="color:red">?&gt;</span></span>
+ </div>
+ </div>
+<hr>
+
+<h2>Sort Array (Descending Order), According to Key - krsort()</h2>
+<p>The following Sample sorts an associative array in descending order, 
+according to the key:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code htmlHigh notranslate">
+<span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br><span class="phpnumbercolor" style="color:red">
+</span> $age = <span class="phpkeywordcolor" style="color:mediumblue">array</span>(<span class="phpstringcolor" style="color:brown">"Peter"</span>=&gt;<span class="phpstringcolor" style="color:brown">"35"</span>, <span class="phpstringcolor" style="color:brown">"Ben"</span>=&gt;<span class="phpstringcolor" style="color:brown">"37"</span>, <span class="phpstringcolor" style="color:brown">"Joe"</span>=&gt;<span class="phpstringcolor" style="color:brown">"43"</span>);<br><span class="phpnumbercolor" style="color:red">
+</span> krsort($age);<br><span class="phptagcolor" style="color:red">?&gt;</span></span>
+ </div>
+ </div>
+<hr>
+ 

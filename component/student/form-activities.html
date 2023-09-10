@@ -1,0 +1,190 @@
+<style>
+    img {
+        width: 100%;
+    }
+</style>
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css" />
+<script src="./../../common/vendor/datatables/jquery.dataTables.js"></script>
+<script src="./../../common/common.js"></script>
+
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+<div class="container mt-4 mb-5 p-0">
+    <h3 class="mt-4">My Activities</h3>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="" id="activity-question">Question</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="" id="activity-answer">Answer </a>
+        </li>
+    </ul>
+    <div class="card shadow-sm p-0 m-0">
+        <div class="card-body mr-0 p-0" id="login-form">
+            <div id="card-form">
+                <div class="card-body">
+                    <div class="table-responsive" id="table-question">
+                        <table class="table table-bordered table-striped" id="dataTableQuestion" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Subject</th>
+                                    <th>Question</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Subject</th>
+                                    <th>Question</th>
+                                </tr>
+                            </tfoot>
+                            <tbody id="tableBodyQuestion">
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="table-responsive d-none" id="table-answer">
+                        <table class="table table-bordered table-striped" id="dataTableAnswer" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Answer</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Answer</th>
+                                </tr>
+                            </tfoot>
+                            <tbody id="tableBodyAnswer">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        var subjectList;
+        var activityAnswer = "";
+        var activityQuestion = "";
+
+        getSubjectList();
+        retrieveActivities();
+        $("#activity-question").on("click", function() {
+            $("#table-answer").addClass("d-none");
+            $("#table-question").removeClass("d-none");
+
+            $("#activity-question").addClass("active");
+            $("#activity-answer").removeClass("active");
+            event.preventDefault();
+        });
+
+        $("#activity-answer").on("click", function() {
+            $("#table-question").addClass("d-none");
+            $("#table-answer").removeClass("d-none");
+
+            $("#activity-answer").addClass("active");
+            $("#activity-question").removeClass("active");
+            event.preventDefault();
+        });
+
+        function populateQuestionRow(questionID, date, subject, title) {
+            return `        
+                <tr>
+                    <td>${date}</td>
+                    <td>${subject}</td>
+                    <td><a href="?id=${questionID}#main-forum" id="${questionID}" class="button-select-question">
+                                    ${title}
+                                </a>
+                    </td>
+                </tr>`;
+        }
+
+        function populateAnswerRow(questionID, id, date, description) {
+            return `
+                <tr>
+                    <td>${date}</td>
+                    <td><a href="?id=${questionID}#main-forum" id="${questionID}" class="button-select-question">
+                                    ${description}
+                                </a>
+                    </td>
+                </tr>`;
+        }
+
+        function retrieveActivities() {
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'retrieve-activities'
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode == 200) {
+                        var activityQuestion = "";
+                        activityAnswer = "";
+
+                        if (dataResult.questionList != null) {
+                            dataResult.questionList.forEach(question => {
+                                activityQuestion += populateQuestionRow(question.questionID, question.creationDateTime, getSubjectName(question.subjectID), question.title);
+                            });
+                        }
+
+                        if (dataResult.answerList != null) {
+                            dataResult.answerList.forEach(answer => {
+                                activityAnswer += populateAnswerRow(answer.questionID, answer.answerID, answer.creationDateTime, answer.answer);
+                            });
+                        }
+                        $("#tableBodyQuestion").html(activityQuestion);
+                        $("#tableBodyAnswer").html(activityAnswer);
+                    } else {
+                        alert("Unable to post the answer, please try again later!");
+                    }
+
+                    $('#dataTableQuestion').DataTable();
+                    $('#dataTableAnswer').DataTable();
+
+                    $(".button-select-question").on('click', function(event) {
+                        $("#main-container").load('./form-main-forum.html');
+                    });
+                }
+            });
+        }
+
+        function getSubjectList() {
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'retrieve-active-subject-list'
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var subjectOptions = "";
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode == 200) {
+                        subjectList = dataResult.subjectList;
+                    }
+                }
+            });
+        }
+
+        function getSubjectName(subjectID) {
+            var subjectName = "";
+            subjectList.forEach(subject => {
+                if (subjectID == subject['subjectID']) {
+                    subjectName = subject['subject'];
+                    return;
+                }
+            });
+            return subjectName;
+        }
+    });
+</script>

@@ -1,0 +1,100 @@
+
+  <div class="w3-row w3-white">
+      
+      <div class="w3-col l10 m12" id="main">
+        <div id="mainLeaderboard" style="overflow:hidden;">
+         
+  
+  <h1>How to <span class="color_h1">Output / Print?</span></h1>
+  <p>&nbsp;</p>
+ 
+  
+  <h2>Print Text</h2>
+  
+  <p>You learned from the previous chapter that you can use the <code class="w3-codespan">println()</code> method to output values or print text in Java:</p>
+  <div class="w3-Sample">
+  
+  <pre class="w3-white language-java" tabindex="0"><code class="language-java"><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Hello World!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  </code></pre>
+  
+  
+  <p>You can add as many <code class="w3-codespan">println()</code> methods as you want. Note that it will add a new line for each method:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <pre class="w3-white language-java" tabindex="0"><code class="language-java"><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Hello World!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"I am learning Java."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"It is awesome!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  </code></pre>
+  
+  
+  <h2>Double Quotes</h2>
+  <p>When you are working with text, it must be wrapped inside double quotations marks <code class="w3-codespan">""</code>.</p>
+  <p>If you forget the double quotes, an error occurs:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <pre class="w3-white language-java" tabindex="0"><code class="language-java"><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"This sentence will work!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+  <pre class="w3-white w3-border-red language-java" tabindex="0"><code class="language-java"><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">This</span> sentence will produce an error<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+  
+  
+  
+  
+  <h2>The Print() Method</h2>
+  
+  <p>There is also a <code class="w3-codespan">print()</code> method, which is similar to <code class="w3-codespan">println()</code>.</p>
+  
+  <p>The only difference is that it does not insert a new line at the end of the output:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <pre class="w3-white language-java" tabindex="0"><code class="language-java"><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"Hello World! "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"I will print on the same line."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  </code></pre>
+  <p>
+  </p></div>
+  <p>Note that we add an extra space (after "Hello World!" in the Sample above), 
+  for better readability.</p>
+  
+  <div class="w3-note w3-panel">
+  <p>In this tutorial, we will only use <code class="w3-codespan">println()</code> as it makes it easier to read the output of code.</p>
+  
+  
+
+
+
+
+
+
+    <div class="w3-row w3-white">
+      
+  
+  
+  <h1>Java <span class="color_h1">Output Numbers</span></h1>
+  
+  
+  <h2>Print Numbers</h2>
+  
+  <p>You can also use the <code class="w3-codespan">println()</code> method to 
+  print numbers.</p>
+  <p>However, unlike text, we don't put numbers inside double 
+  quotes:</p>
+  <div class="w3-Sample">
+  <pre class="w3-white language-java" tabindex="0"><code class="language-java"><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token number">358</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token number">50000</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+  <p>
+  </p></div>
+  
+  <p>You can also perform mathematical calculations inside the <code class="w3-codespan">println()</code> method:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <pre class="w3-white language-java" tabindex="0"><code class="language-java"><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token number">3</span> <span class="token operator">+</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+  <p>
+  </p></div>
+  
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <pre class="w3-white language-java" tabindex="0"><code class="language-java"><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator">*</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+  <p>
+  </p></div>
+  
+  
+ 

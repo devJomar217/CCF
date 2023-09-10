@@ -1,0 +1,208 @@
+<!-- VARIABLES-->
+
+  <div class="w3-row w3-white">
+    
+   
+<h1>What is  <span class="color_h1">Variables in C++?</span></h1>
+<p>&nbsp;</p>
+<h2>C++ Variables</h2>
+
+<p>Variables are containers for storing data values. </p>
+<p>In C++, there are different <strong>types</strong> of variables (defined with different keywords), for Sample:</p>
+
+<ul>
+ <li><code class="w3-codespan">int</code> - stores integers (whole numbers), without decimals, such as 123 or -123</li>
+ <li><code class="w3-codespan">double</code> - stores floating point numbers, with decimals, such as 19.99 or -19.99</li>
+ <li><code class="w3-codespan">char</code> - stores single characters, such as 'a' or 'B'. 
+ Char values are surrounded by single quotes</li>
+ <li><code class="w3-codespan">string</code> - stores text, such as "Hello World". 
+ String values are surrounded by double quotes</li>
+ <li><code class="w3-codespan">bool</code> - stores values with two states: 
+ true or false</li>
+</ul>
+<hr>
+<h2>Declaring (Creating) Variables</h2>
+<p>To create a variable, specify the type and assign it a value:</p>
+<div class="w3-Sample">
+<h3>Syntax</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  <em>type</em> <em>variableName</em> = <em>value</em>; </span></div>
+</div>
+<p>Where <em>type</em> is one of C++ types (such as <code class="w3-codespan">int</code>), and 
+<em>variableName</em> is the name of the variable (such as <strong>x</strong> or
+<strong>myName</strong>). The <b>equal sign</b> is used to assign values to the variable.</p>
+
+<p>To create a variable that should store a number, look at the following Sample:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Create a variable called <strong>myNum</strong> of type <code class="w3-codespan">int</code> and assign it the value <strong>15</strong>:</p>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  <span class="javakeywordcolor" style="color:mediumblue">int</span> myNum = <span class="javanumbercolor" style="color:red">15</span>;<br>cout &lt;&lt; myNum; </span></div>
+</div>
+
+<p>You can also declare a variable without assigning the value, and assign the value later:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  <span class="javakeywordcolor" style="color:mediumblue">int</span> myNum;<br>myNum = <span class="javanumbercolor" style="color:red">15</span>;<br>cout &lt;&lt; myNum; </span></div>
+</div>
+
+<p>Note that if you assign a new value to an existing variable, it will overwrite the previous value:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  <span class="javakeywordcolor" style="color:mediumblue">int</span> myNum = <span class="javanumbercolor" style="color:red">15</span>;&nbsp;&nbsp;<span class="commentcolor" style="color:green">// myNum is 15<br></span>myNum = <span class="javanumbercolor" style="color:red">10</span>;&nbsp; <span class="commentcolor" style="color:green">// Now myNum is 10<br></span>cout &lt;&lt; myNum;&nbsp; <span class="commentcolor" style="color:green">// Outputs 10 </span></span></div>
+</div>
+
+
+<h2>Other Types</h2>
+<p>A demonstration of other data types:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  <span class="javakeywordcolor" style="color:mediumblue">int</span> myNum = <span class="javanumbercolor" style="color:red">5</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="javanumbercolor" style="color:red">
+</span>  <span class="commentcolor" style="color:green">// Integer (whole number without decimals)<br></span><span class="javakeywordcolor" style="color:mediumblue">double</span> myFloatNum = <span class="javanumbercolor" style="color:red">5.99</span>;&nbsp;&nbsp;&nbsp; <span class="javanumbercolor" style="color:red">
+</span>  <span class="commentcolor" style="color:green">// Floating point number (with decimals)<br></span><span class="javakeywordcolor" style="color:mediumblue">char</span> myLetter = <span class="javastringcolor" style="color:brown">'D'</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="javanumbercolor" style="color:red">
+</span>  <span class="commentcolor" style="color:green">// Character<br></span>string myText = <span class="javastringcolor" style="color:brown">"Hello"</span>;&nbsp;&nbsp;&nbsp;&nbsp; <span class="javanumbercolor" style="color:red">
+</span>  <span class="commentcolor" style="color:green">// String (text)<br></span>bool <span class="javanumbercolor" style="color:red">
+</span>  myBoolean = <span class="javakeywordcolor" style="color:mediumblue">true</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// Boolean (true or 
+  false) </span></span></div>
+</div>
+<div class="w3-note w3-panel">
+<p>You will learn more about the individual types in the  Data Types</a> chapter.</p>
+</div>
+<hr>
+
+<h2>Display Variables</h2>
+<p>The <code class="w3-codespan">cout</code> object is used together with the <code class="w3-codespan">&lt;&lt;</code> 
+operator to display variables.</p>
+<p>To combine both text and a variable, separate them with the <code class="w3-codespan">&lt;&lt;</code> 
+operator:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  <span class="javakeywordcolor" style="color:mediumblue">int</span> myAge = <span class="javanumbercolor" style="color:red">35</span>;<br>cout &lt;&lt; <span class="javastringcolor" style="color:brown">"I am "</span> &lt;&lt; myAge &lt;&lt; <span class="javastringcolor" style="color:brown">" years old."</span>; </span></div>
+</div>
+<hr>
+
+<h2>Add Variables Together</h2>
+
+<p>To add a variable to another variable, you can use the <code class="w3-codespan">+</code> 
+operator:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  <span class="javakeywordcolor" style="color:mediumblue">int</span> x = <span class="javanumbercolor" style="color:red">5</span>;<br><span class="javakeywordcolor" style="color:mediumblue">int</span> y = <span class="javanumbercolor" style="color:red">6</span>;<br><span class="javakeywordcolor" style="color:mediumblue">int</span> sum = x + y;<br>cout &lt;&lt; sum; </span></div>
+</div>
+
+
+ <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+
+<p>&nbsp;</p>
+    <p>&nbsp;</p>  
+
+
+  <div class="w3-row w3-white">
+    
+    
+
+<h1>C++ <span class="color_h1">Declare Multiple Variables</span></h1>
+
+<hr>
+
+<h2>Declare Many Variables</h2>
+<p>To declare more than one variable of the <strong>same type</strong>, 
+use a comma-separated list:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  <span class="javakeywordcolor" style="color:mediumblue">int</span> x = <span class="javanumbercolor" style="color:red">5</span>, y = <span class="javanumbercolor" style="color:red">6</span>, z = <span class="javanumbercolor" style="color:red">50</span>;<br>cout &lt;&lt; <span class="javanumbercolor" style="color:red">
+</span>  x + y + z;<br> </span></div>
+</div>
+<hr>
+
+<h2>One Value to Multiple Variables</h2>
+<p>You can also assign the <strong>same value</strong> to multiple variables in one line:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  <span class="javakeywordcolor" style="color:mediumblue">int</span> x, y, z;<br>x = y = z = <span class="javanumbercolor" style="color:red">50</span>;<br>cout &lt;&lt; x + y + z;<br> </span></div>
+</div>
+<hr>
+
+
+ <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+<p>&nbsp;</p>
+    <p>&nbsp;</p>  
+
+
+  <div class="w3-row w3-white">
+    
+    
+
+<h1>C++ <span class="color_h1">Identifiers</span></h1>
+
+<hr>
+
+<h2>C++ Identifiers</h2>
+<p>All C++ <strong>variables</strong> must be
+<strong>identified</strong> with <strong>unique names</strong>.</p>
+<p>These unique names are called <strong>identifiers</strong>.</p>
+
+<p>Identifiers can be short names (like x and y) or more descriptive names (age, sum, totalVolume).</p>
+<p><strong>Note:</strong> It is recommended to use descriptive names in order to 
+create understandable and maintainable code:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  <span class="commentcolor" style="color:green">// Good<br></span><span class="javakeywordcolor" style="color:mediumblue">int</span> minutesPerHour = <span class="javanumbercolor" style="color:red">60</span>;<br><br><span class="commentcolor" style="color:green">// OK, but not so easy to 
+  understand what <strong>m</strong> actually is<br></span><span class="javakeywordcolor" style="color:mediumblue">int</span>  <span class="javanumbercolor" style="color:red">
+</span>  m = <span class="javanumbercolor" style="color:red">60</span>;<br> </span></div>
+</div>
+
+<p>The general rules for naming variables are:</p>
+<ul>
+  <li>Names can contain letters, digits and underscores</li>
+  <li>Names must begin with a letter or an underscore (_)</li>
+  <li>Names are case sensitive (<code class="w3-codespan">myVar</code> and <code class="w3-codespan">myvar</code> are different variables)</li>
+  <li>Names cannot contain whitespaces or special characters like !, #, %, etc.</li>
+  <li>Reserved words (like C++ keywords, such as <code class="w3-codespan">int</code>) cannot be used as names</li>
+</ul>
+
+
+   <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+   <p>&nbsp;</p> 
+   <p>&nbsp;</p> 
+  
+
+<h1>C++ <span class="color_h1">Constants</span></h1>
+
+
+<h2>Constants</h2>
+<p>When you do not want others (or yourself) to change existing variable values, use the <code class="w3-codespan">const</code> keyword (this will declare the 
+variable as "constant", which means <strong>unchangeable and read-only</strong>):</p>
+
+<div class="w3-Sample w3-pale-red">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh w3-border-red"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  <strong><span class="javakeywordcolor" style="color:mediumblue">const</span></strong> <span class="javakeywordcolor" style="color:mediumblue">int</span> myNum = <span class="javanumbercolor" style="color:red">15</span>;&nbsp; <span class="commentcolor" style="color:green">// myNum will always be 15<br></span>myNum = <span class="javanumbercolor" style="color:red">10</span>;&nbsp; <span class="commentcolor" style="color:green">// error: 
+  assignment of read-only variable 'myNum' </span></span></div>
+</div>
+
+<p>You should always declare the variable as constant when you have values that are unlikely to change:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate javaHigh"><span class="javacolor" style="color:black"><span class="javanumbercolor" style="color:red">
+</span>  <strong><span class="javakeywordcolor" style="color:mediumblue">const</span></strong> <span class="javakeywordcolor" style="color:mediumblue">int</span> minutesPerHour = <span class="javanumbercolor" style="color:red">60</span>;<br><span class="javanumbercolor" style="color:red">
+</span>  <strong><span class="javakeywordcolor" style="color:mediumblue">const</span></strong> <span class="javakeywordcolor" style="color:mediumblue">float</span> PI = <span class="javanumbercolor" style="color:red">3.14</span>; </span></div>
+</div>
+

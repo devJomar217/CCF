@@ -1,0 +1,995 @@
+<!-- Lists-->
+
+ 
+  <div class="w3-row w3-white">
+ 
+
+<h1>What is <span class="color_h1">Lists in Python?</span></h1>
+ 
+
+<div class="w3-codeline notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+mylist = [<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>]<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+
+<hr>
+
+<h2>List</h2>
+<p>Lists are used to store multiple items in a single variable.</p>
+<p>Lists are one of 4 built-in data types in Python used to store collections of 
+data, the other 3 are Tuple</a>, 
+ Set</a>, and Dictionary</a>, all with different qualities and usage.</p>
+<p>Lists are created using square brackets:</p>
+
+<div class="w3-Sample">
+ <p>Create a List:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thislist = [<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>]<br>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thislist)<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<hr>
+
+<h2>List Items</h2>
+<p>List items are ordered, changeable, and allow duplicate values.</p>
+<p>List items are indexed, the first item has index <code class="w3-codespan">[0]</code>,
+the second item has index <code class="w3-codespan">[1]</code> etc.</p>
+<hr>
+<h2>Ordered</h2>
+
+<p>When we say that lists are ordered, it means that the items have a defined order, and that order will not change.</p>
+
+<p>If you add new items to a list,
+the new items will be placed at the end of the list.</p>
+
+<div class="w3-panel w3-note">
+  <p><strong>Note:</strong> There are some list methods</a> that will change the order, but in general: the order of the items will not change.</p>
+</div>
+
+<hr>
+
+<h2>Changeable</h2>
+
+<p>The list is changeable, meaning that we can change, add, and remove items in a list after it has been created.</p>
+
+<hr>
+
+<h2>Allow Duplicates</h2>
+
+<p>Since lists are indexed, lists can have items with the same value:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Lists allow duplicate values:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thislist = [<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>, <span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>]<br>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thislist)<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+  
+
+<h2>List Length</h2>
+
+<p>To determine how many items a list has, use the <code class="w3-codespan">
+len()</code> function:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Print the number of items in the list:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thislist = [<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>]<br>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(<span class="pythonkeywordcolor" style="color:mediumblue">len</span>(thislist))<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<hr>
+
+<h2>List Items - Data Types</h2>
+
+<p>List items can be of any data type:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>String, int and boolean data types:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+list1 = [<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>]<br>
+list2 = [<span class="pythonnumbercolor" style="color:red">1</span>, <span class="pythonnumbercolor" style="color:red">5</span>, <span class="pythonnumbercolor" style="color:red">7</span>, <span class="pythonnumbercolor" style="color:red">9</span>, <span class="pythonnumbercolor" style="color:red">3</span>]<br>
+list3 = [<span class="pythonkeywordcolor" style="color:mediumblue">True</span>, <span class="pythonkeywordcolor" style="color:mediumblue">False</span>, <span class="pythonkeywordcolor" style="color:mediumblue">False</span>]<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<p>A list can contain different data types:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>A list with strings, integers and boolean values:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+list1 = [<span class="pythonstringcolor" style="color:brown">"abc"</span>, <span class="pythonnumbercolor" style="color:red">34</span>, <span class="pythonkeywordcolor" style="color:mediumblue">True</span>, <span class="pythonnumbercolor" style="color:red">40</span>, <span class="pythonstringcolor" style="color:brown">"male"</span>]<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<hr>
+<h2>type()</h2>
+
+<p>From Python's perspective, lists are defined as objects with the data type 'list':</p>
+
+<div class="w3-codeline notranslate">
+&lt;class 'list'&gt;
+</div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>What is the data type of a list?</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+mylist = [<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>]<br>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(<span class="pythonkeywordcolor" style="color:mediumblue">type</span>(mylist))<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<hr>
+
+<h2>The list() Constructor</h2>
+
+<p>It is also possible to use the <span class="w3-codespan">list()</span> constructor when creating a 
+new list.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Using the <code class="w3-codespan">list()</code> constructor to make a List:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thislist = list((<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>)) <span class="commentcolor" style="color:green"># note the double round-brackets<br></span>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thislist)<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<hr>
+<h2>Python Collections (Arrays)</h2>
+<p>There are four collection data types in the Python programming language:</p>
+<ul>
+<li><strong>List</strong> is a collection which is ordered and changeable. Allows duplicate members.</li>
+<li><strong> Tuple</a></strong> is a collection which is ordered and unchangeable. Allows duplicate members.</li>
+<li><strong> Set</a></strong> is a collection which is unordered, 
+unchangeable*, and unindexed. No duplicate members.</li>
+<li><strong> Dictionary</a></strong> is a collection which is ordered** 
+and changeable. No duplicate members.</li>
+</ul>
+
+<div class="w3-panel w3-note">
+  <p>*Set <em>items</em> are unchangeable, but you can remove and/or add items 
+  whenever you like.</p>
+  <p>**As of Python version 3.7, dictionaries are <em>ordered</em>. 
+  In Python 3.6 and earlier, dictionaries are <em>unordered</em>.</p>
+</div>
+ 
+
+
+
+ <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+ <p>&nbsp;</p>
+ <p>&nbsp;</p> 
+
+  <div class="w3-row w3-white">
+    
+ 
+<h1>Python - Access List Items</h1>
+ 
+<h2>Access Items</h2>
+
+<p>List items are indexed and you can access them by referring to the index number:</p>
+
+<div class="w3-Sample">
+ <p>Print the second item of the list:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thislist = [<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>]<br>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thislist[<span class="pythonnumbercolor" style="color:red">1</span>])<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<div class="w3-panel w3-note">
+  <p><strong>Note: </strong>The first item has index 0.</p>
+</div>
+
+<h3>Negative Indexing</h3>
+<p>Negative indexing means start from the end</p>
+<p><code class="w3-codespan">-1</code> refers to the last item, 
+<code class="w3-codespan">-2</code> refers to the second last item etc.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Print the last item of the list:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thislist = [<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>]<br>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thislist[-<span class="pythonnumbercolor" style="color:red">1</span>])<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<h3>Range of Indexes</h3>
+<p>You can specify a range of indexes by specifying where to start and where to 
+end the range.</p>
+<p>When specifying a range, the return value will be a new list with the 
+specified items.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Return the third, fourth, and fifth item:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thislist = [<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>, <span class="pythonstringcolor" style="color:brown">"orange"</span>, <span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonstringcolor" style="color:brown">"kiwi"</span>, <span class="pythonstringcolor" style="color:brown">"melon"</span>, <span class="pythonstringcolor" style="color:brown">"mango"</span>]<br>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thislist[<span class="pythonnumbercolor" style="color:red">2</span>:<span class="pythonnumbercolor" style="color:red">5</span>])<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<div class="w3-panel w3-note">
+  <p><strong>Note:</strong> The search will start at index 2 (included) and end at index 5 (not included).</p>
+</div>
+
+<div class="w3-panel w3-note">
+  <p>Remember that the first item has index 0.</p>
+</div>
+
+<p>By leaving out the start value, the range will start at the first item:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>This Sample returns the items from the beginning to, but NOT including, "kiwi":</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thislist = [<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>, <span class="pythonstringcolor" style="color:brown">"orange"</span>, <span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonstringcolor" style="color:brown">"kiwi"</span>, <span class="pythonstringcolor" style="color:brown">"melon"</span>, <span class="pythonstringcolor" style="color:brown">"mango"</span>]<br>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thislist[:<span class="pythonnumbercolor" style="color:red">4</span>])<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<p>By leaving out the end value, the range will go on to the end of the list:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>This Sample returns the items from "cherry" to the end:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thislist = [<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>, <span class="pythonstringcolor" style="color:brown">"orange"</span>, <span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonstringcolor" style="color:brown">"kiwi"</span>, <span class="pythonstringcolor" style="color:brown">"melon"</span>, <span class="pythonstringcolor" style="color:brown">"mango"</span>]<br>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thislist[<span class="pythonnumbercolor" style="color:red">2</span>:])<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+ 
+
+<h3>Range of Negative Indexes</h3>
+<p>Specify negative indexes if you want to start the search from the end of the 
+list:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>This Sample returns the items from "orange" (-4) to, but NOT including 
+"mango" (-1):</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thislist = [<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>, <span class="pythonstringcolor" style="color:brown">"orange"</span>, <span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonstringcolor" style="color:brown">"kiwi"</span>, <span class="pythonstringcolor" style="color:brown">"melon"</span>, <span class="pythonstringcolor" style="color:brown">"mango"</span>]<br>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thislist[-<span class="pythonnumbercolor" style="color:red">4</span>:-<span class="pythonnumbercolor" style="color:red">1</span>])<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<hr>
+
+<h2>Check if Item Exists</h2>
+
+<p>To determine if a specified item is present in a list use the <code class="w3-codespan">in</code> keyword:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Check if "apple" is present in the list:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thislist = [<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>]<br><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">if</span> <span class="pythonstringcolor" style="color:brown">"apple"</span> <span class="pythonkeywordcolor" style="color:mediumblue">in</span> thislist:<br>&nbsp; <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(<span class="pythonstringcolor" style="color:brown">"Yes, 'apple' is in the fruits list"</span>) </span></div>
+ </div>
+ 
+
+
+
+   <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+ <p>&nbsp;</p>
+    <p>&nbsp;</p> 
+
+  <div class="w3-row w3-white">
+    
+  
+
+<h1>Python - <span class="color_h1">Change List Items</span></h1>
+ 
+
+<h2>Change Item Value</h2>
+
+<p>To change the value of a specific item, 
+refer to the index number:</p>
+
+<div class="w3-Sample">
+ <p>Change the second item:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thislist = [<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>]<br>
+thislist[<span class="pythonnumbercolor" style="color:red">1</span>] = <span class="pythonstringcolor" style="color:brown">"blackcurrant"</span><br>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thislist)<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+
+<hr>
+
+<h2>Change a Range of Item Values</h2>
+
+<p>To change the value of items within a specific range, define a list with the new values, and refer to the range of index numbers where you want to insert the new values:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Change the values "banana" and "cherry" with the values "blackcurrant" and "watermelon":</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thislist = [<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>, <span class="pythonstringcolor" style="color:brown">"orange"</span>, <span class="pythonstringcolor" style="color:brown">"kiwi"</span>, <span class="pythonstringcolor" style="color:brown">"mango"</span>]<br>
+thislist[<span class="pythonnumbercolor" style="color:red">1</span>:<span class="pythonnumbercolor" style="color:red">3</span>] = [<span class="pythonstringcolor" style="color:brown">"blackcurrant"</span>, <span class="pythonstringcolor" style="color:brown">"watermelon"</span>]<br>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thislist)<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<p>If you insert <em>more</em> items than you replace, the new items will be inserted 
+where you specified, and the remaining items will move accordingly:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Change the second value by replacing it with <em>two</em> new 
+values:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  thislist = [<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>]<br>thislist[<span class="pythonnumbercolor" style="color:red">1</span>:<span class="pythonnumbercolor" style="color:red">2</span>] = [<span class="pythonstringcolor" style="color:brown">"blackcurrant"</span>, <span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonstringcolor" style="color:brown">"watermelon"</span>]<br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thislist)  </span></div>
+ </div>
+
+<div class="w3-panel w3-note">
+  <p><strong>Note:</strong> The length of the list will change when the number of items inserted does not match the number of items replaced.</p>
+</div>
+
+<p>If you insert <em>less</em> items than you replace, the new items will be inserted 
+where you specified, and the remaining items will move accordingly:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Change the second and third value by replacing it with <em>one</em>  
+value:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  thislist = [<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>]<br>thislist[<span class="pythonnumbercolor" style="color:red">1</span>:<span class="pythonnumbercolor" style="color:red">3</span>] = [<span class="pythonstringcolor" style="color:brown">"watermelon"</span>]<br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thislist)  </span></div>
+ </div>
+
+ 
+
+<h2>Insert Items</h2>
+
+<p>To insert a new list item, without replacing any of the existing values, we can use the <code class="w3-codespan">insert()</code> method.</p>
+
+<p>The <code class="w3-codespan">insert()</code> method inserts an item at the specified index:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Insert "watermelon" as the third item:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thislist = [<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>]<br>
+thislist.insert(<span class="pythonnumbercolor" style="color:red">2</span>, <span class="pythonstringcolor" style="color:brown">"watermelon"</span>)<br>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thislist)<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<div class="w3-panel w3-note">
+  <p><strong>Note:</strong> As a result of the Sample above, the list will now contain 4 items.</p>
+</div>
+
+ 
+
+
+
+   <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+   <p>&nbsp;</p>
+    <p>&nbsp;</p> 
+
+  <div class="w3-row w3-white">
+    
+   
+
+<h1>Python - Add List Items</h1>
+ 
+
+<h2>Append Items</h2>
+
+<p>To add an item to the end of the list, use the <span class="w3-codespan">append()</span> 
+method:</p>
+
+<div class="w3-Sample">
+ <p>Using the <code class="w3-codespan">append()</code> method to append an item:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thislist = [<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>]<br>
+thislist.append(<span class="pythonstringcolor" style="color:brown">"orange"</span>)<br>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thislist)<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<hr>
+
+<h2>Insert Items</h2>
+
+<p>To insert a list item at a specified index, use the <code class="w3-codespan">insert()</code> method.</p>
+
+<p>The <code class="w3-codespan">insert()</code> method inserts an item at the specified index:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Insert an item as the second position:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thislist = [<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>]<br>
+thislist.insert(<span class="pythonnumbercolor" style="color:red">1</span>, <span class="pythonstringcolor" style="color:brown">"orange"</span>)<br>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thislist)<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<div class="w3-panel w3-note">
+  <p><strong>Note:</strong> As a result of the Samples above, the lists will now contain 4 items.</p>
+</div>
+
+ 
+
+<h2>Extend List</h2>
+
+<p>To append elements from <em>another list</em> to the current list, use the <code class="w3-codespan">extend()</code> method.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Add the elements of <code class="w3-codespan">tropical</code> to <code class="w3-codespan">thislist</code>:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thislist = [<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>]<br>
+tropical = [<span class="pythonstringcolor" style="color:brown">"mango"</span>, <span class="pythonstringcolor" style="color:brown">"pineapple"</span>, <span class="pythonstringcolor" style="color:brown">"papaya"</span>]<br>
+thislist.extend(tropical)<br>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thislist)<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<p>The elements will be added to the <em>end</em> of the list.</p>
+<hr>
+
+<h2>Add Any Iterable</h2>
+
+<p>The <code class="w3-codespan">extend()</code> method does not have to append
+<em>lists</em>, you can add any iterable object (tuples, sets, dictionaries 
+etc.).</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Add elements of a tuple to a list:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thislist = [<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>]<br><span class="pythonnumbercolor" style="color:red">
+</span>  thistuple = (<span class="pythonstringcolor" style="color:brown">"kiwi"</span>, <span class="pythonstringcolor" style="color:brown">"orange"</span>)<br>
+thislist.extend(thistuple)<br>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thislist)<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+ 
+
+
+     <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+ <p>&nbsp;</p>
+    <p>&nbsp;</p> 
+
+  <div class="w3-row w3-white">
+    
+ 
+
+<h1>Python - Remove List Items</h1>
+ 
+<h2>Remove Specified Item</h2>
+
+<p>The <code class="w3-codespan">remove()</code> method removes the specified item.</p>
+
+<div class="w3-Sample">
+ <p>Remove "banana":</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thislist = [<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>]<br>
+thislist.remove(<span class="pythonstringcolor" style="color:brown">"banana"</span>)<br>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thislist)<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<hr>
+<h2>Remove Specified Index</h2>
+
+<p>The <code class="w3-codespan">pop()</code> method removes the specified 
+index.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Remove the second item:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thislist = [<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>]<br>
+thislist.pop(<span class="pythonnumbercolor" style="color:red">1</span>)<br>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thislist)<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<p>If you do not specify the index, the <code class="w3-codespan">pop()</code> method removes the last item.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Remove the last item:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thislist = [<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>]<br>
+thislist.pop()<br>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thislist)<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+
+<p>The <code class="w3-codespan">del</code> keyword also removes the specified 
+index:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Remove the first item:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thislist = [<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>]<br><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">del</span>
+thislist[<span class="pythonnumbercolor" style="color:red">0</span>]<br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thislist)<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<p>The <code class="w3-codespan">del</code> keyword can also delete the list completely.</p>
+
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Delete the entire list:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thislist = [<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>]<br><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">del</span>
+thislist </span></div>
+ </div>
+
+<hr>
+
+<h2>Clear the List</h2>
+
+<p>The <code class="w3-codespan">clear()</code> method empties the list.</p>
+
+<p>The list still remains, but it has no content.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Clear the list content:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thislist = [<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>]<br><span class="pythonnumbercolor" style="color:red">
+</span>  thislist.clear()<br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thislist)<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+ 
+
+
+     <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+     <p>&nbsp;</p>
+     <p>&nbsp;</p> 
+
+  <div class="w3-row w3-white">
+    
+    
+
+<h1>Python - Loop Lists</h1>
+ 
+
+<h2>Loop Through a List</h2>
+
+<p>You can loop through the list items by using a <code class="w3-codespan">for</code> 
+loop:</p>
+
+<div class="w3-Sample">
+ <p>Print all items in the list, one by one:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thislist = [<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>]<br><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">for</span> x <span class="pythonkeywordcolor" style="color:mediumblue">in</span> thislist:<br>&nbsp; <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(x) </span></div>
+ </div>
+
+<p>Learn more about <code class="w3-codespan">for</code> loops in our Python For Loops</a> Chapter.</p>
+
+<hr>
+
+<h2>Loop Through the Index Numbers</h2>
+<p>You can also loop through the list items by referring to their index number.</p>
+
+<p>Use the <code class="w3-codespan">range()</code> and
+<code class="w3-codespan">len()</code> functions to create a suitable iterable.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+  <p>Print all items by referring to their index number:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thislist = [<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>]<br><span class="pythonkeywordcolor" style="color:mediumblue">for</span> i <span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">in</span> <span class="pythonkeywordcolor" style="color:mediumblue">range</span>(<span class="pythonkeywordcolor" style="color:mediumblue">len</span>(thislist)):<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thislist[i]) </span></div>
+ </div>
+
+<p>The iterable created in the Sample above is <code class="w3-codespan">[0, 1, 2]</code>.</p>
+ 
+
+<h2>Using a While Loop</h2>
+
+<p>You can loop through the list items by using a <code class="w3-codespan">while</code> loop.</p>
+
+<p>Use the <code class="w3-codespan">len()</code> function to determine the length of the list,
+then start at 0 and loop your way through the list items by referring to their indexes.</p>
+
+<p>Remember to increase the index by 1 after each iteration.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+  <p>Print all items, using a <code class="w3-codespan">while</code> loop to go 
+  through all the index numbers</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thislist = [<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>]<br>i = <span class="pythonnumbercolor" style="color:red">0</span><br><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">while</span> i &lt; <span class="pythonkeywordcolor" style="color:mediumblue">len</span>(thislist):<br><span class="pythonnumbercolor" style="color:red">
+</span>&nbsp;
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thislist[i])<br>&nbsp; i = i + <span class="pythonnumbercolor" style="color:red">1</span> </span></div>
+v</div>
+
+<p>Learn more about <code class="w3-codespan">while</code> loops in our 
+ Python While Loops</a> Chapter.</p>
+
+<hr>
+
+<h2>Looping Using List Comprehension</h2>
+
+<p>List Comprehension offers the shortest syntax for looping through lists:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+  <p>A short hand <code class="w3-codespan">for</code> loop that will print all items in a list:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thislist = [<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>]<br>[<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(x) <span class="pythonkeywordcolor" style="color:mediumblue">for</span> x <span class="pythonkeywordcolor" style="color:mediumblue">in</span> thislist] </span></div>
+ </div>
+
+    <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+ <p>&nbsp;</p>
+    <p>&nbsp;</p> 
+
+  <div class="w3-row w3-white">
+    
+    
+
+<h1>Python - List Comprehension</h1>
+ 
+
+<h2>List Comprehension</h2>
+
+<p>List comprehension offers a shorter syntax when you want to create a new list based on the values of an 
+existing list.</p>
+
+<p>Sample:</p>
+<p>Based on a list of fruits, you want a new list, containing only the fruits 
+with the letter "a" in the name.</p>
+
+<p>Without list comprehension you will have to write a <code class="w3-codespan">for</code> statement 
+with a conditional test inside:</p>
+
+<div class="w3-Sample">
+ <div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  fruits = [<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>, <span class="pythonstringcolor" style="color:brown">"kiwi"</span>, <span class="pythonstringcolor" style="color:brown">"mango"</span>]<br>newlist = []<br><span class="pythonnumbercolor" style="color:red">
+</span>  <br><span class="pythonkeywordcolor" style="color:mediumblue">for</span> x <span class="pythonkeywordcolor" style="color:mediumblue">in</span> fruits:<br>&nbsp; <span class="pythonkeywordcolor" style="color:mediumblue">if</span> <span class="pythonstringcolor" style="color:brown">"a"</span> <span class="pythonkeywordcolor" style="color:mediumblue">in</span> x:<br>&nbsp;&nbsp;&nbsp; <span class="pythonnumbercolor" style="color:red">
+</span>  newlist.append(x)<br><br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(newlist) </span></div>
+ </div>
+
+<p>With list comprehension you can do all that with only one line of code:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  fruits = [<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>, <span class="pythonstringcolor" style="color:brown">"kiwi"</span>, <span class="pythonstringcolor" style="color:brown">"mango"</span>]<br><br>newlist = [x <span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">for</span> x <span class="pythonkeywordcolor" style="color:mediumblue">in</span> fruits <span class="pythonkeywordcolor" style="color:mediumblue">if</span> <span class="pythonstringcolor" style="color:brown">"a"</span> <span class="pythonkeywordcolor" style="color:mediumblue">in</span> x]<br><br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(newlist) </span></div>
+ </div>
+ 
+
+<h2>The Syntax</h2>
+
+<div class="w3-codeline notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+newlist = [<em>expression</em> <span class="pythonkeywordcolor" style="color:mediumblue">for</span> <em>item</em> <span class="pythonkeywordcolor" style="color:mediumblue">in</span> <em>iterable</em> <span class="pythonkeywordcolor" style="color:mediumblue">if</span> <em>condition</em> == <span class="pythonkeywordcolor" style="color:mediumblue">True</span>]<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+
+<p>The return value is a new list, leaving the old list unchanged.</p>
+
+<hr>
+<h3>Condition</h3>
+
+<p>The <em>condition</em> is like a filter that only accepts the items that valuate to 
+<code class="w3-codespan">True</code>.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+  <p>Only accept items that are not "apple":</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  newlist = [x <span class="pythonkeywordcolor" style="color:mediumblue">for</span> x <span class="pythonkeywordcolor" style="color:mediumblue">in</span> fruits <span class="pythonkeywordcolor" style="color:mediumblue">if</span> x != <span class="pythonstringcolor" style="color:brown">"apple"</span>] </span></div>
+ </div>
+
+<p>The condition
+<span class="w3-codeline notranslate pythonHigh" style="padding:5px;"><span class="pythoncolor" style="color:black"><span class="pythonkeywordcolor" style="color:mediumblue">if</span> x != <span class="pythonstringcolor" style="color:brown">"apple"</span> </span></span>
+&nbsp;will return <code class="w3-codespan">True</code> for all elements other 
+than "apple", making the new list contain all fruits except "apple".</p>
+
+<p>The <em>condition</em> is optional and can be omitted:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+  <p>With no <code class="w3-codespan">if</code> statement:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  newlist = [x <span class="pythonkeywordcolor" style="color:mediumblue">for</span> x <span class="pythonkeywordcolor" style="color:mediumblue">in</span> fruits] </span></div>
+ </div>
+
+<hr>
+<h3>Iterable</h3>
+<p>The <em>iterable</em> can be any iterable object, like a list, tuple, set etc.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+  <p>You can use the <code class="w3-codespan">range()</code> function to create an iterable:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  newlist = [x <span class="pythonkeywordcolor" style="color:mediumblue">for</span> x <span class="pythonkeywordcolor" style="color:mediumblue">in</span> <span class="pythonkeywordcolor" style="color:mediumblue">range</span>(<span class="pythonnumbercolor" style="color:red">10</span>)] </span></div>
+ </div>
+
+<p>Same Sample, but with a condition:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Accept only numbers lower than 5:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  newlist = [x <span class="pythonkeywordcolor" style="color:mediumblue">for</span> x <span class="pythonkeywordcolor" style="color:mediumblue">in</span> <span class="pythonkeywordcolor" style="color:mediumblue">range</span>(<span class="pythonnumbercolor" style="color:red">10</span>) <span class="pythonkeywordcolor" style="color:mediumblue">if</span> x &lt; <span class="pythonnumbercolor" style="color:red">5</span>] </span></div>
+ </div>
+<hr>
+<h3>Expression</h3>
+<p>The <em>expression</em> is the current item in the iteration, but it is also the 
+outcome, which you can manipulate before it ends up like a list item in the new 
+list:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+  <p>Set the values in the new list to upper case:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  newlist = [x.upper() <span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">for</span> x <span class="pythonkeywordcolor" style="color:mediumblue">in</span> fruits] </span></div>
+ </div>
+
+<p>You can set the outcome to whatever you like:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+  <p>Set all values in the new list to 'hello':</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+newlist = [<span class="pythonstringcolor" style="color:brown">'hello'</span> <span class="pythonkeywordcolor" style="color:mediumblue">for</span> x <span class="pythonkeywordcolor" style="color:mediumblue">in</span> fruits] </span></div>
+ </div>
+
+
+<p>The <em>expression</em> can also contain conditions, not like a filter, but as a 
+way to manipulate the outcome:</p>
+
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+  <p>Return "orange" instead of "banana":</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  newlist = [x <span class="pythonkeywordcolor" style="color:mediumblue">if</span> x != <span class="pythonstringcolor" style="color:brown">"banana"</span> <span class="pythonkeywordcolor" style="color:mediumblue">else</span> <span class="pythonstringcolor" style="color:brown">"orange"</span> <span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">for</span> x <span class="pythonkeywordcolor" style="color:mediumblue">in</span> fruits] </span></div>
+ </div>
+<p>The <em>expression</em> in the Sample above says:</p>
+
+<p><em>"Return the item if it is not banana, if it is banana return orange".</em></p>
+
+ 
+
+
+
+
+
+   <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+   <p>&nbsp;</p>
+   <p>&nbsp;</p> 
+  <div class="w3-row w3-white">
+    
+     
+
+<h1>Python - <span class="color_h1">Sort Lists</span></h1>
+ 
+<h2>Sort List Alphanumerically</h2>
+
+<p>List objects have a <code class="w3-codespan">
+sort()</code> method that will sort the list alphanumerically, ascending, by default:</p>
+
+<div class="w3-Sample">
+ <p>Sort the list alphabetically:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thislist = [<span class="pythonstringcolor" style="color:brown">"orange"</span>, <span class="pythonstringcolor" style="color:brown">"mango"</span>, <span class="pythonstringcolor" style="color:brown">"kiwi"</span>, <span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonstringcolor" style="color:brown">"pineapple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>]<br>thislist.sort()<br>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thislist)<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Sort the list numerically:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thislist = [<span class="pythonnumbercolor" style="color:red">100</span>, <span class="pythonnumbercolor" style="color:red">50</span>, <span class="pythonnumbercolor" style="color:red">65</span>, <span class="pythonnumbercolor" style="color:red">82</span>, <span class="pythonnumbercolor" style="color:red">23</span>]<br>thislist.sort()<br>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thislist)<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<hr>
+<h2>Sort Descending</h2>
+
+<p>To sort descending, use the keyword argument <code class="w3-codespan">reverse = True</code>:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Sort the list descending:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thislist = [<span class="pythonstringcolor" style="color:brown">"orange"</span>, <span class="pythonstringcolor" style="color:brown">"mango"</span>, <span class="pythonstringcolor" style="color:brown">"kiwi"</span>, <span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonstringcolor" style="color:brown">"pineapple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>]<br>thislist.sort(reverse = <span class="pythonkeywordcolor" style="color:mediumblue">True</span>)<br>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thislist)<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Sort the list descending:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thislist = [<span class="pythonnumbercolor" style="color:red">100</span>, <span class="pythonnumbercolor" style="color:red">50</span>, <span class="pythonnumbercolor" style="color:red">65</span>, <span class="pythonnumbercolor" style="color:red">82</span>, <span class="pythonnumbercolor" style="color:red">23</span>]<br>thislist.sort(reverse = <span class="pythonkeywordcolor" style="color:mediumblue">True</span>)<br>
+<span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thislist)<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+ 
+<h2>Customize Sort Function</h2>
+
+<p>You can also customize your own function by using the keyword argument <code class="w3-codespan">key =<em> 
+function</em></code>.</p>
+<p>The function will return a number that will be used to sort the list (the 
+lowest number first):</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Sort the list based on how close the number is to 50:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">def</span> myfunc(n):<br>&nbsp; <span class="pythonkeywordcolor" style="color:mediumblue">return</span> <span class="pythonkeywordcolor" style="color:mediumblue">abs</span>(n - <span class="pythonnumbercolor" style="color:red">50</span>)<br><br>thislist = [<span class="pythonnumbercolor" style="color:red">100</span>, <span class="pythonnumbercolor" style="color:red">50</span>, <span class="pythonnumbercolor" style="color:red">65</span>, <span class="pythonnumbercolor" style="color:red">82</span>, <span class="pythonnumbercolor" style="color:red">23</span>]<br>thislist.sort(key = <span class="pythonnumbercolor" style="color:red">
+</span>  myfunc)<br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thislist)<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<hr>
+<h2>Case Insensitive Sort</h2>
+
+<p>By default the <code class="w3-codespan">sort()</code> method is case sensitive,
+resulting in all capital letters being sorted before lower case letters:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Case sensitive sorting can give an unexpected result:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  thislist = [<span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"Orange"</span>, <span class="pythonstringcolor" style="color:brown">"Kiwi"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>]<br>thislist.sort()<br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thislist)<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<p>Luckily we can use built-in functions as key functions when sorting a list.</p>
+
+<p>So if you want a case-insensitive sort function, use str.lower as a key function:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Perform a case-insensitive sort of the list:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  thislist = [<span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"Orange"</span>, <span class="pythonstringcolor" style="color:brown">"Kiwi"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>]<br>thislist.sort(key <span class="pythonnumbercolor" style="color:red">
+</span>  = <span class="pythonkeywordcolor" style="color:mediumblue">str</span>.lower)<br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thislist)<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<hr>
+<h2>Reverse Order</h2>
+
+<p>What if you want to reverse the order of a list, regardless of the alphabet?</p>
+
+<p>The <code class="w3-codespan">reverse()</code> method reverses the current sorting order of the elements.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Reverse the order of the list items:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  thislist = [<span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"Orange"</span>, <span class="pythonstringcolor" style="color:brown">"Kiwi"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>]<br>thislist.reverse()<br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(thislist)<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+ 
+
+
+
+
+ <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+ <p>&nbsp;</p>
+ <p>&nbsp;</p> 
+
+  <div class="w3-row w3-white">
+    
+  
+
+<h1>Python - Copy Lists</h1>
+ 
+
+<h2>Copy a List</h2>
+<p>You cannot copy a list simply by typing <code class="w3-codespan">list2 = 
+list1</code>, because: <code class="w3-codespan">list2</code> will only be a <em>
+reference</em> to <code class="w3-codespan">list1</code>, and changes made in
+<code class="w3-codespan">list1</code> will automatically also be made in
+<code class="w3-codespan">list2</code>.</p>
+
+<p>There are ways to make a copy, one way is to use the built-in List 
+method <code class="w3-codespan">
+copy()</code>.</p>
+
+<div class="w3-Sample">
+ <p>Make a copy of a list with the <code class="w3-codespan">copy()</code> method:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thislist = [<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>]<br>mylist <span class="pythonnumbercolor" style="color:red">
+</span>  = thislist.copy()<br><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(mylist)<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+
+<p>Another way to make a copy is to use the built-in method <code class="w3-codespan">list()</code>.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Make a copy of a list with the <code class="w3-codespan">list()</code> method:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black">
+thislist = [<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>]<br>mylist <span class="pythonnumbercolor" style="color:red">
+</span>  = <span class="pythonkeywordcolor" style="color:mediumblue">list</span>(thislist)<br><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(mylist)<span class="pythonnumbercolor" style="color:red">
+</span> </span></div>
+ </div>
+  <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=-->
+  <p>&nbsp;</p>
+  <p>&nbsp;</p> 
+
+  <div class="w3-row w3-white">
+    
+  
+
+<h1>Python - <span class="color_h1">List Methods</span></h1>
+ 
+
+<h2>List Methods</h2>
+<p>Python has a set of built-in methods that you can use on lists.</p>
+
+<table class="ws-table-all notranslate">
+<tbody><tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+<tr><td> append()</a></td><td>Adds an element at 
+  the end of the list</td></tr>
+<tr><td> clear()</a></td><td>Removes all the 
+  elements from the list</td></tr>
+<tr><td> copy()</a></td><td>Returns a copy of the 
+  list</td></tr>
+<tr><td> count()</a></td><td>Returns the number of 
+  elements with the specified value</td></tr>
+<tr><td> extend()</a></td><td>Add the elements of a 
+  list (or any iterable), to the end of the current list</td></tr>
+<tr><td> index()</a></td><td>Returns the index of 
+  the first element with the specified value</td></tr>
+<tr><td> insert()</a></td><td>Adds an element at 
+  the specified position</td></tr>
+<tr><td> pop()</a></td><td>Removes the element at the 
+  specified position</td></tr>
+<tr><td> remove()</a></td><td>Removes the  
+  item with the specified value</td></tr>
+<tr><td> reverse()</a></td><td>Reverses the order 
+  of the list</td></tr>
+<tr><td> sort()</a></td><td>Sorts the list</td></tr>
+</tbody></table>
+ 
+
+
+  <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++= -->
+ 

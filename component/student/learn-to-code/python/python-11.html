@@ -1,0 +1,154 @@
+<!-- Booleans-->
+
+
+ 
+  <div class="w3-row w3-white">
+    
+     
+
+<h1>What is <span class="color_h1">Booleans in Python?</span></h1>
+ 
+<hr>
+<p class="intro">Booleans represent one of two values: 
+<code class="w3-codespan">True</code> or <code class="w3-codespan">False</code>.</p>
+<hr>
+<h2>Boolean Values</h2>
+<p>In programming you often need to know if an expression is 
+<code class="w3-codespan">True</code> or <code class="w3-codespan">False</code>.</p>
+<p>You can evaluate any expression in Python, and get one of two 
+answers, 
+<code class="w3-codespan">True</code> or <code class="w3-codespan">False</code>.</p>
+<p>When you compare two values, the expression is evaluated and Python returns 
+the Boolean answer:</p>
+
+<div class="w3-Sample">
+ <div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(<span class="pythonnumbercolor" style="color:red">10</span> &gt; <span class="pythonnumbercolor" style="color:red">9</span>)<br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(<span class="pythonnumbercolor" style="color:red">10</span> == <span class="pythonnumbercolor" style="color:red">9</span>)<br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(<span class="pythonnumbercolor" style="color:red">10</span> &lt; <span class="pythonnumbercolor" style="color:red">9</span>) </span></div>
+ </div>
+
+
+<p>When you run a condition in an if statement, Python returns 
+<code class="w3-codespan">True</code> or <code class="w3-codespan">False</code>:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+  <p>Print a message based on whether the condition is <code class="w3-codespan">True</code> or 
+  <code class="w3-codespan">False</code>:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  a = <span class="pythonnumbercolor" style="color:red">200</span><br>b = <span class="pythonnumbercolor" style="color:red">33</span><br><br><span class="pythonkeywordcolor" style="color:mediumblue">if</span> b &gt; a:<br>&nbsp; <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(<span class="pythonstringcolor" style="color:brown">"b is greater than a"</span>)<br><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">else</span>:<br>&nbsp; <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(<span class="pythonstringcolor" style="color:brown">"b is not greater than a"</span>) </span></div>
+ </a>
+</div>
+<hr>
+<h2>Evaluate Values and Variables</h2>
+<p>The <code class="w3-codespan">bool()</code> function allows you to evaluate 
+any value, and give you 
+<code class="w3-codespan">True</code> or <code class="w3-codespan">False</code> 
+in return,</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+  <p>Evaluate a string and a number:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(<span class="pythonkeywordcolor" style="color:mediumblue">bool</span>(<span class="pythonstringcolor" style="color:brown">"Hello"</span>))<br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(<span class="pythonkeywordcolor" style="color:mediumblue">bool</span>(<span class="pythonnumbercolor" style="color:red">15</span>))<br> </span></div>
+ </a>
+</div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+  <p>Evaluate two variables:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  x = <span class="pythonstringcolor" style="color:brown">"Hello"</span><br>y = <span class="pythonnumbercolor" style="color:red">15</span><br><br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(<span class="pythonkeywordcolor" style="color:mediumblue">bool</span>(x))<br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(<span class="pythonkeywordcolor" style="color:mediumblue">bool</span>(y))<br> </span></div>
+ </a>
+</div>
+
+
+ 
+
+
+<h2>Most Values are True</h2>
+
+<p>Almost any value is evaluated to <code class="w3-codespan">True</code> if it 
+has some sort of content.</p>
+<p>Any string is <code class="w3-codespan">True</code>, except empty strings.</p>
+<p>Any number is <code class="w3-codespan">True</code>, except 
+<code class="w3-codespan">0</code>.</p>
+<p>Any list, tuple, set, and dictionary are <code class="w3-codespan">True</code>, except 
+empty ones.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+  <p>The following will return True:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">bool</span>(<span class="pythonstringcolor" style="color:brown">"abc"</span>)<br><span class="pythonkeywordcolor" style="color:mediumblue">bool</span>(<span class="pythonnumbercolor" style="color:red">123</span>)<br><span class="pythonkeywordcolor" style="color:mediumblue">bool</span>([<span class="pythonstringcolor" style="color:brown">"apple"</span>, <span class="pythonstringcolor" style="color:brown">"cherry"</span>, <span class="pythonstringcolor" style="color:brown">"banana"</span>])<br> </span></div>
+ </div>
+
+<hr>
+
+<h2>Some Values are False</h2>
+
+<p>In fact, there are not many values that evaluate to
+<code class="w3-codespan">False</code>, except empty values, such as <code class="w3-codespan">()</code>,
+<code class="w3-codespan">[]</code>, <code class="w3-codespan">{}</code>, 
+<code class="w3-codespan">""</code>, the number
+<code class="w3-codespan">0</code>, and the value <code class="w3-codespan">None</code>. 
+And of course the value <code class="w3-codespan">False</code> evaluates to
+<code class="w3-codespan">False</code>.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+  <p>The following will return False:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">bool</span>(<span class="pythonkeywordcolor" style="color:mediumblue">False</span>)<br><span class="pythonkeywordcolor" style="color:mediumblue">bool</span>(None)<br><span class="pythonkeywordcolor" style="color:mediumblue">bool</span>(<span class="pythonnumbercolor" style="color:red">0</span>)<br><span class="pythonkeywordcolor" style="color:mediumblue">bool</span>(<span class="pythonstringcolor" style="color:brown">""</span>)<br><span class="pythonkeywordcolor" style="color:mediumblue">bool</span>(())<br><span class="pythonkeywordcolor" style="color:mediumblue">bool</span>([])<br><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">bool</span>({}) </span></div>
+ </div>
+
+<p>One more value, or object in this case, evaluates to 
+<code class="w3-codespan">False</code>, and that is if you have an object that 
+is made from a class with a <code class="w3-codespan">__len__</code> function that returns 
+<code class="w3-codespan">0</code> or 
+<code class="w3-codespan">False</code>: </p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">class</span> myclass():<br>&nbsp; <span class="pythonkeywordcolor" style="color:mediumblue">def</span> __len__(self):<br>&nbsp;&nbsp;&nbsp; <span class="pythonkeywordcolor" style="color:mediumblue">return</span> <span class="pythonnumbercolor" style="color:red">0</span><br><span class="pythonnumbercolor" style="color:red">
+</span>  <br>myobj = myclass()<br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(<span class="pythonkeywordcolor" style="color:mediumblue">bool</span>(myobj)) </span></div>
+ </div>
+
+<hr>
+<h2>Functions can Return a Boolean</h2>
+
+<p>You can create functions that returns a Boolean Value:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+  <p>Print the answer of a function:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">def</span> myFunction() :<br>&nbsp; <span class="pythonkeywordcolor" style="color:mediumblue">return</span> <span class="pythonkeywordcolor" style="color:mediumblue">True</span><br><br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(myFunction()) </span></div>
+ </a>
+</div>
+
+<p>You can execute code based on the Boolean answer of a function:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+  <p>Print "YES!" if the function returns True, otherwise print "NO!":</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">def</span> myFunction() :<br>&nbsp; <span class="pythonkeywordcolor" style="color:mediumblue">return</span> <span class="pythonkeywordcolor" style="color:mediumblue">True</span><br><br><span class="pythonkeywordcolor" style="color:mediumblue">if</span> myFunction():<br>&nbsp; <span class="pythonnumbercolor" style="color:red">
+</span>  <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(<span class="pythonstringcolor" style="color:brown">"YES!"</span>)<br><span class="pythonkeywordcolor" style="color:mediumblue">else</span>:<br>&nbsp; <span class="pythonkeywordcolor" style="color:mediumblue">print</span>(<span class="pythonstringcolor" style="color:brown">"NO!"</span>) </span></div>
+ </a>
+</div>
+
+<p>Python also has many built-in functions that return a boolean value, like the 
+<code class="w3-codespan">isinstance()</code> 
+function, which can be used to determine if an object is of a certain data type:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+  <p>Check if an object is an integer or not:</p>
+<div class="w3-code notranslate pythonHigh"><span class="pythoncolor" style="color:black"><span class="pythonnumbercolor" style="color:red">
+</span>  x = <span class="pythonnumbercolor" style="color:red">200</span><br><span class="pythonkeywordcolor" style="color:mediumblue">print</span>(<span class="pythonkeywordcolor" style="color:mediumblue">isinstance</span>(x, <span class="pythonkeywordcolor" style="color:mediumblue">int</span>)) </span></div>
+ </a>
+</div>
+ 

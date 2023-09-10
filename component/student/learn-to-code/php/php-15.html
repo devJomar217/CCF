@@ -1,0 +1,73 @@
+<!-- Switch-->
+
+ 
+  <div class="w3-row w3-white">
+    
+ 
+
+<h1>What is <span class="color_h1">switch</span> Statement in Php?</h1>
+ 
+<p class="intro">The <code class="w3-codespan">switch</code> statement is used to perform different actions based on different conditions.</p>
+<hr>
+
+<h2>The PHP switch Statement</h2>
+<p>Use the <code class="w3-codespan">switch</code> statement to <strong>select one of many blocks 
+of code to be executed</strong>.</p>
+<h3>Syntax</h3>
+<div class="w3-code w3-border notranslate"><div>
+
+switch (<i>n</i>)
+{<br>
+&nbsp;&nbsp;case <i>label1:</i><br>
+&nbsp;&nbsp;<i>&nbsp;&nbsp;code to be executed if n=label1;</i><br>
+  &nbsp; &nbsp;&nbsp;break;<br>
+&nbsp;
+case <i>label2:</i><br>
+&nbsp;&nbsp;<i>&nbsp;&nbsp;code to be executed if n=label2;</i><br>
+&nbsp;&nbsp;&nbsp;
+break;<br>
+&nbsp;
+case <i>label3:</i><br>
+&nbsp;&nbsp;<i>&nbsp;&nbsp;code to be executed if n=label3;</i><br>
+&nbsp;&nbsp;&nbsp;
+break;<br>&nbsp; &nbsp; ...<br>
+&nbsp;&nbsp;default:<br>
+&nbsp;&nbsp;<i>&nbsp; code to be executed if n is different from all labels;</i><br>
+}
+
+</div></div>
+
+<p>This is how it works: First we have a single expression <i>n</i> (most often a
+variable), that is evaluated once. The value of the expression is then compared
+with the values for each case in the structure. If there is a match, the block
+of code associated with that case is executed. Use <code class="w3-codespan">break</code> to prevent the
+code from running into the next case automatically. The <code class="w3-codespan">default</code> statement is used if no 
+match is found.</p>
+
+<div class="w3-Sample">
+ <div class="w3-code htmlHigh notranslate">
+ <span class="phpcolor" style="color:black"><span class="phptagcolor" style="color:red">&lt;?php</span><br><span class="phpnumbercolor" style="color:red">
+</span> $favcolor = <span class="phpstringcolor" style="color:brown">"red"</span>;<br><br><span class="phpnumbercolor" style="color:red">
+</span> <span class="phpkeywordcolor" style="color:mediumblue">switch</span> ($favcolor)<span class="phpnumbercolor" style="color:red">
+</span> {<br><span class="phpnumbercolor" style="color:red">
+</span> &nbsp;&nbsp;<span class="phpkeywordcolor" style="color:mediumblue">case</span> <span class="phpstringcolor" style="color:brown">"red"</span>:<br><span class="phpnumbercolor" style="color:red">
+</span>  &nbsp;&nbsp;&nbsp; <span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"Your favorite color is red!"</span>;<br><span class="phpnumbercolor" style="color:red">
+</span>  &nbsp;&nbsp;&nbsp; <span class="phpkeywordcolor" style="color:mediumblue">break</span>;<br><span class="phpnumbercolor" style="color:red">
+</span> &nbsp;<span class="phpnumbercolor" style="color:red">
+</span> <span class="phpkeywordcolor" style="color:mediumblue">case</span> <span class="phpstringcolor" style="color:brown">"blue"</span>:<br><span class="phpnumbercolor" style="color:red">
+</span>  &nbsp;&nbsp;&nbsp; <span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"Your favorite color is blue!"</span>;<br><span class="phpnumbercolor" style="color:red">
+</span>  &nbsp;&nbsp;&nbsp; <span class="phpkeywordcolor" style="color:mediumblue">break</span>;<br><span class="phpnumbercolor" style="color:red">
+</span> &nbsp;<span class="phpnumbercolor" style="color:red">
+</span> <span class="phpkeywordcolor" style="color:mediumblue">case</span> <span class="phpstringcolor" style="color:brown">"green"</span>:<br><span class="phpnumbercolor" style="color:red">
+</span> &nbsp;&nbsp;&nbsp;&nbsp;<span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"Your favorite color is green!"</span>;<br><span class="phpnumbercolor" style="color:red">
+</span> &nbsp;&nbsp;&nbsp;<span class="phpnumbercolor" style="color:red">
+</span> <span class="phpkeywordcolor" style="color:mediumblue">break</span>;<br><span class="phpnumbercolor" style="color:red">
+</span> &nbsp;<span class="phpnumbercolor" style="color:red">
+</span> <span class="phpkeywordcolor" style="color:mediumblue">default</span>:<br><span class="phpnumbercolor" style="color:red">
+</span>  &nbsp;&nbsp;&nbsp; <span class="phpkeywordcolor" style="color:mediumblue">echo</span> <span class="phpstringcolor" style="color:brown">"Your favorite color is neither red, blue, nor green!"</span>;<br><span class="phpnumbercolor" style="color:red">
+</span> }<br><span class="phpnumbercolor" style="color:red">
+</span> <span class="phptagcolor" style="color:red">?&gt;</span></span>
+ </div>
+ </div>
+ 
+ 

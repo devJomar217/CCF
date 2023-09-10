@@ -1,0 +1,161 @@
+<!-- pseudo class-->
+
+ 
+    <div class="w3-row w3-white">
+      
+    
+  
+  <h1>What is <span class="color_h1">Pseudo-classes in Css?</span></h1>
+  
+  <h2>What are Pseudo-classes?</h2>
+  <p>A pseudo-class is used to define a special state 
+  of an element.</p>
+  <p>For Sample, it can be used to:</p>
+  <ul>
+  <li>Style an element when a user mouses over it</li>
+  <li>Style visited and unvisited links differently</li>
+  <li>Style an element when it gets focus</li>
+  </ul>
+  
+  <div class="w3-row">
+  <div class="w3-half">
+  <div class="mouseover">
+  <p>Mouse Over Me</p>
+  </div>
+  </div>
+  
+  <div class="w3-half">
+  <input class="focus" type="text" name="fname" placeholder="Click Me To Get Focus">
+  </div>
+  </div>
+  <p style="clear:both;"></p>
+  <hr>
+  
+  <h2>Syntax</h2>
+  <p>The syntax of pseudo-classes:</p>
+  <div class="w3-Sample">
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+  selector:pseudo-class <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp;&nbsp;property<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> value<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span> </span></div>
+  </div>
+  <hr>
+  
+  <h2>Anchor Pseudo-classes</h2>
+  <p>Links can be displayed in different ways:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+     <span class="commentcolor" style="color:green">/* unvisited link */</span><br>a:link <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> #FF0000<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span><br><br><span class="commentcolor" style="color:green">/* visited 
+  link */</span><br>a:visited <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> #00FF00<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span><br><br><span class="commentcolor" style="color:green">/* mouse over link */</span><br>
+  a:hover <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp;&nbsp;color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> #FF00FF<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span><br><br><span class="commentcolor" style="color:green">/* selected link */</span><br>a:active <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>
+  &nbsp;&nbsp;color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> #0000FF<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span>
+   </span></div>
+   <br>
+  </div>
+  <div class="w3-panel w3-note">
+  <p><b>Note:</b> <code class="w3-codespan">a:hover</code> MUST come after <code class="w3-codespan">a:link</code> and 
+  <code class="w3-codespan">a:visited</code> in the CSS definition in order to be effective! <code class="w3-codespan">a:active</code> MUST come after 
+  <code class="w3-codespan">a:hover</code> in the CSS definition in order to be effective!
+  Pseudo-class names are not case-sensitive.</p>
+  </div>
+  
+   
+  
+  <h2>Pseudo-classes and HTML Classes</h2>
+  <p>Pseudo-classes can be combined with HTML classes:</p>
+  <p>When you hover over the link in the Sample, it will change color:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+  a.highlight:hover <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp;&nbsp;color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> #ff0000<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span>  </span></div>
+   </div>
+  <hr>
+  
+  <h2>Hover on &lt;div&gt;</h2>
+  <p>An Sample of using the <code class="w3-codespan">:hover</code> pseudo-class on a &lt;div&gt; element:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+  div:hover <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; background-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> blue<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span> </span></div>
+   <br>
+  </div>
+  <hr>
+  
+  <h2>Simple Tooltip Hover</h2>
+  <p>Hover over a &lt;div&gt; element to show a &lt;p&gt; element (like a tooltip):</p>
+  <div class="tooltip-container w3-text-red"><b>Hover over me to show the &lt;p&gt; element.</b>
+    <p class="tooltiptext w3-text-black">Tada! Here I am!</p>
+  </div>
+  
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+  p <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; display<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> none<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; 
+  background-color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> yellow<span class="cssdelimitercolor" style="color:black">;</span></span><br>&nbsp; padding<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> 20px<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span><br><br>
+  div:hover p <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; display<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> block<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span> </span></div>
+   <br>
+  </div>
+  
+  <hr>
+  
+  <h2>CSS - The :first-child Pseudo-class</h2>
+  <p>The <code class="w3-codespan">:first-child</code> pseudo-class matches a specified element that is the first child of another element.</p>
+  
+  <h2>Match the first &lt;p&gt; element</h2>
+  <p>In the following Sample, the selector matches any &lt;p&gt; element that is the first child of any element:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+  p:first-child
+  <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>
+    &nbsp;
+  color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> blue<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+  </span><span class="cssdelimitercolor" style="color:black">}</span> </span></div>
+   </div>
+  <hr>
+  
+  <h2>Match the first &lt;i&gt; element in all &lt;p&gt; elements</h2>
+  <p>In the following Sample, the selector matches the first &lt;i&gt; element in all &lt;p&gt; elements:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+  p i:first-child
+  <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>
+    &nbsp;
+  color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> blue<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+  </span><span class="cssdelimitercolor" style="color:black">}</span> </span></div>
+   </div>
+  <hr>
+  
+  <h2>Match all &lt;i&gt; elements in all first child &lt;p&gt; elements</h2>
+  <p>In the following Sample, the selector matches all &lt;i&gt; elements in &lt;p&gt; elements that are the first child of another element:</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate cssHigh"><span class="cssselectorcolor" style="color:brown">
+  p:first-child i
+  <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>
+  &nbsp;&nbsp;color<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> blue<span class="cssdelimitercolor" style="color:black">;</span></span><br>
+  </span><span class="cssdelimitercolor" style="color:black">}</span> </span></div>
+   </div>
+  <hr>
+  
+  <h2>CSS - The :lang Pseudo-class</h2>
+  <p>The <code class="w3-codespan">:lang</code> pseudo-class allows you to define special rules for different languages.</p>
+  <p>In the Sample below, <code class="w3-codespan">:lang</code> defines the quotation marks for &lt;q&gt; elements with lang="no":</p>
+  <div class="w3-Sample">
+  <h3>Sample</h3>
+  <div class="w3-code notranslate htmlHigh">
+  <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>html<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+  <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>head<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+  <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>style<span class="tagcolor" style="color:mediumblue">&gt;</span></span><span class="cssselectorcolor" style="color:brown"><br>
+    q:lang(no) <span class="cssdelimitercolor" style="color:black">{</span><span class="csspropertycolor" style="color:red"><br>&nbsp; quotes<span class="csspropertyvaluecolor" style="color:mediumblue"><span class="cssdelimitercolor" style="color:black">:</span> "~" "~"<span class="cssdelimitercolor" style="color:black">;</span></span><br></span><span class="cssdelimitercolor" style="color:black">}</span><br>
+  </span><span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/style<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+  <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/head<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+  <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>body<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br>
+  <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>p<span class="tagcolor" style="color:mediumblue">&gt;</span></span>Some text <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>q<span class="attributecolor" style="color:red"> lang<span class="attributevaluecolor" style="color:mediumblue">="no"</span></span><span class="tagcolor" style="color:mediumblue">&gt;</span></span>A quote in a paragraph<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/q<span class="tagcolor" style="color:mediumblue">&gt;</span></span> 
+  Some text.<span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/p<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br><br>
+  <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/body<span class="tagcolor" style="color:mediumblue">&gt;</span></span><br>
+  <span class="tagnamecolor" style="color:brown"><span class="tagcolor" style="color:mediumblue">&lt;</span>/html<span class="tagcolor" style="color:mediumblue">&gt;</span></span>
+   </div>
+   </div>
+  
+ 

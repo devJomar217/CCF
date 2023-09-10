@@ -1,0 +1,110 @@
+<!-- Loop While-->
+
+ 
+  <div class="w3-row w3-white">
+    
+ 
+
+<h1>What is <span class="color_h1">While Loop in JavaScript?</span></h1>
+ 
+<p class="intro">Loops can execute a block of code
+as long as a specified condition is true.</p>
+<hr>
+
+<h2>The While Loop</h2>
+<p>The <code class="w3-codespan">while</code> loop loops through a block of code as long as a specified condition is true.</p>
+
+<h3>Syntax</h3>
+<div class="w3-code w3-border notranslate jsHigh"><span class="jscolor" style="color:black"><div>
+
+<span class="jskeywordcolor" style="color:mediumblue">while</span> (<em>condition</em>) {<br><span class="jsnumbercolor" style="color:red">
+</span>    <i>&nbsp; <span class="commentcolor" style="color:green">// code block to be executed</span></i><br><span class="jsnumbercolor" style="color:red">
+</span> }</div> </span></div>
+
+<h3>Sample</h3>
+<p>In the following Sample, the code in the loop will run, over and over again, as long as 
+a variable (i) is less than 10:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">while</span> (i &lt; <span class="jsnumbercolor" style="color:red">10</span>) {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; text += <span class="jsstringcolor" style="color:brown">"The number is "</span> + i;<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; i++;<br>}<br><span class="jsnumbercolor" style="color:red">
+</span>  </span></div>
+</div>
+
+<div class="w3-panel w3-note">
+<p>If you forget to increase the variable used in the condition, the loop will never end.
+This will crash your browser.</p>
+</div>
+
+<hr>
+<h2>The Do While Loop</h2>
+<p>The <code class="w3-codespan">do while</code> loop is a variant of the while loop. This loop will 
+execute the code block once, before checking if the condition is true, then it will
+repeat the loop as long as the condition is true.</p>
+
+<h3>Syntax</h3>
+<div class="w3-code w3-border notranslate jsHigh"><span class="jscolor" style="color:black"><div>
+
+<span class="jskeywordcolor" style="color:mediumblue">do</span> {<br><span class="jsnumbercolor" style="color:red">
+</span>    <i>&nbsp; <span class="commentcolor" style="color:green">// code block to be executed<br></span>
+</i>}<br>
+<span class="jskeywordcolor" style="color:mediumblue">while</span> (<em>condition</em>);</div> </span></div>
+
+<h3>Sample</h3>
+
+<p>The Sample below uses a <code class="w3-codespan">do while</code> loop. The loop will always be 
+executed at least once, even if the condition is false, because the code block 
+is executed before the condition is tested:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">do</span> {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; text += <span class="jsstringcolor" style="color:brown">"The number is "</span> + i;<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; i++;<br><span class="jsnumbercolor" style="color:red">
+</span> }<br>
+<span class="jskeywordcolor" style="color:mediumblue">while</span> (i &lt; <span class="jsnumbercolor" style="color:red">10</span>); </span></div>
+</div>
+<p>Do not forget to increase the variable used in the condition, otherwise 
+the loop will never end!</p>
+
+<h2>Comparing For and While</h2>
+<p>If you have read the previous chapter, about the for loop, you will discover that a while loop is 
+much the same as a for loop, with statement 1 and statement 3 omitted.</p>
+<p>The loop in this Sample uses a <code class="w3-codespan">for</code> loop to collect the car 
+names from the cars array:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> cars = [<span class="jsstringcolor" style="color:brown">"BMW"</span>, <span class="jsstringcolor" style="color:brown">"Volvo"</span>, <span class="jsstringcolor" style="color:brown">"Saab"</span>, <span class="jsstringcolor" style="color:brown">"Ford"</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> i = <span class="jsnumbercolor" style="color:red">0</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">""</span>;<br><br>
+<span class="jskeywordcolor" style="color:mediumblue">for</span> (;cars[i];) {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp;&nbsp;text += cars[i];<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp;
+i++;<br><span class="jsnumbercolor" style="color:red">
+</span>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<p>The loop in this Sample uses a <code class="w3-codespan">while</code> loop to collect the 
+car names from the cars array:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> cars = [<span class="jsstringcolor" style="color:brown">"BMW"</span>, <span class="jsstringcolor" style="color:brown">"Volvo"</span>, <span class="jsstringcolor" style="color:brown">"Saab"</span>, <span class="jsstringcolor" style="color:brown">"Ford"</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> i = <span class="jsnumbercolor" style="color:red">0</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> text = <span class="jsstringcolor" style="color:brown">""</span>;<br><span class="jsnumbercolor" style="color:red">
+</span> <br><span class="jsnumbercolor" style="color:red">
+</span> <span class="jskeywordcolor" style="color:mediumblue">while</span> (cars[i]) {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; text += cars[i];<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp;
+i++;<br><span class="jsnumbercolor" style="color:red">
+</span>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+

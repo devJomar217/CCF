@@ -1,0 +1,445 @@
+   <!-- Arrays method-->
+
+
+
+  <div class="w3-row w3-white">
+    
+  
+
+<h1>What is Array Methods in JavaScript?</h1>
+
+
+<div class="w3-info">
+<div class="w3-stretch">
+<table class="w3-table">
+<tbody><tr>
+<td>
+Array length<br>
+Array toString()<br>
+Array pop()<br>
+Array push()<br>
+Array shift()<br>
+Array unshift()<br>
+</td>
+<td>
+Array join()<br>
+Array delete()<br>
+Array concat()<br>
+Array flat()<br>
+Array splice()<br>
+Array slice()<br>
+</td>
+</tr>
+<tr><td colspan="2">The methods are listed in the order they appear in this tutorial page</td>
+</tr></tbody></table>
+
+</div>
+</div>
+<hr>
+<h2>JavaScript Array length</h2>
+
+<p>The <code class="w3-codespan">length</code> property returns the length (size) of an array:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = [<span class="jsstringcolor" style="color:brown">"Banana"</span>, <span class="jsstringcolor" style="color:brown">"Orange"</span>, <span class="jsstringcolor" style="color:brown">"Apple"</span>, <span class="jsstringcolor" style="color:brown">"Mango"</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> size = fruits.<span class="jspropertycolor" style="color:black">length</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<hr>
+<h2>JavaScript Array toString()</h2>
+
+<p>The JavaScript method <code class="w3-codespan">toString()</code> converts an array to a 
+string of (comma separated) array values.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = [<span class="jsstringcolor" style="color:brown">"Banana"</span>, <span class="jsstringcolor" style="color:brown">"Orange"</span>, <span class="jsstringcolor" style="color:brown">"Apple"</span>, <span class="jsstringcolor" style="color:brown">"Mango"</span>];<br>
+document.<span class="jspropertycolor" style="color:black">getElementById</span>(<span class="jsstringcolor" style="color:brown">"demo"</span>).<span class="jspropertycolor" style="color:black">innerHTML</span> = fruits.<span class="jspropertycolor" style="color:black">toString</span>();<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p>Result:</p>
+<div class="w3-white w3-padding notranslate">
+ Banana,Orange,Apple,Mango<br>
+</div>
+</div>
+
+<p>The <code class="w3-codespan">join()</code> method also joins all array elements into a string.</p>
+<p>It behaves just like <code class="w3-codespan">toString()</code>, but in addition you can specify the separator:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = [<span class="jsstringcolor" style="color:brown">"Banana"</span>, <span class="jsstringcolor" style="color:brown">"Orange"</span>, <span class="jsstringcolor" style="color:brown">"Apple"</span>, <span class="jsstringcolor" style="color:brown">"Mango"</span>];<br>
+document.<span class="jspropertycolor" style="color:black">getElementById</span>(<span class="jsstringcolor" style="color:brown">"demo"</span>).<span class="jspropertycolor" style="color:black">innerHTML</span> = fruits.<span class="jspropertycolor" style="color:black">join</span>(<span class="jsstringcolor" style="color:brown">" * "</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p>Result:</p>
+<div class="w3-white w3-padding notranslate">
+ Banana * Orange * Apple * Mango</div>
+</div>
+
+<hr>
+
+<h2>Popping and Pushing</h2>
+<p>When you work with arrays, it is easy to remove elements and add 
+new elements.</p>
+<p>This is what popping and pushing is:</p>
+<p>Popping items <strong>out</strong> of an array, or pushing 
+items <strong>into</strong> an array.</p>
+
+
+<h2>JavaScript Array pop()</h2>
+<p>The <code class="w3-codespan">pop()</code> method removes the last element from an array: </p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = [<span class="jsstringcolor" style="color:brown">"Banana"</span>, <span class="jsstringcolor" style="color:brown">"Orange"</span>, <span class="jsstringcolor" style="color:brown">"Apple"</span>, <span class="jsstringcolor" style="color:brown">"Mango"</span>];<br>
+fruits.<span class="jspropertycolor" style="color:black">pop</span>();<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p>The <code class="w3-codespan">pop()</code> method returns the value that was "popped out":</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = [<span class="jsstringcolor" style="color:brown">"Banana"</span>, <span class="jsstringcolor" style="color:brown">"Orange"</span>, <span class="jsstringcolor" style="color:brown">"Apple"</span>, <span class="jsstringcolor" style="color:brown">"Mango"</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> fruit = fruits.<span class="jspropertycolor" style="color:black">pop</span>();<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<hr>
+<h2>JavaScript Array push()</h2>
+<p>The <code class="w3-codespan">push()</code> method adds a new element to an array (at the end):</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = [<span class="jsstringcolor" style="color:brown">"Banana"</span>, <span class="jsstringcolor" style="color:brown">"Orange"</span>, <span class="jsstringcolor" style="color:brown">"Apple"</span>, <span class="jsstringcolor" style="color:brown">"Mango"</span>];<br>
+fruits.<span class="jspropertycolor" style="color:black">push</span>(<span class="jsstringcolor" style="color:brown">"Kiwi"</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p>The <code class="w3-codespan">push()</code> method returns the new array length:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = [<span class="jsstringcolor" style="color:brown">"Banana"</span>, <span class="jsstringcolor" style="color:brown">"Orange"</span>, <span class="jsstringcolor" style="color:brown">"Apple"</span>, <span class="jsstringcolor" style="color:brown">"Mango"</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> length = fruits.<span class="jspropertycolor" style="color:black">push</span>(<span class="jsstringcolor" style="color:brown">"Kiwi"</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<hr>
+
+<h2>Shifting Elements</h2>
+<p>Shifting is equivalent to popping, but working on the first element instead of 
+the last.</p>
+<hr>
+<h2>JavaScript Array shift()</h2>
+
+<p>The <code class="w3-codespan">shift()</code> method removes the first array element and "shifts" all 
+other elements to a lower index.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = [<span class="jsstringcolor" style="color:brown">"Banana"</span>, <span class="jsstringcolor" style="color:brown">"Orange"</span>, <span class="jsstringcolor" style="color:brown">"Apple"</span>, <span class="jsstringcolor" style="color:brown">"Mango"</span>];<br>
+fruits.<span class="jspropertycolor" style="color:black">shift</span>();<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p>The <code class="w3-codespan">shift()</code> method returns the value that was "shifted out":</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = [<span class="jsstringcolor" style="color:brown">"Banana"</span>, <span class="jsstringcolor" style="color:brown">"Orange"</span>, <span class="jsstringcolor" style="color:brown">"Apple"</span>, <span class="jsstringcolor" style="color:brown">"Mango"</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> fruit = fruits.<span class="jspropertycolor" style="color:black">shift</span>();<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<hr>
+<h2>JavaScript Array unshift()</h2>
+
+<p>The <code class="w3-codespan">unshift()</code> method adds a new element to an array (at the beginning), and "unshifts" 
+older elements: </p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = [<span class="jsstringcolor" style="color:brown">"Banana"</span>, <span class="jsstringcolor" style="color:brown">"Orange"</span>, <span class="jsstringcolor" style="color:brown">"Apple"</span>, <span class="jsstringcolor" style="color:brown">"Mango"</span>];<br>
+fruits.<span class="jspropertycolor" style="color:black">unshift</span>(<span class="jsstringcolor" style="color:brown">"Lemon"</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p>The <code class="w3-codespan">unshift()</code> method returns the new array length:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = [<span class="jsstringcolor" style="color:brown">"Banana"</span>, <span class="jsstringcolor" style="color:brown">"Orange"</span>, <span class="jsstringcolor" style="color:brown">"Apple"</span>, <span class="jsstringcolor" style="color:brown">"Mango"</span>];<br>
+fruits.<span class="jspropertycolor" style="color:black">unshift</span>(<span class="jsstringcolor" style="color:brown">"Lemon"</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<hr>
+
+<h2>Changing Elements</h2>
+<p>Array elements are accessed using their <strong>index number</strong>:</p>
+
+<div class="w3-panel w3-note">
+<p>Array <strong>indexes</strong> start with 0:</p>
+<p>[0] is the first array element<br>[1] is the second<br>[2] is the third ...</p>
+</div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = [<span class="jsstringcolor" style="color:brown">"Banana"</span>, <span class="jsstringcolor" style="color:brown">"Orange"</span>, <span class="jsstringcolor" style="color:brown">"Apple"</span>, <span class="jsstringcolor" style="color:brown">"Mango"</span>];<br>
+fruits[<span class="jsnumbercolor" style="color:red">0</span>] = <span class="jsstringcolor" style="color:brown">"Kiwi"</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<hr>
+<h2>JavaScript Array length</h2>
+
+<p>The <code class="w3-codespan">length</code> property provides an easy way to append a new element to an array:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = [<span class="jsstringcolor" style="color:brown">"Banana"</span>, <span class="jsstringcolor" style="color:brown">"Orange"</span>, <span class="jsstringcolor" style="color:brown">"Apple"</span>, <span class="jsstringcolor" style="color:brown">"Mango"</span>];<br>
+fruits[fruits.<span class="jspropertycolor" style="color:black">length</span>] = <span class="jsstringcolor" style="color:brown">"Kiwi"</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<hr>
+
+<h2>JavaScript Array delete()</h2>
+<div class="w3-panel w3-warning">
+<h3>Warning !</h3>
+<p>Array elements can be deleted using the JavaScript operator <code class="w3-codespan">delete</code>.</p>
+<p>Using <code class="w3-codespan">delete</code> leaves <code class="w3-codespan">undefined</code> holes in the 
+array.</p>
+<p>Use pop() or shift() instead.</p>
+</div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = [<span class="jsstringcolor" style="color:brown">"Banana"</span>, <span class="jsstringcolor" style="color:brown">"Orange"</span>, <span class="jsstringcolor" style="color:brown">"Apple"</span>, <span class="jsstringcolor" style="color:brown">"Mango"</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">delete</span> fruits[<span class="jsnumbercolor" style="color:red">0</span>];<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<hr>
+
+<h2>Merging (Concatenating) Arrays</h2>
+
+<p>The <code class="w3-codespan">concat()</code> method creates a new array by merging (concatenating) 
+existing arrays:</p>
+<div class="w3-Sample">
+<h3>Sample (Merging Two Arrays)</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> myGirls = [<span class="jsstringcolor" style="color:brown">"Cecilie"</span>, <span class="jsstringcolor" style="color:brown">"Lone"</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> myBoys = [<span class="jsstringcolor" style="color:brown">"Emil"</span>, <span class="jsstringcolor" style="color:brown">"Tobias"</span>, <span class="jsstringcolor" style="color:brown">"Linus"</span>];<br><span class="jsnumbercolor" style="color:red">
+</span><br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> myChildren = myGirls.<span class="jspropertycolor" style="color:black">concat</span>(myBoys);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<div class="w3-panel w3-note">
+<p>The <code class="w3-codespan">concat()</code> method does not change the existing arrays. It always returns a new array.</p>
+</div>
+
+<p>The <code class="w3-codespan">concat()</code> method can take any number of array arguments:</p>
+<div class="w3-Sample">
+<h3>Sample (Merging Three Arrays)</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> arr1 = [<span class="jsstringcolor" style="color:brown">"Cecilie"</span>, <span class="jsstringcolor" style="color:brown">"Lone"</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> arr2 = [<span class="jsstringcolor" style="color:brown">"Emil"</span>, <span class="jsstringcolor" style="color:brown">"Tobias"</span>, <span class="jsstringcolor" style="color:brown">"Linus"</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> arr3 = [<span class="jsstringcolor" style="color:brown">"Robin"</span>, <span class="jsstringcolor" style="color:brown">"Morgan"</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> myChildren = arr1.<span class="jspropertycolor" style="color:black">concat</span>(arr2, arr3);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p>The <code class="w3-codespan">concat()</code> method can also take strings as arguments:</p>
+<div class="w3-Sample">
+<h3>Sample (Merging an Array with Values)</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> arr1 = [<span class="jsstringcolor" style="color:brown">"Emil"</span>, <span class="jsstringcolor" style="color:brown">"Tobias"</span>, <span class="jsstringcolor" style="color:brown">"Linus"</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> myChildren = arr1.<span class="jspropertycolor" style="color:black">concat</span>(<span class="jsstringcolor" style="color:brown">"Peter"</span>);&nbsp; </span></div>
+</div>
+<hr>
+<h2>Flattening an Array</h2>
+<p>Flattening an array is the process of reducing the dimensionality of an array.</p>
+<p>The flat() method creates a new array with sub-array elements concatenated to a specified depth.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> myArr = [[<span class="jsnumbercolor" style="color:red">1</span>,<span class="jsnumbercolor" style="color:red">2</span>],[<span class="jsnumbercolor" style="color:red">3</span>,<span class="jsnumbercolor" style="color:red">4</span>],[<span class="jsnumbercolor" style="color:red">5</span>,<span class="jsnumbercolor" style="color:red">6</span>]];<br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> newArr = myArr.<span class="jspropertycolor" style="color:black">flat</span>();<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<h2>Browser Support</h2>
+<p>JavaScript Array <code class="w3-codespan">flat()</code> is supported in all modern browsers since January 2020:</p>
+<div class="w3-responsive">
+<table class="browserref notranslate">
+  <tbody><tr style="height:50px">
+    <th style="width:20%;" class="bsChrome" title="Chrome"></th>
+    <th style="width:20%;" class="bsEdge" title="Edge"></th>
+    <th style="width:20%;" class="bsFirefox" title="Firefox"></th>
+    <th style="width:20%;" class="bsSafari" title="Safari"></th>
+    <th style="width:19%;" class="bsOpera" title="Opera"></th>                
+  </tr>
+  <tr>
+    <td>Chrome 69</td>    
+    <td>Edge 79</td>
+    <td>Firefox 62</td>
+    <td>Safari 12</td>
+    <td>Opera 56</td>
+  </tr>
+  <tr>
+    <td>Sep 2018</td>
+    <td>Jan 2020</td>    
+    <td>Sep 2018</td>
+    <td>Sep 2018</td>
+    <td>Sep 2018</td>
+  </tr>
+</tbody></table>
+</div>
+
+<hr>
+<h2>Splicing and Slicing Arrays</h2>
+<p>The <code class="w3-codespan">splice()</code> method adds new items to an array.</p>
+<p>The <code class="w3-codespan">slice()</code> method slices out a piece of an array.</p>
+<hr>
+<h2>JavaScript Array splice()</h2>
+<p>The <code class="w3-codespan">splice()</code> method can be used to add new items to an array: </p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = [<span class="jsstringcolor" style="color:brown">"Banana"</span>, <span class="jsstringcolor" style="color:brown">"Orange"</span>, <span class="jsstringcolor" style="color:brown">"Apple"</span>, <span class="jsstringcolor" style="color:brown">"Mango"</span>];<br>
+fruits.<span class="jspropertycolor" style="color:black">splice</span>(<span class="jsnumbercolor" style="color:red">2</span>, <span class="jsnumbercolor" style="color:red">0</span>, <span class="jsstringcolor" style="color:brown">"Lemon"</span>, <span class="jsstringcolor" style="color:brown">"Kiwi"</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<p>The first parameter (2) defines the position <strong>where</strong> new elements should be 
+<strong>added</strong> (spliced in).</p>
+<p>The second parameter (0) defines <strong>how many</strong> elements should be
+<strong>removed</strong>.</p>
+<p>The rest of the parameters ("Lemon" , "Kiwi") define the new elements to be
+<strong>added</strong>.</p>
+<p>The <code class="w3-codespan">splice()</code> method returns an array with the deleted items: </p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = [<span class="jsstringcolor" style="color:brown">"Banana"</span>, <span class="jsstringcolor" style="color:brown">"Orange"</span>, <span class="jsstringcolor" style="color:brown">"Apple"</span>, <span class="jsstringcolor" style="color:brown">"Mango"</span>];<br>
+fruits.<span class="jspropertycolor" style="color:black">splice</span>(<span class="jsnumbercolor" style="color:red">2</span>, <span class="jsnumbercolor" style="color:red">2</span>, <span class="jsstringcolor" style="color:brown">"Lemon"</span>, <span class="jsstringcolor" style="color:brown">"Kiwi"</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<hr>
+
+<h2>Using splice() to Remove Elements</h2>
+<p>With clever parameter setting, you can use <code class="w3-codespan">splice()</code> to remove elements without leaving 
+"holes" in the array: </p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = [<span class="jsstringcolor" style="color:brown">"Banana"</span>, <span class="jsstringcolor" style="color:brown">"Orange"</span>, <span class="jsstringcolor" style="color:brown">"Apple"</span>, <span class="jsstringcolor" style="color:brown">"Mango"</span>];<br>
+fruits.<span class="jspropertycolor" style="color:black">splice</span>(<span class="jsnumbercolor" style="color:red">0</span>, <span class="jsnumbercolor" style="color:red">1</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<p>The first parameter (0) defines the position where new elements should be 
+<strong>added</strong> (spliced in).</p>
+<p>The second parameter (1) defines <strong>how many</strong> elements should be
+<strong>removed</strong>.</p>
+<p>The rest of the parameters are omitted. No new elements will be added.</p>
+<hr>
+
+<h2>JavaScript Array slice()</h2>
+
+<p>The <code class="w3-codespan">slice()</code> method slices out a piece of an array into a new 
+array.</p>
+<p>This Sample slices out a part of an array starting from array element 1 
+("Orange"):</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = [<span class="jsstringcolor" style="color:brown">"Banana"</span>, <span class="jsstringcolor" style="color:brown">"Orange"</span>, <span class="jsstringcolor" style="color:brown">"Lemon"</span>, <span class="jsstringcolor" style="color:brown">"Apple"</span>, <span class="jsstringcolor" style="color:brown">"Mango"</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> citrus = fruits.<span class="jspropertycolor" style="color:black">slice</span>(<span class="jsnumbercolor" style="color:red">1</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-panel w3-note">
+<h2>Note</h2>
+<p>The <code class="w3-codespan">slice()</code> method creates a new array.</p>
+<p>The <code class="w3-codespan">slice()</code> method does not remove any elements from the source array.</p>
+</div>
+
+<p>This Sample slices out a part of an array starting from array element 3 
+("Apple"):</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = [<span class="jsstringcolor" style="color:brown">"Banana"</span>, <span class="jsstringcolor" style="color:brown">"Orange"</span>, <span class="jsstringcolor" style="color:brown">"Lemon"</span>, <span class="jsstringcolor" style="color:brown">"Apple"</span>, <span class="jsstringcolor" style="color:brown">"Mango"</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> citrus = fruits.<span class="jspropertycolor" style="color:black">slice</span>(<span class="jsnumbercolor" style="color:red">3</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p>The <code class="w3-codespan">slice()</code> method can take two arguments like <code class="w3-codespan">slice(1, 3)</code>.</p>
+<p>The method then selects elements from the start argument, and up to (but not 
+including) the end argument.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = [<span class="jsstringcolor" style="color:brown">"Banana"</span>, <span class="jsstringcolor" style="color:brown">"Orange"</span>, <span class="jsstringcolor" style="color:brown">"Lemon"</span>, <span class="jsstringcolor" style="color:brown">"Apple"</span>, <span class="jsstringcolor" style="color:brown">"Mango"</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> citrus = fruits.<span class="jspropertycolor" style="color:black">slice</span>(<span class="jsnumbercolor" style="color:red">1</span>, <span class="jsnumbercolor" style="color:red">3</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p>If the end argument is omitted, like in the first Samples, the <code class="w3-codespan">slice()</code> 
+method slices out the rest of the array.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = [<span class="jsstringcolor" style="color:brown">"Banana"</span>, <span class="jsstringcolor" style="color:brown">"Orange"</span>, <span class="jsstringcolor" style="color:brown">"Lemon"</span>, <span class="jsstringcolor" style="color:brown">"Apple"</span>, <span class="jsstringcolor" style="color:brown">"Mango"</span>];<br>
+<span class="jskeywordcolor" style="color:mediumblue">const</span> citrus = fruits.<span class="jspropertycolor" style="color:black">slice</span>(<span class="jsnumbercolor" style="color:red">2</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<hr>
+
+<h2>Automatic toString()</h2>
+
+<p>JavaScript automatically converts an array to a comma separated string when a 
+primitive value is expected.</p>
+<p>This is always the case when you try to output an array. </p>
+<p>These two Samples will produce the same result:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = [<span class="jsstringcolor" style="color:brown">"Banana"</span>, <span class="jsstringcolor" style="color:brown">"Orange"</span>, <span class="jsstringcolor" style="color:brown">"Apple"</span>, <span class="jsstringcolor" style="color:brown">"Mango"</span>];<br>
+document.<span class="jspropertycolor" style="color:black">getElementById</span>(<span class="jsstringcolor" style="color:brown">"demo"</span>).<span class="jspropertycolor" style="color:black">innerHTML</span> = fruits.<span class="jspropertycolor" style="color:black">toString</span>();<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">const</span> fruits = [<span class="jsstringcolor" style="color:brown">"Banana"</span>, <span class="jsstringcolor" style="color:brown">"Orange"</span>, <span class="jsstringcolor" style="color:brown">"Apple"</span>, <span class="jsstringcolor" style="color:brown">"Mango"</span>];<br>
+document.<span class="jspropertycolor" style="color:black">getElementById</span>(<span class="jsstringcolor" style="color:brown">"demo"</span>).<span class="jspropertycolor" style="color:black">innerHTML</span> = fruits;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-panel w3-note">
+<h2>Note</h2>
+<p>All JavaScript objects have a toString() method.</p>
+</div>
+<hr>
+<h2>Finding Max and Min Values in an Array</h2>
+<p>There are no built-in functions for finding the highest 
+or lowest value in a JavaScript array.</p>
+<p>You will learn how you solve this problem in the next 
+chapter of this tutorial.</p>
+
+<hr>
+<h2>Sorting Arrays</h2>
+<p>Sorting arrays are covered in the next chapter of this tutorial.</p>
+
+ 
+

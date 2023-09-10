@@ -1,0 +1,307 @@
+<!-- string-->
+
+
+  <div class="w3-row w3-white">
+
+    <h1>What is <span class="color_h1">Strings in C#?</span></h1>
+
+
+<h2>C# Strings</h2>
+<p>Strings are used for storing text.</p>
+<p>A <code class="w3-codespan">string</code> variable contains a collection of characters surrounded by double quotes:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<p>Create a variable of type <code class="w3-codespan">string</code> and assign it a value:</p>
+<pre class="w3-white language-csharp" tabindex="0"><code class="language-csharp"><span class="token class-name"><span class="token keyword keyword-string">string</span></span> greeting <span class="token operator">=</span> <span class="token string">"Hello"</span><span class="token punctuation">;</span>
+</code></pre>
+<p>
+</p>
+</div>
+
+<p>A string variable can contain many words, if you want:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<pre class="w3-white language-csharp" tabindex="0"><code class="language-csharp"><span class="token class-name"><span class="token keyword keyword-string">string</span></span> greeting2 <span class="token operator">=</span> <span class="token string">"Nice to meet you!"</span><span class="token punctuation">;</span>
+</code></pre>
+<p>
+</p>
+</div>
+
+<hr>
+<h2>String Length</h2>
+<p>A string in C# is actually an object, which contain properties and methods that can perform certain operations on strings. For Sample, the length of a string can be found with the <code class="w3-codespan">Length</code> property:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<pre class="w3-white language-csharp" tabindex="0"><code class="language-csharp"><span class="token class-name"><span class="token keyword keyword-string">string</span></span> txt <span class="token operator">=</span> <span class="token string">"ABCDEFGHIJKLMNOPQRSTUVWXYZ"</span><span class="token punctuation">;</span>
+Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"The length of the txt string is: "</span> <span class="token operator">+</span> txt<span class="token punctuation">.</span>Length<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>
+</p>
+</div>
+<hr>
+
+<h2>Other Methods</h2>
+
+<p>There are many string methods available, for Sample <code class="w3-codespan">ToUpper()</code> and <code class="w3-codespan">ToLower()</code>, which returns a copy of the string converted to uppercase or lowercase:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<pre class="w3-white language-csharp" tabindex="0"><code class="language-csharp"><span class="token class-name"><span class="token keyword keyword-string">string</span></span> txt <span class="token operator">=</span> <span class="token string">"Hello World"</span><span class="token punctuation">;</span>
+Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>txt<span class="token punctuation">.</span><span class="token function">ToUpper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// Outputs "HELLO WORLD"</span>
+Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>txt<span class="token punctuation">.</span><span class="token function">ToLower</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// Outputs "hello world"</span>
+</code></pre>
+<p>
+</p>
+</div>
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<p>&nbsp;</p> 
+<p>&nbsp;</p> 
+  <div class="w3-row w3-white">
+
+    <h1>C# <span class="color_h1">String Concatenation</span></h1>
+
+
+<h2>String Concatenation</h2>
+
+<p>The <code class="w3-codespan">+</code> operator can be used between strings to combine them. This is called <strong>concatenation</strong>:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<pre class="w3-white language-csharp" tabindex="0"><code class="language-csharp"><span class="token class-name"><span class="token keyword keyword-string">string</span></span> firstName <span class="token operator">=</span> <span class="token string">"John "</span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token keyword keyword-string">string</span></span> lastName <span class="token operator">=</span> <span class="token string">"Doe"</span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token keyword keyword-string">string</span></span> name <span class="token operator">=</span> firstName <span class="token operator">+</span> lastName<span class="token punctuation">;</span>
+Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>
+</p>
+</div>
+<div class="w3-note w3-panel"><p>Note that we have added a space after "John" to create a space between firstName and lastName on print.</p></div>
+<p>You can also use the <code class="w3-codespan">string.Concat()</code> method to concatenate two strings:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<pre class="w3-white language-csharp" tabindex="0"><code class="language-csharp"><span class="token class-name"><span class="token keyword keyword-string">string</span></span> firstName <span class="token operator">=</span> <span class="token string">"John "</span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token keyword keyword-string">string</span></span> lastName <span class="token operator">=</span> <span class="token string">"Doe"</span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token keyword keyword-string">string</span></span> name <span class="token operator">=</span> <span class="token keyword keyword-string">string</span><span class="token punctuation">.</span><span class="token function">Concat</span><span class="token punctuation">(</span>firstName<span class="token punctuation">,</span> lastName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>
+</p>
+</div>
+<hr>
+
+<h2>Adding Numbers and Strings</h2>
+<div class="w3-panel w3-warning">
+<p>WARNING!</p>
+ <p>C# uses the + operator for both addition and concatenation.</p>
+ <p><strong>Remember:</strong> Numbers are added. Strings are concatenated.</p>
+</div>
+<p>If you add two numbers, the result will be a number:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<pre class="w3-white language-csharp" tabindex="0"><code class="language-csharp"><span class="token class-name"><span class="token keyword keyword-int">int</span></span> x <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token keyword keyword-int">int</span></span> y <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token keyword keyword-int">int</span></span> z <span class="token operator">=</span> x <span class="token operator">+</span> y<span class="token punctuation">;</span>  <span class="token comment">// z will be 30 (an integer/number)</span>
+</code></pre>
+<p>
+</p>
+</div>
+
+<p>If you add two strings, the result will be a string concatenation:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<pre class="w3-white language-csharp" tabindex="0"><code class="language-csharp"><span class="token class-name"><span class="token keyword keyword-string">string</span></span> x <span class="token operator">=</span> <span class="token string">"10"</span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token keyword keyword-string">string</span></span> y <span class="token operator">=</span> <span class="token string">"20"</span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token keyword keyword-string">string</span></span> z <span class="token operator">=</span> x <span class="token operator">+</span> y<span class="token punctuation">;</span>  <span class="token comment">// z will be 1020 (a string)</span>
+</code></pre>
+<p>
+</p>
+</div>
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<p>&nbsp;</p> 
+<p>&nbsp;</p> 
+  <div class="w3-row w3-white">
+    <div class="w3-col l10 m12" id="main">
+
+    <h1>C# <span class="color_h1">String Interpolation</span></h1>
+
+
+<h2>String Interpolation</h2>
+
+<p>Another option ofstring concatenation, is <strong>string interpolation</strong>, 
+which substitutes values of variables into placeholders in a string. Note that 
+you do not have to worry about spaces, like with concatenation:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<pre class="w3-white language-csharp" tabindex="0"><code class="language-csharp"><span class="token class-name"><span class="token keyword keyword-string">string</span></span> firstName <span class="token operator">=</span> <span class="token string">"John"</span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token keyword keyword-string">string</span></span> lastName <span class="token operator">=</span> <span class="token string">"Doe"</span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token keyword keyword-string">string</span></span> name <span class="token operator">=</span> <span class="token interpolation-string"><span class="token string">$"My full name is: </span><span class="token interpolation"><span class="token punctuation">{</span><span class="token expression language-csharp">firstName</span><span class="token punctuation">}</span></span><span class="token string"> </span><span class="token interpolation"><span class="token punctuation">{</span><span class="token expression language-csharp">lastName</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">;</span>
+Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>
+</p>
+</div>
+<div class="w3-note w3-panel">
+<p>Also note that you have to use the dollar sign (<code class="w3-codespan">$</code>) when using the string interpolation method.</p>
+<p>String interpolation was introduced in C# version 6.</p>
+</div>
+
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<p>&nbsp;</p> 
+<p>&nbsp;</p> 
+
+
+  <div class="w3-row w3-white">
+
+    <h1>C# <span class="color_h1">Access Strings</span></h1>
+
+
+<h2>Access Strings</h2>
+<p>You can access the characters in a string by referring to its index number 
+inside square brackets <code class="w3-codespan">[]</code>.</p>
+<p>This Sample prints the <strong>first character</strong> in 
+<strong>myString</strong>:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<pre class="w3-white language-csharp" tabindex="0"><code class="language-csharp"><span class="token class-name"><span class="token keyword keyword-string">string</span></span> myString <span class="token operator">=</span> <span class="token string">"Hello"</span><span class="token punctuation">;</span>
+Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>myString<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Outputs "H"</span>
+</code></pre>
+<p>
+</p>
+</div>
+
+<div class="w3-note w3-panel">
+<p><strong>Note:</strong> String indexes start with 0: [0] is the first character. [1] is the second 
+character, etc.</p>
+</div>
+
+<p>This Sample prints the <strong>second character</strong> (1) in 
+<strong>myString</strong>:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<pre class="w3-white language-csharp" tabindex="0"><code class="language-csharp"><span class="token class-name"><span class="token keyword keyword-string">string</span></span> myString <span class="token operator">=</span> <span class="token string">"Hello"</span><span class="token punctuation">;</span>
+Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>myString<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Outputs "e"</span>
+</code></pre>
+<p>
+</p>
+</div>
+<p>You can also find the index position of a specific character in a string, by using the <code class="w3-codespan">IndexOf()</code> method:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<pre class="w3-white language-csharp" tabindex="0"><code class="language-csharp"><span class="token class-name"><span class="token keyword keyword-string">string</span></span> myString <span class="token operator">=</span> <span class="token string">"Hello"</span><span class="token punctuation">;</span>
+Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>myString<span class="token punctuation">.</span><span class="token function">IndexOf</span><span class="token punctuation">(</span><span class="token string">"e"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Outputs "1"</span>
+</code></pre>
+<p>
+</p>
+</div>
+
+<p>Another useful method is <code class="w3-codespan">Substring()</code>, which extracts the characters from a string, 
+starting from the specified character position/index, and returns a new string. This method is often used together with <code class="w3-codespan">IndexOf()</code> to get the specific character position:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<pre class="w3-white language-csharp" tabindex="0"><code class="language-csharp"><span class="token comment">// Full name</span>
+<span class="token class-name"><span class="token keyword keyword-string">string</span></span> name <span class="token operator">=</span> <span class="token string">"John Doe"</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Location of the letter D</span>
+<span class="token class-name"><span class="token keyword keyword-int">int</span></span> charPos <span class="token operator">=</span> name<span class="token punctuation">.</span><span class="token function">IndexOf</span><span class="token punctuation">(</span><span class="token string">"D"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Get last name</span>
+<span class="token class-name"><span class="token keyword keyword-string">string</span></span> lastName <span class="token operator">=</span> name<span class="token punctuation">.</span><span class="token function">Substring</span><span class="token punctuation">(</span>charPos<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Print the result</span>
+Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>lastName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>
+</p>
+</div>
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++ -->
+<p>&nbsp;</p> 
+<p>&nbsp;</p> 
+  <div class="w3-row w3-white">
+
+    <h1>C# <span class="color_h1">Special Characters</span></h1>
+
+<hr>
+
+<h2>Strings - Special Characters</h2>
+
+<p>Because strings must be written within quotes, C# will misunderstand this string, 
+and generate an error:</p>
+
+<div class="w3-Sample w3-pale-red">
+<pre class="w3-border-red w3-white language-csharp" tabindex="0"><code class="language-csharp"><span class="token class-name"><span class="token keyword keyword-string">string</span></span> txt <span class="token operator">=</span> <span class="token string">"We are the so-called "</span>Vikings<span class="token string">" from the north."</span><span class="token punctuation">;</span>
+</code></pre>
+</div>
+
+<p>The solution to avoid this problem, is to use the <strong>backslash escape character</strong>.</p>
+<p>The backslash (<code class="w3-codespan">\</code>) escape character turns special characters into string characters:</p>
+
+<table class="ws-table-all notranslate">
+<tbody><tr>
+  <th width="35%">Escape character</th>
+  <th>Result</th>
+  <th>Description</th>
+</tr>
+<tr>
+  <td>\'</td>
+  <td>'</td>
+  <td>Single quote</td>
+</tr>
+<tr>
+  <td>\"</td>
+  <td>"</td>
+  <td>Double quote</td>
+</tr>
+<tr>
+  <td>\\</td>
+  <td>\</td>
+  <td>Backslash</td>
+</tr>
+</tbody></table>
+
+<p>The sequence <code class="w3-codespan">\"</code>&nbsp; inserts a double quote in a string:</p><p>
+</p><div class="w3-Sample">
+<h3>Sample</h3>
+<pre class="w3-white language-csharp" tabindex="0"><code class="language-csharp"><span class="token class-name"><span class="token keyword keyword-string">string</span></span> txt <span class="token operator">=</span> <span class="token string">"We are the so-called \"Vikings\" from the north."</span><span class="token punctuation">;</span>
+</code></pre>
+<p>
+</p>
+</div>
+<p>The sequence <code class="w3-codespan">\'</code>&nbsp; inserts a single quote in a string:</p><p>
+</p><div class="w3-Sample">
+<h3>Sample</h3>
+<pre class="w3-white language-csharp" tabindex="0"><code class="language-csharp"><span class="token class-name"><span class="token keyword keyword-string">string</span></span> txt <span class="token operator">=</span> <span class="token string">"It\'s alright."</span><span class="token punctuation">;</span>
+</code></pre>
+<p>
+</p>
+</div>
+<p>The sequence <code class="w3-codespan">\\</code>&nbsp; inserts a single backslash in a string:</p><p>
+</p><div class="w3-Sample">
+<h3>Sample</h3>
+<pre class="w3-white language-csharp" tabindex="0"><code class="language-csharp"><span class="token class-name"><span class="token keyword keyword-string">string</span></span> txt <span class="token operator">=</span> <span class="token string">"The character \\ is called backslash."</span><span class="token punctuation">;</span>
+</code></pre>
+<p>
+</p>
+</div>
+
+<p>Other useful escape characters in C# are:</p>
+<table class="ws-table-all notranslate">
+<tbody><tr>
+  <th width="25%">Code</th>
+  <th>Result</th>
+</tr>
+<tr>
+  <td>\n</td>
+  <td>New Line</td>
+</tr>
+<tr>
+  <td>\t</td>
+  <td>Tab</td>
+</tr>
+<tr>
+  <td>\b</td>
+  <td>Backspace</td>
+</tr>
+</tbody></table>

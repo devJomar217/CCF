@@ -1,0 +1,429 @@
+<!-- numbers-->
+
+
+  <div class="w3-row w3-white">
+    
+    <div class="w3-col l10 m12" id="main">
+
+
+<h1>What is <span class="color_h1">Numbers in JavaScript?</span></h1>
+
+<hr>
+<p class="intro">JavaScript has only one type of number.
+Numbers can be written with or without decimals.</p>
+<hr>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">3.14</span>;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// A number with decimals<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jsnumbercolor" style="color:red">3</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// A number without decimals
+ </span></span></div>
+<p>
+Yourself »</a>
+</p>
+</div>
+<p>Extra large or extra small numbers can be written with scientific (exponent) notation:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">123e5</span>;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// 12300000<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jsnumbercolor" style="color:red">123e-5</span>;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// 0.00123
+ </span></span></div>
+<p>
+Yourself »</a>
+</p>
+
+</div>
+<hr>
+
+<h2>JavaScript Numbers are Always 64-bit Floating Point</h2>
+<p>Unlike many other programming languages, 
+JavaScript does not define different types of numbers, like integers, short, long, 
+floating-point etc.</p>
+<p>JavaScript numbers are always stored as double precision floating point 
+numbers, following the international IEEE 754 standard. <br><br>This format 
+stores numbers in 64 bits, where the number (the fraction) is stored in bits 0 
+to 51, the exponent in bits 52 to 62, and the sign in bit 63:</p>
+<table class="ws-table-all">
+  <tbody><tr>
+    <th>Value (aka Fraction/Mantissa)</th>
+    <th>Exponent</th>
+    <th>Sign</th>
+  </tr>
+  <tr>
+    <td>52 bits (0 - 51)&nbsp;</td>
+    <td>11 bits (52 - 62)</td>
+    <td>1 bit (63)</td>
+  </tr>
+</tbody></table>
+<hr>
+
+<h2>Integer Precision</h2>
+<p>Integers (numbers without a period or exponent notation) are accurate up to 15 digits.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">999999999999999</span>;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// x will be 999999999999999<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jsnumbercolor" style="color:red">9999999999999999</span>;&nbsp; <span class="commentcolor" style="color:green">// y will be 10000000000000000
+ </span></span></div>
+</div>
+<p>The maximum number of decimals is 17.</p>
+
+<h2>Floating Precision</h2>
+<div class="w3-Sample">
+<p>Floating point arithmetic is not always 100% accurate:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">0.2</span> + <span class="jsnumbercolor" style="color:red">0.1</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p>
+Yourself »</a>
+</p>
+</div>
+<div class="w3-Sample">
+<p>To solve the problem above, it helps to multiply and divide:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = (<span class="jsnumbercolor" style="color:red">0.2</span> * <span class="jsnumbercolor" style="color:red">10</span> + <span class="jsnumbercolor" style="color:red">0.1</span> * <span class="jsnumbercolor" style="color:red">10</span>) / <span class="jsnumbercolor" style="color:red">10</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+
+<h2>Adding Numbers and Strings</h2>
+<div class="w3-panel w3-warning">
+<p>WARNING !!</p>
+ <p>JavaScript uses the + operator for both addition and concatenation.</p>
+ <p>Numbers are added. Strings are concatenated.</p>
+</div>
+<p>If you add two numbers, the result will be a number:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">10</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jsnumbercolor" style="color:red">20</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> z = x + y;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p>If you add two strings, the result will be a string concatenation:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsstringcolor" style="color:brown">"10"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jsstringcolor" style="color:brown">"20"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> z = x + y;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p>If you add a number and a string, the result will be a string concatenation:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">10</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jsstringcolor" style="color:brown">"20"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> z = x + y;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p>If you add a string and a number, the result will be a string concatenation:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsstringcolor" style="color:brown">"10"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jsnumbercolor" style="color:red">20</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> z = x + y;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<p>A common mistake is to expect this result to be 30:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">10</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jsnumbercolor" style="color:red">20</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> z = <span class="jsstringcolor" style="color:brown">"The result is: "</span> + x + y;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<p>A common mistake is to expect this result to be 102030:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">10</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jsnumbercolor" style="color:red">20</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> z = <span class="jsstringcolor" style="color:brown">"30"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> result = x + y + z;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<div class="w3-panel w3-note">
+<p>The JavaScript interpreter works from left to right.</p>
+<p>First 10 + 20 is added because x and y are both numbers.</p>
+<p>Then 30 + "30" is concatenated because z is a string.</p>
+</div>
+<hr>
+
+<h2>Numeric Strings</h2>
+
+<p>JavaScript strings can have numeric content:</p>
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">100</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// x is a number<br></span><span class="jsnumbercolor" style="color:red">
+</span><br><span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jsstringcolor" style="color:brown">"100"</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="commentcolor" style="color:green">// y is a 
+string </span></span></div>
+</div>
+
+<p>JavaScript will try to convert strings to numbers in all numeric operations:</p>
+<p>This will work:</p>
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsstringcolor" style="color:brown">"100"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jsstringcolor" style="color:brown">"10"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> z = x / y;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p>
+</p>
+</div>
+
+<p>This will also work:</p>
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsstringcolor" style="color:brown">"100"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jsstringcolor" style="color:brown">"10"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> z = x * y;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p>
+</p>
+</div>
+
+<p>And this will work:</p>
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsstringcolor" style="color:brown">"100"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jsstringcolor" style="color:brown">"10"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> z = x - y;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p>
+</p>
+</div>
+
+<p>But this will not work:</p>
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsstringcolor" style="color:brown">"100"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jsstringcolor" style="color:brown">"10"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> z = x + y;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p>
+</p>
+</div>
+
+<div class="w3-panel w3-note">
+<p>In the last Sample JavaScript uses the + operator to concatenate the strings.</p>
+</div>
+
+<hr>
+
+<h2>NaN - Not a Number</h2>
+
+<p><code class="w3-codespan">NaN</code> is a JavaScript reserved word indicating that a number is not a legal number.</p>
+<p>Trying to do arithmetic with a non-numeric string will result in <code class="w3-codespan">NaN</code> (Not a 
+Number):</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">100</span> / <span class="jsstringcolor" style="color:brown">"Apple"</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+<p>
+</p>
+</div>
+<p>However, if the string is numeric, the result will be a 
+number:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">100</span> / <span class="jsstringcolor" style="color:brown">"10"</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p>You can use the global JavaScript function <code class="w3-codespan">isNaN()</code>
+to find out if a value is a not a number:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">100</span> / <span class="jsstringcolor" style="color:brown">"Apple"</span>;<br>isNaN(x);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<p>Watch out for <code class="w3-codespan">NaN</code>. If you use <code class="w3-codespan">NaN</code> in a mathematical operation, the result will also be <code class="w3-codespan">NaN</code>:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jskeywordcolor" style="color:mediumblue">NaN</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jsnumbercolor" style="color:red">5</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> z = x + y;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p>Or the result might be a concatenation like NaN5:</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jskeywordcolor" style="color:mediumblue">NaN</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jsstringcolor" style="color:brown">"5"</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> z = x + y;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p><code class="w3-codespan">NaN</code> is a number: <code class="w3-codespan">typeof NaN</code> returns <code class="w3-codespan">number</code>:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">typeof</span> <span class="jskeywordcolor" style="color:mediumblue">NaN</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<hr>
+
+<h2>Infinity</h2>
+
+<p><code class="w3-codespan">Infinity</code> (or <code class="w3-codespan">-Infinity</code>) is the value JavaScript will return if you calculate a number outside the largest 
+possible number.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> myNumber = <span class="jsnumbercolor" style="color:red">2</span>;<br><span class="jsnumbercolor" style="color:red">
+</span><span class="commentcolor" style="color:green">// Execute until Infinity<br></span>
+<span class="jskeywordcolor" style="color:mediumblue">while</span> (myNumber != <span class="jsnumbercolor" style="color:red">Infinity</span>) {<br><span class="jsnumbercolor" style="color:red">
+</span>  &nbsp; myNumber = myNumber * myNumber;<br>}<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+
+<p>Division by 0 (zero) also generates <code class="w3-codespan">Infinity</code>:</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x =&nbsp; <span class="jsnumbercolor" style="color:red">2</span> / <span class="jsnumbercolor" style="color:red">0</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = -<span class="jsnumbercolor" style="color:red">2</span> / <span class="jsnumbercolor" style="color:red">0</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p><code class="w3-codespan">Infinity</code> is a number: <code class="w3-codespan">typeof Infinity</code> returns <code class="w3-codespan">number</code>.</p>
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black"><span class="jsnumbercolor" style="color:red">
+</span> <span class="jskeywordcolor" style="color:mediumblue">typeof</span> <span class="jsnumbercolor" style="color:red">Infinity</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<hr>
+
+<h2>Hexadecimal</h2>
+<p>JavaScript interprets numeric constants as hexadecimal if they are preceded by 
+0x.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+ <div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">0xFF</span>;<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-panel w3-note">
+<p>Never write a number with a leading zero (like 07).<br>Some JavaScript versions interpret 
+numbers as octal if they are written with a leading zero.</p>
+</div>
+
+<p>
+By default, JavaScript displays numbers as <strong>base 10</strong> decimals.</p>
+<p>But you can use the <code class="w3-codespan">toString()</code> method to output numbers from <strong>base 2</strong> 
+to <strong>base 36</strong>.</p>
+<p>Hexadecimal is <strong>base 16</strong>. Decimal is <strong>base 10</strong>. 
+Octal is <strong>base 8</strong>. Binary is <strong>base 2</strong>.</p>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> myNumber = <span class="jsnumbercolor" style="color:red">32</span>;<br>
+myNumber.<span class="jspropertycolor" style="color:black">toString</span>(<span class="jsnumbercolor" style="color:red">32</span>);<br>
+myNumber.<span class="jspropertycolor" style="color:black">toString</span>(<span class="jsnumbercolor" style="color:red">16</span>);<br>
+myNumber.<span class="jspropertycolor" style="color:black">toString</span>(<span class="jsnumbercolor" style="color:red">12</span>);<br>
+myNumber.<span class="jspropertycolor" style="color:black">toString</span>(<span class="jsnumbercolor" style="color:red">10</span>);<br>
+myNumber.<span class="jspropertycolor" style="color:black">toString</span>(<span class="jsnumbercolor" style="color:red">8</span>);<br>
+myNumber.<span class="jspropertycolor" style="color:black">toString</span>(<span class="jsnumbercolor" style="color:red">2</span>);<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<hr>
+
+<h2>JavaScript Numbers as Objects</h2>
+
+<p>Normally JavaScript numbers are primitive values created from literals:</p>
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">123</span>;<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<p>But numbers can also be defined as objects with the keyword <code class="w3-codespan">new</code>:</p>
+<div class="w3-Sample">
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jskeywordcolor" style="color:mediumblue">new</span> Number(<span class="jsnumbercolor" style="color:red">123</span>);<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-Sample">
+<h3>Sample</h3>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">123</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jskeywordcolor" style="color:mediumblue">new</span> Number(<span class="jsnumbercolor" style="color:red">123</span>);<br><span class="jsnumbercolor" style="color:red">
+</span> </span></div></div>
+
+<div class="w3-panel w3-note">
+<p>Do not create Number objects.</p>
+<p>The <code class="w3-codespan">new</code> keyword complicates the code and slows down execution speed.</p>
+<p>Number Objects can produce unexpected results:</p>
+</div>
+
+<div class="w3-Sample">
+<p>When using the <code class="w3-codespan">==</code> operator, x and y are <b>equal</b>:</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">500</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jskeywordcolor" style="color:mediumblue">new</span> Number(<span class="jsnumbercolor" style="color:red">500</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+<div class="w3-Sample">
+<p>When using the <code class="w3-codespan">===</code> operator, x and y are <b>not equal</b>.</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jsnumbercolor" style="color:red">500</span>;<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jskeywordcolor" style="color:mediumblue">new</span> Number(<span class="jsnumbercolor" style="color:red">500</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-panel w3-note">
+<p>Note the difference between <code class="w3-codespan">(x==y)</code> and <code class="w3-codespan">(x===y)</code>.</p>
+</div>
+
+<div class="w3-Sample">
+<p><code class="w3-codespan">(x == y)</code> true or false?</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jskeywordcolor" style="color:mediumblue">new</span> Number(<span class="jsnumbercolor" style="color:red">500</span>);<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jskeywordcolor" style="color:mediumblue">new</span> Number(<span class="jsnumbercolor" style="color:red">500</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-Sample">
+<p><code class="w3-codespan">(x === y)</code> true or false?</p>
+<div class="w3-code notranslate jsHigh"><span class="jscolor" style="color:black">
+<span class="jskeywordcolor" style="color:mediumblue">let</span> x = <span class="jskeywordcolor" style="color:mediumblue">new</span> Number(<span class="jsnumbercolor" style="color:red">500</span>);<br>
+<span class="jskeywordcolor" style="color:mediumblue">let</span> y = <span class="jskeywordcolor" style="color:mediumblue">new</span> Number(<span class="jsnumbercolor" style="color:red">500</span>);<span class="jsnumbercolor" style="color:red">
+</span> </span></div>
+</div>
+
+<div class="w3-panel w3-note">
+<p>Comparing two JavaScript objects <b>always</b> returns <b>false</b>.</p>
+</div>
+
+<div class="w3-note">
+<h2>Complete JavaScript Number Reference</h2>
+<p>For a complete Number reference, visit our:</p>
+<p> Complete JavaScript Number Reference</a>.</p>
+<p>The reference contains descriptions and Samples of all Number  properties and methods.</p>
+</div>
+
