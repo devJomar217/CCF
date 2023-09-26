@@ -77,3 +77,22 @@ function getUserProfile() {
         }
     });
 }
+
+function getNotificationCount() {
+    $.ajax({
+        url: "../../common/db.php",
+        type: "POST",
+        data: {
+            action: 'retrieve-notification-count'
+        },
+        cache: false,
+        success: function(dataResult) {
+            var dataResult = JSON.parse(dataResult);
+            if (dataResult.statusCode == 200) {
+                if (dataResult.notificationCount != 0) {
+                    $('#notification-count').html(dataResult.notificationCount);
+                }
+            }
+        }
+    });
+}

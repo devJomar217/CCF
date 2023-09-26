@@ -1,5 +1,72 @@
 <?php
 
+class Account {
+  public $userID;
+  public $userName;
+  public $email;
+  public $userType;
+  public $status;
+  public $studentInfo;
+  public $adminInfo;
+  public $specialAccountInfo;
+
+  function set_userID($userID) {
+    $this->userID = $userID;
+  }
+  function get_userID() {
+    return $this->userID;
+  }
+
+  function set_userName($userName) {
+    $this->userName = $userName;
+  }
+  function get_userName() {
+    return $this->userName;
+  }
+  
+  function set_email($email) {
+    $this->email = $email;
+  }
+  function get_email() {
+    return $this->email;
+  }
+
+  function set_userType($userType) {
+    $this->userType = $userType;
+  }
+  function get_userType() {
+    return $this->userType;
+  }
+
+  function set_status($status) {
+    $this->status = $status;
+  }
+  function get_status() {
+    return $this->status;
+  }
+
+  function set_studentInfo($studentInfo) {
+    $this->studentInfo = $studentInfo;
+  }
+  function get_studentInfo() {
+    return $this->studentInfo;
+  }
+
+  function set_adminInfo($adminInfo) {
+    $this->adminInfo = $adminInfo;
+  }
+  function get_adminInfo() {
+    return $this->adminInfo;
+  }
+
+  function set_specialAccountInfo($specialAccountInfo) {
+    $this->specialAccountInfo = $specialAccountInfo;
+  }
+  function get_specialAccountInfo() {
+    return $this->specialAccountInfo;
+  }
+
+}
 
 class Student {
   public $studentID;
@@ -149,6 +216,49 @@ class Admin {
   }
   function get_status() {
     return $this->status;
+  }
+}
+
+class SpecialAccount {
+  public $accountID;
+  public $userName;
+  public $name;
+  public $job;
+  public $picture;
+
+  function set_accountID($accountID) {
+    $this->accountID = $accountID;
+  }
+  function get_accountID() {
+    return $this->accountID;
+  }
+
+  function set_userName($userName) {
+    $this->userName = $userName;
+  }
+  function get_userName() {
+    return $this->userName;
+  }
+
+  function set_name($name) {
+    $this->name = $name;
+  }
+  function get_name() {
+    return $this->name;
+  }
+
+  function set_job($job) {
+    $this->job = $job;
+  }
+  function get_job() {
+    return $this->job;
+  }
+
+  function set_picture($picture) {
+    $this->picture = $picture;
+  }
+  function get_picture() {
+    return $this->picture;
   }
 }
 
@@ -308,6 +418,7 @@ class Reported {
   public $reason;
   public $answerInformation;
   public $questionInformation;
+  public $replyInformation;
   public $reporterInformation;
   
   function set_reporterInformation($reporterInformation) {
@@ -350,6 +461,14 @@ class Reported {
     return $this->answerInformation;
   }
 
+  function set_replyInformation($replyInformation) {
+    $this->replyInformation = $replyInformation;
+  }
+
+  function get_replyInformation() {
+    return $this->replyInformation;
+  }
+
   function set_questionInformation($questionInformation) {
     $this->questionInformation = $questionInformation;
   }
@@ -363,6 +482,7 @@ class Reported {
 class Answer {
   public $picture;
   public $studentID;
+  public $accountID;
   public $questionID;
   public $name;
   public $yearLevel;
@@ -390,6 +510,14 @@ class Answer {
 
   function get_studentID() {
     return $this->studentID;
+  }
+
+  function set_accountID($accountID) {
+    $this->accountID = $accountID;
+  }
+
+  function get_accountID() {
+    return $this->accountID;
   }
 
   function set_name($name) {
@@ -503,6 +631,7 @@ class Reply {
   public $thumbsDown;
   public $status;
   public $replyID;
+  public $studentInformation;
 
   function set_picture($picture) {
     $this->picture = $picture;
@@ -510,6 +639,14 @@ class Reply {
 
   function get_picture() {
     return $this->picture;
+  }
+
+  function set_studentInformation($studentInformation) {
+    $this->studentInformation = $studentInformation;
+  }
+
+  function get_studentInformation() {
+    return $this->studentInformation;
   }
 
   function set_studentID($studentID) {

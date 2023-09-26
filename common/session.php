@@ -1,19 +1,21 @@
 <?php
 session_start();
-$GLOBALS['login_dir'] = '/ccf/component/login/index.php';
-$GLOBALS['home_dir'] = '/ccf/component/student/index.php';
-$GLOBALS['admin_dir'] = '/ccf/component/admin/index.php';
+$GLOBALS['login_dir'] = '/ccf/public/login/index.php';
+$GLOBALS['home_dir'] = '/ccf/public/forum/index.php';
+$GLOBALS['admin_dir'] = '/ccf/public/admin/index.php';
 $GLOBALS['user_type_student'] = '1';
 $GLOBALS['user_type_admin'] = '2';
+$GLOBALS['user_type_special'] = '3';
 // DEV
-$GLOBALS['page_login'] = 'http://localhost/ccf/component/login/index.php';
-$GLOBALS['page_student'] = 'http://localhost/ccf/component/student/index.php';
-$GLOBALS['page_admin'] = 'http://localhost/ccf/component/admin/index.php';
+$GLOBALS['page_login'] = 'http://localhost/ccf/public/login/index.php';
+$GLOBALS['page_create_special_account'] = 'http://localhost/ccf/public/login/form-create-special-account.php';
+$GLOBALS['page_student'] = 'http://localhost/ccf/public/forum/index.php';
+$GLOBALS['page_admin'] = 'http://localhost/ccf/public/admin/index.php';
 
 //PROD
-// $GLOBALS['page_login'] = 'http://code-connect.tech/component/login/index.php';
-// $GLOBALS['page_student'] = 'http://code-connect.tech/component/student/index.php';
-// $GLOBALS['page_admin'] = 'http://code-connect.tech/component/admin/index.php';
+// $GLOBALS['page_login'] = 'http://code-connect.tech/public/login/index.php';
+// $GLOBALS['page_student'] = 'http://code-connect.tech/public/student/index.php';
+// $GLOBALS['page_admin'] = 'http://code-connect.tech/public/admin/index.php';
 
 function redirect($url) {
     header('Location: '.$url);
@@ -41,7 +43,7 @@ function isAdminAccount(){
 }
 
 function redirectUser(){
-    // echo print_r($_SESSION);
+    // echof print_r($_SESSION);
     // echo print_r($_SERVER);
     if(isLoginPage()){
         if(hasLoggedInUser()){

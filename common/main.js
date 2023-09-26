@@ -101,7 +101,10 @@ function MyCustomUploadAdapterPlugin(editor) {
     };
 }
 
-function populateReplyRow(replyID, img, userName, status, date, yearLevel, reply, menu, specialization) {
+function populateReplyRow(replyID, img, userName, status, date, yearLevel, reply, menu, specialization, studentID) {
+    if (yearLevel == null || yearLevel == undefined) {
+        yearLevel = "";
+    }
     return `<div class="card-row py-2 pl-5" id="row-reply-${replyID}">
                 <div class="row py-3">
                     <div class="col"> 
@@ -154,7 +157,7 @@ function populateReplyRow(replyID, img, userName, status, date, yearLevel, reply
             </div>`
 }
 
-function populateAnswerRow(answerID, img, userName, status, date, yearLevel, answer, replies, ratingID, thumbsUp, thumbsDown, hasUserThumbsUp, hasUserThumbsDown, menu, hasRateButton, specialization) {
+function populateAnswerRow(answerID, img, userName, status, date, yearLevel, answer, replies, ratingID, thumbsUp, thumbsDown, hasUserThumbsUp, hasUserThumbsDown, menu, hasRateButton, specialization, studentID) {
     var thumbsUpSelected = `btn border-primary btn-sm px-4`;
     var thumbsUpSelectedColor = 'text-primary';
     var thumbsDownSelected = `btn border-danger btn-sm px-4`;
@@ -164,6 +167,10 @@ function populateAnswerRow(answerID, img, userName, status, date, yearLevel, ans
         thumbsUpSelectedColor = 'text-white';
     }
 
+    if (yearLevel == null || yearLevel == undefined) {
+        yearLevel = "";
+    }
+
     if (hasUserThumbsDown) {
         thumbsDownSelected = `btn border-danger btn-danger btn-sm px-4`;
         thumbsDownSelectedColor = 'text-white';
@@ -171,11 +178,11 @@ function populateAnswerRow(answerID, img, userName, status, date, yearLevel, ans
 
     var rateButton = '';
     if (hasRateButton) {
-        rateButton = `<button type="button" data-id="${answerID}" data-value="${thumbsUp}" data-ratingid="${ratingID}" data-selected="${hasUserThumbsUp}" id="btn-thumbs-up-${answerID}" class="btn-thumbs-up ${thumbsUpSelected}">
+        rateButton = `<button type="button" data-id="${answerID}" data-value="${thumbsUp}" data-ratingid="${ratingID}" data-accountid="${studentID}" data-selected="${hasUserThumbsUp}" id="btn-thumbs-up-${answerID}" class="btn-thumbs-up ${thumbsUpSelected}">
                 <i class="fa fa-thumbs-up ${thumbsUpSelectedColor}" id="btn-thumbs-up-icon-${answerID}"></i> 
                 <span id="btn-thumbs-up-value-${answerID}">${thumbsUp}</span>
             </button>
-            <button type="button" data-id="${answerID}" data-value="${thumbsDown}" data-ratingid="${ratingID}" data-selected="${hasUserThumbsDown}" id="btn-thumbs-down-${answerID}" class="btn-thumbs-down  ${thumbsDownSelected}">
+            <button type="button" data-id="${answerID}" data-value="${thumbsDown}" data-ratingid="${ratingID}" data-accountid="${studentID}" data-selected="${hasUserThumbsDown}" id="btn-thumbs-down-${answerID}" class="btn-thumbs-down  ${thumbsDownSelected}">
                 <i class="fa fa-thumbs-down ${thumbsDownSelectedColor}" id="btn-thumbs-down-icon-${answerID}""></i> 
                 <span id="btn-thumbs-down-value-${answerID}"> ${thumbsDown}</span>
             </button>`;
