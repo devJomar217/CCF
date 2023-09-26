@@ -74,12 +74,12 @@ if(isset($_POST["action"]) and $_POST["action"] == 'send'){
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'forcemindshift@gmail.com';
-        $mail->Password = 'vlgoezbhpydjcoit';
+        $mail->Username = 'codeconnect0@gmail.com';
+        $mail->Password = 'rmsvxlbgvynxpmbu';
         $mail->SMTPSecure = 'ssl';
         $mail->Port = 465;
         
-        $mail->setFrom('forcemindshift@gmail.com');
+        $mail->setFrom('codeconnect0@gmail.com');
         $mail->addAddress($email);
         $mail->isHTML(true);
         $mail->Subject = 'Forgot Password';
