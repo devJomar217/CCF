@@ -913,6 +913,7 @@ class Rating {
 class Rank {
   public $studentID;
   public $studentInformation;
+  public $professionalInformation;
   public $rating;
   public $rank;
 
@@ -930,6 +931,14 @@ class Rank {
 
   function get_studentInformation() {
     return $this->studentInformation;
+  }
+
+  function set_professionalInformation($professionalInformation) {
+    $this->professionalInformation = $professionalInformation;
+  }
+
+  function get_professionalInformation() {
+    return $this->professionalInformation;
   }
 
   function set_rating($rating) {

@@ -51,8 +51,8 @@ include '../../common/session.php';
                 </a>
                 <div id="collapse-student" class="collapse" aria-labelledby="headingTwo" data-parent="#sidebar-accordion">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" id="sidebar-student-list" href="#student.student-list">Student List</a>
-                        <a class="collapse-item" id="sidebar-student-request" href="#student.student-account-request">Student Account Request</a>
+                        <a class="collapse-item" id="sidebar-student-list" href="#student.student-list">Registered Students</a>
+                        <a class="collapse-item" id="sidebar-student-request" href="#student.student-account-request">Student List</a>
                     </div>
                 </div>
             </li>
@@ -60,12 +60,12 @@ include '../../common/session.php';
             <li class="nav-item" id="nav-item-special-account">
                 <a class="nav-link collapsed" href="#special-account" data-toggle="collapse" data-target="#collapse-special-account" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-users fa-cog"></i>
-                    <span>Special Account</span>
+                    <span>Professionals</span>
                 </a>
                 <div id="collapse-special-account" class="collapse" aria-labelledby="headingTwo" data-parent="#sidebar-accordion">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" id="sidebar-special-account-list" href="#special-account.special-account-list">Special Account List</a>
-                        <a class="collapse-item" id="sidebar-special-account-request" href="#special-account.special-account-request">Special Account Request</a>
+                        <a class="collapse-item" id="sidebar-special-account-list" href="#special-account.special-account-list">Account List</a>
+                        <a class="collapse-item" id="sidebar-special-account-request" href="#special-account.special-account-request">Account Request</a>
                     </div>
                 </div>
             </li>

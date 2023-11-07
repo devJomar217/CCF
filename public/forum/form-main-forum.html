@@ -144,9 +144,9 @@
                                     </div>
                                     <div class="col-2 text-right" id="question-status">
                                     </div>
-                                    <div class="col-1">
+                                    <div class="col-1 login-user">
                                         <div class="btn-group d-flex flex-row-reverse dropright">
-                                            <i class="fa fa-solid fa-ellipsis-vertical pl-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+                                            <i class="fa fa-solid fa-user pl-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
                                             <div class="dropdown-menu">
                                                 <button class="dropdown-item for-non-creator for-non-creator-report-question" type="button" data-toggle="modal" data-target="#modal-report-question" id=""><i class="fa fa-flag fa-sm"></i> Report</button>
                                                 <button class="dropdown-item for-creator for-creator-edit-question" data-toggle="modal" data-target="#modal-edit-question" type="button"><i class="fa fa-pen fa-sm"></i> Edit Question</button>
@@ -187,22 +187,24 @@
             <div class="card shadow-sm ">
                 <div class="card-body">
                     <div id="card-form">
-                        <form class="" id="form-answer-now">
-                            <div class="row">
-                                <div class="col">
-                                    <textarea class="form-control" name="" placeholder="Enter your answer here..." id="textarea-answer" required></textarea>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col d-flex mt-2">
-                                    <div class="col d-flex mt-2 justify-content-end">
-                                        <div class="justify-content-end p-2"><a href="#answer-now" id="btn-answer-now" class="btn btn-success btn-sm " value="">Use Text Editor <i class="fa fa-edit"></i></a></div>
-                                        <div class="justify-content-end p-2"><button type="submit" class="btn btn-primary btn-sm">Answer Now <i class="fa fa-paper-plane"></i></button></div>
+                        <div class="login-user">
+                            <form class="" id="form-answer-now">
+                                <div class="row">
+                                    <div class="col">
+                                        <textarea class="form-control" name="" placeholder="Enter your answer here..." id="textarea-answer" required></textarea>
                                     </div>
                                 </div>
-                            </div>
-                        </form>
-                        <hr class="sidebar-divider mt-4">
+                                <div class="row">
+                                    <div class="col d-flex mt-2">
+                                        <div class="col d-flex mt-2 justify-content-end">
+                                            <div class="justify-content-end p-2"><a href="#answer-now" id="btn-answer-now" class="btn btn-success btn-sm " value="">Use Text Editor <i class="fa fa-edit"></i></a></div>
+                                            <div class="justify-content-end p-2"><button type="submit" class="btn btn-primary btn-sm">Answer Now <i class="fa fa-paper-plane"></i></button></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <hr class="sidebar-divider mt-4">
+                        </div>
                         <h5 class="mb-4"><b>Answers</b></h5>
 
                         <div id="container-answers"></div>
@@ -413,6 +415,10 @@
         var creatorID;
         getUserProfile();
         getSubjectList();
+
+        if (isGuest) {
+            $(".login-user").addClass("d-none");
+        }
 
         var inputField = document.getElementById('textarea-answer');
         inputField.onkeydown = function(e) {
@@ -782,6 +788,10 @@
                         answerList = populateEmptyRow("No Answer");
                     }
                     $("#container-answers").html(answerList);
+
+                    if (isGuest) {
+                        $(".login-user").addClass("d-none");
+                    }
 
                     $(".button-reply").on('click', function() {
                         if ($("#container-reply-" + this.id).hasClass("d-none")) {

@@ -6,6 +6,7 @@ $GLOBALS['admin_dir'] = '/ccf/public/admin/index.php';
 $GLOBALS['user_type_student'] = '1';
 $GLOBALS['user_type_admin'] = '2';
 $GLOBALS['user_type_special'] = '3';
+$GLOBALS['user_type_guest'] = '4';
 // DEV
 $GLOBALS['page_login'] = 'http://localhost/ccf/public/login/index.php';
 $GLOBALS['page_create_special_account'] = 'http://localhost/ccf/public/login/form-create-special-account.php';
@@ -43,7 +44,7 @@ function isAdminAccount(){
 }
 
 function redirectUser(){
-    // echof print_r($_SESSION);
+    // echo print_r($_SESSION);
     // echo print_r($_SERVER);
     if(isLoginPage()){
         if(hasLoggedInUser()){
@@ -61,7 +62,9 @@ function redirectUser(){
                 if(!isAdminPage()){
                     redirect($GLOBALS['page_admin']);
                 }
-            } else if($_SESSION['user_type'] == $GLOBALS['user_type_student']) {
+            } else if($_SESSION['user_type'] == $GLOBALS['user_type_student'] ||
+            $_SESSION['user_type'] == $GLOBALS['user_type_special'] ||
+            $_SESSION['user_type'] == $GLOBALS['user_type_guest']) {
                 if(!isHomePage()){
                     redirect($GLOBALS['page_student']);
                 }

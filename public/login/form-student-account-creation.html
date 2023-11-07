@@ -5,65 +5,53 @@
         </div>
     </div>
 
-    <div class="form-outline mb-2">
-        <label class="form-label" for="input-scan">Scan Type</label>
-        <select class="form-control" class="dropdown" id="input-scan">
-            <option value="volvo">--Please select--</option>
-            <option value="1" selected>COR Scan</option>
-            <option value="2">QR Code Scan</option>
-        </select>
-    </div>
-
     <div class="form-outline mb-2 row">
-        <div class="col-lg-3">
+        <div class="col-lg-12 mb-2">
             <label class="form-label" for="input-student-id">Student ID</label>
-            <input type="text" id="input-student-id" class="form-control" placeholder="Enter Student ID" required/>
+            <input type="text" id="input-student-id" class="form-control" placeholder="Enter Student ID" readonly/>
             <div class="invalid-feedback" id="helpertext-student-id">
             </div>
         </div>
 
-        <div class="col-lg-9">
+        <div class="col-lg-12">
             <label class="form-label" for="input-name">Full name</label>
-            <input type="text" id="input-name" class="form-control" placeholder="Enter Full name" autocomplete="name" required/>
+            <input type="text" id="input-name" class="form-control" placeholder="Enter Full name" autocomplete="name" readonly/>
             <div class="invalid-feedback" id="helpertext-name">
             </div>
         </div>
     </div>
-
     <div class="form-outline mb-2">
-        <label class="form-label" for="input-email">Email address</label>
-        <input type="email" id="input-email" class="form-control" placeholder="Enter email address" autocomplete="email" required/>
-        <div class="invalid-feedback" id="helpertext-email">
+        <label class="form-label" for="input-specialization">Specialization</label>
+        <input type="text" id="input-specialization" class="form-control" placeholder="Enter Specialization" readonly/>
+        <div class="invalid-feedback" id="helpertext-specialization">
         </div>
     </div>
 
+
     <div class="form-outline mb-2 row">
         <div class="col-lg-8">
-            <label class="form-label" for="input-user-name">User name</label>
-            <input type="text" id="input-user-name" class="form-control" placeholder="Enter user name" autocomplete="username" required/>
-            <div class="invalid-feedback" id="helpertext-user-name">
+            <label class="form-label" for="input-email">Email address</label>
+            <input type="email" id="input-email" class="form-control" placeholder="Enter email address" autocomplete="email" readonly/>
+            <div class="invalid-feedback" id="helpertext-email">
             </div>
+
         </div>
 
         <div class="col-lg-4">
             <label class="form-label" for="input-year-level">Year Level</label>
-            <select class="form-control" class="dropdown" id="input-year-level" required>
-          <option value="">--Please Select--</option>
-          <option value="1">First Year</option>
-          <option value="2">Second Year</option>
-          <option value="3">Third Year</option>
-          <option value="4">Fourth Year</option>
-      </select>
+            <input class="form-control" class="dropdown" id="input-year-level" readonly>
             <div class="invalid-feedback" id="helpertext-year-level">
             </div>
         </div>
     </div>
 
+
     <div class="form-outline mb-2">
-        <label class="form-label" for="input-specialization">Specialization</label>
-        <input type="text" id="input-specialization" class="form-control" placeholder="Enter Specialization" required/>
-        <div class="invalid-feedback" id="helpertext-specialization">
+        <label class="form-label" for="input-user-name">Username</label>
+        <input type="text" id="input-user-name" class="form-control" placeholder="Enter user name" autocomplete="username" required/>
+        <div class="invalid-feedback" id="helpertext-user-name">
         </div>
+
     </div>
 
     <!-- Password input -->
@@ -189,13 +177,13 @@
             var studentID = eStudentID.val();
             var email = eEmail.val();
             var username = eUsername.val();
-            var name = eName.val();
-            var specialization = eSpecialization.val();
-            var yearLevel = eYearLevel.val();
+            // var name = eName.val();
+            // var specialization = eSpecialization.val();
+            // var yearLevel = eYearLevel.val();
             var password = ePassword.val();
             var confirmPassword = eConfirmPassword.val();
-            var scanType = $("#input-scan").val();
-            let regex = /[a-zA-Z0-9.-]+@bulsu\.edu\.ph/i;
+            // var scanType = $("#input-scan").val();
+            // let regex = /[a-zA-Z0-9.-]+@bulsu\.edu\.ph/i;
 
             if (password != confirmPassword || password == "") {
                 ePassword.addClass('is-invalid');
@@ -207,13 +195,13 @@
                 eConfirmPassword.removeClass('is-invalid');
             }
 
-            if (!regex.test(email)) {
-                $("#helpertext-email").html("Invalid email address format!");
-                eEmail.addClass('is-invalid');
-                hasError = true;
-            } else {
-                eEmail.removeClass('is-invalid');
-            }
+            // if (!regex.test(email)) {
+            //     $("#helpertext-email").html("Invalid email address format!");
+            //     eEmail.addClass('is-invalid');
+            //     hasError = true;
+            // } else {
+            //     eEmail.removeClass('is-invalid');
+            // }
 
             if (!hasError) {
                 $("#btnCreateAccount").attr("disabled", "disabled");
@@ -225,11 +213,7 @@
                         studentID: studentID,
                         email: email,
                         username: username,
-                        name: name,
-                        specialization: specialization,
-                        yearLevel: yearLevel,
-                        password: password,
-                        scanType: scanType
+                        password: password
                     },
                     cache: false,
                     success: function(dataResult) {

@@ -63,6 +63,61 @@ function generateForgotPasswordLink($email, $key){
             return $body;
 }
 
+function generateOTPEmailBody($email, $otp){
+    $body = '<div style="margin:0;padding:0" bgcolor="#FFFFFF">
+                <table width="100%" height="100%" style="min-width:348px" border="0" cellspacing="0" cellpadding="0" lang="en">
+                    <tbody>
+                        <tr height="32" style="height:32px">
+                            <td></td>
+                        </tr>
+                        <tr align="center">
+                            <td>
+                                <table border="0" cellspacing="0" cellpadding="0" style="padding-bottom:20px;max-width:516px;min-width:220px">
+                                    <tbody>
+                                        <tr>
+                                            <td width="8" style="width:8px"></td>
+                                            <td>
+                                                <div style="border-style:solid;border-width:thin;border-color:#dadce0;border-radius:8px;padding:40px 20px" align="center" class="m_-7949188087747382486mdv2rw">
+                                                    <img src="https://codeconnect.000webhostapp.com/resource/logo-codeconnect.png" height="50" aria-hidden="true" style="margin-bottom:16px" alt="Code Connect" class="CToWUd" data-bit="iit">
+                                                    <div style="font-family:\'Google Sans\',Roboto,RobotoDraft,Helvetica,Arial,sans-serif;border-bottom:thin solid #dadce0;color:rgba(0,0,0,0.87);line-height:32px;padding-bottom:24px;text-align:center;word-break:break-word">
+                                                    <div style="font-size:24px"><b>OTP: '.$otp.'</b></div>
+                                                        <table align="center" style="margin-top:8px">
+                                                            <tbody>
+                                                                <tr style="line-height:normal">
+                                                                    <td></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table> 
+                                                    </div>
+                                                    <div style="font-family:Roboto-Regular,Helvetica,Arial,sans-serif;font-size:14px;color:rgba(0,0,0,0.87);line-height:20px;padding-top:20px;text-align:left">If you didn\'t generate this otp, someone might be using your email. Check and secure your account now.
+                                                        <div style="padding-top:32px;text-align:center">
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div style="text-align:left">
+                                                    <div style="font-family:Roboto-Regular,Helvetica,Arial,sans-serif;color:rgba(0,0,0,0.54);font-size:11px;line-height:18px;padding-top:12px;text-align:center">
+                                                        <div style="direction:ltr">© Code Connect, 
+                                                            <a class="m_-7949188087747382486afal" style="font-family:Roboto-Regular,Helvetica,Arial,sans-serif;color:rgba(0,0,0,0.54);font-size:11px;line-height:18px;padding-top:12px;text-align:center">Bulacan State University - Bustos Campus</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td width="8" style="width:8px"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr height="32" style="height:32px">
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>';
+            return $body;
+}
+
 if(isset($_POST["action"]) and $_POST["action"] == 'send'){
     $email = $_POST["email"];
     $key = $_POST["key"];
@@ -84,6 +139,39 @@ if(isset($_POST["action"]) and $_POST["action"] == 'send'){
         $mail->isHTML(true);
         $mail->Subject = 'Forgot Password';
         $mail->Body = generateForgotPasswordLink($email, $key);
+        $mail->send();
+
+        echo json_encode(array("statusCode"=>200));
+    } catch (phpmailerException $e) {
+        echo json_encode(array("statusCode"=>500, "error"=>$e->errorMessage()));
+    } catch (Exception $e) {
+        echo json_encode(array("statusCode"=>500, "error"=>$e->errorMessage()));
+    }
+    // echo generateForgotPasswordLink('dio.jomar217@gmail.com', 'key');
+    // $email = "test";
+    // echo '-'. $email . '-';
+}
+
+if(isset($_POST["action"]) and $_POST["action"] == 'send-otp'){
+    $email = $_POST["email"];
+    $otp = $_POST["otp"];
+    
+    $mail = new PHPMailer(true);
+
+    try {
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'codeconnect0@gmail.com';
+        $mail->Password = 'rmsvxlbgvynxpmbu';
+        $mail->SMTPSecure = 'ssl';
+        $mail->Port = 465;
+        
+        $mail->setFrom('codeconnect0@gmail.com');
+        $mail->addAddress($email);
+        $mail->isHTML(true);
+        $mail->Subject = '[Code Connect] OTP - ' . $otp;
+        $mail->Body = generateOTPEmailBody($email, $otp);
         $mail->send();
 
         echo json_encode(array("statusCode"=>200));
