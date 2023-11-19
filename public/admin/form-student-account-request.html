@@ -177,6 +177,13 @@
                 success: function(dataResult) {
                     Swal.close();
                     retrieveStudentRequestList();
+                    Swal.fire(
+                            'Success!',
+                            'Student data has been successfully imported.',
+                            'success'
+                    )
+                    
+                    $("#modal-import-excel").modal("hide");
                 }
             });
         });

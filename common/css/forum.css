@@ -14,7 +14,7 @@
 }
 
 .label.label-default.rank-label {
-    background-color: #BD511E;
+    background-color: #4c4c4d;
 }
 
 body {
@@ -98,7 +98,7 @@ input[type=submit] {
 
 .status-danger:hover {
     color: white;
-    background-color: #e74a3b !important;
+    background-color: #4c4c4d !important;
 }
 
 .status-success:hover {

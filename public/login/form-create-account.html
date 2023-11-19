@@ -121,12 +121,17 @@
                     if (dataResult.statusCode.includes(5000)) {
                         $("#helpertext-email").html("Email address is already linked to an existing account.");
                         $("#input-email").addClass('is-invalid');
+                        $("#btn-send-otp").removeAttr("disabled", "disabled");
+                        $("#btn-send-otp").html("Send OTP");
                     } else if (dataResult.statusCode.includes(5001)) {
                         $("#helpertext-email").html("Email Address Doesn't Exist.");
                         $("#input-email").addClass('is-invalid');
+                        $("#btn-send-otp").removeAttr("disabled", "disabled");
+                        $("#btn-send-otp").html("Send OTP");
                     } else if (dataResult.statusCode.includes(200)) {
                         sendEmail(email, dataResult.otp);
                     }
+                    
                 }
             });
         });
