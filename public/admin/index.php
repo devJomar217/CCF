@@ -22,6 +22,7 @@ include '../../common/session.php';
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link rel="stylesheet" href="./../../common/vendor/datatables/dataTables.bootstrap4.css" />
     <link href="./../../common/css/index.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.9.0/dist/sweetalert2.min.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -248,6 +249,7 @@ include '../../common/session.php';
     <script src="./../../common/js/chart-pie.js"></script>
     <script src="./../../common/vendor/datatables/jquery.dataTables.js"></script>
     <script src="./../../common/common.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.9.0/dist/sweetalert2.all.min.js"></script>
 </body>
 
 </html>

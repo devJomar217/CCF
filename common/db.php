@@ -3,6 +3,11 @@ session_start();
 include './data-model.php';
 date_default_timezone_set('Asia/Singapore');
 
+require 'vendor/autoload.php';
+
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\IOFactory;
+
 if($_POST == null OR $_POST['action'] == null){
   exit;
 }
@@ -2805,5 +2810,56 @@ if($_POST['action']=='get-subject-per-year-level'){
   echo json_encode(array("firstYear"=>$firstYear, "secondYear"=>$secondYear , "thirdYear"=>$thirdYear , "fourthYear"=>$fourthYear));
   exit;
 }
+
+function isStudentDataExist($connectDB, $studentID){
+  $sql = "SELECT * FROM student_information 
+  where student_id='$studentID' ";
+  $result = $connectDB->query($sql);
+  if ($result->num_rows > 0) {
+    return true;
+  } 
+  return false;
+}
+
+if($_POST['action'] == 'import-excel-file'){
+  $file = $_FILES['excel_file']['tmp_name'];
+  $spreadsheet = IOFactory::load($file);
+  $worksheet = $spreadsheet->getActiveSheet();
+  $highestRow = $worksheet->getHighestRow();
+  $hasError = false;
+  $connectDB = databaseConnection();
+  for ($row = 2; $row <= $highestRow; $row++) {
+    $lastName = $worksheet->getCellByColumnAndRow(1, $row)->getValue();
+    $firstName = $worksheet->getCellByColumnAndRow(2, $row)->getValue();
+    $middleName = $worksheet->getCellByColumnAndRow(3, $row)->getValue();
+    $name = $lastName . ", ". $firstName . " " . $middleName;
+    $studentID = $worksheet->getCellByColumnAndRow(4, $row)->getValue();
+    $email = $worksheet->getCellByColumnAndRow(5, $row)->getValue();
+    $specialization = $worksheet->getCellByColumnAndRow(6, $row)->getValue();
+    $yearLevel = $worksheet->getCellByColumnAndRow(7, $row)->getValue();
+    
+    $sql ="";
+    if(isStudentDataExist($connectDB, $studentID)){
+      $sql = "UPDATE `student_information` SET 
+      `email` = '$email', 
+      `name` = '$name', 
+      `year_level` = '$yearLevel', 
+      `specialization` = '$specialization'
+      WHERE `student_id` = '$studentID'";
+    } else {
+      $sql = "INSERT INTO `student_information` 
+      (`student_id`, `email`, `name`, `year_level`, `specialization`) VALUES 
+      ('$studentID', '$email', '$name', '$yearLevel', '$specialization')"; 
+    }
+
+    if (mysqli_query($connectDB, $sql)) {
+    } else {
+      $hasError = false;
+    }
+  }
+  echo json_encode(array("statusCode"=>200, "hasError"=>$hasError));
+}
+
+
 
 ?>

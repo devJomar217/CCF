@@ -10,7 +10,16 @@
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Student Account List</h6>
+        <div class="d-flex justify-content-between">
+            <div>
+                <h6 class="mt-2 font-weight-bold text-primary">Student Account List</h6>
+            </div>
+            <div>
+                <button type="button" class="btn btn-primary" id="import-excel">
+                    Import Excel
+                </button>
+            </div>
+        </div>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -36,6 +45,22 @@
                 <tbody id="tableBody">
                 </tbody>
             </table>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-import-excel" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Import</h5>
+            </div>
+            <div class="modal-body">
+                <form id="form-import-excel" enctype="multipart/form-data">
+                    <input type="file" name="excel_file" id="input-excel" />
+                    <input type="submit" class="btn btn-primary" value="Import Excel" />
+                </form>
+            </div>
         </div>
     </div>
 </div>
@@ -126,7 +151,40 @@
 <script>
     $(document).ready(function() {
         var studentList;
+        var excelFile;
         retrieveStudentRequestList();
+
+        $("#form-import-excel").on("submit", function(event) {
+            event.preventDefault();
+            Swal.fire({
+                title: "Importing...",
+                text: "Please wait",
+                imageUrl: "https://www.epgdlaw.com/wp-content/uploads/2017/09/ajax-loader.gif",
+                showConfirmButton: false,
+                allowOutsideClick: false
+            });
+
+            var formData = new FormData(this);
+            formData.append('action', 'import-excel-file');
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: formData,
+                dataType: 'json',
+                contentType: false,
+                processData: false,
+                cache: false,
+                success: function(dataResult) {
+                    Swal.close();
+                    retrieveStudentRequestList();
+                }
+            });
+        });
+
+        $("#import-excel").on('click', function() {
+            var studentID = $('#modal-info-student-id').html();
+            $('#modal-import-excel').modal('toggle');
+        });
 
         $("#button-reject").on('click', function() {
             var studentID = $('#modal-info-student-id').html();
