@@ -35,8 +35,9 @@
     <div class="form-check d-flex justify-content-center mb-2">
         <label class="form-check-label">- OR -</label>
     </div>
-    <div class="form-check d-flex justify-content-center mb-2">
-        <a href="#" id="button-create-account" class="">Create Account</a>
+    <div class="d-flex justify-content-between">
+        <div class="p-2"><a href="#" id="button-create-account" class="">Create Account</a></div>
+        <div class="p-2"> <a href="#" id="button-guest-login" class="">Login as Guest</a></div>
     </div>
 </form>
 
@@ -85,6 +86,28 @@
                 removeCookieKey('email');
                 removeCookieKey('key');
             }
+        });
+
+
+        $('#button-guest-login').on('click', function() {
+            event.preventDefault();
+
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'guest-login'
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode == 200) {
+                        location.href = "../login/index.php";
+                    } else {
+                        alert("Unable to login, please try again later!");
+                    }
+                }
+            });
         });
 
         $('#button-modal-close').on('click', function() {

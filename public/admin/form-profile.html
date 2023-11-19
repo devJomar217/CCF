@@ -1,9 +1,6 @@
 <div class="row">
     <div class="col-lg-8">
         <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Update Profile</h6>
-            </div>
             <div class="card-body">
                 <form id="form-update-profile" class="needs-validation" novalidate>
                     <div class="form-outline mb-2">
@@ -11,31 +8,6 @@
                             <div class="col-lg-12">
                                 <div class="alert d-none alert-dismissible text-center" id="info-message-profile">
                                     <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="text-center">
-                                    <img class="img-circle-md mb-2" id="image-profile-picture" src="" />
-                                </div>
-                            </div>
-                            <div class="col-lg-12 mb-4">
-                                <div class="text-center imposter-link">
-                                    <a href="#" id="updateProfilePicture">Update Profile Picture</a>
-                                    <input type="file" class="d-none" id="input-file-profile-picture" accept="image/*">
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <label class="form-label" for="input-name">Admin ID</label>
-                                <input type="text" id="input-profile-admin-id" class="form-control" placeholder="Enter Admin ID" required disabled/>
-                                <div class="invalid-feedback">
-                                </div>
-                            </div>
-                            <div class="col-lg-8">
-                                <div class="form-outline mb-2">
-                                    <label class="form-label" for="input-username">User name</label>
-                                    <input type="text" id="input-profile-user-name" class="form-control" placeholder="Enter user name" required/>
-                                    <div class="invalid-feedback" id="helpertext-username">
-                                    </div>
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -52,6 +24,14 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-lg-12">
+                                <div class="form-outline mb-2">
+                                    <label class="form-label" for="input-profile-email">Address</label>
+                                    <input type="text" id="input-profile-email" class="form-control" placeholder="Enter Address" required/>
+                                    <div class="invalid-feedback" id="helpertext-username">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -64,9 +44,6 @@
     </div>
     <div class="col-lg-4">
         <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Change Password</h6>
-            </div>
             <div class="card-body">
                 <form id="form-change-password" class="needs-validation" novalidate>
                     <div class="form-outline mb-2">

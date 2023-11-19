@@ -7,8 +7,8 @@
                     <div id="card-form">
                         <div class="row my-1">
                             <div class="col-lg-5 col-md-12 col-sm-12">
-                                <h1 class="pb-2 forum-header">What do you need to know?</h1>
-                                <input type="button" class="btn btn-primary btn-block px-5" data-toggle="modal" data-target="#modal-add-question" value="Ask a Question" />
+                                <h1 class="pb-2 forum-header">Learn about programming!</h1>
+                                <input type="button" class="btn btn-primary btn-block px-5" data-toggle="modal" data-target="#modal-add-question" id="button-ask-question" value="Ask a Question" />
                             </div>
                         </div>
                         <div class="row my-3">
@@ -20,12 +20,12 @@
                             <div class="col-12">
                                 <form autocomplete="off" id="form-search-question">
                                     <div class="row">
-                                        <div class="col-lg-10 col-sm-12">
+                                        <div class="col-lg-10 col-md-12 col-sm-12">
                                             <div class="autocomplete">
                                                 <input type="text" class="form-control mr-3" name="input-search" placeholder="Search for a question?" id="input-search">
                                             </div>
                                         </div>
-                                        <div class="col-lg-2 col-sm-12 mt-sm-1 mt-xs-1 mt-md-0">
+                                        <div class="col-lg-2 col-md-12 col-sm-12 mt-sm-1 mt-xs-1 mt-md-0">
                                             <button type="submit" class="btn btn-primary btn-block px-4" value="Search" id="button-search">Search</button>
                                         </div>
                                     </div>
@@ -43,61 +43,72 @@
                     <div id="card-form">
                         <h5 class="card-title font-weight-bold">Profile</h5>
                         <hr class="sidebar-divider sidebar-dark my-2">
-                        <div class="row form-outline mb-3 pt-3">
-                            <div class="col-4">
-                                <label class="form-label font-weight-bold" for="input-name">Name: </label>
+                        <div id="profile-container">
+                            <div class="row form-outline mb-3 pt-3">
+                                <div class="col-4">
+                                    <label class="form-label font-weight-bold" for="input-name">Name: </label>
+                                </div>
+                                <div class="col">
+                                    <span class="fw-bolder" id="profile-name"></span>
+                                </div>
                             </div>
-                            <div class="col">
-                                <span class="fw-bolder" id="profile-name"></span>
+
+                            <div class="row form-outline mb-3">
+                                <div class="col-4">
+                                    <label class="form-label font-weight-bold" for="input-email">Username: </label>
+                                </div>
+                                <div class="col">
+                                    <span id="profile-user-name"></span>
+                                </div>
+                            </div>
+
+                            <div id="student-profile" class="d-none">
+                                <div class="row form-outline mb-3">
+                                    <div class="col-4">
+                                        <label class="form-label font-weight-bold" for="input-email">Year Level: </label>
+                                    </div>
+                                    <div class="col">
+                                        <span id="profile-year-level"></span>
+                                    </div>
+                                </div>
+
+                                <div class="row form-outline mb-3">
+                                    <div class="col-4">
+                                        <label class="form-label font-weight-bold" for="input-email">Major: </label>
+                                    </div>
+                                    <div class="col">
+                                        <span id="profile-specialization"></span>
+                                    </div>
+                                </div>
+                                <div class="row form-outline mb-3">
+                                    <div class="col-4">
+                                        <label class="form-label font-weight-bold" for="input-email">Ranking: </label>
+                                    </div>
+                                    <div class="col">
+                                        <span id="profile-ranking"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="special-account-profile" class="d-none">
+                                <div class="row form-outline mb-3">
+                                    <div class="col-4">
+                                        <label class="form-label font-weight-bold" for="input-job">Job: </label>
+                                    </div>
+                                    <div class="col">
+                                        <span id="profile-job"></span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="row form-outline mb-3">
-                            <div class="col-4">
-                                <label class="form-label font-weight-bold" for="input-email">Username: </label>
-                            </div>
-                            <div class="col">
-                                <span id="profile-user-name"></span>
-                            </div>
-                        </div>
-
-                        <div id="student-profile" class="d-none">
-                            <div class="row form-outline mb-3">
-                                <div class="col-4">
-                                    <label class="form-label font-weight-bold" for="input-email">Year Level: </label>
-                                </div>
-                                <div class="col">
-                                    <span id="profile-year-level"></span>
+                        <div id="profile-guest-container">
+                            <div class="d-flex align-items-center justify-content-center h-75">
+                                <div>
+                                    <h5><b>Guest</b></h4>
                                 </div>
                             </div>
 
-                            <div class="row form-outline mb-3">
-                                <div class="col-4">
-                                    <label class="form-label font-weight-bold" for="input-email">Major: </label>
-                                </div>
-                                <div class="col">
-                                    <span id="profile-specialization"></span>
-                                </div>
-                            </div>
-                            <div class="row form-outline mb-3">
-                                <div class="col-4">
-                                    <label class="form-label font-weight-bold" for="input-email">Ranking: </label>
-                                </div>
-                                <div class="col">
-                                    <span id="profile-ranking"></span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="special-account-profile" class="d-none">
-                            <div class="row form-outline mb-3">
-                                <div class="col-4">
-                                    <label class="form-label font-weight-bold" for="input-job">Job: </label>
-                                </div>
-                                <div class="col">
-                                    <span id="profile-job"></span>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -115,13 +126,13 @@
                                 <div class="col-lg-6">
                                     <h5 class="card-title font-weight-bold mt-1">Latest Question</h5>
                                 </div>
-                                <div class="col d-flex align-middle">
+                                <div class="col-lg-3 d-flex align-middle">
                                     <label class="form-label align-middle pr-3 pt-2" for="input-scan">Subject: </label>
                                     <select class="form-control" class="dropdown" id="input-subject-filter">
                                         <option value="-1" selected>All</option>
                                     </select>
                                 </div>
-                                <div class="col d-flex">
+                                <div class="col-lg-3 d-flex mt-sm-3 mt-xs-3">
                                     <label class="form-label pr-3 pt-2" for="input-scan">Status: </label>
                                     <select class="form-control" class="dropdown" id="input-status-filter">
                                         <option value="-1" selected>All</option>
@@ -149,7 +160,18 @@
             <div class="card shadow-sm p-2">
                 <div class="card-body py-2 px-md-2" id="login-form">
                     <div id="card-form">
-                        <h5 class="card-title font-weight-bold">Ranking</h5>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <h5 class="card-title font-weight-bold mt-1">Leaderboards</h5>
+                            </div>
+                            <div class="col-lg-6">
+                                <select name="" class="form-control" id="ranking-filter">
+                                    <option value="-1">All</option>
+                                    <option value="1" selected>Student</option>
+                                    <option value="0">Professional</option>
+                                </select>
+                            </div>
+                        </div>
                         <hr class="sidebar-divider my-2">
                         <div id="container-ranking"></div>
                         <div class="row text-center">
@@ -184,7 +206,7 @@
                         <div class="col-lg-1">
                             <label class="form-label align-middle pr-2 pt-2" for="input-scan">Subject</label>
                         </div>
-                        <div class="col-5">
+                        <div class="col-lg-5">
                             <select class="form-control dropdown" id="input-new-question-subject" required>
                                 <option value="" selected>--Please Select--</option>
                             </select>
@@ -224,13 +246,19 @@
         populateRanking(rankingLimit);
         getFAQ();
 
+        $("#ranking-filter").on("change", function() {
+            populateRanking(rankingLimit);
+        });
+
         function populateRanking(rankingLimit) {
+            var filter = $("#ranking-filter").val();
             $.ajax({
                 url: "../../common/db.php",
                 type: "POST",
                 data: {
                     action: 'retrieve-ranking-list',
                     limit: rankingLimit,
+                    filter: filter
                 },
                 cache: false,
                 success: function(dataResult) {
@@ -238,20 +266,37 @@
                     var dataResult = JSON.parse(dataResult);
                     if (dataResult.statusCode == 200) {
                         dataResult.rankingList.forEach(rank => {
-                            var picture = rank.studentInformation['picture'];
-                            if (picture == "") {
-                                picture = "./../../resource/profile/default.svg";
+
+                            if (rank.studentInformation == null) {
+                                var picture = rank.professionalInformation['picture'];
+                                if (picture == "") {
+                                    picture = "./../../resource/profile/default.svg";
+                                } else {
+                                    picture = "./../../resource/profile/" + picture;
+                                }
+                                rankingList += populateProfessionalRankingRow(
+                                    picture,
+                                    rank.professionalInformation['userName'],
+                                    rank.professionalInformation['job'],
+                                    rank['rank'],
+                                    rank['rating']
+                                );
                             } else {
-                                picture = "./../../resource/profile/" + picture;
+                                var picture = rank.studentInformation['picture'];
+                                if (picture == "") {
+                                    picture = "./../../resource/profile/default.svg";
+                                } else {
+                                    picture = "./../../resource/profile/" + picture;
+                                }
+                                rankingList += populateRankingRow(
+                                    picture,
+                                    rank.studentInformation['username'],
+                                    rank.studentInformation['specialization'],
+                                    getYearLevel(rank.studentInformation['yearLevel']),
+                                    rank['rank'],
+                                    rank['rating']
+                                );
                             }
-                            rankingList += populateRankingRow(
-                                picture,
-                                rank.studentInformation['username'],
-                                rank.studentInformation['specialization'],
-                                getYearLevel(rank.studentInformation['yearLevel']),
-                                rank['rank'],
-                                rank['rating']
-                            );
                         });
                     } else {
                         rankingList = populateEmptyRow();
@@ -343,6 +388,9 @@
                     var dataResult = JSON.parse(dataResult);
                     if (dataResult.statusCode == 200) {
 
+                        $("#profile-container").removeClass("d-none");
+                        $("#profile-guest-container").addClass("d-none");
+
                         if (dataResult.userType == "1") {
                             $("#profile-name").html(dataResult.studentInformation.name);
                             $("#profile-user-name").html(dataResult.studentInformation.username);
@@ -367,6 +415,10 @@
                             $("#student-profile").addClass("d-none");
                             $("#special-account-profile").removeClass("d-none");
                             $("#profile-job").html(dataResult.specialAccountInformation.job);
+                        } else if (dataResult.userType == "4") {
+                            $("#profile-container").addClass("d-none");
+                            $("#profile-guest-container").removeClass("d-none");
+                            $("#button-ask-question").attr("disabled", true);
                         }
                     }
                 }

@@ -120,7 +120,7 @@ function populateReplyRow(replyID, img, userName, status, date, yearLevel, reply
                                     <div class="col-8">
                                         <small class="text-muted">${specialization}</small>
                                     </div> 
-                                    <div class="col-1" style="display: none" id="ellipsis-reply-${replyID}">
+                                    <div class="col-1 login-user" style="display: none" id="ellipsis-reply-${replyID}">
                                         <div class="btn-group d-flex flex-row-reverse dropright">
                                             <i class="fa fa-solid fa-ellipsis-vertical pl-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
                                             <div class="dropdown-menu">
@@ -142,7 +142,7 @@ function populateReplyRow(replyID, img, userName, status, date, yearLevel, reply
                     </div>
                 </div>
 
-                <div class="row mt-3 pt-0">
+                <div class="row mt-3 pt-0 login-user">
                     <div class="col" id="reply-${replyID}">
                         ${reply}
                     </div>
@@ -203,7 +203,7 @@ function populateAnswerRow(answerID, img, userName, status, date, yearLevel, ans
                                     <div class="col-8">
                                     <small class="text-muted">${specialization}</small>    
                                     </div>
-                                    <div class="col-1" style="display: none" id="ellipsis-answer-${answerID}">
+                                    <div class="col-1 login-user" style="display: none" id="ellipsis-answer-${answerID}">
                                         <div class="btn-group d-flex flex-row-reverse dropright">
                                             <i class="fa fa-solid fa-ellipsis-vertical pl-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
                                             <div class="dropdown-menu">
@@ -233,7 +233,7 @@ function populateAnswerRow(answerID, img, userName, status, date, yearLevel, ans
                 </div>
 
                 <div class="row d-flex flex-row-reverse align-middle mt-3 pt-0 mb-1">
-                    <div class="">
+                    <div class="login-user">
                         <input type="button" class="btn btn-primary btn-sm px-3 button-reply" id="${answerID}" value="Comment">                       
                         ${rateButton}
                     </div>
@@ -289,24 +289,61 @@ function populateRankingRow(image, name, specialization, yearLevel, rank, rating
                         </div>
                     </div>
                     <div class="col">
-                        <div class="row">
+                        <div class="row mb-2">
+                            <div class="col">
+                                <b>Username:</b> <span>${name}</span>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col">
+                                <b>Specialization:</b> <span>${specialization}</span>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col">
+                                <b>Year Level:</b> <span>${yearLevel}</span>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col">
+                                <b>Points:</b> <span>${rating}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="sidebar-divider my-2">`;
+}
+
+function populateProfessionalRankingRow(image, name, specialization, rank, rating) {
+    return `<div class="row">
+                    <div class="col-3">
+                        <div class=" pt-2">
+                            <div class="row">
+                                <div class="profile-header-container">
+                                    <div class="profile-header-img">
+                                        <img class="img-profile img-circle rounded-circle" style="width:60px; height: 60px;" src="${image}">
+                                        <div class="rank-label-container pt-2">
+                                            <span class="label label-default rank-label text-white px-3 py-0">#${rank}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row mb-2">
                             <div class="col">
                                 Username: <span>${name}</span>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-2">
                             <div class="col">
-                                Specialization: <span>${specialization}</span>
+                                Job: <span>${specialization}</span>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-2">
                             <div class="col">
-                                Year Level: <span>${yearLevel}</span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                Points : <span>${rating}</span>
+                                Points: <span>${rating}</span>
                             </div>
                         </div>
                     </div>

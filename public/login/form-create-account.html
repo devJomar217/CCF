@@ -15,7 +15,7 @@
     }
 </style>
 
-<form onsubmit="event.preventDefault()">
+<div>
     <div class="row">
         <div class="col-md-6 mb-4">
             <h2>Create Account</h2>
@@ -27,22 +27,43 @@
         <select class="form-control" class="dropdown" id="input-account-type">
             <option value="">--Please select--</option>
             <option value="1">Student Account</option>
-            <option value="2">Special Account</option>
+            <option value="2">Professional Account</option>
         </select>
     </div>
 
     <div class="form-outline mb-4 d-none" id="form-scan">
-        <label class="form-label" for="input-scan"><b>Instruction:</b> kindly select the one of the value on the dropdown below to proceed.</label>
-        <select class="form-control" class="dropdown" id="input-scan">
-            <option value="">--Please select--</option>
-            <option value="1">COR Scan</option>
-            <option value="2">QR Code Scan</option>
-        </select>
+        <form id="form-student-email">
+            <div class="form-outline mb-2">
+                <label class="form-label" for="input-email"><b>Student Email Address:</b></label>
+                <input type="email" id="input-email" class="form-control" placeholder="Enter Student Email Address" autocomplete="email" required/>
+                <div class="invalid-feedback" id="helpertext-email">
+                </div>
+            </div>
+            <div class="form-check d-flex justify-content-center">
+                <button class="btn btn-primary" id="btn-send-otp" type="submit">Send OTP</button>
+            </div>
+        </form>
     </div>
-    <div class="form-check d-flex justify-content-center mb-2">
+
+
+    <div class="form-outline mb-4">
+        <form id="form-otp" class="d-none">
+            <b>Note:</b> OTP has been sent to your email address
+            <div class="form-outline mb-2">
+                <input type="text" id="input-otp" class="form-control" placeholder="Enter OTP" autocomplete="email" required/>
+                <div class="invalid-feedback"> Invalid OTP, please try again!
+                </div>
+            </div>
+            <div class="form-check d-flex justify-content-center">
+                <button class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="form-check d-flex justify-content-center mt-4">
         <a href="#" id="button-back">Back to login</a>
     </div>
-</form>
+</div>
 
 
 <div class="modal fade" id="modal-qr" tabindex="-1" role="dialog" aria-labelledby="modal-qr" aria-hidden="true">
@@ -82,6 +103,109 @@
 
 <script>
     $(document).ready(function() {
+        $("#form-student-email").on("submit", function(event) {
+            event.preventDefault();
+            $("#btn-send-otp").attr("disabled", "disabled");
+            $("#btn-send-otp").html("Please wait...");
+            var email = $("#input-email").val();
+            $.ajax({
+                url: "./../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'validate-student-email',
+                    email: email
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode.includes(5000)) {
+                        $("#helpertext-email").html("Email address is already linked to an existing account.");
+                        $("#input-email").addClass('is-invalid');
+                        $("#btn-send-otp").removeAttr("disabled", "disabled");
+                        $("#btn-send-otp").html("Send OTP");
+                    } else if (dataResult.statusCode.includes(5001)) {
+                        $("#helpertext-email").html("Email Address Doesn't Exist.");
+                        $("#input-email").addClass('is-invalid');
+                        $("#btn-send-otp").removeAttr("disabled", "disabled");
+                        $("#btn-send-otp").html("Send OTP");
+                    } else if (dataResult.statusCode.includes(200)) {
+                        sendEmail(email, dataResult.otp);
+                    }
+                    
+                }
+            });
+        });
+
+        $("#form-otp").on("submit", function(event) {
+            event.preventDefault();
+            var otp = $("#input-otp").val();
+            var email = $("#input-email").val();
+            $.ajax({
+                url: "./../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'validate-otp',
+                    email: email,
+                    otp: otp
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode.includes(500)) {
+                        $("#input-otp").addClass('is-invalid');
+                    } else if (dataResult.statusCode.includes(200)) {
+                        $("#input-otp").removeClass('is-invalid');
+                        $("#card-form").load('./form-student-account-creation.html', function() {
+                            $("#input-student-id").val(dataResult.student.studentID);
+                            $("#input-name").val(dataResult.student.name);
+                            $("#input-specialization").val(dataResult.student.specialization);
+                            $("#input-email").val(dataResult.student.email);
+
+                            var yearLevel = "";
+                            switch (dataResult.student.yearLevel) {
+                                case "1":
+                                    yearLevel = "First Year";
+                                    break;
+                                case "2":
+                                    yearLevel = "Second Year";
+                                    break;
+                                case "3":
+                                    yearLevel = "Third Year";
+                                    break;
+                                case "4":
+                                    yearLevel = "Fourth Year";
+                                    break;
+                            }
+
+                            $("#input-year-level").val(yearLevel);
+                        });
+                    }
+                }
+            });
+        });
+
+        function sendEmail(email, otp) {
+            $.ajax({
+                url: "../../common/mailer.php",
+                type: "POST",
+                data: {
+                    action: 'send-otp',
+                    email: email,
+                    otp: otp
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode == 200) {
+                        $("#form-scan").addClass("d-none");
+                        $("#form-otp").removeClass("d-none");
+                    } else if (dataResult.statusCode == 500) {
+                        alert("Something wen't wrong, please try again later");
+                    }
+                }
+            });
+        }
+
         var html5QrcodeScanner = new Html5QrcodeScanner("reader", {
             fps: 10,
             qrbox: 250
@@ -159,6 +283,7 @@
 
         $("#input-account-type").change(function() {
             if (this.value == 1) {
+                // $("#card-form").load('./form-student-account-creation.html', function() {});
                 $("#form-scan").removeClass("d-none");
             } else if (this.value == 2) {
                 $("#form-scan").addClass("d-none");

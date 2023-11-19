@@ -44,7 +44,7 @@ footer {
 
 <body id="page-top" class="body-container d-flex topbar flex-column min-vh-100">
 
-    <nav class="navbar navbar-expand-lg navbar-light navbar-dark bg-gradient-primary shadow">
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top navbar-dark bg-gradient-primary shadow">
         <a class="navbar-brand" href="#"><img src="../../resource/logo-codeconnect.png" id="logo" alt="" style="width:200px;"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -58,10 +58,10 @@ footer {
                     <a class="nav-link" id="nav-menu-learn-to-code" href="#learn-to-code">Learn to Code</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" id="nav-menu-activities" href="#activities">My Activities</a>
+                <a class="nav-link for-login-user" id="nav-menu-activities" href="#activities">My Activities</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" id="nav-menu-notification" href="#notification">Notification <span class="badge badge-pill badge-success mb-3" id="notification-count"></span>
+                <a class="nav-link for-login-user" id="nav-menu-notification" href="#notification">Notification <span class="badge badge-pill badge-success mb-3" id="notification-count"></span>
                 </a>
                 </li>
                 <div class="topbar-divider d-none d-sm-block"></div>
@@ -71,10 +71,15 @@ footer {
                         <b><span class="ml-2 d-none d-lg-inline text-white"><?php echo $_SESSION['user_name']; ?></span></b>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="dropdown-user">
-                        <a class="dropdown-item" id="nav-menu-profile" href="#profile">
-                            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
-                        </a>
-                        <div class="dropdown-divider"></div>
+                        <?php
+                            if($_SESSION['user_type'] != "4"){
+                                echo '<a class="dropdown-item" id="nav-menu-profile" href="#profile">
+                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                ';
+                            }
+                        ?>
                         <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-logout">
                             <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Logout
                         </a>
@@ -143,10 +148,37 @@ footer {
 </html>
 
 <script>
+    var isGuest = false;
+    var userType;
     $(document).ready(function() {
-
+        getUserProfile();
+        if(!isGuest){
+            getNotificationCount();
+        }
         navigateAnchor();
-        getNotificationCount();
+
+
+        function getUserProfile() {
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'retrieve-user-profile'
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode == 200) {
+                        userType = dataResult.userType;
+                        if(userType == "4"){
+                            isGuest = true;
+                            $(".for-login-user").attr("disabled", "disabled");
+                            $(".for-login-user").addClass("d-none");
+                        }
+                    }
+                }
+            });
+        }
 
         function navigateAnchor(){
             var form = "./form-";
@@ -206,7 +238,9 @@ footer {
         });
 
         function setActive(e){
-            getNotificationCount();
+            if(!isGuest){
+                getNotificationCount();
+            }
             $(".nav-link").removeClass("active");
             e.addClass("active");
         }
