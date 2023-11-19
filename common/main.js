@@ -105,22 +105,22 @@ function populateReplyRow(replyID, img, userName, status, date, yearLevel, reply
     if (yearLevel == null || yearLevel == undefined) {
         yearLevel = "";
     }
-    return `<div class="card-row py-2 pl-5" id="row-reply-${replyID}">
+    return `<div class="card-row py-2 pl-lg-5 pl-3" id="row-reply-${replyID}">
                 <div class="row py-3">
                     <div class="col"> 
                         <div class="row mb-0 pb-0">
-                            <div class="col-1">
+                            <div class="col-lg-1 col-12 mb-lg-0 mb-2">
                                 <img class="img-profile rounded-circle" style="width:40px; height: 40px" src="${img}">
                             </div>
                             <div class="col mb-0 pb-0">
                                 <div class="row">
-                                    <div class="col-3">
-                                        <h6 class="mb-0 pb-0"><b class="mb-0 pb-0">${userName}</b></h6>    
+                                    <div class="col-lg-3 col-12">
+                                        <h6 class="mb-lg-0 pb-lg-0 mb-1"><b class="mb-0 pb-0">${userName}</b></h6>    
                                     </div> 
-                                    <div class="col-8">
+                                    <div class="col-lg-8 col-11">
                                         <small class="text-muted">${specialization}</small>
                                     </div> 
-                                    <div class="col-1 login-user" style="display: none" id="ellipsis-reply-${replyID}">
+                                    <div class="col-lg-1 col-1 login-user" style="display: none" id="ellipsis-reply-${replyID}">
                                         <div class="btn-group d-flex flex-row-reverse dropright">
                                             <i class="fa fa-solid fa-ellipsis-vertical pl-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
                                             <div class="dropdown-menu">
@@ -130,10 +130,10 @@ function populateReplyRow(replyID, img, userName, status, date, yearLevel, reply
                                     </div>                                           
                                 </div>
                                 <div class="row">
-                                    <div class="col-3">
+                                    <div class="col-lg-3 col-12">
                                         <small class="text-muted">${date}</small>
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-lg-4 col-12">
                                         <small class="text-muted">${yearLevel}</small>
                                     </div>                                            
                                 </div>
@@ -188,36 +188,35 @@ function populateAnswerRow(answerID, img, userName, status, date, yearLevel, ans
             </button>`;
     }
 
-    return `<div class="card-row card shadow mb-3 py-2 px-5 mx-0" id="row-answer-${answerID}">
+    return `<div class="card-row card shadow mb-3 py-2 px-lg-5 px-1 mx-0" id="row-answer-${answerID}">
                 <div class="row py-3 mx-0">
                     <div class="col"> 
                         <div class="row mb-0 pb-0 mx-0">
-                            <div class="col-1">
+                            <div class="col-lg-1 col-12 mb-lg-0 mb-3">
                                 <img class="img-profile rounded-circle" style="width:60px; height: 60px" src="${img}">
                             </div>
                             <div class="col mb-0 pb-0">
                                 <div class="row">
-                                    <div class="col-3">
+                                    <div class="col-lg-3 col-12">
                                         <h6 class="mb-0 pb-0"><b class="mb-0 pb-0">${userName}</b></h6>    
                                     </div>
-                                    <div class="col-8">
+                                    <div class="col-lg-8 col-12">
                                     <small class="text-muted">${specialization}</small>    
                                     </div>
-                                    <div class="col-1 login-user" style="display: none" id="ellipsis-answer-${answerID}">
+                                    <div class="col-lg-1 col-12 login-user" style="display: none" id="ellipsis-answer-${answerID}">
                                         <div class="btn-group d-flex flex-row-reverse dropright">
                                             <i class="fa fa-solid fa-ellipsis-vertical pl-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
                                             <div class="dropdown-menu">
                                                 ${menu}
                                             </div>
                                         </div>
-                                    </div>
-                                                                 
+                                    </div>                 
                                 </div>
                                 <div class="row">
-                                    <div class="col-3">
+                                    <div class="col-lg-3 col-12">
                                         <small class="text-muted">${date}</small>
                                     </div>
-                                    <div class="col">
+                                    <div class="col-lg-9 col-12">
                                         <small class="text-muted">${yearLevel}</small>
                                     </div>                                            
                                 </div>
@@ -226,13 +225,13 @@ function populateAnswerRow(answerID, img, userName, status, date, yearLevel, ans
                     </div>
                 </div>
 
-                <div class="row mt-3 pt-0">
+                <div class="row mt-3 px-3 pt-0">
                     <div class="col container-description" id="answer-${answerID}">
                         ${answer}
                     </div>
                 </div>
 
-                <div class="row d-flex flex-row-reverse align-middle mt-3 pt-0 mb-1">
+                <div class="row d-flex flex-row-reverse align-middle mt-3 pt-0 mb-1 mr-lg-0 mr-1">
                     <div class="login-user">
                         <input type="button" class="btn btn-primary btn-sm px-3 button-reply" id="${answerID}" value="Comment">                       
                         ${rateButton}
@@ -274,8 +273,8 @@ function handleSampleError(error) {
 
 function populateRankingRow(image, name, specialization, yearLevel, rank, rating) {
     return `<div class="row">
-                    <div class="col-3">
-                        <div class=" pt-2">
+                    <div class="col-lg-3 col-md-3 col-12 m-0 p-0 px-sm-2">
+                        <div class="pt-2">
                             <div class="row">
                                 <div class="profile-header-container">
                                     <div class="profile-header-img">
@@ -288,23 +287,32 @@ function populateRankingRow(image, name, specialization, yearLevel, rank, rating
                             </div>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="row mb-2">
-                            <div class="col">
-                                <b>Username:</b> <span>${name}</span>
+                    <div class="col mt-3 mt-lg-0">
+                        <div class="row mb-3">
+                            <div class="col-12 mb-1">
+                                <b>Username:</b>
+                            </div>
+                            <div class="col-12">
+                                <span>${name}</span>
                             </div>
                         </div>
-                        <div class="row mb-2">
-                            <div class="col">
-                                <b>Specialization:</b> <span>${specialization}</span>
+                        <div class="row mb-3">
+                            <div class="col-12 mb-1">
+                                <b>Specialization:</b>
+                            </div>
+                            <div class="col-12">
+                                <span>${specialization}</span>
                             </div>
                         </div>
-                        <div class="row mb-2">
-                            <div class="col">
-                                <b>Year Level:</b> <span>${yearLevel}</span>
+                        <div class="row mb-3">
+                            <div class="col-12 mb-1">
+                                <b>Year Level:</b>
+                            </div>
+                            <div class="col-12">
+                                <span>${yearLevel}</span>
                             </div>
                         </div>
-                        <div class="row mb-2">
+                        <div class="row mb-3">
                             <div class="col">
                                 <b>Points:</b> <span>${rating}</span>
                             </div>
@@ -352,9 +360,9 @@ function populateProfessionalRankingRow(image, name, specialization, rank, ratin
 }
 
 function populateQuestionRow(questionID, img, userName, status, date, subject, title, description) {
-    return `<div class="card-row py-2 px-5">
+    return `<div class="card-row p-0 p-0 py-lg-2 px-lg-5">
                 <div class="row py-3">
-                    <div class="col-lg-1 col-sm-2"><img class="img-profile rounded-circle" style="width:60px; height: 60px" src="${img}"></div>
+                    <div class="col-lg-2 col-md-2 mx-lg-0 col-12 mb-lg-0 mb-3"><img class="img-profile rounded-circle" style="width:60px; height: 60px" src="${img}"></div>
                     <div class="col">
                         <div class="row mb-0 pb-0" >
                             <div class="col mb-0 pb-0">
