@@ -10,7 +10,7 @@ include '../../common/session.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Connect</title>
     <link rel="stylesheet" href="./../../common/vendor/bootstrap/bootstrap.min.css">
-    <link rel="icon" href="./../../resource/favicon.ico">
+    <link rel="icon" href="./../../resource/favicon.png">
 </head>
 
 <body style="background-color: rgb(245, 245, 245)">
