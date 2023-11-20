@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Connect</title>
+    <!-- Other head elements -->
+    <meta property="og:url" content="https://code-connect.tech/ranking.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Connect Connect" />
+    <meta property="og:description" content="Learning by Asking" />
+    <meta property="og:image" content="./resource/logo-bsit.png" />
+
+    <link rel="stylesheet" href="./common/vendor/bootstrap/bootstrap.min.css">
+    <link rel="icon" href="./resource/favicon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+
+<body style="background-color: rgb(245, 245, 245)">
+    <link rel="stylesheet" href="./common/css/forum.css" />
+    <div class="mx-4 my-5">
+        <div class="container">
+            <div class="col-lg-12 px-lg-1 px-md-1 px-0 mb-4">
+                <div class="card shadow-sm p-2">
+                    <div class="card-body py-2 px-md-2 px-lg-2 px-0" id="login-form">
+                        <div id="card-form">
+                            <div class="row">
+                                <div class="col-lg-9">
+                                    <h5 class="card-title font-weight-bold mt-1">Code Connect Ranking</h5>
+                                </div>
+                                <div class="col-lg-3">
+                                    <select name="" class="form-control" id="ranking-filter">
+                                    <option value="-1">All</option>
+                                    <option value="1" selected>Student</option>
+                                    <option value="0">Professional</option>
+                                </select>
+                                </div>
+                            </div>
+                            <hr class="sidebar-divider my-2">
+                            <div id="container-ranking"></div>
+                            <div class="row text-center">
+                                <div class="col text-center">
+                                    <a href="" id="load-more-ranking" class="btn btn-primary btn-sm">Load More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="./common/vendor/jquery/jquery.min.js"></script>
+    <script src="./common/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="./common/common.js"></script>
+    <!-- <script src="common/db.js"></script> -->
+    <script>
+        function shareOnFacebook() {
+            window.open('https://www.facebook.com/sharer/sharer.php?u=https://code-connect.tech/', '_blank');
+        }
+    </script>
+
+
+    <script>
+        $(document).ready(function() {
+            var subjectList = new Array;
+            var limit = 10;
+            var rankingLimit = 10;
+            var listOfFAQ = [];
+            var autoCompleteXHR;
+            populateRanking(rankingLimit);
+
+            $("#ranking-filter").on("change", function() {
+                populateRanking(rankingLimit);
+            });
+
+            function populateRankingRow(image, name, specialization, yearLevel, rank, rating) {
+                return `<div class="row">
+                    <div class="col-lg-2 col-md-3 col-12 m-0 p-0 px-sm-2">
+                        <div class="pt-2">
+                            <div class="row">
+                                <div class="profile-header-container">
+                                    <div class="profile-header-img">
+                                        <img class="img-profile img-circle rounded-circle" style="width:90px; height: 90px;" src="${image}">
+                                        <div class="rank-label-container pt-3 rounded">
+                                            <span class="label label-default rank-label text-white px-4 py-1 rounded">#${rank}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mt-3 mt-lg-0">
+                        <div class="row my-1">
+                            <div class="col-12 col-lg-2 mb-1">
+                                <b>Username:</b>
+                            </div>
+                            <div class="col-12 col-lg-10">
+                                <span>${name}</span>
+                            </div>
+                        </div>
+                        <div class="row my-1">
+                            <div class="col-12 col-lg-2 mb-1">
+                                <b>Specialization:</b>
+                            </div>
+                            <div class="col-12 col-lg-10">
+                                <span>${specialization}</span>
+                            </div>
+                        </div>
+                        <div class="row my-1">
+                            <div class="col-12 mb-1 col-lg-2">
+                                <b>Year Level:</b>
+                            </div>
+                            <div class="col-12 col-lg-10">
+                                <span>${yearLevel}</span>
+                            </div>
+                        </div>
+                        <div class="row my-1">
+                            <div class="col-12 col-lg-2">
+                                <b>Likes:</b>
+                            </div>
+                            <div class="col-12 col-lg-10">
+                                <span>${rating}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="sidebar-divider my-2">`;
+            }
+
+            function populateProfessionalRankingRow(image, name, specialization, rank, rating) {
+                return `<div class="row">
+                    <div class="col-3 col-lg-2">
+                        <div class=" pt-2">
+                            <div class="row">
+                                <div class="profile-header-container">
+                                    <div class="profile-header-img">
+                                        <img class="img-profile img-circle rounded-circle" style="width:90px; height: 90px;" src="${image}">
+                                        <div class="rank-label-container pt-3">
+                                            <span class="label label-default rank-label text-white px-4 py-1 rounded">#${rank}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row my-1">
+                            <div class="col-12 col-lg-2">
+                                <b>Username:</b>
+                            </div>
+                            <div class="col-12 col-lg-10">
+                                <span>${name}</span>
+                            </div>
+                        </div>
+                        <div class="row my-1">
+                            <div class="col-12 col-lg-2">
+                                <b>Job:</b>
+                            </div>
+                            <div class="col-12 col-lg-10">
+                                <span>${specialization}</span>
+                            </div>
+                        </div>
+                        <div class="row my-1">
+                            <div class="col-12 col-lg-2">
+                                <b>Likes:</b>
+                            </div>
+                            <div class="col-12 col-lg-2">
+                                <span>${rating}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="sidebar-divider my-2">`;
+            }
+
+
+            function populateRanking(rankingLimit) {
+                var filter = $("#ranking-filter").val();
+                $.ajax({
+                    url: "./common/db.php",
+                    type: "POST",
+                    data: {
+                        action: 'retrieve-ranking-list',
+                        limit: rankingLimit,
+                        filter: filter
+                    },
+                    cache: false,
+                    success: function(dataResult) {
+                        var rankingList = "";
+                        var dataResult = JSON.parse(dataResult);
+                        if (dataResult.statusCode == 200) {
+                            dataResult.rankingList.forEach(rank => {
+
+                                if (rank.studentInformation == null) {
+                                    var picture = rank.professionalInformation['picture'];
+                                    if (picture == "") {
+                                        picture = "./resource/profile/default.svg";
+                                    } else {
+                                        picture = "./resource/profile/" + picture;
+                                    }
+                                    rankingList += populateProfessionalRankingRow(
+                                        picture,
+                                        rank.professionalInformation['userName'],
+                                        rank.professionalInformation['job'],
+                                        rank['rank'],
+                                        rank['rating']
+                                    );
+                                } else {
+                                    var picture = rank.studentInformation['picture'];
+                                    if (picture == "") {
+                                        picture = "./resource/profile/default.svg";
+                                    } else {
+                                        picture = "./resource/profile/" + picture;
+                                    }
+                                    rankingList += populateRankingRow(
+                                        picture,
+                                        rank.studentInformation['username'],
+                                        rank.studentInformation['specialization'],
+                                        getYearLevel(rank.studentInformation['yearLevel']),
+                                        rank['rank'],
+                                        rank['rating']
+                                    );
+                                }
+                            });
+                        } else {
+                            rankingList = populateEmptyRow();
+                        }
+                        $("#container-ranking").html(rankingList);
+                    }
+                });
+            }
+
+
+            $("#load-more-ranking").click(function(event) {
+                event.preventDefault();
+                rankingLimit += 10;
+                populateRanking(rankingLimit);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
