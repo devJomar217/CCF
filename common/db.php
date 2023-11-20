@@ -13,10 +13,10 @@ if($_POST == null OR $_POST['action'] == null){
 }
 
 function databaseConnection(){
-  $servername = "127.0.0.1:3306";
-  $username = "u929248875_admin";
-  $password = "CodeConnect-ccf3";
-  $dbname = "u929248875_code_connect";
+  $servername = "localhost:3307";
+  $username = "root";
+  $password = "";
+  $dbname = "code_connect";
   
   $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -322,6 +322,7 @@ function createSpecialAccount(){
   $name=$_POST['name'];
   $password=md5($_POST['password']);
   $job=$_POST['specialization'];
+  $id=$_SESSION['uploadedCOR'];
   $statusCode = array();
   $duplicate=mysqli_query($connectDB,"select * from account_information where email='$email' OR user_name='$username'");
   $lastRecord=mysqli_query($connectDB,"select account_id from special_account_information ORDER BY account_id DESC LIMIT 1");
@@ -350,8 +351,8 @@ function createSpecialAccount(){
     `account_information`( `user_id`, `user_type`, `user_name`, `email`, `password`, `status`) 
     VALUES ('$userID','3','$username','$email', '$password', '0')";
 
-    $insertSpecialAccountInformationQuery = "INSERT INTO `special_account_information`( `account_id`, `name`, `job`) 
-    VALUES ('$userID','$name','$job')";
+    $insertSpecialAccountInformationQuery = "INSERT INTO `special_account_information`( `account_id`, `name`, `job`, id) 
+    VALUES ('$userID','$name','$job','$id')";
 
     if (mysqli_query($connectDB, $insertAccountInformationQuery)) {
       array_push($statusCode, 200);
@@ -520,7 +521,8 @@ function retrieveSpecialAccountList($status){
   account_information.status, 
   special_account_information.name, 
   special_account_information.job, 
-  special_account_information.picture
+  special_account_information.picture,
+  special_account_information.id
   FROM account_information 
   LEFT JOIN special_account_information ON account_information.user_id=special_account_information.account_id 
   where account_information.status=$status AND account_information.user_type=3";
@@ -537,6 +539,7 @@ function retrieveSpecialAccountList($status){
       $student->set_username($row["user_name"]);
       $student->set_picture($row["picture"]);
       $student->set_status($row["status"]);
+      $student->set_attachment($row["id"]);
       array_push($studentList, $student);
     }
     echo json_encode(array("statusCode"=>200,"specialAccountList"=>$studentList));
@@ -2087,6 +2090,9 @@ function uploadAttachment($path){
   $fileName = "";
   if($_FILES != null){
     // $target_dir = "./../resource/profile/";
+    if (!is_dir($path)) {
+      mkdir($path, 0755, true);
+    }
     $fileName = generateRandomImageName();
     $location = $path . $fileName;
     $uploadStatus = uploadImage($location);

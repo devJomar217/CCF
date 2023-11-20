@@ -81,3 +81,33 @@ function getNotificationCount() {
         }
     });
 }
+
+function showToast(message, type) {
+    var backgroundColor;
+    switch (type) {
+        case 'info':
+            backgroundColor = '#3498db'; // Dodger Blue
+            break;
+        case 'warning':
+            backgroundColor = '#f39c12'; // Orange
+            break;
+        case 'error':
+            backgroundColor = '#e74c3c'; // Light Red
+            break;
+        case 'success':
+            backgroundColor = '#2ecc71'; // Green
+            break;
+        default:
+            backgroundColor = '#00b09b'; // Turquoise Green
+    }
+
+    Toastify({
+        text: message,
+        duration: 3000, // 3 seconds
+        close: true,
+        gravity: 'top', // 'top' or 'bottom'
+        position: 'right', // 'left', 'center', or 'right'
+        backgroundColor: backgroundColor,
+        stopOnFocus: true,
+    }).showToast();
+}

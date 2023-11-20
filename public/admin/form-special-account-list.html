@@ -5,7 +5,7 @@
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v17.0" nonce="gm1pH6vl"></script>
 
 <h1 class="h3 mb-2 text-gray-800">Professional Account List</h1>
-<p class="mb-4">This page contains the list of special account registered on the website.</p>
+<p class="mb-4">This page contains the list of professional account registered on the website.</p>
 
 
 <div class="card shadow mb-4">
@@ -46,7 +46,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Special Account Information</h5>
+                <h5 class="modal-title">Professional Account Information</h5>
             </div>
             <div class="modal-body">
                 <div class="row px-3">
@@ -219,7 +219,7 @@
                                 populateTableData(student['username']),
                                 populateTableData(student['email']),
                                 populateTableData(student['specialization']),
-                                populateTableData("<a class='button-select btn btn-sm btn-primary'><i class='fas fa-eye'></i> View</a> | <a class='button-delete btn btn-sm btn-danger'><i class='fas fa-trash fa-cog'></i> Delete</a>"),
+                                populateTableData("<a class='button-select btn btn-sm btn-primary'><i class='fas fa-eye'></i> View</a>|<a class='button-delete btn btn-sm btn-danger'><i class='fas fa-trash fa-cog'></i> Delete</a>"),
                                 "</tr>");
                         });
                         $("#tableBody").html(studentData);
