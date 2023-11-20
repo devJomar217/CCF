@@ -13,10 +13,15 @@ if($_POST == null OR $_POST['action'] == null){
 }
 
 function databaseConnection(){
-  $servername = "localhost:3307";
-  $username = "root";
-  $password = "";
-  $dbname = "code_connect";
+  // $servername = "localhost:3307";
+  // $username = "root";
+  // $password = "";
+  // $dbname = "code_connect";
+
+  $servername = "127.0.0.1:3306";
+  $username = "u929248875_admin";
+  $password = "CodeConnect-ccf3";
+  $dbname = "u929248875_code_connect";
   
   $conn = new mysqli($servername, $username, $password, $dbname);
 
