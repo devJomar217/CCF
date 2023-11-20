@@ -11,6 +11,8 @@ include '../../common/session.php';
     <title>Code Connect</title>
     <link rel="stylesheet" href="./../../common/vendor/bootstrap/bootstrap.min.css">
     <link rel="icon" href="./../../resource/favicon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
 </head>
 
 <body style="background-color: rgb(245, 245, 245)">
@@ -52,6 +54,7 @@ include '../../common/session.php';
 <script src="./../../common/vendor/jquery/jquery.cookie.js"></script>
 <script src="./../../common/vendor/jquery/aes.js"></script>
 <script src="./../../common/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 <script src="./../../common/common.js"></script>
 <!-- <script src="common/db.js"></script> -->
 <script>
