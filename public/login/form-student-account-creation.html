@@ -120,64 +120,7 @@
         var eConfirmPassword = $('#input-confirm-password');
         var eModalError = $('#modal-error');
 
-        let retryDelay = 30; // seconds
-        let countdown = retryDelay;
-
-        function updateCountdown() {
-            $('#countdown').text(`Retry in: ${countdown} seconds`);
-        }
-
-        function showRetryText() {
-            $('#retryText').show();
-        }
-
-        function enableRetryButton() {
-            $('#retryButton').css({
-                cursor: 'pointer',
-                color: 'blue',
-                textDecoration: 'underline'
-            });
-        }
-
-        function retryOperation() {
-            // Simulate the OTP sending operation
-            console.log('Attempting to send OTP...');
-
-            // Hide the retry text and reset styles
-            $('#retryText').hide();
-            $('#retryButton').css({
-                cursor: 'auto',
-                color: 'inherit',
-                textDecoration: 'none'
-            });
-
-            // Disable the button and set the initial countdown
-            $('#retryText').hide();
-            $('#retryButton').attr('disabled', true);
-
-            // Update the countdown every second
-            const countdownInterval = setInterval(function() {
-                countdown--;
-                updateCountdown();
-
-                if (countdown <= 0) {
-                    clearInterval(countdownInterval);
-                    countdown = retryDelay;
-                    updateCountdown();
-                    enableRetryButton();
-                    showRetryText();
-                }
-            }, 1000);
-        }
-
-        // Attach the retryOperation function to the click event of the retry button
-        $('#retryButton').on('click', retryOperation);
-
-        // Start the countdown
-        retryOperation();
-
-
-
+        
         $('#button-modal-close').on('click', function() {
             eModalError.modal('toggle');
         });
