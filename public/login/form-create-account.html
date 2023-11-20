@@ -273,7 +273,7 @@
                     var dataResult = JSON.parse(dataResult);
                     if (dataResult.statusCode == 200) {
                         console.log('OTP has been sent!');
-                        showToast('OTP has been sent to your OTP!', "success");
+                        showToast('OTP has been sent to your Email!', "success");
                     } else if (dataResult.statusCode == 500) {
                         showToast(`Something wen't wrong, please try again later`, "danger");
                     }
