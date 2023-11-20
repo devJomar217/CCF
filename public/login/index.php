@@ -12,7 +12,6 @@ include '../../common/session.php';
     <link rel="stylesheet" href="./../../common/vendor/bootstrap/bootstrap.min.css">
     <link rel="icon" href="./../../resource/favicon.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-
 </head>
 
 <body style="background-color: rgb(245, 245, 245)">
