@@ -57,7 +57,7 @@
             </div>
             <div class="modal-body">
                 <form id="form-import-excel" enctype="multipart/form-data">
-                    <input type="file" name="excel_file" id="input-excel" />
+                    <input type="file" name="excel_file" id="input-excel" accept=".xls, .xlsx" />
                     <input type="submit" class="btn btn-primary" value="Import Excel" />
                 </form>
             </div>
@@ -178,11 +178,11 @@
                     Swal.close();
                     retrieveStudentRequestList();
                     Swal.fire(
-                            'Success!',
-                            'Student data has been successfully imported.',
-                            'success'
+                        'Success!',
+                        'Student data has been successfully imported.',
+                        'success'
                     )
-                    
+
                     $("#modal-import-excel").modal("hide");
                 }
             });
