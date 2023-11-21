@@ -92,19 +92,32 @@
                 <div class="chart-pie pt-4 pb-2">
                     <canvas id="pie-chart"></canvas>
                 </div>
-                <div class="mt-4 text-center small">
-                    <span class="mr-2">
-                        <i class="fas fa-circle text-primary"></i> First Year
-                    </span>
-                    <span class="mr-2">
-                        <i class="fas fa-circle text-success"></i> Second Year
-                    </span>
-                    <span class="mr-2">
-                        <i class="fas fa-circle text-info"></i> Third Year
-                    </span>
-                    <span class="mr-2">
-                        <i class="fas fa-circle text-danger"></i> Fourth Year
-                    </span>
+                <div class="mt-4 small">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <span class="">
+                                <i class="fas fa-circle text-primary"></i> First Year: <span id="student-first-year"></span>
+                            </span>
+                        </div>
+                        <div class="col-lg-6">
+                            <span class="">
+                                <i class="fas fa-circle text-success"></i> Second Year: <span id="student-second-year"></span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <span class="">
+                                <i class="fas fa-circle text-info"></i> Third Year: <span id="student-third-year"></span>
+                            </span>
+                        </div>
+                        <div class="col-lg-6">
+                            <span class="">
+                                <i class="fas fa-circle text-danger" style="color: red !important"></i> Fourth Year: <span id="student-fourth-year"></span>
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -126,13 +139,19 @@
                 <div class="chart-pie pt-4 pb-2">
                     <canvas id="subject-chart"></canvas>
                 </div>
-                <div class="mt-4 text-center small">
-                    <span class="mr-2">
-                        <i class="fas fa-circle text-success"></i> Answered
-                    </span>
-                    <span class="mr-2">
-                        <i class="fas fa-circle text-danger"></i> Unanswered
-                    </span>
+                <div class="mt-4 small">
+                    <div class="row">
+                        <div class="col-6">
+                            <span class="">
+                                <i class="fas fa-circle text-success"></i> Answered: <span id="question-answered"></span>
+                            </span>
+                        </div>
+                        <div class="col-6">
+                            <span class="">
+                                <i class="fas fa-circle text-danger" style="color: red !important"></i> Unanswered: <span id="question-unanswered"></span>
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -145,7 +164,7 @@
             <div class="card-header py-3">
                 <div class="row">
                     <div class="col-lg-6 align-middle">
-                        <h6 class="m-0 font-weight-bold text-primary">Subject</h6>
+                        <h6 class="m-0 mt-2 font-weight-bold text-primary">Subject</h6>
                     </div>
                     <div class="col-lg-6">
                         <div class="row align-middle">
@@ -159,21 +178,21 @@
                 </div>
             </div>
             <div class="card-body">
-                <h4 class="small font-weight-bold">First Year<span class="float-right" id="first-year-percent-text">0%</span></h4>
+                <h4 class="small font-weight-bold">First Year: <span id="subject-first-year"></span> <span class="float-right" id="first-year-percent-text">0%</span></h4>
                 <div class="progress mb-4">
                     <div class="progress-bar bg-prirmary" role="progressbar" id="first-year-percent-progress" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
-                <h4 class="small font-weight-bold">Second Year<span class="float-right" id="second-year-percent-text">0%</span></h4>
+                <h4 class="small font-weight-bold">Second Year: <span id="subject-second-year"></span> <span class="float-right" id="second-year-percent-text">0%</span></h4>
                 <div class="progress mb-4">
                     <div class="progress-bar bg-success" role="progressbar" id="second-year-percent-progress" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
-                <h4 class="small font-weight-bold">Third Year<span class="float-right" id="third-year-percent-text">0%</span></h4>
+                <h4 class="small font-weight-bold">Third Year: <span id="subject-third-year"></span> <span class="float-right" id="third-year-percent-text">0%</span></h4>
                 <div class="progress mb-4">
                     <div class="progress-bar bg-warning" role="progressbar" id="third-year-percent-progress" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
-                <h4 class="small font-weight-bold">Fourth Year<span class="float-right" id="fourth-year-percent-text">0%</span></h4>
+                <h4 class="small font-weight-bold">Fourth Year: <span id="subject-fourth-year"></span> <span class="float-right" id="fourth-year-percent-text">0%</span></h4>
                 <div class="progress mb-4">
-                    <div class="progress-bar bg-danger" role="progressbar" id="fourth-year-percent-progress" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-danger" style="background-color: red !important" role="progressbar" id="fourth-year-percent-progress" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
             </div>
         </div>
@@ -204,9 +223,16 @@
                     var studentData = [dataResult.student.firstYear, dataResult.student.secondYear, dataResult.student.thirdYear, dataResult.student.fourthYear];
                     var studentLabels = ["First Year", "Second Year", "Third Year", "Fourth Year"];
                     createPieChart("pie-chart", studentLabels, studentData);
+                    $("#student-first-year").html(dataResult.student.firstYear);
+                    $("#student-second-year").html(dataResult.student.secondYear);
+                    $("#student-third-year").html(dataResult.student.thirdYear);
+                    $("#student-fourth-year").html(dataResult.student.fourthYear);
 
                     var questionData = [dataResult.forum.unanswered, dataResult.forum.answered];
                     var questionLabels = ["Unanswered", "Answered"];
+                    $("#question-answered").html(dataResult.forum.answered);
+                    $("#question-unanswered").html(dataResult.forum.unanswered);
+
                     createTwoPieChart("subject-chart", questionLabels, questionData);
                     getSubjectPerYearLevel(null);
                 }
@@ -232,33 +258,39 @@
                 cache: false,
                 success: function(dataResult) {
                     var dataResult = JSON.parse(dataResult);
-                    var firstYear = dataResult.firstYear;
-                    var secondYear = dataResult.secondYear;
-                    var thirdYear = dataResult.thirdYear;
-                    var fourthYear = dataResult.fourthYear;
+                    var number1 = parseFloat(dataResult.firstYear);
+                    var number2 = parseFloat(dataResult.secondYear);
+                    var number3 = parseFloat(dataResult.thirdYear);
+                    var number4 = parseFloat(dataResult.fourthYear);
 
-                    var total = firstYear + secondYear + thirdYear + fourthYear;
+                    // Calculate the total
+                    var total = number1 + number2 + number3 + number4;
 
-                    var firstPercent = Math.round(percentage(firstYear, total));
-                    var secondPercent = Math.round(percentage(secondYear, total));
-                    var thirdPercent = Math.round(percentage(thirdYear, total));
-                    var fourthPercent = Math.round(percentage(fourthYear, total));
+                    // Calculate the percentage for each number
+                    var percentage1 = (number1 / total) * 100;
+                    var percentage2 = (number2 / total) * 100;
+                    var percentage3 = (number3 / total) * 100;
+                    var percentage4 = (number4 / total) * 100;
 
-                    $("#first-year-percent-text").html(firstPercent + "%");
+                    $("#subject-first-year").html(number1);
+                    $("#first-year-percent-text").html(percentage1.toFixed(2) + "%");
                     $("#first-year-percent-progress").removeAttr("style");
-                    $("#first-year-percent-progress").attr("style", "width:" + firstPercent + "%");
+                    $("#first-year-percent-progress").attr("style", "width:" + percentage1.toFixed(2) + "%");
 
-                    $("#second-year-percent-text").html(secondPercent + "%");
+                    $("#subject-second-year").html(number2);
+                    $("#second-year-percent-text").html(percentage2.toFixed(2) + "%");
                     $("#second-year-percent-progress").removeAttr("style");
-                    $("#second-year-percent-progress").attr("style", "width:" + secondPercent + "%");
+                    $("#second-year-percent-progress").attr("style", "width:" + percentage2.toFixed(2) + "%");
 
-                    $("#third-year-percent-text").html(thirdPercent + thirdPercent + "%");
+                    $("#subject-third-year").html(number3);
+                    $("#third-year-percent-text").html(percentage3.toFixed(2) + "%");
                     $("#third-year-percent-progress").removeAttr("style");
-                    $("#third-year-percent-progress").attr("style", "width:" + "%");
+                    $("#third-year-percent-progress").attr("style", "width:" + percentage3.toFixed(2) + "%");
 
-                    $("#fourth-year-percent-text").html(fourthYear + "%");
+                    $("#subject-fourth-year").html(number4);
+                    $("#fourth-year-percent-text").html(percentage4.toFixed(2) + "%");
                     $("#fourth-year-percent-progress").removeAttr("style");
-                    $("#fourth-year-percent-progress").attr("style", "width:" + fourthYear + "%");
+                    $("#fourth-year-percent-progress").attr("style", "width:" + percentage4.toFixed(2) + "%");
                 }
             });
         }
@@ -281,11 +313,11 @@
                     var questionData = [dataResult.unanswered, dataResult.answered];
                     var questionLabels = ["Unanswered", "Answered"];
                     createTwoPieChart("subject-chart", questionLabels, questionData);
+                    $("#question-answered").html(dataResult.answered);
+                    $("#question-unanswered").html(dataResult.unanswered);
                 }
             });
         }
-
-
 
         function getSubjectList() {
             $.ajax({

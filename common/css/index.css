@@ -6817,7 +6817,7 @@ button.bg-warning:focus {
 }
 
 .bg-danger {
-    background-color: #4c4c4d !important;
+    background-color: #e74a3b !important;
 }
 
 a.bg-danger:hover,
@@ -9999,7 +9999,7 @@ a.text-warning:focus {
 }
 
 .text-danger {
-    color: #4c4c4d !important;
+    color: #e74a3b !important;
 }
 
 a.text-danger:hover,

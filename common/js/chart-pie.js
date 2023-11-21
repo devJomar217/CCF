@@ -14,7 +14,7 @@ function createPieChart(id, labels, data) {
             datasets: [{
                 data: data,
                 backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', 'red'],
-                hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
+                hoverBackgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', 'red'],
                 hoverBorderColor: "rgba(234, 236, 244, 1)",
             }],
         },
@@ -85,7 +85,7 @@ var subjectChart = new Chart(ctxSubject, {
         datasets: [{
             data: [55, 10],
             backgroundColor: ['#1cc88a', 'red'],
-            hoverBackgroundColor: ['#2e59d9', '#2c9faf'],
+            hoverBackgroundColor: ['#1cc88a', 'red'],
             hoverBorderColor: "rgba(234, 236, 244, 1)",
         }],
     },
