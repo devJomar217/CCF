@@ -110,8 +110,30 @@
         $("#button-approve").on('click', function() {
             var studentID = $('#modal-info-student-id').html();
             updateAccountStatus(studentID, '1');
+            sendEmail();
             $('#modal-info-student').modal('toggle');
         });
+
+        function sendEmail() {
+            var email = $("#modal-info-email").html();
+            $.ajax({
+                url: "../../common/mailer.php",
+                type: "POST",
+                data: {
+                    action: 'send-account-confirmation',
+                    email: email
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode == 200) {
+                        showToast('Email confirmation has been sent!', "success");
+                    } else if (dataResult.statusCode == 500) {
+                        showToast(`Something wen't wrong, please try again later`, "danger");
+                    }
+                }
+            });
+        }
 
         $("#button-reject-cor").on('click', function() {
             var studentID = $('#modal-info-student-id-cor').html();
@@ -182,6 +204,12 @@
                     if (dataResult.statusCode != 200) {
                         alert("There some error during the deletion, please try again later!");
                     }
+
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success',
+                        text: 'Account has been successfully approved.',
+                    });
 
                     retrieveStudentRequestList();
                 }
