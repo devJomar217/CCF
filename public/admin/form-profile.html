@@ -23,7 +23,7 @@
         <div class="card shadow mb-4">
             <div class="card-body">
                 <form id="form-update-profile" class="needs-validation">
-                    <div class="form-outline mb-2">
+                    <div class="form-outline mb-4">
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="alert d-none alert-dismissible text-center" id="info-message-profile">
@@ -34,79 +34,78 @@
 
                         <div class="row mb-2">
                             <div class="col-lg-3">
-                                <label class="form-label" for="input-profile-id">Admin ID</label>
-                                <input type="text" id="input-profile-id" class="form-control" placeholder="Enter Admin ID" required disabled/>
-                                <div class="invalid-feedback">
+                                <div class="form-group">
+                                    <label for="input-profile-id">Admin ID</label>
+                                    <input type="text" id="input-profile-id" class="form-control" placeholder="Enter Admin ID" required disabled/>
+                                    <div class="invalid-feedback">Please enter the Admin ID.</div>
                                 </div>
                             </div>
                             <div class="col-lg-9">
-                                <label class="form-label" for="input-profile-name">Full Name</label>
-                                <input type="text" id="input-profile-name" class="form-control" placeholder="Enter Admin ID" required/>
-                                <div class="invalid-feedback">
+                                <div class="form-group">
+                                    <label for="input-profile-name">Full Name</label>
+                                    <input type="text" id="input-profile-name" class="form-control" placeholder="Enter Full Name" required/>
+                                    <div class="invalid-feedback">Please enter the Full Name.</div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-lg-6">
-                                <div class="form-outline">
-                                    <label class="form-label" for="input-profile-username">Username</label>
-                                    <input type="text" id="input-profile-username" class="form-control" placeholder="Enter Email Address" required/>
-                                    <div class="invalid-feedback" id="helpertext-username">
-                                    </div>
+                                <div class="form-group">
+                                    <label for="input-profile-username">Username</label>
+                                    <input type="text" id="input-profile-username" class="form-control" placeholder="Enter Username" required/>
+                                    <div class="invalid-feedback" id="helpertext-username">Please enter a valid username.</div>
                                 </div>
                             </div>
                             <div class="col-lg-6">
-                                <div class="form-outline">
-                                    <label class="form-label" for="input-profile-email">Email</label>
-                                    <input type="text" id="input-profile-email" class="form-control" placeholder="Enter Email Address" required/>
-                                    <div class="invalid-feedback" id="helpertext-username">
-                                    </div>
+                                <div class="form-group">
+                                    <label for="input-profile-email">Email</label>
+                                    <input type="email" id="input-profile-email" class="form-control" placeholder="Enter Email Address" required/>
+                                    <div class="invalid-feedback" id="helpertext-email">Please enter a valid email address.</div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <button type="submit" class="btn btn-primary btn-block mb-2 mt-4 w-100">
-                      Update Profile
+                        Update Profile
                     </button>
                 </form>
+
             </div>
         </div>
     </div>
     <div class="col-lg-4">
         <div class="card shadow mb-4">
             <div class="card-body">
-                <form id="form-change-password" class="needs-validation" `>
-                    <div class="form-outline mb-2">
+                <form id="form-change-password" class="needs-validation">
+                    <div class="form-outline mb-3">
                         <div class="alert d-none alert-dismissible" id="info-message-change-password">
                             <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
                         </div>
                     </div>
-                    <div class="form-outline mb-2">
+
+                    <div class="form-outline mb-3">
                         <label class="form-label" for="current-password">Current Password</label>
                         <input type="password" id="current-password" class="form-control" placeholder="Enter Current Password" required/>
-                        <div class="invalid-feedback" id="helpertext-email">
-                        </div>
+                        <div class="invalid-feedback">Please enter your current password.</div>
                     </div>
 
-                    <div class="form-outline mb-2">
-                        <label class="form-label" for="input-password">Password</label>
-                        <input type="password" name="input-password" id="new-password" class="full-width form-control" placeholder="Enter Password" required autocomplete="new-password" onkeyup="checkPasswordStrength();" />
+                    <div class="form-outline mb-3">
+                        <label class="form-label" for="new-password">New Password</label>
+                        <input type="password" name="input-password" id="new-password" class="full-width form-control" placeholder="Enter New Password" required autocomplete="new-password" onkeyup="checkPasswordStrength();" />
                         <div id="password-strength-status"></div>
-                        <div class="invalid-feedback" id="helpertext-password">
-                        </div>
+                        <div class="invalid-feedback" id="helpertext-password">Please enter a valid password.</div>
                     </div>
 
                     <div class="form-outline mb-4">
                         <label class="form-label" for="confirm-password">Confirm Password</label>
                         <input type="password" id="confirm-password" class="form-control" placeholder="Enter Confirm Password" required/>
-                        <div class="invalid-feedback" id="helpertext-email">Confirm Password doesn't match with Password.
-                        </div>
+                        <div class="invalid-feedback">Passwords do not match.</div>
                     </div>
 
                     <button type="submit" class="btn btn-primary btn-block mb-2 mt-2 w-100">
-                      Change Password
+                        Change Password
                     </button>
                 </form>
             </div>

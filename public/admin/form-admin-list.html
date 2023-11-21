@@ -113,33 +113,57 @@
             <div class="modal-header">
                 <h5 class="modal-title">Update Admin Information</h5>
             </div>
-            <div class="modal-body">
-                <div class="row form">
-                    <div class="col-lg-12">
-                        <b>Admin ID: </b> <label for="" id="modal-body-edit-admin-id"></label>
-                    </div>
-                    <div class="col-lg-12">
-                        <b>Name: </b> <label for="" id="modal-body-edit-name"></label>
-                    </div>
-                    <div class="col-lg-12">
-                        <b>Username: </b> <label for="" id="modal-body-edit-user-name"></label>
-                    </div>
-                    <div class="col-lg-12">
-                        <b>Email: </b> <label for="" id="modal-body-edit-email"></label>
-                    </div>
-                    <div class="col-lg-12">
-                        <b>Status: </b>
-                        <select class="form-control" class="dropdown" id="modal-body-edit-status" required>
-                        <option value="0">Inactive</option>
-                        <option value="1">Active</option>
-                    </select>
+            <form action="" id="form-update-admin" class="container">
+                <div class="modal-body">
+                    <div class="row form">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label for="modal-body-edit-admin-id" class="form-label">Admin ID:</label>
+                                <input type="text" id="modal-body-edit-admin-id" class="form-control" required disabled>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label for="modal-body-edit-name" class="form-label">Name:</label>
+                                <input type="text" id="modal-body-edit-name" class="form-control" required>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label for="modal-body-edit-user-name" class="form-label">Username:</label>
+                                <input type="text" id="modal-body-edit-user-name" class="form-control" required>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label for="modal-body-edit-email" class="form-label">Email:</label>
+                                <input type="email" id="modal-body-edit-email" class="form-control" required>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label for="modal-body-edit-status" class="form-label">Status:</label>
+                                <select id="modal-body-edit-status" class="form-control" required>
+                                    <option value="0">Inactive</option>
+                                    <option value="1">Active</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" id="button-close">Close</button>
-                <button type="button" class="btn btn-primary" id="button-update">Update</button>
-            </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="button-close">Close</button>
+                    <button type="button" class="btn btn-primary" id="button-update">Update</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -153,16 +177,31 @@
             <div class="modal-body">
                 <div class="row form">
                     <div class="col-lg-12">
-                        <b>Admin ID: </b> <label for="" id="modal-body-delete-admin-id"></label>
+                        <div class="form-group">
+                            <b for="modal-body-delete-admin-id">Admin ID:</b>
+                            <label for="" id="modal-body-delete-admin-id" class="form-control-static"></label>
+                        </div>
                     </div>
+
                     <div class="col-lg-12">
-                        <b>Name: </b> <label for="" id="modal-body-delete-name"></label>
+                        <div class="form-group">
+                            <b for="modal-body-delete-name">Name:</b>
+                            <label for="" id="modal-body-delete-name" class="form-control-static"></label>
+                        </div>
                     </div>
+
                     <div class="col-lg-12">
-                        <b>Username: </b> <label for="" id="modal-body-delete-user-name"></label>
+                        <div class="form-group">
+                            <b for="modal-body-delete-user-name">Username:</b>
+                            <label for="" id="modal-body-delete-user-name" class="form-control-static"></label>
+                        </div>
                     </div>
+
                     <div class="col-lg-12">
-                        <b>Email: </b> <label for="" id="modal-body-delete-email"></label>
+                        <div class="form-group">
+                            <b for="modal-body-delete-email">Email:</b>
+                            <label for="" id="modal-body-delete-email" class="form-control-static"></label>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -182,45 +221,36 @@
             </div>
             <form id="form-admin-create-account" class="needs-validation">
                 <div class="modal-body">
-                    <div class="form-outline mb-2">
-                        <label class="form-label" for="input-name">Full name</label>
-                        <input type="text" id="input-name" class="form-control" placeholder="Enter Full name" required/>
-                        <div class="invalid-feedback">
-
-                        </div>
+                    <div class="form-outline mb-3">
+                        <label class="form-label" for="input-name">Full Name</label>
+                        <input type="text" id="input-name" class="form-control" placeholder="Enter Full Name" required/>
+                        <div class="invalid-feedback">Please enter your full name.</div>
                     </div>
 
-                    <div class="form-outline mb-2">
-                        <label class="form-label" for="input-email">Email address</label>
-                        <input type="email" id="input-email" class="form-control" placeholder="Enter email address" required/>
-                        <div class="invalid-feedback" id="helpertext-email">
-
-                        </div>
+                    <div class="form-outline mb-3">
+                        <label class="form-label" for="input-email">Email Address</label>
+                        <input type="email" id="input-email" class="form-control" placeholder="Enter Email Address" required/>
+                        <div class="invalid-feedback" id="helpertext-email">Please enter a valid email address.</div>
                     </div>
 
-                    <div class="form-outline mb-2">
-                        <label class="form-label" for="input-username">User name</label>
-                        <input type="text" id="input-username" class="form-control" placeholder="Enter user name" required/>
-                        <div class="invalid-feedback" id="helpertext-username">
-
-                        </div>
+                    <div class="form-outline mb-3">
+                        <label class="form-label" for="input-username">Username</label>
+                        <input type="text" id="input-username" class="form-control" placeholder="Enter Username" required/>
+                        <div class="invalid-feedback" id="helpertext-username">Please enter a username.</div>
                     </div>
 
-                    <div class="form-outline mb-2">
+                    <div class="form-outline mb-3">
                         <label class="form-label" for="input-password">Password</label>
                         <input type="password" name="input-password" id="input-password" class="full-width form-control" placeholder="Enter Password" required autocomplete="new-password" onkeyup="checkPasswordStrength();" />
                         <div id="password-strength-status"></div>
-                        <div class="invalid-feedback" id="helpertext-password">
-                        </div>
+                        <div class="invalid-feedback" id="helpertext-password">Please enter a valid password.</div>
                     </div>
 
                     <div class="form-outline mb-4">
                         <label class="form-label" for="input-confirm-password">Confirm Password</label>
-                        <input type="password" id="input-confirm-password" class="form-control " placeholder="Enter Confirm Password" required/>
-                        <div class="invalid-feedback">Confirm Password doesn't match with Password.
-                        </div>
+                        <input type="password" id="input-confirm-password" class="form-control" placeholder="Enter Confirm Password" required/>
+                        <div class="invalid-feedback">Passwords do not match.</div>
                     </div>
-
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal" id="button-close">Close</button>
@@ -326,10 +356,10 @@
                 console.log(admin);
                 console.log(adminID == admin['adminID']);
                 if (adminID == admin['adminID']) {
-                    $('#modal-body-edit-admin-id').html(admin['adminID']);
-                    $('#modal-body-edit-name').html(admin['name']);
-                    $('#modal-body-edit-user-name').html(admin['username']);
-                    $('#modal-body-edit-email').html(admin['email']);
+                    $('#modal-body-edit-admin-id').val(admin['adminID']);
+                    $('#modal-body-edit-name').val(admin['name']);
+                    $('#modal-body-edit-user-name').val(admin['username']);
+                    $('#modal-body-edit-email').val(admin['email']);
                     $("#modal-body-edit-status").val(admin['status']).change();
                     $('#modal-edit-admin').modal('toggle');
                     return;

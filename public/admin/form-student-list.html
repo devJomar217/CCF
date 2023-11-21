@@ -62,7 +62,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Student Information</h5>
+                <h5 class="modal-title" style="color: black !important;">Student Information</h5>
             </div>
             <div class="modal-body">
                 <div class="row px-3">
@@ -71,27 +71,134 @@
                     </div>
 
                     <div class="col-lg-12">
-                        <b>Student ID:</b> <label for="" id="modal-info-student-id"></label>
+                        <div class="form-group">
+                            <label class="form-label"><b>Student ID:</b></label>
+                            <label for="modal-info-student-id" class="form-control-static" id="modal-info-student-id"></label>
+                        </div>
                     </div>
+
                     <div class="col-lg-12">
-                        <b>Name:</b> <label for="" id="modal-info-name"></label>
+                        <div class="form-group">
+                            <label class="form-label"><b>Name:</b></label>
+                            <label for="modal-info-name" class="form-control-static" id="modal-info-name"></label>
+                        </div>
                     </div>
+
                     <div class="col-lg-12">
-                        <b>Year Level:</b> <label for="" id="modal-info-year-level"></label>
+                        <div class="form-group">
+                            <label class="form-label"><b>Year Level:</b></label>
+                            <label for="modal-info-year-level" class="form-control-static" id="modal-info-year-level"></label>
+                        </div>
                     </div>
+
                     <div class="col-lg-12">
-                        <b>Specialization:</b> <label for="" id="modal-info-specialization"></label>
+                        <div class="form-group">
+                            <label class="form-label"><b>Major:</b></label>
+                            <label for="modal-info-specialization" class="form-control-static" id="modal-info-specialization"></label>
+                        </div>
                     </div>
+
                     <div class="col-lg-12">
-                        <b>Username:</b> <label for="" id="modal-info-user-name"></label>
+                        <div class="form-group">
+                            <label class="form-label"><b>Username:</b></label>
+                            <label for="modal-info-user-name" class="form-control-static" id="modal-info-user-name"></label>
+                        </div>
                     </div>
+
                     <div class="col-lg-12">
-                        <b>Email:</b> <label for="" id="modal-info-email"></label>
+                        <div class="form-group">
+                            <label class="form-label"><b>Email:</b></label>
+                            <label for="modal-info-email" class="form-control-static" id="modal-info-email"></label>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-edit-student" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" style="color: black !important;">Update Student Information</h5>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row px-3">
+                        <div class="col-lg-12 text-center mb-4">
+                            <img class="img-profile rounded-circle img-circle-md" id="modal-edit-student-image" style="width: 180px; height: 180px" src="./../../common/img/undraw_profile.svg">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label class="form-label" for="modal-edit-student-id">Student ID:</label>
+                                <input type="text" class="form-control" id="modal-edit-student-id">
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-9">
+                            <div class="form-group">
+                                <label class="form-label" for="modal-edit-user-name">Username:</label>
+                                <input type="text" class="form-control" id="modal-edit-user-name">
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="form-label" for="modal-edit-name">Full Name:</label>
+                                <input type="text" class="form-control" id="modal-edit-name">
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label class="form-label" for="modal-edit-email">Email:</label>
+                                <input type="email" class="form-control" id="modal-edit-email">
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label class="form-label" for="modal-edit-year-level">Year Level:</label>
+                                <select class="form-control" id="modal-edit-year-level">
+                                    <option value="1">First Year</option>
+                                    <option value="2">Second Year</option>
+                                    <option value="3">Third Year</option>
+                                    <option value="4">Fourth Year</option>
+                                </select>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="form-label" for="modal-edit-specialization">Major:</label>
+                                <input type="text" class="form-control" id="modal-edit-specialization">
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
@@ -107,24 +214,48 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-lg-12">
-                        <b>Student ID:</b> <label for="" id="modal-delete-student-id"></label>
+                        <div class="form-group">
+                            <label for="modal-delete-student-id">Student ID:</label>
+                            <label for="" id="modal-delete-student-id" class="form-control-static"></label>
+                        </div>
                     </div>
+
                     <div class="col-lg-12">
-                        <b>Name:</b> <label for="" id="modal-delete-name"></label>
+                        <div class="form-group">
+                            <label for="modal-delete-name">Name:</label>
+                            <label for="" id="modal-delete-name" class="form-control-static"></label>
+                        </div>
                     </div>
+
                     <div class="col-lg-12">
-                        <b>Year Level:</b> <label for="" id="modal-delete-year-level"></label>
+                        <div class="form-group">
+                            <label for="modal-delete-year-level">Year Level:</label>
+                            <label for="" id="modal-delete-year-level" class="form-control-static"></label>
+                        </div>
                     </div>
+
                     <div class="col-lg-12">
-                        <b>Specialization:</b> <label for="" id="modal-delete-specialization"></label>
+                        <div class="form-group">
+                            <label for="modal-delete-specialization">Major:</label>
+                            <label for="" id="modal-delete-specialization" class="form-control-static"></label>
+                        </div>
                     </div>
+
                     <div class="col-lg-12">
-                        <b>Username:</b> <label for="" id="modal-delete-user-name"></label>
+                        <div class="form-group">
+                            <label for="modal-delete-user-name">Username:</label>
+                            <label for="" id="modal-delete-user-name" class="form-control-static"></label>
+                        </div>
                     </div>
+
                     <div class="col-lg-12">
-                        <b>Email:</b> <label for="" id="modal-delete-email"></label>
+                        <div class="form-group">
+                            <label for="modal-delete-email">Email:</label>
+                            <label for="" id="modal-delete-email" class="form-control-static"></label>
+                        </div>
                     </div>
                 </div>
+
             </div>
             <div class="modal-footer">
                 <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
@@ -218,14 +349,20 @@
                 console.log(student);
                 console.log(studentID == student['studentID']);
                 if (studentID == student['studentID']) {
-                    $('#modal-delete-student-id').html(student['studentID']);
-                    $('#modal-delete-name').html(student['name']);
-                    $('#modal-delete-year-level').html(student['yearLevel']);
-                    $('#modal-delete-specialization').html(student['specialization']);
-                    $('#modal-delete-user-name').html(student['username']);
-                    $('#modal-delete-email').html(student['email']);
-                    $('#dmPicture').html(student['picture']);
-                    $('#modal-delete-student').modal('toggle');
+                    $('#modal-edit-student-id').val(student['studentID']);
+                    $('#modal-edit-name').val(student['name']);
+                    $('#modal-edit-year-level').val(student['yearLevel']);
+                    $('#modal-edit-specialization').val(student['specialization']);
+                    $('#modal-edit-user-name').val(student['username']);
+                    $('#modal-edit-email').val(student['email']);
+                    var image = "default.svg";
+                    if (student['picture'] != null && student['picture'] != "") {
+                        image = student['picture'];
+                    }
+
+                    var picture = "./../../resource/profile/" + image;
+                    $("#modal-edit-student-image").attr("src", picture);
+                    $('#modal-edit-student').modal('toggle');
                     return;
                 }
             });
@@ -272,7 +409,7 @@
                                 populateTableData(student['yearLevel']),
                                 populateTableData(student['email']),
                                 populateTableData(student['rating'] == null ? 0 : student['rating']),
-                                populateTableData(`                                <button type="button" class="btn btn-flat btn-default btn-sm dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                                populateTableData(`<button type="button" class="btn btn-flat btn-default btn-sm dropdown-toggle dropdown-icon" data-toggle="dropdown">
                                   Action<span class="sr-only">Toggle Dropdown</span>
                                 </button>
                                 <div class="dropdown-menu" role="menu">

@@ -49,21 +49,25 @@
     </div>
 </div>
 
-<div class="modal fade" id="modal-import-excel" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+<div class="modal fade" id="modal-import-excel" tabindex="-1" role="dialog" aria-labelledby="importExcelModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Import</h5>
+                <h5 class="modal-title" id="importExcelModalLabel">Import Excel</h5>
             </div>
             <div class="modal-body">
                 <form id="form-import-excel" enctype="multipart/form-data">
-                    <input type="file" name="excel_file" id="input-excel" accept=".xls, .xlsx" />
-                    <input type="submit" class="btn btn-primary" value="Import Excel" />
+                    <div class="form-group">
+                        <label for="input-excel">Choose Excel File:</label>
+                        <input type="file" name="excel_file" id="input-excel" accept=".xls, .xlsx" class="form-control-file" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Import Excel</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
 
 <div class="modal fade" id="modal-info-student" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -73,24 +77,27 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <!-- <div class="col-lg-12 text-center mb-3">
-                        <img style="width: 150px;" class="img-profile rounded-circle  b-4" src="./../../common/img/undraw_profile.svg">
-                    </div> -->
+                    <!-- Uncomment the image section if you decide to include a student image -->
+                    <!--
+                    <div class="col-lg-12 text-center mb-3">
+                        <img style="width: 150px;" class="img-profile rounded-circle b-4" src="./../../common/img/undraw_profile.svg">
+                    </div>
+                    -->
 
                     <div class="col-lg-12">
-                        <b>Student ID:</b> <label for="" id="modal-info-student-id"></label>
+                        <b>Student ID:</b> <label for="modal-info-student-id" id="modal-info-student-id"></label>
                     </div>
                     <div class="col-lg-12">
-                        <b>Name:</b> <label for="" id="modal-info-name"></label>
+                        <b>Name:</b> <label for="modal-info-name" id="modal-info-name"></label>
                     </div>
                     <div class="col-lg-12">
-                        <b>Year Level:</b> <label for="" id="modal-info-year-level"></label>
+                        <b>Year Level:</b> <label for="modal-info-year-level" id="modal-info-year-level"></label>
                     </div>
                     <div class="col-lg-12">
-                        <b>Specialization:</b> <label for="" id="modal-info-specialization"></label>
+                        <b>Specialization:</b> <label for="modal-info-specialization" id="modal-info-specialization"></label>
                     </div>
                     <div class="col-lg-12">
-                        <b>Email:</b> <label for="" id="modal-info-email"></label>
+                        <b>Email:</b> <label for="modal-info-email" id="modal-info-email"></label>
                     </div>
                 </div>
 
@@ -111,33 +118,52 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <!-- <div class="col-lg-12 text-center mb-3">
-                        <img style="width: 150px;" class="img-profile rounded-circle  b-4" src="./../../common/img/undraw_profile.svg">
-                    </div> -->
+                    <!-- Uncomment the image section if you decide to include an image -->
+                    <!--
+                    <div class="col-lg-12 text-center mb-3">
+                        <img style="width: 150px;" class="img-profile rounded-circle b-4" src="./../../common/img/undraw_profile.svg">
+                    </div>
+                    -->
 
                     <div class="col-lg-6">
-                        <b>Name:</b> <label for="" id="modal-info-name-cor"></label>
+                        <div class="mb-3">
+                            <label class="form-label"><b>Name:</b></label>
+                            <label for="modal-info-name-cor" class="form-control" id="modal-info-name-cor"></label>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label"><b>Year Level:</b></label>
+                            <label for="modal-info-year-level-cor" class="form-control" id="modal-info-year-level-cor"></label>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label"><b>Specialization:</b></label>
+                            <label for="modal-info-specialization-cor" class="form-control" id="modal-info-specialization-cor"></label>
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label"><b>Email:</b></label>
+                            <label for="modal-info-email-cor" class="form-control" id="modal-info-email-cor"></label>
+                        </div>
                     </div>
+
                     <div class="col-lg-6">
-                        <b>Student ID:</b> <label for="" id="modal-info-student-id-cor"></label>
-                    </div>
-                    <div class="col-lg-6">
-                        <b>Year Level:</b> <label for="" id="modal-info-year-level-cor"></label>
-                    </div>
-                    <div class="col-lg-6">
-                        <b>Username:</b> <label for="" id="modal-info-user-name-cor"></label>
-                    </div>
-                    <div class="col-lg-6">
-                        <b>Specialization:</b> <label for="" id="modal-info-specialization-cor"></label>
-                    </div>
-                    <div class="col-lg-6 mb-2">
-                        <b>Email:</b> <label for="" id="modal-info-email-cor"></label>
-                    </div>
-                    <div class="col-lg-12">
-                        <hr/>
-                        <a href="" target="_blank" class="mt-4" id="modal-info-img-a-cor"> <img id="modal-info-img-cor" style="width: 100%;" scr=""></a>
+                        <div class="mb-3">
+                            <label class="form-label"><b>Student ID:</b></label>
+                            <label for="modal-info-student-id-cor" class="form-control" id="modal-info-student-id-cor"></label>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label"><b>Username:</b></label>
+                            <label for="modal-info-user-name-cor" class="form-control" id="modal-info-user-name-cor"></label>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label"><b>Image:</b></label>
+                            <div class="mt-2">
+                                <a href="" target="_blank" id="modal-info-img-a-cor">
+                                    <img id="modal-info-img-cor" class="img-fluid" style="width: 100%;" src="" alt="Student Image">
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
 
             </div>
             <div class="modal-footer">

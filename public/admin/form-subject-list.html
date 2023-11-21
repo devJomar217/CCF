@@ -51,16 +51,18 @@
             <div class="modal-body">
                 <form id="form-new-subject" class="needs-validation" novalidate>
                     <div class="form-outline mb-3">
-                        <label class="form-label" for="input-new-subject">Subject</label>
+                        <label class="form-label" for="input-new-subject"><b>Subject:</b></label>
+                        <!-- Consider providing a more descriptive label for accessibility -->
                         <input type="text" id="input-new-subject" class="form-control" placeholder="Enter Subject" required/>
                         <div class="invalid-feedback">
-
+                            <!-- You can provide a specific message for invalid input here -->
                         </div>
                     </div>
 
                     <button type="submit" class="btn btn-primary btn-block mb-2 w-100">
-                  Create New Subject
-                </button>
+                        <!-- Consider adding icons or making the button text more concise -->
+                        Create New Subject
+                    </button>
                 </form>
             </div>
             <div class="modal-footer">
@@ -79,34 +81,41 @@
             <div class="modal-body">
                 <form id="form-edit-subject" class="needs-validation" novalidate>
                     <div class="form-outline mb-2">
-                        <label class="form-label" for="input-edit-subject-id">ID</label>
+                        <label class="form-label" for="input-edit-subject-id"><b>ID:</b></label>
+                        <!-- Consider providing a more descriptive label for accessibility -->
                         <input type="text" id="input-edit-subject-id" class="form-control" disabled/>
                         <div class="invalid-feedback">
-
+                            <!-- You can provide a specific message for invalid input here -->
                         </div>
                     </div>
+
                     <div class="form-outline mb-2">
-                        <label class="form-label" for="input-edit-subject">Subject</label>
+                        <label class="form-label" for="input-edit-subject"><b>Subject:</b></label>
+                        <!-- Consider providing a more descriptive label for accessibility -->
                         <input type="text" id="input-edit-subject" class="form-control" placeholder="Enter Subject" required/>
                         <div class="invalid-feedback">
-
+                            <!-- You can provide a specific message for invalid input here -->
                         </div>
                     </div>
-                    <div class="form-outline mb-3">
-                        <label class="form-label" for="input-edit-status">Status</label>
-                        <select class="form-control" class="dropdown" id="input-edit-status" required>
-                        <option value="0">Inactive</option>
-                        <option value="1">Active</option>
-                    </select>
-                        <div class="invalid-feedback">
 
+                    <div class="form-outline mb-3">
+                        <label class="form-label" for="input-edit-status"><b>Status:</b></label>
+                        <!-- Combined 'class' attributes into a single attribute -->
+                        <select class="form-control dropdown" id="input-edit-status" required>
+                            <option value="0">Inactive</option>
+                            <option value="1">Active</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            <!-- You can provide a specific message for invalid input here -->
                         </div>
                     </div>
 
                     <button type="submit" class="btn btn-success btn-block mb-2 w-100">
-                  Update Subject
-                </button>
+                        <!-- Consider adding icons or making the button text more concise -->
+                        Update Subject
+                    </button>
                 </form>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal" id="button-close">Close</button>

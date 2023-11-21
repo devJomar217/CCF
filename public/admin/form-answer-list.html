@@ -79,6 +79,45 @@
     </div>
 </div>
 
+<div class="modal fade" id="modal-edit-answer" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Update Answer</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label for="modal-edit-answer-id"><b>Answer ID:</b></label>
+                            <input type="text" class="form-control" id="modal-edit-answer-id" readonly required />
+                            <div class="invalid-feedback"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="form-group">
+                            <label for="modal-edit-answer-creationDateTime"><b>Creation Date Time:</b></label>
+                            <input type="text" class="form-control" id="modal-edit-answer-creationDateTime" readonly />
+                            <div class="invalid-feedback"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label for="modal-edit-answer-answer"><b>Answer:</b></label>
+                            <textarea class="form-control" style="height: auto;" id="modal-edit-answer-answer" required></textarea>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Update</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="modal fade" id="modal-info-question" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -88,23 +127,31 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-lg-3">
-                        <b>Question ID:</b>
-                        <div for="" class="form-control" id="modal-info-question-id"></div>
+                        <div class="form-group">
+                            <label for="modal-info-question-id"><b>Question ID:</b></label>
+                            <div class="form-control" id="modal-info-question-id"></div>
+                        </div>
                     </div>
 
                     <div class="col-lg-9">
-                        <b>Creation Date Time:</b>
-                        <div for="" class="form-control" id="modal-info-question-creationDateTime"></div>
+                        <div class="form-group">
+                            <label for="modal-info-question-creationDateTime"><b>Creation Date Time:</b></label>
+                            <div class="form-control" id="modal-info-question-creationDateTime"></div>
+                        </div>
                     </div>
 
                     <div class="col-lg-12">
-                        <b>Title:</b>
-                        <div for="" class="form-control" id="modal-info-question-title"></div>
+                        <div class="form-group">
+                            <label for="modal-info-question-title"><b>Title:</b></label>
+                            <div class="form-control" id="modal-info-question-title"></div>
+                        </div>
                     </div>
 
                     <div class="col-lg-12">
-                        <b>Description:</b>
-                        <div for="" class="form-control" style="height: auto;" id="modal-info-question-description"></div>
+                        <div class="form-group">
+                            <label for="modal-info-question-description"><b>Description:</b></label>
+                            <div class="form-control" style="height: auto;" id="modal-info-question-description"></div>
+                        </div>
                     </div>
                 </div>
 
@@ -129,24 +176,48 @@
                     </div>
 
                     <div class="col-lg-12">
-                        <b>Account ID:</b> <label for="" id="modal-info-student-id"></label>
+                        <div class="form-group">
+                            <label for="modal-info-student-id"><b>Account ID:</b></label>
+                            <label for="" id="modal-info-student-id" class="form-control-static"></label>
+                        </div>
                     </div>
+
                     <div class="col-lg-12">
-                        <b>Name:</b> <label for="" id="modal-info-name"></label>
+                        <div class="form-group">
+                            <label for="modal-info-name"><b>Name:</b></label>
+                            <label for="" id="modal-info-name" class="form-control-static"></label>
+                        </div>
                     </div>
+
                     <div class="col-lg-12" id="modal-info-year-level-container">
-                        <b>Year Level:</b> <label for="" id="modal-info-year-level"></label>
+                        <div class="form-group">
+                            <label for="modal-info-year-level"><b>Year Level:</b></label>
+                            <label for="" id="modal-info-year-level" class="form-control-static"></label>
+                        </div>
                     </div>
+
                     <div class="col-lg-12">
-                        <b>Specialization:</b> <label for="" id="modal-info-specialization"></label>
+                        <div class="form-group">
+                            <label for="modal-info-specialization"><b>Specialization:</b></label>
+                            <label for="" id="modal-info-specialization" class="form-control-static"></label>
+                        </div>
                     </div>
+
                     <div class="col-lg-12">
-                        <b>Username:</b> <label for="" id="modal-info-user-name"></label>
+                        <div class="form-group">
+                            <label for="modal-info-user-name"><b>Username:</b></label>
+                            <label for="" id="modal-info-user-name" class="form-control-static"></label>
+                        </div>
                     </div>
+
                     <div class="col-lg-12">
-                        <b>Email:</b> <label for="" id="modal-info-email"></label>
+                        <div class="form-group">
+                            <label for="modal-info-email"><b>Email:</b></label>
+                            <label for="" id="modal-info-email" class="form-control-static"></label>
+                        </div>
                     </div>
                 </div>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -195,10 +266,10 @@
             var answerID = currentRow.find("td:eq(0)").html();
             $.each(answerList, function(key, answer) {
                 if (answerID == answer['answerID']) {
-                    $('#modal-info-answer-id').html(answer.answerID);
-                    $('#modal-info-answer-creationDateTime').html(answer.creationDateTime);
-                    $('#modal-info-answer-answer').html(answer.answer);
-                    $('#modal-info-answer').modal('toggle');
+                    $('#modal-edit-answer-id').val(answer.answerID);
+                    $('#modal-edit-answer-creationDateTime').val(answer.creationDateTime);
+                    $('#modal-edit-answer-answer').val(answer.answer);
+                    $('#modal-edit-answer').modal('toggle');
                     return;
                 }
             });
