@@ -23,6 +23,7 @@ include '../../common/session.php';
     <link rel="stylesheet" href="./../../common/vendor/datatables/dataTables.bootstrap4.css" />
     <link href="./../../common/css/index.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.9.0/dist/sweetalert2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
 
 <body id="page-top">
@@ -250,6 +251,7 @@ include '../../common/session.php';
     <script src="./../../common/vendor/datatables/jquery.dataTables.js"></script>
     <script src="./../../common/common.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.9.0/dist/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </body>
 
 </html>

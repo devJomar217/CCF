@@ -91,7 +91,7 @@
                                 </div>
                                 <div class="row form-outline mb-3">
                                     <div class="col-4">
-                                        <label class="form-label font-weight-bold" for="input-email">Ranking: </label>
+                                        <label class="form-label font-weight-bold" for="input-email">Rank: </label>
                                     </div>
                                     <div class="col">
                                         <span id="profile-ranking"></span>
@@ -171,7 +171,7 @@
                     <div id="card-form">
                         <div class="row">
                             <div class="col-lg-6">
-                                <h5 class="card-title font-weight-bold mt-1">Leaderboards</h5>
+                                <h5 class="card-title font-weight-bold mt-1">Ranking</h5>
                             </div>
                             <div class="col-lg-6">
                                 <select name="" class="form-control" id="ranking-filter">
@@ -417,7 +417,7 @@
 
                             $("#profile-year-level").html(dataResult.studentInformation.yearLevel);
                             $("#profile-specialization").html(dataResult.studentInformation.specialization);
-                            $("#profile-ranking").html(`${rank} (${rating} Points)`);
+                            $("#profile-ranking").html(`${rank} (${rating} Likes)`);
                         } else if (dataResult.userType == "3") {
                             $("#profile-name").html(dataResult.specialAccountInformation.name);
                             $("#profile-user-name").html(dataResult.specialAccountInformation.userName);

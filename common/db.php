@@ -1887,6 +1887,7 @@ function updateStudentRecord(){
       if (mysqli_query($connectDB, $studentSQL)) {
         $status = 200;
         array_push($statusCode, 200);
+        retrieveStudentInformation($connectDB, $studentID);
       } else {
         array_push($statusCode, 5002);
       }
@@ -1940,6 +1941,7 @@ function updateSpecialAccountRecord(){
       if (mysqli_query($connectDB, $studentSQL)) {
         $status = 200;
         array_push($statusCode, 200);
+        retrieveSpecialAccountInformation($connectDB, $studentID);
       } else {
         array_push($statusCode, 5002);
       }

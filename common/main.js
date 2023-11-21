@@ -298,7 +298,7 @@ function populateRankingRow(image, name, specialization, yearLevel, rank, rating
                         </div>
                         <div class="row mb-3">
                             <div class="col-12 mb-1">
-                                <b>Specialization:</b>
+                                <b>Major:</b>
                             </div>
                             <div class="col-12">
                                 <span>${specialization}</span>
@@ -314,7 +314,7 @@ function populateRankingRow(image, name, specialization, yearLevel, rank, rating
                         </div>
                         <div class="row mb-3">
                             <div class="col">
-                                <b>Points:</b> <span>${rating}</span>
+                                <b>Likes:</b> <span>${rating}</span>
                             </div>
                         </div>
                     </div>
