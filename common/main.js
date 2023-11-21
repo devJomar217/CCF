@@ -351,7 +351,7 @@ function populateProfessionalRankingRow(image, name, specialization, rank, ratin
                         </div>
                         <div class="row mb-2">
                             <div class="col">
-                                Points: <span>${rating}</span>
+                                Likes: <span>${rating}</span>
                             </div>
                         </div>
                     </div>
