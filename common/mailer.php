@@ -88,7 +88,7 @@ function generateProfessionalAccountConfirmation(){
                                                             </tbody>
                                                         </table> 
                                                     </div>
-                                                    <div style="font-family:Roboto-Regular,Helvetica,Arial,sans-serif;font-size:14px;color:rgba(0,0,0,0.87);line-height:20px;padding-top:20px;text-align:left">If you didn\'t generate this forgot password, someone might be using your account. Check and secure your account now.
+                                                    <div style="font-family:Roboto-Regular,Helvetica,Arial,sans-serif;font-size:14px;color:rgba(0,0,0,0.87);line-height:20px;padding-top:20px;text-align:left">
                                                         <div style="padding-top:32px;text-align:center">
                                                             <a href="https://code-connect.tech/public/login/index.php" style="font-family:\'Google Sans\',Roboto,RobotoDraft,Helvetica,Arial,sans-serif;line-height:16px;color:#ffffff;font-weight:400;text-decoration:none;font-size:14px;display:inline-block;padding:10px 24px;background-color:#4184f3;border-radius:5px;min-width:90px" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://accounts.google.com/AccountChooser?Email%3Dforcemindshift@gmail.com%26continue%3Dhttps://myaccount.google.com/alert/nt/1689360587509?rfn%253D20%2526rfnc%253D1%2526eid%253D981215007565641449%2526et%253D0&amp;source=gmail&amp;ust=1689447870813000&amp;usg=AOvVaw1xnwhGPu8XwulukYZmQdv7">
                                                                 Login Now
