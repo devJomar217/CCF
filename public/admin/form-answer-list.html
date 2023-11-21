@@ -176,7 +176,35 @@
             });
         });
 
-        $("#dataTable").on('click', '.btn-select', function() {
+        $("#dataTable").on('click', '.view_data', function() {
+            var currentRow = $(this).closest("tr");
+            var answerID = currentRow.find("td:eq(0)").html();
+            $.each(answerList, function(key, answer) {
+                if (answerID == answer['answerID']) {
+                    $('#modal-info-answer-id').html(answer.answerID);
+                    $('#modal-info-answer-creationDateTime').html(answer.creationDateTime);
+                    $('#modal-info-answer-answer').html(answer.answer);
+                    $('#modal-info-answer').modal('toggle');
+                    return;
+                }
+            });
+        });
+
+        $("#dataTable").on('click', '.edit_data', function() {
+            var currentRow = $(this).closest("tr");
+            var answerID = currentRow.find("td:eq(0)").html();
+            $.each(answerList, function(key, answer) {
+                if (answerID == answer['answerID']) {
+                    $('#modal-info-answer-id').html(answer.answerID);
+                    $('#modal-info-answer-creationDateTime').html(answer.creationDateTime);
+                    $('#modal-info-answer-answer').html(answer.answer);
+                    $('#modal-info-answer').modal('toggle');
+                    return;
+                }
+            });
+        });
+
+        $("#dataTable").on('click', '.delete_data', function() {
             var currentRow = $(this).closest("tr");
             var answerID = currentRow.find("td:eq(0)").html();
             $.each(answerList, function(key, answer) {
@@ -283,7 +311,16 @@
                                 <td>${answer['creationDateTime']}</td>
                                 <td>${answer['answer']}</td>
                                 <td>${answer['rating']}</td>
-                                <td><a class='btn-select btn btn-xs btn-primary' data-id='${answerID}'><i class='fas fa-eye fa-cog'></i></a></td>
+                                <td><button type="button" class="btn btn-flat btn-default btn-sm dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                                  Action<span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <div class="dropdown-menu" role="menu">
+                                    <a class="dropdown-item view_data " href="javascript:void(0)" data-id="${answerID}"><span class="fa fa-eye text-primary"></span> View</a>
+                                    <div class="dropdown-divider "></div>
+                                    <a class="dropdown-item edit_data " href="javascript:void(0)" data-id="${answerID}"><span class="fa fa-edit text-success"></span> Edit</a>
+                                    <div class="dropdown-divider "></div>
+                                    <a class="dropdown-item delete_data " href="javascript:void(0)" data-id="${answerID}"><span class="fa fa-trash text-danger"></span> Delete</a>
+                                </div></td>
                                 </tr>`;
                         });
                         $("#tableBody").html(answerData);

@@ -185,7 +185,7 @@
         });
 
 
-        $("#dataTable").on('click', '.button-select', function() {
+        $("#dataTable").on('click', '.view_data', function() {
             var currentRow = $(this).closest("tr");
             var studentID = currentRow.find("td:eq(0)").html();
             $.each(studentList, function(key, student) {
@@ -211,7 +211,27 @@
             });
         });
 
-        $("#dataTable").on('click', '.button-delete', function() {
+        $("#dataTable").on('click', '.edit_data', function() {
+            var currentRow = $(this).closest("tr");
+            var studentID = currentRow.find("td:eq(0)").html();
+            $.each(studentList, function(key, student) {
+                console.log(student);
+                console.log(studentID == student['studentID']);
+                if (studentID == student['studentID']) {
+                    $('#modal-delete-student-id').html(student['studentID']);
+                    $('#modal-delete-name').html(student['name']);
+                    $('#modal-delete-year-level').html(student['yearLevel']);
+                    $('#modal-delete-specialization').html(student['specialization']);
+                    $('#modal-delete-user-name').html(student['username']);
+                    $('#modal-delete-email').html(student['email']);
+                    $('#dmPicture').html(student['picture']);
+                    $('#modal-delete-student').modal('toggle');
+                    return;
+                }
+            });
+        });
+
+        $("#dataTable").on('click', '.delete_data', function() {
             var currentRow = $(this).closest("tr");
             var studentID = currentRow.find("td:eq(0)").html();
             $.each(studentList, function(key, student) {
@@ -252,7 +272,16 @@
                                 populateTableData(student['yearLevel']),
                                 populateTableData(student['email']),
                                 populateTableData(student['rating'] == null ? 0 : student['rating']),
-                                populateTableData("<a class='button-select btn btn-sm btn-primary'><i class='fas fa-eye'></i> View</a> | <a class='button-delete btn btn-sm btn-danger'><i class='fas fa-trash fa-cog'></i> Delete</a>"),
+                                populateTableData(`                                <button type="button" class="btn btn-flat btn-default btn-sm dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                                  Action<span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <div class="dropdown-menu" role="menu">
+                                    <a class="dropdown-item view_data " href="javascript:void(0)" data-id="${student['studentID']}"><span class="fa fa-eye text-primary"></span> View</a>
+                                    <div class="dropdown-divider "></div>
+                                    <a class="dropdown-item edit_data " href="javascript:void(0)" data-id="${student['studentID']}"><span class="fa fa-edit text-success"></span> Edit</a>
+                                    <div class="dropdown-divider "></div>
+                                    <a class="dropdown-item delete_data " href="javascript:void(0)" data-id="${student['studentID']}"><span class="fa fa-trash text-danger"></span> Delete</a>
+                                </div>`),
                                 "</tr>");
                         });
                         $("#tableBody").html(studentData);

@@ -127,7 +127,43 @@
         var questionList;
         retrieveQuestionList();
 
-        $("#dataTable").on('click', '.button-select', function() {
+        $("#dataTable").on('click', '.view_data', function() {
+            var currentRow = $(this).closest("tr");
+            var questionID = currentRow.find("td:eq(0)").html();
+            $.each(questionList, function(key, question) {
+                console.log(question);
+                console.log(questionID == question['questionID']);
+                if (questionID == question['questionID']) {
+                    $('#modal-info-question-id').html(question['questionID']);
+                    $('#modal-info-question-title').html(question['title']);
+                    $('#modal-info-question-description').html(question['description']);
+                    $('#modal-info-question-creationDateTime').html(question['creationDateTime']);
+
+                    $('#modal-info-question').modal('toggle');
+                    return;
+                }
+            });
+        });
+
+        $("#dataTable").on('click', '.edit_data', function() {
+            var currentRow = $(this).closest("tr");
+            var questionID = currentRow.find("td:eq(0)").html();
+            $.each(questionList, function(key, question) {
+                console.log(question);
+                console.log(questionID == question['questionID']);
+                if (questionID == question['questionID']) {
+                    $('#modal-info-question-id').html(question['questionID']);
+                    $('#modal-info-question-title').html(question['title']);
+                    $('#modal-info-question-description').html(question['description']);
+                    $('#modal-info-question-creationDateTime').html(question['creationDateTime']);
+
+                    $('#modal-info-question').modal('toggle');
+                    return;
+                }
+            });
+        });
+
+        $("#dataTable").on('click', '.delete_data', function() {
             var currentRow = $(this).closest("tr");
             var questionID = currentRow.find("td:eq(0)").html();
             $.each(questionList, function(key, question) {
@@ -222,7 +258,16 @@
                                     <td>${question['subject']}</td>
                                     <td>${question['creationDateTime']}</td>
                                     <td>${question['title']}</td>
-                                    <td><a class='button-select btn btn-xs btn-primary' data-id='${questionID}'><i class='fas fa-eye fa-cog'></i> </a></td>
+                                    <td><button type="button" class="btn btn-flat btn-default btn-sm dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                                  Action<span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <div class="dropdown-menu" role="menu">
+                                    <a class="dropdown-item view_data " href="javascript:void(0)" data-id="${questionID}"><span class="fa fa-eye text-primary"></span> View</a>
+                                    <div class="dropdown-divider "></div>
+                                    <a class="dropdown-item edit_data " href="javascript:void(0)" data-id="${questionID}"><span class="fa fa-edit text-success"></span> Edit</a>
+                                    <div class="dropdown-divider "></div>
+                                    <a class="dropdown-item delete_data " href="javascript:void(0)" data-id="${questionID}"><span class="fa fa-trash text-danger"></span> Delete</a>
+                                </div></td>
                                 </tr>`;
                         });
                         $("#tableBody").html(questionData);
