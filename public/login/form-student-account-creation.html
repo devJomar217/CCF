@@ -1,6 +1,26 @@
+<style>
+    #password-strength-status {
+        padding: 5px 10px;
+        border-radius: 4px;
+        margin-top: 5px;
+    }
+    
+    .medium-password {
+        background-color: #fd0;
+    }
+    
+    .weak-password {
+        background-color: #FBE1E1;
+    }
+    
+    .strong-password {
+        background-color: #D5F9D5;
+    }
+</style>
+
 <form id="form-create-account" class="needs-validation" novalidate>
     <div class="row">
-        <div class="col-md-6 mb-4">
+        <div class="col-md-12 mb-4">
             <h2>Create Student Account</h2>
         </div>
     </div>
@@ -8,21 +28,21 @@
     <div class="form-outline mb-2 row">
         <div class="col-lg-12 mb-2">
             <label class="form-label" for="input-student-id">Student ID</label>
-            <input type="text" id="input-student-id" class="form-control" placeholder="Enter Student ID" readonly/>
+            <input type="text" id="input-student-id" class="form-control" placeholder="Enter Student ID" disabled/>
             <div class="invalid-feedback" id="helpertext-student-id">
             </div>
         </div>
 
         <div class="col-lg-12">
             <label class="form-label" for="input-name">Full name</label>
-            <input type="text" id="input-name" class="form-control" placeholder="Enter Full name" autocomplete="name" readonly/>
+            <input type="text" id="input-name" class="form-control" placeholder="Enter Full name" autocomplete="name" disabled/>
             <div class="invalid-feedback" id="helpertext-name">
             </div>
         </div>
     </div>
     <div class="form-outline mb-2">
         <label class="form-label" for="input-specialization">Specialization</label>
-        <input type="text" id="input-specialization" class="form-control" placeholder="Enter Specialization" readonly/>
+        <input type="text" id="input-specialization" class="form-control" placeholder="Enter Specialization" disabled/>
         <div class="invalid-feedback" id="helpertext-specialization">
         </div>
     </div>
@@ -31,7 +51,7 @@
     <div class="form-outline mb-2 row">
         <div class="col-lg-8">
             <label class="form-label" for="input-email">Email address</label>
-            <input type="email" id="input-email" class="form-control" placeholder="Enter email address" autocomplete="email" readonly/>
+            <input type="email" id="input-email" class="form-control" placeholder="Enter email address" autocomplete="email" disabled/>
             <div class="invalid-feedback" id="helpertext-email">
             </div>
 
@@ -39,7 +59,7 @@
 
         <div class="col-lg-4">
             <label class="form-label" for="input-year-level">Year Level</label>
-            <input class="form-control" class="dropdown" id="input-year-level" readonly>
+            <input class="form-control" class="dropdown" id="input-year-level" disabled>
             <div class="invalid-feedback" id="helpertext-year-level">
             </div>
         </div>
@@ -47,17 +67,16 @@
 
 
     <div class="form-outline mb-2">
-        <label class="form-label" for="input-user-name">Username</label>
-        <input type="text" id="input-user-name" class="form-control" placeholder="Enter user name" autocomplete="username" required/>
-        <div class="invalid-feedback" id="helpertext-user-name">
-        </div>
+        <label class="form-label" for="input-username">Username</label>
+        <input type="text" id="input-username" class="form-control" placeholder="Enter user name" autocomplete="username" required/>
+        <div class="invalid-feedback" id="helpertext-user-name">This username is already existing!</div>
 
     </div>
 
-    <!-- Password input -->
     <div class="form-outline mb-2">
         <label class="form-label" for="input-password">Password</label>
-        <input type="password" id="input-password" class="form-control " placeholder="Enter Password" autocomplete="new-password" required/>
+        <input type="password" name="input-password" id="input-password" class="full-width form-control" placeholder="Enter Password" required autocomplete="new-password" onkeyup="checkPasswordStrength();" />
+        <div id="password-strength-status"></div>
         <div class="invalid-feedback" id="helpertext-password">
         </div>
     </div>
@@ -65,8 +84,7 @@
     <div class="form-outline mb-3">
         <label class="form-label" for="input-confirm-password">Confirm Password</label>
         <input type="password" id="input-confirm-password" class="form-control " placeholder="Enter Confirm Password" autocapitalize="new-password" required/>
-        <div class="invalid-feedback" id="helpertext-confirm-passwword">
-        </div>
+        <div class="invalid-feedback" id="helpertext-confirm-passwword">Confirm Password doesn't match with password</div>
     </div>
 
     <div class="form-check form-outline mb-3">
@@ -74,7 +92,7 @@
         <label class="form-check-label" for="checkbox-terms-and-conditions">
             I have read and agreed to the <a href="./terms-and-conditions.html" rel="noopener noreferrer" target="_blank">Terms and Condition</a>
         </label>
-        <div class="invalid-feedback" id="helpertext-terms-and-conditions"></div>
+        <div class="invalid-feedback" id="helpertext-terms-and-conditions">Please agree to the terms and conditions before submitting.</div>
     </div>
 
     <!-- Submit button -->
@@ -107,12 +125,41 @@
 </div>
 
 <script>
+    function checkPasswordStrength() {
+        var number = /([0-9])/;
+        var alphabets = /([a-zA-Z])/;
+        var special_characters = /([~,!,@,#,$,%,^,&,*,-,_,+,=,?,>,<])/;
+        var password = $("#input-password").val().trim();
+        if (password.length < 6) {
+            $('#password-strength-status').removeClass();
+            $('#password-strength-status').addClass('weak-password');
+            $('#password-strength-status').html("Weak (should be atleast 6 characters.)");
+            $('#input-password').addClass('is-invalid');
+            return false;
+        } else {
+            if (password.match(number) && password.match(alphabets) && password.match(special_characters)) {
+                $('#password-strength-status').removeClass();
+                $('#password-strength-status').addClass('strong-password');
+                $('#password-strength-status').html("Strong");
+                $('#input-password').removeClass('is-invalid');
+                return true;
+            } else {
+                $('#password-strength-status').removeClass();
+                $('#password-strength-status').addClass('medium-password');
+                $('#password-strength-status').html("Medium (should include alphabets, numbers and special characters.)");
+                $('#input-password').addClass('is-invalid');
+                return false;
+            }
+        }
+    }
+
+
     $(document).ready(function() {
         $(".modal-backdrop").removeAttr("class");
 
         var eStudentID = $('#input-student-id');
         var eEmail = $('#input-email');
-        var eUsername = $('#input-user-name');
+        var eUsername = $('#input-username');
         var eName = $('#input-name');
         var eSpecialization = $('#input-specialization');
         var eYearLevel = $('#input-year-level');
@@ -120,7 +167,7 @@
         var eConfirmPassword = $('#input-confirm-password');
         var eModalError = $('#modal-error');
 
-        
+
         $('#button-modal-close').on('click', function() {
             eModalError.modal('toggle');
         });
@@ -196,6 +243,17 @@
                 eConfirmPassword.removeClass('is-invalid');
             }
 
+            if (!checkPasswordStrength()) {
+                return;
+            }
+
+            if (!$('#checkbox-terms-and-conditions').prop('checked')) {
+                $("#checkbox-terms-and-conditions").addClass("is-invalid");
+                return;
+            } else {
+                $("#checkbox-terms-and-conditions").removeClass("is-invalid");
+            }
+
             // if (!regex.test(email)) {
             //     $("#helpertext-email").html("Invalid email address format!");
             //     eEmail.addClass('is-invalid');
@@ -226,7 +284,6 @@
                         }
 
                         if (dataResult.statusCode.includes(5002)) {
-                            $("#helpertext-username").html("This username is already existing!");
                             $("#input-username").addClass('is-invalid');
                         }
 

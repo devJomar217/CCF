@@ -9,6 +9,26 @@
     <link rel="stylesheet" href="./login.css">
 </head>
 
+<style>
+    #password-strength-status {
+        padding: 5px 10px;
+        border-radius: 4px;
+        margin-top: 5px;
+    }
+
+    .medium-password {
+        background-color: #fd0;
+    }
+
+    .weak-password {
+        background-color: #FBE1E1;
+    }
+
+    .strong-password {
+        background-color: #D5F9D5;
+    }
+</style>
+
 <body style="background-color: rgb(245, 245, 245)">
 
     <section class="login">
@@ -32,20 +52,23 @@
                                                 <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
                                             </div>
 
-                                            <!-- Email input -->
                                             <div class="form-outline mb-4">
-                                                <input type="password" id="password" class="form-control" placeholder="Enter New Password" required/>
-                                                <label class="form-label" for="password">New Password</label>
+                                                <label class="form-label" for="password">Password</label>
+                                                <input type="password" name="password" id="password" class="full-width form-control" placeholder="Enter Password" required autocomplete="new-password" onkeyup="checkPasswordStrength();" />
+                                                <div id="password-strength-status"></div>
+                                                <div class="invalid-feedback" id="helpertext-password">
+                                                </div>
                                             </div>
 
                                             <!-- Password input -->
                                             <div class="form-outline mb-4">
-                                                <input type="password" id="confirm-password" class="form-control" placeholder="Enter Confirm Password" required/>
                                                 <label class="form-label" for="confirm-password">Confirm Password</label>
+                                                <input type="password" id="confirm-password" class="form-control" placeholder="Enter Confirm Password" required/>
+                                                <div class="invalid-feedback">Confirm Password doesn't match with password.</div>
                                             </div>
 
                                             <!-- Submit button -->
-                                            <button type="submit" id="button-change-password" class="btn btn-primary btn-block mb-4 w-100">Change Password</button>
+                                            <button type="submit" id="button-change-password" class="btn btn-primary btn-block mb-4 w-100 mt-4">Change Password</button>
                                         </div>
                                     </form>
                                 </div>
@@ -69,6 +92,34 @@
 <!-- <script src="common/db.js"></script> -->
 
 <script>
+function checkPasswordStrength() {
+            var number = /([0-9])/;
+            var alphabets = /([a-zA-Z])/;
+            var special_characters = /([~,!,@,#,$,%,^,&,*,-,_,+,=,?,>,<])/;
+            var password = $("#password").val().trim();
+            if (password.length < 6) {
+                $('#password-strength-status').removeClass();
+                $('#password-strength-status').addClass('weak-password');
+                $('#password-strength-status').html("Weak (should be atleast 6 characters.)");
+                $('#password').addClass('is-invalid');
+                return false;
+            } else {
+                if (password.match(number) && password.match(alphabets) && password.match(special_characters)) {
+                    $('#password-strength-status').removeClass();
+                    $('#password-strength-status').addClass('strong-password');
+                    $('#password-strength-status').html("Strong");
+                    $('#password').removeClass('is-invalid');
+                    return true;
+                } else {
+                    $('#password-strength-status').removeClass();
+                    $('#password-strength-status').addClass('medium-password');
+                    $('#password-strength-status').html("Medium (should include alphabets, numbers and special characters.)");
+                    $('#password').addClass('is-invalid');
+                    return false;
+                }
+            }
+        }
+
     $(document).ready(function() {
         var key = "<?php echo $_SERVER['QUERY_STRING']; ?>";
         var decryptedKey = decrypt(key.substr(4));
@@ -93,14 +144,27 @@
             console.log(date < queryDate);
         }
 
+        $("#confirm-password").on("blur", function(){
+            var password = $('#password').val();
+            var confirmPassword = $('#confirm-password').val();
+
+            if (password != confirmPassword) {
+                $('#confirm-password').addClass("is-invalid");
+            } else {
+                $('#confirm-password').removeClass("is-invalid");
+            }
+        });
+
         $("#form-change-password").on("submit", function(event) {
             event.preventDefault();
             var password = $('#password').val();
             var confirmPassword = $('#confirm-password').val();
 
             if (password != confirmPassword) {
-                $("#error").show();
-                $('#error').html("Password doesn't match!!");
+                return;
+            }
+
+            if(!checkPasswordStrength()){
                 return;
             }
 

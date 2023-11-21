@@ -58,7 +58,7 @@ footer {
                     <a class="nav-link" id="nav-menu-learn-to-code" href="#learn-to-code">Learn to Code</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link for-login-user" id="nav-menu-activities" href="#activities">My Activities</a>
+                <a class="nav-link for-login-user" id="nav-menu-activities" href="#activities">My Actions</a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link for-login-user" id="nav-menu-notification" href="#notification">Notification <span class="badge badge-pill badge-success mb-3" id="notification-count"></span>
@@ -116,17 +116,17 @@ footer {
     </footer>
 
     <div class="modal fade" id="modal-logout" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" >Ready to Leave?</h5>
+                    <h5 class="modal-title text-black" style="color: black !important">Ready to Leave?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-default" type="button" data-dismiss="modal">Cancel</button>
                     <a class="btn btn-primary" href="./../login/logout.php">Logout</a>
                 </div>
             </div>
@@ -144,6 +144,8 @@ footer {
     <script src="./../../common/ckeditor/build/ckeditor.js"></script>
     <script src="./../../common/common.js"></script>
     <script src="./../../common/main.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.js"></script>
 </body>
 </html>
 

@@ -1,3 +1,23 @@
+<style>
+    #password-strength-status {
+        padding: 5px 10px;
+        border-radius: 4px;
+        margin-top: 5px;
+    }
+    
+    .medium-password {
+        background-color: #fd0;
+    }
+    
+    .weak-password {
+        background-color: #FBE1E1;
+    }
+    
+    .strong-password {
+        background-color: #D5F9D5;
+    }
+</style>
+
 <div class="row my-4 mx-3">
     <div class="col-lg-8">
         <div class="card shadow mb-4">
@@ -24,6 +44,9 @@
                                     <input type="file" class="d-none" id="student-input-file-profile-picture" accept="image/*">
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="row mb-2">
                             <div class="col-lg-4">
                                 <label class="form-label" for="input-name">Student ID</label>
                                 <input type="text" id="student-input-profile-student-id" class="form-control" placeholder="Enter Student ID" required disabled/>
@@ -31,6 +54,15 @@
                                 </div>
                             </div>
                             <div class="col-lg-8">
+                                <label class="form-label" for="student-input-profile-name">Full name</label>
+                                <input type="text" id="student-input-profile-name" class="form-control" placeholder="Enter Full name" required disabled/>
+                                <div class="invalid-feedback">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-6">
                                 <div class="form-outline mb-2">
                                     <label class="form-label" for="input-username">Username</label>
                                     <input type="text" id="student-input-profile-user-name" class="form-control" placeholder="Enter user name" required/>
@@ -39,35 +71,32 @@
                                 </div>
                             </div>
                             <div class="col-lg-6">
-                                <label class="form-label" for="student-input-profile-name">Full name</label>
-                                <input type="text" id="student-input-profile-name" class="form-control" placeholder="Enter Full name" required/>
-                                <div class="invalid-feedback">
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
                                 <div class="form-outline mb-2">
                                     <label class="form-label" for="student-input-profile-email">Email</label>
-                                    <input type="text" id="student-input-profile-email" class="form-control" placeholder="Enter Email Address" required/>
+                                    <input type="text" id="student-input-profile-email" class="form-control" placeholder="Enter Email Address" required disabled/>
                                     <div class="invalid-feedback" id="helpertext-username">
                                     </div>
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="row">
                             <div class="col-lg-9">
                                 <div class="form-outline mb-2">
-                                    <label class="form-label" for="input-profile-email">Specialization</label>
-                                    <input type="text" id="student-input-profile-specialization" class="form-control" placeholder="Enter Specialization" required/>
+                                    <label class="form-label" for="input-profile-email">Major</label>
+                                    <input type="text" id="student-input-profile-specialization" class="form-control" placeholder="Enter Specialization" required disabled/>
                                     <div class="invalid-feedback" id="helpertext-username">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-3">
                                 <label class="form-label" for="input-year-level">Year Level</label>
-                                <select class="form-control" class="dropdown" id="student-input-profile-year" required>
-                                    <option value="1">First Year</option>
-                                    <option value="2">Second Year</option>
-                                    <option value="3">Third Year</option>
-                                    <option value="4">Fourth Year</option>
-                                </select>
+                                <select class="form-control" class="dropdown" id="student-input-profile-year" required disabled>
+                                        <option value="1">First Year</option>
+                                        <option value="2">Second Year</option>
+                                        <option value="3">Third Year</option>
+                                        <option value="4">Fourth Year</option>
+                                    </select>
                             </div>
                         </div>
                     </div>
@@ -158,21 +187,21 @@
                     <div class="form-outline mb-2">
                         <label class="form-label" for="current-password">Current Password</label>
                         <input type="password" id="current-password" class="form-control" placeholder="Enter Current Password" required/>
-                        <div class="invalid-feedback" id="helpertext-email">
-                        </div>
+                        <div class="invalid-feedback" id="helpertext-email">Incorrect current password!</div>
                     </div>
 
                     <div class="form-outline mb-2">
-                        <label class="form-label" for="input-email">New Password</label>
-                        <input type="password" id="new-password" class="form-control" placeholder="Enter New Password" required/>
-                        <div class="invalid-feedback" id="helpertext-email">
+                        <label class="form-label" for="input-password">Password</label>
+                        <input type="password" name="input-password" id="input-password" class="full-width form-control" placeholder="Enter Password" required autocomplete="new-password" onkeyup="checkPasswordStrength();" />
+                        <div id="password-strength-status"></div>
+                        <div class="invalid-feedback" id="helpertext-password">
                         </div>
                     </div>
 
                     <div class="form-outline mb-4">
                         <label class="form-label" for="input-email">Confirm Password</label>
                         <input type="password" id="confirm-password" class="form-control" placeholder="Enter Confirm Password" required/>
-                        <div class="invalid-feedback" id="helpertext-email">
+                        <div class="invalid-feedback" id="helpertext-email">Confirm Password doesn't match with password.
                         </div>
                     </div>
 
@@ -185,6 +214,34 @@
     </div>
 </div>
 <script>
+    function checkPasswordStrength() {
+        var number = /([0-9])/;
+        var alphabets = /([a-zA-Z])/;
+        var special_characters = /([~,!,@,#,$,%,^,&,*,-,_,+,=,?,>,<])/;
+        var password = $("#input-password").val().trim();
+        if (password.length < 6) {
+            $('#password-strength-status').removeClass();
+            $('#password-strength-status').addClass('weak-password');
+            $('#password-strength-status').html("Weak (should be atleast 6 characters.)");
+            $('#input-password').addClass('is-invalid');
+            return false;
+        } else {
+            if (password.match(number) && password.match(alphabets) && password.match(special_characters)) {
+                $('#password-strength-status').removeClass();
+                $('#password-strength-status').addClass('strong-password');
+                $('#password-strength-status').html("Strong");
+                $('#input-password').removeClass('is-invalid');
+                return true;
+            } else {
+                $('#password-strength-status').removeClass();
+                $('#password-strength-status').addClass('medium-password');
+                $('#password-strength-status').html("Medium (should include alphabets, numbers and special characters.)");
+                $('#input-password').addClass('is-invalid');
+                return false;
+            }
+        }
+    }
+
     $(document).ready(function() {
         retrieveStudentDetail();
         var profileImage;
@@ -238,6 +295,11 @@
                     $("#student-input-profile-email").removeClass('is-invalid');
 
                     if (dataResult.statusCode.includes(200)) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: 'Profile has been successfully updated.',
+                        });
                         displayInfoMessage("#student-info-message-profile", true, "Profile has been successfully updated!");
                     }
 
@@ -296,6 +358,11 @@
                     $("#special-input-profile-email").removeClass('is-invalid');
 
                     if (dataResult.statusCode.includes(200)) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: 'Profile has been successfully updated.',
+                        });
                         displayInfoMessage("#special-info-message-profile", true, "Profile has been successfully updated!");
                     }
 
@@ -336,22 +403,36 @@
             }
         }
 
+        $("#confirm-password").on("blur", function() {
+            var newPassword = $("#input-password").val();
+            var confirmPassword = $("#confirm-password").val();
+            if (newPassword != confirmPassword) {
+                $("#confirm-password").addClass('is-invalid');
+            } else {
+                $("#confirm-password").removeClass('is-invalid');
+            }
+        });
+
         $('#form-change-password').on("submit", function(event) {
             $("#info-message-change-password").addClass("d-none");
             $("#current-password").removeClass('is-invalid');
-            $("#new-password").removeClass('is-invalid');
+            $("#input-password").removeClass('is-invalid');
             $("#confirm-password").removeClass('is-invalid');
+
+            if (!checkPasswordStrength()) {
+                return;
+            }
 
             event.preventDefault();
             var studentID = $("#student-input-profile-student-id").val() != "" ? $("#student-input-profile-student-id").val() : $("#special-input-profile-student-id").val();
-            var newPassword = $("#new-password").val();
+            var newPassword = $("#input-password").val();
             var currentPassword = $("#current-password").val();
             var confirmPassword = $("#confirm-password").val();
             if (newPassword != confirmPassword) {
                 $("#info-message-change-password").html("New password doesn't match to confirm password");
                 $("#info-message-change-password").addClass("alert-danger");
                 $("#info-message-change-password").removeClass("d-none");
-                $("#new-password").addClass('is-invalid');
+                $("#input-password").addClass('is-invalid');
                 $("#confirm-password").addClass('is-invalid');
             } else {
                 changePassword(studentID, currentPassword, newPassword);
@@ -416,22 +497,26 @@
                 success: function(dataResult) {
                     var dataResult = JSON.parse(dataResult);
                     if (dataResult.statusCode == 200) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: 'Password has been successfully changed.',
+                        });
                         $("#info-message-change-password").html("Password successfully change!");
                         $("#info-message-change-password").addClass("alert-success");
                         $("#info-message-change-password").removeClass("alert-danger");
 
                         $("#current-password").val('');
-                        $("#new-password").val('');
+                        $("#input-password").val('');
                         $("#confirm-password").val('');
                     } else if (dataResult.statusCode == 5000) {
-                        $("#info-message-change-password").html("Incorrect current password!");
-                        $("#info-message-change-password").addClass("alert-danger");
                         $("#current-password").addClass('is-invalid');
                     } else {
                         $("#info-message-change-password").html("Unable to change the password, please try again later!");
                         $("#info-message-change-password").addClass("alert-danger");
+                        $("#info-message-change-password").removeClass("d-none");
                     }
-                    $("#info-message-change-password").removeClass("d-none");
+
                 }
             });
         }

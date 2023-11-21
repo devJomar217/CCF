@@ -1,8 +1,28 @@
+<style>
+    #password-strength-status {
+        padding: 5px 10px;
+        border-radius: 4px;
+        margin-top: 5px;
+    }
+    
+    .medium-password {
+        background-color: #fd0;
+    }
+    
+    .weak-password {
+        background-color: #FBE1E1;
+    }
+    
+    .strong-password {
+        background-color: #D5F9D5;
+    }
+</style>
+
 <div class="row">
     <div class="col-lg-8">
         <div class="card shadow mb-4">
             <div class="card-body">
-                <form id="form-update-profile" class="needs-validation" novalidate>
+                <form id="form-update-profile" class="needs-validation">
                     <div class="form-outline mb-2">
                         <div class="row">
                             <div class="col-lg-12">
@@ -10,24 +30,36 @@
                                     <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
-                                <label class="form-label" for="input-profile-name">Full name</label>
-                                <input type="text" id="input-profile-name" class="form-control" placeholder="Enter Full name" required/>
+                        </div>
+
+                        <div class="row mb-2">
+                            <div class="col-lg-3">
+                                <label class="form-label" for="input-profile-id">Admin ID</label>
+                                <input type="text" id="input-profile-id" class="form-control" placeholder="Enter Admin ID" required disabled/>
                                 <div class="invalid-feedback">
                                 </div>
                             </div>
+                            <div class="col-lg-9">
+                                <label class="form-label" for="input-profile-name">Full Name</label>
+                                <input type="text" id="input-profile-name" class="form-control" placeholder="Enter Admin ID" required/>
+                                <div class="invalid-feedback">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
                             <div class="col-lg-6">
-                                <div class="form-outline mb-2">
-                                    <label class="form-label" for="input-profile-email">Email</label>
-                                    <input type="text" id="input-profile-email" class="form-control" placeholder="Enter Email Address" required/>
+                                <div class="form-outline">
+                                    <label class="form-label" for="input-profile-username">Username</label>
+                                    <input type="text" id="input-profile-username" class="form-control" placeholder="Enter Email Address" required/>
                                     <div class="invalid-feedback" id="helpertext-username">
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-12">
-                                <div class="form-outline mb-2">
-                                    <label class="form-label" for="input-profile-email">Address</label>
-                                    <input type="text" id="input-profile-email" class="form-control" placeholder="Enter Address" required/>
+                            <div class="col-lg-6">
+                                <div class="form-outline">
+                                    <label class="form-label" for="input-profile-email">Email</label>
+                                    <input type="text" id="input-profile-email" class="form-control" placeholder="Enter Email Address" required/>
                                     <div class="invalid-feedback" id="helpertext-username">
                                     </div>
                                 </div>
@@ -45,7 +77,7 @@
     <div class="col-lg-4">
         <div class="card shadow mb-4">
             <div class="card-body">
-                <form id="form-change-password" class="needs-validation" novalidate>
+                <form id="form-change-password" class="needs-validation" `>
                     <div class="form-outline mb-2">
                         <div class="alert d-none alert-dismissible" id="info-message-change-password">
                             <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
@@ -59,16 +91,17 @@
                     </div>
 
                     <div class="form-outline mb-2">
-                        <label class="form-label" for="input-email">New Password</label>
-                        <input type="password" id="new-password" class="form-control" placeholder="Enter New Password" required/>
-                        <div class="invalid-feedback" id="helpertext-email">
+                        <label class="form-label" for="input-password">Password</label>
+                        <input type="password" name="input-password" id="new-password" class="full-width form-control" placeholder="Enter Password" required autocomplete="new-password" onkeyup="checkPasswordStrength();" />
+                        <div id="password-strength-status"></div>
+                        <div class="invalid-feedback" id="helpertext-password">
                         </div>
                     </div>
 
                     <div class="form-outline mb-4">
-                        <label class="form-label" for="input-email">Confirm Password</label>
+                        <label class="form-label" for="confirm-password">Confirm Password</label>
                         <input type="password" id="confirm-password" class="form-control" placeholder="Enter Confirm Password" required/>
-                        <div class="invalid-feedback" id="helpertext-email">
+                        <div class="invalid-feedback" id="helpertext-email">Confirm Password doesn't match with Password.
                         </div>
                     </div>
 
@@ -81,9 +114,47 @@
     </div>
 </div>
 <script>
+    function checkPasswordStrength() {
+        var number = /([0-9])/;
+        var alphabets = /([a-zA-Z])/;
+        var special_characters = /([~,!,@,#,$,%,^,&,*,-,_,+,=,?,>,<])/;
+        var password = $("#new-password").val().trim();
+        if (password.length < 6) {
+            $('#password-strength-status').removeClass();
+            $('#password-strength-status').addClass('weak-password');
+            $('#password-strength-status').html("Weak (should be atleast 6 characters.)");
+            $('#new-password').addClass('is-invalid');
+            return false;
+        } else {
+            if (password.match(number) && password.match(alphabets) && password.match(special_characters)) {
+                $('#password-strength-status').removeClass();
+                $('#password-strength-status').addClass('strong-password');
+                $('#password-strength-status').html("Strong");
+                $('#new-password').removeClass('is-invalid');
+                return true;
+            } else {
+                $('#password-strength-status').removeClass();
+                $('#password-strength-status').addClass('medium-password');
+                $('#password-strength-status').html("Medium (should include alphabets, numbers and special characters.)");
+                $('#new-password').addClass('is-invalid');
+                return false;
+            }
+        }
+    }
+
     $(document).ready(function() {
         retrieveAdminDetail();
         var profileImage;
+
+        $("#confirm-password").on("blur", function() {
+            var newPassword = $("#new-password").val();
+            var confirmPassword = $("#confirm-password").val();
+            if (newPassword != confirmPassword) {
+                $("#confirm-password").addClass('is-invalid');
+            } else {
+                $("#confirm-password").removeClass('is-invalid');
+            }
+        });
 
         $('#updateProfilePicture').click(function() {
             $('#input-file-profile-picture').trigger('click');
@@ -96,8 +167,8 @@
 
         $('#form-update-profile').on("submit", function(event) {
             event.preventDefault();
-            var adminID = $("#input-profile-admin-id").val();
-            var userName = $("#input-profile-user-name").val();
+            var adminID = $("#input-profile-id").val();
+            var userName = $("#input-profile-username").val();
             var name = $("#input-profile-name").val();
             var email = $("#input-profile-email").val();
             var formData = new FormData();
@@ -107,7 +178,7 @@
             formData.append('userName', userName);
             formData.append('name', name);
             formData.append('email', email);
-            var adminID = $("#input-profile-admin-id").val();
+            var adminID = $("#input-profile-id").val();
             $.ajax({
                 url: "../../common/db.php",
                 type: "POST",
@@ -121,6 +192,11 @@
                     $("#input-profile-email").removeClass('is-invalid');
 
                     if (dataResult.statusCode.includes(200)) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: 'Profile has been successfully updated.',
+                        });
                         displayInfoMessage("#info-message-profile", true, "Profile has been successfully updated!");
                     }
 
@@ -162,13 +238,17 @@
         }
 
         $('#form-change-password').on("submit", function(event) {
+            event.preventDefault();
             $("#info-message-change-password").addClass("d-none");
             $("#current-password").removeClass('is-invalid');
             $("#new-password").removeClass('is-invalid');
             $("#confirm-password").removeClass('is-invalid');
 
-            event.preventDefault();
-            var adminID = $("#input-profile-admin-id").val();
+            if (!checkPasswordStrength()) {
+                return;
+            }
+
+            var adminID = $("#input-profile-id").val();
             var currentPassword = $("#current-password").val();
             var newPassword = $("#new-password").val();
             var confirmPassword = $("#confirm-password").val();
@@ -178,13 +258,14 @@
                 $("#info-message-change-password").removeClass("d-none");
                 $("#new-password").addClass('is-invalid');
                 $("#confirm-password").addClass('is-invalid');
+                return;
             } else {
                 changePassword(adminID, currentPassword, newPassword);
             }
         });
 
         function retrieveAdminDetail() {
-            var adminID = $("#input-profile-admin-id").val();
+            var adminID = $("#input-profile-id").val();
             $.ajax({
                 url: "../../common/db.php",
                 type: "POST",
@@ -195,7 +276,8 @@
                 success: function(dataResult) {
                     var dataResult = JSON.parse(dataResult);
                     if (dataResult.statusCode == 200) {
-                        $("#input-profile-user-name").val(dataResult.admin.username);
+                        $("#input-profile-id").val(dataResult.admin.adminID);
+                        $("#input-profile-username").val(dataResult.admin.username);
                         $("#input-profile-name").val(dataResult.admin.name);
                         $("#input-profile-email").val(dataResult.admin.email);
                         var picture = "./../../resource/profile/" + dataResult.admin.picture;
@@ -221,6 +303,11 @@
                 success: function(dataResult) {
                     var dataResult = JSON.parse(dataResult);
                     if (dataResult.statusCode == 200) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: 'Password has been successfully changed.',
+                        });
                         $("#info-message-change-password").html("Password successfully change!");
                         $("#info-message-change-password").addClass("alert-success");
                         $("#info-message-change-password").removeClass("alert-danger");

@@ -1,6 +1,25 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css" />
 <script src="./../../common/vendor/datatables/jquery.dataTables.js"></script>
 
+<style>
+    #password-strength-status {
+        padding: 5px 10px;
+        border-radius: 4px;
+        margin-top: 5px;
+    }
+    
+    .medium-password {
+        background-color: #fd0;
+    }
+    
+    .weak-password {
+        background-color: #FBE1E1;
+    }
+    
+    .strong-password {
+        background-color: #D5F9D5;
+    }
+</style>
 
 <h1 class="h3 mb-2 text-gray-800">Admin Accounts</h1>
 <p class="mb-4">This page contains list of active admin accounts.</p>
@@ -26,6 +45,13 @@
 
         <div class="table-responsive">
             <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
+                <colgroup>
+                    <col width="10%">
+                    <col width="20%">
+                    <col width="30%">
+                    <col width="8%">
+                    <col width="5%">
+                </colgroup>
                 <thead>
                     <tr>
                         <th>Admin ID</th>
@@ -152,10 +178,10 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Add New Admin</h5>
+                <h5 class="modal-title" style="color: black !important;">Add New Admin</h5>
             </div>
-            <div class="modal-body">
-                <form id="form-admin-create-account" class="needs-validation" novalidate>
+            <form id="form-admin-create-account" class="needs-validation">
+                <div class="modal-body">
                     <div class="form-outline mb-2">
                         <label class="form-label" for="input-name">Full name</label>
                         <input type="text" id="input-name" class="form-control" placeholder="Enter Full name" required/>
@@ -180,39 +206,75 @@
                         </div>
                     </div>
 
-                    <!-- Password input -->
                     <div class="form-outline mb-2">
                         <label class="form-label" for="input-password">Password</label>
-                        <input type="password" id="input-password" class="form-control " placeholder="Enter Password" required/>
-                        <div class="invalid-feedback">
-
+                        <input type="password" name="input-password" id="input-password" class="full-width form-control" placeholder="Enter Password" required autocomplete="new-password" onkeyup="checkPasswordStrength();" />
+                        <div id="password-strength-status"></div>
+                        <div class="invalid-feedback" id="helpertext-password">
                         </div>
                     </div>
 
                     <div class="form-outline mb-4">
                         <label class="form-label" for="input-confirm-password">Confirm Password</label>
                         <input type="password" id="input-confirm-password" class="form-control " placeholder="Enter Confirm Password" required/>
-                        <div class="invalid-feedback">
-
+                        <div class="invalid-feedback">Confirm Password doesn't match with Password.
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary btn-block mb-2 w-100">
-                  Create Admin Account
-                </button>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" id="button-close">Close</button>
-            </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="button-close">Close</button>
+                    <button type="submit" class="btn btn-primary">
+                    Create Admin Account
+                  </button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
 
 <script>
+    function checkPasswordStrength() {
+        var number = /([0-9])/;
+        var alphabets = /([a-zA-Z])/;
+        var special_characters = /([~,!,@,#,$,%,^,&,*,-,_,+,=,?,>,<])/;
+        var password = $("#input-password").val().trim();
+        if (password.length < 6) {
+            $('#password-strength-status').removeClass();
+            $('#password-strength-status').addClass('weak-password');
+            $('#password-strength-status').html("Weak (should be atleast 6 characters.)");
+            $('#input-password').addClass('is-invalid');
+            return false;
+        } else {
+            if (password.match(number) && password.match(alphabets) && password.match(special_characters)) {
+                $('#password-strength-status').removeClass();
+                $('#password-strength-status').addClass('strong-password');
+                $('#password-strength-status').html("Strong");
+                $('#input-password').removeClass('is-invalid');
+                return true;
+            } else {
+                $('#password-strength-status').removeClass();
+                $('#password-strength-status').addClass('medium-password');
+                $('#password-strength-status').html("Medium (should include alphabets, numbers and special characters.)");
+                $('#input-password').addClass('is-invalid');
+                return false;
+            }
+        }
+    }
+
     $(document).ready(function() {
         var adminList;
         retrieveAdminList();
+
+        $("#input-confirm-password").on("blur", function() {
+            var newPassword = $("#input-password").val();
+            var confirmPassword = $("#input-confirm-password").val();
+            if (newPassword != confirmPassword) {
+                $("#input-confirm-password").addClass('is-invalid');
+            } else {
+                $("#input-confirm-password").removeClass('is-invalid');
+            }
+        });
 
         $('#modal-new-admin').on('shown.bs.modal', function() {
             var email = $('#input-email').val('');
@@ -235,7 +297,7 @@
             $('#modal-delete-admin').modal('toggle');
         });
 
-        $("#dataTable").on('click', '.button-select', function() {
+        $("#dataTable").on('click', '.view-data', function() {
             var currentRow = $(this).closest("tr");
             var adminID = currentRow.find("td:eq(0)").html();
             $.each(adminList, function(key, admin) {
@@ -251,9 +313,13 @@
                     return;
                 }
             });
+
+            alert("test");
+
+            $("#modal-info-admin").modal("show");
         });
 
-        $("#dataTable").on('click', '.btnEdit', function() {
+        $("#dataTable").on('click', '.edit_data', function() {
             var currentRow = $(this).closest("tr");
             var adminID = currentRow.find("td:eq(0)").html();
             $.each(adminList, function(key, admin) {
@@ -271,7 +337,7 @@
             });
         });
 
-        $("#dataTable").on('click', '.button-delete', function() {
+        $("#dataTable").on('click', '.delete_data', function() {
             var currentRow = $(this).closest("tr");
             var adminID = currentRow.find("td:eq(0)").html();
             $.each(adminList, function(key, admin) {
@@ -308,13 +374,17 @@
                 $("#input-confirm-password").removeClass('is-invalid');
             }
 
-            if (!regex.test(email)) {
-                $("#helpertext-email").html("Invalid email format, please us your BULSU email");
-                $("#input-email").addClass('is-invalid');
-                hasError = true;
-            } else {
-                $("#input-email").removeClass('is-invalid');
+            if (!checkPasswordStrength()) {
+                return;
             }
+
+            // if (!regex.test(email)) {
+            //     $("#helpertext-email").html("Invalid email format, please us your BULSU email");
+            //     $("#input-email").addClass('is-invalid');
+            //     hasError = true;
+            // } else {
+            //     $("#input-email").removeClass('is-invalid');
+            // }
 
             if (!hasError) {
                 $("#btnCreateAccount").attr("disabled", "disabled");
@@ -395,16 +465,88 @@
                                 populateTableData(admin['name']),
                                 populateTableData(admin['email']),
                                 populateTableData(admin['status'] == 0 ? "Inactive" : "Active"),
-                                populateTableData("<a class='button-select btn btn-sm btn-primary'><i class='fas fa-eye'></i> View</a> | <a class='btnEdit btn btn-sm btn-success'><i class='fas fa-edit' data-toggle='modal-edit-admin'></i> Edit</a> | <a class='button-delete btn btn-sm btn-danger'><i class='fas fa-trash fa-cog'></i> Delete</a>"),
+                                populateTableData(`
+                                <button type="button" class="btn btn-flat btn-default btn-sm dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                                  Action<span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <div class="dropdown-menu" role="menu">
+                                    <a class="dropdown-item view_data " href="javascript:void(0)" data-id="${admin['adminID']}"><span class="fa fa-eye text-primary"></span> View</a>
+                                    <div class="dropdown-divider "></div>
+                                    <a class="dropdown-item edit_data " href="javascript:void(0)" data-id="${admin['adminID']}"><span class="fa fa-edit text-success"></span> Edit</a>
+                                    <div class="dropdown-divider "></div>
+                                    <a class="dropdown-item delete_data " href="javascript:void(0)" data-id="${admin['adminID']}"><span class="fa fa-trash text-danger"></span> Delete</a>
+                                </div>`),
                                 "</tr>");
                         });
+                        // <a class='button-select btn btn-sm btn-primary'><i class='fas fa-eye'></i> View</a> | <a class='btnEdit btn btn-sm btn-success'><i class='fas fa-edit' data-toggle='modal-edit-admin'></i> Edit</a> | <a class='button-delete btn btn-sm btn-danger'><i class='fas fa-trash fa-cog'></i> Delete</a>
                     } else {
                         adminData = adminData.concat("<tr class='odd'>", "<td valign='top' colspan='5' class='dataTables_empty'>No Admin Account Available</td>", "</tr>");
                     }
                     $("#tableBody").html(adminData);
                     $('#dataTable').DataTable();
                 }
+
+
             });
         }
+
+        $(".table").on("click", ".view_data", function(event) {
+            event.preventDefault();
+            var currentRow = $(this).closest("tr");
+            var adminID = currentRow.find("td:eq(0)").html();
+            $.each(adminList, function(key, admin) {
+                console.log(admin);
+                console.log(adminID == admin['adminID']);
+                if (adminID == admin['adminID']) {
+                    $('#modal-body-admin-id').html(admin['adminID']);
+                    $('#modal-body-admin-name').html(admin['name']);
+                    $('#modal-body-admin-user-name').html(admin['username']);
+                    $('#modal-body-admin-email').html(admin['email']);
+                    $('#modal-info-picture').html(admin['picture']);
+                    $('#modal-info-admin').modal('toggle');
+                    return;
+                }
+            });
+            $("#modal-info-admin").modal("show");
+        });
+
+        $(".table").on("click", ".edit_data", function(event) {
+            event.preventDefault();
+            var currentRow = $(this).closest("tr");
+            var adminID = currentRow.find("td:eq(0)").html();
+            $.each(adminList, function(key, admin) {
+                console.log(admin);
+                console.log(adminID == admin['adminID']);
+                if (adminID == admin['adminID']) {
+                    $('#modal-body-edit-admin-id').html(admin['adminID']);
+                    $('#modal-body-edit-name').html(admin['name']);
+                    $('#modal-body-edit-user-name').html(admin['username']);
+                    $('#modal-body-edit-email').html(admin['email']);
+                    $("#modal-body-edit-status").val(admin['status']).change();
+                    $('#modal-edit-admin').modal('toggle');
+                    return;
+                }
+            });
+            $("#modal-edit-admin").modal("show");
+        });
+
+        $(".table").on("click", ".delete_data", function(event) {
+            event.preventDefault();
+            var currentRow = $(this).closest("tr");
+            var adminID = currentRow.find("td:eq(0)").html();
+            $.each(adminList, function(key, admin) {
+                console.log(admin);
+                console.log(adminID == admin['adminID']);
+                if (adminID == admin['adminID']) {
+                    $('#modal-body-delete-admin-id').html(admin['adminID']);
+                    $('#modal-body-delete-name').html(admin['name']);
+                    $('#modal-body-delete-user-name').html(admin['username']);
+                    $('#modal-body-delete-email').html(admin['email']);
+                    $('#modal-delete-admin').modal('toggle');
+                    return;
+                }
+            });
+            $("#modal-delete-admin").modal("show");
+        });
     });
 </script>

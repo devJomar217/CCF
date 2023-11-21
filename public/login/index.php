@@ -55,6 +55,7 @@ include '../../common/session.php';
 <script src="./../../common/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 <script src="./../../common/common.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <!-- <script src="common/db.js"></script> -->
 <script>
     $(document).ready(function() {
