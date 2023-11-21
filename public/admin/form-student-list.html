@@ -67,7 +67,7 @@
             <div class="modal-body">
                 <div class="row px-3">
                     <div class="col-lg-12 text-center mb-4">
-                        <img class="img-profile rounded-circle img-circle-md" id="modal-info-student-image" style="width: 180px; height: 180px" src="./../../common/img/undraw_profile.svg">
+                        <img class="img-profile rounded-circle img-circle-md" id="modal-info-student-image" style="width: 180px; height: 180px" src="./../../common/img/undraw_profile.svg" alt="Student Image">
                     </div>
 
                     <div class="col-lg-12">
@@ -114,11 +114,12 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
 </div>
+
 
 <div class="modal fade" id="modal-edit-student" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
@@ -130,7 +131,7 @@
                 <div class="container">
                     <div class="row px-3">
                         <div class="col-lg-12 text-center mb-4">
-                            <img class="img-profile rounded-circle img-circle-md" id="modal-edit-student-image" style="width: 180px; height: 180px" src="./../../common/img/undraw_profile.svg">
+                            <img class="img-profile rounded-circle img-circle-md" id="modal-edit-student-image" style="width: 180px; height: 180px" src="./../../common/img/undraw_profile.svg" alt="Student Image">
                         </div>
                     </div>
 
@@ -138,7 +139,7 @@
                         <div class="col-lg-3">
                             <div class="form-group">
                                 <label class="form-label" for="modal-edit-student-id">Student ID:</label>
-                                <input type="text" class="form-control" id="modal-edit-student-id">
+                                <input type="text" class="form-control" id="modal-edit-student-id" readonly>
                                 <div class="invalid-feedback"></div>
                             </div>
                         </div>
@@ -195,14 +196,15 @@
                         </div>
                     </div>
                 </div>
-
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save Changes</button>
             </div>
         </div>
     </div>
 </div>
+
 
 
 <div class="modal fade" id="modal-delete-student" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">

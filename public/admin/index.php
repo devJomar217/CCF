@@ -252,6 +252,9 @@ include '../../common/session.php';
     <script src="./../../common/common.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.9.0/dist/sweetalert2.all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN5Pboy4EowdQ8s1q6Zgy5u7fVoJAxSfD" crossorigin="anonymous">
+
 </body>
 
 </html>
