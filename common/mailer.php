@@ -8,6 +8,10 @@ require 'phpmailer/src/SMTP.php';
 
 
 function generateForgotPasswordLink($email, $key){
+    // hosting
+    // $url = 'https://code-connect.tech/public/login/form-forgot-change-password.php?key='.$key;
+    // local
+    $url = 'http://localhost/ccf/public/login/form-forgot-change-password.php?key='.$key;
     $body = '<div style="margin:0;padding:0" bgcolor="#FFFFFF">
                 <table width="100%" height="100%" style="min-width:348px" border="0" cellspacing="0" cellpadding="0" lang="en">
                     <tbody>
@@ -24,7 +28,7 @@ function generateForgotPasswordLink($email, $key){
                                                 <div style="border-style:solid;border-width:thin;border-color:#dadce0;border-radius:8px;padding:40px 20px" align="center" class="m_-7949188087747382486mdv2rw">
                                                     <img src="https://codeconnect.000webhostapp.com/resource/logo-codeconnect.png" height="50" aria-hidden="true" style="margin-bottom:16px" alt="Code Connect" class="CToWUd" data-bit="iit">
                                                     <div style="font-family:\'Google Sans\',Roboto,RobotoDraft,Helvetica,Arial,sans-serif;border-bottom:thin solid #dadce0;color:rgba(0,0,0,0.87);line-height:32px;padding-bottom:24px;text-align:center;word-break:break-word">
-                                                    <div style="font-size:24px">Forgot Password</div>
+                                                        <div style="font-size:24px">Forgot Password</div>
                                                         <table align="center" style="margin-top:8px">
                                                             <tbody>
                                                                 <tr style="line-height:normal">
@@ -32,9 +36,11 @@ function generateForgotPasswordLink($email, $key){
                                                             </tbody>
                                                         </table> 
                                                     </div>
-                                                    <div style="font-family:Roboto-Regular,Helvetica,Arial,sans-serif;font-size:14px;color:rgba(0,0,0,0.87);line-height:20px;padding-top:20px;text-align:left">If you didn\'t generate this forgot password, someone might be using your account. Check and secure your account now.
+                                                    <div style="font-family:Roboto-Regular,Helvetica,Arial,sans-serif;font-size:14px;color:rgba(0,0,0,0.87);line-height:20px;padding-top:20px;text-align:left">
+                                                        <p>We received a request to reset your password. If this was not you, please ignore this email.</p>
+                                                        <p>If you did request a password reset, click the button below:</p>
                                                         <div style="padding-top:32px;text-align:center">
-                                                            <a href="https://code-connect.tech/public/login/form-forgot-change-password.php?key='.$key.'" style="font-family:\'Google Sans\',Roboto,RobotoDraft,Helvetica,Arial,sans-serif;line-height:16px;color:#ffffff;font-weight:400;text-decoration:none;font-size:14px;display:inline-block;padding:10px 24px;background-color:#4184f3;border-radius:5px;min-width:90px" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://accounts.google.com/AccountChooser?Email%3Dforcemindshift@gmail.com%26continue%3Dhttps://myaccount.google.com/alert/nt/1689360587509?rfn%253D20%2526rfnc%253D1%2526eid%253D981215007565641449%2526et%253D0&amp;source=gmail&amp;ust=1689447870813000&amp;usg=AOvVaw1xnwhGPu8XwulukYZmQdv7">
+                                                            <a href="'.$url.'" style="font-family:\'Google Sans\',Roboto,RobotoDraft,Helvetica,Arial,sans-serif;line-height:16px;color:#ffffff;font-weight:400;text-decoration:none;font-size:14px;display:inline-block;padding:10px 24px;background-color:#4184f3;border-radius:5px;min-width:90px" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://accounts.google.com/AccountChooser?Email%3Dforcemindshift@gmail.com%26continue%3Dhttps://myaccount.google.com/alert/nt/1689360587509?rfn%253D20%2526rfnc%253D1%2526eid%253D981215007565641449%2526et%253D0&amp;source=gmail&amp;ust=1689447870813000&amp;usg=AOvVaw1xnwhGPu8XwulukYZmQdv7">
                                                                 Change Password
                                                             </a>
                                                         </div>

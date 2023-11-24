@@ -133,13 +133,13 @@
 
                         if (dataResult.questionList != null) {
                             dataResult.questionList.forEach(question => {
-                                activityQuestion += populateQuestionRow(question.questionID, question.creationDateTime, getSubjectName(question.subjectID), question.title);
+                                activityQuestion += populateQuestionRow(question.questionID, convertTo12HourFormat(question.creationDateTime), getSubjectName(question.subjectID), question.title);
                             });
                         }
 
                         if (dataResult.answerList != null) {
                             dataResult.answerList.forEach(answer => {
-                                activityAnswer += populateAnswerRow(answer.questionID, answer.answerID, answer.creationDateTime, answer.answer);
+                                activityAnswer += populateAnswerRow(answer.questionID, answer.answerID, convertTo12HourFormat(answer.creationDateTime), answer.answer);
                             });
                         }
                         $("#tableBodyQuestion").html(activityQuestion);

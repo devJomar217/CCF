@@ -43,7 +43,7 @@
                                     <form id="form-change-password">
                                         <div id="container-change-password" style="display: none">
                                             <div class="row">
-                                                <div class="col-md-6 mb-4">
+                                                <div class="col-md-12 mb-4">
                                                     <h2>Forgot Password</h2>
                                                 </div>
                                             </div>
@@ -53,7 +53,7 @@
                                             </div>
 
                                             <div class="form-outline mb-4">
-                                                <label class="form-label" for="password">Password</label>
+                                                <label class="form-label" for="password">New Password</label>
                                                 <input type="password" name="password" id="password" class="full-width form-control" placeholder="Enter Password" required autocomplete="new-password" onkeyup="checkPasswordStrength();" />
                                                 <div id="password-strength-status"></div>
                                                 <div class="invalid-feedback" id="helpertext-password">
@@ -61,8 +61,8 @@
                                             </div>
 
                                             <!-- Password input -->
-                                            <div class="form-outline mb-4">
-                                                <label class="form-label" for="confirm-password">Confirm Password</label>
+                                            <div class="form-outline mb-2">
+                                                <label class="form-label" for="confirm-password">Confirm New Password</label>
                                                 <input type="password" id="confirm-password" class="form-control" placeholder="Enter Confirm Password" required/>
                                                 <div class="invalid-feedback">Confirm Password doesn't match with password.</div>
                                             </div>

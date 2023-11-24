@@ -496,7 +496,7 @@
                                 description = description.substring(0, 225);
                                 description += ` <a href="?id=${questionID}#main-forum" class="button-select-question"> see more...</a>`;
                             }
-                            questionList += populateQuestionRow(questionID, picture, question['name'], status, question['creationDateTime'], subjectName, question['title'], description);
+                            questionList += populateQuestionRow(questionID, picture, question['name'], status, convertTo12HourFormat(question['creationDateTime']), subjectName, question['title'], description);
                         });
                     } else {
                         questionList = populateEmptyRow();

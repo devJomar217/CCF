@@ -31,7 +31,7 @@ include '../../common/session.php';
 
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="sidebar-accordion">
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
-                <img src="../../resource/logo-codeconnect.png" id="logo" alt="" style="width:200px;">
+                <img loading="lazy" src="../../resource/logo-codeconnect.png" id="logo" alt="" style="width:200px;">
             </a>
             <hr class="sidebar-divider my-0">
             <li class="nav-item" id="nav-item-dashboard">
@@ -163,7 +163,7 @@ include '../../common/session.php';
 
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown-user" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img class="img-profile rounded-circle img-circle-xs" src="./../../resource/profile/<?php echo $_SESSION['picture']; ?>">
+                                <img loading="lazy" class="img-profile rounded-circle img-circle-xs" src="./../../resource/profile/<?php echo $_SESSION['picture']; ?>">
                                 <b><span class="ml-2 d-none d-lg-inline text-gray-600"><?php echo $_SESSION['user_name']; ?></span></b>
 
                             </a>

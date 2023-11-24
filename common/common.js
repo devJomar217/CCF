@@ -111,3 +111,57 @@ function showToast(message, type) {
         stopOnFocus: true,
     }).showToast();
 }
+
+// Covert database time to 12 hour format
+function formatTime(timeString) {
+    const [hourString, minute] = timeString.split(":");
+    const hour = +hourString % 24;
+    return (hour % 12 || 12) + ":" + minute + (hour < 12 ? " AM" : " PM");
+}
+
+function convertTo12HourFormat(dbDateTime) {
+    // Parse the input date-time string
+    var dateTime = new Date(dbDateTime);
+
+    // Get the current time
+    var now = new Date();
+
+    // Calculate the time difference in milliseconds
+    var timeDifference = now - dateTime;
+
+    // Calculate the difference in minutes, hours, and days
+    var minutesDifference = Math.floor(timeDifference / (1000 * 60));
+    var hoursDifference = Math.floor(timeDifference / (1000 * 60 * 60));
+    var daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+
+    // Extract date, hours, and minutes
+    var date = dateTime.toISOString().split('T')[0];
+    var hours = dateTime.getHours();
+    var minutes = dateTime.getMinutes();
+
+    // Determine AM or PM
+    var period = (hours >= 12) ? "PM" : "AM";
+
+    // Convert hours to 12-hour format
+    hours = (hours % 12 === 0) ? 12 : hours % 12;
+
+    // Format the time in 12-hour format without seconds
+    var time12 = hours + ":" + (minutes < 10 ? '0' : '') + minutes + " " + period;
+
+    // Format the output based on the time difference
+    if (daysDifference < 1) {
+        if (hoursDifference < 1) {
+            // Less than an hour ago
+            return minutesDifference + " minute" + (minutesDifference === 1 ? " ago" : "s ago");
+        } else {
+            // Less than a day ago
+            return hoursDifference + " hour" + (hoursDifference === 1 ? " ago" : "s ago");
+        }
+    } else if (daysDifference < 30) {
+        // Less than a month ago
+        return daysDifference + " day" + (daysDifference === 1 ? " ago" : "s ago");
+    } else {
+        // More than a month ago, return the original date-time
+        return date + " " + time12;
+    }
+}

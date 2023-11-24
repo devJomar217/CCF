@@ -110,7 +110,7 @@ function populateReplyRow(replyID, img, userName, status, date, yearLevel, reply
                     <div class="col"> 
                         <div class="row mb-0 pb-0">
                             <div class="col-lg-1 col-12 mb-lg-0 mb-2">
-                                <img class="img-profile rounded-circle" style="width:40px; height: 40px" src="${img}">
+                                <img loading="lazy" class="img-profile rounded-circle" style="width:40px; height: 40px" src="${img}">
                             </div>
                             <div class="col mb-0 pb-0">
                                 <div class="row">
@@ -193,7 +193,7 @@ function populateAnswerRow(answerID, img, userName, status, date, yearLevel, ans
                     <div class="col"> 
                         <div class="row mb-0 pb-0 mx-0">
                             <div class="col-lg-1 col-12 mb-lg-0 mb-3">
-                                <img class="img-profile rounded-circle" style="width:60px; height: 60px" src="${img}">
+                                <img loading="lazy" class="img-profile rounded-circle" style="width:60px; height: 60px" src="${img}">
                             </div>
                             <div class="col mb-0 pb-0">
                                 <div class="row">
@@ -278,7 +278,7 @@ function populateRankingRow(image, name, specialization, yearLevel, rank, rating
                             <div class="row">
                                 <div class="profile-header-container">
                                     <div class="profile-header-img">
-                                        <img class="img-profile img-circle rounded-circle" style="width:60px; height: 60px;" src="${image}">
+                                        <img loading="lazy" class="img-profile img-circle rounded-circle" style="width:60px; height: 60px;" src="${image}">
                                         <div class="rank-label-container pt-2">
                                             <span class="label label-default rank-label text-white px-3 py-0">#${rank}</span>
                                         </div>
@@ -329,7 +329,7 @@ function populateProfessionalRankingRow(image, name, specialization, rank, ratin
                             <div class="row">
                                 <div class="profile-header-container">
                                     <div class="profile-header-img">
-                                        <img class="img-profile img-circle rounded-circle" style="width:60px; height: 60px;" src="${image}">
+                                        <img loading="lazy" class="img-profile img-circle rounded-circle" style="width:60px; height: 60px;" src="${image}">
                                         <div class="rank-label-container pt-2">
                                             <span class="label label-default rank-label text-white px-3 py-0">#${rank}</span>
                                         </div>

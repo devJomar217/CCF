@@ -350,7 +350,7 @@
                                     <div class="row">
                                         <div class="profile-header-container">
                                             <div class="profile-header-img">
-                                                <img class="img-profile img-circle rounded-circle" style="width:60px; height: 60px;" src="${image}">
+                                                <img loading="lazy" class="img-profile img-circle rounded-circle" style="width:60px; height: 60px;" src="${image}">
                                                 <div class="rank-label-container pt-2">
                                                     <span class="label label-default rank-label text-white px-4 py-0">#${ranking}</span>
                                                 </div>
@@ -465,7 +465,7 @@
         function populateQuestionRow(questionID, img, userName, status, date, subject, title, description) {
             return `<div class="card-row py-2 px-5">
                         <div class="row py-3">
-                            <div class="col-1"><img class="img-profile rounded-circle" style="width:60px; height: 60px" src="${img}"></div>
+                            <div class="col-1"><img loading="lazy" class="img-profile rounded-circle" style="width:60px; height: 60px" src="${img}"></div>
                             <div class="col">
                                 <div class="row mb-0 pb-0" >
                                     <div class="col mb-0 pb-0">
@@ -592,12 +592,12 @@
                             }
 
                             var questionID = question['questionID'];
-
+                            alert("test");
                             if (description.length > 225) {
                                 description = description.substring(0, 225);
                                 description += ` <a href="?id=${questionID}#main-forum" class="button-select-question"> see more...</a>`;
                             }
-                            questionList += populateQuestionRow(questionID, picture, question['name'], status, question['creationDateTime'], subjectName, question['title'], description);
+                            questionList += populateQuestionRow(questionID, picture, question['name'], status, convertTo12HourFormat(question['creationDateTime']), subjectName, question['title'], description);
                         });
                     } else {
                         questionList = populateEmptyRow();

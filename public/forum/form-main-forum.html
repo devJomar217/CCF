@@ -136,7 +136,7 @@
                 <div class="card-body" id="login-form">
                     <div id="card-form">
                         <div class="row py-3 align-middle">
-                            <div class="col-lg-1 col-12 pl-4 pt-0 mt-0 mb-lg-0 mb-3 tex-center"><img class="img-profile img-circle rounded-circle" style="width:60px; height: 60px;" src="./../../resource/profile/default.svg" id="question-picture"></div>
+                            <div class="col-lg-1 col-12 pl-4 pt-0 mt-0 mb-lg-0 mb-3 tex-center"><img loading="lazy" class="img-profile img-circle rounded-circle" style="width:60px; height: 60px;" src="./../../resource/profile/default.svg" id="question-picture"></div>
                             <div class="col-lg-11 align-middle">
                                 <div class="row mb-lg-0 pb-lg-0 mb-2">
                                     <div class="col-lg-9 col-12 align-middle">
@@ -305,7 +305,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Report a Question</h5>
+                <h5 class="modal-title" style="color: black !important">Report a Question</h5>
             </div>
             <form id="form-report-question" class="needs-validation" novalidate>
                 <div class="modal-body">
@@ -656,7 +656,7 @@
                         $("#question-picture").attr("src", picture);
                         $("#question-user-name").html(question.name);
                         $("#question-status").html(status);
-                        $("#question-date").html(question.creationDateTime);
+                        $("#question-date").html(convertTo12HourFormat(question.creationDateTime));
                         $("#question-subject").html(question.subject);
                         $("#question-subject").data('id', question.subjectID);
                         $("#question-title").html(question.title);
@@ -706,7 +706,7 @@
                             var text = answer.answer;
                             var picture = answer.picture;
                             var replies = "";
-                            var creationDateTime = answer.creationDateTime;
+                            var creationDateTime = convertTo12HourFormat(answer.creationDateTime);
                             if (picture == "") {
                                 picture = "./../../resource/profile/default.svg";
                             } else {
@@ -735,7 +735,7 @@
                                         replyPicture,
                                         reply.name,
                                         reply.status,
-                                        reply.creationDateTime,
+                                        convertTo12HourFormat(reply.creationDateTime),
                                         getYearLevel(reply.yearLevel),
                                         reply.answer,
                                         menu,
@@ -768,7 +768,7 @@
                                 picture,
                                 answer.name,
                                 status,
-                                answer.creationDateTime,
+                                convertTo12HourFormat(answer.creationDateTime),
                                 getYearLevel(answer.yearLevel),
                                 text,
                                 replies,
