@@ -10,21 +10,20 @@
 
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
 <div class="container mt-4 mb-5 p-0">
-    <h3 class="mt-4">My Activities</h3>
     <ul class="nav nav-tabs">
         <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="" id="activity-question">Question</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="" id="activity-answer">Answer </a>
+            <a class="nav-link" href="" id="activity-answer">Answer</a>
         </li>
     </ul>
     <div class="card shadow-sm p-0 m-0">
-        <div class="card-body mr-0 p-0" id="login-form">
+        <div class="card-body p-0" id="login-form">
             <div id="card-form">
                 <div class="card-body">
                     <div class="table-responsive" id="table-question">
-                        <table class="table table-bordered table-striped" id="dataTableQuestion" width="100%" cellspacing="0">
+                        <table class="table table-bordered table-striped" id="dataTableQuestion">
                             <thead>
                                 <tr>
                                     <th>Date</th>
@@ -40,12 +39,13 @@
                                 </tr>
                             </tfoot>
                             <tbody id="tableBodyQuestion">
+                                <!-- Add your question table rows here -->
                             </tbody>
                         </table>
                     </div>
 
                     <div class="table-responsive d-none" id="table-answer">
-                        <table class="table table-bordered table-striped" id="dataTableAnswer" width="100%" cellspacing="0">
+                        <table class="table table-bordered table-striped" id="dataTableAnswer">
                             <thead>
                                 <tr>
                                     <th>Date</th>
@@ -59,6 +59,7 @@
                                 </tr>
                             </tfoot>
                             <tbody id="tableBodyAnswer">
+                                <!-- Add your answer table rows here -->
                             </tbody>
                         </table>
                     </div>
@@ -154,6 +155,18 @@
                     $(".button-select-question").on('click', function(event) {
                         $("#main-container").load('./form-main-forum.html');
                     });
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
                 }
             });
         }
@@ -172,6 +185,18 @@
                     if (dataResult.statusCode == 200) {
                         subjectList = dataResult.subjectList;
                     }
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
                 }
             });
         }

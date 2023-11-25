@@ -94,7 +94,7 @@
                         <b>Year Level:</b> <label for="modal-info-year-level" id="modal-info-year-level"></label>
                     </div>
                     <div class="col-lg-12">
-                        <b>Specialization:</b> <label for="modal-info-specialization" id="modal-info-specialization"></label>
+                        <b>Major:</b> <label for="modal-info-specialization" id="modal-info-specialization"></label>
                     </div>
                     <div class="col-lg-12">
                         <b>Email:</b> <label for="modal-info-email" id="modal-info-email"></label>
@@ -135,7 +135,7 @@
                             <label for="modal-info-year-level-cor" class="form-control" id="modal-info-year-level-cor"></label>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label"><b>Specialization:</b></label>
+                            <label class="form-label"><b>Major:</b></label>
                             <label for="modal-info-specialization-cor" class="form-control" id="modal-info-specialization-cor"></label>
                         </div>
                         <div class="mb-2">
@@ -208,6 +208,18 @@
                     )
 
                     $("#modal-import-excel").modal("hide");
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
                 }
             });
         });
@@ -297,6 +309,18 @@
                     }
 
                     retrieveStudentRequestList();
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
                 }
             });
         }
@@ -329,6 +353,18 @@
                     }
                     $("#tableBody").html(studentData);
                     $('#dataTable').DataTable();
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
                 }
             });
         }

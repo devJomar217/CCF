@@ -2,42 +2,36 @@
 <div class="mx-4 my-0 mt-3">
     <div class="row">
         <div class="col-sm-12 col-lg-9 px-1 mb-2">
-            <div class="card shadow-sm py-2 px-lg-5 px-sm-3" style="min-height: 320px">
+            <div class="card shadow-sm py-4 px-lg-5 px-sm-3" style="min-height: 320px; background-color: #fff; border: 1px solid #ddd;">
                 <div class="card-body py-2 px-md-2 mr-0" id="login-form">
                     <div id="card-form">
-                        <div class="row my-1">
-                            <div class="col-lg-12 col-md-12 col-sm-12">
-                                <div class="row">
-                                    <div class="col-lg-12 text-center">
-                                        <h1 class="pb-2 forum-header text-center py-3">Learn about programming!</h1>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-lg-4 text-center">
-                                    </div>
-                                    <div class="col-lg-4 text-center">
-                                        <input type="button" class="btn btn-primary btn-block px-5" data-toggle="modal" data-target="#modal-add-question" id="button-ask-question" value="Ask a Question" />
-                                    </div>
-                                    <div class="col-lg-4 text-center">
-                                    </div>
-                                </div>
+                        <div class="row my-3">
+                            <div class="col-lg-12 text-center">
+                                <h1 class="forum-header mb-4" style="font-size: 2.5rem; color: #4c4c4d;">Connect, Collaborate, Code!</h1>
                             </div>
+                        </div>
+                        <div class="row my-3">
+                            <div class="col-lg-4"></div>
+                            <div class="col-lg-4 text-center">
+                                <button type="button" class="btn btn-primary btn-block px-4" data-toggle="modal" data-target="#modal-add-question" id="button-ask-question">Ask a Question</button>
+                            </div>
+                            <div class="col-lg-4"></div>
                         </div>
                         <div class="row my-4">
                             <div class="col-lg-12 text-center">
-                                <b class="text-center">OR</b>
+                                <b style="font-size: 1.2rem; color: #555;">OR</b>
                             </div>
                         </div>
                         <form autocomplete="off" id="form-search-question">
                             <div class="row">
-                                <div class="col-lg-9 mb-3 mb-lg-0">
-                                    <div class="autocomplete">
-                                        <input type="text" class="form-control mr-3" name="input-search" placeholder="Search for a question?" id="input-search">
+                                <div class="col-lg-2 col-12 mb-3 mb-lg-0"></div>
+                                <div class="col-lg-8 col-12 mb-3 mb-lg-0">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="input-search" placeholder="Search for a Question" id="input-search">
+                                        <div class="input-group-append">
+                                            <button type="submit" class="btn btn-primary" id="button-search">Search</button>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-3">
-                                    <button type="submit" class="btn btn-primary btn-block px-4" value="Search" id="button-search">Search</button>
                                 </div>
                             </div>
                         </form>
@@ -45,6 +39,10 @@
                 </div>
             </div>
         </div>
+
+
+
+
 
         <div class="col-sm-12 col-lg-3 px-1 mb-2">
             <div class="card shadow-sm" style="min-height: 320px">
@@ -311,6 +309,18 @@
                         rankingList = populateEmptyRow();
                     }
                     $("#container-ranking").html(rankingList);
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
                 }
             });
         }
@@ -339,6 +349,18 @@
                             $("#input-search").autocomplete("search");
                         });
                     }
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
                 }
             });
         }
@@ -375,6 +397,18 @@
                             source: faqList
                         });
                     }
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
                 }
             });
         });
@@ -430,6 +464,18 @@
                             $("#button-ask-question").attr("disabled", true);
                         }
                     }
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
                 }
             });
         }
@@ -453,6 +499,18 @@
                     }
                     $("#input-new-question-subject").html($("#input-new-question-subject").html() + subjectOptions);
                     $("#input-subject-filter").html($("#input-subject-filter").html() + subjectOptions);
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
                 }
             });
         }
@@ -506,6 +564,18 @@
                     $(".button-select-question").on('click', function(event) {
                         $("#main-container").load('./form-main-forum.html');
                     });
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
                 }
             });
         }
@@ -570,6 +640,18 @@
                     } else {
                         alert("Unable to post the question, please try again later!");
                     }
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
                 }
             });
         });

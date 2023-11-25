@@ -18,7 +18,7 @@
     }
 </style>
 
-<form id="form-create-account" class="needs-validation" novalidate>
+<form id="form-create-account" class="needs-validation">
     <div class="row">
         <div class="col-md-12 mb-4">
             <h2>Create Student Account</h2>
@@ -41,8 +41,8 @@
         </div>
     </div>
     <div class="form-outline mb-2">
-        <label class="form-label" for="input-specialization">Specialization</label>
-        <input type="text" id="input-specialization" class="form-control" placeholder="Enter Specialization" disabled/>
+        <label class="form-label" for="input-specialization">Major</label>
+        <input type="text" id="input-specialization" class="form-control" placeholder="Enter Major" disabled/>
         <div class="invalid-feedback" id="helpertext-specialization">
         </div>
     </div>
@@ -298,6 +298,18 @@
                             $('#modal-error').modal('toggle');
                         }
                         $("#button-create-account").removeAttr("disabled", "disabled");
+                    },
+                    beforeSend: function() {
+                        // Code to be executed before the request is sent
+                        console.log('Request is about to be sent');
+                    },
+                    error: function(xhr, status, error) {
+                        // Code to be executed if there is an error
+                        console.error('Error:', error);
+                    },
+                    complete: function() {
+                        // Code to be executed after the request is complete (success, error, or abort)
+                        console.log('Request is complete');
                     }
                 });
             }

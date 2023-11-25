@@ -39,55 +39,57 @@ footer {
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link rel="stylesheet" href="./../../common/vendor/datatables/dataTables.bootstrap4.css" />
     <link href="./../../common/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="./../../common/custom-styles.css">
 
 </head>
 
 <body id="page-top" class="body-container d-flex topbar flex-column min-vh-100">
 
-    <nav class="navbar navbar-expand-lg navbar-light sticky-top navbar-dark bg-gradient-primary shadow">
-        <a class="navbar-brand" href="./"><img loading="lazy" src="../../resource/logo-codeconnect.png" id="logo" alt="" style="width:200px;"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#forum" id="nav-menu-forum">Forum <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link for-login-user" id="nav-menu-learn-to-code" href="#learn-to-code">Learn to Code</a>
-                </li>
-                <li class="nav-item">
+<nav class="navbar navbar-expand-lg navbar-light sticky-top navbar-dark bg-gradient-primary shadow-md">
+    <a class="navbar-brand" href="./">
+        <img loading="lazy" src="../../resource/logo-codeconnect.png" id="logo" alt="" style="width: 200px;">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link active" href="#forum" id="nav-menu-forum">Forum <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link for-login-user" id="nav-menu-learn-to-code" href="#learn-to-code">Learn to Code</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link for-login-user" id="nav-menu-activities" href="#activities">My Actions</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link for-login-user" id="nav-menu-notification" href="#notification">Notification <span class="badge badge-pill badge-success mb-3" id="notification-count"></span>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link for-login-user" id="nav-menu-notification" href="#notification">
+                    Notification <span class="badge badge-pill badge-success mb-3" id="notification-count"></span>
                 </a>
-                </li>
-                <div class="topbar-divider d-none d-sm-block"></div>
-                <li class="nav-item dropdown no-arrow">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown-user" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img loading="lazy" class="img-profile rounded-circle img-circle-xs" src="./../../resource/profile/<?php echo $_SESSION['picture']?>" />
-                        <b><span class="ml-2 d-none d-lg-inline text-white"><?php echo $_SESSION['user_name']; ?></span></b>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="dropdown-user">
-                        <?php
-                            if($_SESSION['user_type'] != "4"){
-                                echo '<a class="dropdown-item" id="nav-menu-profile" href="#profile">
-                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                ';
-                            }
-                        ?>
-                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-logout">
-                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Logout
+            </li>
+            <div class="topbar-divider d-none d-sm-block"></div>
+            <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown-user" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img loading="lazy" class="img-profile rounded-circle img-circle-xs" src="./../../resource/profile/<?php echo $_SESSION['picture']?>" />
+                    <b><span class="ml-2 d-none d-lg-inline text-white"><?php echo $_SESSION['user_name']; ?></span></b>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="dropdown-user">
+                    <?php if ($_SESSION['user_type'] != "4"): ?>
+                        <a class="dropdown-item" id="nav-menu-profile" href="#profile">
+                            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
                         </a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </nav>
+                        <div class="dropdown-divider"></div>
+                    <?php endif; ?>
+                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-logout">
+                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Logout
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
 
     <div id="content-wrapper">
         <div id="main-container"></div>
@@ -103,7 +105,7 @@ footer {
                 <div class="row">
                     <div class="col mb-md-0 pt-3">
                         <p>
-                            <i><b>Learning by Asking!</b></i>
+                            <i><b>Connect, Collaborate, Code!</b></i>
                         </p>
                     </div>
                 </div>
@@ -178,7 +180,19 @@ footer {
                             $(".for-login-user").addClass("d-none");
                         }
                     }
-                }
+                },
+                    beforeSend: function() {
+                        // Code to be executed before the request is sent
+                        console.log('Request is about to be sent');
+                    },
+                    error: function(xhr, status, error) {
+                        // Code to be executed if there is an error
+                        console.error('Error:', error);
+                    },
+                    complete: function() {
+                        // Code to be executed after the request is complete (success, error, or abort)
+                        console.log('Request is complete');
+                    }
             });
         }
 

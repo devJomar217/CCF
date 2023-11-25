@@ -136,15 +136,24 @@
                 <div class="card-body" id="login-form">
                     <div id="card-form">
                         <div class="row py-3 align-middle">
-                            <div class="col-lg-1 col-12 pl-4 pt-0 mt-0 mb-lg-0 mb-3 tex-center"><img loading="lazy" class="img-profile img-circle rounded-circle" style="width:60px; height: 60px;" src="./../../resource/profile/default.svg" id="question-picture"></div>
-                            <div class="col-lg-11 align-middle">
+                            <div class="col-lg-1 order-lg-1 order-2 col-12 pl-4 pt-0 mt-0 mb-lg-0 mb-3 tex-center"><img loading="lazy" class="img-profile img-circle rounded-circle" style="width:60px; height: 60px;" src="./../../resource/profile/default.svg" id="question-picture"></div>
+                            <div class="col-lg-7 order-lg-2 order-3 align-middle">
                                 <div class="row mb-lg-0 pb-lg-0 mb-2">
                                     <div class="col-lg-9 col-12 align-middle">
                                         <h6 class="align-middle"><b class="align-middle" id="question-user-name"></b></h6>
                                     </div>
-                                    <div class="col-lg-2 col-9" id="question-status">
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        <small class="text-muted" id="question-subject"></small> <small class="text-muted"> · </small> <small class="text-muted" id="question-date"></small>
                                     </div>
-                                    <div class="col-lg-1 col-3 login-user">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 ml-auto order-lg-3 order-1">
+                                <div class="row mb-3">
+                                    <div class="col-9 text-right" id="question-status">
+                                    </div>
+                                    <div class="col-1 text-right login-user">
                                         <div class="btn-group d-flex flex-row-reverse dropright">
                                             <i class="fa fa-solid fa-ellipsis-v pl-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
                                             <div class="dropdown-menu">
@@ -153,14 +162,6 @@
                                                 <button class="dropdown-item for-creator for-creator-delete-question" data-toggle="modal" data-target="#modal-delete-question" type="button"><i class="fa fa-trash fa-sm"></i> Delete Question</button>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-3">
-                                        <small class="text-muted" id="question-date"></small>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <small class="text-muted" id="question-subject"></small>
                                     </div>
                                 </div>
                             </div>
@@ -206,7 +207,6 @@
                             <hr class="sidebar-divider mt-4">
                         </div>
                         <h5 class="mb-4"><b>Answers</b></h5>
-
                         <div id="container-answers"></div>
                     </div>
                 </div>
@@ -285,7 +285,7 @@
             <div class="modal-header">
                 <h5 class="modal-title">Are you sure do yo want to delete this question?</h5>
             </div>
-            <form id="form-add-question" class="needs-validation" novalidate>
+            <form id="form-add-question" class="needs-validation">
                 <div class="modal-body">
                     <div class="form-outline mb-2">
                         <label class="form-label" for="input-">Title:</label>
@@ -307,7 +307,7 @@
             <div class="modal-header">
                 <h5 class="modal-title" style="color: black !important">Report a Question</h5>
             </div>
-            <form id="form-report-question" class="needs-validation" novalidate>
+            <form id="form-report-question" class="needs-validation">
                 <div class="modal-body">
                     <div class="form-group form-outline mb">
                         <select class="form-control dropdown" id="input-report-detail">
@@ -364,7 +364,7 @@
             <div class="modal-header">
                 <h5 class="modal-title">Are you sure do yo want to delete this answer?</h5>
             </div>
-            <form id="form-add-question" class="needs-validation" novalidate>
+            <form id="form-add-question" class="needs-validation">
                 <div class="modal-body">
                     <div class="form-outline mb-2">
                         <label class="form-label" for="input-">Title:</label>
@@ -386,7 +386,7 @@
             <div class="modal-header">
                 <h5 class="modal-title">Report an Answer</h5>
             </div>
-            <form id="form-report-answer" class="needs-validation" novalidate>
+            <form id="form-report-answer" class="needs-validation">
                 <div class="modal-body">
                     <div class="form-group form-outline mb">
                         <select class="form-control dropdown" id="input-report-answer">
@@ -460,6 +460,18 @@
                     } else {
                         alert("Unable to post the answer, please try again later!");
                     }
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
                 }
             });
         });
@@ -505,6 +517,18 @@
                     } else {
                         alert("Unable to report, please try again later!");
                     }
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
                 }
             });
         }
@@ -537,6 +561,18 @@
                     } else {
                         alert("Unable to update the answer, please try again later!");
                     }
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
                 }
             });
         }
@@ -560,6 +596,18 @@
                     } else {
                         alert("Unable to update the answer, please try again later!");
                     }
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
                 }
             });
         }
@@ -590,6 +638,18 @@
                     } else {
                         alert("Unable to update the question, please try again later!");
                     }
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
                 }
             });
         });
@@ -683,6 +743,18 @@
                     $(".for-non-creator-report-question").on("click", function(e) {
                         // alert($(this).data("id"));
                     });
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
                 }
             });
         }
@@ -928,6 +1000,18 @@
                     );
 
 
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
                 }
             });
         }
@@ -950,6 +1034,18 @@
                         });
                     }
                     $("#input-edit-question-subject").html($("#input-edit-question-subject").html() + subjectOptions);
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
                 }
             });
         }
@@ -985,6 +1081,18 @@
                     } else {
                         alert("Unable to delete question, please try again later!");
                     }
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
                 }
             });
         }
@@ -1008,6 +1116,18 @@
                     } else {
                         alert("Unable to delete answer, please try again later!");
                     }
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
                 }
             });
         }
@@ -1031,6 +1151,18 @@
                     } else {
                         alert("Unable to delete answer, please try again later!");
                     }
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
                 }
             });
         }
@@ -1090,6 +1222,18 @@
                         retrieveForumDetails();
                         retrieveForumAnswers();
                     }
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
                 }
             });
         }
@@ -1115,6 +1259,18 @@
                     } else {
                         console.log("Something wen't wrong, please try again later!");
                     }
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
                 }
             });
         }
@@ -1148,7 +1304,18 @@
             return length > 0;
         }
 
+
         function saveReply(answerID, response) {
+            // if (response.trim() !== '') {
+            //     // If the comment box is not filled, show an error message
+            //     Swal.fire({
+            //         icon: 'error',
+            //         title: 'Error',
+            //         text: 'Please fill out the comment box before posting.'
+            //     });
+            //     return;
+            // }
+
             $.ajax({
                 url: "../../common/db.php",
                 type: "POST",
@@ -1164,10 +1331,35 @@
                     var dataResult = JSON.parse(dataResult);
                     if (dataResult.statusCode == 200) {
                         retrieveForumAnswers();
-                        alert("Success!");
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: 'Your comment has been successfully posted.',
+                            timer: 3000, // Time in milliseconds (e.g., 3000 = 3 seconds)
+                            showConfirmButton: true // Hides the "OK" button
+                        }).then((result) => {
+                            // You can add additional logic here if needed
+                            if (result.dismiss === Swal.DismissReason.timer) {
+                                // The alert was closed by the timer
+                                console.log('Alert was closed by timer');
+                            }
+                            // You can add more logic based on user interaction if needed
+                        });
                     } else {
                         alert("Something went wrong, please try again later!");
                     }
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
                 }
             });
         }

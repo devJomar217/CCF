@@ -118,7 +118,6 @@ function populateReplyRow(replyID, img, userName, status, date, yearLevel, reply
                                         <h6 class="mb-lg-0 pb-lg-0 mb-1"><b class="mb-0 pb-0">${userName}</b></h6>    
                                     </div> 
                                     <div class="col-lg-8 col-11">
-                                        <small class="text-muted">${specialization}</small>
                                     </div> 
                                     <div class="col-lg-1 col-1 login-user" style="display: none" id="ellipsis-reply-${replyID}">
                                         <div class="btn-group d-flex flex-row-reverse dropright">
@@ -130,12 +129,13 @@ function populateReplyRow(replyID, img, userName, status, date, yearLevel, reply
                                     </div>                                           
                                 </div>
                                 <div class="row">
-                                    <div class="col-lg-3 col-12">
+                                    <div class="col-12">
+                                        <small class="text-muted">${specialization}</small>
+                                        <small class="text-muted"> · </small>    
+                                        <small class="text-muted">${yearLevel}</small>    
+                                        <small class="text-muted"> · </small>
                                         <small class="text-muted">${date}</small>
                                     </div>
-                                    <div class="col-lg-4 col-12">
-                                        <small class="text-muted">${yearLevel}</small>
-                                    </div>                                            
                                 </div>
                             </div>
                         </div>
@@ -188,7 +188,7 @@ function populateAnswerRow(answerID, img, userName, status, date, yearLevel, ans
             </button>`;
     }
 
-    return `<div class="card-row card shadow mb-3 py-2 px-lg-5 px-1 mx-0" id="row-answer-${answerID}">
+    return `<div class="card-row card shadow-sm mb-3 py-2 px-lg-5 px-0 mx-0" id="row-answer-${answerID}">
                 <div class="row py-3 mx-0">
                     <div class="col"> 
                         <div class="row mb-0 pb-0 mx-0">
@@ -197,11 +197,10 @@ function populateAnswerRow(answerID, img, userName, status, date, yearLevel, ans
                             </div>
                             <div class="col mb-0 pb-0">
                                 <div class="row">
-                                    <div class="col-lg-3 col-12">
+                                    <div class="col-lg-3 col-12 mt-2">
                                         <h6 class="mb-0 pb-0"><b class="mb-0 pb-0">${userName}</b></h6>    
                                     </div>
                                     <div class="col-lg-8 col-12">
-                                    <small class="text-muted">${specialization}</small>    
                                     </div>
                                     <div class="col-lg-1 col-12 login-user" style="display: none" id="ellipsis-answer-${answerID}">
                                         <div class="btn-group d-flex flex-row-reverse dropright">
@@ -213,11 +212,8 @@ function populateAnswerRow(answerID, img, userName, status, date, yearLevel, ans
                                     </div>                 
                                 </div>
                                 <div class="row">
-                                    <div class="col-lg-3 col-12">
-                                        <small class="text-muted">${date}</small>
-                                    </div>
-                                    <div class="col-lg-9 col-12">
-                                        <small class="text-muted">${yearLevel}</small>
+                                    <div class="col-12">
+                                        <small class="text-muted">${specialization}</small><small class="text-muted"> · </small><small class="text-muted">${yearLevel}</small><small class="text-muted"> · </small><small class="text-muted">${date}</small>
                                     </div>                                            
                                 </div>
                             </div>
@@ -247,7 +243,7 @@ function populateAnswerRow(answerID, img, userName, status, date, yearLevel, ans
                     </div>
                     <div class="row d-flex mt-1">
                         <div class="col flex-row-reverse text-right">
-                            <input text="button" value="Send" id="${answerID}" class="button-answer-reply btn btn-primary btn-sm mt-2">
+                            <input text="button" value="POST" id="${answerID}" class="button-answer-reply btn btn-primary btn-sm px-1 mt-2">
                         </div>
                     </div>           
                 </div>
@@ -288,7 +284,7 @@ function populateRankingRow(image, name, specialization, yearLevel, rank, rating
                         </div>
                     </div>
                     <div class="col mt-3 mt-lg-0">
-                        <div class="row mb-3">
+                        <div class="row mt-2 mb-3">
                             <div class="col-12 mb-1">
                                 <b>Username:</b>
                             </div>
@@ -373,11 +369,8 @@ function populateQuestionRow(questionID, img, userName, status, date, subject, t
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-3">
-                                <small class="text-muted">${date}</small>
-                            </div>
-                            <div class="col-lg-3">
-                                <small class="text-muted">${subject}</small>
+                            <div class="col-lg-12">
+                            <small class="text-muted">${subject}</small><small class="text-muted"> · </small><small class="text-muted">${date}</small>
                             </div>
                         </div>
                         <div class="row mt-4 mb-0 pb-0">

@@ -26,7 +26,7 @@ function generateForgotPasswordLink($email, $key){
                                             <td width="8" style="width:8px"></td>
                                             <td>
                                                 <div style="border-style:solid;border-width:thin;border-color:#dadce0;border-radius:8px;padding:40px 20px" align="center" class="m_-7949188087747382486mdv2rw">
-                                                    <img src="https://codeconnect.000webhostapp.com/resource/logo-codeconnect.png" height="50" aria-hidden="true" style="margin-bottom:16px" alt="Code Connect" class="CToWUd" data-bit="iit">
+                                                    <img src="https://code-connect.tech/resource/logo-codeconnect-colored.png" height="50" aria-hidden="true" style="margin-bottom:16px" alt="Code Connect" class="CToWUd" data-bit="iit">
                                                     <div style="font-family:\'Google Sans\',Roboto,RobotoDraft,Helvetica,Arial,sans-serif;border-bottom:thin solid #dadce0;color:rgba(0,0,0,0.87);line-height:32px;padding-bottom:24px;text-align:center;word-break:break-word">
                                                         <div style="font-size:24px">Forgot Password</div>
                                                         <table align="center" style="margin-top:8px">
@@ -84,7 +84,7 @@ function generateProfessionalAccountConfirmation(){
                                             <td width="8" style="width:8px"></td>
                                             <td>
                                                 <div style="border-style:solid;border-width:thin;border-color:#dadce0;border-radius:8px;padding:40px 20px" align="center" class="m_-7949188087747382486mdv2rw">
-                                                    <img src="https://codeconnect.000webhostapp.com/resource/logo-codeconnect.png" height="50" aria-hidden="true" style="margin-bottom:16px" alt="Code Connect" class="CToWUd" data-bit="iit">
+                                                    <img src="https://code-connect.tech/resource/logo-codeconnect-colored.png" height="50" aria-hidden="true" style="margin-bottom:16px" alt="Code Connect" class="CToWUd" data-bit="iit">
                                                     <div style="font-family:\'Google Sans\',Roboto,RobotoDraft,Helvetica,Arial,sans-serif;border-bottom:thin solid #dadce0;color:rgba(0,0,0,0.87);line-height:32px;padding-bottom:24px;text-align:center;word-break:break-word">
                                                     <div style="font-size:16px">Your professional account has been approved!</div>
                                                         <table align="center" style="margin-top:8px">
@@ -140,7 +140,7 @@ function generateOTPEmailBody($email, $otp){
                                             <td width="8" style="width:8px"></td>
                                             <td>
                                                 <div style="border-style:solid;border-width:thin;border-color:#dadce0;border-radius:8px;padding:40px 20px" align="center" class="m_-7949188087747382486mdv2rw">
-                                                    <img src="https://codeconnect.000webhostapp.com/resource/logo-codeconnect.png" height="50" aria-hidden="true" style="margin-bottom:16px" alt="Code Connect" class="CToWUd" data-bit="iit">
+                                                    <img src="https://code-connect.tech/resource/logo-codeconnect-colored.png" height="50" aria-hidden="true" style="margin-bottom:16px" alt="Code Connect" class="CToWUd" data-bit="iit">
                                                     <div style="font-family:\'Google Sans\',Roboto,RobotoDraft,Helvetica,Arial,sans-serif;border-bottom:thin solid #dadce0;color:rgba(0,0,0,0.87);line-height:32px;padding-bottom:24px;text-align:center;word-break:break-word">
                                                     <div style="font-size:24px"><b>OTP: '.$otp.'</b></div>
                                                         <table align="center" style="margin-top:8px">

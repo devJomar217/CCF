@@ -59,6 +59,18 @@ function getUserProfile() {
                 $("#profile-specialization").html(dataResult.studentInformation.specialization);
                 $("#profile-ranking").html(dataResult.studentInformation.ranking);
             }
+        },
+        beforeSend: function() {
+            // Code to be executed before the request is sent
+            console.log('Request is about to be sent');
+        },
+        error: function(xhr, status, error) {
+            // Code to be executed if there is an error
+            console.error('Error:', error);
+        },
+        complete: function() {
+            // Code to be executed after the request is complete (success, error, or abort)
+            console.log('Request is complete');
         }
     });
 }
@@ -78,6 +90,18 @@ function getNotificationCount() {
                     $('#notification-count').html(dataResult.notificationCount);
                 }
             }
+        },
+        beforeSend: function() {
+            // Code to be executed before the request is sent
+            console.log('Request is about to be sent');
+        },
+        error: function(xhr, status, error) {
+            // Code to be executed if there is an error
+            console.error('Error:', error);
+        },
+        complete: function() {
+            // Code to be executed after the request is complete (success, error, or abort)
+            console.log('Request is complete');
         }
     });
 }
@@ -129,7 +153,8 @@ function convertTo12HourFormat(dbDateTime) {
     // Calculate the time difference in milliseconds
     var timeDifference = now - dateTime;
 
-    // Calculate the difference in minutes, hours, and days
+    // Calculate the difference in seconds, minutes, hours, and days
+    var secondsDifference = Math.floor(timeDifference / 1000);
     var minutesDifference = Math.floor(timeDifference / (1000 * 60));
     var hoursDifference = Math.floor(timeDifference / (1000 * 60 * 60));
     var daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
@@ -149,14 +174,15 @@ function convertTo12HourFormat(dbDateTime) {
     var time12 = hours + ":" + (minutes < 10 ? '0' : '') + minutes + " " + period;
 
     // Format the output based on the time difference
-    if (daysDifference < 1) {
-        if (hoursDifference < 1) {
-            // Less than an hour ago
-            return minutesDifference + " minute" + (minutesDifference === 1 ? " ago" : "s ago");
-        } else {
-            // Less than a day ago
-            return hoursDifference + " hour" + (hoursDifference === 1 ? " ago" : "s ago");
-        }
+    if (secondsDifference < 60) {
+        // Less than a minute ago
+        return "Just now";
+    } else if (minutesDifference < 60) {
+        // Less than an hour ago
+        return minutesDifference + " minute" + (minutesDifference === 1 ? " ago" : "s ago");
+    } else if (hoursDifference < 24) {
+        // Less than a day ago
+        return hoursDifference + " hour" + (hoursDifference === 1 ? " ago" : "s ago");
     } else if (daysDifference < 30) {
         // Less than a month ago
         return daysDifference + " day" + (daysDifference === 1 ? " ago" : "s ago");

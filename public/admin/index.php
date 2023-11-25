@@ -24,6 +24,7 @@ include '../../common/session.php';
     <link href="./../../common/css/index.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.9.0/dist/sweetalert2.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="./../../common/custom-styles.css">
 </head>
 
 <body id="page-top">

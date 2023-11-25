@@ -2059,30 +2059,35 @@ function updateNotification(){
 }
 
 function retrieveAnswerDetail($connectDB, $id){
-  $sql = "SELECT * FROM answer where answer_id='$id'";
+  $sql = "SELECT *, answer.student_id AS answerer FROM answer LEFT JOIN question_information ON answer.question_id = question_information.question_id where answer.answer_id=$id";
   $result = $connectDB->query($sql);
   $answer = new Answer();
   if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
-    $answer->set_name(retrieveUsername($connectDB, $row['student_id']));
+    $answer->set_name(retrieveUsername($connectDB, $row['answerer']));
     $answer->set_answer($row['answer']);
     $answer->set_studentID($row['student_id']);
+    $question = new Question();
+    $question->set_title($row['title']);
+    $answer->set_questionInformation($question);
 
-    if($_SESSION['user_id'] != $row['student_id']){
+    if($_SESSION['user_id'] != $row['answerer']){
       return $answer;
     }
   }
+  // return $answer;
   return null;
 }
 
 function retrieveReplyDetail($connectDB, $id){
-  $sql = "SELECT * FROM reply where reply_id='$id'";
+  $sql = "SELECT * FROM reply LEFT JOIN answer ON reply.answer_id = answer.answer_id where reply.reply_id='$id'";
   $result = $connectDB->query($sql);
   $reply = new Answer();
   if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     $reply->set_name(retrieveUsername($connectDB, $row['student_id']));
-    $reply->set_answer($row['reply']);
+    $reply->set_answer($row['answer']);
+    $reply->set_replies($row['reply']);
     $reply->set_studentID($row['student_id']);
 
     if($_SESSION['user_id'] != $row['student_id']){

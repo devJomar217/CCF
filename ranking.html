@@ -105,7 +105,7 @@
                         </div>
                         <div class="row my-1">
                             <div class="col-12 col-lg-2 mb-1">
-                                <b>Specialization:</b>
+                                <b>Major:</b>
                             </div>
                             <div class="col-12 col-lg-10">
                                 <span>${specialization}</span>
@@ -231,6 +231,18 @@
                             rankingList = populateEmptyRow();
                         }
                         $("#container-ranking").html(rankingList);
+                    },
+                    beforeSend: function() {
+                        // Code to be executed before the request is sent
+                        console.log('Request is about to be sent');
+                    },
+                    error: function(xhr, status, error) {
+                        // Code to be executed if there is an error
+                        console.error('Error:', error);
+                    },
+                    complete: function() {
+                        // Code to be executed after the request is complete (success, error, or abort)
+                        console.log('Request is complete');
                     }
                 });
             }

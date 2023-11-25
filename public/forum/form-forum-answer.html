@@ -164,7 +164,7 @@
                         </div>
 
                         <div class="form-outline mb-3">
-                            <label class="form-label" for="input-email">Specialization: </label> <span id="profile-specialization"></span>
+                            <label class="form-label" for="input-email">Major: </label> <span id="profile-specialization"></span>
                         </div>
                         <div class="form-outline mb-3">
                             <label class="form-label" for="input-email">Ranking: </label> <span id="profile-ranking"></span>
@@ -239,7 +239,7 @@
             <div class="modal-header">
                 <h5 class="modal-title">Post a Question</h5>
             </div>
-            <form id="form-add-question" class="needs-validation" novalidate>
+            <form id="form-add-question" class="needs-validation">
                 <div class="modal-body">
                     <div class="form-outline mb-2">
                         <label class="form-label" for="input-">Title</label>
@@ -283,7 +283,7 @@
             <div class="modal-header">
                 <h5 class="modal-title" style="color: black !important">Report a Question</h5>
             </div>
-            <form id="form-add-question" class="needs-validation" novalidate>
+            <form id="form-add-question" class="needs-validation">
                 <div class="modal-body">
                     <div class="form-outline mb-2">
                         <label class="form-label" for="input-">Title</label>
@@ -367,7 +367,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        Specialization: <span>${specialization}</span>
+                                        Major: <span>${specialization}</span>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -417,6 +417,18 @@
                         rankingList = populateEmptyRow();
                     }
                     $("#container-ranking").html(rankingList);
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
                 }
             });
         }
@@ -452,6 +464,18 @@
                         rankingList = populateEmptyRow();
                     }
                     $("#container-ranking").html(rankingList);
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
                 }
             });
         }
@@ -531,6 +555,18 @@
                         $("#profile-specialization").html(dataResult.studentInformation.specialization);
                         $("#profile-ranking").html(dataResult.studentInformation.ranking);
                     }
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
                 }
             });
         }
@@ -554,6 +590,18 @@
                     }
                     $("#input-new-question-subject").html($("#input-new-question-subject").html() + subjectOptions);
                     $("#input-subject-filter").html($("#input-subject-filter").html() + subjectOptions);
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
                 }
             });
         }
@@ -592,7 +640,7 @@
                             }
 
                             var questionID = question['questionID'];
-                            alert("test");
+
                             if (description.length > 225) {
                                 description = description.substring(0, 225);
                                 description += ` <a href="?id=${questionID}#main-forum" class="button-select-question"> see more...</a>`;
@@ -610,6 +658,18 @@
                         // event.preventDefault();
                         $("#main-container").load('./form-main-forum.html');
                     });
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
                 }
             });
         }
@@ -830,6 +890,18 @@
                     } else {
                         alert("Unable to post the question, please try again later!");
                     }
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
                 }
             });
         });

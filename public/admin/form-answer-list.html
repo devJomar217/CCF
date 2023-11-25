@@ -1,14 +1,5 @@
-<style>
-    #tableBody img {
-        width: 75%;
-    }
-    
-    figure>img {
-        width: 100%;
-    }
-</style>
-
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css" />
+
 <script src="./../../common/vendor/datatables/jquery.dataTables.js"></script>
 
 <h1 class="h3 mb-2 text-gray-800">Answer List</h1>
@@ -198,7 +189,7 @@
 
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label for="modal-info-specialization"><b>Specialization:</b></label>
+                            <label for="modal-info-specialization"><b>Major:</b></label>
                             <label for="" id="modal-info-specialization" class="form-control-static"></label>
                         </div>
                     </div>
@@ -351,6 +342,18 @@
                     }
                     $('#modal-info-answer').modal('toggle');
                     $('#dataTable').DataTable();
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
                 }
             });
         }
@@ -397,6 +400,18 @@
                         $("#tableBody").html(answerData);
                     }
                     $('#dataTable').DataTable();
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
                 }
             });
         }

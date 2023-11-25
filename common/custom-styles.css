@@ -1,0 +1,249 @@
+/* Override Bootstrap Colors */
+
+
+/* Primary Color */
+
+:root {
+    --primary-color: #727378;
+    /* Dark Gray */
+    --primary-hover-color: #63666b;
+    /* Slightly darker shade for hover effects */
+}
+
+
+/* Secondary Color */
+
+:root {
+    --secondary-color: #3498db;
+    /* Blue */
+    --secondary-hover-color: #2980b9;
+    /* Slightly darker shade for hover effects */
+}
+
+
+/* Accent Color */
+
+:root {
+    --accent-color: #e67e22;
+    /* Orange */
+    --accent-hover-color: #d35400;
+    /* Slightly darker shade for hover effects */
+}
+
+
+/* Background Color */
+
+:root {
+    --background-color: #f8f9fa;
+    /* Light gray background */
+}
+
+
+/* Define Colors */
+
+:root {
+    --label-bg-color: #3498db;
+    /* Blue background color */
+    --label-text-color: #fff;
+    /* White text color */
+}
+
+
+/* Text Color */
+
+body,
+.card-body,
+.form-control,
+.btn,
+.navbar-dark .navbar-nav .nav-link {
+    color: #212529;
+    /* Dark text color */
+}
+
+
+/* Button Styles */
+
+.btn.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #fff;
+    /* White text color for button */
+}
+
+.btn.btn-primary:hover {
+    background-color: var(--primary-hover-color);
+    border-color: var(--primary-hover-color);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: #fff;
+    /* White text color for button */
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-hover-color);
+    border-color: var(--secondary-hover-color);
+}
+
+.btn-accent {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: #fff;
+    /* White text color for button */
+}
+
+.btn-accent:hover {
+    background-color: var(--accent-hover-color);
+    border-color: var(--accent-hover-color);
+}
+
+
+/* Navbar Styles */
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #fff;
+    /* White text color for navbar links */
+}
+
+.navbar-dark .navbar-toggler-icon {
+    background-color: var(--primary-color);
+    /* Color for the navbar toggler icon */
+}
+
+
+/* Anchor Styles */
+
+a {
+    color: var(--accent-color);
+    /* Accent color for links */
+}
+
+a:hover {
+    color: var(--accent-hover-color);
+    /* Slightly darker shade for hover effects */
+}
+
+.btn.btn-success {
+    color: #fff;
+    /* White text color for button */
+}
+
+
+/* Override Modal Styles */
+
+
+/* Modal Header */
+
+.modal-header {
+    background-color: none;
+    /* Remove background color */
+    color: #333;
+    /* Dark text color */
+    border-bottom: 1px solid #ddd;
+    /* Add a subtle border */
+}
+
+
+/* Modal Body */
+
+.modal-body {
+    background-color: #fff;
+    /* White background color */
+    color: #333;
+    /* Dark text color */
+}
+
+
+/* Modal Footer */
+
+.modal-footer {
+    background-color: none;
+    /* Remove background color */
+    border-top: 1px solid #ddd;
+    /* Add a subtle border */
+}
+
+
+/* Close Button (X) */
+
+.close {
+    color: #333;
+    /* Dark text color for close button */
+}
+
+
+/* Close Button Hover */
+
+.close:hover {
+    color: #555;
+    /* Darker text color on hover */
+}
+
+
+/* Override Modal Content Styles */
+
+.modal-content {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    /* Example box shadow - adjust as needed */
+}
+
+
+/* Override Modal Title Styles */
+
+.modal-title {
+    color: #333;
+    /* Dark text color for modal title */
+}
+
+
+/* Override Modal Links Styles (if needed) */
+
+.modal a {
+    color: #3498db;
+    /* Blue color for links */
+}
+
+
+/* Override Modal Links Hover Styles (if needed) */
+
+.modal a:hover {
+    color: #1f618d;
+    /* Darker blue color on hover */
+}
+
+
+/* Label Styles */
+
+.label {
+    display: inline-block;
+    /* padding: 0.25em 0.4em; */
+    /* font-size: 75%; */
+    font-weight: bold;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+    /* Your custom styles go here */
+    background-color: var(--label-bg-color);
+    color: var(--label-text-color);
+}
+
+figure img:not([style*="width"]) {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* Apply max-width: 100% to all images within a row */
+
+.row img:not([style*="width"]) {
+    max-width: 100%;
+    height: auto;
+    /* Maintain aspect ratio */
+}
+
+
+/* Add any additional custom styles as needed */

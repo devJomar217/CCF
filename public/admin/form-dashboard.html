@@ -235,6 +235,18 @@
 
                     createTwoPieChart("subject-chart", questionLabels, questionData);
                     getSubjectPerYearLevel(null);
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
                 }
             });
         }
@@ -291,6 +303,18 @@
                     $("#fourth-year-percent-text").html(percentage4.toFixed(2) + "%");
                     $("#fourth-year-percent-progress").removeAttr("style");
                     $("#fourth-year-percent-progress").attr("style", "width:" + percentage4.toFixed(2) + "%");
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
                 }
             });
         }
@@ -315,6 +339,18 @@
                     createTwoPieChart("subject-chart", questionLabels, questionData);
                     $("#question-answered").html(dataResult.answered);
                     $("#question-unanswered").html(dataResult.unanswered);
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
                 }
             });
         }
@@ -336,6 +372,18 @@
                         });
                     }
                     $(".input-subject").html(subjectOptions);
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
                 }
             });
         }

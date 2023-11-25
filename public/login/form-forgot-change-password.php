@@ -186,7 +186,19 @@ function checkPasswordStrength() {
                         $("#error").show();
                         $('#error').html('Unable to change password, please try again later.');
                     }
-                }
+                },
+                    beforeSend: function() {
+                        // Code to be executed before the request is sent
+                        console.log('Request is about to be sent');
+                    },
+                    error: function(xhr, status, error) {
+                        // Code to be executed if there is an error
+                        console.error('Error:', error);
+                    },
+                    complete: function() {
+                        // Code to be executed after the request is complete (success, error, or abort)
+                        console.log('Request is complete');
+                    }
             });
         });
     });
