@@ -13,15 +13,15 @@ if($_POST == null OR $_POST['action'] == null){
 }
 
 function databaseConnection(){
-  // $servername = "localhost:3307";
-  // $username = "root";
-  // $password = "";
-  // $dbname = "code_connect";
+  $servername = "localhost:3307";
+  $username = "root";
+  $password = "";
+  $dbname = "code_connect";
 
-  $servername = "127.0.0.1:3306";
-  $username = "u929248875_admin";
-  $password = "CodeConnect-ccf3";
-  $dbname = "u929248875_code_connect";
+  // $servername = "127.0.0.1:3306";
+  // $username = "u929248875_admin";
+  // $password = "CodeConnect-ccf3";
+  // $dbname = "u929248875_code_connect";
   
   $conn = new mysqli($servername, $username, $password, $dbname);
   $conn->query("SET time_zone = '+08:00'");
@@ -1489,13 +1489,14 @@ function retrieveAnswerList($status){
     account_information.*, 
     SUM(rating.rating) as total_rating 
   FROM answer 
-  LEFT JOIN question_information ON answer.question_id=question_information.question_id 
-  LEFT JOIN student_information ON student_information.student_id=answer.student_id
-  LEFT JOIN special_account_information ON special_account_information.account_id=answer.student_id 
-  LEFT JOIN account_information ON answer.student_id=account_information.user_id
-  LEFT JOIN rating ON rating.answer_id=answer.answer_id
-  LEFT JOIN subject on question_information.subject_id=subject.subject_id 
-  WHERE answer.status=1 GROUP BY answer.answer_id";
+  LEFT JOIN question_information ON answer.question_id = question_information.question_id 
+  LEFT JOIN student_information ON student_information.student_id = answer.student_id
+  LEFT JOIN special_account_information ON special_account_information.account_id = answer.student_id 
+  LEFT JOIN account_information ON answer.student_id = account_information.user_id
+  LEFT JOIN rating ON rating.answer_id = answer.answer_id
+  LEFT JOIN subject ON question_information.subject_id = subject.subject_id 
+  WHERE answer.status = 1 AND question_information.title IS NOT NULL
+  GROUP BY answer.answer_id";
   
   $result = $connectDB->query($sql);
 
@@ -2703,7 +2704,6 @@ function retrieveReportedQuestionList(){
   $connectDB = databaseConnection();
   $sql = "SELECT 
   report.*, 
-
   question_information.question_id, 
   question_information.student_id AS question_student_id, 
   question_information.creation_datetime, 
@@ -2711,49 +2711,44 @@ function retrieveReportedQuestionList(){
   question_information.description,
   question_information.subject_id,
   question_information.status AS question_status,
-
   subject.subject,
-
   reporter_account_information.user_name AS reporter_account_user_name,
   reporter_account_information.email AS reporter_account_email,
   reporter_account_information.status AS reporter_account_status,
-
   question_account_information.user_name AS question_account_user_name,
   question_account_information.email AS question_account_email,
   question_account_information.status AS question_account_status,
-
   reporter_student.student_id AS reporter_student_student_id,
   reporter_student.name AS reporter_student_name,
   reporter_student.year_level AS reporter_student_year_level,
   reporter_student.specialization AS reporter_student_specialization,
   reporter_student.picture AS reporter_student_picture,
-
   reporter_special_account.account_id AS reporter_special_id,
   reporter_special_account.name AS reporter_special_name,
   reporter_special_account.job AS reporter_special_job,
   reporter_special_account.picture AS reporter_special_picture,
-
   question_student.student_id AS question_student_student_id,
   question_student.name AS question_student_name,
   question_student.year_level AS question_student_year_level,
   question_student.specialization AS question_student_specialization,
   question_student.picture AS question_student_picture,
-
   special_account.account_id AS special_id,
   special_account.name AS special_name,
   special_account.job AS special_job,
   special_account.picture AS special_picture
-
-  FROM `report` 
-  LEFT JOIN question_information ON report.reported_id=question_information.question_id
-  LEFT JOIN account_information AS reporter_account_information ON reporter_account_information.user_id=report.student_id
-  LEFT JOIN account_information AS question_account_information ON question_account_information.user_id=question_information.student_id
-  LEFT JOIN student_information AS reporter_student ON reporter_student.student_id=report.student_id
-  LEFT JOIN special_account_information AS reporter_special_account ON reporter_special_account.account_id=report.student_id
-  LEFT JOIN student_information AS question_student ON question_student.student_id=question_information.student_id
-  LEFT JOIN special_account_information AS special_account ON special_account.account_id=question_information.student_id
-  LEFT JOIN subject ON question_information.subject_id=subject.subject_id
-  WHERE report.type=1 and report.status=1 and question_information.status > 0";
+FROM `report` 
+LEFT JOIN question_information ON report.reported_id = question_information.question_id
+LEFT JOIN account_information AS reporter_account_information ON reporter_account_information.user_id = report.student_id
+LEFT JOIN account_information AS question_account_information ON question_account_information.user_id = question_information.student_id
+LEFT JOIN student_information AS reporter_student ON reporter_student.student_id = report.student_id
+LEFT JOIN special_account_information AS reporter_special_account ON reporter_special_account.account_id = report.student_id
+LEFT JOIN student_information AS question_student ON question_student.student_id = question_information.student_id
+LEFT JOIN special_account_information AS special_account ON special_account.account_id = question_information.student_id
+LEFT JOIN subject ON question_information.subject_id = subject.subject_id
+WHERE report.type = 1 
+  AND report.status = 1 
+  AND question_information.status > 0
+  AND question_account_information.user_name IS NOT NULL";
 
   $result = $connectDB->query($sql);
   if ($result->num_rows > 0) {

@@ -106,7 +106,7 @@
                     </div>
 
                     <div class="col-lg-12">
-                        <div class="form-group text-wrap" style="width: 6rem;">
+                        <div class="form-group text-wrap d-none" id="modal-info-question-attachment-container" style="width: 6rem;">
                             <label for="modal-info-question-attachment"><b>Attachment:</b></label>
                             <div id="modal-info-question-attachment"></div>
                         </div>
@@ -272,10 +272,16 @@
                 if (questionID == question['questionID']) {
                     $('#modal-info-question-id').html(question['questionID']);
                     $('#modal-info-question-title').html(question['title']);
-                    $('#modal-info-question-description').html(question['description']);
+                    $('#modal-info-question-description').html(formatCodeSnippet(question['description']));
                     $('#modal-info-question-subject').html(question['subject']);
                     $('#modal-info-question-status').html(question['status'] == "1" ? "Unanswered" : "Answered");
-                    $('#modal-info-question-attachment').html(`<a class="text-wrap" style="width: 6rem;" href="./../../resource/attachment/${question['fileName']}" download="${question['fileName']}">${question['fileName']}</a>`);
+                    if (question['fileName'] != null && question['fileName'] != "") {
+                        $('#modal-info-question-attachment').html(`<a class="text-wrap" style="width: 6rem;" href="./../../resource/attachment/${question['fileName']}" download="${question['fileName']}">${question['fileName']}</a>`);
+                        $('#modal-info-question-attachment-container').removeClass("d-none");
+                    } else {
+                        $('#modal-info-question-attachment-container').addClass("d-none");
+                    }
+
                     $('#modal-info-question-creationDateTime').html(question['creationDateTime']);
                     $('#modal-info-question').modal('toggle');
                     return;
@@ -343,7 +349,7 @@
                 console.log(question);
                 console.log(questionID == question['questionID']);
                 if (questionID == question['questionID']) {
-                    initEditor("modal-edit-question-description", question['description'], 'Enter description here...');
+                    initEditor("modal-edit-question-description", formatCodeSnippet(question['description']), 'Enter description here...');
                     $('#modal-edit-question-id').val(question['questionID']);
                     $('#modal-edit-question-title').val(question['title']);
                     $('#modal-edit-question-status').val(question['status']);
@@ -446,14 +452,12 @@
                     if (dataResult.statusCode != 200) {
                         swalErrorNotification();
                     }
-
+                    retrieveQuestionList()
                     Swal.fire(
                         'Deleted!',
                         `The question with ID ${questionID} has been deleted.`,
                         'success'
                     );
-
-                    retrieveQuestionList();
                 },
                 beforeSend: function() {
                     // Code to be executed before the request is sent
@@ -548,7 +552,7 @@
                     var dataResult = JSON.parse(dataResult);
                     if (dataResult.statusCode != 201) {
                         questionList = dataResult;
-                        var questionData;
+                        var questionData = "";
                         $.each(dataResult, function(key, question) {
                             var questionID = question['questionID'];
                             var attachment = question['fileName'];
@@ -557,28 +561,34 @@
                             var status = question['status'] == "1" ? "Unanswered" : "Answered";
                             questionData +=
                                 `<tr>
-                                    <td>${questionID}</td>
-                                    <td><a class='button-student-id'>${question['studentID']}</a></td>
-                                    <td>${question['subject']}</td>
-                                    <td>${question['creationDateTime']}</td>
-                                    <td>${question['title']}</td>
-                                    <td style="max-width: 150px;"> <a href="./../../resource/attachment/${attachment}" download="${attachment}">${attachment}</a></td>
-                                    <td>${status}</td>
-                                    <td><button type="button" class="btn btn-flat btn-default btn-sm dropdown-toggle dropdown-icon" data-toggle="dropdown">
-                                  Action<span class="sr-only">Toggle Dropdown</span>
-                                </button>
-                                <div class="dropdown-menu" role="menu">
-                                    <a class="dropdown-item view_data " href="javascript:void(0)" data-id="${questionID}"><span class="fa fa-eye text-primary"></span> View</a>
-                                    <div class="dropdown-divider "></div>
-                                    <a class="dropdown-item edit_data " href="javascript:void(0)" data-id="${questionID}"><span class="fa fa-edit text-success"></span> Edit</a>
-                                    <div class="dropdown-divider "></div>
-                                    <a class="dropdown-item delete_data " href="javascript:void(0)" data-id="${questionID}"><span class="fa fa-trash text-danger"></span> Delete</a>
-                                </div></td>
-                                </tr>`;
+                            <td>${questionID}</td>
+                            <td><a class='button-student-id'>${question['studentID']}</a></td>
+                            <td>${question['subject']}</td>
+                            <td>${question['creationDateTime']}</td>
+                            <td>${question['title']}</td>
+                            <td style="max-width: 150px;"> <a href="./../../resource/attachment/${attachment}" download="${attachment}">${attachment}</a></td>
+                            <td>${status}</td>
+                            <td><button type="button" class="btn btn-flat btn-default btn-sm dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                                Action<span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <div class="dropdown-menu" role="menu">
+                                <a class="dropdown-item view_data " href="javascript:void(0)" data-id="${questionID}"><span class="fa fa-eye text-primary"></span> View</a>
+                                <div class="dropdown-divider "></div>
+                                <a class="dropdown-item edit_data " href="javascript:void(0)" data-id="${questionID}"><span class="fa fa-edit text-success"></span> Edit</a>
+                                <div class="dropdown-divider "></div>
+                                <a class="dropdown-item delete_data " href="javascript:void(0)" data-id="${questionID}"><span class="fa fa-trash text-danger"></span> Delete</a>
+                            </div></td>
+                        </tr>`;
                         });
+                        // Destroy DataTable instance before reinitializing
+                        $('#dataTable').DataTable().destroy();
                         $("#tableBody").html(questionData);
+                        // Reinitialize DataTable
+                        $('#dataTable').DataTable({
+                            scrollX: true,
+                            // Add any additional DataTable options here
+                        });
                     }
-                    $('#dataTable').DataTable();
                 },
                 beforeSend: function() {
                     // Code to be executed before the request is sent
@@ -594,6 +604,7 @@
                 }
             });
         }
+
 
     });
 </script>

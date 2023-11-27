@@ -463,9 +463,10 @@
                 cache: false,
                 success: function(dataResult) {
                     var dataResult = JSON.parse(dataResult);
+                    var studentData = '';
                     if (dataResult.statusCode != 201) {
                         studentList = dataResult.specialAccountList;
-                        var studentData = '';
+
                         $.each(dataResult.specialAccountList, function(key, student) {
                             studentData = studentData.concat("<tr>",
                                 populateTableData(student['studentID']),
@@ -486,9 +487,15 @@
                                 </div>`),
                                 "</tr>");
                         });
-                        $("#tableBody").html(studentData);
                     }
-                    $('#dataTable').DataTable();
+                    // Destroy DataTable instance before reinitializing
+                    $('#dataTable').DataTable().destroy();
+                    $("#tableBody").html(studentData);
+                    // Reinitialize DataTable
+                    $('#dataTable').DataTable({
+                        scrollX: true,
+                        // Add any additional DataTable options here
+                    });
                 },
                 beforeSend: function() {
                     // Code to be executed before the request is sent

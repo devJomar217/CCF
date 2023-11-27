@@ -305,9 +305,9 @@
                 cache: false,
                 success: function(dataResult) {
                     var dataResult = JSON.parse(dataResult);
+                    var questionData;
                     if (dataResult.statusCode != 201) {
                         reportedList = dataResult;
-                        var questionData;
                         $.each(dataResult, function(key, question) {
                             var questionID = question['questionID'];
                             questionData +=
@@ -320,9 +320,16 @@
                                     <td><a class='button-select btn btn-xs btn-primary' data-id='${questionID}'><i class='fas fa-eye fa-cog'></i> </a></td>
                                 </tr>`;
                         });
-                        $("#tableBody").html(questionData);
+
                     }
-                    $('#dataTable').DataTable();
+                    // Destroy DataTable instance before reinitializing
+                    $('#dataTable').DataTable().destroy();
+                    $("#tableBody").html(questionData);
+                    // Reinitialize DataTable
+                    $('#dataTable').DataTable({
+                        scrollX: true,
+                        // Add any additional DataTable options here
+                    });
                 },
                 beforeSend: function() {
                     // Code to be executed before the request is sent

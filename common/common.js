@@ -30,6 +30,26 @@ function decrypt(value) {
     return bytes.toString(CryptoJS.enc.Utf8);
 }
 
+function formatCodeSnippet(codeSnippet) {
+    var preElement = document.createElement('pre');
+    preElement.textContent = codeSnippet;
+
+    // Apply inline styles
+    preElement.style.fontFamily = 'inherit';
+    preElement.style.fontSize = 'inherit';
+    preElement.style.fontWeight = 'inherit';
+    preElement.style.color = 'inherit';
+    preElement.style.lineHeight = 'inherit';
+    preElement.style.letterSpacing = 'inherit';
+    preElement.style.textAlign = 'inherit';
+    preElement.style.backgroundColor = 'inherit';
+    preElement.style.border = 'inherit';
+    preElement.style.padding = 'inherit';
+    preElement.style.margin = 'inherit';
+
+    return preElement.outerHTML;
+}
+
 function getYearLevel(yearLevel) {
     if (yearLevel == 1) {
         return "First year";

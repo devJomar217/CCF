@@ -55,9 +55,7 @@ date_default_timezone_set("Asia/Manila");
                                 </p>
                             </div>
                         </div>
-                    </div>
-
-                    
+                    </div>       
                     <div class="col-md-8 col-lg-6 mb-5 mb-lg-0 d-flex justify-content-center align-items-center">
                         <div class="card shadow" style="width: 100%;">
                             <div class="card-body py-5 px-md-5" id="login-form">
@@ -67,9 +65,6 @@ date_default_timezone_set("Asia/Manila");
                             </div>
                         </div>
                     </div>
-
-
-
                 </div>
             </div>
         </div>

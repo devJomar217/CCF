@@ -1,9 +1,26 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css" />
-
 <script src="./../../common/vendor/datatables/jquery.dataTables.js"></script>
-<!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css"> -->
-<!-- <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
-<!-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script> -->
+
+
+<style>
+    #dataTable_wrapper {
+        overflow-x: auto;
+    }
+    
+    pre {
+        max-width: 245px;
+        overflow-x: auto;
+        white-space: pre-wrap;
+        /* Preserve line breaks */
+    }
+    
+    .code-snippet-container {
+        max-width: 245px;
+        overflow-x: auto;
+        word-wrap: break-word;
+        /* Add any additional styles specific to the code snippet container */
+    }
+</style>
 
 
 <h1 class="h3 mb-2 text-gray-800">Answer List</h1>
@@ -15,27 +32,17 @@
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-bordered table-striped" id="dataTable" class="display nowrap" style="width:100%">
-                <colgroup>
-                    <col width="3%">
-                    <col width="3%">
-                    <col width="3%">
-                    <col width="10%">
-                    <col width="auto">
-                    <col width="10%">
-                    <col width="10%">
-                    <col width="10%">
-                </colgroup>
+            <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Account ID</th>
-                        <th>Question ID</th>
-                        <th>Date Time</th>
-                        <th>Answer</th>
-                        <th>Attachment</th>
-                        <th>Likes</th>
-                        <th>Action</th>
+                        <th width="3%">ID</th>
+                        <th width="3%">Account ID</th>
+                        <th width="3%">Question ID</th>
+                        <th width="12%">Date Time</th>
+                        <th width="30%">Answer</th>
+                        <th width="8%">Attachment</th>
+                        <th width="10%">Likes</th>
+                        <th width="10%">Action</th>
                     </tr>
                 </thead>
                 <tfoot>
@@ -59,6 +66,7 @@
 </div>
 
 
+
 <div class="modal fade" id="modal-info-answer" tabindex="-1" role="dialog" aria-labelledby="modal-info-answer-label" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -71,16 +79,22 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-lg-3">
-                        <b>Answer ID:</b>
-                        <div class="form-control" id="modal-info-answer-id"></div>
+                        <div class="form-group">
+                            <label for="modal-info-answer-id"><b>Answer ID:</b></label>
+                            <input type="text" class="form-control" id="modal-info-answer-id" readonly>
+                        </div>
                     </div>
                     <div class="col-lg-9">
-                        <b>Creation Date Time:</b>
-                        <div class="form-control" id="modal-info-answer-creationDateTime"></div>
+                        <div class="form-group">
+                            <label for="modal-info-answer-creationDateTime"><b>Creation Date Time:</b></label>
+                            <input type="text" class="form-control" id="modal-info-answer-creationDateTime" readonly>
+                        </div>
                     </div>
                     <div class="col-lg-12">
-                        <b>Answer:</b>
-                        <div class="form-control" style="height: auto;" id="modal-info-answer-answer"></div>
+                        <div class="form-group">
+                            <label for="modal-info-answer-answer"><b>Answer:</b></label>
+                            <textarea class="form-control" style="height: auto;" id="modal-info-answer-answer" readonly></textarea>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -90,7 +104,6 @@
         </div>
     </div>
 </div>
-
 
 <div class="modal fade" id="modal-edit-answer" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
@@ -103,17 +116,17 @@
                     <div class="form-row">
                         <div class="form-group col-lg-3">
                             <label for="modal-edit-answer-id"><b>Answer ID:</b></label>
-                            <input name="name" type="text" class="form-control" id="modal-edit-answer-id" readonly required />
+                            <input type="text" class="form-control" id="modal-edit-answer-id" readonly required />
                             <div class="invalid-feedback"></div>
                         </div>
                         <div class="form-group col-lg-9">
                             <label for="modal-edit-answer-creationDateTime"><b>Creation Date Time:</b></label>
-                            <input type="text" name="creation_date_time" class="form-control" id="modal-edit-answer-creationDateTime" readonly required />
+                            <input type="text" class="form-control" id="modal-edit-answer-creationDateTime" readonly required />
                             <div class="invalid-feedback"></div>
                         </div>
                         <div class="form-group col-lg-12">
                             <label for="modal-edit-answer-answer"><b>Answer:</b></label>
-                            <div id="modal-edit-answer-answer" name="answer" rows="5" required></div>
+                            <div class="form-control" id="modal-edit-answer-answer" name="answer" rows="5" required></div>
                             <div class="invalid-feedback"></div>
                         </div>
                     </div>
@@ -127,6 +140,7 @@
     </div>
 </div>
 
+
 <div class="modal fade" id="modal-info-question" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -138,39 +152,39 @@
                     <div class="col-lg-3">
                         <div class="form-group">
                             <label for="modal-info-question-id"><b>Question ID:</b></label>
-                            <div class="form-control" id="modal-info-question-id"></div>
+                            <input type="text" class="form-control" id="modal-info-question-id" readonly>
                         </div>
                     </div>
 
                     <div class="col-lg-9">
                         <div class="form-group">
                             <label for="modal-info-question-creationDateTime"><b>Creation Date Time:</b></label>
-                            <div class="form-control" id="modal-info-question-creationDateTime"></div>
+                            <input type="text" class="form-control" id="modal-info-question-creationDateTime" readonly>
                         </div>
                     </div>
 
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label for="modal-info-question-title"><b>Title:</b></label>
-                            <div class="form-control" id="modal-info-question-title"></div>
+                            <input type="text" class="form-control" id="modal-info-question-title" readonly>
                         </div>
                     </div>
 
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label for="modal-info-question-description"><b>Description:</b></label>
-                            <div class="form-control" style="height: auto;" id="modal-info-question-description"></div>
+                            <textarea class="form-control" style="height: auto;" id="modal-info-question-description" readonly></textarea>
                         </div>
                     </div>
 
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label for="modal-info-question-description"><b>Attachment:</b></label>
-                            <div id="modal-info-question-attchment"></div>
+                            <label for="modal-info-question-attachment"><b>Attachment:</b></label>
+                            <!-- Assuming attachment is an image, use an img tag or adjust accordingly -->
+                            <div id="modal-info-question-attachment" alt="Attachment"></div>
                         </div>
                     </div>
                 </div>
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -178,6 +192,7 @@
         </div>
     </div>
 </div>
+
 
 <div class="modal fade" id="modal-info-student" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -194,42 +209,42 @@
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label for="modal-info-student-id"><b>Account ID:</b></label>
-                            <label for="" id="modal-info-student-id" class="form-control-static"></label>
+                            <input type="text" class="form-control" id="modal-info-student-id" readonly>
                         </div>
                     </div>
 
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label for="modal-info-name"><b>Name:</b></label>
-                            <label for="" id="modal-info-name" class="form-control-static"></label>
+                            <input type="text" class="form-control" id="modal-info-name" readonly>
                         </div>
                     </div>
 
                     <div class="col-lg-12" id="modal-info-year-level-container">
                         <div class="form-group">
                             <label for="modal-info-year-level"><b>Year Level:</b></label>
-                            <label for="" id="modal-info-year-level" class="form-control-static"></label>
+                            <input type="text" class="form-control" id="modal-info-year-level" readonly>
                         </div>
                     </div>
 
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label for="modal-info-specialization"><b>Major:</b></label>
-                            <label for="" id="modal-info-specialization" class="form-control-static"></label>
+                            <input type="text" class="form-control" id="modal-info-specialization" readonly>
                         </div>
                     </div>
 
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label for="modal-info-user-name"><b>Username:</b></label>
-                            <label for="" id="modal-info-user-name" class="form-control-static"></label>
+                            <input type="text" class="form-control" id="modal-info-user-name" readonly>
                         </div>
                     </div>
 
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label for="modal-info-email"><b>Email:</b></label>
-                            <label for="" id="modal-info-email" class="form-control-static"></label>
+                            <input type="email" class="form-control" id="modal-info-email" readonly>
                         </div>
                     </div>
                 </div>
@@ -247,16 +262,20 @@
         var answerList;
         retrieveAnswerList();
 
-        $("#form-edit-answer").on("submit", function() {
+        $("#form-edit-answer").on("submit", function(event) {
             event.preventDefault();
+
+            // Extract the data outside of the AJAX call
+            var updateData = {
+                action: 'update-answer',
+                description: getEditorData("modal-edit-answer-answer"),
+                answerID: $("#modal-edit-answer-id").val()
+            };
+
             $.ajax({
                 url: "../../common/db.php",
                 type: "POST",
-                data: {
-                    action: 'update-answer',
-                    description: getEditorData("modal-edit-answer-answer"),
-                    answerID: $("#modal-edit-answer-id").val()
-                },
+                data: updateData,
                 cache: false,
                 success: function(dataResult) {
                     var dataResult = JSON.parse(dataResult);
@@ -269,66 +288,62 @@
                     }
                 },
                 beforeSend: function() {
-                    // Code to be executed before the request is sent
                     console.log('Request is about to be sent');
                 },
                 error: function(xhr, status, error) {
-                    // Code to be executed if there is an error
                     console.error('Error:', error);
                 },
                 complete: function() {
-                    // Code to be executed after the request is complete (success, error, or abort)
                     console.log('Request is complete');
                 }
             });
         });
 
-
-
         $("#dataTable").on('click', '.btn-select-question', function() {
             var currentRow = $(this).closest("tr");
             var answerID = currentRow.find("td:eq(0)").html();
-            $.each(answerList, function(key, answer) {
-                if (answerID == answer['answerID']) {
-                    $('#modal-info-question-id').html(answer.questionInformation.questionID);
-                    $('#modal-info-question-title').html(answer.questionInformation.title);
-                    $('#modal-info-question-description').html(answer.questionInformation.description);
-                    $('#modal-info-question-creationDateTime').html(answer.questionInformation.creationDateTime);
 
-                    $('#modal-info-question').modal('toggle');
-                    return;
-                }
-            });
+            var selectedAnswer = answerList.find(answer => answerID == answer['answerID']);
+
+            if (selectedAnswer) {
+                var questionInfo = selectedAnswer.questionInformation;
+
+                $('#modal-info-question-id').val(questionInfo.questionID);
+                $('#modal-info-question-title').val(questionInfo.title);
+                $('#modal-info-question-description').val(questionInfo.description);
+                $('#modal-info-question-creationDateTime').val(questionInfo.creationDateTime);
+                $('#modal-info-question').modal('toggle');
+            }
         });
 
         $("#dataTable").on('click', '.view_data', function() {
             var currentRow = $(this).closest("tr");
             var answerID = currentRow.find("td:eq(0)").html();
-            $.each(answerList, function(key, answer) {
-                if (answerID == answer['answerID']) {
-                    $('#modal-info-answer-id').html(answer.answerID);
-                    $('#modal-info-answer-creationDateTime').html(answer.creationDateTime);
-                    $('#modal-info-answer-answer').html(answer.answer);
-                    $('#modal-info-answer').modal('toggle');
-                    return;
-                }
-            });
+
+            var selectedAnswer = answerList.find(answer => answerID == answer['answerID']);
+
+            if (selectedAnswer) {
+                $('#modal-info-answer-id').val(selectedAnswer.answerID);
+                $('#modal-info-answer-creationDateTime').val(selectedAnswer.creationDateTime);
+                $('#modal-info-answer-answer').val(selectedAnswer.answer);
+                $('#modal-info-answer').modal('toggle');
+            }
         });
 
         $("#dataTable").on('click', '.edit_data', function() {
             var currentRow = $(this).closest("tr");
             var answerID = currentRow.find("td:eq(0)").html();
-            $.each(answerList, function(key, answer) {
-                if (answerID == answer['answerID']) {
-                    $('#modal-edit-answer-id').val(answer.answerID);
-                    $('#modal-edit-answer-creationDateTime').val(answer.creationDateTime);
-                    // $('#modal-edit-answer-answer').val(answer.answer);
-                    initEditor("modal-edit-answer-answer", answer.answer, 'Enter answer here...');
-                    $('#modal-edit-answer').modal('toggle');
-                    return;
-                }
-            });
+
+            var selectedAnswer = answerList.find(answer => answerID == answer['answerID']);
+
+            if (selectedAnswer) {
+                $('#modal-edit-answer-id').val(selectedAnswer.answerID);
+                $('#modal-edit-answer-creationDateTime').val(selectedAnswer.creationDateTime);
+                initEditor("modal-edit-answer-answer", formatCodeSnippet(selectedAnswer.answer), 'Enter answer here...');
+                $('#modal-edit-answer').modal('toggle');
+            }
         });
+
 
         function deleteAnswer(answerID) {
             $.ajax({
@@ -342,96 +357,90 @@
                 cache: false,
                 success: function(dataResult) {
                     var dataResult = JSON.parse(dataResult);
-                    if (dataResult.statusCode != 200) {
+                    if (dataResult.statusCode === 200) {
+                        Swal.fire(
+                            'Deleted!',
+                            `The answer with ID ${answerID} has been deleted.`,
+                            'success'
+                        );
+                        retrieveAnswerList();
+                    } else {
                         swalErrorNotification();
                     }
-
-                    Swal.fire(
-                        'Deleted!',
-                        `The answer with ID ${answerID} has been deleted.`,
-                        'success'
-                    );
-
-                    retrieveAnswerList();
                 },
                 beforeSend: function() {
-                    // Code to be executed before the request is sent
                     console.log('Request is about to be sent');
                 },
                 error: function(xhr, status, error) {
-                    // Code to be executed if there is an error
                     console.error('Error:', error);
+                    swalErrorNotification();
                 },
                 complete: function() {
-                    // Code to be executed after the request is complete (success, error, or abort)
                     console.log('Request is complete');
                 }
             });
         }
 
+
         $("#dataTable").on('click', '.delete_data', function() {
             var currentRow = $(this).closest("tr");
             var answerID = currentRow.find("td:eq(0)").html();
-            $.each(answerList, function(key, answer) {
-                if (answerID == answer['answerID']) {
-                    Swal.fire({
-                        title: 'Are you sure?',
-                        text: `You are about to delete this question with ID: ${question['questionID']}. This action cannot be undone.`,
-                        icon: 'warning',
-                        showCancelButton: true,
-                        confirmButtonColor: '#d33',
-                        cancelButtonColor: '#3085d6',
-                        confirmButtonText: 'Yes, delete it!'
-                    }).then((result) => {
-                        // If the user confirms, perform the delete action
-                        if (result.isConfirmed) {
-                            // Call your delete function or make an AJAX request here
-                            // For example, you can call a function like deleteStudent() and handle the logic there
-                            deleteAnswer(answerID);
-                        }
-                    });
-                }
-            });
+
+            var selectedAnswer = answerList.find(answer => answerID == answer['answerID']);
+
+            if (selectedAnswer) {
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: `You are about to delete this answer with ID: ${selectedAnswer['answerID']}. This action cannot be undone.`,
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        deleteAnswer(answerID);
+                    }
+                });
+            }
         });
 
         $("#dataTable").on('click', '.btn-select-student', function() {
             var currentRow = $(this).closest("tr");
             var answerID = currentRow.find("td:eq(0)").html();
-            $.each(answerList, function(key, answer) {
-                if (answerID == answer['answerID']) {
-                    $('#modal-info-student-id').html(answer.studentInformation.studentID);
-                    $('#modal-info-name').html(answer.studentInformation.name);
 
-                    if (answer.studentInformation.yearLevel == null) {
-                        $('#modal-info-year-level-container').addClass("d-none");
-                        $("#modal-info-student-title").html("Account Information");
-                    } else {
-                        $('#modal-info-year-level-container').removeClass("d-none");
-                        $("#modal-info-student-title").html("Student Information");
+            var selectedAnswer = answerList.find(answer => answerID == answer['answerID']);
 
-                    }
+            if (selectedAnswer) {
+                var studentInfo = selectedAnswer.studentInformation;
 
-                    $('#modal-info-year-level').html(answer.studentInformation.yearLevel);
-                    $('#modal-info-specialization').html(answer.studentInformation.specialization);
-                    $('#modal-info-user-name').html(answer.studentInformation.username);
-                    $('#modal-info-email').html(answer.studentInformation.email);
-                    var image = "default.svg";
-                    if (answer.studentInformation.picture != null && answer.studentInformation.picture != "") {
-                        image = answer.studentInformation.picture;
-                    }
-                    var picture = "./../../resource/profile/" + image;
-                    $("#modal-info-student-image").attr("src", picture);
-                    $('#modal-info-student').modal('toggle');
-                    return;
+                $('#modal-info-student-id').val(studentInfo.studentID);
+                $('#modal-info-name').val(studentInfo.name);
+
+                if (studentInfo.yearLevel == null) {
+                    $('#modal-info-year-level-container').addClass("d-none");
+                    $("#modal-info-student-title").val("Account Information");
+                } else {
+                    $('#modal-info-year-level-container').removeClass("d-none");
+                    $("#modal-info-student-title").val("Student Information");
                 }
-            });
+
+                $('#modal-info-year-level').val(studentInfo.yearLevel);
+                $('#modal-info-specialization').val(studentInfo.specialization);
+                $('#modal-info-user-name').val(studentInfo.username);
+                $('#modal-info-email').val(studentInfo.email);
+
+                var image = studentInfo.picture ? studentInfo.picture : "default.svg";
+                var picture = `./../../resource/profile/${image}`;
+                $("#modal-info-student-image").attr("src", picture);
+
+                $('#modal-info-student').modal('toggle');
+            }
         });
 
         $('#sidebar-answer-account-request').on('click', function() {
             $("#admin-container").load('./answer-account-request.html');
         });
-
-
 
         function updateAccountStatus(userID, status) {
             $.ajax({
@@ -445,7 +454,7 @@
                 cache: false,
                 success: function(dataResult) {
                     var dataResult = JSON.parse(dataResult);
-                    if (dataResult.statusCode == 200) {
+                    if (dataResult.statusCode === 200) {
                         swalSuccessNotification("Account status has been updated.");
                     } else {
                         swalErrorNotification();
@@ -453,18 +462,16 @@
                     $('#modal-info-answer').modal('toggle');
                     $('#dataTable').DataTable({
                         scrollX: true
-                    });
+                    }).ajax.reload(null, false); // Reload the DataTable
                 },
                 beforeSend: function() {
-                    // Code to be executed before the request is sent
                     console.log('Request is about to be sent');
                 },
                 error: function(xhr, status, error) {
-                    // Code to be executed if there is an error
                     console.error('Error:', error);
+                    swalErrorNotification();
                 },
                 complete: function() {
-                    // Code to be executed after the request is complete (success, error, or abort)
                     console.log('Request is complete');
                 }
             });
@@ -480,50 +487,61 @@
                 cache: false,
                 success: function(dataResult) {
                     var dataResult = JSON.parse(dataResult);
-                    if (dataResult.statusCode != 201) {
+                    if (dataResult.statusCode !== 201) {
                         answerList = dataResult;
                         console.log(answerList);
-                        var answerData;
+
+                        var answerData = "";
                         $.each(dataResult, function(key, answer) {
                             var answerID = answer['answerID'];
-                            var rating = answer['rating'];
-                            if (rating == null) {
-                                rating = '0';
-                            }
+                            var rating = answer['rating'] || '0';
+
                             answerData += `<tr>
-                                <td>${answerID}</td>
-                                <td><a class="btn-select-student">${answer['studentID']}</a></td>
-                                <td><a class="btn-select-question">${answer['questionID']}</a></td>
-                                <td>${answer['creationDateTime']}</td>
-                                <td>${answer['answer']}</td>
-                                <td style="max-width: 150px;"><a href="./../../resource/attachment/${answer['fileName']}" download="${answer['fileName']}">${answer['fileName']}</a></td>
-                                <td>${answer['rating']}</td>
-                                <td><button type="button" class="btn btn-flat btn-default btn-sm dropdown-toggle dropdown-icon" data-toggle="dropdown">
-                                  Action<span class="sr-only">Toggle Dropdown</span>
+                        <td>${answerID}</td>
+                        <td><a class="btn-select-student">${answer['studentID']}</a></td>
+                        <td><a class="btn-select-question">${answer['questionID']}</a></td>
+                        <td>${answer['creationDateTime']}</td>
+                        <td style="max-width: 245px;">
+                            <div class="code-snippet-container" style="max-width: 245px; overflow-x: auto;">
+                                ${formatCodeSnippet(answer['answer'])}
+                            </div>
+                        </td>
+                        <td style="max-width: 150px;"><a href="./../../resource/attachment/${answer['fileName']}" download="${answer['fileName']}">${answer['fileName']}</a></td>
+                        <td>${rating}</td>
+                        <td>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-flat btn-default btn-sm dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                                    Action<span class="sr-only">Toggle Dropdown</span>
                                 </button>
                                 <div class="dropdown-menu" role="menu">
-                                    <a class="dropdown-item view_data " href="javascript:void(0)" data-id="${answerID}"><span class="fa fa-eye text-primary"></span> View</a>
-                                    <div class="dropdown-divider "></div>
-                                    <a class="dropdown-item edit_data " href="javascript:void(0)" data-id="${answerID}"><span class="fa fa-edit text-success"></span> Edit</a>
-                                    <div class="dropdown-divider "></div>
-                                    <a class="dropdown-item delete_data " href="javascript:void(0)" data-id="${answerID}"><span class="fa fa-trash text-danger"></span> Delete</a>
-                                </div></td>
-                                </tr>`;
+                                    <a class="dropdown-item view_data" href="javascript:void(0)" data-id="${answerID}"><span class="fa fa-eye text-primary"></span> View</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item edit_data" href="javascript:void(0)" data-id="${answerID}"><span class="fa fa-edit text-success"></span> Edit</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item delete_data" href="javascript:void(0)" data-id="${answerID}"><span class="fa fa-trash text-danger"></span> Delete</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>`;
                         });
+
+                        // Destroy DataTable instance before reinitializing
+                        $('#dataTable').DataTable().destroy();
                         $("#tableBody").html(answerData);
+                        // Reinitialize DataTable
+                        $('#dataTable').DataTable({
+                            scrollX: true,
+                            // Add any additional DataTable options here
+                        });
                     }
-                    $('#dataTable').DataTable();
                 },
                 beforeSend: function() {
-                    // Code to be executed before the request is sent
                     console.log('Request is about to be sent');
                 },
                 error: function(xhr, status, error) {
-                    // Code to be executed if there is an error
                     console.error('Error:', error);
                 },
                 complete: function() {
-                    // Code to be executed after the request is complete (success, error, or abort)
                     console.log('Request is complete');
                 }
             });
