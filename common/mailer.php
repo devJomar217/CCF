@@ -9,9 +9,9 @@ require 'phpmailer/src/SMTP.php';
 
 function generateForgotPasswordLink($email, $key){
     // hosting
-    // $url = 'https://code-connect.tech/public/login/form-forgot-change-password.php?key='.$key;
+    $url = 'https://code-connect.tech/public/login/form-forgot-change-password.php?key='.$key;
     // local
-    $url = 'http://localhost/ccf/public/login/form-forgot-change-password.php?key='.$key;
+    //$url = 'http://localhost/ccf/public/login/form-forgot-change-password.php?key='.$key;
     $body = '<div style="margin:0;padding:0" bgcolor="#FFFFFF">
                 <table width="100%" height="100%" style="min-width:348px" border="0" cellspacing="0" cellpadding="0" lang="en">
                     <tbody>
