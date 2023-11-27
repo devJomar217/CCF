@@ -1,7 +1,7 @@
 <?php
 session_start();
 include './data-model.php';
-date_default_timezone_set('Asia/Singapore');
+date_default_timezone_set("Asia/Manila");
 
 require 'vendor/autoload.php';
 

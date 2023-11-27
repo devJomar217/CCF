@@ -1,5 +1,7 @@
 <?php
 include '../../common/session.php';
+date_default_timezone_set("Asia/Manila");
+echo date("h:i:sa");
 ?>
 
 <!DOCTYPE html>
