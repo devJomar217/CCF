@@ -24,7 +24,7 @@ function databaseConnection(){
   $dbname = "u929248875_code_connect";
   
   $conn = new mysqli($servername, $username, $password, $dbname);
-
+  $conn->query("SET time_zone = '+08:00'");
   if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
   } else {
