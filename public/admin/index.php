@@ -81,12 +81,18 @@ include '../../common/session.php';
             <li class="nav-item" id="nav-item-special-account">
                 <a class="nav-link collapsed" href="#special-account" data-toggle="collapse" data-target="#collapse-special-account" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-users fa-cog"></i>
-                    <span>Professionals</span>
+                    <span>Professionals</span> 
+                    <!-- Add Bootstrap Badge here -->
+                    <span class="badge bg-primary badge-notification-professional d-none"></span>
                 </a>
                 <div id="collapse-special-account" class="collapse" aria-labelledby="headingTwo" data-parent="#sidebar-accordion">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" id="sidebar-special-account-list" href="#special-account.special-account-list">Account List</a>
-                        <a class="collapse-item" id="sidebar-special-account-request" href="#special-account.special-account-request">Account Request</a>
+                        <!-- Add Bootstrap Badge here -->
+                        <a class="collapse-item" id="sidebar-special-account-request" href="#special-account.special-account-request">
+                            Account Request
+                            <span class="badge bg-primary text-white badge-notification-professional d-none"></span>
+                        </a>
                     </div>
                 </div>
             </li>
@@ -134,11 +140,12 @@ include '../../common/session.php';
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse-reported" aria-expanded="true" aria-controls="collapse-reported">
                     <i class="fas fa-fw fa-flag"></i>
                     <span>Reports</span>
+                    <span class="badge bg-danger badge-notification-report d-none"></span>
                 </a>
                 <div id="collapse-reported" class="collapse" aria-labelledby="headingReported" data-parent="#sidebar-accordion">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" id="sidebar-reported-question" href="#reported.reported-question">Question</a>
-                        <a class="collapse-item" id="sidebar-reported-answer" href="#reported.reported-answer">Answer</a>
+                        <a class="collapse-item" id="sidebar-reported-question" href="#reported.reported-question">Question <span class="badge bg-danger text-white badge-notification-report-question d-none"></span></a>
+                        <a class="collapse-item" id="sidebar-reported-answer" href="#reported.reported-answer">Answer <span class="badge bg-danger text-white badge-notification-answer d-none"></span></a>
                         <!-- <a class="collapse-item" id="sidebar-reported-student" href="#reported.reported-student">Student</a> -->
                     </div>
                 </div>
@@ -282,8 +289,72 @@ include '../../common/session.php';
 </html>
 
 <script>
+
+function getNotification() {
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'retrieve-admin-notification'
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    var accountRequest = dataResult.professional.professionalRequest;
+                    var reportQuestion = dataResult.report.question;
+                    var reportAnswer = dataResult.report.answer;
+                    var reportCount = reportQuestion + reportAnswer;
+
+                    if(accountRequest > 0){
+                        $(".badge-notification-professional").html(accountRequest);
+                        $(".badge-notification-professional").removeClass("d-none");
+                    } else {
+                        $(".badge-notification-professional").addClass("d-none");
+                    }
+
+                    if(reportCount > 0){
+                        $(".badge-notification-report").html(reportCount);
+                        $(".badge-notification-report").removeClass("d-none");
+
+                        if(reportQuestion > 0){
+                            $(".badge-notification-report-question").html(reportQuestion);
+                            $(".badge-notification-report-question").removeClass("d-none");
+                        } else {
+                            $(".badge-notification-report-question").addClass("d-none");
+                        }
+
+                        if(reportAnswer > 0){
+                            $(".badge-notification-report-answer").html(reportAnswer);
+                            $(".badge-notification-report-answer").removeClass("d-none");
+                        } else {
+                            $(".badge-notification-report-answer").addClass("d-none");
+                        }
+                    } else {
+                        $(".badge-notification-report").addClass("d-none");
+                        $(".badge-notification-report-question").addClass("d-none");
+                        $(".badge-notification-report-answer").addClass("d-none");
+                    }
+
+                    
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
+                }
+            });
+        }
     $(document).ready(function() {
         navigateAnchor();
+        getNotification();
+        
         
         function navigateAnchor(){
             var form = "./form-";
@@ -324,72 +395,89 @@ include '../../common/session.php';
 
         $('#sidebar-dashboard').on('click', function() {
             $("#admin-container").load('./form-dashboard.html');
+            getNotification();
         });
 
         $('#sidebar-student-list').on('click', function() {
             $("#admin-container").load('./form-student-list.html');
+            getNotification();
         });
 
         $('#sidebar-student-request').on('click', function() {
             $("#admin-container").load('./form-student-account-request.html');
+            getNotification();
         });
 
         $('#sidebar-special-account-list').on('click', function() {
             $("#admin-container").load('./form-special-account-list.html');
+            getNotification();
         });
 
         $('#sidebar-special-account-request').on('click', function() {
             $("#admin-container").load('./form-special-account-request.html');
+            getNotification();
         });
 
         $('#sidebar-admin-list').on('click', function() {
             $("#admin-container").load('./form-admin-list.html');
+            getNotification();
         });
 
         $('#sidebar-inactive-admin').on('click', function() {
             $("#admin-container").load('./form-admin-inactive-list.html');
+            getNotification();
         });
 
         $('#sbAddNewAdmin').on('click', function() {
             $("#admin-container").load('./form-add-new-admin.html');
+            getNotification();
         });
 
         $('#sbUpdateAdmin').on('click', function() {
             $("#admin-container").load('./form-update-admin.html');
+            getNotification();
         });
 
         $('#sidebar-question-list').on('click', function() {
             $("#admin-container").load('./form-question-list.html');
+            getNotification();
         });
 
         $('#sidebar-answer-list').on('click', function() {
             $("#admin-container").load('./form-answer-list.html');
+            getNotification();
         });
 
         $('#sbRating').on('click', function() {
             $("#admin-container").load('./form-rating.html');
+            getNotification();
         });
 
         $('#sidebar-reported-question').on('click', function() {
             $("#admin-container").load('./form-reported-question.html');
+            getNotification();
         });
 
         $('#sidebar-reported-answer').on('click', function() {
             $("#admin-container").load('./form-reported-answer.html');
+            getNotification();
         });
 
         $('#sidebar-reported-student').on('click', function() {
             $("#admin-container").load('./form-reported-student.html');
+            getNotification();
         });
 
         $('#navbar-profile').on('click', function() {
             $("#admin-container").load('./form-profile.html', function() {
                 $("#input-profile-admin-id").val(<?php echo $_SESSION['user_id']; ?>);
             });
+            getNotification();
         });
 
         $('#sidebar-subject-list').on('click', function() {
             $("#admin-container").load('./form-subject-list.html');
+            getNotification();
         });
 
         if (<?php echo $_SESSION['status']; ?> == -1) {

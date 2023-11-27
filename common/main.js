@@ -370,7 +370,7 @@ function populateProfessionalRankingRow(image, name, specialization, rank, ratin
                                     <div class="profile-header-img">
                                         <img loading="lazy" class="img-profile img-circle rounded-circle" ${styleSize} src="${image}">
                                         <div class="rank-label-container pt-2">
-                                            <span class="label label-default rank-label text-white px-3 py-0" ${styleRank}>#${rank} <i class="fa-solid fa-trophy"></i></span>
+                                            <span class="label label-default rank-label text-white px-3 py-0" ${styleRank}>#${rank}</span>
                                         </div>
                                     </div>
                                 </div>

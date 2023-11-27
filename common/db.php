@@ -704,23 +704,34 @@ function retrieveRankingList($limit, $filter){
   if ($result->num_rows > 0) {
     $rankingList = array(); 
     while($row = $result->fetch_assoc()) {
-      $rank = new Rank();
-      $rank->set_studentID($row["student_id"]);
-      if(isSpecialAccount($row["student_id"])){
-        $rank->set_professionalInformation(retrieveProfessionalDetail($connectDB, $row["student_id"]));
-      } else {
-        $rank->set_studentInformation(retrieveStudentDetail($connectDB, $row["student_id"]));
+      // Check if user_name is not null
+      if (isUserNameNotNull($row["student_id"])) {
+        $rank = new Rank();
+        $rank->set_studentID($row["student_id"]);
+        $rank->set_rating($row["total_rating"]);
+        $rank->set_rank($row["rank"]);
+        if(isSpecialAccount($row["student_id"])){
+          $rank->set_professionalInformation(retrieveProfessionalDetail($connectDB, $row["student_id"]));
+        } else {
+          $rank->set_studentInformation(retrieveStudentDetail($connectDB, $row["student_id"]));
+        }
+        array_push($rankingList, $rank);
       }
-
-      $rank->set_rating($row["total_rating"]);
-      $rank->set_rank($row["rank"]);
-      array_push($rankingList, $rank); 
     }
     echo json_encode(array("statusCode"=>200, "rankingList"=>$rankingList));
   } else {
     echo json_encode(array("statusCode"=>201));
   }
   $connectDB->close();
+}
+
+// Function to check if user_name is not null
+function isUserNameNotNull($studentID) {
+  $connectDB = databaseConnection();
+  $sql = "SELECT user_name FROM account_information WHERE user_id = '$studentID' AND user_name IS NOT NULL";
+  $result = $connectDB->query($sql);
+  $connectDB->close();
+  return $result->num_rows > 0;
 }
 
 function retrieveProfessionalDetail($connectDB, $studentID){
@@ -800,7 +811,7 @@ function retrieveProfessionalNumber($status){
 function retrieveReportedNumber($type){
   $sql = "";
   if($type == "1"){
-    $sql = "SELECT * FROM report where type = '1'";
+    $sql = "SELECT * FROM report LEFT JOIN question_information ON report.reported_id = question_information.question_id WHERE report.type = '1' AND report.status = '1' AND question_information.status > 0";
   } else if ($type != "1") {
     $sql = "SELECT * FROM report where type != '1'";
   }
@@ -3390,6 +3401,16 @@ if($_POST['action'] == "validate-student-email"){
 
 if($_POST['action'] == "validate-otp"){
   validateOTP();
+  exit;
+}
+
+if($_POST['action'] == "retrieve-admin-notification"){
+  $numberOfProfessionalRequest = retrieveProfessionalNumber(0);
+  $numberOfReportedAnswer = retrieveReportedNumber(1);
+  $numberOfReportedQuestion = retrieveReportedNumber(2);
+  echo json_encode(array(
+    "professional"=>array("professionalRequest"=>$numberOfProfessionalRequest),
+    "report"=>array("question"=>$numberOfReportedAnswer, "answer"=>$numberOfReportedQuestion)));
   exit;
 }
 

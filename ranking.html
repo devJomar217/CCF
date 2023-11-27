@@ -195,7 +195,7 @@
                         var dataResult = JSON.parse(dataResult);
                         if (dataResult.statusCode == 200) {
                             dataResult.rankingList.forEach(rank => {
-                                if (rating < 1) {
+                                if (rank.rating < 1) {
                                     return;
                                 }
 
