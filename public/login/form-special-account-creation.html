@@ -81,8 +81,9 @@
 
     <!-- Submit button -->
     <button type="submit" class="btn btn-primary btn-block mb-2 w-100">
-      Create Account
+        Create Account <i class="fas fa-user-plus"></i>
     </button>
+
 
     <div class="form-check d-flex justify-content-center mb-2">
         <label class="form-check-label">- OR -</label>
@@ -96,17 +97,22 @@
     <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Account Creation Failed</h5>
+                <h5 class="modal-title">
+                    <i class="fas fa-exclamation-circle text-danger"></i> Account Creation Failed
+                </h5>
             </div>
             <div class="modal-body">
-                Unable to create account, please try again later!
+                Unable to create an account, please try again later!
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger close" id="button-modal-close" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger close" id="button-modal-close" data-dismiss="modal">
+                    <i class="fas fa-times"></i> Close
+                </button>
             </div>
         </div>
     </div>
 </div>
+
 
 <script>
     function checkPasswordStrength() {

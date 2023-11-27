@@ -130,17 +130,21 @@
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v17.0" nonce="z2fQyic9"></script>
 <div class="container mt-3 mb-5">
+    <!-- Question Card -->
     <div class="row">
         <div class="col">
             <div class="card shadow-sm p-2">
                 <div class="card-body" id="login-form">
                     <div id="card-form">
-                        <div class="row py-3 align-middle">
-                            <div class="col-lg-1 order-lg-1 order-2 col-12 pl-4 pt-0 mt-0 mb-lg-0 mb-3 tex-center"><img loading="lazy" class="img-profile img-circle rounded-circle" style="width:60px; height: 60px;" src="./../../resource/profile/default.svg" id="question-picture"></div>
-                            <div class="col-lg-7 order-lg-2 order-3 align-middle">
-                                <div class="row mb-lg-0 pb-lg-0 mb-2">
-                                    <div class="col-lg-9 col-12 align-middle">
-                                        <h6 class="align-middle"><b class="align-middle" id="question-user-name"></b></h6>
+                        <!-- User Info -->
+                        <div class="row py-3 align-items-center">
+                            <div class="col-lg-1 order-lg-1 order-2 col-12 pl-4 pt-0 mt-0 mb-lg-0 mb-3 text-center">
+                                <img loading="lazy" class="img-profile img-circle rounded-circle" style="width:60px; height: 60px;" src="./../../resource/profile/default.svg" id="question-picture">
+                            </div>
+                            <div class="col-lg-7 order-lg-2 order-3">
+                                <div class="row mb-2">
+                                    <div class="col-lg-9 col-12">
+                                        <h6><b id="question-user-name"></b></h6>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -151,29 +155,31 @@
                             </div>
                             <div class="col-lg-4 ml-auto order-lg-3 order-1">
                                 <div class="row mb-3">
-                                    <div class="col-9 text-right" id="question-status">
-                                    </div>
+                                    <div class="col-9 text-right" id="question-status"></div>
                                     <div class="col-1 text-right login-user">
                                         <div class="btn-group d-flex flex-row-reverse dropright">
                                             <i class="fa fa-solid fa-ellipsis-v pl-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
                                             <div class="dropdown-menu">
-                                                <button class="dropdown-item for-non-creator for-non-creator-report-question" type="button" data-toggle="modal" data-target="#modal-report-question" id=""><i class="fa fa-flag fa-sm"></i> Report</button>
-                                                <button class="dropdown-item for-creator for-creator-edit-question" data-toggle="modal" data-target="#modal-edit-question" type="button"><i class="fa fa-pen fa-sm"></i> Edit Question</button>
-                                                <button class="dropdown-item for-creator for-creator-delete-question" data-toggle="modal" data-target="#modal-delete-question" type="button"><i class="fa fa-trash fa-sm"></i> Delete Question</button>
+                                                <button class="dropdown-item for-non-creator for-non-creator-report-question" type="button" data-toggle="modal" data-target="#modal-report-question"><i class="fa fa-flag fa-sm"></i> Report</button>
+                                                <button class="dropdown-item for-creator for-creator-edit-question" data-toggle="modal" data-target="#modal-edit-question" type="button"><i class="fa fa-pen fa-sm text-success"></i> Edit Question</button>
+                                                <button class="dropdown-item for-creator for-creator-delete-question" data-toggle="modal" data-target="#modal-delete-question" type="button"><i class="fa fa-trash fa-sm text-danger"></i> Delete Question</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row mt-3 mb-0 pb-0">
+                        <!-- Question Title -->
+                        <div class="row ml-1 mt-3 mb-0">
                             <div class="col">
-                                <b><p class="mb-0 pb-0" id="question-title"></p></b>
+                                <b><p class="mb-0" id="question-title"></p></b>
                             </div>
                         </div>
-                        <div class="row mt-3 pt-0">
+                        <!-- Question Description -->
+                        <div class="row ml-1 mt-3">
                             <div class="col">
-                                <p class="mb-0 pb-0" id="question-description" style="white-space: pre-line; tab-size: 8;"></p>
+                                <p class="mb-0" id="question-description" style="white-space: pre-line; tab-size: 8;"></p>
+                                <div class="mt-4 attachment-link-container"></div>
                             </div>
                         </div>
                     </div>
@@ -182,30 +188,32 @@
         </div>
     </div>
 
-
+    <!-- Answer Card -->
     <div class="row mt-3">
         <div class="col">
-            <div class="card shadow-sm ">
+            <div class="card shadow-sm">
                 <div class="card-body">
                     <div id="card-form">
                         <div class="login-user">
+                            <!-- Answer Form -->
                             <form class="" id="form-answer-now">
                                 <div class="row">
                                     <div class="col">
-                                        <textarea class="form-control" name="" placeholder="Enter your answer here..." id="textarea-answer" required></textarea>
+                                        <textarea class="form-control" name="" placeholder="Enter your answer here..." id="textarea-answer" required maxlength="1000"></textarea>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col d-flex mt-2">
-                                        <div class="col d-flex mt-2 justify-content-end">
-                                            <div class="justify-content-end p-2"><a href="#answer-now" id="btn-answer-now" class="btn btn-success btn-sm " value="">Use Text Editor <i class="fa fa-edit"></i></a></div>
-                                            <div class="justify-content-end p-2"><button type="submit" class="btn btn-primary btn-sm">Answer Now <i class="fa fa-paper-plane"></i></button></div>
-                                        </div>
+                                <div class="row mt-2 justify-content-end">
+                                    <div class="col-auto p-2">
+                                        <a href="#answer-now" id="btn-answer-now" class="btn btn-success btn-sm">Use Text Editor <i class="fa fa-edit"></i></a>
+                                    </div>
+                                    <div class="col-auto p-2">
+                                        <button type="submit" class="btn btn-primary btn-sm">Answer Now <i class="fa fa-paper-plane"></i></button>
                                     </div>
                                 </div>
                             </form>
                             <hr class="sidebar-divider mt-4">
                         </div>
+                        <!-- Answers Section -->
                         <h5 class="mb-4"><b>Answers</b></h5>
                         <div id="container-answers"></div>
                     </div>
@@ -214,6 +222,7 @@
         </div>
     </div>
 </div>
+
 <div class="modal fade" id="modal-edit-question" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -222,49 +231,39 @@
             </div>
             <form id="form-edit-question" class="needs-validation container">
                 <div class="modal-body">
-
                     <div class="row mb-3">
-                        <div class="col-1 d-flex align-middle text-center">
-                            <label class="form-label align-middle pr-2 pt-2" for="input-">Title</label>
-                        </div>
-                        <div class="col">
+                        <div class="col-12">
+                            <label class="form-label align-middle pr-2 pt-2" for="input-edit-question-title">Title</label>
                             <input type="text" id="input-edit-question-title" class="form-control" placeholder="Enter title" required/>
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <div class="col-8">
-                            <div class="row">
-                                <div class="col-2">
-                                    <label class="form-label align-middle pt-2" for="input-scan">Subject</label>
-                                </div>
-                                <div class="col-10">
-                                    <select class="form-control dropdown" id="input-edit-question-subject">
-                                    </select>
-                                </div>
-                            </div>
+                        <div class="col-6">
+                            <label class="form-label align-middle pr-2 pt-2" for="input-edit-question-subject">Subject</label>
+                            <select class="form-control" id="input-edit-question-subject">
+                                <!-- Add your subject options here -->
+                            </select>
                         </div>
-
-                        <div class="col-4">
-                            <div class="row">
-                                <div class="col-4">
-                                    <label class="form-label align-middle pr-2 pt-2" for="input-scan">Status</label>
-                                </div>
-                                <div class="col-8">
-                                    <select class="form-control dropdown" id="input-edit-question-status">
-                                        <option value="1">Unanswered</option>
-                                        <option value="2">Answered</option>
-                                    </select>
-                                </div>
-                            </div>
+                        <div class="col-6">
+                            <label class="form-label align-middle pr-2 pt-2" for="input-edit-question-status">Status</label>
+                            <select class="form-control" id="input-edit-question-status">
+                                <option value="1">Unanswered</option>
+                                <option value="2">Answered</option>
+                            </select>
                         </div>
                     </div>
-
+                    <div class="row mb-3">
+                        <div class="col-12">
+                            <label class="form-label align-middle pr-2 pt-2" for="input-edit-question-attachment">Attachment</label>
+                            <input type="file" name="attachment" class="form-control" id="input-edit-question-attachment">
+                            <div class="mt-3 attachment-link-container"></div>
+                        </div>
+                    </div>
                     <div class="form-outline mb-3 ml-3 mt-4 mr-3">
                         <div class="w-100">
                             <div class="row row-editor">
                                 <div class="editor-container">
-                                    <div class="editor-edit-question">
-                                    </div>
+                                    <div id="editor-edit-question"></div>
                                 </div>
                             </div>
                         </div>
@@ -278,6 +277,7 @@
         </div>
     </div>
 </div>
+
 
 <div class="modal fade" id="modal-delete-question" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
     <div class="modal-dialog modal-md" role="document">
@@ -330,33 +330,40 @@
 </div>
 
 
-<div class="modal fade" id="modal-edit-answer" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+<div class="modal fade" id="modal-edit-answer" tabindex="-1" role="dialog" aria-labelledby="modal-edit-answer-title" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Edit Answer</h5>
+                <h5 class="modal-title" id="modal-edit-answer-title">Edit Answer</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-            <form id="form-edit-answer" class="needs-validation container">
+            <form id="form-edit-answer" class="needs-validation">
                 <div class="modal-body">
-                    <div class="form-outline mb-3 ml-3 mt-2 mr-3">
-                        <div class="w-100">
+                    <div class="container">
+                        <div class="form-outline mb-3">
                             <div class="row row-editor">
                                 <div class="editor-container">
-                                    <div class="editor-edit-answer">
-                                    </div>
+                                    <div id="editor-edit-answer"></div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="attachment">Attachment</label>
+                            <input type="file" class="form-control-file" id="attachment" name="attachment">
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal" id="button-close">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="button-close">Close</button>
                     <button type="button" id="button-edit-answer" class="btn btn-primary">Update</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+
 
 <div class="modal fade" id="modal-delete-answer" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
     <div class="modal-dialog modal-md" role="document">
@@ -456,9 +463,9 @@
                         $("#textarea-answer").val("");
                         retrieveForumDetails();
                         retrieveForumAnswers();
-                        alert("Success!");
+                        swalSuccessNotification("Answer has been successfully posted.");
                     } else {
-                        alert("Unable to post the answer, please try again later!");
+                        swalErrorNotification();
                     }
                 },
                 beforeSend: function() {
@@ -508,14 +515,13 @@
                     if (dataResult.statusCode == 200) {
                         if (type == 1) {
                             $("#modal-report-question").modal('toggle');
-                            alert("Report has been submitted!");
                             $("#main-container").load('./form-forum.html');
                         } else if (type == 2 || type == 3) {
                             $("#modal-report-answer").modal('toggle');
-                            alert("Report has been submitted!");
                         }
+                        swalSuccessNotification("Report has been successfully submitted.");
                     } else {
-                        alert("Unable to report, please try again later!");
+                        swalErrorNotification();
                     }
                 },
                 beforeSend: function() {
@@ -548,7 +554,7 @@
                 type: "POST",
                 data: {
                     action: 'update-answer',
-                    description: window.editorEditAnswer.getData(),
+                    description: getEditorData("editor-edit-answer"),
                     answerID: answerID
                 },
                 cache: false,
@@ -557,9 +563,9 @@
                     if (dataResult.statusCode == 200) {
                         retrieveForumAnswers();
                         $("#modal-edit-answer").modal('toggle');
-                        alert("Your answer has been successfully updated!");
+                        swalSuccessNotification("Your answer has been successfully updated.");
                     } else {
-                        alert("Unable to update the answer, please try again later!");
+                        swalErrorNotification();
                     }
                 },
                 beforeSend: function() {
@@ -583,7 +589,7 @@
                 type: "POST",
                 data: {
                     action: 'update-reply',
-                    description: window.editorEditAnswer.getData(),
+                    description: getEditorData("editor-edit-answer"),
                     replyID: replyID
                 },
                 cache: false,
@@ -592,9 +598,9 @@
                     if (dataResult.statusCode == 200) {
                         retrieveForumAnswers();
                         $("#modal-edit-answer").modal('toggle');
-                        alert("Your answer has been successfully updated!");
+                        swalSuccessNotification("Your answer has been successfully updated.");
                     } else {
-                        alert("Unable to update the answer, please try again later!");
+                        swalErrorNotification();
                     }
                 },
                 beforeSend: function() {
@@ -612,70 +618,56 @@
             });
         }
 
-        $("#form-edit-question").on('submit', function() {
+        $("#form-edit-question").on('submit', function(event) {
             event.preventDefault();
-            var title = $("#input-edit-question-title").val();
-            var subject = $("#input-edit-question-subject").val();
-            var status = $("#input-edit-question-status").val();
+
+            var formData = new FormData(this);
+            var fileInput = document.getElementById('input-edit-question-attachment');
+            var file = fileInput.files[0];
+
+            if (file) {
+                if (!validFileSize(file)) {
+                    return;
+                } else {
+                    formData.append('attachment', file);
+                }
+            }
+
+            formData.append('action', 'update-question');
+            formData.append('title', $("#input-edit-question-title").val());
+            formData.append('description', getEditorData("editor-edit-question"));
+            formData.append('questionID', questionID);
+            formData.append('subject', $("#input-edit-question-subject").val());
+            formData.append('status', $("#input-edit-question-status").val());
+
             $.ajax({
                 url: "../../common/db.php",
                 type: "POST",
-                data: {
-                    action: 'update-question',
-                    title: title,
-                    description: window.editorEditQuestion.getData(),
-                    subject: subject,
-                    questionID: questionID,
-                    status: status
-                },
+                data: formData,
+                contentType: false,
+                processData: false,
                 cache: false,
                 success: function(dataResult) {
                     var dataResult = JSON.parse(dataResult);
                     if (dataResult.statusCode == 200) {
                         retrieveForumDetails();
                         $("#modal-edit-question").modal('toggle');
-                        alert("Your question has been successfully updated!");
+                        swalSuccessNotification("Your question has been successfully updated.");
                     } else {
-                        alert("Unable to update the question, please try again later!");
+                        swalErrorNotification();
                     }
                 },
                 beforeSend: function() {
-                    // Code to be executed before the request is sent
                     console.log('Request is about to be sent');
                 },
                 error: function(xhr, status, error) {
-                    // Code to be executed if there is an error
                     console.error('Error:', error);
                 },
                 complete: function() {
-                    // Code to be executed after the request is complete (success, error, or abort)
                     console.log('Request is complete');
                 }
             });
         });
-
-        // if (window.editorEditQuestion == null || window.editorEditQuestion == undefined) {
-        ClassicEditor
-            .create(document.querySelector('.editor-edit-question'), {
-                extraPlugins: [MyCustomUploadAdapterPlugin],
-            })
-            .then(editor => {
-                editor.setData("TEST");
-                window.editorEditQuestion = editor;
-            })
-            .catch(handleSampleError);
-        // }
-
-        // if (window.editorEditAnswer == null || window.editorEditAnswer == undefined) {
-        ClassicEditor
-            .create(document.querySelector('.editor-edit-answer'), {
-                extraPlugins: [MyCustomUploadAdapterPlugin],
-            })
-            .then(editor => {
-                window.editorEditAnswer = editor;
-            })
-            .catch(handleSampleError);
-        // }
 
         function retrieveForumDetails() {
             $.ajax({
@@ -689,11 +681,13 @@
                 success: function(dataResult) {
                     var dataResult = JSON.parse(dataResult);
                     if (dataResult.statusCode == 200) {
+                        console.log(dataResult);
                         var question = dataResult.question;
                         var picture = question['picture'];
                         var status;
                         var description = question['description'];
                         var subjectName = question['subject'];
+                        var attachment = question['fileName'];
                         if (picture == "") {
                             picture = "./../../resource/profile/default.svg";
                         } else {
@@ -711,6 +705,19 @@
                             $(".for-creator").addClass("d-none");
                         }
 
+                        if (attachment) {
+                            // Display a link to download the attachment
+                            var downloadLink = $("<a>")
+                                .attr("href", "./../../resource/attachment/" + attachment)
+                                .attr("download", attachment)
+                                .text("Download Attachment: " + attachment);
+                            // Append the download link to the specified container
+                            $(".attachment-link-container").empty().append(downloadLink);
+                        } else {
+                            // If there is no attachment, clear the container
+                            $("#attachment-link-container").empty();
+                        }
+
                         creatorID = question.studentID;
 
                         $("#question-picture").attr("src", picture);
@@ -723,7 +730,7 @@
                         $("#question-delete-title").html(question.title);
                         $("#question-description").html(question.description);
                         $("#input-edit-question-title").val(question.title);
-                        window.editorEditQuestion.setData(question.description);
+                        initEditor("editor-edit-question", question.description, "Enter description here...");
                         $("#input-edit-question-subject").val(question.subjectID).change();
                         $("#input-edit-question-status").val(question.status).change();
                     }
@@ -771,10 +778,22 @@
                 success: function(dataResult) {
                     var dataResult = JSON.parse(dataResult);
                     if (dataResult.statusCode == 200) {
+                        // Sort the answer list based on correctAnswer
+                        dataResult.answerList.sort((a, b) => {
+                            if (a.correctAnswer && !b.correctAnswer) {
+                                return -1; // a comes before b
+                            } else if (!a.correctAnswer && b.correctAnswer) {
+                                return 1; // b comes before a
+                            } else {
+                                return 0; // no change in order
+                            }
+                        });
+
                         var answerList = "";
                         dataResult.answerList.forEach(answer => {
                             var answerID = answer.answerID;
                             var studentID = answer.studentID;
+                            var questionerID = answer.questionerID;
                             var text = answer.answer;
                             var picture = answer.picture;
                             var replies = "";
@@ -796,8 +815,8 @@
 
                                     var menu;
                                     if (userID == reply.studentID) {
-                                        menu = `<button class="dropdown-item for-creator-edit-reply" type="button" data-id="${reply.replyID}" data-toggle="modal" data-target="#modal-edit-answer" id=""><i class="fa fa-pencil fa-sm"></i> Edit Answer</button>
-                                        <button class="dropdown-item for-creator-delete-reply" type="button" data-id="${reply.replyID}" data-toggle="modal" data-target="#modal-delete-answer" id=""><i class="fa fa-trash fa-sm"></i> Delete Answer</button>`;
+                                        menu = `<button class="dropdown-item for-creator-edit-reply" type="button" data-id="${reply.replyID}" data-toggle="modal" data-target="#modal-edit-answer"><i class="fa fa-pencil fa-sm text-success"></i> Edit Answer</button>
+                                        <button class="dropdown-item for-creator-delete-reply" type="button" data-id="${reply.replyID}" data-toggle="modal" data-target="#modal-delete-answer" id=""><i class="fa fa-trash fa-sm text-danger"></i> Delete Answer</button>`;
                                     } else {
                                         menu = `<button class="dropdown-item for-non-creator-reply-report" type="button" data-id="${reply.replyID}" data-toggle="modal" data-target="#modal-report-answer" id=""><i class="fa fa-flag fa-sm"></i> Report</button>`;
                                     }
@@ -818,7 +837,7 @@
                                                 <div class="ml-lg-5 ml-2 my-4">
                                                     <div class="row">
                                                         <div class="col">
-                                                            <b><span class="text-primary">Replies</span></b>
+                                                            <b><span class="text-primary">Comments</span></b>
                                                         </div>
                                                     </div>
                                                     ${replies}
@@ -828,12 +847,49 @@
                             var menu;
                             var hasRateButton = false;
                             if (userID == studentID) {
-                                menu = `<button class="dropdown-item for-creator-edit-answer" type="button" data-id="${answerID}" data-toggle="modal" data-target="#modal-edit-answer" id=""><i class="fa fa-pencil fa-sm"></i> Edit Answer</button>
-                                        <button class="dropdown-item for-creator-delete-answer" type="button" data-id="${answerID}" data-toggle="modal" data-target="#modal-delete-answer" id=""><i class="fa fa-trash fa-sm"></i> Delete Answer</button>`;
+                                menu = `<button class="dropdown-item for-creator-edit-answer" type="button" data-id="${answerID}" data-toggle="modal" data-target="#modal-edit-answer" id=""><i class="fa fa-pencil fa-sm text-success"></i> Edit Answer</button>
+                                        <button class="dropdown-item for-creator-delete-answer" type="button" data-id="${answerID}" data-toggle="modal" data-target="#modal-delete-answer" id=""><i class="fa fa-trash fa-sm text-danger"></i> Delete Answer</button>`;
                             } else {
                                 menu = `<button class="dropdown-item for-non-creator-report-answer" type="button" data-id="${answerID}" data-toggle="modal" data-target="#modal-report-answer" id=""><i class="fa fa-flag fa-sm"></i> Report</button>`;
                                 hasRateButton = true;
                             }
+
+                            var attachment = "";
+                            if (answer.fileName != null && answer.fileName != "") {
+                                attachment = `<a href="./../../resource/attachment/${answer.fileName}" download="${answer.fileName}">Download Attachment: ${answer.fileName}</a>`;
+                            }
+
+                            var markAsCorrect = "";
+
+
+                            if (questionerID == userID) {
+                                if (userID != studentID) {
+                                    markAsCorrect = `<div class="btn-group-toggle mb-2" data-toggle="buttons">
+                                                    <label class="btn btn-outline-success mark-correct-answer">
+                                                        <input type="checkbox" name="correctAnswer" autocomplete="off" data-id="${answerID}" data-questionID="${questionID}" class="mark-correct-input"> Mark as Correct Answer
+                                                        <i class="fas fa-check"></i>
+                                                    </label>
+                                                </div>`;
+                                    if (answer.correctAnswer) {
+                                        markAsCorrect = `<div class="btn-group-toggle mb-2" data-toggle="buttons">
+                                                    <label class="btn btn-outline-danger mark-correct-answer active">
+                                                        <input type="checkbox" name="correctAnswer" autocomplete="off" data-id="${answerID}" data-questionID="${questionID}" class="mark-correct-input" checked> Unmark as Correct Answer
+                                                        <i >&#10006;</i>
+                                                    </label>
+                                                </div>`;
+                                    }
+                                }
+                            } else {
+                                if (answer.correctAnswer) {
+                                    markAsCorrect = `<div class="btn-group-toggle mb-2" data-toggle="buttons">
+                                                    <label class="btn btn-outline-success mark-correct-answer active">
+                                                        <input type="checkbox" name="correctAnswer" autocomplete="off" disabled data-id="${answerID}" data-questionID="${questionID}" class="mark-correct-input" checked> Correct Answer
+                                                        <i class="fas fa-check"></i>
+                                                    </label>
+                                                </div>`;
+                                }
+                            }
+
 
                             answerList += populateAnswerRow(
                                 answerID,
@@ -852,7 +908,9 @@
                                 menu,
                                 hasRateButton,
                                 answer.specialization,
-                                answer.studentID
+                                answer.studentID,
+                                attachment,
+                                markAsCorrect
                             );
 
                         });
@@ -865,6 +923,85 @@
                         $(".login-user").addClass("d-none");
                     }
 
+                    $(".mark-correct-input").on("change", function() {
+                        $(this).closest(".btn").toggleClass("btn-outline-success btn-success");
+                        var id = $(this).data("id");
+                        var questionID = $(this).data("questionid");
+                        if ($(this).is(":checked")) {
+                            Swal.fire({
+                                title: 'Are you sure?',
+                                text: 'Do you want to mark this as the correct answer?',
+                                icon: 'question',
+                                showCancelButton: true,
+                                confirmButtonColor: '#3085d6',
+                                cancelButtonColor: '#d33',
+                                confirmButtonText: 'Yes',
+                                cancelButtonText: 'No'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    // Call the function to mark the answer as correct
+                                    markAsCorrectFunction(questionID, id, true); // Replace this with your actual function
+                                }
+                            });
+                        } else {
+                            Swal.fire({
+                                title: 'Are you sure?',
+                                text: 'Do you want to unmark this as the correct answer?',
+                                icon: 'question',
+                                showCancelButton: true,
+                                confirmButtonColor: '#3085d6',
+                                cancelButtonColor: '#d33',
+                                confirmButtonText: 'Yes',
+                                cancelButtonText: 'No'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    // Call the function to mark the answer as correct
+                                    markAsCorrectFunction(questionID, id, false); // Replace this with your actual function
+                                }
+                            });
+                        }
+                    });
+
+                    function markAsCorrectFunction(questionID, id, markAsCorrect) {
+                        $.ajax({
+                            url: "../../common/db.php",
+                            type: "POST",
+                            data: {
+                                action: 'mark-as-correct-answer',
+                                answerID: id,
+                                questionID: questionID,
+                                markAsCorrect: markAsCorrect
+                            },
+                            cache: false,
+                            success: function(dataResult) {
+                                var dataResult = JSON.parse(dataResult);
+                                if (dataResult.statusCode == 200) {
+                                    retrieveForumDetails();
+                                    retrieveForumAnswers();
+                                    if (markAsCorrect) {
+                                        swalSuccessNotification("The answer has been successfully marked as the correct answer.");
+                                    } else {
+                                        swalSuccessNotification("The answer has been successfully unmarked as the correct answer.");
+                                    }
+                                } else {
+                                    swalErrorNotification();
+                                }
+                            },
+                            beforeSend: function() {
+                                // Code to be executed before the request is sent
+                                console.log('Request is about to be sent');
+                            },
+                            error: function(xhr, status, error) {
+                                // Code to be executed if there is an error
+                                console.error('Error:', error);
+                            },
+                            complete: function() {
+                                // Code to be executed after the request is complete (success, error, or abort)
+                                console.log('Request is complete');
+                            }
+                        });
+                    }
+
                     $(".button-reply").on('click', function() {
                         if ($("#container-reply-" + this.id).hasClass("d-none")) {
                             $("#container-reply-" + this.id).removeClass("d-none");
@@ -875,7 +1012,7 @@
 
                     $(".for-creator-edit-answer").on("click", function(e) {
                         var answerID = $(this).data("id");
-                        window.editorEditAnswer.setData($("#answer-" + answerID).html());
+                        initEditor("editor-edit-answer", $("#answer-" + answerID).html(), "Enter your answer here...");
                         $("#button-edit-answer").data("id", answerID);
                         $("#button-edit-answer").data("type", 1);
                     });
@@ -901,7 +1038,7 @@
 
                     $(".for-creator-edit-reply").on('click', function() {
                         var answerID = $(this).data("id");
-                        window.editorEditAnswer.setData($("#reply-" + answerID).html());
+                        initEditor("editor-edit-answer", $("#reply-" + answerID).html(), "Enter your answer here...");
                         $("#button-edit-answer").data("id", answerID);
                         $("#button-edit-answer").data("type", 2);
                     });
@@ -1076,10 +1213,10 @@
                 success: function(dataResult) {
                     var dataResult = JSON.parse(dataResult);
                     if (dataResult.statusCode == 200) {
-                        alert("Question successfully deleted!");
+                        swalSuccessNotification("Your question has been successfully deleted.");
                         $("#main-container").load('./form-forum.html');
                     } else {
-                        alert("Unable to delete question, please try again later!");
+                        swalErrorNotification();
                     }
                 },
                 beforeSend: function() {
@@ -1112,9 +1249,9 @@
                     var dataResult = JSON.parse(dataResult);
                     if (dataResult.statusCode == 200) {
                         retrieveForumAnswers();
-                        alert("Answer successfully deleted!");
+                        swalSuccessNotification("Your answer has been successfully updated.");
                     } else {
-                        alert("Unable to delete answer, please try again later!");
+                        swalErrorNotification();
                     }
                 },
                 beforeSend: function() {
@@ -1147,9 +1284,9 @@
                     var dataResult = JSON.parse(dataResult);
                     if (dataResult.statusCode == 200) {
                         retrieveForumAnswers();
-                        alert("Answer successfully deleted!");
+                        swalSuccessNotification("Your comment has been successfully updated.");
                     } else {
-                        alert("Unable to delete answer, please try again later!");
+                        swalErrorNotification();
                     }
                 },
                 beforeSend: function() {
@@ -1331,22 +1468,9 @@
                     var dataResult = JSON.parse(dataResult);
                     if (dataResult.statusCode == 200) {
                         retrieveForumAnswers();
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Success',
-                            text: 'Your comment has been successfully posted.',
-                            timer: 3000, // Time in milliseconds (e.g., 3000 = 3 seconds)
-                            showConfirmButton: true // Hides the "OK" button
-                        }).then((result) => {
-                            // You can add additional logic here if needed
-                            if (result.dismiss === Swal.DismissReason.timer) {
-                                // The alert was closed by the timer
-                                console.log('Alert was closed by timer');
-                            }
-                            // You can add more logic based on user interaction if needed
-                        });
+                        swalSuccessNotification("Your comment has been successfully posted.");
                     } else {
-                        alert("Something went wrong, please try again later!");
+                        swalErrorNotification();
                     }
                 },
                 beforeSend: function() {

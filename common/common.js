@@ -88,6 +88,8 @@ function getNotificationCount() {
             if (dataResult.statusCode == 200) {
                 if (dataResult.notificationCount != 0) {
                     $('#notification-count').html(dataResult.notificationCount);
+                } else {
+                    $('#notification-count').html("");
                 }
             }
         },
@@ -189,5 +191,74 @@ function convertTo12HourFormat(dbDateTime) {
     } else {
         // More than a month ago, return the original date-time
         return date + " " + time12;
+    }
+}
+
+function swalErrorNotification() {
+    Swal.fire({
+        icon: 'error',
+        title: 'Oppss...',
+        text: 'Unable to post the question, please try again later.',
+        timer: 3000, // Time in milliseconds (e.g., 3000 = 3 seconds)
+        showConfirmButton: true // Hides the "OK" button
+    }).then((result) => {
+        // You can add additional logic here if needed
+        if (result.dismiss === Swal.DismissReason.timer) {
+            // The alert was closed by the timer
+            console.log('Alert was closed by timer');
+        }
+        // You can add more logic based on user interaction if needed
+    });
+}
+
+function swalSuccessNotification(message) {
+    Swal.fire({
+        icon: 'success',
+        title: 'Success',
+        text: message,
+        timer: 3000, // Time in milliseconds (e.g., 3000 = 3 seconds)
+        showConfirmButton: true // Hides the "OK" button
+    }).then((result) => {
+        // You can add additional logic here if needed
+        if (result.dismiss === Swal.DismissReason.timer) {
+            // The alert was closed by the timer
+            console.log('Alert was closed by timer');
+        }
+        // You can add more logic based on user interaction if needed
+    });
+}
+
+function swalInfoNotification(title, message) {
+    Swal.fire({
+        icon: 'success',
+        title: title,
+        text: message,
+        timer: 3000, // Time in milliseconds (e.g., 3000 = 3 seconds)
+        showConfirmButton: true // Hides the "OK" button
+    }).then((result) => {
+        // You can add additional logic here if needed
+        if (result.dismiss === Swal.DismissReason.timer) {
+            // The alert was closed by the timer
+            console.log('Alert was closed by timer');
+        }
+        // You can add more logic based on user interaction if needed
+    });
+}
+
+function validFileSize(file) {
+    var maxSize = 20 * 1024 * 1024; // 20 MB in bytes
+    if (file) {
+        if (file.size > maxSize) {
+            Swal.fire({
+                icon: 'error',
+                title: 'File Size Limit Exceeded',
+                text: 'Please upload a file with a maximum size of 20 MB.',
+            });
+            return false;
+        } else {
+            return true;
+        }
+    } else {
+        return false;
     }
 }

@@ -243,7 +243,7 @@
                 <div class="modal-body">
                     <div class="form-outline mb-2">
                         <label class="form-label" for="input-">Title</label>
-                        <input type="text" id="input-new-question-title" class="form-control" placeholder="Enter title" required/>
+                        <input type="text" id="input-new-question-title" class="form-control" placeholder="Enter title" maxlength="100" required/>
                         <div class="invalid-feedback">
                         </div>
                     </div>
@@ -256,7 +256,9 @@
                     <div class="row d-flex justify-content-between">
                         <div class="col">
                             <div class="form-group form-outline mb">
-                                <a href=""><i class="fa fa-paperclip"></i>Add Attachment</a>
+                                <a href="#" id="add-attachment-link">
+                                    <i class="fas fa-paperclip"></i> Add Attachment
+                                </a>
                                 <input type="file" value="Attachment" class="d-none">
                             </div>
                         </div>
@@ -277,6 +279,7 @@
     </div>
 </div>
 
+
 <div class="modal fade" id="modal-report-question" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -287,7 +290,7 @@
                 <div class="modal-body">
                     <div class="form-outline mb-2">
                         <label class="form-label" for="input-">Title</label>
-                        <input type="text" id="input-new-question-title" class="form-control" placeholder="Enter title" required/>
+                        <input type="text" id="input-new-question-title" class="form-control" placeholder="Enter title" maxlength="100" required/>
                         <div class="invalid-feedback">
                         </div>
                     </div>
@@ -835,9 +838,7 @@
 
 
 
-        function navigateToForum() {
-            alert("test");
-        }
+        function navigateToForum() {}
 
         $("#input-status-filter").change(function() {
             getLatestQuestion($("#input-subject-filter").val(), $("#input-status-filter").val(), limit, "");
@@ -886,9 +887,9 @@
                     if (dataResult.statusCode == 200) {
                         getLatestQuestion(-1, -1, limit, "");
                         $("#modal-add-question").modal('toggle');
-                        alert("Your question has been successfully posted!");
+                        swalSuccessNotification("Your question has been successfully posted.");
                     } else {
-                        alert("Unable to post the question, please try again later!");
+                        swalErrorNotification();
                     }
                 },
                 beforeSend: function() {

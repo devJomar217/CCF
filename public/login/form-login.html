@@ -1,6 +1,8 @@
 <form id="form-login">
-    <div class="text-center mb-4">
-        <h2 class="h3 mb-3">Login</h2>
+    <div class="row">
+        <div class="col-12 mb-4">
+            <h2>Login</h2>
+        </div>
     </div>
 
     <div class="alert alert-danger alert-dismissible fade show" id="error" role="alert" style="display:none;">
@@ -27,15 +29,30 @@
 
     <!-- Submit button -->
     <button type="submit" id="button-login" class="btn btn-primary btn-block w-100 mb-4">
-        Login
+        Login <i class="fas fa-sign-in-alt"></i>
     </button>
 
-    <div class="d-flex justify-content-center mb-2">
+    <div class="d-flex justify-content-center my-2">
         <label class="form-check-label">- OR -</label>
     </div>
-    <div class="d-flex justify-content-around">
-        <div class="p-2"><a href="#" class="btn btn-primary" id="button-create-account">Create Account</a></div>
-        <div class="p-2"><a href="#" class="btn btn-primary" id="button-guest-login">Login as Guest</a></div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <!-- Create Account Button -->
+            <div class="">
+                <button href="#" class="btn btn-success btn-block w-100" id="button-create-account">
+                    Create Account <i class="fas fa-user-plus"></i>
+                </button>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <!-- Login as Guest Button -->
+            <div class="">
+                <button href="#" class="btn btn-secondary btn-block w-100 text-white" id="button-guest-login">
+                    Login as Guest <i class="fas fa-user"></i>
+                </button>
+            </div>
+        </div>
     </div>
 </form>
 
@@ -102,7 +119,7 @@
                     if (dataResult.statusCode == 200) {
                         location.href = "../login/index.php";
                     } else {
-                        alert("Unable to login, please try again later!");
+                        swalErrorNotification();
                     }
                 },
                 beforeSend: function() {

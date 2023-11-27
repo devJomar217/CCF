@@ -22,6 +22,7 @@
                         <th>Username</th>
                         <th>Email Address</th>
                         <th>Job</th>
+                        <th>Likes</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -32,6 +33,7 @@
                         <th>Username</th>
                         <th>Email Address</th>
                         <th>Job</th>
+                        <th>Likes</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>
@@ -43,10 +45,10 @@
 </div>
 
 <div class="modal fade" id="modal-info-student" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Professional Account Information</h5>
+                <h5 class="modal-title" style="color: #333;">Professional Account Information</h5>
             </div>
             <div class="modal-body">
                 <div class="row px-3">
@@ -54,40 +56,70 @@
                         <img loading="lazy" class="rounded-circle img-circle-md" id="modal-info-student-image" src="./../../common/img/undraw_profile.svg">
                     </div>
 
-                    <div class="col-lg-12">
+                    <div class="col-lg-4">
                         <div class="form-group">
-                            <label for="modal-info-student-id"><b>Account ID:</b></label>
-                            <div for="" class="form-control" id="modal-info-student-id"></div>
+                            <label for="modal-info-student-id">Account ID:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                                </div>
+                                <div class="form-control" id="modal-info-student-id" required disabled readonly></div>
+                            </div>
+                            <div class="invalid-feedback">Please provide a valid student ID.</div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-8">
+                        <div class="form-group">
+                            <label for="modal-info-user-name"> Username:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                <div class="form-control" id="modal-info-user-name" required readonly></div>
+                            </div>
+                            <div class="invalid-feedback">Please enter a valid username.</div>
                         </div>
                     </div>
 
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label for="modal-info-name"><b>Name:</b></label>
-                            <div for="" class="form-control" id="modal-info-name"></div>
+                            <label for="modal-info-name">Full Name:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                <div class="form-control" id="modal-info-name" required readonly></div>
+                            </div>
+                            <div class="invalid-feedback">Please provide the student's name.</div>
                         </div>
                     </div>
 
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label for="modal-info-specialization"><b>Job:</b></label>
-                            <div for="" class="form-control" id="modal-info-specialization"></div>
+                            <label for="modal-info-email"> Email:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                </div>
+                                <div class="form-control" id="modal-info-email" required readonly></div>
+                            </div>
+                            <div class="invalid-feedback">Please enter a valid email address.</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label for="modal-info-specialization">Job:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-book"></i></span>
+                                </div>
+                                <div class="form-control" id="modal-info-specialization" required readonly></div>
+                            </div>
+                            <div class="invalid-feedback">Please provide the student's major.</div>
                         </div>
                     </div>
 
-                    <div class="col-lg-12">
-                        <div class="form-group">
-                            <label for="modal-info-user-name"><b>Username:</b></label>
-                            <div for="" class="form-control" id="modal-info-user-name"></div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-12">
-                        <div class="form-group">
-                            <label for="modal-info-email"><b>Email:</b></label>
-                            <div for="" class="form-control" id="modal-info-email"></div>
-                        </div>
-                    </div>
                 </div>
             </div>
             <div class="modal-footer">
@@ -97,27 +129,47 @@
     </div>
 </div>
 
+
 <div class="modal fade" id="modal-edit-student" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Update Professional Account</h5>
+                <h5 class="modal-title" style="color: #333;">Update Professional Account</h5>
             </div>
 
             <form action="" id="form-update-professional" class="container">
                 <div class="modal-body">
                     <div class="row px-3">
                         <div class="col-lg-12 text-center mb-4">
-                            <img loading="lazy" class="rounded-circle img-circle-md" id="modal-info-student-image" src="./../../common/img/undraw_profile.svg">
+                            <!-- Placeholder image, replace with dynamic image source -->
+                            <img loading="lazy" class="rounded-circle img-circle-md" id="modal-edit-student-image" src="./../../common/img/undraw_profile.svg" alt="Profile Image">
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col-lg-12">
+
+                        <div class="col-lg-4">
                             <div class="form-group">
-                                <label for="" class="form-label">Account ID</label>
-                                <input for="" class="form-control" id="modal-edit-student-id"></input>
-                                <div class="invalid-feedback"></div>
+                                <label for="modal-info-student-id">Account ID:</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" id="modal-edit-student-id" required disabled>
+                                </div>
+                                <div class="invalid-feedback">Please provide a valid student ID.</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="form-group">
+                                <label class="form-label" for="modal-edit-user-name">Username:</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" id="modal-edit-user-name" required>
+                                    <div class="invalid-feedback">Username already taken.</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -125,9 +177,14 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <label for="" class="form-label">Full Name</label>
-                                <input for="" class="form-control" id="modal-edit-name"></input>
-                                <div class="invalid-feedback"></div>
+                                <label class="form-label" for="modal-edit-name">Full Name</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" id="modal-edit-name" required>
+                                </div>
+                                <div class="invalid-feedback">Please provide the full name.</div>
                             </div>
                         </div>
                     </div>
@@ -135,9 +192,15 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <label for="" class="form-label">Job:</label>
-                                <input type="text" for="" class="form-control" id="modal-edit-specialization"></input>
-                                <div class="invalid-feedback"></div>
+                                <label class="form-label" for="modal-edit-email">Email:</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                    </div>
+                                    <input type="email" class="form-control" id="modal-edit-email" required>
+                                    <div class="invalid-feedback">Email address already taken.</div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -145,85 +208,27 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <label for="" class="form-label">Username:</label>
-                                <input type="text" for="" class="form-control" id="modal-edit-user-name"></input>
-                                <div class="invalid-feedback"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="form-group">
-                                <label for="" class="form-label">Email:</label>
-                                <input for="" class="form-control" id="modal-edit-email"></input>
-                                <div class="invalid-feedback"></div>
+                                <label class="form-label" for="modal-edit-specialization">Job:</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-briefcase"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" id="modal-edit-specialization" required>
+                                </div>
+                                <div class="invalid-feedback">Please provide the job information.</div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Update</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
 
-
-<div class="modal fade" id="modal-delete-student" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Are you sure do you to delete this record?</h5>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="form-group">
-                            <label for="modal-delete-student-id"><b>Account ID:</b></label>
-                            <div class="form-control" id="modal-delete-student-id"></div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-12">
-                        <div class="form-group">
-                            <label for="modal-delete-name"><b>Name:</b></label>
-                            <div class="form-control" id="modal-delete-name"></div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-12">
-                        <div class="form-group">
-                            <label for="modal-delete-specialization"><b>Job:</b></label>
-                            <div class="form-control" id="modal-delete-specialization"></div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-12">
-                        <div class="form-group">
-                            <label for="modal-delete-user-name"><b>Username:</b></label>
-                            <div class="form-control" id="modal-delete-user-name"></div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-12">
-                        <div class="form-group">
-                            <label for="modal-delete-email"><b>Email:</b></label>
-                            <div class="form-control" id="modal-delete-email"></div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                <button type="button" id="button-delete" class="btn btn-danger">Delete</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 <script>
@@ -236,6 +241,69 @@
             updateAccountStatus(studentID, '3');
             $('#modal-delete-student').modal('toggle');
         });
+
+        $("#form-update-professional").on("submit", function(event) {
+            event.preventDefault();
+            var studentId = $('#modal-edit-student-id').val();
+            var username = $('#modal-edit-user-name').val();
+            var fullName = $('#modal-edit-name').val();
+            var email = $('#modal-edit-email').val();
+            var yearLevel = $('#modal-edit-year-level').val();
+            var major = $('#modal-edit-specialization').val();
+
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'update-professional-record',
+                    studentID: studentId,
+                    userName: username,
+                    name: fullName,
+                    email: email,
+                    specialization: major
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode == 200 || dataResult.statusCode.includes(200)) {
+                        $("#modal-edit-student").modal("hide");
+                        swalSuccessNotification(); // Show SweetAlert for success
+                        retrieveStudentList();
+                    } else {
+                        // Handle input validation errors dynamically
+                        $.each(dataResult.statusCode, function(index, code) {
+                            var inputId = '';
+                            switch (code) {
+                                case 5100:
+                                    inputId = '#modal-edit-user-name';
+                                    break;
+                                case 5101:
+                                    inputId = '#modal-edit-email';
+                                    break;
+                                    // Add more cases if needed
+                            }
+                            if (inputId) {
+                                $(inputId).addClass("is-invalid");
+                            }
+                        });
+                    }
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                    swalErrorNotification(); // Show SweetAlert for error
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
+                }
+            });
+        });
+
 
 
         $("#dataTable").on('click', '.view_data', function() {
@@ -297,18 +365,63 @@
                 console.log(student);
                 console.log(studentID == student['studentID']);
                 if (studentID == student['studentID']) {
-                    $('#modal-delete-student-id').html(student['studentID']);
-                    $('#modal-delete-name').html(student['name']);
-                    $('#modal-delete-year-level').html(student['yearLevel']);
-                    $('#modal-delete-specialization').html(student['specialization']);
-                    $('#modal-delete-user-name').html(student['username']);
-                    $('#modal-delete-email').html(student['email']);
-                    $('#dmPicture').html(student['picture']);
-                    $('#modal-delete-student').modal('toggle');
-                    return;
+                    Swal.fire({
+                        title: 'Are you sure?',
+                        text: `You are about to delete the professional account with ID: ${student['studentID']}. This action cannot be undone.`,
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#d33',
+                        cancelButtonColor: '#3085d6',
+                        confirmButtonText: 'Yes, delete it!'
+                    }).then((result) => {
+                        // If the user confirms, perform the delete action
+                        if (result.isConfirmed) {
+                            // Call your delete function or make an AJAX request here
+                            // For example, you can call a function like deleteStudent() and handle the logic there
+                            deleteStudent(student['studentID']);
+                        }
+                    });
                 }
             });
         });
+
+        function deleteStudent(studentID) {
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'delete-professional',
+                    studentID: studentID,
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode != 200) {
+                        swalErrorNotification();
+                    }
+
+                    Swal.fire(
+                        'Deleted!',
+                        `The Professional Account with ID ${studentID} has been deleted.`,
+                        'success'
+                    );
+
+                    retrieveStudentList();
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
+                }
+            });
+        }
 
         function updateAccountStatus(userID, status) {
             $.ajax({
@@ -360,6 +473,7 @@
                                 populateTableData(student['username']),
                                 populateTableData(student['email']),
                                 populateTableData(student['specialization']),
+                                populateTableData(student['rating'] == null ? 0 : student['rating']),
                                 populateTableData(`<button type="button" class="btn btn-flat btn-default btn-sm dropdown-toggle dropdown-icon" data-toggle="dropdown">
                                   Action<span class="sr-only">Toggle Dropdown</span>
                                 </button>

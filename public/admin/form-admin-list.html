@@ -55,8 +55,9 @@
                 <thead>
                     <tr>
                         <th>Admin ID</th>
-                        <th>Name</th>
+                        <th>Full Name</th>
                         <th>Email Address</th>
+                        <th>Username</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -64,7 +65,8 @@
                 <tfoot>
                     <tr>
                         <th>Admin ID</th>
-                        <th>Name</th>
+                        <th>Full Name</th>
+                        <th>Username</th>
                         <th>Email Address</th>
                         <th>Status</th>
                         <th>Action</th>
@@ -77,28 +79,61 @@
     </div>
 </div>
 
-<div class="modal fade" id="modal-info-admin" tabindex="-1" role="dialog" aria-labelledby="modal-info-admin" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+<div class="modal fade" id="modal-info-admin" tabindex="-1" role="dialog" aria-labelledby="modal-info-admin-label" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Admin Information</h5>
+                <h5 class="modal-title" style="color: #333;">Admin Information</h5>
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-lg-12">
-                        <b>Admin ID:</b> <label for="" id="modal-body-admin-id"></label>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label class="form-label">Admin ID:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-id-badge"></i></span>
+                                </div>
+                                <input type="text" class="form-control" id="modal-body-admin-id" readonly>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-lg-12">
-                        <b>Name:</b> <label for="" id="modal-body-admin-name"></label>
+                    <div class="col-lg-8">
+                        <div class="form-group">
+                            <label class="form-label">Username:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                <input type="text" class="form-control" id="modal-body-admin-user-name" readonly>
+                            </div>
+                        </div>
                     </div>
+
                     <div class="col-lg-12">
-                        <b>Username:</b> <label for="" id="modal-body-admin-user-name"></label>
+                        <div class="form-group">
+                            <label class="form-label">Full Name:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                <input type="text" class="form-control" id="modal-body-admin-name" readonly>
+                            </div>
+                        </div>
                     </div>
+
                     <div class="col-lg-12">
-                        <b>Email:</b> <label for="" id="modal-body-admin-email"></label>
+                        <div class="form-group">
+                            <label class="form-label">Email:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                </div>
+                                <input type="email" class="form-control" id="modal-body-admin-email" readonly>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal" id="button-close">Close</button>
@@ -107,48 +142,70 @@
     </div>
 </div>
 
+
+
 <div class="modal fade" id="modal-edit-admin" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Update Admin Information</h5>
+                <h5 class="modal-title" style="color: #333;">Update Admin Information</h5>
             </div>
             <form action="" id="form-update-admin" class="container">
                 <div class="modal-body">
                     <div class="row form">
-                        <div class="col-lg-12">
+                        <div class="col-lg-4">
                             <div class="form-group">
                                 <label for="modal-body-edit-admin-id" class="form-label">Admin ID:</label>
-                                <input type="text" id="modal-body-edit-admin-id" class="form-control" required disabled>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                                    </div>
+                                    <input type="text" id="modal-body-edit-admin-id" class="form-control" required disabled readonly>
+                                </div>
                                 <div class="invalid-feedback"></div>
                             </div>
                         </div>
 
-                        <div class="col-lg-12">
-                            <div class="form-group">
-                                <label for="modal-body-edit-name" class="form-label">Name:</label>
-                                <input type="text" id="modal-body-edit-name" class="form-control" required>
-                                <div class="invalid-feedback"></div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-12">
+                        <div class="col-lg-8">
                             <div class="form-group">
                                 <label for="modal-body-edit-user-name" class="form-label">Username:</label>
-                                <input type="text" id="modal-body-edit-user-name" class="form-control" required>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                    </div>
+                                    <input type="text" id="modal-body-edit-user-name" class="form-control" required>
+                                </div>
                                 <div class="invalid-feedback"></div>
                             </div>
                         </div>
 
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <label for="modal-body-edit-email" class="form-label">Email:</label>
-                                <input type="email" id="modal-body-edit-email" class="form-control" required>
+                                <label for="modal-body-edit-name" class="form-label">Full Name:</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                    </div>
+                                    <input type="text" id="modal-body-edit-name" class="form-control" required>
+                                </div>
                                 <div class="invalid-feedback"></div>
                             </div>
                         </div>
 
-                        <div class="col-lg-12">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="modal-body-edit-email" class="form-label">Email:</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                    </div>
+                                    <input type="email" id="modal-body-edit-email" class="form-control" required>
+                                </div>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="modal-body-edit-status" class="form-label">Status:</label>
                                 <select id="modal-body-edit-status" class="form-control" required>
@@ -161,104 +218,89 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal" id="button-close">Close</button>
-                    <button type="button" class="btn btn-primary" id="button-update">Update</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
                 </div>
             </form>
+
         </div>
     </div>
 </div>
 
-<div class="modal fade" id="modal-delete-admin" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Delete Admin Information</h5>
-            </div>
-            <div class="modal-body">
-                <div class="row form">
-                    <div class="col-lg-12">
-                        <div class="form-group">
-                            <b for="modal-body-delete-admin-id">Admin ID:</b>
-                            <label for="" id="modal-body-delete-admin-id" class="form-control-static"></label>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-12">
-                        <div class="form-group">
-                            <b for="modal-body-delete-name">Name:</b>
-                            <label for="" id="modal-body-delete-name" class="form-control-static"></label>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-12">
-                        <div class="form-group">
-                            <b for="modal-body-delete-user-name">Username:</b>
-                            <label for="" id="modal-body-delete-user-name" class="form-control-static"></label>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-12">
-                        <div class="form-group">
-                            <b for="modal-body-delete-email">Email:</b>
-                            <label for="" id="modal-body-delete-email" class="form-control-static"></label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" id="button-close">Close</button>
-                <button type="button" class="btn btn-danger" id="button-delete">Delete</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 <div class="modal fade" id="modal-new-admin" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" style="color: black !important;">Add New Admin</h5>
             </div>
             <form id="form-admin-create-account" class="needs-validation">
                 <div class="modal-body">
-                    <div class="form-outline mb-3">
-                        <label class="form-label" for="input-name">Full Name</label>
-                        <input type="text" id="input-name" class="form-control" placeholder="Enter Full Name" required/>
-                        <div class="invalid-feedback">Please enter your full name.</div>
-                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group mb-3">
+                                <label class="form-label" for="input-name">Full Name</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                    <input type="text" id="input-name" class="form-control" placeholder="Enter Full Name" required />
+                                </div>
+                                <div class="invalid-feedback">Please enter your full name.</div>
+                            </div>
+                        </div>
 
-                    <div class="form-outline mb-3">
-                        <label class="form-label" for="input-email">Email Address</label>
-                        <input type="email" id="input-email" class="form-control" placeholder="Enter Email Address" required/>
-                        <div class="invalid-feedback" id="helpertext-email">Please enter a valid email address.</div>
-                    </div>
 
-                    <div class="form-outline mb-3">
-                        <label class="form-label" for="input-username">Username</label>
-                        <input type="text" id="input-username" class="form-control" placeholder="Enter Username" required/>
-                        <div class="invalid-feedback" id="helpertext-username">Please enter a username.</div>
-                    </div>
+                        <div class="col-lg-6">
+                            <div class="form-group mb-3">
+                                <label class="form-label" for="input-username">Username</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                    <input type="text" id="input-username" class="form-control" placeholder="Enter Username" required />
+                                    <div class="invalid-feedback" id="helpertext-username">Username already taken.</div>
+                                </div>
 
-                    <div class="form-outline mb-3">
-                        <label class="form-label" for="input-password">Password</label>
-                        <input type="password" name="input-password" id="input-password" class="full-width form-control" placeholder="Enter Password" required autocomplete="new-password" onkeyup="checkPasswordStrength();" />
-                        <div id="password-strength-status"></div>
-                        <div class="invalid-feedback" id="helpertext-password">Please enter a valid password.</div>
-                    </div>
+                            </div>
+                        </div>
 
-                    <div class="form-outline mb-4">
-                        <label class="form-label" for="input-confirm-password">Confirm Password</label>
-                        <input type="password" id="input-confirm-password" class="form-control" placeholder="Enter Confirm Password" required/>
-                        <div class="invalid-feedback">Passwords do not match.</div>
+                        <div class="col-lg-6">
+                            <div class="form-group mb-3">
+                                <label class="form-label" for="input-email">Email Address</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                    <input type="email" id="input-email" class="form-control" placeholder="Enter Email Address" required />
+                                    <div class="invalid-feedback" id="helpertext-email">Email address already taken.</div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group mb-3">
+                                <label class="form-label" for="input-password">Password</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                    <input type="password" name="input-password" id="input-password" class="full-width form-control" placeholder="Enter Password" required autocomplete="new-password" onkeyup="checkPasswordStrength();" />
+                                    <div id="password-strength-status"></div>
+                                </div>
+                                <div class="invalid-feedback" id="helpertext-password">Please enter a valid password.</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group mb-4">
+                                <label class="form-label" for="input-confirm-password">Confirm Password</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                    <input type="password" id="input-confirm-password" class="form-control" placeholder="Enter Confirm Password" required />
+                                    <div class="invalid-feedback">Passwords do not match.</div>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal" id="button-close">Close</button>
-                    <button type="submit" class="btn btn-primary">
-                    Create Admin Account
-                  </button>
+                    <button type="submit" class="btn btn-primary">Create</button>
                 </div>
             </form>
+
         </div>
     </div>
 </div>
@@ -314,17 +356,68 @@
             var confirmPassword = $('#input-confirm-password').val('');
         });
 
-        $("#button-update").on('click', function() {
-            var adminID = $('#modal-body-edit-admin-id').html();
-            var status = $('#modal-body-edit-status').val();
-            updateAccountStatus(adminID, status);
-            $('#modal-edit-admin').modal('toggle');
-        });
+        $("#form-update-admin").on("submit", function(event) {
+            event.preventDefault();
 
-        $("#button-delete").on('click', function() {
-            var adminID = $('#modal-body-delete-admin-id').html();
-            updateAccountStatus(adminID, '2');
-            $('#modal-delete-admin').modal('toggle');
+            var adminId = $("#modal-body-edit-admin-id").val();
+            var username = $('#modal-body-edit-user-name').val();
+            var fullName = $('#modal-body-edit-name').val();
+            var email = $('#modal-body-edit-email').val();
+            var status = $('#modal-body-edit-status').val();
+
+            $.ajax({
+                url: "./../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'update-admin-record',
+                    adminID: adminId,
+                    userName: username,
+                    name: fullName,
+                    email: email,
+                    status: status
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+
+                    if (dataResult.statusCode.includes(5002)) {
+                        $("#modal-body-edit-user-name").addClass('is-invalid');
+                        $("#modal-body-edit-user-name").next('.invalid-feedback').html("This username has already been used!");
+                    } else {
+                        $("#modal-body-edit-user-name").removeClass('is-invalid');
+                        $("#modal-body-edit-user-name").next('.invalid-feedback').html("");
+                    }
+
+                    if (dataResult.statusCode.includes(5003)) {
+                        $("#modal-body-edit-email").addClass('is-invalid');
+                        $("#modal-body-edit-email").next('.invalid-feedback').html("This email has already been used!");
+                    } else {
+                        $("#modal-body-edit-email").removeClass('is-invalid');
+                        $("#modal-body-edit-email").next('.invalid-feedback').html("");
+                    }
+
+                    if (dataResult.statusCode.includes(200)) {
+                        retrieveAdminList();
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: 'Admin record updated successfully!',
+                        });
+                        $('#modal-edit-admin').modal('toggle');
+                    } else if (dataResult.statusCode.includes(201)) {
+                        swalErrorNotification();
+                    }
+                },
+                beforeSend: function() {
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    console.log('Request is complete');
+                }
+            });
         });
 
         $("#dataTable").on('click', '.view-data', function() {
@@ -343,8 +436,6 @@
                     return;
                 }
             });
-
-            alert("test");
 
             $("#modal-info-admin").modal("show");
         });
@@ -367,6 +458,44 @@
             });
         });
 
+        function deleteAdmin(studentID) {
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'delete-admin',
+                    adminID: studentID,
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode != 200) {
+                        swalErrorNotification();
+                    }
+
+                    Swal.fire(
+                        'Deleted!',
+                        `The admin with ID ${studentID} has been deleted.`,
+                        'success'
+                    );
+
+                    retrieveAdminList();
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
+                }
+            });
+        }
+
         $("#dataTable").on('click', '.delete_data', function() {
             var currentRow = $(this).closest("tr");
             var adminID = currentRow.find("td:eq(0)").html();
@@ -374,12 +503,22 @@
                 console.log(admin);
                 console.log(adminID == admin['adminID']);
                 if (adminID == admin['adminID']) {
-                    $('#modal-body-delete-admin-id').html(admin['adminID']);
-                    $('#modal-body-delete-name').html(admin['name']);
-                    $('#modal-body-delete-user-name').html(admin['username']);
-                    $('#modal-body-delete-email').html(admin['email']);
-                    $('#modal-delete-admin').modal('toggle');
-                    return;
+                    Swal.fire({
+                        title: 'Are you sure?',
+                        text: `You are about to delete the admin with ID: ${admin['adminID']}. This action cannot be undone.`,
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#d33',
+                        cancelButtonColor: '#3085d6',
+                        confirmButtonText: 'Yes, delete it!'
+                    }).then((result) => {
+                        // If the user confirms, perform the delete action
+                        if (result.isConfirmed) {
+                            // Call your delete function or make an AJAX request here
+                            // For example, you can call a function like deleteStudent() and handle the logic there
+                            deleteAdmin(admin['adminID']);
+                        }
+                    });
                 }
             });
         });
@@ -448,9 +587,14 @@
 
                         if (dataResult.statusCode.includes(200)) {
                             retrieveAdminList();
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success',
+                                text: 'Admin record updated successfully!',
+                            });
                             $('#modal-new-admin').modal('toggle');
                         } else if (dataResult.statusCode.includes(201)) {
-                            alert("error");
+                            swalErrorNotification();
                         }
                         $("#btnCreateAccount").removeAttr("disabled", "disabled");
                     },
@@ -517,6 +661,7 @@
                             adminData = adminData.concat("<tr>",
                                 populateTableData(admin['adminID']),
                                 populateTableData(admin['name']),
+                                populateTableData(admin['username']),
                                 populateTableData(admin['email']),
                                 populateTableData(admin['status'] == 0 ? "Inactive" : "Active"),
                                 populateTableData(`
@@ -564,11 +709,11 @@
                 console.log(admin);
                 console.log(adminID == admin['adminID']);
                 if (adminID == admin['adminID']) {
-                    $('#modal-body-admin-id').html(admin['adminID']);
-                    $('#modal-body-admin-name').html(admin['name']);
-                    $('#modal-body-admin-user-name').html(admin['username']);
-                    $('#modal-body-admin-email').html(admin['email']);
-                    $('#modal-info-picture').html(admin['picture']);
+                    $('#modal-body-admin-id').val(admin['adminID']);
+                    $('#modal-body-admin-name').val(admin['name']);
+                    $('#modal-body-admin-user-name').val(admin['username']);
+                    $('#modal-body-admin-email').val(admin['email']);
+                    $('#modal-info-picture').val(admin['picture']);
                     $('#modal-info-admin').modal('toggle');
                     return;
                 }

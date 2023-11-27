@@ -157,7 +157,7 @@ function populateReplyRow(replyID, img, userName, status, date, yearLevel, reply
             </div>`
 }
 
-function populateAnswerRow(answerID, img, userName, status, date, yearLevel, answer, replies, ratingID, thumbsUp, thumbsDown, hasUserThumbsUp, hasUserThumbsDown, menu, hasRateButton, specialization, studentID) {
+function populateAnswerRow(answerID, img, userName, status, date, yearLevel, answer, replies, ratingID, thumbsUp, thumbsDown, hasUserThumbsUp, hasUserThumbsDown, menu, hasRateButton, specialization, studentID, attachment, markAsCorrect) {
     var thumbsUpSelected = `btn border-primary btn-sm px-4`;
     var thumbsUpSelectedColor = 'text-primary';
     var thumbsDownSelected = `btn border-danger btn-sm px-4`;
@@ -182,15 +182,15 @@ function populateAnswerRow(answerID, img, userName, status, date, yearLevel, ans
                 <i class="fa fa-thumbs-up ${thumbsUpSelectedColor}" id="btn-thumbs-up-icon-${answerID}"></i> 
                 <span id="btn-thumbs-up-value-${answerID}">${thumbsUp}</span>
             </button>
-            <button type="button" data-id="${answerID}" data-value="${thumbsDown}" data-ratingid="${ratingID}" data-accountid="${studentID}" data-selected="${hasUserThumbsDown}" id="btn-thumbs-down-${answerID}" class="btn-thumbs-down  ${thumbsDownSelected}">
-                <i class="fa fa-thumbs-down ${thumbsDownSelectedColor}" id="btn-thumbs-down-icon-${answerID}""></i> 
+            <button type="button" data-id="${answerID}" data-value="${thumbsDown}" data-ratingid="${ratingID}" data-accountid="${studentID}" data-selected="${hasUserThumbsDown}" id="btn-thumbs-down-${answerID}" class="btn-thumbs-down ml-1 ${thumbsDownSelected}">
+                <i class="fa fa-thumbs-down ${thumbsDownSelectedColor}" id="btn-thumbs-down-icon-${answerID}"></i> 
                 <span id="btn-thumbs-down-value-${answerID}"> ${thumbsDown}</span>
             </button>`;
     }
 
-    return `<div class="card-row card shadow-sm mb-3 py-2 px-lg-5 px-0 mx-0" id="row-answer-${answerID}">
+    return `<div class="card-row card shadow-sm mb-3 py-2 px-3 px-0 mx-0" id="row-answer-${answerID}">
                 <div class="row py-3 mx-0">
-                    <div class="col"> 
+                    <div class="col">
                         <div class="row mb-0 pb-0 mx-0">
                             <div class="col-lg-1 col-12 mb-lg-0 mb-3">
                                 <img loading="lazy" class="img-profile rounded-circle" style="width:60px; height: 60px" src="${img}">
@@ -198,10 +198,9 @@ function populateAnswerRow(answerID, img, userName, status, date, yearLevel, ans
                             <div class="col mb-0 pb-0">
                                 <div class="row">
                                     <div class="col-lg-3 col-12 mt-2">
-                                        <h6 class="mb-0 pb-0"><b class="mb-0 pb-0">${userName}</b></h6>    
+                                        <h6 class="mb-0 pb-0"><b class="mb-0 pb-0">${userName}</b></h6>
                                     </div>
-                                    <div class="col-lg-8 col-12">
-                                    </div>
+                                    <div class="col-lg-8 col-12"></div>
                                     <div class="col-lg-1 col-12 login-user" style="display: none" id="ellipsis-answer-${answerID}">
                                         <div class="btn-group d-flex flex-row-reverse dropright">
                                             <i class="fa fa-solid fa-ellipsis-vertical pl-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
@@ -209,33 +208,45 @@ function populateAnswerRow(answerID, img, userName, status, date, yearLevel, ans
                                                 ${menu}
                                             </div>
                                         </div>
-                                    </div>                 
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-12">
-                                        <small class="text-muted">${specialization}</small><small class="text-muted"> · </small><small class="text-muted">${yearLevel}</small><small class="text-muted"> · </small><small class="text-muted">${date}</small>
-                                    </div>                                            
+                                        <small class="text-muted">${specialization}</small>
+                                        <small class="text-muted"> · </small>
+                                        <small class="text-muted">${yearLevel}</small>
+                                        <small class="text-muted"> · </small>
+                                        <small class="text-muted">${date}</small>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="row mt-3 px-3 pt-0">
-                    <div class="col container-description" id="answer-${answerID}">
+                <div class="row mt-3 px-3 pt-0 mx-1">
+                    <div class="col-12 container-description" id="answer-${answerID}">
                         ${answer}
+                    </div>
+                    <div class="col-12 mt-4">
+                        ${attachment}
                     </div>
                 </div>
 
-                <div class="row d-flex flex-row-reverse align-middle mt-3 pt-0 mb-1 mr-lg-0 mr-1">
-                    <div class="login-user">
-                        <input type="button" class="btn btn-primary btn-sm px-3 button-reply" id="${answerID}" value="Comment">                       
-                        ${rateButton}
+                <div class="row mt-3 pt-0 mb-1 mr-lg-0 mr-1">
+                    <div class="col-lg-12 d-flex justify-content-end">
+                        <div class="login-user col-lg-12 d-flex justify-content-end flex-wrap">
+                            ${markAsCorrect}
+                            <button type="button" class="btn btn-primary btn-sm px-3 button-reply mx-2 mb-2" id="${answerID}">
+                                Comment <i class="fas fa-comment"></i>
+                            </button>
+                            ${rateButton}
+                        </div>
                     </div>
                 </div>
-                
+
                 <div class="d-none mb-3 mt-3" id="container-reply-${answerID}">
-                <hr class="sidebar-divider">
+                    <hr class="sidebar-divider">
                     <div class="row d-flex">
                         <div class="col">
                             <textarea class="form-control " name="" id="textarea-reply-${answerID}" rows="2" placeholder="Enter your comment here..."></textarea>
@@ -243,14 +254,14 @@ function populateAnswerRow(answerID, img, userName, status, date, yearLevel, ans
                     </div>
                     <div class="row d-flex mt-1">
                         <div class="col flex-row-reverse text-right">
-                            <input text="button" value="POST" id="${answerID}" class="button-answer-reply btn btn-primary btn-sm px-1 mt-2">
+                        <button type="button" id="${answerID}" class="button-answer-reply btn btn-primary btn-sm px-3 mt-2">Post <i class="fas fa-reply"></i></button>
                         </div>
-                    </div>           
+                    </div>
                 </div>
 
                 <div class="container-answer-replies">
                     ${replies}
-                </div>                    
+                </div>
             </div>
             `;
 }
@@ -268,15 +279,31 @@ function handleSampleError(error) {
 }
 
 function populateRankingRow(image, name, specialization, yearLevel, rank, rating) {
+    var styleSize = "";
+    var styleRank = "";
+    if (rank === "1") {
+        styleSize = `style="width:75px; height: 75px; border: 5px solid #FFD700;"`;
+        styleRank = `style="background-color: #FFD700; margin-left: 10px;"`;
+    } else if (rank === "2") {
+        styleSize = `style="width:70px; height: 70px; border: 4px solid #C0C0C0;"`;
+        styleRank = `style="background-color: #C0C0C0; margin-left: 8px;"`;
+    } else if (rank === "3") {
+        styleSize = `style="width:65px; height: 65px; border: 3px solid #CD7F32;"`;
+        styleRank = `style="background-color: #CD7F32; margin-left: 3px;"`;
+    } else {
+        styleSize = `style="width:60px; height: 60px;"`;
+    }
+
+
     return `<div class="row">
                     <div class="col-lg-3 col-md-3 col-12 m-0 p-0 px-sm-2">
                         <div class="pt-2">
                             <div class="row">
                                 <div class="profile-header-container">
                                     <div class="profile-header-img">
-                                        <img loading="lazy" class="img-profile img-circle rounded-circle" style="width:60px; height: 60px;" src="${image}">
-                                        <div class="rank-label-container pt-2">
-                                            <span class="label label-default rank-label text-white px-3 py-0">#${rank}</span>
+                                        <img loading="lazy" class="img-profile img-circle rounded-circle" ${styleSize} src="${image}">
+                                        <div class="rank-label-container pt-2 text-center">
+                                            <span class="label label-default rank-label text-white px-3 py-0" ${styleRank}>#${rank}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -319,35 +346,57 @@ function populateRankingRow(image, name, specialization, yearLevel, rank, rating
 }
 
 function populateProfessionalRankingRow(image, name, specialization, rank, rating) {
+
+    var styleSize = "";
+    var styleRank = "";
+    if (rank === "1") {
+        styleSize = `style="width:75px; height: 75px; border: 5px solid #FFD700;"`;
+        styleRank = `style="background-color: #FFD700; margin-left: 10px;"`;
+    } else if (rank === "2") {
+        styleSize = `style="width:70px; height: 70px; border: 4px solid #C0C0C0;"`;
+        styleRank = `style="background-color: #C0C0C0; margin-left: 7px;"`;
+    } else if (rank === "3") {
+        styleSize = `style="width:65px; height: 65px; border: 3px solid #CD7F32;"`;
+        styleRank = `style="background-color: #CD7F32; margin-left: 1px;"`;
+    } else {
+        styleSize = `style="width:60px; height: 60px;"`;
+    }
+
     return `<div class="row">
-                    <div class="col-3">
-                        <div class=" pt-2">
+                    <div class="col-lg-3 col-md-3 col-12 m-0 p-0 px-sm-2">
+                        <div class="pt-2">
                             <div class="row">
                                 <div class="profile-header-container">
                                     <div class="profile-header-img">
-                                        <img loading="lazy" class="img-profile img-circle rounded-circle" style="width:60px; height: 60px;" src="${image}">
+                                        <img loading="lazy" class="img-profile img-circle rounded-circle" ${styleSize} src="${image}">
                                         <div class="rank-label-container pt-2">
-                                            <span class="label label-default rank-label text-white px-3 py-0">#${rank}</span>
+                                            <span class="label label-default rank-label text-white px-3 py-0" ${styleRank}>#${rank} <i class="fa-solid fa-trophy"></i></span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="row mb-2">
-                            <div class="col">
-                                Username: <span>${name}</span>
+                    <div class="col mt-3 mt-lg-0">
+                        <div class="row mt-2 mb-3">
+                            <div class="col-12 mb-1">
+                                <b>Username:</b>
+                            </div>
+                            <div class="col-12">
+                                <span>${name}</span>
                             </div>
                         </div>
-                        <div class="row mb-2">
-                            <div class="col">
-                                Job: <span>${specialization}</span>
+                        <div class="row mb-3">
+                            <div class="col-12 mb-1">
+                                <b>Job:</b>
+                            </div>
+                            <div class="col-12">
+                                <span>${specialization}</span>
                             </div>
                         </div>
-                        <div class="row mb-2">
+                        <div class="row mb-3">
                             <div class="col">
-                                Likes: <span>${rating}</span>
+                                <b>Likes:</b> <span>${rating}</span>
                             </div>
                         </div>
                     </div>

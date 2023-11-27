@@ -16,19 +16,20 @@
             </div>
             <div>
                 <button type="button" class="btn btn-primary" id="import-excel">
-                    Import Excel
+                    <i class="fas fa-file-excel"></i> Import Excel
                 </button>
             </div>
         </div>
     </div>
     <div class="card-body">
-        <div class="table-responsive">
+        <div class="table-responsive" style="overflow-y: auto;">
             <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th>Student ID</th>
                         <th>Name</th>
                         <th>Year Level</th>
+                        <th>Major</th>
                         <th>Email Address</th>
                         <th>Action</th>
                     </tr>
@@ -38,11 +39,13 @@
                         <th>Student ID</th>
                         <th>Name</th>
                         <th>Year Level</th>
+                        <th>Major</th>
                         <th>Email Address</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>
                 <tbody id="tableBody">
+                    <!-- Your data rows go here -->
                 </tbody>
             </table>
         </div>
@@ -70,104 +73,194 @@
 
 
 <div class="modal fade" id="modal-info-student" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Student Information</h5>
+                <h5 class="modal-title" style="color: #333;">Student Information</h5>
             </div>
             <div class="modal-body">
-                <div class="row">
-                    <!-- Uncomment the image section if you decide to include a student image -->
-                    <!--
-                    <div class="col-lg-12 text-center mb-3">
-                        <img style="width: 150px;" class="img-profile rounded-circle b-4" src="./../../common/img/undraw_profile.svg">
+                <div class="row px-3">
+                    <div class="col-lg-12 text-center mb-4">
+                        <!-- Placeholder image, replace with dynamic student image -->
+                        <img loading="lazy" class="img-profile rounded-circle img-circle-md" id="modal-info-student-image" style="width: 180px; height: 180px" src="./../../common/img/undraw_profile.svg" alt="Student Image">
                     </div>
-                    -->
+
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label class="form-label">Student ID:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                                </div>
+                                <div for="modal-info-student-id" class="form-control" id="modal-info-student-id" required disabled readonly></div>
+                            </div>
+                            <div class="invalid-feedback">Please provide a valid student ID.</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label class="form-label"><b>Full Name:</b></label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                <div for="modal-info-name" class="form-control" id="modal-info-name" required readonly></div>
+                            </div>
+                            <div class="invalid-feedback">Please provide the student's name.</div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-label"><b>Email:</b></label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                </div>
+                                <div for="modal-info-email" class="form-control" id="modal-info-email" required readonly></div>
+                            </div>
+                            <div class="invalid-feedback">Please enter a valid email address.</div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="form-label"><b>Year Level:</b></label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-graduation-cap"></i></span>
+                                </div>
+                                <div for="modal-info-year-level" class="form-control" id="modal-info-year-level" required readonly></div>
+                            </div>
+                            <div class="invalid-feedback">Please specify the student's year level.</div>
+                        </div>
+                    </div>
 
                     <div class="col-lg-12">
-                        <b>Student ID:</b> <label for="modal-info-student-id" id="modal-info-student-id"></label>
+                        <div class="form-group">
+                            <label class="form-label"><b>Major:</b></label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-book"></i></span>
+                                </div>
+                                <div for="modal-info-specialization" class="form-control" id="modal-info-specialization" required readonly></div>
+                            </div>
+                            <div class="invalid-feedback">Please provide the student's major.</div>
+                        </div>
                     </div>
-                    <div class="col-lg-12">
-                        <b>Name:</b> <label for="modal-info-name" id="modal-info-name"></label>
-                    </div>
-                    <div class="col-lg-12">
-                        <b>Year Level:</b> <label for="modal-info-year-level" id="modal-info-year-level"></label>
-                    </div>
-                    <div class="col-lg-12">
-                        <b>Major:</b> <label for="modal-info-specialization" id="modal-info-specialization"></label>
-                    </div>
-                    <div class="col-lg-12">
-                        <b>Email:</b> <label for="modal-info-email" id="modal-info-email"></label>
-                    </div>
+
                 </div>
-
             </div>
-            <!-- <div class="modal-footer">
-                <button type="button" class="btn btn-danger" id="button-reject">Reject</button>
-                <button type="button" class="btn btn-success" id="button-approve">Approve</button>
-            </div> -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
         </div>
     </div>
 </div>
 
-<div class="modal fade" id="modal-info-student-cor" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+
+
+<div class="modal fade" id="modal-edit-student" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Student Information</h5>
+                <h5 class="modal-title" style="color: #333;">Update Student Information</h5>
             </div>
-            <div class="modal-body">
-                <div class="row">
-                    <!-- Uncomment the image section if you decide to include an image -->
-                    <!--
-                    <div class="col-lg-12 text-center mb-3">
-                        <img style="width: 150px;" class="img-profile rounded-circle b-4" src="./../../common/img/undraw_profile.svg">
-                    </div>
-                    -->
+            <form action="" id="form-edit-student">
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row px-3">
+                            <div class="col-lg-12 text-center mb-4">
+                                <!-- Placeholder image, replace with dynamic student image -->
+                                <img loading="lazy" class="img-profile rounded-circle img-circle-md" id="modal-edit-student-image" style="width: 180px; height: 180px" src="./../../common/img/undraw_profile.svg" alt="Student Image">
+                            </div>
+                        </div>
 
-                    <div class="col-lg-6">
-                        <div class="mb-3">
-                            <label class="form-label"><b>Name:</b></label>
-                            <label for="modal-info-name-cor" class="form-control" id="modal-info-name-cor"></label>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label"><b>Year Level:</b></label>
-                            <label for="modal-info-year-level-cor" class="form-control" id="modal-info-year-level-cor"></label>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label"><b>Major:</b></label>
-                            <label for="modal-info-specialization-cor" class="form-control" id="modal-info-specialization-cor"></label>
-                        </div>
-                        <div class="mb-2">
-                            <label class="form-label"><b>Email:</b></label>
-                            <label for="modal-info-email-cor" class="form-control" id="modal-info-email-cor"></label>
-                        </div>
-                    </div>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="form-label">Student ID:</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control" id="modal-edit-student-id" readonly required>
+                                    </div>
+                                    <div class="invalid-feedback">Please provide a valid student ID.</div>
+                                </div>
+                            </div>
 
-                    <div class="col-lg-6">
-                        <div class="mb-3">
-                            <label class="form-label"><b>Student ID:</b></label>
-                            <label for="modal-info-student-id-cor" class="form-control" id="modal-info-student-id-cor"></label>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label"><b>Username:</b></label>
-                            <label for="modal-info-user-name-cor" class="form-control" id="modal-info-user-name-cor"></label>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label class="form-label" for="modal-edit-name">Full Name</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control" id="modal-edit-name" required>
+                                    </div>
+                                    <div class="invalid-feedback">Please provide your full name.</div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label"><b>Image:</b></label>
-                            <div class="mt-2">
-                                <a href="" target="_blank" id="modal-info-img-a-cor">
-                                    <img loading="lazy" id="modal-info-img-cor" class="img-fluid" style="width: 100%;" src="" alt="Student Image">
-                                </a>
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-label" for="modal-edit-email">Email</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                        </div>
+                                        <input type="email" class="form-control" id="modal-edit-email" required>
+                                        <div class="invalid-feedback">Email is already taken.</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-label" for="modal-edit-year-level">Year Level</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-graduation-cap"></i></span>
+                                        </div>
+                                        <select class="form-control" id="modal-edit-year-level" required>
+                                            <option value="1">First Year</option>
+                                            <option value="2">Second Year</option>
+                                            <option value="3">Third Year</option>
+                                            <option value="4">Fourth Year</option>
+                                        </select>
+                                    </div>
+                                    <div class="invalid-feedback">Please select the student's year level.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label class="form-label" for="modal-edit-specialization">Major</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-book"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control" id="modal-edit-specialization" required>
+                                    </div>
+                                    <div class="invalid-feedback">Please specify the student's major.</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" id="button-reject-cor">Reject</button>
-                <button type="button" class="btn btn-success" id="button-approve-cor">Approve</button>
-            </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i> Close</button>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Update</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -253,11 +346,198 @@
             $('#modal-info-student-cor').modal('toggle');
         });
 
+        $("#dataTable").on('click', '.view_data', function() {
+            var currentRow = $(this).closest("tr");
+            var studentID = currentRow.find("td:eq(0)").html();
+
+            $.each(studentList, function(key, student) {
+                console.log(student);
+                console.log(studentID == student['studentID']);
+                if (studentID == student['studentID']) {
+                    $('#modal-info-student-id').html(student['studentID']);
+                    $('#modal-info-name').html(student['name']);
+                    $('#modal-info-year-level').html(student['yearLevel']);
+                    $('#modal-info-specialization').html(student['specialization']);
+                    $('#modal-info-email').html(student['email']);
+                    var image = "default.svg";
+                    if (student['picture'] != null && student['picture'] != "") {
+                        image = student['picture'];
+                    }
+
+                    var picture = "./../../resource/profile/" + image;
+                    $("#modal-info-student-image").attr("src", picture);
+                    $('#modal-info-student').modal('toggle');
+                    return;
+                }
+            });
+        });
+
+        $("#dataTable").on('click', '.edit_data', function() {
+            var currentRow = $(this).closest("tr");
+            var studentID = currentRow.find("td:eq(0)").html();
+            $.each(studentList, function(key, student) {
+                console.log(student);
+                console.log(studentID == student['studentID']);
+                if (studentID == student['studentID']) {
+                    $('#modal-edit-student-id').val(student['studentID']);
+                    $('#modal-edit-name').val(student['name']);
+                    $('#modal-edit-year-level').val(student['yearLevel']);
+                    $('#modal-edit-specialization').val(student['specialization']);
+                    $('#modal-edit-email').val(student['email']);
+                    var image = "default.svg";
+                    if (student['picture'] != null && student['picture'] != "") {
+                        image = student['picture'];
+                    }
+
+                    var picture = "./../../resource/profile/" + image;
+                    $("#modal-edit-student-image").attr("src", picture);
+                    $('#modal-edit-student').modal('toggle');
+                    return;
+                }
+            });
+        });
+
+        $("#form-edit-student").on("submit", function(event) {
+            event.preventDefault();
+            var studentId = $('#modal-edit-student-id').val();
+            var fullName = $('#modal-edit-name').val();
+            var email = $('#modal-edit-email').val();
+            var yearLevel = $('#modal-edit-year-level').val();
+            var major = $('#modal-edit-specialization').val();
+
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'update-student-record',
+                    studentID: studentId,
+                    name: fullName,
+                    email: email,
+                    yearLevel: yearLevel,
+                    specialization: major
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode == 200 || dataResult.statusCode.includes(200)) {
+                        $("#modal-edit-student").modal("hide");
+                        swalSuccessNotification(); // Show SweetAlert for success
+                        retrieveStudentRequestList();
+                    } else if (dataResult.statusCode == 5101 || dataResult.statusCode.includes(5101)) {
+                        $('#modal-edit-email').addClass("is-invalid");
+                    } else {
+                        swalErrorNotification(); // Show SweetAlert for error
+                    }
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                    swalErrorNotification(); // Show SweetAlert for error
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
+                }
+            });
+        });
+
+        // Function to display success SweetAlert
+        function swalSuccessNotification() {
+            Swal.fire({
+                icon: 'success',
+                title: 'Success',
+                text: 'Student record updated successfully!',
+            });
+        }
+
+        // Function to display error SweetAlert
+        function swalErrorNotification() {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'An error occurred while updating the student record.',
+            });
+        }
+
+
+        $("#dataTable").on('click', '.delete_data', function() {
+            var currentRow = $(this).closest("tr");
+            var studentID = currentRow.find("td:eq(0)").html();
+            $.each(studentList, function(key, student) {
+                console.log(student);
+                console.log(studentID == student['studentID']);
+                // Show SweetAlert confirmation modal with student ID
+                if (studentID == student['studentID']) {
+                    Swal.fire({
+                        title: 'Are you sure?',
+                        text: `You are about to delete the student with ID: ${student['studentID']}. This action cannot be undone.`,
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#d33',
+                        cancelButtonColor: '#3085d6',
+                        confirmButtonText: 'Yes, delete it!'
+                    }).then((result) => {
+                        // If the user confirms, perform the delete action
+                        if (result.isConfirmed) {
+                            // Call your delete function or make an AJAX request here
+                            // For example, you can call a function like deleteStudent() and handle the logic there
+                            deleteStudent(student['studentID']);
+                        }
+                    });
+                }
+
+            });
+        });
+
+        function deleteStudent(studentID) {
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'delete-student',
+                    studentID: studentID,
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode != 200) {
+                        swalErrorNotification();
+                    }
+
+                    Swal.fire(
+                        'Deleted!',
+                        `The student with ID ${studentID} has been deleted.`,
+                        'success'
+                    );
+
+                    retrieveStudentRequestList();
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
+                }
+            });
+        }
+
+
         // code to read selected table row cell data (values).
         $("#dataTable").on('click', '.button-select', function() {
             var currentRow = $(this).closest("tr");
             var studentID = currentRow.find("td:eq(0)").html();
             $.each(studentList, function(key, student) {
+                console.log(studentList);
                 console.log(student);
                 console.log(studentID == student['studentID']);
                 if (studentID == student['studentID']) {
@@ -268,7 +548,6 @@
                         $('#modal-info-name-cor').html(student['name']);
                         $('#modal-info-year-level-cor').html(student['yearLevel']);
                         $('#modal-info-specialization-cor').html(student['specialization']);
-                        $('#modal-info-user-name-cor').html(student['username']);
                         $('#modal-info-email-cor').html(student['email']);
                         $('#modal-info-picture-cor').html(student['picture']);
                         $('#modal-info-img-cor').attr("src", "./../../resource/cor/" + student['attachment']);
@@ -277,7 +556,6 @@
                         $('#modal-info-name').html(student['name']);
                         $('#modal-info-year-level').html(student['yearLevel']);
                         $('#modal-info-specialization').html(student['specialization']);
-                        $('#modal-info-user-name').html(student['username']);
                         $('#modal-info-email').html(student['email']);
                         $('#modal-info-picture').html(student['picture']);
                         $('#modal-info-student').modal('toggle');
@@ -287,10 +565,6 @@
                 }
             });
         });
-
-        function showStudentData(studentID) {
-            alert(studentID);
-        }
 
         function updateAccountStatus(userID, status) {
             $.ajax({
@@ -305,7 +579,7 @@
                 success: function(dataResult) {
                     var dataResult = JSON.parse(dataResult);
                     if (dataResult.statusCode != 200) {
-                        alert("There some error during the deletion, please try again later!");
+                        swalErrorNotification();
                     }
 
                     retrieveStudentRequestList();
@@ -334,24 +608,30 @@
                 },
                 success: function(dataResult) {
                     var dataResult = JSON.parse(dataResult);
-                    var studentData = '';
                     if (dataResult.statusCode != 201) {
                         studentList = dataResult.studentList;
+                        var studentData = '';
                         $.each(dataResult.studentList, function(key, student) {
                             studentData = studentData.concat("<tr>",
                                 populateTableData(student['studentID']),
                                 populateTableData(student['name']),
                                 populateTableData(student['yearLevel']),
+                                populateTableData(student['specialization']),
                                 populateTableData(student['email']),
-                                populateTableData("<a class='button-select btn btn-sm btn-primary'><i class='fas fa-eye'></i> View</a>"),
+                                populateTableData(`<button type="button" class="btn btn-flat btn-default btn-sm dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                                  Action<span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <div class="dropdown-menu" role="menu">
+                                    <a class="dropdown-item view_data " href="javascript:void(0)" data-id="${student['studentID']}"><span class="fa fa-eye text-primary"></span> View</a>
+                                    <div class="dropdown-divider "></div>
+                                    <a class="dropdown-item edit_data " href="javascript:void(0)" data-id="${student['studentID']}"><span class="fa fa-edit text-success"></span> Edit</a>
+                                    <div class="dropdown-divider "></div>
+                                    <a class="dropdown-item delete_data " href="javascript:void(0)" data-id="${student['studentID']}"><span class="fa fa-trash text-danger"></span> Delete</a>
+                                </div>`),
                                 "</tr>");
                         });
-                    } else {
-                        studentData = studentData.concat("<tr class='odd'>",
-                            '<td valign="top" colspan="5" class="dataTables_empty">No Student Account Request Available</td>',
-                            "</tr>");
+                        $("#tableBody").html(studentData);
                     }
-                    $("#tableBody").html(studentData);
                     $('#dataTable').DataTable();
                 },
                 beforeSend: function() {

@@ -268,7 +268,6 @@ class Question {
   public $userName;
   public $name;
   public $yearLevel;
-  public $email;
   public $specialization;
   public $questionID;
   public $subjectID;
@@ -277,6 +276,25 @@ class Question {
   public $title;
   public $description;
   public $status;
+  public $email;
+  public $fileName;
+
+  function set_email($email) {
+    $this->email = $email;
+  }
+
+  function get_email() {
+    return $this->email;
+  }
+
+  function set_fileName($fileName) {
+    $this->fileName = $fileName;
+  }
+
+  function get_fileName() {
+    return $this->fileName;
+  }
+
 
   function set_picture($picture) {
     $this->picture = $picture;
@@ -310,13 +328,6 @@ class Question {
     return $this->userName;
   }
 
-  function set_email($email) {
-    $this->email = $email;
-  }
-
-  function get_email() {
-    return $this->email;
-  }
 
   function set_specialization($specialization) {
     $this->specialization = $specialization;
@@ -389,6 +400,7 @@ class Question {
   function get_status() {
     return $this->status;
   }
+
 }
 
 class FAQ {
@@ -484,6 +496,7 @@ class Answer {
   public $studentID;
   public $accountID;
   public $questionID;
+  public $questionTitle;
   public $name;
   public $yearLevel;
   public $specialization;
@@ -495,6 +508,43 @@ class Answer {
   public $replies;
   public $studentInformation;
   public $questionInformation;
+
+  public $fileName;
+  public $correctAnswer;
+
+  public $questionerID;
+
+  function set_questionTitle($questionTitle) {
+    $this->questionTitle = $questionTitle;
+  }
+
+  function get_questionTitle() {
+    return $this->questionTitle;
+  }
+
+  function set_fileName($fileName) {
+    $this->fileName = $fileName;
+  }
+
+  function get_fileName() {
+    return $this->fileName;
+  }
+
+  function set_correctAnswer($correctAnswer) {
+    $this->correctAnswer = $correctAnswer;
+  }
+
+  function get_correctAnswer() {
+    return $this->correctAnswer;
+  }
+
+  function set_questionerID($questionerID) {
+    $this->questionerID = $questionerID;
+  }
+
+  function get_questionerID() {
+    return $this->questionerID;
+  }
 
   function set_picture($picture) {
     $this->picture = $picture;
@@ -627,11 +677,30 @@ class Reply {
   public $specialization;
   public $creationDateTime;
   public $answer;
+  public $reply;
   public $thumbsUp;
   public $thumbsDown;
   public $status;
   public $replyID;
   public $studentInformation;
+
+  public $fileName;
+
+  function set_fileName($fileName) {
+    $this->fileName = $fileName;
+  }
+
+  function get_fileName() {
+    return $this->fileName;
+  }
+
+  function set_reply($reply) {
+    $this->reply = $reply;
+  }
+
+  function get_reply() {
+    return $this->reply;
+  }
 
   function set_picture($picture) {
     $this->picture = $picture;
@@ -814,63 +883,6 @@ class Notification {
   }
 }
 
-class Attachment {
-  public $attachmentID;
-  public $contentID;
-  public $attachment;
-  public $type;
-  public $status;
-
-  function set_studentID($studentID) {
-    $this->studentID = $studentID;
-  }
-
-  function get_studentID() {
-    return $this->studentID;
-  }
-
-  function set_questionID($questionID) {
-    $this->questionID = $questionID;
-  }
-  
-  function get_questionID() {
-    return $this->questionID;
-  }
-
-  function set_answerID($answerID) {
-    $this->answerID = $answerID;
-  }
-  
-  function get_answerID() {
-    return $this->answerID;
-  }
-
-  function set_creationDateTime($creationDateTime) {
-    $this->creationDateTime = $creationDateTime;
-  }
-  
-  function get_creationDateTime() {
-    return $this->creationDateTime;
-  }
-
-  function set_comment($comment) {
-    $this->comment = $comment;
-  }
-  
-  function get_comment() {
-    return $this->comment;
-  }
-
-  function set_status($status) {
-    $this->status = $status;
-  }
-  
-  function get_status() {
-    return $this->status;
-  }
-}
-
-
 class Rating {
   public $ratingID;
   public $answerID;
@@ -964,6 +976,15 @@ class Rank {
     public $subjectID;
     public $subject;
     public $status;
+    public $questionCount;
+
+    function set_questionCount($questionCount) {
+      $this->questionCount = $questionCount;
+    }
+  
+    function get_questionCount() {
+      return $this->questionCount;
+    }
 
     function set_subjectID($subjectID) {
       $this->subjectID = $subjectID;

@@ -191,11 +191,7 @@
                     $("#input-profile-email").removeClass('is-invalid');
 
                     if (dataResult.statusCode.includes(200)) {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Success',
-                            text: 'Profile has been successfully updated.',
-                        });
+                        swalSuccessNotification("Profile has been successfully updated.");
                         displayInfoMessage("#info-message-profile", true, "Profile has been successfully updated!");
                     }
 
@@ -294,7 +290,7 @@
                         var picture = "./../../resource/profile/" + dataResult.admin.picture;
                         $("#image-profile-picture").attr("src", picture);
                     } else {
-                        alert("Error");
+                        swalErrorNotification();
                     }
                 },
                 beforeSend: function() {
@@ -326,16 +322,7 @@
                 success: function(dataResult) {
                     var dataResult = JSON.parse(dataResult);
                     if (dataResult.statusCode == 200) {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Success',
-                            text: 'Password has been successfully changed.',
-                        }).then((result) => {
-                            // Check if the user clicked the "OK" button
-                            if (result.isConfirmed || result.value) {
-                                window.location.href = "./../login/logout.php";
-                            }
-                        });
+                        swalSuccessNotification("Password has been successfully changed.");
                         $("#info-message-change-password").html("Password successfully change!");
                         $("#info-message-change-password").addClass("alert-success");
                         $("#info-message-change-password").removeClass("alert-danger");

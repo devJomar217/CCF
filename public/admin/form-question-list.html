@@ -8,9 +8,14 @@
 <script src="./../../common/vendor/datatables/jquery.dataTables.js"></script>
 
 
+<style>
+    #dataTable_wrapper {
+        overflow-x: auto;
+    }
+</style>
+
 <h1 class="h3 mb-2 text-gray-800">Question List</h1>
 <p class="mb-4">This page contains list of question.</p>
-
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
@@ -21,12 +26,14 @@
             <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Account ID</th>
-                        <th>Subject</th>
-                        <th>Date Time</th>
-                        <th>Question</th>
-                        <th>Action</th>
+                        <th width="3%">ID</th>
+                        <th width="3%">Account ID</th>
+                        <th width="3%">Subject</th>
+                        <th width="12%">Date Time</th>
+                        <th width="30%">Question</th>
+                        <th width="8%">Attachment</th>
+                        <th width="10%">Status</th>
+                        <th width="10%">Action</th>
                     </tr>
                 </thead>
                 <tfoot>
@@ -36,6 +43,8 @@
                         <th>Subject</th>
                         <th>Date Time</th>
                         <th>Question</th>
+                        <th>Attachment</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>
@@ -45,39 +54,61 @@
     </div>
 </div>
 
-<div class="modal fade" id="modal-info-question" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+
+<div class="modal fade" id="modal-info-question" tabindex="-1" role="dialog" aria-labelledby="modal-info-question-title" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Question Information</h5>
+                <h5 class="modal-title" style="color: #333;">Question Information</h5>
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-lg-3">
+                    <div class="col-lg-4">
                         <div class="form-group">
                             <label for="modal-info-question-id"><b>Question ID:</b></label>
-                            <div class="form-control" id="modal-info-question-id"></div>
+                            <div class="form-control" id="modal-info-question-id" readonly></div>
                         </div>
                     </div>
 
-                    <div class="col-lg-9">
+                    <div class="col-lg-8">
                         <div class="form-group">
                             <label for="modal-info-question-creationDateTime"><b>Creation Date Time:</b></label>
-                            <div class="form-control" id="modal-info-question-creationDateTime"></div>
+                            <div class="form-control" id="modal-info-question-creationDateTime" readonly></div>
                         </div>
                     </div>
 
-                    <div class="col-lg-12">
+                    <div class="col-12">
                         <div class="form-group">
                             <label for="modal-info-question-title"><b>Title:</b></label>
-                            <div class="form-control" id="modal-info-question-title"></div>
+                            <div class="form-control" id="modal-info-question-title" readonly></div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="modal-info-question-description"><b>Description:</b></label>
+                            <div class="form-control" id="modal-info-question-description" style="min-height: 100px;" readonly></div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="modal-info-question-description"><b>Subject:</b></label>
+                            <div class="form-control" id="modal-info-question-subject" readonly></div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="modal-info-question-description"><b>Status:</b></label>
+                            <div class="form-control" id="modal-info-question-status" readonly></div>
                         </div>
                     </div>
 
                     <div class="col-lg-12">
-                        <div class="form-group">
-                            <label for="modal-info-question-description"><b>Description:</b></label>
-                            <div class="form-control" style="height: auto;" id="modal-info-question-description"></div>
+                        <div class="form-group text-wrap" style="width: 6rem;">
+                            <label for="modal-info-question-attachment"><b>Attachment:</b></label>
+                            <div id="modal-info-question-attachment"></div>
                         </div>
                     </div>
                 </div>
@@ -89,60 +120,84 @@
     </div>
 </div>
 
-<div class="modal fade" id="modal-edit-question" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+<div class="modal fade" id="modal-edit-question" tabindex="-1" role="dialog" aria-labelledby="modal-edit-question-title" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Update Question</h5>
+                <h5 class="modal-title" style="color: #333;">Update Question</h5>
             </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-lg-3">
-                        <div class="form-group">
-                            <label for="modal-edit-question-id" class="form-label">Question ID:</label>
-                            <input type="text" class="form-control" id="modal-edit-question-id" disabled/>
-                            <div class="invalid-feedback"></div>
+            <form action="" id="form-edit-question">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="modal-edit-question-id" class="form-label">Question ID:</label>
+                                <input type="text" class="form-control" id="modal-edit-question-id" disabled/>
+                                <div class="invalid-feedback"></div>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="col-lg-9">
-                        <div class="form-group">
-                            <label for="modal-edit-question-creationDateTime" class="form-label"><b>Creation Date Time:</b></label>
-                            <input class="form-control" id="modal-edit-question-creationDateTime" disabled/>
-                            <div class="invalid-feedback"></div>
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label for="modal-edit-question-creationDateTime" class="form-label"><b>Creation Date Time:</b></label>
+                                <input class="form-control" id="modal-edit-question-creationDateTime" disabled/>
+                                <div class="invalid-feedback"></div>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="col-lg-12">
-                        <div class="form-group">
-                            <label for="modal-edit-question-title" class="form-label"><b>Title:</b></label>
-                            <input class="form-control" id="modal-edit-question-title" />
-                            <div class="invalid-feedback"></div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="modal-edit-question-title" class="form-label"><b>Title:</b></label>
+                                <input class="form-control" id="modal-edit-question-title" />
+                                <div class="invalid-feedback"></div>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="col-lg-12">
-                        <div class="form-group">
-                            <label for="modal-edit-question-description" class="form-label"><b>Description:</b></label>
-                            <textarea class="form-control" style="height: auto;" id="modal-edit-question-description"></textarea>
-                            <div class="invalid-feedback"></div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="modal-edit-question-description" class="form-label"><b>Description:</b></label>
+                                <textarea class="form-control" id="modal-edit-question-description" style="min-height: 100px;"></textarea>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="modal-edit-question-subject" class="form-label"><b>Subject:</b></label>
+                                <select class="form-control" id="modal-edit-question-subject" required>
+                                </select>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="modal-edit-question-status" class="form-label"><b>Status:</b></label>
+                                <select class="form-control ml-sm-2" class="dropdown" id="modal-edit-question-status">
+                                    <option value="-1" selected>All</option>
+                                    <option value="1">Unanswered</option>
+                                    <option value="2">Answered</option>
+                                </select>
+                                <div class="invalid-feedback"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
+
 
 <div class="modal fade" id="modal-info-student" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="information-title">Account Information</h5>
+                <h5 class="modal-title" style="color: #333;">Account Information</h5>
             </div>
             <div class="modal-body">
                 <div class="row px-3">
@@ -207,6 +262,8 @@
         var questionList;
         retrieveQuestionList();
 
+        getSubjectList();
+
         $("#dataTable").on('click', '.view_data', function() {
             var currentRow = $(this).closest("tr");
             var questionID = currentRow.find("td:eq(0)").html();
@@ -217,13 +274,68 @@
                     $('#modal-info-question-id').html(question['questionID']);
                     $('#modal-info-question-title').html(question['title']);
                     $('#modal-info-question-description').html(question['description']);
+                    $('#modal-info-question-subject').html(question['subject']);
+                    $('#modal-info-question-status').html(question['status'] == "1" ? "Unanswered" : "Answered");
+                    $('#modal-info-question-attachment').html(`<a class="text-wrap" style="width: 6rem;" href="./../../resource/attachment/${question['fileName']}" download="${question['fileName']}">${question['fileName']}</a>`);
                     $('#modal-info-question-creationDateTime').html(question['creationDateTime']);
-
                     $('#modal-info-question').modal('toggle');
                     return;
                 }
             });
         });
+
+        $("#form-edit-question").on("submit", function(event) {
+            event.preventDefault();
+
+            var formData = new FormData(this);
+            // var fileInput = document.getElementById('modal-edit-question-attachment'); // Assuming your file input has the id 'modal-edit-question-attachment'
+            // var file = fileInput.files[0];
+
+            // if (file) {
+            //     if (!validFileSize(file)) {
+            //         return;
+            //     } else {
+            //         formData.append('attachment', file);
+            //     }
+            // }
+
+            formData.append('action', 'update-question');
+            formData.append('status', $("#modal-edit-question-status").val());
+            formData.append('subject', $("#modal-edit-question-subject").val());
+            formData.append('title', $("#modal-edit-question-title").val());
+            formData.append('description', getEditorData("modal-edit-question-description"));
+            formData.append('questionID', $("#modal-edit-question-id").val());
+            // Add other form data fields as needed
+
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: formData,
+                contentType: false,
+                processData: false,
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode == 200 || dataResult.statusCode.includes(200)) {
+                        retrieveQuestionList();
+                        $("#modal-edit-question").modal('toggle');
+                        swalSuccessNotification("Your question has been successfully updated.");
+                    } else {
+                        swalErrorNotification();
+                    }
+                },
+                beforeSend: function() {
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    console.log('Request is complete');
+                }
+            });
+        });
+
 
         $("#dataTable").on('click', '.edit_data', function() {
             var currentRow = $(this).closest("tr");
@@ -232,15 +344,66 @@
                 console.log(question);
                 console.log(questionID == question['questionID']);
                 if (questionID == question['questionID']) {
+                    initEditor("modal-edit-question-description", question['description'], 'Enter description here...');
                     $('#modal-edit-question-id').val(question['questionID']);
                     $('#modal-edit-question-title').val(question['title']);
-                    $('#modal-edit-question-description').val(question['description']);
+                    $('#modal-edit-question-status').val(question['status']);
+                    $('#modal-edit-question-subject').val(question['subjectID']);
+                    // $("#modal-edit-question-subject option").filter(function() {
+                    //     return $(this).text() === question['subject'];
+                    // }).prop("selected", true);
+
+                    // $("#modal-edit-question-subject option").filter(function() {
+                    //     return $(this).html() === question['subject'];
+                    // }).prop("selected", true);
+
+                    // $("#modal-edit-question-subject option").filter(function() {
+                    //     return $(this).text() === question['subject'];
+                    // }).prop("selected", true);
+
+                    // $("#modal-edit-question-subject option:contains('" + question['subject'] + "')").prop("selected", true);
+                    // $('#modal-edit-question-subject').val();
+                    // $('#modal-edit-question-description').val();
                     $('#modal-edit-question-creationDateTime').val(question['creationDateTime']);
                     $('#modal-edit-question').modal('toggle');
                     return;
                 }
             });
         });
+
+        function getSubjectList() {
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'retrieve-active-subject-list'
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var subjectOptions = "";
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode == 200) {
+                        subjectList = dataResult.subjectList;
+                        dataResult.subjectList.forEach(subject => {
+                            subjectOptions += "<option value='" + subject['subjectID'] + "'>" + subject['subject'] + "</option>";
+                        });
+                    }
+                    $("#modal-edit-question-subject").html(subjectOptions);
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
+                }
+            });
+        }
 
         $("#dataTable").on('click', '.delete_data', function() {
             var currentRow = $(this).closest("tr");
@@ -249,16 +412,64 @@
                 console.log(question);
                 console.log(questionID == question['questionID']);
                 if (questionID == question['questionID']) {
-                    $('#modal-info-question-id').html(question['questionID']);
-                    $('#modal-info-question-title').html(question['title']);
-                    $('#modal-info-question-description').html(question['description']);
-                    $('#modal-info-question-creationDateTime').html(question['creationDateTime']);
-
-                    $('#modal-info-question').modal('toggle');
-                    return;
+                    Swal.fire({
+                        title: 'Are you sure?',
+                        text: `You are about to delete this question with ID: ${question['questionID']}. This action cannot be undone.`,
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#d33',
+                        cancelButtonColor: '#3085d6',
+                        confirmButtonText: 'Yes, delete it!'
+                    }).then((result) => {
+                        // If the user confirms, perform the delete action
+                        if (result.isConfirmed) {
+                            // Call your delete function or make an AJAX request here
+                            // For example, you can call a function like deleteStudent() and handle the logic there
+                            deleteQuestion(question['questionID']);
+                        }
+                    });
                 }
             });
         });
+
+        function deleteQuestion(questionID) {
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'delete-question',
+                    questionID: questionID,
+                    status: "-1"
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode != 200) {
+                        swalErrorNotification();
+                    }
+
+                    Swal.fire(
+                        'Deleted!',
+                        `The question with ID ${questionID} has been deleted.`,
+                        'success'
+                    );
+
+                    retrieveQuestionList();
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
+                }
+            });
+        }
 
         $("#dataTable").on('click', '.button-student-id', function() {
             var currentRow = $(this).closest("tr");
@@ -267,7 +478,6 @@
                 if (questionID == question['questionID']) {
                     $('#modal-info-student-id').html(question['studentID']);
                     $('#modal-info-name').html(question['name']);
-
                     if (question['yearLevel'] == null) {
                         $('#modal-info-year-level-container').addClass("d-none");
                         $('#information-title').html("Account Information");
@@ -305,9 +515,9 @@
                 success: function(dataResult) {
                     var dataResult = JSON.parse(dataResult);
                     if (dataResult.statusCode == 200) {
-                        alert("Success");
+                        swalSuccessNotification("Account status has been updated.");
                     } else {
-                        alert("Failed");
+                        swalErrorNotification();
                     }
                     $('#modal-info-question').modal('toggle');
                     $('#dataTable').DataTable();
@@ -342,6 +552,10 @@
                         var questionData;
                         $.each(dataResult, function(key, question) {
                             var questionID = question['questionID'];
+                            var attachment = question['fileName'];
+                            console.log(attachment);
+
+                            var status = question['status'] == "1" ? "Unanswered" : "Answered";
                             questionData +=
                                 `<tr>
                                     <td>${questionID}</td>
@@ -349,6 +563,8 @@
                                     <td>${question['subject']}</td>
                                     <td>${question['creationDateTime']}</td>
                                     <td>${question['title']}</td>
+                                    <td style="max-width: 150px;"> <a href="./../../resource/attachment/${attachment}" download="${attachment}">${attachment}</a></td>
+                                    <td>${status}</td>
                                     <td><button type="button" class="btn btn-flat btn-default btn-sm dropdown-toggle dropdown-icon" data-toggle="dropdown">
                                   Action<span class="sr-only">Toggle Dropdown</span>
                                 </button>

@@ -2,6 +2,23 @@
 include '../../common/session.php';
 ?>
 
+<style>
+
+.table-responsive {
+    overflow-x: auto;
+}
+    @media print {
+            .hide-on-print {
+                display: none !important;
+            }
+            .col-print-3 {
+                flex: 0 0 25%;  /* Set the width for printing */
+                max-width: 25%;
+        }
+        }
+        
+</style>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,13 +41,14 @@ include '../../common/session.php';
     <link href="./../../common/css/index.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.9.0/dist/sweetalert2.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <link rel="stylesheet" href="./../../common/custom-styles.css">
+    <!-- <link rel="stylesheet" href="./../../common/custom-styles.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN5Pboy4EowdQ8s1q6Zgy5u7fVoJAxSfD" crossorigin="anonymous">
 </head>
 
 <body id="page-top">
     <div id="wrapper">
 
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="sidebar-accordion">
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion hide-on-print" id="sidebar-accordion">
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
                 <img loading="lazy" src="../../resource/logo-codeconnect.png" id="logo" alt="" style="width:200px;">
             </a>
@@ -250,11 +268,14 @@ include '../../common/session.php';
     <script src="./../../common/js/chart-area.js"></script>
     <script src="./../../common/js/chart-pie.js"></script>
     <script src="./../../common/vendor/datatables/jquery.dataTables.js"></script>
+    <script src="./../../common/main.js"></script>
     <script src="./../../common/common.js"></script>
+    <script src="./../../common/ckeditor/build/ckeditor.js"></script>
+    <script src="./../../common/ckeditor/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.9.0/dist/sweetalert2.all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <!-- Bootstrap CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN5Pboy4EowdQ8s1q6Zgy5u7fVoJAxSfD" crossorigin="anonymous">
+
 
 </body>
 

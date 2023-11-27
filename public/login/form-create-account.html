@@ -46,7 +46,9 @@
                 </div>
             </div>
             <div class="mt-4">
-                <button class="btn btn-primary btn-block w-100" id="btn-send-otp" type="submit">Send OTP</button>
+                <button class="btn btn-primary btn-block w-100" id="btn-send-otp" type="submit">
+                    Send OTP <i class="fas fa-envelop-alt"></i>
+                </button>
             </div>
         </form>
     </div>
@@ -367,7 +369,7 @@
                             $("#input-scan").prop("disabled", true);
                         });
                     } else {
-                        alert("Unable to upload file, please try again later!");
+                        swalErrorNotification();
                     }
                 },
                 beforeSend: function() {

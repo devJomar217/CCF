@@ -276,7 +276,7 @@
                     var dataResult = JSON.parse(dataResult);
                     if (dataResult.statusCode != 201) {
                         retrieveAnswerList();
-                        alert("Updated");
+                        swalSuccessNotification("Status has been successfully updated.");
                         $('#modal-info-report').modal('toggle');
                     }
                 },

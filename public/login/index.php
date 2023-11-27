@@ -27,11 +27,13 @@ include '../../common/session.php';
     <meta property="twitter:title" content="Code Connect - Login">
     <meta property="twitter:description" content="Explore the exceptional IT students at Bulacan State University (BulSU) through Code Connect. Join the university's interactive platform for insightful questions and answers. Discover the top-ranked students shaping innovation and knowledge sharing within the BulSU community! #TopStudents #CodeConnect">
     <meta property="twitter:image" content="https://yourwebsite.com/path/to/your/image.jpg">
-
-    <link rel="stylesheet" href="./../../common/vendor/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="./../../common/vendor/bootstrap/bootstrap.min.css"> -->
     <link rel="icon" href="./../../resource/favicon.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <link rel="stylesheet" href="./../../common/custom-styles.css">
+    <!-- <link rel="stylesheet" href="./../../common/custom-styles.css"> -->
+
 </head>
 
 <body style="background-color: rgb(245, 245, 245)">

@@ -195,6 +195,9 @@
                         var dataResult = JSON.parse(dataResult);
                         if (dataResult.statusCode == 200) {
                             dataResult.rankingList.forEach(rank => {
+                                if (rating < 1) {
+                                    return;
+                                }
 
                                 if (rank.studentInformation == null) {
                                     var picture = rank.professionalInformation['picture'];

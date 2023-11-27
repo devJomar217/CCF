@@ -13,7 +13,9 @@
                         <div class="row my-3">
                             <div class="col-lg-4"></div>
                             <div class="col-lg-4 text-center">
-                                <button type="button" class="btn btn-primary btn-block px-4" data-toggle="modal" data-target="#modal-add-question" id="button-ask-question">Ask a Question</button>
+                                <button type="button" class="btn btn-primary btn-block px-4" data-toggle="modal" data-target="#modal-add-question" id="button-ask-question">
+                                    Ask a Question <i class="fas fa-comment"></i>
+                                </button>
                             </div>
                             <div class="col-lg-4"></div>
                         </div>
@@ -29,7 +31,9 @@
                                     <div class="input-group">
                                         <input type="text" class="form-control" name="input-search" placeholder="Search for a Question" id="input-search">
                                         <div class="input-group-append">
-                                            <button type="submit" class="btn btn-primary" id="button-search">Search</button>
+                                            <button type="submit" class="btn btn-primary" id="button-search">
+                                                Search <i class="fas fa-search"></i>
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -153,7 +157,9 @@
                                 <div id="container-question"></div>
                                 <div class="row">
                                     <div class="col text-center my-2">
-                                        <input type="button" value="Load More" id="load-more-question" class="btn btn-primary btn-sm" />
+                                        <button type="button" id="load-more-question" class="btn btn-primary btn-sm">
+                                            Load More <i class="fas fa-angle-down fa-pulse"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -183,7 +189,9 @@
                         <div id="container-ranking"></div>
                         <div class="row text-center">
                             <div class="col text-center">
-                                <a href="" id="load-more-ranking" class="btn btn-primary btn-sm">Load More</a>
+                                <button href="" id="load-more-ranking" class="btn btn-primary btn-sm">Load More
+                                    <i class="fas fa-angle-down fa-pulse"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -201,32 +209,28 @@
             </div>
             <form id="form-add-question" class="needs-validation container">
                 <div class="modal-body">
-                    <div class="row mb-3">
-                        <div class="col-lg-1 d-flex align-middle text-center">
-                            <label class="form-label align-middle pr-2 pt-2" for="input-">Title</label>
-                        </div>
-                        <div class="col">
-                            <input type="text" id="input-new-question-title" class="form-control" placeholder="Enter title" required/>
-                        </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="input-new-question-title">Title</label>
+                        <input type="text" id="input-new-question-title" class="form-control" placeholder="Enter title" maxlength="100" required />
                     </div>
                     <div class="row mb-3">
-                        <div class="col-lg-1">
-                            <label class="form-label align-middle pr-2 pt-2" for="input-scan">Subject</label>
-                        </div>
-                        <div class="col-lg-5">
-                            <select class="form-control dropdown" id="input-new-question-subject" required>
+                        <div class="col-lg-6  mb-3">
+                            <label class="form-label" for="input-new-question-subject">Subject</label>
+                            <select class="form-control" id="input-new-question-subject" required>
                                 <option value="" selected>--Please Select--</option>
                             </select>
                         </div>
+                        <div class="col-lg-6  mb-3">
+                            <label class="form-label" for="input-new-question-attachment">Attachment</label>
+                            <input type="file" name="file" class="form-control" id="input-new-question-attachment">
+                            <div id="input-new-question-attachment-name"></div>
+                        </div>
                     </div>
-                    <div class="form-outline mb-3 ml-3 mt-3 mr-3">
-                        <div class="w-100">
-                            <div class="row row-editor">
-                                <div class="editor-container">
-                                    <div class="editor">
-                                        <h5>Description:</h5>
-                                    </div>
-                                </div>
+                    <div class="mb-3">
+                        <!-- <label class="form-label" for="editor-add-question">Description</label> -->
+                        <div class="row row-editor mx-0">
+                            <div class="editor-container">
+                                <div id="editor-add-question"></div>
                             </div>
                         </div>
                     </div>
@@ -239,7 +243,7 @@
         </div>
     </div>
 </div>
-<script src="./../../common/ckeditor/script.js"></script>
+<!-- <script src="./../../common/ckeditor/script.js"></script> -->
 <script>
     $(document).ready(function() {
         var subjectList = new Array;
@@ -255,6 +259,10 @@
 
         $("#ranking-filter").on("change", function() {
             populateRanking(rankingLimit);
+        });
+
+        $("#button-ask-question").on("click", function() {
+            initEditor("editor-add-question", "", 'Enter description here...');
         });
 
         function populateRanking(rankingLimit) {
@@ -273,6 +281,10 @@
                     var dataResult = JSON.parse(dataResult);
                     if (dataResult.statusCode == 200) {
                         dataResult.rankingList.forEach(rank => {
+                            // alert(rank['rating']);
+                            if (rank['rating'] < 1) {
+                                return;
+                            }
 
                             if (rank.studentInformation == null) {
                                 var picture = rank.professionalInformation['picture'];
@@ -617,49 +629,66 @@
             }
         });
 
-        $("#form-add-question").on("submit", function(event) {
+        $("#form-add-question").on("submit", async function(event) {
             event.preventDefault();
+
             var title = $("#input-new-question-title").val();
             var subject = $("#input-new-question-subject").val();
-            $.ajax({
-                url: "../../common/db.php",
-                type: "POST",
-                data: {
-                    action: 'save-question',
-                    title: title,
-                    description: window.editor.getData(),
-                    subject: subject
-                },
-                cache: false,
-                success: function(dataResult) {
-                    var dataResult = JSON.parse(dataResult);
-                    if (dataResult.statusCode == 200) {
-                        getLatestQuestion(-1, -1, limit, "");
-                        $("#modal-add-question").modal('toggle');
-                        alert("Your question has been successfully posted!");
-                    } else {
-                        alert("Unable to post the question, please try again later!");
-                    }
-                },
-                beforeSend: function() {
-                    // Code to be executed before the request is sent
-                    console.log('Request is about to be sent');
-                },
-                error: function(xhr, status, error) {
-                    // Code to be executed if there is an error
-                    console.error('Error:', error);
-                },
-                complete: function() {
-                    // Code to be executed after the request is complete (success, error, or abort)
-                    console.log('Request is complete');
+
+            var input = document.getElementById('input-new-question-attachment');
+            var file = input.files[0];
+
+            var formData = new FormData();
+
+            if (file) {
+                if (!validFileSize(file)) {
+                    return;
+                } else {
+                    formData.append('attachment', file);
                 }
-            });
+            }
+
+
+            formData.append('action', 'save-question');
+            formData.append('title', title);
+            formData.append('description', getEditorData("editor-add-question"));
+            formData.append('subject', subject);
+
+            try {
+                const response = await $.ajax({
+                    url: '../../common/db.php',
+                    type: 'POST',
+                    data: formData,
+                    cache: false,
+                    processData: false,
+                    contentType: false,
+                });
+
+                const dataResult = JSON.parse(response);
+                if (dataResult.statusCode === 200 || dataResult.statusCode.includes(200)) {
+                    getLatestQuestion(-1, -1, limit, '');
+                    $("#modal-add-question").modal('toggle');
+                    swalSuccessNotification('Your question has been successfully posted.');
+                } else {
+                    swalErrorNotification();
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                // Handle error in a consistent manner
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'An error occurred during the request.',
+                });
+            } finally {
+                // Code to be executed after the request is complete (success, error, or abort)
+                console.log('Request is complete');
+            }
         });
 
         $('#modal-add-question').on('hidden.bs.modal', function() {
             $("#input-new-question-title").val("");
             $("#input-new-question-subject").val("").change();
-            window.editor.setData(`<p>Description:</p><p><br><br><br><br data-cke-filler="true"></p>`);
         });
     });
 </script>

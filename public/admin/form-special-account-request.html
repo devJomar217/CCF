@@ -46,7 +46,7 @@
     <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Professional Account Request</h5>
+                <h5 class="modal-title" style="color: #333;">Professional Account Request</h5>
             </div>
             <div class="modal-body">
                 <div class="row">
@@ -64,41 +64,64 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label for="modal-info-student-id"><b>Account ID:</b></label>
-                                <div class="form-control" id="modal-info-student-id"></div>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" id="modal-info-student-id" readonly>
+                                </div>
                             </div>
                         </div>
 
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label for="modal-info-name"><b>Name:</b></label>
-                                <div class="form-control" id="modal-info-name"></div>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" id="modal-info-name" readonly>
+                                </div>
                             </div>
                         </div>
 
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label for="modal-info-specialization"><b>Job:</b></label>
-                                <div class="form-control" id="modal-info-specialization"></div>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-briefcase"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" id="modal-info-specialization" readonly>
+                                </div>
                             </div>
                         </div>
 
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label for="modal-info-user-name"><b>Username:</b></label>
-                                <div class="form-control" id="modal-info-user-name"></div>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" id="modal-info-user-name" readonly>
+                                </div>
                             </div>
                         </div>
 
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label for="modal-info-email"><b>Email:</b></label>
-                                <div class="form-control" id="modal-info-email"></div>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" id="modal-info-email" readonly>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" id="button-reject">Reject</button>
@@ -108,26 +131,27 @@
     </div>
 </div>
 
+
 <script>
     $(document).ready(function() {
         var studentList;
         retrieveStudentRequestList();
 
         $("#button-reject").on('click', function() {
-            var studentID = $('#modal-info-student-id').html();
+            var studentID = $('#modal-info-student-id').val();
             updateAccountStatus(studentID, '-1');
             $('#modal-info-student').modal('toggle');
         });
 
         $("#button-approve").on('click', function() {
-            var studentID = $('#modal-info-student-id').html();
+            var studentID = $('#modal-info-student-id').val();
             updateAccountStatus(studentID, '1');
             sendEmail();
             $('#modal-info-student').modal('toggle');
         });
 
         function sendEmail() {
-            var email = $("#modal-info-email").html();
+            var email = $("#modal-info-email").val();
             $.ajax({
                 url: "../../common/mailer.php",
                 type: "POST",
@@ -160,13 +184,13 @@
         }
 
         $("#button-reject-cor").on('click', function() {
-            var studentID = $('#modal-info-student-id-cor').html();
+            var studentID = $('#modal-info-student-id-cor').val();
             updateAccountStatus(studentID, '-1');
             $('#modal-info-student-cor').modal('toggle');
         });
 
         $("#button-approve-cor").on('click', function() {
-            var studentID = $('#modal-info-student-id-cor').html();
+            var studentID = $('#modal-info-student-id-cor').val();
             updateAccountStatus(studentID, '1');
             $('#modal-info-student-cor').modal('toggle');
         });
@@ -179,7 +203,7 @@
                 console.log(student);
                 console.log(studentID == student['studentID']);
                 if (studentID == student['studentID']) {
-                    $('#modal-info-student-id').html(student['studentID']);
+                    $('#modal-info-student-id').val(student['studentID']);
                     // if (student['creationType'] == 1 && student['attachment'] != null) {
                     //     $('#modal-info-student-cor').modal('toggle');
                     //     $('#modal-info-student-id-cor').html(student['studentID']);
@@ -194,12 +218,12 @@
 
                     // }
 
-                    $('#modal-info-name').html(student['name']);
-                    $('#modal-info-year-level').html(student['yearLevel']);
-                    $('#modal-info-specialization').html(student['specialization']);
-                    $('#modal-info-user-name').html(student['username']);
-                    $('#modal-info-email').html(student['email']);
-                    $('#modal-info-picture').html(student['picture']);
+                    $('#modal-info-name').val(student['name']);
+                    $('#modal-info-year-level').val(student['yearLevel']);
+                    $('#modal-info-specialization').val(student['specialization']);
+                    $('#modal-info-user-name').val(student['username']);
+                    $('#modal-info-email').val(student['email']);
+                    $('#modal-info-picture').val(student['picture']);
                     $('#modal-info-professional-id').attr("src", "./../../resource/id/" + student['attachment']);
                     $('#modal-info-professional-a-id').attr("href", "./../../resource/id/" + student['attachment']);
                     $('#modal-info-student').modal('toggle');
@@ -209,9 +233,6 @@
             });
         });
 
-        function showStudentData(studentID) {
-            alert(studentID);
-        }
 
         function updateAccountStatus(userID, status) {
             $.ajax({
@@ -226,14 +247,24 @@
                 success: function(dataResult) {
                     var dataResult = JSON.parse(dataResult);
                     if (dataResult.statusCode != 200) {
-                        alert("There some error during the deletion, please try again later!");
+                        swalErrorNotification();
                     }
 
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Success',
-                        text: 'Account has been successfully approved.',
-                    });
+                    if (status == -1) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: 'Account has been successfully rejected.',
+                        });
+                    } else {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: 'Account has been successfully approved.',
+                        });
+                    }
+
+
 
                     retrieveStudentRequestList();
                 },

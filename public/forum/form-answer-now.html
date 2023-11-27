@@ -16,6 +16,7 @@
                     <h4>Question</h4>
                     <h5 class="mt-4" id="question-title"></h5>
                     <p class="mt-3" id="question-description"></p>
+                    <div class="mt-3" id="question-attachment-container"></div>
                 </div>
             </div>
         </div>
@@ -29,16 +30,17 @@
                         <div class="centered">
                             <div class="row row-editor">
                                 <div class="editor-container">
-                                    <div class="editor">
-                                        <h5>Answer:</h5>
-                                        <br>
-                                        <h5>Explanation:</h5>
-                                    </div>
+                                    <div id="editor-add-answer-now"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col flex-row-reverse text-right">
-                            <button type="submit" value="Submit" class="btn btn-primary mt-4" style="background-color: #4e73df !important;">Answer Now <i class="fa fa-paper-plane"></i></button>
+                        <div class="col flex-row-reverse text-right mt-4">
+                            <p id="selectedFileName" class="mt-2 text-muted"></p>
+                            <label for="attachment" class="btn btn-secondary mt-2">
+                                <input type="file" id="attachment" name="attachment" style="display: none;" onchange="displayFileName()">
+                                Attach File <i class="fa fa-paperclip"></i>
+                            </label>
+                            <button type="submit" class="btn btn-primary" style="background-color: #4e73df !important;">Answer Now <i class="fa fa-paper-plane"></i></button>
                         </div>
                     </form>
                 </div>
@@ -46,45 +48,62 @@
         </div>
     </div>
 </div>
-<script src="./../../common/ckeditor/script.js"></script>
+<!-- <script src="./../../common/ckeditor/script.js"></script> -->
 <script>
+    function displayFileName() {
+        // Get the file input element
+        var fileInput = document.getElementById('attachment');
+
+        // Get the display element
+        var fileNameDisplay = document.getElementById('selectedFileName');
+
+        // Update the display element with the selected file name
+        fileNameDisplay.textContent = "Attachment: " + fileInput.files[0].name;
+    }
     $(document).ready(function() {
         var questionID = window.location.search.substring(1).split("=")[1];
         var creatorID = "";
         retrieveQuestion();
+        initEditor("editor-add-answer-now", "", "Enter you answer here...");
+
         $("#form-answer-now").on("submit", function(e) {
             e.preventDefault();
+
+            // Create a FormData object
+            var formData = new FormData(this);
+
+            // Check if a file is selected
+            var file = $("#attachment")[0];
+
+            if (file) {
+                if (!validFileSize(file)) {
+                    return;
+                } else {
+                    formData.append('attachment', file);
+                }
+            }
+
+            // Append the answer data to the FormData object
+            formData.append('answer', getEditorData("editor-add-answer-now"));
+            formData.append('questionID', questionID);
+            formData.append('creatorID', creatorID);
+            formData.append('action', 'save-answer')
+
             $.ajax({
                 url: "../../common/db.php",
                 type: "POST",
-                data: {
-                    action: 'save-answer',
-                    questionID: questionID,
-                    answer: window.editor.getData(),
-                    creatorID: creatorID
-                },
+                data: formData,
                 cache: false,
+                contentType: false,
+                processData: false,
                 success: function(dataResult) {
                     var dataResult = JSON.parse(dataResult);
                     if (dataResult.statusCode == 200) {
                         window.history.back();
                         $("#main-container").load('./form-main-forum.html');
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Success',
-                            text: 'Your answer has been successfully posted.',
-                            timer: 3000, // Time in milliseconds (e.g., 3000 = 3 seconds)
-                            showConfirmButton: true // Hides the "OK" button
-                        }).then((result) => {
-                            // You can add additional logic here if needed
-                            if (result.dismiss === Swal.DismissReason.timer) {
-                                // The alert was closed by the timer
-                                console.log('Alert was closed by timer');
-                            }
-                            // You can add more logic based on user interaction if needed
-                        });
+                        swalSuccessNotification("Your answer has been successfully posted.");
                     } else {
-                        alert("Unable to post the answer, please try again later!");
+                        swalErrorNotification();
                     }
                 },
                 beforeSend: function() {
@@ -116,9 +135,25 @@
                     if (dataResult.statusCode == 200) {
                         $("#question-title").html(dataResult.question.title);
                         $("#question-description").html(dataResult.question.description);
+
+                        // Display attachment link
+                        var attachment = dataResult.question.fileName;
+                        if (attachment) {
+                            // Display a link to download the attachment
+                            var downloadLink = $("<a>")
+                                .attr("href", "./../../resource/attachment/" + attachment)
+                                .attr("download", attachment)
+                                .text("Download Attachment: " + attachment);
+                            // Append the download link to the specified container
+                            $("#question-attachment-container").empty().append(downloadLink);
+                        } else {
+                            // If there is no attachment, clear the container
+                            $("#question-attachment-container").empty();
+                        }
+
                         creatorID = dataResult.question.studentID;
                     } else {
-                        alert("Unable to post the answer, please try again later!");
+                        swalErrorNotification();
                     }
                 },
                 beforeSend: function() {

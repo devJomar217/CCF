@@ -1,6 +1,10 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css" />
 
 <script src="./../../common/vendor/datatables/jquery.dataTables.js"></script>
+<!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css"> -->
+<!-- <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+<!-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script> -->
+
 
 <h1 class="h3 mb-2 text-gray-800">Answer List</h1>
 <p class="mb-4">This page contains list of answers from the forums</p>
@@ -11,7 +15,17 @@
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
+            <table class="table table-bordered table-striped" id="dataTable" class="display nowrap" style="width:100%">
+                <colgroup>
+                    <col width="3%">
+                    <col width="3%">
+                    <col width="3%">
+                    <col width="10%">
+                    <col width="auto">
+                    <col width="10%">
+                    <col width="10%">
+                    <col width="10%">
+                </colgroup>
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -19,7 +33,8 @@
                         <th>Question ID</th>
                         <th>Date Time</th>
                         <th>Answer</th>
-                        <th>Rating</th>
+                        <th>Attachment</th>
+                        <th>Likes</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -30,36 +45,42 @@
                         <th>QuestionID</th>
                         <th>DateTime</th>
                         <th>Answer</th>
-                        <th>Rating</th>
+                        <th>Attachment</th>
+                        <th>Likes</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>
                 <tbody id="tableBody">
+                    <!-- Your table data goes here -->
                 </tbody>
             </table>
         </div>
     </div>
 </div>
 
-<div class="modal fade" id="modal-info-answer" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+
+<div class="modal fade" id="modal-info-answer" tabindex="-1" role="dialog" aria-labelledby="modal-info-answer-label" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Answer Information</h5>
+                <h5 class="modal-title" id="modal-info-answer-label">Answer Information</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
                 <div class="row">
                     <div class="col-lg-3">
                         <b>Answer ID:</b>
-                        <div for="" class="form-control" id="modal-info-answer-id"></div>
+                        <div class="form-control" id="modal-info-answer-id"></div>
                     </div>
                     <div class="col-lg-9">
                         <b>Creation Date Time:</b>
-                        <div for="" class="form-control" id="modal-info-answer-creationDateTime"></div>
+                        <div class="form-control" id="modal-info-answer-creationDateTime"></div>
                     </div>
                     <div class="col-lg-12">
                         <b>Answer:</b>
-                        <div for="" class="form-control" style="height: auto;" id="modal-info-answer-answer"></div>
+                        <div class="form-control" style="height: auto;" id="modal-info-answer-answer"></div>
                     </div>
                 </div>
             </div>
@@ -70,41 +91,38 @@
     </div>
 </div>
 
+
 <div class="modal fade" id="modal-edit-answer" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Update Answer</h5>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-lg-3">
-                        <div class="form-group">
+            <form id="form-edit-answer">
+                <div class="modal-header">
+                    <h5 class="modal-title">Update Answer</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="form-row">
+                        <div class="form-group col-lg-3">
                             <label for="modal-edit-answer-id"><b>Answer ID:</b></label>
-                            <input type="text" class="form-control" id="modal-edit-answer-id" readonly required />
+                            <input name="name" type="text" class="form-control" id="modal-edit-answer-id" readonly required />
                             <div class="invalid-feedback"></div>
                         </div>
-                    </div>
-                    <div class="col-lg-9">
-                        <div class="form-group">
+                        <div class="form-group col-lg-9">
                             <label for="modal-edit-answer-creationDateTime"><b>Creation Date Time:</b></label>
-                            <input type="text" class="form-control" id="modal-edit-answer-creationDateTime" readonly />
+                            <input type="text" name="creation_date_time" class="form-control" id="modal-edit-answer-creationDateTime" readonly required />
                             <div class="invalid-feedback"></div>
                         </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="form-group">
+                        <div class="form-group col-lg-12">
                             <label for="modal-edit-answer-answer"><b>Answer:</b></label>
-                            <textarea class="form-control" style="height: auto;" id="modal-edit-answer-answer" required></textarea>
+                            <div id="modal-edit-answer-answer" name="answer" rows="5" required></div>
                             <div class="invalid-feedback"></div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Update</button>
-            </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -142,6 +160,13 @@
                         <div class="form-group">
                             <label for="modal-info-question-description"><b>Description:</b></label>
                             <div class="form-control" style="height: auto;" id="modal-info-question-description"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label for="modal-info-question-description"><b>Attachment:</b></label>
+                            <div id="modal-info-question-attchment"></div>
                         </div>
                     </div>
                 </div>
@@ -222,6 +247,44 @@
         var answerList;
         retrieveAnswerList();
 
+        $("#form-edit-answer").on("submit", function() {
+            event.preventDefault();
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'update-answer',
+                    description: getEditorData("modal-edit-answer-answer"),
+                    answerID: $("#modal-edit-answer-id").val()
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode == 200) {
+                        retrieveAnswerList();
+                        $("#modal-edit-answer").modal('toggle');
+                        swalSuccessNotification("Your answer has been successfully updated.");
+                    } else {
+                        swalErrorNotification();
+                    }
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
+                }
+            });
+        });
+
+
+
         $("#dataTable").on('click', '.btn-select-question', function() {
             var currentRow = $(this).closest("tr");
             var answerID = currentRow.find("td:eq(0)").html();
@@ -259,23 +322,74 @@
                 if (answerID == answer['answerID']) {
                     $('#modal-edit-answer-id').val(answer.answerID);
                     $('#modal-edit-answer-creationDateTime').val(answer.creationDateTime);
-                    $('#modal-edit-answer-answer').val(answer.answer);
+                    // $('#modal-edit-answer-answer').val(answer.answer);
+                    initEditor("modal-edit-answer-answer", answer.answer, 'Enter answer here...');
                     $('#modal-edit-answer').modal('toggle');
                     return;
                 }
             });
         });
 
+        function deleteAnswer(answerID) {
+            $.ajax({
+                url: "../../common/db.php",
+                type: "POST",
+                data: {
+                    action: 'delete-answer',
+                    answerID: answerID,
+                    status: "-1"
+                },
+                cache: false,
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    if (dataResult.statusCode != 200) {
+                        swalErrorNotification();
+                    }
+
+                    Swal.fire(
+                        'Deleted!',
+                        `The answer with ID ${answerID} has been deleted.`,
+                        'success'
+                    );
+
+                    retrieveAnswerList();
+                },
+                beforeSend: function() {
+                    // Code to be executed before the request is sent
+                    console.log('Request is about to be sent');
+                },
+                error: function(xhr, status, error) {
+                    // Code to be executed if there is an error
+                    console.error('Error:', error);
+                },
+                complete: function() {
+                    // Code to be executed after the request is complete (success, error, or abort)
+                    console.log('Request is complete');
+                }
+            });
+        }
+
         $("#dataTable").on('click', '.delete_data', function() {
             var currentRow = $(this).closest("tr");
             var answerID = currentRow.find("td:eq(0)").html();
             $.each(answerList, function(key, answer) {
                 if (answerID == answer['answerID']) {
-                    $('#modal-info-answer-id').html(answer.answerID);
-                    $('#modal-info-answer-creationDateTime').html(answer.creationDateTime);
-                    $('#modal-info-answer-answer').html(answer.answer);
-                    $('#modal-info-answer').modal('toggle');
-                    return;
+                    Swal.fire({
+                        title: 'Are you sure?',
+                        text: `You are about to delete this question with ID: ${question['questionID']}. This action cannot be undone.`,
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#d33',
+                        cancelButtonColor: '#3085d6',
+                        confirmButtonText: 'Yes, delete it!'
+                    }).then((result) => {
+                        // If the user confirms, perform the delete action
+                        if (result.isConfirmed) {
+                            // Call your delete function or make an AJAX request here
+                            // For example, you can call a function like deleteStudent() and handle the logic there
+                            deleteAnswer(answerID);
+                        }
+                    });
                 }
             });
         });
@@ -319,10 +433,6 @@
 
 
 
-        function showAnswerData(answerID) {
-            alert(answerID);
-        }
-
         function updateAccountStatus(userID, status) {
             $.ajax({
                 url: "../../common/db.php",
@@ -336,12 +446,14 @@
                 success: function(dataResult) {
                     var dataResult = JSON.parse(dataResult);
                     if (dataResult.statusCode == 200) {
-                        alert("Success");
+                        swalSuccessNotification("Account status has been updated.");
                     } else {
-                        alert("Failed");
+                        swalErrorNotification();
                     }
                     $('#modal-info-answer').modal('toggle');
-                    $('#dataTable').DataTable();
+                    $('#dataTable').DataTable({
+                        scrollX: true
+                    });
                 },
                 beforeSend: function() {
                     // Code to be executed before the request is sent
@@ -384,6 +496,7 @@
                                 <td><a class="btn-select-question">${answer['questionID']}</a></td>
                                 <td>${answer['creationDateTime']}</td>
                                 <td>${answer['answer']}</td>
+                                <td style="max-width: 150px;"><a href="./../../resource/attachment/${answer['fileName']}" download="${answer['fileName']}">${answer['fileName']}</a></td>
                                 <td>${answer['rating']}</td>
                                 <td><button type="button" class="btn btn-flat btn-default btn-sm dropdown-toggle dropdown-icon" data-toggle="dropdown">
                                   Action<span class="sr-only">Toggle Dropdown</span>

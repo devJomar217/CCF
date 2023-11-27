@@ -146,7 +146,7 @@
                         $("#tableBodyQuestion").html(activityQuestion);
                         $("#tableBodyAnswer").html(activityAnswer);
                     } else {
-                        alert("Unable to post the answer, please try again later!");
+                        swalErrorNotification();
                     }
 
                     $('#dataTableQuestion').DataTable();

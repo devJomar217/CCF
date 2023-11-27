@@ -118,13 +118,13 @@
                             var body = "";
 
                             if (type == "1") {
-                                message = `answered your question: <b>"${notification.detail.questionInformation.title}"</b>`;
+                                message = `answered your question: <b>"${notification.detail.questionTitle}"</b>`;
                                 body = notification.detail.answer;
-                            } else {
+                            } else if (type == "2") {
                                 if (notification.detail != null) {
                                     console.log(notification);
                                     message = `replied to your answer: <b>"${notification.detail.answer}"</b>`;
-                                    body = notification.detail.replies;
+                                    body = notification.detail.reply;
                                 }
                             }
                             var style = "";
@@ -151,7 +151,7 @@
                         }
                         $("#container-notification").html(notifications);
                     } else {
-                        alert("Unable to post the answer, please try again later!");
+                        swalErrorNotification();
                     }
 
                     $(".button-select-question").on('click', function(event) {
