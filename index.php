@@ -13,7 +13,7 @@ include 'common/session.php';
     <meta property="og:title" content="Top-Ranked Students on Code Connect" />
     <meta property="og:description" content="Explore the exceptional IT students at Bulacan State University (BulSU) through Code Connect. Join the university's interactive platform for insightful questions and answers. Discover the top-ranked students shaping innovation and knowledge sharing within the BulSU community! #TopStudents #CodeConnect"
     />
-    <meta property="og:image" content="./resource/logo-bsit.png" />
+    <meta property="og:image" content="./resource/logo_cics.png" />
     <link rel="icon" href="./resource/favicon.png" type="image/png">
     <link rel="shortcut icon" href="./web/resources/images/logo.png" type="image/png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
