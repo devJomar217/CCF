@@ -208,7 +208,7 @@
     <div class="col-lg-12">
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Question per Subject</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Subjects</h6>
             </div>
             <div class="card-body">
                 <div style="margin: auto;">
@@ -251,7 +251,7 @@
             <div class="card-header py-3">
                 <div class="row">
                     <div class="col-lg-6 align-middle">
-                        <h6 class="m-0 mt-2 font-weight-bold text-primary">Year Level per Subject</h6>
+                        <h6 class="m-0 mt-2 font-weight-bold text-primary">Year Level</h6>
                     </div>
                     <div class="col-lg-6">
                         <div class="row align-middle">
@@ -326,7 +326,7 @@
                         data: {
                             labels: subjectLabel,
                             datasets: [{
-                                label: 'Question Count',
+                                label: 'Subject',
                                 data: questionCounts,
                                 backgroundColor: 'rgba(75, 192, 192, 0.5)',
                                 borderColor: 'rgba(75, 192, 192, 1)',
@@ -349,7 +349,7 @@
                         data: {
                             labels: ['First Year', 'Second Year', 'Third Year', 'Fourth Year'],
                             datasets: [{
-                                label: 'Number of Students',
+                                label: 'Students',
                                 data: [dataResult.student.firstYear, dataResult.student.secondYear, dataResult.student.thirdYear, dataResult.student.fourthYear],
                                 backgroundColor: [
                                     'rgba(75, 192, 192, 0.5)',
