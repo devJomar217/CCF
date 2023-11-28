@@ -32,7 +32,7 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Account ID</th>
+                        <th>Reported By</th>
                         <th>Date Time</th>
                         <th>Reason</th>
                         <th>Answer</th>
@@ -42,7 +42,7 @@
                 <tfoot>
                     <tr>
                         <th>ID</th>
-                        <th>Account ID</th>
+                        <th>Reported By</th>
                         <th>Date Time</th>
                         <th>Reason</th>
                         <th>Answer</th>
@@ -320,7 +320,7 @@
                             answerData +=
                                 `<tr>
                                     <td>${answer.reportedID}</td>
-                                    <td><a class='button-student-id'>${answer.reporterInformation.studentID}</a></td>
+                                    <td><a class='button-student-id'>${answer.reporterInformation.name}</a></td>
                                     <td>${answer.dateTime}</td>
                                     <td>${answer.reason}</td>
                                     <td>${answer.answerInformation.answer}</td>
@@ -363,7 +363,7 @@
                             answerData +=
                                 `<tr>
                                     <td>${answer.reportedID}</td>
-                                    <td><a class='button-student-id'>${answer.reporterInformation.studentID}</a></td>
+                                    <td><a class='button-student-id'>${answer.reporterInformation.name}</a></td>
                                     <td>${answer.dateTime}</td>
                                     <td>${answer.reason}</td>
                                     <td>${answer.replyInformation.answer}</td>

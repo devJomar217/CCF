@@ -32,7 +32,7 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Account ID</th>
+                        <th>Reported By</th>
                         <th>Date Time</th>
                         <th>Reason</th>
                         <th>Question</th>
@@ -42,7 +42,7 @@
                 <tfoot>
                     <tr>
                         <th>ID</th>
-                        <th>Account ID</th>
+                        <th>Reported By</th>
                         <th>Date Time</th>
                         <th>Reason</th>
                         <th>Question</th>
@@ -314,7 +314,7 @@
                             questionData +=
                                 `<tr>
                             <td>${question.reportedID}</td>
-                            <td><a class='button-student-id'>${question.reporterInformation.studentID}</a></td>
+                            <td><a class='button-student-id'>${question.reporterInformation.name}</a></td>
                             <td>${question.dateTime}</td>
                             <td>${question.reason}</td>
                             <td>${question.questionInformation.title}</td>
