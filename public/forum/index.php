@@ -64,7 +64,7 @@ footer {
                 <a class="nav-link active" href="#forum" id="nav-menu-forum">Forum <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link for-login-user" id="nav-menu-learn-to-code" href="#learn-to-code">Learn to Code</a>
+                <a class="nav-link for-login-user for-student-login-user" id="nav-menu-learn-to-code" href="#learn-to-code">Learn to Code</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link for-login-user" id="nav-menu-activities" href="#activities">My Actions</a>
@@ -182,6 +182,10 @@ footer {
                             isGuest = true;
                             $(".for-login-user").attr("disabled", "disabled");
                             $(".for-login-user").addClass("d-none");
+                        }
+
+                        if(userType == "3"){
+                            $(".for-student-login-user").addClass("d-none");
                         }
                     }
                 },
