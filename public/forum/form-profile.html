@@ -66,8 +66,7 @@
                                 <div class="form-outline mb-2">
                                     <label class="form-label" for="input-username">Username</label>
                                     <input type="text" id="student-input-profile-user-name" class="form-control" placeholder="Enter user name" required/>
-                                    <div class="invalid-feedback" id="helpertext-username">
-                                    </div>
+                                    <div class="invalid-feedback" id="helpertext-username">Username already taken.</div>
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -193,8 +192,6 @@
                         <label class="form-label" for="input-password">Password</label>
                         <input type="password" name="input-password" id="input-password" class="full-width form-control" placeholder="Enter Password" required autocomplete="new-password" onkeyup="checkPasswordStrength();" />
                         <div id="password-strength-status"></div>
-                        <div class="invalid-feedback" id="helpertext-password">
-                        </div>
                     </div>
 
                     <div class="form-outline mb-4">
@@ -311,7 +308,7 @@
                     }
 
                     if (dataResult.statusCode.includes(5100) || dataResult.statusCode.includes(5101)) {
-                        displayInfoMessage("#student-info-message-profile", false, "Email or Username is already been used!");
+                        displayInfoMessage("#student-info-message-profile", false, "Username is already been used!");
                         if (dataResult.statusCode.includes(5100)) {
                             $("#student-input-profile-user-name").addClass('is-invalid');
                         }
@@ -522,7 +519,16 @@
                 success: function(dataResult) {
                     var dataResult = JSON.parse(dataResult);
                     if (dataResult.statusCode == 200) {
-                        swalSuccessNotification("Password has been successfully changed.");
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: 'Password has been successfully changed.',
+                        }).then((result) => {
+                            // Check if the user clicked the "OK" button
+                            if (result.isConfirmed || result.value) {
+                                window.location.href = "./../login/logout.php";
+                            }
+                        });
                         $("#info-message-change-password").html("Password successfully change!");
                         $("#info-message-change-password").addClass("alert-success");
                         $("#info-message-change-password").removeClass("alert-danger");
