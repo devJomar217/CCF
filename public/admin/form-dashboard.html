@@ -84,7 +84,7 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                            Question</div>
+                            Questions</div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800" id="dashboard-question"></div>
                     </div>
                     <div class="col-auto">
@@ -101,7 +101,7 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                            Answer</div>
+                            Answers</div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800" id="dashboard-answer"></div>
                     </div>
                     <div class="col-auto">
@@ -118,7 +118,7 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
-                            Reported Question</div>
+                            Reported Questions</div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800" id="dashboard-reported-question"></div>
                     </div>
                     <div class="col-auto">
@@ -135,7 +135,7 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
-                            Reported Answer</div>
+                            Reported Answers</div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800" id="dashboard-reported-answer"></div>
                     </div>
                     <div class="col-auto">
@@ -432,7 +432,7 @@
                     var studentChart = new Chart(ctx, {
                         type: 'bar',
                         data: {
-                            labels: years,
+                            labels: ['First Year', 'Second Year', 'Third Year', 'Fourth Year'],
                             datasets: [{
                                 label: 'Year Level',
                                 data: studentCounts,
