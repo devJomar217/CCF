@@ -45,8 +45,7 @@
         <div class="col-lg-12">
             <label class="form-label" for="input-user-name">Username</label>
             <input type="text" id="input-user-name" class="form-control" placeholder="Enter user name" autocomplete="username" required/>
-            <div class="invalid-feedback" id="helpertext-user-name">
-            </div>
+            <div class="invalid-feedback" id="helpertext-user-name">This username is already existing!</div>
         </div>
     </div>
 
@@ -238,8 +237,8 @@
                         var dataResult = JSON.parse(dataResult);
 
                         if (dataResult.statusCode.includes(5002)) {
-                            $("#helpertext-username").html("This username is already existing!");
-                            $("#input-username").addClass('is-invalid');
+                            // $("#helpertext-username").html("This username is already existing!");
+                            $("#input-user-name").addClass('is-invalid');
                         }
 
                         if (dataResult.statusCode.includes(5003)) {

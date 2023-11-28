@@ -110,6 +110,14 @@
                                         <span id="profile-job"></span>
                                     </div>
                                 </div>
+                                <div class="row form-outline mb-3">
+                                    <div class="col-4">
+                                        <label class="form-label font-weight-bold" for="input-email">Rank: </label>
+                                    </div>
+                                    <div class="col">
+                                        <span id="profile-professional-ranking"></span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -470,6 +478,18 @@
                             $("#student-profile").addClass("d-none");
                             $("#special-account-profile").removeClass("d-none");
                             $("#profile-job").html(dataResult.specialAccountInformation.job);
+
+                            var rank = dataResult.specialAccountInformation.ranking.rank;
+                            var rating = dataResult.specialAccountInformation.ranking.rating;
+                            if (rank == null) {
+                                rank = "Unranked";
+                            }
+
+                            if (rating == null) {
+                                rating = 0;
+                            }
+
+                            $("#profile-professional-ranking").html(`${rank} (${rating} Likes)`);
                         } else if (dataResult.userType == "4") {
                             $("#profile-container").addClass("d-none");
                             $("#profile-guest-container").removeClass("d-none");

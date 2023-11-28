@@ -224,7 +224,15 @@ class SpecialAccount {
   public $userName;
   public $name;
   public $job;
+  public $ranking;
   public $picture;
+
+  function set_ranking($ranking) {
+    $this->ranking = $ranking;
+  }
+  function get_ranking() {
+    return $this->ranking;
+  }
 
   function set_accountID($accountID) {
     $this->accountID = $accountID;

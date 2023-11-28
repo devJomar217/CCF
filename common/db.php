@@ -93,6 +93,7 @@ function retrieveUserProfile(){
     $specialAccount->set_accountID($_SESSION["user_id"]);
     $specialAccount->set_name($_SESSION["name"]);
     $specialAccount->set_job($_SESSION["job"]);
+    $specialAccount->set_ranking(retrieveUserRank($_SESSION["user_id"]));
     $specialAccount->set_username($_SESSION["user_name"]);
     $specialAccount->set_picture($_SESSION["picture"]);
     echo json_encode(array("statusCode"=>200,"specialAccountInformation"=>$specialAccount, "userType"=>$_SESSION["user_type"]));
