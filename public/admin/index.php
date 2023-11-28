@@ -147,7 +147,7 @@ date_default_timezone_set("Asia/Manila");
                 <div id="collapse-reported" class="collapse" aria-labelledby="headingReported" data-parent="#sidebar-accordion">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" id="sidebar-reported-question" href="#reported.reported-question">Question <span class="badge bg-danger text-white badge-notification-report-question d-none"></span></a>
-                        <a class="collapse-item" id="sidebar-reported-answer" href="#reported.reported-answer">Answer <span class="badge bg-danger text-white badge-notification-answer d-none"></span></a>
+                        <a class="collapse-item" id="sidebar-reported-answer" href="#reported.reported-answer">Answer <span class="badge bg-danger text-white badge-notification-answer badge-notification-report-answer d-none"></span></a>
                         <!-- <a class="collapse-item" id="sidebar-reported-student" href="#reported.reported-student">Student</a> -->
                     </div>
                 </div>

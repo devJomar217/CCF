@@ -13,15 +13,15 @@ if($_POST == null OR $_POST['action'] == null){
 }
 
 function databaseConnection(){
-  $servername = "localhost:3307";
-  $username = "root";
-  $password = "";
-  $dbname = "code_connect";
+  // $servername = "localhost:3307";
+  // $username = "root";
+  // $password = "";
+  // $dbname = "code_connect";
 
-  // $servername = "127.0.0.1:3306";
-  // $username = "u929248875_admin";
-  // $password = "CodeConnect-ccf3";
-  // $dbname = "u929248875_code_connect";
+  $servername = "127.0.0.1:3306";
+  $username = "u929248875_admin";
+  $password = "CodeConnect-ccf3";
+  $dbname = "u929248875_code_connect";
   
   $conn = new mysqli($servername, $username, $password, $dbname);
   $conn->query("SET time_zone = '+08:00'");
@@ -810,17 +810,24 @@ function retrieveProfessionalNumber($status){
 
 function retrieveReportedNumber($type){
   $sql = "";
+  $connectDB = databaseConnection();
   if($type == "1"){
     $sql = "SELECT * FROM report LEFT JOIN question_information ON report.reported_id = question_information.question_id WHERE report.type = '1' AND report.status = '1' AND question_information.status > 0";
+    $result = $connectDB->query($sql);
+    $number = $result->num_rows;
+    $connectDB->close();
+    return $number;
   } else if ($type != "1") {
-    $sql = "SELECT * FROM report where type != '1'";
+    $sql = "SELECT * FROM report LEFT JOIN answer ON report.reported_id = answer.answer_id WHERE report.type = '2' AND report.status = '1' AND answer.status > 0";
+    $resultAnswer = $connectDB->query($sql);
+    $numberAnswer = $resultAnswer->num_rows;
+     
+    $sql = "SELECT * FROM report LEFT JOIN reply ON report.reported_id = reply.reply_id WHERE report.type = '3' AND report.status = '1' AND reply.status > 0";
+    $resultReply = $connectDB->query($sql);
+    $numberReply = $resultReply->num_rows;
+    $connectDB->close();
+    return $numberAnswer + $numberReply;
   }
-
-  $connectDB = databaseConnection();
-  $result = $connectDB->query($sql);
-  $number = $result->num_rows;
-  $connectDB->close();
-  return $number;
 }
 
 function retrieveQuestionNumber($status, $subject){
@@ -1570,7 +1577,7 @@ function retrieveAnswers($questionID){
   LEFT JOIN special_account_information ON answer.student_id=special_account_information.account_id 
   LEFT JOIN question_information ON question_information.question_id=answer.question_id
   LEFT JOIN account_information ON answer.student_id=account_information.user_id
-  WHERE answer.question_id=$questionID AND answer.status != 0 AND account_information.user_name IS NOT NULL";
+  WHERE answer.question_id=$questionID AND answer.status > 0 AND account_information.user_name IS NOT NULL";
   
   $result = $connectDB->query($sql);
 
@@ -1631,7 +1638,7 @@ function retrieveReplies($connectDB, $answerID){
   LEFT JOIN student_information ON reply.student_id=student_information.student_id 
   LEFT JOIN special_account_information ON reply.student_id=special_account_information.account_id 
   LEFT JOIN account_information ON reply.student_id=account_information.user_id
-  WHERE reply.answer_id=$answerID AND reply.status != 0 AND account_information.user_name IS NOT NULL";
+  WHERE reply.answer_id=$answerID AND reply.status > 0 AND account_information.user_name IS NOT NULL";
   
   $result = $connectDB->query($sql);
   $replies = array();
@@ -1979,10 +1986,9 @@ function markAsCorrectAnswer(){
   $connectDB->close();
 }
 
-function updateAnswerStatus(){
+function updateAnswerStatus($answerID, $status){
   $connectDB = databaseConnection();
-  $answerID = $_POST['answerID'];
-  $status = $_POST['status'];
+
   $sql = "UPDATE `answer` SET `status`='$status' WHERE answer_id=$answerID";
 	if (mysqli_query($connectDB, $sql)) {
 		echo json_encode(array("statusCode"=>200));
@@ -1992,10 +1998,9 @@ function updateAnswerStatus(){
   $connectDB->close();
 }
 
-function updateReplyStatus(){
+function updateReplyStatus($replyID, $status){
   $connectDB = databaseConnection();
-  $replyID = $_POST['replyID'];
-  $status = $_POST['status'];
+  
   $sql = "UPDATE `reply` SET `status`='$status' WHERE reply_id=$replyID";
 	if (mysqli_query($connectDB, $sql)) {
 		echo json_encode(array("statusCode"=>200));
@@ -3076,6 +3081,18 @@ function updateReportStatus(){
       $responseStatus = 201;
     }
   }
+
+  if($type == 2 AND $status == 3){
+    updateAnswerStatus($reportedID,-1);
+    exit;
+  }
+
+  if($type == 3 AND $status == 3){
+    updateReplyStatus($reportedID,-1);
+    exit;
+  }
+
+
   echo json_encode(array("statusCode"=>$responseStatus));
 }
 
@@ -3335,12 +3352,12 @@ if($_POST['action'] == "mark-as-correct-answer"){
 }
 
 if($_POST['action'] == "delete-answer"){
-  updateAnswerStatus();
+  updateAnswerStatus($_POST['answerID'], $_POST['status']);
   exit;
 }
 
 if($_POST['action'] == "delete-reply"){
-  updateReplyStatus();
+  updateReplyStatus($_POST['replyID'],$_POST['status']);
   exit;
 }
 

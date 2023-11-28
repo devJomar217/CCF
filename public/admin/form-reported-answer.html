@@ -56,7 +56,7 @@
 </div>
 
 <div class="modal fade" id="modal-info-student" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" style="color: #333;" id="modal-info-student-title">Student Information</h5>
@@ -67,14 +67,14 @@
                         <img loading="lazy" class="rounded-circle img-circle-md" id="modal-info-student-image" src="./../../common/img/undraw_profile.svg">
                     </div>
 
-                    <div class="col-lg-6">
+                    <div class="col-lg-12">
                         <div class="form-group">
                             <label for="modal-info-student-id"><b>Account ID:</b></label>
                             <label class="form-control-static" for="" id="modal-info-student-id"></label>
                         </div>
                     </div>
 
-                    <div class="col-lg-6">
+                    <div class="col-lg-12">
                         <div class="form-group">
                             <label for="modal-info-user-name"><b>Username:</b></label>
                             <label class="form-control-static" for="" id="modal-info-user-name"></label>
@@ -88,14 +88,14 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-10" id="modal-info-email-container">
+                    <div class="col-lg-12" id="modal-info-email-container">
                         <div class="form-group">
                             <label for="modal-info-email"><b>Email:</b></label>
                             <label class="form-control-static" for="" id="modal-info-email"></label>
                         </div>
                     </div>
 
-                    <div class="col-lg-2" id="modal-info-year-level-container">
+                    <div class="col-lg-12" id="modal-info-year-level-container">
                         <div class="form-group">
                             <label for="modal-info-year-level"><b>Year Level:</b></label>
                             <label class="form-control-static" for="" id="modal-info-year-level"></label>
@@ -132,6 +132,8 @@
                         </div>
                     </div>
 
+                    <input type="hidden" name="" id="report-type">
+
                     <div class="col-lg-6 mb-3">
                         <div class="form-group">
                             <label for="report-date-time"><b>Date Time:</b></label>
@@ -155,7 +157,7 @@
 
                     <div class="col-lg-12 mt-3">
                         <div class="form-group">
-                            <h5 class="cc-primary-color">Reported Answer Detail:</h5>
+                            <h5 class="cc-primary-color" style="color: #333;">Reported Answer Detail:</h5>
                             <hr class="p-0 m-0">
                         </div>
                     </div>
@@ -232,9 +234,11 @@
         $("#dataTable").on('click', '.button-select', function() {
             var currentRow = $(this).closest("tr");
             var reportID = currentRow.find("td:eq(0)").html();
+            var reportType = $(this).data("type");
             $.each(reportedList, function(key, report) {
                 if (reportID == report['reportedID']) {
                     $('#report-id').val(report.reportedID);
+                    $('#report-type').val(reportType);
                     $('#report-reported-by').val(report.reporterInformation.name);
                     $('#report-date-time').val(report.dateTime);
                     $('#report-reason').val(report.reason);
@@ -252,15 +256,15 @@
         });
 
         $("#btn-report-accept").on("click", function() {
-            updateReportStatus($('#report-id').val(), 3, $('#report-reported-answer-id').val());
+            updateReportStatus($('#report-id').val(), 3, $('#report-reported-answer-id').val(), $('#report-type').val());
         });
 
         $("#btn-report-reject").on("click", function() {
-            updateReportStatus($('#report-id').val(), 2, $('#report-reported-answer-id').val());
+            updateReportStatus($('#report-id').val(), 2, $('#report-reported-answer-id').val(), $('#report-type').val());
         });
 
         //1 - Raised, 2 - Reject, 3 - Accept
-        function updateReportStatus(reportID, status, questionID) {
+        function updateReportStatus(reportID, status, questionID, reportType) {
             $.ajax({
                 url: "../../common/db.php",
                 type: "POST",
@@ -268,7 +272,7 @@
                     action: 'update-report-status',
                     reportID: reportID,
                     reportedID: questionID,
-                    type: 1,
+                    type: reportType,
                     status: status
                 },
                 cache: false,
@@ -276,6 +280,7 @@
                     var dataResult = JSON.parse(dataResult);
                     if (dataResult.statusCode != 201) {
                         retrieveAnswerList();
+                        getNotification();
                         swalSuccessNotification("Status has been successfully updated.");
                         $('#modal-info-report').modal('toggle');
                     }
@@ -306,9 +311,10 @@
                 success: function(dataResult) {
                     var dataResult = JSON.parse(dataResult);
                     console.log(dataResult);
+                    var answerData = "";
                     if (dataResult.statusCode != 201) {
                         reportedList = dataResult;
-                        var answerData;
+
                         $.each(dataResult, function(key, answer) {
                             var answerID = answer['answerID'];
                             answerData +=
@@ -318,7 +324,7 @@
                                     <td>${answer.dateTime}</td>
                                     <td>${answer.reason}</td>
                                     <td>${answer.answerInformation.answer}</td>
-                                    <td><a class='button-select btn btn-xs btn-primary' data-id='${answerID}'><i class='fas fa-eye fa-cog'></i> </a></td>
+                                    <td><a class='button-select btn btn-xs btn-primary' data-type="2" data-id='${answerID}'><i class='fas fa-eye fa-cog'></i> </a></td>
                                 </tr>`;
                         });
                     }
@@ -349,9 +355,9 @@
                 cache: false,
                 success: function(dataResult) {
                     var dataResult = JSON.parse(dataResult);
+                    var answerData = "";
                     if (dataResult.statusCode != 201) {
                         reportedList = [].concat(reportedList, dataResult);
-                        var answerData;
                         $.each(dataResult, function(key, answer) {
                             var answerID = answer['answerID'];
                             answerData +=
@@ -361,7 +367,7 @@
                                     <td>${answer.dateTime}</td>
                                     <td>${answer.reason}</td>
                                     <td>${answer.replyInformation.answer}</td>
-                                    <td><a class='button-select btn btn-xs btn-primary' data-id='${answerID}'><i class='fas fa-eye fa-cog'></i> </a></td>
+                                    <td><a class='button-select btn btn-xs btn-primary' data-type="3" data-id='${answerID}'><i class='fas fa-eye fa-cog'></i> </a></td>
                                 </tr>`;
                         });
                     }

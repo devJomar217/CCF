@@ -514,11 +514,13 @@
                     var dataResult = JSON.parse(dataResult);
                     if (dataResult.statusCode == 200) {
                         if (type == 1) {
-                            $("#modal-report-question").modal('toggle');
+                            $("#modal-report-question").modal('hide');
                             $("#main-container").load('./form-forum.html');
                         } else if (type == 2 || type == 3) {
-                            $("#modal-report-answer").modal('toggle');
+                            $("#modal-report-answer").modal('hide');
                         }
+                        $('body').removeClass('modal-open');
+                        $('.modal-backdrop').remove();
                         swalSuccessNotification("Report has been successfully submitted.");
                     } else {
                         swalErrorNotification();

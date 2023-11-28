@@ -56,7 +56,7 @@
 </div>
 
 <div class="modal fade" id="modal-info-student" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" style="color: #333;" id="modal-info-student-title">Student Information</h5>
@@ -67,14 +67,14 @@
                         <img loading="lazy" class="rounded-circle img-circle-md" id="modal-info-student-image" src="./../../common/img/undraw_profile.svg">
                     </div>
 
-                    <div class="col-lg-6">
+                    <div class="col-lg-12">
                         <div class="form-group">
                             <label for="modal-info-student-id"><b>Student ID:</b></label>
                             <label class="form-control-static" for="" id="modal-info-student-id"></label>
                         </div>
                     </div>
 
-                    <div class="col-lg-6">
+                    <div class="col-lg-12">
                         <div class="form-group">
                             <label for="modal-info-user-name"><b>Username:</b></label>
                             <label class="form-control-static" for="" id="modal-info-user-name"></label>
@@ -88,14 +88,14 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-10" id="modal-info-email-container">
+                    <div class="col-lg-12" id="modal-info-email-container">
                         <div class="form-group">
                             <label for="modal-info-email"><b>Email:</b></label>
                             <label class="form-control-static" for="" id="modal-info-email"></label>
                         </div>
                     </div>
 
-                    <div class="col-lg-2" id="modal-info-year-level-container">
+                    <div class="col-lg-12" id="modal-info-year-level-container">
                         <div class="form-group">
                             <label for="modal-info-year-level"><b>Year Level:</b></label>
                             <label class="form-control-static" for="" id="modal-info-year-level"></label>
@@ -156,7 +156,7 @@
 
                     <div class="col-lg-12 mt-3">
                         <div class="form-group">
-                            <h5 class="cc-primary-color">Reported Question Detail:</h5>
+                            <h5 class="cc-primary-color" style="color: #333;">Reported Question Detail:</h5>
                             <hr class="p-0 m-0">
                         </div>
                     </div>
@@ -276,6 +276,7 @@
                     var dataResult = JSON.parse(dataResult);
                     if (dataResult.statusCode != 201) {
                         retrieveQuestionList();
+                        getNotification();
                         swalSuccessNotification("Status has been successfully updated.");
                         $('#modal-info-report').modal('toggle');
                     }
@@ -305,26 +306,30 @@
                 cache: false,
                 success: function(dataResult) {
                     var dataResult = JSON.parse(dataResult);
-                    var questionData;
+                    var questionData = "";
                     if (dataResult.statusCode != 201) {
                         reportedList = dataResult;
                         $.each(dataResult, function(key, question) {
                             var questionID = question['questionID'];
                             questionData +=
                                 `<tr>
-                                    <td>${question.reportedID}</td>
-                                    <td><a class='button-student-id'>${question.reporterInformation.studentID}</a></td>
-                                    <td>${question.dateTime}</td>
-                                    <td>${question.reason}</td>
-                                    <td>${question.questionInformation.title}</td>
-                                    <td><a class='button-select btn btn-xs btn-primary' data-id='${questionID}'><i class='fas fa-eye fa-cog'></i> </a></td>
-                                </tr>`;
+                            <td>${question.reportedID}</td>
+                            <td><a class='button-student-id'>${question.reporterInformation.studentID}</a></td>
+                            <td>${question.dateTime}</td>
+                            <td>${question.reason}</td>
+                            <td>${question.questionInformation.title}</td>
+                            <td><a class='button-select btn btn-xs btn-primary' data-id='${questionID}'><i class='fas fa-eye fa-cog'></i> </a></td>
+                        </tr>`;
                         });
-
                     }
+
                     // Destroy DataTable instance before reinitializing
-                    $('#dataTable').DataTable().destroy();
+                    if ($.fn.DataTable.isDataTable('#dataTable')) {
+                        $('#dataTable').DataTable().destroy();
+                    }
+
                     $("#tableBody").html(questionData);
+
                     // Reinitialize DataTable
                     $('#dataTable').DataTable({
                         scrollX: true,
@@ -345,5 +350,6 @@
                 }
             });
         }
+
     });
 </script>
